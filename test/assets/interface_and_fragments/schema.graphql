@@ -1,0 +1,23 @@
+type Query {
+    interface: Interface
+}
+
+interface Interface {
+    b: Boolean
+    self: Interface!
+    other: Interface!
+}
+
+type ImplementationA implements Interface {
+    b: Boolean
+    self: ImplementationA!
+    other: ImplementationB!
+    s: String
+}
+
+type ImplementationB implements Interface {
+    b: Boolean
+    self: ImplementationB!
+    other: ImplementationA!
+    i: Int
+}

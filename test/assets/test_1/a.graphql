@@ -1,0 +1,6 @@
+
+query FetchName {
+    name {
+        ...F
+    }
+}

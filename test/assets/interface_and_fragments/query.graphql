@@ -1,0 +1,26 @@
+query FetchImplementations {
+    interface {
+        typename: __typename
+        b
+        self {
+            tpe: __typename
+            ...FragmentA
+            ...FragmentB
+        }
+        ... on ImplementationA {
+            ...FragmentA
+        }
+        ... on ImplementationB {
+            ...FragmentB
+        }
+    }
+}
+
+fragment FragmentA on ImplementationA{
+    s
+}
+
+
+fragment FragmentB on ImplementationB{
+    i
+}

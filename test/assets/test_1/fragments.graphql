@@ -1,0 +1,4 @@
+
+fragment F on T{ 
+    name
+}

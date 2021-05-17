@@ -1,0 +1,8 @@
+
+type Query {
+    name: T
+}
+
+type T {
+  name: String!
+} 
