@@ -6,7 +6,7 @@ import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
 
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
-const _JSON_SERIALIZABLE_BASE_CLASS = "JsonSerializable";
+const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
 
 Spec printEnum(ContextEnum context) {
   return Enum(
@@ -35,9 +35,9 @@ Spec _printClass(
     Class(
       (b) => b
         ..annotations = ListBuilder(
-          [refer(_JSON_SERIALIZABLE_BASE_CLASS).call([])],
+          [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
         )
-        ..extend = refer(_JSON_SERIALIZABLE_BASE_CLASS)
+        ..extend = _JSON_SERIALIZABLE_BASE_CLASS
         ..name = name
         ..constructors = ListBuilder([
           Constructor(
@@ -203,10 +203,10 @@ Class printContext(ContextOperation context) {
       ..name = context.path.key
       ..implements = ListBuilder(context.fragmentKeys.map((e) => refer(e)))
       ..annotations = ListBuilder(
-        [refer(_JSON_SERIALIZABLE_BASE_CLASS).call([])],
+        [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
       )
       ..extend = extendContext == null
-          ? refer(_JSON_SERIALIZABLE_BASE_CLASS)
+          ? _JSON_SERIALIZABLE_BASE_CLASS
           : refer(extendContext.path.key)
       ..constructors = ListBuilder([
         Constructor(
