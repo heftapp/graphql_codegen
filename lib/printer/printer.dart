@@ -8,18 +8,16 @@ import 'package:path/path.dart' as p;
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
 const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
 
-Spec printEnum(ContextEnum context) {
-  return Enum(
-    (b) => b
-      ..name = context.path.key
-      ..values = ListBuilder(
-        [
-          ...context.currentType.values.map((e) => printEnumValue(e.name)),
-          EnumValue((b) => b..name = _UNKNOWN_ENUM_VALUE)
-        ],
-      ),
-  );
-}
+Spec printEnum(ContextEnum context) => Enum(
+      (b) => b
+        ..name = context.path.key
+        ..values = ListBuilder(
+          [
+            ...context.currentType.values.map((e) => printEnumValue(e.name)),
+            EnumValue((b) => b..name = _UNKNOWN_ENUM_VALUE)
+          ],
+        ),
+    );
 
 Spec printInput(ContextInput context) => _printClass(
       context,
@@ -70,9 +68,9 @@ Spec printVariables(ContextOperation context) => _printClass(
       context.variables,
     );
 
-EnumValue printEnumValue(NameNode name) {
-  return EnumValue((b) => b..name = name.value);
-}
+EnumValue printEnumValue(NameNode name) => EnumValue(
+      (b) => b..name = name.value,
+    );
 
 Spec printFragment(ContextFragment f) => Class(
       (b) => b
