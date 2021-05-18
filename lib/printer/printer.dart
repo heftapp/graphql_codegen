@@ -24,7 +24,9 @@ Spec printFragment(ContextFragment f) => Class(
         ..abstract = true
         ..name = f.path.key
         ..methods = ListBuilder<Method>(
-          f.properties.map((property) => printFragmentProperty(f, property)),
+          f.publicProperties.map(
+            (property) => printFragmentProperty(f, property),
+          ),
         ),
     );
 
@@ -130,7 +132,7 @@ Reference printJsonMap() => TypeReference(
 Class printContext(ContextOperation context) {
   final extendContext = context.possibleTypeOfContext;
   final jsonMapReference = printJsonMap();
-
+  final properties = context.publicProperties;
   return Class(
     (b) => b
       ..name = context.path.key
@@ -144,7 +146,7 @@ Class printContext(ContextOperation context) {
           (b) => b
             ..requiredParameters = ListBuilder(
               [
-                ...context.properties.map<Parameter>(
+                ...properties.map<Parameter>(
                   (p) => Parameter(
                     (b) => b
                       ..toThis = true
@@ -152,7 +154,7 @@ Class printContext(ContextOperation context) {
                   ),
                 ),
                 if (extendContext != null)
-                  ...extendContext.properties.map<Parameter>(
+                  ...extendContext.publicProperties.map<Parameter>(
                     (p) => Parameter(
                       (b) => b
                         ..name = p.name
@@ -164,14 +166,16 @@ Class printContext(ContextOperation context) {
             ..initializers = ListBuilder<Code>([
               if (extendContext != null)
                 refer('super')
-                    .call(extendContext.properties.map((e) => refer(e.name)))
+                    .call(
+                      extendContext.publicProperties.map((e) => refer(e.name)),
+                    )
                     .code,
             ]),
         ),
         printFromJson(context),
       ])
       ..fields = ListBuilder(
-        context.properties.map(
+        properties.map(
           (p) => printClassProperty(
             context,
             p,
@@ -308,3 +312,8 @@ const _SCALAR_MAP = const {
   'String': Reference("String"),
   'ID': Reference("String"),
 };
+
+// TODO print document
+// TODO print input
+// TODO print enum
+// TODO print graphql_client

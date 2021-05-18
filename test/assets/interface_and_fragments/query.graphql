@@ -3,7 +3,7 @@ query FetchImplementations {
         typename: __typename
         b
         self {
-            tpe: __typename
+            __typename
             ...FragmentA
             ...FragmentB
         }

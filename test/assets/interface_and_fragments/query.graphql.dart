@@ -55,12 +55,12 @@ class QueryFetchImplementations$finterface extends JsonSerializable {
 
 @JsonSerializable()
 class QueryFetchImplementations$finterface$fself extends JsonSerializable {
-  QueryFetchImplementations$finterface$fself(this.tpe);
+  QueryFetchImplementations$finterface$fself();
 
   @override
   factory QueryFetchImplementations$finterface$fself.fromJson(
       Map<String, dynamic> json) {
-    switch (json["tpe"] as String) {
+    switch (json["__typename"] as String) {
       case "ImplementationA":
         return QueryFetchImplementations$finterface$fself$tImplementationA
             .fromJson(json);
@@ -72,8 +72,6 @@ class QueryFetchImplementations$finterface$fself extends JsonSerializable {
     }
   }
 
-  final String tpe;
-
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$finterface$fselfToJson(this);
@@ -83,9 +81,7 @@ class QueryFetchImplementations$finterface$fself extends JsonSerializable {
 class QueryFetchImplementations$finterface$fself$tImplementationA
     extends QueryFetchImplementations$finterface$fself
     implements FragmentFragmentA {
-  QueryFetchImplementations$finterface$fself$tImplementationA(
-      this.s, String tpe)
-      : super(tpe);
+  QueryFetchImplementations$finterface$fself$tImplementationA(this.s) : super();
 
   @override
   factory QueryFetchImplementations$finterface$fself$tImplementationA.fromJson(
@@ -104,9 +100,7 @@ class QueryFetchImplementations$finterface$fself$tImplementationA
 class QueryFetchImplementations$finterface$fself$tImplementationB
     extends QueryFetchImplementations$finterface$fself
     implements FragmentFragmentB {
-  QueryFetchImplementations$finterface$fself$tImplementationB(
-      this.i, String tpe)
-      : super(tpe);
+  QueryFetchImplementations$finterface$fself$tImplementationB(this.i) : super();
 
   @override
   factory QueryFetchImplementations$finterface$fself$tImplementationB.fromJson(
