@@ -1,0 +1,12 @@
+input I1 {
+    s: String!
+    nested: I1
+}
+
+type Query {
+    field(input: I1 b: Boolean!): T
+}
+
+type T  {
+    value: String!
+}

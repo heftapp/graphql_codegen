@@ -1,0 +1,4 @@
+input I1 {
+    s: String!
+    nested: I1
+}

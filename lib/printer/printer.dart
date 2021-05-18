@@ -6,6 +6,7 @@ import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
 
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
+const _JSON_SERIALIZABLE_BASE_CLASS = "JsonSerializable";
 
 Spec printEnum(ContextEnum context) {
   return Enum(
@@ -19,6 +20,55 @@ Spec printEnum(ContextEnum context) {
       ),
   );
 }
+
+Spec printInput(ContextInput context) => _printClass(
+      context,
+      context.path.key,
+      context.properties,
+    );
+
+Spec _printClass(
+  Context context,
+  String name,
+  Iterable<ContextProperty> properties,
+) =>
+    Class(
+      (b) => b
+        ..annotations = ListBuilder(
+          [refer(_JSON_SERIALIZABLE_BASE_CLASS).call([])],
+        )
+        ..extend = refer(_JSON_SERIALIZABLE_BASE_CLASS)
+        ..name = name
+        ..constructors = ListBuilder([
+          Constructor(
+            (b) => b
+              ..requiredParameters = ListBuilder(
+                properties.map(
+                  (property) => Parameter(
+                    (b) => b
+                      ..toThis = true
+                      ..name = property.name,
+                  ),
+                ),
+              ),
+          ),
+          printFromJson(name),
+        ])
+        ..fields = ListBuilder(
+          properties.map(
+            (property) => printClassProperty(context, property),
+          ),
+        )
+        ..methods = ListBuilder([
+          printToJsonMethod(name),
+        ]),
+    );
+
+Spec printVariables(ContextOperation context) => _printClass(
+      context,
+      context.path.variableKey,
+      context.variables,
+    );
 
 EnumValue printEnumValue(NameNode name) {
   return EnumValue((b) => b..name = name.value);
@@ -48,21 +98,27 @@ Method printFragmentProperty(
 
 Library printRootContext<TKey>(ContextRoot<TKey> context) {
   final currentPath = context.schema.lookupPath(context.key);
+  final containsJsonSerializable =
+      context.contextOperations.isNotEmpty || context.contextInputs.isNotEmpty;
   return Library(
     (b) => b
       ..directives = ListBuilder([
-        if (context.contextsOperations.isNotEmpty)
+        if (containsJsonSerializable)
           Directive.import("package:json_annotation/json_annotation.dart"),
         ...printImports<TKey>(context),
-        if (context.contextsOperations.isNotEmpty)
+        if (containsJsonSerializable)
           Directive.part(
             "${p.basenameWithoutExtension(currentPath)}.g${p.extension(currentPath)}",
           ),
       ])
       ..body = ListBuilder([
+        ...context.contextInputs.map(printInput),
         ...context.contextEnums.map(printEnum),
         ...context.contextFragments.map(printFragment),
-        ...context.contextsOperations.map(printContext),
+        ...context.contextOperations.expand((element) => [
+              if (element.variables.isNotEmpty) printVariables(element),
+              printContext(element),
+            ]),
       ]),
   );
 }
@@ -78,14 +134,16 @@ Iterable<Directive> printImports<TKey>(ContextRoot<TKey> context) {
   return relativePaths.map((e) => Directive.import(e));
 }
 
-Constructor printFromJson(ContextOperation context) {
+Constructor printFromJson(
+  String name, [
+  ContextProperty? typenameProperty,
+  Iterable<TypedName> possibleTypes = const [],
+]) {
   final jsonMapReference = printJsonMap();
-  final typenameProperty = context.typenameProperty;
-  final possibleTypes = context.possibleTypes;
-  final toJsonFactoryName = "_\$${context.path.key}FromJson";
+  final fromJsonFactoryName = "_\$${name}FromJson";
   Code body;
   if (typenameProperty == null || possibleTypes.isEmpty) {
-    body = refer(toJsonFactoryName).call([refer("json")]).code;
+    body = refer(fromJsonFactoryName).call([refer("json")]).code;
   } else {
     final cases = possibleTypes
         .map(
@@ -99,7 +157,7 @@ Constructor printFromJson(ContextOperation context) {
 switch(json["${typenameProperty.name}"] as String) {
   ${cases}
   default:
-  return ${toJsonFactoryName}(json);
+  return ${fromJsonFactoryName}(json);
 }
 """)
         ]),
@@ -133,7 +191,6 @@ Reference printJsonMap() => TypeReference(
 
 Class printContext(ContextOperation context) {
   final extendContext = context.possibleTypeOfContext;
-  final jsonMapReference = printJsonMap();
   final parentProperties = extendContext?.publicProperties ?? [];
   final parentPropertiesSet = Set<String>.of(
     parentProperties.map((e) => e.name),
@@ -145,9 +202,11 @@ Class printContext(ContextOperation context) {
     (b) => b
       ..name = context.path.key
       ..implements = ListBuilder(context.fragmentKeys.map((e) => refer(e)))
-      ..annotations = ListBuilder([refer('JsonSerializable').call([])])
+      ..annotations = ListBuilder(
+        [refer(_JSON_SERIALIZABLE_BASE_CLASS).call([])],
+      )
       ..extend = extendContext == null
-          ? refer("JsonSerializable")
+          ? refer(_JSON_SERIALIZABLE_BASE_CLASS)
           : refer(extendContext.path.key)
       ..constructors = ListBuilder([
         Constructor(
@@ -161,14 +220,13 @@ Class printContext(ContextOperation context) {
                       ..name = p.name,
                   ),
                 ),
-                if (extendContext != null)
-                  ...parentProperties.map<Parameter>(
-                    (p) => Parameter(
-                      (b) => b
-                        ..name = p.name
-                        ..type = printClassPropertyType(context, p),
-                    ),
+                ...parentProperties.map<Parameter>(
+                  (p) => Parameter(
+                    (b) => b
+                      ..name = p.name
+                      ..type = printClassPropertyType(context, p),
                   ),
+                ),
               ],
             )
             ..initializers = ListBuilder<Code>([
@@ -178,7 +236,11 @@ Class printContext(ContextOperation context) {
                     .code,
             ]),
         ),
-        printFromJson(context),
+        printFromJson(
+          context.path.key,
+          context.typenameProperty,
+          context.possibleTypes,
+        ),
       ])
       ..fields = ListBuilder(
         properties.map(
@@ -188,19 +250,18 @@ Class printContext(ContextOperation context) {
           ),
         ),
       )
-      ..methods = ListBuilder([
-        Method(
-          (b) => b
-            ..annotations = ListBuilder([refer("override")])
-            ..returns = jsonMapReference
-            ..name = "toJson"
-            ..lambda = true
-            ..body = refer("_\$${context.path.key}ToJson")
-                .call([refer("this")]).code,
-        )
-      ]),
+      ..methods = ListBuilder([printToJsonMethod(context.path.key)]),
   );
 }
+
+Method printToJsonMethod(String name) => Method(
+      (b) => b
+        ..annotations = ListBuilder([refer("override")])
+        ..returns = printJsonMap()
+        ..name = "toJson"
+        ..lambda = true
+        ..body = refer("_\$${name}ToJson").call([refer("this")]).code,
+    );
 
 Field printClassProperty(
   Context context,
@@ -231,13 +292,14 @@ Reference printClassPropertyType(
   ContextProperty property,
 ) {
   final currentType = context.currentType;
-  final typeNode = context.schema.lookupTypeNodeFromField(
-    currentType,
-    property.field,
-  );
+  final typeNode = property.type ??
+      context.schema.lookupTypeNodeFromField(
+        currentType,
+        property.nameNode,
+      );
   if (typeNode == null) {
     throw PrinterError(
-      "Failed to find type for field ${property.field} on ${currentType.name}",
+      "Failed to find type for field ${property.nameNode.value} on ${currentType.name}",
     );
   }
 
@@ -330,5 +392,4 @@ const _SCALAR_MAP = const {
 };
 
 // TODO print document
-// TODO print input
 // TODO print graphql_client

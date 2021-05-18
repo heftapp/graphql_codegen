@@ -8,6 +8,79 @@ class GeneratorVisitor extends RecursiveVisitor {
   GeneratorVisitor({required this.context});
 
   @override
+  void visitVariableDefinitionNode(VariableDefinitionNode node) {
+    final typeNodeForField = node.type;
+    final fieldType =
+        context.schema.lookupTypeDefinitionFromTypeNode(typeNodeForField);
+
+    if (fieldType == null) {
+      throw InvalidGraphQLDocumentError(
+        "Failed to find type-definition for variable ${node.variable.name.value}",
+      );
+    }
+
+    if (fieldType is InputObjectTypeDefinitionNode) {
+      context.addVariable(
+        ContextProperty.fromVariableDefinitionNode(
+          node,
+          path: Name.fromSegment(InputNameSegment(fieldType)),
+        ),
+      );
+    } else if (fieldType is EnumTypeDefinitionNode) {
+      context.addVariable(
+        ContextProperty.fromVariableDefinitionNode(
+          node,
+          path: Name.fromSegment(EnumNameSegment(fieldType)),
+          isEnum: true,
+        ),
+      );
+    } else {
+      context.addVariable(
+        ContextProperty.fromVariableDefinitionNode(node),
+      );
+    }
+  }
+
+  @override
+  void visitInputObjectTypeDefinitionNode(InputObjectTypeDefinitionNode node) {
+    final c = context.withInput(node);
+    node.visitChildren(GeneratorVisitor(context: c));
+  }
+
+  @override
+  void visitInputValueDefinitionNode(InputValueDefinitionNode node) {
+    final typeNodeForField = node.type;
+    final fieldType = context.schema.lookupTypeDefinitionFromTypeNode(
+      typeNodeForField,
+    );
+
+    if (fieldType == null) {
+      throw InvalidGraphQLDocumentError(
+        "Failed to find type-definition for field ${node.name.value}",
+      );
+    }
+
+    if (fieldType is InputObjectTypeDefinitionNode) {
+      context.addProperty(
+        ContextProperty.fromInputValueDefinitionNode(
+          node,
+          path: Name.fromSegment(InputNameSegment(fieldType)),
+        ),
+      );
+    } else if (fieldType is EnumTypeDefinitionNode) {
+      context.addProperty(
+        ContextProperty.fromInputValueDefinitionNode(
+          node,
+          path: Name.fromSegment(EnumNameSegment(fieldType)),
+          isEnum: true,
+        ),
+      );
+    } else {
+      context.addProperty(ContextProperty.fromInputValueDefinitionNode(node));
+    }
+  }
+
+  @override
   void visitEnumTypeDefinitionNode(EnumTypeDefinitionNode node) {
     context.withEnum(node);
   }
@@ -124,15 +197,16 @@ class GeneratorVisitor extends RecursiveVisitor {
     final currentType = context.currentType;
     final typeNodeForField = context.schema.lookupTypeNodeFromField(
       currentType,
-      node,
+      node.name,
     );
     if (typeNodeForField == null) {
       throw InvalidGraphQLDocumentError(
         "Failed to find type for field ${node.name.value} on ${currentType.name.value}",
       );
     }
-    final fieldType =
-        context.schema.lookupTypeDefinitionFromTypeNode(typeNodeForField);
+    final fieldType = context.schema.lookupTypeDefinitionFromTypeNode(
+      typeNodeForField,
+    );
 
     if (fieldType == null) {
       throw InvalidGraphQLDocumentError(
@@ -148,17 +222,17 @@ class GeneratorVisitor extends RecursiveVisitor {
         fieldType,
       );
       node.visitChildren(GeneratorVisitor(context: c));
-      context.addProperty(ContextProperty(node, path: c.path));
+      context.addProperty(ContextProperty.fromFieldNode(node, path: c.path));
     } else if (fieldType is EnumTypeDefinitionNode) {
       context.addProperty(
-        ContextProperty(
+        ContextProperty.fromFieldNode(
           node,
           path: Name.fromSegment(EnumNameSegment(fieldType)),
           isEnum: true,
         ),
       );
     } else {
-      context.addProperty(ContextProperty(node));
+      context.addProperty(ContextProperty.fromFieldNode(node));
     }
   }
 }

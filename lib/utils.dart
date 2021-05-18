@@ -1,12 +1,12 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
 
-class ContextFragment extends Context {
+class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
   final FragmentDefinitionNode fragment;
   final Name path;
 
   ContextFragment(
-    Schema schema,
+    Schema<TKey> schema,
     FragmentDefinitionNode fragment,
     TypeDefinitionNode currentType,
     Map<String, Context> contexts, {
@@ -20,7 +20,7 @@ class ContextFragment extends Context {
         );
 
   @override
-  ContextFragment withNameAndType(
+  ContextFragment<TKey> withNameAndType(
     NameSegment name,
     TypeDefinitionNode currentType, {
     FragmentDefinitionNode? inFragment,
@@ -97,6 +97,8 @@ class Schema<TKey> {
           name = definition.name!;
         } else if (definition is EnumTypeDefinitionNode) {
           name = definition.name;
+        } else if (definition is InputObjectTypeDefinitionNode) {
+          name = definition.name;
         } else {
           continue;
         }
@@ -149,7 +151,7 @@ class Schema<TKey> {
 
   TypeNode? lookupTypeNodeFromField(
     TypeDefinitionNode onType,
-    FieldNode node,
+    NameNode node,
   ) {
     List<FieldDefinitionNode> fields;
     if (onType is ObjectTypeDefinitionNode) {
@@ -162,7 +164,7 @@ class Schema<TKey> {
     final currentFieldDefinition = [...fields, ..._INTROSPECTION_FIELDS]
         .whereType<FieldDefinitionNode?>()
         .firstWhere(
-          (element) => element != null && element.name.value == node.name.value,
+          (element) => element != null && element.name.value == node.value,
           orElse: () => null,
         );
     return currentFieldDefinition?.type;
@@ -181,15 +183,47 @@ class Schema<TKey> {
 }
 
 class ContextProperty {
-  final FieldNode field;
+  final TypeNode? type;
+  final NameNode nameNode;
+  final NameNode? alias;
   final Name? path;
   final bool isEnum;
 
-  ContextProperty(this.field, {this.path, this.isEnum = false});
+  ContextProperty({
+    this.path,
+    this.isEnum = false,
+    this.alias,
+    this.type,
+    required this.nameNode,
+  });
 
-  String get name => field.alias?.value ?? field.name.value;
+  ContextProperty.fromFieldNode(
+    FieldNode node, {
+    this.path,
+    this.isEnum = false,
+  })  : nameNode = node.name,
+        alias = node.alias,
+        type = null;
 
-  bool get isTypenameField => field.name.value == "__typename";
+  ContextProperty.fromInputValueDefinitionNode(
+    InputValueDefinitionNode node, {
+    this.path,
+    this.isEnum = false,
+  })  : nameNode = node.name,
+        type = node.type,
+        alias = null;
+
+  ContextProperty.fromVariableDefinitionNode(
+    VariableDefinitionNode node, {
+    this.path,
+    this.isEnum = false,
+  })  : nameNode = node.variable.name,
+        type = node.type,
+        alias = null;
+
+  String get name => alias?.value ?? nameNode.value;
+
+  bool get isTypenameField => nameNode.value == "__typename";
 }
 
 class TypedName {
@@ -208,10 +242,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     Map<String, Context>? contexts,
     TType? currentType,
     this.possibleTypeOf,
-  })  : _fragments = {},
-        _possibleTypeNames = {},
-        _properties = {},
-        _currentType = currentType,
+  })  : _currentType = currentType,
         _contexts = contexts ?? {};
 
   final Schema<TKey> schema;
@@ -222,9 +253,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   final Name? possibleTypeOf;
   final Name? inFragment;
 
-  final Map<String, Name> _fragments;
-  final Map<String, TypedName> _possibleTypeNames;
-  final Map<String, ContextProperty> _properties;
+  final Map<String, Name> _fragments = {};
+  final Map<String, TypedName> _possibleTypeNames = {};
+  final Map<String, ContextProperty> _properties = {};
+  final Map<String, ContextProperty> _variables = {};
 
   TType get currentType {
     final lt = _currentType;
@@ -257,10 +289,19 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     return c;
   }
 
-  Context withEnum(EnumTypeDefinitionNode type) {
+  ContextEnum<TKey> withEnum(EnumTypeDefinitionNode type) {
     final c = ContextEnum(
       schema: schema,
       en: type,
+    );
+    _contexts[c.path.key] = c;
+    return c;
+  }
+
+  ContextInput<TKey> withInput(InputObjectTypeDefinitionNode input) {
+    final c = ContextInput(
+      schema: schema,
+      type: input,
     );
     _contexts[c.path.key] = c;
     return c;
@@ -301,7 +342,16 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     _properties[property.name] = property;
   }
 
+  void addVariable(ContextProperty property) {
+    if (_variables[property.name] != null) {
+      return;
+    }
+    _variables[property.name] = property;
+  }
+
   Iterable<ContextProperty> get properties => _properties.values;
+
+  Iterable<ContextProperty> get variables => _variables.values;
 
   Iterable<ContextProperty> get publicProperties =>
       _properties.values.where((element) => !element.name.startsWith("_"));
@@ -328,7 +378,7 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
           schema: schema,
           contexts: {},
         );
-  Iterable<ContextOperation> get contextsOperations =>
+  Iterable<ContextOperation> get contextOperations =>
       _contexts.values.whereType<ContextOperation>();
 
   Iterable<ContextFragment> get contextFragments =>
@@ -337,12 +387,18 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
   Iterable<ContextEnum> get contextEnums =>
       _contexts.values.whereType<ContextEnum>();
 
+  Iterable<ContextInput> get contextInputs =>
+      _contexts.values.whereType<ContextInput>();
+
   Iterable<NameNode> get dependencies => Set.from(
         [
-          ...contextsOperations.expand<NameNode>(
+          ..._contexts.values.expand<NameNode>(
             (e) => [
               ...e.fragments.map((e) => e.baseNameSegment.name),
               ...e.properties
+                  .map<NameNode?>((e) => e.path?.baseNameSegment.name)
+                  .whereType<NameNode>(),
+              ...e.variables
                   .map<NameNode?>((e) => e.path?.baseNameSegment.name)
                   .whereType<NameNode>(),
             ],
@@ -360,6 +416,18 @@ class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
         super(
           schema: schema,
           currentType: en,
+        );
+}
+
+class ContextInput<TKey> extends Context<TKey, InputObjectTypeDefinitionNode> {
+  final Name path;
+  ContextInput({
+    required Schema<TKey> schema,
+    required InputObjectTypeDefinitionNode type,
+  })   : path = Name.fromSegment(InputNameSegment(type)),
+        super(
+          schema: schema,
+          currentType: type,
         );
 }
 
@@ -430,6 +498,8 @@ class Name {
 
   String get key => segments.map((e) => e.key).join(r"$");
 
+  String get variableKey => segments.map((e) => e.variableKey).join(r"$");
+
   Name withSegment(NameSegment segment) => Name(
         (segments.toBuilder()..add(segment)).build(),
         baseNameSegment,
@@ -442,6 +512,8 @@ abstract class NameSegment {
   NameSegment(this.name);
 
   String get key;
+
+  String get variableKey => key;
 }
 
 class EnumNameSegment extends NameSegment {
@@ -449,6 +521,13 @@ class EnumNameSegment extends NameSegment {
 
   @override
   String get key => "Enum${name.value}";
+}
+
+class InputNameSegment extends NameSegment {
+  InputNameSegment(InputObjectTypeDefinitionNode tpe) : super(tpe.name);
+
+  @override
+  String get key => "Input${name.value}";
 }
 
 class FieldNameSegment extends NameSegment {
@@ -483,6 +562,9 @@ class OperationNameSegment extends NameSegment {
         return "Subscription${name.value}";
     }
   }
+
+  @override
+  String get variableKey => "Variables${key}";
 }
 
 class FragmentNameSegment extends NameSegment {

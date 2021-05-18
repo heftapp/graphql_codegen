@@ -1,0 +1,6 @@
+
+query HiBob($i: I1!) {
+  field(input: $i b: true) {
+    value
+  }
+}
