@@ -183,8 +183,9 @@ class Schema<TKey> {
 class ContextProperty {
   final FieldNode field;
   final Name? path;
+  final bool isEnum;
 
-  ContextProperty(this.field, {this.path});
+  ContextProperty(this.field, {this.path, this.isEnum = false});
 
   String get name => field.alias?.value ?? field.name.value;
 
@@ -200,12 +201,12 @@ class TypedName {
   TypedName(this.name, this.type);
 }
 
-abstract class Context<TKey> {
+abstract class Context<TKey, TType extends TypeDefinitionNode> {
   Context({
     this.inFragment = null,
     required this.schema,
     Map<String, Context>? contexts,
-    TypeDefinitionNode? currentType,
+    TType? currentType,
     this.possibleTypeOf,
   })  : _fragments = {},
         _possibleTypeNames = {},
@@ -216,7 +217,7 @@ abstract class Context<TKey> {
   final Schema<TKey> schema;
   final Map<String, Context> _contexts;
 
-  final TypeDefinitionNode? _currentType;
+  final TType? _currentType;
 
   final Name? possibleTypeOf;
   final Name? inFragment;
@@ -225,7 +226,7 @@ abstract class Context<TKey> {
   final Map<String, TypedName> _possibleTypeNames;
   final Map<String, ContextProperty> _properties;
 
-  TypeDefinitionNode get currentType {
+  TType get currentType {
     final lt = _currentType;
     if (lt != null) {
       return lt;
@@ -237,7 +238,7 @@ abstract class Context<TKey> {
 
   Iterable<Name> get fragments => _fragments.values;
 
-  Context? get possibleTypeOfContext {
+  ContextOperation<TKey>? get possibleTypeOfContext {
     final pt = possibleTypeOf;
     return pt == null ? null : _lookupContextOperation(pt);
   }
@@ -251,6 +252,15 @@ abstract class Context<TKey> {
       node,
       type,
       _contexts,
+    );
+    _contexts[c.path.key] = c;
+    return c;
+  }
+
+  Context withEnum(EnumTypeDefinitionNode type) {
+    final c = ContextEnum(
+      schema: schema,
+      en: type,
     );
     _contexts[c.path.key] = c;
     return c;
@@ -308,7 +318,7 @@ abstract class Context<TKey> {
   }
 }
 
-class ContextRoot<TKey> extends Context<TKey> {
+class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
   final key;
 
   ContextRoot({
@@ -324,6 +334,9 @@ class ContextRoot<TKey> extends Context<TKey> {
   Iterable<ContextFragment> get contextFragments =>
       _contexts.values.whereType<ContextFragment>();
 
+  Iterable<ContextEnum> get contextEnums =>
+      _contexts.values.whereType<ContextEnum>();
+
   Iterable<NameNode> get dependencies => Set.from(
         [
           ...contextsOperations.expand<NameNode>(
@@ -338,12 +351,19 @@ class ContextRoot<TKey> extends Context<TKey> {
       );
 }
 
-class ContextEnum<TKey> extends Context<TKey> {
-  ContextEnum(Schema<TKey> schema, EnumTypeDefinitionNode en)
-      : super(schema: schema, currentType: en);
+class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
+  final Name path;
+  ContextEnum({
+    required Schema<TKey> schema,
+    required EnumTypeDefinitionNode en,
+  })   : path = Name.fromSegment(EnumNameSegment(en)),
+        super(
+          schema: schema,
+          currentType: en,
+        );
 }
 
-class ContextOperation<TKey> extends Context<TKey> {
+class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
   final Name path;
   ContextOperation({
     required Name path,
@@ -422,6 +442,13 @@ abstract class NameSegment {
   NameSegment(this.name);
 
   String get key;
+}
+
+class EnumNameSegment extends NameSegment {
+  EnumNameSegment(EnumTypeDefinitionNode tpe) : super(tpe.name);
+
+  @override
+  String get key => "Enum${name.value}";
 }
 
 class FieldNameSegment extends NameSegment {

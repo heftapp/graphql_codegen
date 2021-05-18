@@ -1,0 +1,10 @@
+type Query {
+    field: Enum
+    fields: [[Enum!]]
+}
+
+enum Enum {
+    FOO
+    BAR
+    BAZ
+}

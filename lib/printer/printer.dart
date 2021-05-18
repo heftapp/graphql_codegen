@@ -5,12 +5,17 @@ import 'package:graphql_codegen/errors.dart';
 import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
 
-Spec printEnum(Schema schema, EnumTypeDefinitionNode e) {
+const _UNKNOWN_ENUM_VALUE = "\$unknown";
+
+Spec printEnum(ContextEnum context) {
   return Enum(
     (b) => b
-      ..name = e.name.value
+      ..name = context.path.key
       ..values = ListBuilder(
-        e.values.map((e) => printEnumValue(e.name)),
+        [
+          ...context.currentType.values.map((e) => printEnumValue(e.name)),
+          EnumValue((b) => b..name = _UNKNOWN_ENUM_VALUE)
+        ],
       ),
   );
 }
@@ -41,17 +46,13 @@ Method printFragmentProperty(
         ..returns = printClassPropertyType(context, property),
     );
 
-const _DEFAULT_IMPORTS = <String>[
-  "package:json_annotation/json_annotation.dart"
-];
-
 Library printRootContext<TKey>(ContextRoot<TKey> context) {
   final currentPath = context.schema.lookupPath(context.key);
   return Library(
     (b) => b
       ..directives = ListBuilder([
         if (context.contextsOperations.isNotEmpty)
-          ..._DEFAULT_IMPORTS.map((e) => Directive.import(e)),
+          Directive.import("package:json_annotation/json_annotation.dart"),
         ...printImports<TKey>(context),
         if (context.contextsOperations.isNotEmpty)
           Directive.part(
@@ -59,6 +60,7 @@ Library printRootContext<TKey>(ContextRoot<TKey> context) {
           ),
       ])
       ..body = ListBuilder([
+        ...context.contextEnums.map(printEnum),
         ...context.contextFragments.map(printFragment),
         ...context.contextsOperations.map(printContext),
       ]),
@@ -203,16 +205,26 @@ Class printContext(ContextOperation context) {
 Field printClassProperty(
   Context context,
   ContextProperty property,
-) =>
-    Field(
-      (b) => b
-        ..modifier = FieldModifier.final$
-        ..name = property.name
-        ..type = printClassPropertyType(
-          context,
-          property,
-        ),
-    );
+) {
+  final isEnum = property.isEnum;
+  final name = property.path?.key;
+  return Field(
+    (b) => b
+      ..annotations = ListBuilder([
+        if (isEnum && name != null)
+          refer("JsonKey").call(
+            [],
+            {"unknownEnumValue": refer(name).property(_UNKNOWN_ENUM_VALUE)},
+          )
+      ])
+      ..modifier = FieldModifier.final$
+      ..name = property.name
+      ..type = printClassPropertyType(
+        context,
+        property,
+      ),
+  );
+}
 
 Reference printClassPropertyType(
   Context context,
@@ -319,5 +331,4 @@ const _SCALAR_MAP = const {
 
 // TODO print document
 // TODO print input
-// TODO print enum
 // TODO print graphql_client

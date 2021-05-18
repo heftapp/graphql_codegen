@@ -8,6 +8,11 @@ class GeneratorVisitor extends RecursiveVisitor {
   GeneratorVisitor({required this.context});
 
   @override
+  void visitEnumTypeDefinitionNode(EnumTypeDefinitionNode node) {
+    context.withEnum(node);
+  }
+
+  @override
   void visitFragmentDefinitionNode(FragmentDefinitionNode node) {
     final type = context.schema.lookupTypeDefinitionFromTypeNode(
       node.typeCondition.on,
@@ -144,6 +149,14 @@ class GeneratorVisitor extends RecursiveVisitor {
       );
       node.visitChildren(GeneratorVisitor(context: c));
       context.addProperty(ContextProperty(node, path: c.path));
+    } else if (fieldType is EnumTypeDefinitionNode) {
+      context.addProperty(
+        ContextProperty(
+          node,
+          path: Name.fromSegment(EnumNameSegment(fieldType)),
+          isEnum: true,
+        ),
+      );
     } else {
       context.addProperty(ContextProperty(node));
     }
