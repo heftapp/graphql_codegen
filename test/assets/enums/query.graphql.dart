@@ -14,7 +14,7 @@ class QueryFoobar extends JsonSerializable {
   final EnumEnum? field;
 
   @JsonKey(unknownEnumValue: EnumEnum.$unknown)
-  final List<List<EnumEnum>?>? fields;
+  final List<EnumEnum>? fields;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFoobarToJson(this);

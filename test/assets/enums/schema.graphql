@@ -1,6 +1,6 @@
 type Query {
     field: Enum
-    fields: [[Enum!]]
+    fields: [Enum!]
 }
 
 enum Enum {
