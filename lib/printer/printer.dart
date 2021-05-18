@@ -132,7 +132,13 @@ Reference printJsonMap() => TypeReference(
 Class printContext(ContextOperation context) {
   final extendContext = context.possibleTypeOfContext;
   final jsonMapReference = printJsonMap();
-  final properties = context.publicProperties;
+  final parentProperties = extendContext?.publicProperties ?? [];
+  final parentPropertiesSet = Set<String>.of(
+    parentProperties.map((e) => e.name),
+  );
+  final properties = context.publicProperties.where(
+    (element) => !parentPropertiesSet.contains(element.name),
+  );
   return Class(
     (b) => b
       ..name = context.path.key
@@ -154,7 +160,7 @@ Class printContext(ContextOperation context) {
                   ),
                 ),
                 if (extendContext != null)
-                  ...extendContext.publicProperties.map<Parameter>(
+                  ...parentProperties.map<Parameter>(
                     (p) => Parameter(
                       (b) => b
                         ..name = p.name
@@ -166,9 +172,7 @@ Class printContext(ContextOperation context) {
             ..initializers = ListBuilder<Code>([
               if (extendContext != null)
                 refer('super')
-                    .call(
-                      extendContext.publicProperties.map((e) => refer(e.name)),
-                    )
+                    .call(parentProperties.map((e) => refer(e.name)))
                     .code,
             ]),
         ),

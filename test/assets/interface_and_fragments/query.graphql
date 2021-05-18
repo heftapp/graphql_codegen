@@ -8,6 +8,7 @@ query FetchImplementations {
             ...FragmentB
         }
         ... on ImplementationA {
+            b
             ...FragmentA
         }
         ... on ImplementationB {
