@@ -1,3 +1,4 @@
+import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'query.graphql.g.dart';
 
@@ -5,9 +6,39 @@ abstract class FragmentFragmentA {
   String? get s;
 }
 
+const FRAGMENT_FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
+    name: NameNode(value: 'FragmentA'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(
+            name: NameNode(value: 'ImplementationA'), isNonNull: false)),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: 's'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null)
+    ]));
+
 abstract class FragmentFragmentB {
   int? get i;
 }
+
+const FRAGMENT_FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
+    name: NameNode(value: 'FragmentB'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(
+            name: NameNode(value: 'ImplementationB'), isNonNull: false)),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: 'i'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null)
+    ]));
 
 @JsonSerializable()
 class QueryFetchImplementations extends JsonSerializable {
@@ -22,6 +53,80 @@ class QueryFetchImplementations extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() => _$QueryFetchImplementationsToJson(this);
 }
+
+const DOCUMENT_QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
+  OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchImplementations'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+            name: NameNode(value: 'interface'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: NameNode(value: 'typename'),
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
+                  name: NameNode(value: 'b'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
+                  name: NameNode(value: 'self'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(selections: [
+                    FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null),
+                    FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentA'), directives: []),
+                    FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentB'), directives: [])
+                  ])),
+              InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                      on: NamedTypeNode(
+                          name: NameNode(value: 'ImplementationA'),
+                          isNonNull: false)),
+                  directives: [],
+                  selectionSet: SelectionSetNode(selections: [
+                    FieldNode(
+                        name: NameNode(value: 'b'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null),
+                    FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentA'), directives: [])
+                  ])),
+              InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                      on: NamedTypeNode(
+                          name: NameNode(value: 'ImplementationB'),
+                          isNonNull: false)),
+                  directives: [],
+                  selectionSet: SelectionSetNode(selections: [
+                    FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentB'), directives: [])
+                  ]))
+            ]))
+      ])),
+  FRAGMENT_FRAGMENT_FRAGMENT_A,
+  FRAGMENT_FRAGMENT_FRAGMENT_B,
+]);
 
 @JsonSerializable()
 class QueryFetchImplementations$finterface extends JsonSerializable {

@@ -10,13 +10,15 @@ environment:
 dependencies:
   args: ^2.1.0
   http: ^0.13.3
-  gql: ^0.13.0-nullsafety.2
+  gql: ^0.13.0
   build: ^2.0.1
   glob: ^2.0.1
   code_builder: ^4.0.0
   dart_style: ^2.0.1
   built_collection: ^5.0.0
   path: ^1.8.0
+  gql_code_builder: ^0.2.0
+  recase: ^4.0.0
 
 dev_dependencies:
   test: ^1.17.4

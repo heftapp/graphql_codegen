@@ -1,3 +1,4 @@
+import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
 part 'variables.graphql.g.dart';
@@ -29,6 +30,42 @@ class QueryHiBob extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() => _$QueryHiBobToJson(this);
 }
+
+const DOCUMENT_QUERY_HI_BOB = const DocumentNode(definitions: [
+  OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'HiBob'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+            variable: VariableNode(name: NameNode(value: 'i')),
+            type: NamedTypeNode(name: NameNode(value: 'I1'), isNonNull: true),
+            defaultValue: DefaultValueNode(value: null),
+            directives: [])
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+            name: NameNode(value: 'field'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                  name: NameNode(value: 'input'),
+                  value: VariableNode(name: NameNode(value: 'i'))),
+              ArgumentNode(
+                  name: NameNode(value: 'b'),
+                  value: BooleanValueNode(value: true))
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                  name: NameNode(value: 'value'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null)
+            ]))
+      ])),
+]);
 
 @JsonSerializable()
 class QueryHiBob$ffield extends JsonSerializable {

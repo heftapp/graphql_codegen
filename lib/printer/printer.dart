@@ -4,6 +4,8 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/errors.dart';
 import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
+import 'package:gql_code_builder/src/ast.dart' as gql_builder;
+import 'package:recase/recase.dart';
 
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
 const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
@@ -94,15 +96,58 @@ Method printFragmentProperty(
         ..returns = printClassPropertyType(context, property),
     );
 
+String printDocumentName(Name name) =>
+    ReCase("Document" + name.key).constantCase;
+
+String printFragmentName(Name name) =>
+    ReCase("Fragment" + name.key).constantCase;
+
+Spec printDocument(
+  Context context,
+  OperationDefinitionNode operation,
+  Iterable<Name> fragments,
+) {
+  return Block(
+    (b) => b.statements.addAll([
+      Code(
+        "const ${printDocumentName(context.path)} = const DocumentNode(definitions: [",
+      ),
+      gql_builder.fromNode(operation).code,
+      Code(","),
+      ...fragments.expand(
+        (n) => [refer(printFragmentName(n)).code, Code(",")],
+      ),
+      Code("]);")
+    ]),
+  );
+}
+
+Spec printFragmentDefinition(ContextFragment context) {
+  return Block(
+    (b) => b.statements.addAll([
+      Code(
+        "const ${printFragmentName(context.path)} = const ",
+      ),
+      gql_builder.fromNode(context.fragment).code,
+      Code(";")
+    ]),
+  );
+}
+
 Library printRootContext<TKey>(ContextRoot<TKey> context) {
   final currentPath = context.schema.lookupPath(context.key);
   final containsJsonSerializable =
       context.contextOperations.isNotEmpty || context.contextInputs.isNotEmpty;
+  final containsDocument = context.contextOperations.isNotEmpty ||
+      context.contextFragments.isNotEmpty;
   return Library(
     (b) => b
       ..directives = ListBuilder([
+        if (containsDocument) Directive.import("package:gql/ast.dart"),
         if (containsJsonSerializable)
-          Directive.import("package:json_annotation/json_annotation.dart"),
+          Directive.import(
+            "package:json_annotation/json_annotation.dart",
+          ),
         ...printImports<TKey>(context),
         if (containsJsonSerializable)
           Directive.part(
@@ -112,11 +157,23 @@ Library printRootContext<TKey>(ContextRoot<TKey> context) {
       ..body = ListBuilder([
         ...context.contextInputs.map(printInput),
         ...context.contextEnums.map(printEnum),
-        ...context.contextFragments.map(printFragment),
-        ...context.contextOperations.expand((element) => [
-              if (element.variables.isNotEmpty) printVariables(element),
-              printContext(element),
+        ...context.contextFragments.expand((context) => [
+              printFragment(context),
+              printFragmentDefinition(context),
             ]),
+        ...context.contextOperations.expand((element) {
+          final operation = element.operation;
+          return [
+            if (element.variables.isNotEmpty) printVariables(element),
+            printContext(element),
+            if (operation != null)
+              printDocument(
+                element,
+                operation,
+                element.fragmentsRecursive,
+              ),
+          ];
+        }),
       ]),
   );
 }
@@ -389,5 +446,4 @@ const _SCALAR_MAP = const {
   'ID': Reference("String"),
 };
 
-// TODO print document
 // TODO print graphql_client

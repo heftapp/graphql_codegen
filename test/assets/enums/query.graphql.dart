@@ -1,3 +1,4 @@
+import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
 part 'query.graphql.g.dart';
@@ -19,3 +20,25 @@ class QueryFoobar extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() => _$QueryFoobarToJson(this);
 }
+
+const DOCUMENT_QUERY_FOOBAR = const DocumentNode(definitions: [
+  OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Foobar'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+            name: NameNode(value: 'field'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null),
+        FieldNode(
+            name: NameNode(value: 'fields'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null)
+      ])),
+]);

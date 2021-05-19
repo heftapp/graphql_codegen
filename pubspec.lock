@@ -203,7 +203,21 @@ packages:
       name: gql
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.0-nullsafety.2"
+    version: "0.13.0"
+  gql_code_builder:
+    dependency: "direct main"
+    description:
+      name: gql_code_builder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
+  gql_exec:
+    dependency: transitive
+    description:
+      name: gql_exec
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   graphs:
     dependency: transitive
     description:
@@ -344,6 +358,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  recase:
+    dependency: "direct main"
+    description:
+      name: recase
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   shelf:
     dependency: transitive
     description:

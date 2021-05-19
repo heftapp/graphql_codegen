@@ -33,7 +33,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
       _contexts,
       path: path.withSegment(name),
     );
-    _contexts[c.path.key] = c;
+    _addContext(c);
     return c;
   }
 }
@@ -78,11 +78,15 @@ class Schema<TKey> {
   }
 
   FragmentDefinitionNode? lookupFragment(NameNode name) {
-    return definitions
-        .whereType<FragmentDefinitionNode>()
-        .map<FragmentDefinitionNode?>((e) => e)
-        .firstWhere(
+    return definitions.whereType<FragmentDefinitionNode?>().firstWhere(
           (element) => element != null && element.name.value == name.value,
+          orElse: () => null,
+        );
+  }
+
+  OperationDefinitionNode? lookupOperationDefinition(NameNode name) {
+    return definitions.whereType<OperationDefinitionNode?>().firstWhere(
+          (element) => element != null && element.name?.value == name.value,
           orElse: () => null,
         );
   }
@@ -247,6 +251,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   final Schema<TKey> schema;
   final Map<String, Context> _contexts;
+  final Map<String, Context> _childContexts = {};
 
   final TType? _currentType;
 
@@ -270,9 +275,19 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   Iterable<Name> get fragments => _fragments.values;
 
+  Iterable<Name> get fragmentsRecursive => {
+        ..._fragments.values,
+        ..._childContexts.values.expand((c) => c.fragmentsRecursive),
+      };
+
   ContextOperation<TKey>? get possibleTypeOfContext {
     final pt = possibleTypeOf;
     return pt == null ? null : _lookupContextOperation(pt);
+  }
+
+  void _addContext(Context c) {
+    _contexts[c.path.key] = c;
+    _childContexts[c.path.key] = c;
   }
 
   ContextFragment withFragmentAndType(
@@ -285,7 +300,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
       type,
       _contexts,
     );
-    _contexts[c.path.key] = c;
+    _addContext(c);
     return c;
   }
 
@@ -294,7 +309,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
       schema: schema,
       en: type,
     );
-    _contexts[c.path.key] = c;
+    _addContext(c);
     return c;
   }
 
@@ -303,7 +318,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
       schema: schema,
       type: input,
     );
-    _contexts[c.path.key] = c;
+    _addContext(c);
     return c;
   }
 
@@ -317,7 +332,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
       schema: schema,
       contexts: _contexts,
     );
-    _contexts[c.path.key] = c;
+    _addContext(c);
     return c;
   }
 
@@ -369,7 +384,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 }
 
 class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
-  final key;
+  final TKey key;
 
   ContextRoot({
     required Schema<TKey> schema,
@@ -405,6 +420,10 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
           ),
         ],
       );
+
+  Iterable<OperationDefinitionNode> get operations =>
+      schema.entries[key]?.definitions.whereType<OperationDefinitionNode>() ??
+      <OperationDefinitionNode>[];
 }
 
 class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
@@ -472,7 +491,7 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
       possibleTypeOf: possibleTypeOf,
       inFragment: newInFragment,
     );
-    _contexts[c.path.key] = c;
+    _addContext(c);
     return c;
   }
 
@@ -483,6 +502,10 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
           );
 
   Iterable<TypedName> get possibleTypes => _possibleTypeNames.values;
+
+  OperationDefinitionNode? get operation => path.segments.length == 1
+      ? schema.lookupOperationDefinition(path.baseNameSegment.name)
+      : null;
 }
 
 class Name {
@@ -504,6 +527,10 @@ class Name {
         (segments.toBuilder()..add(segment)).build(),
         baseNameSegment,
       );
+
+  bool operator ==(Object other) => other is Name && other.key == key;
+  @override
+  int get hashCode => key.hashCode;
 }
 
 abstract class NameSegment {
