@@ -19,6 +19,7 @@ query FetchImplementations {
 
 fragment FragmentA on ImplementationA{
     s
+    _s: s
 }
 
 

@@ -18,6 +18,12 @@ const FRAGMENT_FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
           alias: null,
           arguments: [],
           directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 's'),
+          alias: NameNode(value: '_s'),
+          arguments: [],
+          directives: [],
           selectionSet: null)
     ]));
 
