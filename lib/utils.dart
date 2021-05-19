@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
+import 'package:recase/recase.dart';
 
 class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
   final FragmentDefinitionNode fragment;
@@ -225,7 +226,11 @@ class ContextProperty {
         type = node.type,
         alias = null;
 
-  String get name => alias?.value ?? nameNode.value;
+  String get name => ReCase(originalName).camelCase;
+
+  String get originalName => alias?.value ?? nameNode.value;
+
+  bool get isRenamed => name != originalName;
 
   bool get isTypenameField => nameNode.value == "__typename";
 }
@@ -368,8 +373,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   Iterable<ContextProperty> get variables => _variables.values;
 
-  Iterable<ContextProperty> get publicProperties =>
-      _properties.values.where((element) => !element.name.startsWith("_"));
+  Iterable<ContextProperty> get publicProperties => _properties.values
+      .where((element) => !element.originalName.startsWith("_"));
 
   Name get path => throw StateError("Path not available");
 

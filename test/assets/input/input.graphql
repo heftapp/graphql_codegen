@@ -1,4 +1,4 @@
 input I1 {
     s: String!
-    nested: I1
+    nested_input: I1
 }

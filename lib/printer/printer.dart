@@ -216,7 +216,7 @@ Constructor printFromJson(
       (b) => b
         ..statements = ListBuilder([
           Code("""
-switch(json["${typenameProperty.name}"] as String) {
+switch(json["${typenameProperty.originalName}"] as String) {
   ${cases}
   default:
   return ${fromJsonFactoryName}(json);
@@ -331,13 +331,23 @@ Field printClassProperty(
 ) {
   final isEnum = property.isEnum;
   final name = property.path?.key;
+  final jsonKeyAnnotations = <String, Expression>{};
+  if (isEnum && name != null) {
+    jsonKeyAnnotations['unknownEnumValue'] =
+        refer(name).property(_UNKNOWN_ENUM_VALUE);
+  }
+
+  if (property.isRenamed) {
+    jsonKeyAnnotations['name'] = literal(property.originalName);
+  }
+
   return Field(
     (b) => b
       ..annotations = ListBuilder([
-        if (isEnum && name != null)
+        if (jsonKeyAnnotations.isNotEmpty)
           refer("JsonKey").call(
             [],
-            {"unknownEnumValue": refer(name).property(_UNKNOWN_ENUM_VALUE)},
+            jsonKeyAnnotations,
           )
       ])
       ..modifier = FieldModifier.final$
