@@ -48,7 +48,7 @@ const FRAGMENT_FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
 
 @JsonSerializable()
 class QueryFetchImplementations extends JsonSerializable {
-  QueryFetchImplementations(this.interface);
+  QueryFetchImplementations({this.interface});
 
   @override
   factory QueryFetchImplementations.fromJson(Map<String, dynamic> json) =>
@@ -136,7 +136,8 @@ const DOCUMENT_QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryFetchImplementations$finterface extends JsonSerializable {
-  QueryFetchImplementations$finterface(this.typename, this.b, this.self);
+  QueryFetchImplementations$finterface(
+      {required this.typename, this.b, required this.self});
 
   @override
   factory QueryFetchImplementations$finterface.fromJson(
@@ -192,7 +193,8 @@ class QueryFetchImplementations$finterface$fself extends JsonSerializable {
 class QueryFetchImplementations$finterface$fself$tImplementationA
     extends QueryFetchImplementations$finterface$fself
     implements FragmentFragmentA {
-  QueryFetchImplementations$finterface$fself$tImplementationA(this.s) : super();
+  QueryFetchImplementations$finterface$fself$tImplementationA({this.s})
+      : super();
 
   @override
   factory QueryFetchImplementations$finterface$fself$tImplementationA.fromJson(
@@ -211,7 +213,8 @@ class QueryFetchImplementations$finterface$fself$tImplementationA
 class QueryFetchImplementations$finterface$fself$tImplementationB
     extends QueryFetchImplementations$finterface$fself
     implements FragmentFragmentB {
-  QueryFetchImplementations$finterface$fself$tImplementationB(this.i) : super();
+  QueryFetchImplementations$finterface$fself$tImplementationB({this.i})
+      : super();
 
   @override
   factory QueryFetchImplementations$finterface$fself$tImplementationB.fromJson(
@@ -229,9 +232,12 @@ class QueryFetchImplementations$finterface$fself$tImplementationB
 @JsonSerializable()
 class QueryFetchImplementations$finterface$tImplementationA
     extends QueryFetchImplementations$finterface implements FragmentFragmentA {
-  QueryFetchImplementations$finterface$tImplementationA(this.s, String typename,
-      bool? b, QueryFetchImplementations$finterface$fself self)
-      : super(typename, b, self);
+  QueryFetchImplementations$finterface$tImplementationA(
+      {this.s,
+      required String typename,
+      bool? b,
+      required QueryFetchImplementations$finterface$fself self})
+      : super(typename: typename, b: b, self: self);
 
   @override
   factory QueryFetchImplementations$finterface$tImplementationA.fromJson(
@@ -248,9 +254,12 @@ class QueryFetchImplementations$finterface$tImplementationA
 @JsonSerializable()
 class QueryFetchImplementations$finterface$tImplementationB
     extends QueryFetchImplementations$finterface implements FragmentFragmentB {
-  QueryFetchImplementations$finterface$tImplementationB(this.i, String typename,
-      bool? b, QueryFetchImplementations$finterface$fself self)
-      : super(typename, b, self);
+  QueryFetchImplementations$finterface$tImplementationB(
+      {this.i,
+      required String typename,
+      bool? b,
+      required QueryFetchImplementations$finterface$fself self})
+      : super(typename: typename, b: b, self: self);
 
   @override
   factory QueryFetchImplementations$finterface$tImplementationB.fromJson(

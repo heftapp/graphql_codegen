@@ -5,7 +5,7 @@ part 'a.graphql.g.dart';
 
 @JsonSerializable()
 class QueryFetchName extends JsonSerializable {
-  QueryFetchName(this.name);
+  QueryFetchName({this.name});
 
   @override
   factory QueryFetchName.fromJson(Map<String, dynamic> json) =>
@@ -38,7 +38,7 @@ const DOCUMENT_QUERY_FETCH_NAME = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryFetchName$fname extends JsonSerializable implements FragmentF {
-  QueryFetchName$fname(this.name);
+  QueryFetchName$fname({required this.name});
 
   @override
   factory QueryFetchName$fname.fromJson(Map<String, dynamic> json) =>

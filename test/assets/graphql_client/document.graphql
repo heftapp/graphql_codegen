@@ -1,0 +1,33 @@
+type Query {
+  s(name: String): String
+}
+
+type Mutation {
+  s(name: String): String
+}
+
+query FetchSOptional($name: String) {
+  s(name: $name)
+}
+
+query FetchSRequired($name: String!) {
+  s(name: $name)
+}
+
+query FetchSNoVariables {
+  s(name: "lol")
+}
+
+
+mutation UpdateSOptional($name: String) {
+  s(name: $name)
+}
+
+mutation UpdateSRequired($name: String!) {
+  s(name: $name)
+}
+
+mutation UpdateSNoVariables {
+  s(name: "lol")
+}
+

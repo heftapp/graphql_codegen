@@ -5,7 +5,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable()
 class QueryFoobar extends JsonSerializable {
-  QueryFoobar(this.field, this.fields);
+  QueryFoobar({this.field, this.fields});
 
   @override
   factory QueryFoobar.fromJson(Map<String, dynamic> json) =>

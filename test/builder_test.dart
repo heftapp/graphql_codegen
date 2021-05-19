@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:build/build.dart';
@@ -18,6 +19,13 @@ void main() {
         final files = folder.whereType<File>().map(
               (file) => MapEntry(file.path, file.readAsString()),
             );
+        final optionsFile = files
+            .whereType<MapEntry<String, Future<String>>?>()
+            .firstWhere(
+              (element) =>
+                  element != null && basename(element.key) == "options.json",
+              orElse: () => null,
+            );
         for (final entry in files) {
           final path = entry.key;
           final file = await entry.value;
@@ -28,8 +36,11 @@ void main() {
             expectedOutputs["a|lib/$b"] = file;
           }
         }
+        final options = optionsFile == null
+            ? BuilderOptions.empty
+            : BuilderOptions(jsonDecode(await optionsFile.value));
         await testBuilder(
-          GraphQLBuilder(BuilderOptions.empty),
+          GraphQLBuilder(options),
           assets,
           rootPackage: 'a',
           outputs: expectedOutputs,

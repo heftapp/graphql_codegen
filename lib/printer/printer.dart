@@ -2,10 +2,13 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/errors.dart';
+import 'package:graphql_codegen/printer/clients/graphql.dart';
 import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 import 'package:recase/recase.dart';
+
+import 'utils.dart';
 
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
 const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
@@ -42,11 +45,13 @@ Spec _printClass(
         ..constructors = ListBuilder([
           Constructor(
             (b) => b
-              ..requiredParameters = ListBuilder(
+              ..optionalParameters = ListBuilder(
                 properties.map(
                   (property) => Parameter(
                     (b) => b
+                      ..named = true
                       ..toThis = true
+                      ..required = property.isRequired
                       ..name = property.name,
                   ),
                 ),
@@ -100,12 +105,6 @@ Method printFragmentProperty(
         ..returns = printClassPropertyType(context, property),
     );
 
-String printDocumentName(Name name) =>
-    ReCase("Document" + name.key).constantCase;
-
-String printFragmentName(Name name) =>
-    ReCase("Fragment" + name.key).constantCase;
-
 Spec printDocument(
   Context context,
   OperationDefinitionNode operation,
@@ -138,7 +137,7 @@ Spec printFragmentDefinition(ContextFragment context) {
   );
 }
 
-Library printRootContext<TKey>(ContextRoot<TKey> context) {
+Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
   final currentPath = context.schema.lookupPath(context.key);
   final containsJsonSerializable =
       context.contextOperations.isNotEmpty || context.contextInputs.isNotEmpty;
@@ -147,6 +146,7 @@ Library printRootContext<TKey>(ContextRoot<TKey> context) {
       containsJsonSerializable || context.contextEnums.isNotEmpty;
   final containsDocument = context.contextOperations.isNotEmpty ||
       context.contextFragments.isNotEmpty;
+  final graphQLClientEnabled = clients.contains('graphql');
   return Library(
     (b) => b
       ..directives = ListBuilder([
@@ -156,6 +156,7 @@ Library printRootContext<TKey>(ContextRoot<TKey> context) {
             "package:json_annotation/json_annotation.dart",
           ),
         ...printImports<TKey>(context),
+        if (graphQLClientEnabled) ...printGraphQLDirectives(context),
         if (containsJsonSerializable)
           Directive.part(
             "${p.basenameWithoutExtension(currentPath)}.g${p.extension(currentPath)}",
@@ -179,6 +180,7 @@ Library printRootContext<TKey>(ContextRoot<TKey> context) {
                 operation,
                 element.fragmentsRecursive,
               ),
+            if (graphQLClientEnabled) ...printGraphQLClientSpecs(element),
           ];
         }),
       ]),
@@ -273,11 +275,13 @@ Class printContext(ContextOperation context) {
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
-            ..requiredParameters = ListBuilder(
+            ..optionalParameters = ListBuilder(
               [
                 ...properties.map<Parameter>(
                   (p) => Parameter(
                     (b) => b
+                      ..required = p.isRequired
+                      ..named = true
                       ..toThis = true
                       ..name = p.name,
                   ),
@@ -285,6 +289,8 @@ Class printContext(ContextOperation context) {
                 ...parentProperties.map<Parameter>(
                   (p) => Parameter(
                     (b) => b
+                      ..required = p.isRequired
+                      ..named = true
                       ..name = p.name
                       ..type = printClassPropertyType(context, p),
                   ),
@@ -293,9 +299,17 @@ Class printContext(ContextOperation context) {
             )
             ..initializers = ListBuilder<Code>([
               if (extendContext != null)
-                refer('super')
-                    .call(parentProperties.map((e) => refer(e.name)))
-                    .code,
+                refer('super').call(
+                  [],
+                  Map.fromEntries(
+                    parentProperties.map(
+                      (e) => MapEntry(
+                        e.name,
+                        refer(e.name),
+                      ),
+                    ),
+                  ),
+                ).code,
             ]),
         ),
         printFromJson(
@@ -363,18 +377,7 @@ Reference printClassPropertyType(
   Context context,
   ContextProperty property,
 ) {
-  final currentType = context.currentType;
-  final typeNode = property.type ??
-      context.schema.lookupTypeNodeFromField(
-        currentType,
-        property.nameNode,
-      );
-  if (typeNode == null) {
-    throw PrinterError(
-      "Failed to find type for field ${property.nameNode.value} on ${currentType.name}",
-    );
-  }
-
+  final typeNode = property.type;
   return printTypeNode(
     context,
     typeNode,

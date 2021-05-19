@@ -5,7 +5,7 @@ part 'variables.graphql.g.dart';
 
 @JsonSerializable()
 class VariablesQueryHiBob extends JsonSerializable {
-  VariablesQueryHiBob(this.i);
+  VariablesQueryHiBob({required this.i});
 
   @override
   factory VariablesQueryHiBob.fromJson(Map<String, dynamic> json) =>
@@ -19,7 +19,7 @@ class VariablesQueryHiBob extends JsonSerializable {
 
 @JsonSerializable()
 class QueryHiBob extends JsonSerializable {
-  QueryHiBob(this.field);
+  QueryHiBob({this.field});
 
   @override
   factory QueryHiBob.fromJson(Map<String, dynamic> json) =>
@@ -69,7 +69,7 @@ const DOCUMENT_QUERY_HI_BOB = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryHiBob$ffield extends JsonSerializable {
-  QueryHiBob$ffield(this.value);
+  QueryHiBob$ffield({required this.value});
 
   @override
   factory QueryHiBob$ffield.fromJson(Map<String, dynamic> json) =>

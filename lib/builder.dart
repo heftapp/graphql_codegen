@@ -37,6 +37,7 @@ class GraphQLBuilder extends Builder {
           BuiltMap.of(Map.fromEntries(entries)),
           (id) => "${id.path}.dart",
         ),
+        options,
       );
     }));
     final targetAsset = buildStep.inputId.addExtension('.dart');
@@ -53,7 +54,7 @@ class GraphQLBuilder extends Builder {
     Library library,
   ) {
     final formatter = DartFormatter();
-    final emitter = DartEmitter();
+    final emitter = DartEmitter(useNullSafetySyntax: true);
     final contents = formatter.format(
       "${library.accept(emitter)}",
     );

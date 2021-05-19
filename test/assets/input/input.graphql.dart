@@ -3,7 +3,7 @@ part 'input.graphql.g.dart';
 
 @JsonSerializable()
 class InputI1 extends JsonSerializable {
-  InputI1(this.s, this.nestedInput);
+  InputI1({required this.s, this.nestedInput});
 
   @override
   factory InputI1.fromJson(Map<String, dynamic> json) =>

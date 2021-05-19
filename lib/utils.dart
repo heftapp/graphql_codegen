@@ -188,7 +188,7 @@ class Schema<TKey> {
 }
 
 class ContextProperty {
-  final TypeNode? type;
+  final TypeNode type;
   final NameNode nameNode;
   final NameNode? alias;
   final Name? path;
@@ -198,7 +198,7 @@ class ContextProperty {
     this.path,
     this.isEnum = false,
     this.alias,
-    this.type,
+    required this.type,
     required this.nameNode,
   });
 
@@ -206,9 +206,9 @@ class ContextProperty {
     FieldNode node, {
     this.path,
     this.isEnum = false,
-  })  : nameNode = node.name,
-        alias = node.alias,
-        type = null;
+    required this.type,
+  })   : nameNode = node.name,
+        alias = node.alias;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
@@ -233,6 +233,8 @@ class ContextProperty {
   bool get isRenamed => name != originalName;
 
   bool get isTypenameField => nameNode.value == "__typename";
+
+  bool get isRequired => type.isNonNull;
 }
 
 class TypedName {
@@ -372,6 +374,15 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   Iterable<ContextProperty> get properties => _properties.values;
 
   Iterable<ContextProperty> get variables => _variables.values;
+
+  bool get hasVariables => _variables.isNotEmpty;
+
+  bool get isVariablesRequired =>
+      variables.whereType<ContextProperty?>().firstWhere(
+            (e) => e?.isRequired == true,
+            orElse: () => null,
+          ) !=
+      null;
 
   Iterable<ContextProperty> get publicProperties => _properties.values
       .where((element) => !element.originalName.startsWith("_"));

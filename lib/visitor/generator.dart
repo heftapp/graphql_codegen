@@ -222,17 +222,25 @@ class GeneratorVisitor extends RecursiveVisitor {
         fieldType,
       );
       node.visitChildren(GeneratorVisitor(context: c));
-      context.addProperty(ContextProperty.fromFieldNode(node, path: c.path));
+      context.addProperty(ContextProperty.fromFieldNode(
+        node,
+        path: c.path,
+        type: typeNodeForField,
+      ));
     } else if (fieldType is EnumTypeDefinitionNode) {
       context.addProperty(
         ContextProperty.fromFieldNode(
           node,
           path: Name.fromSegment(EnumNameSegment(fieldType)),
           isEnum: true,
+          type: typeNodeForField,
         ),
       );
     } else {
-      context.addProperty(ContextProperty.fromFieldNode(node));
+      context.addProperty(ContextProperty.fromFieldNode(
+        node,
+        type: typeNodeForField,
+      ));
     }
   }
 }
