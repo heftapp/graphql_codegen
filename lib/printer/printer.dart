@@ -71,7 +71,11 @@ Spec printVariables(ContextOperation context) => _printClass(
     );
 
 EnumValue printEnumValue(NameNode name) => EnumValue(
-      (b) => b..name = name.value,
+      (b) => b
+        ..name = ReCase(name.value).camelCase
+        ..annotations = ListBuilder([
+          refer('JsonValue').call([literal(name.value)]),
+        ]),
     );
 
 Spec printFragment(ContextFragment f) => Class(
@@ -138,13 +142,16 @@ Library printRootContext<TKey>(ContextRoot<TKey> context) {
   final currentPath = context.schema.lookupPath(context.key);
   final containsJsonSerializable =
       context.contextOperations.isNotEmpty || context.contextInputs.isNotEmpty;
+
+  final containsJsonAnnotations =
+      containsJsonSerializable || context.contextEnums.isNotEmpty;
   final containsDocument = context.contextOperations.isNotEmpty ||
       context.contextFragments.isNotEmpty;
   return Library(
     (b) => b
       ..directives = ListBuilder([
         if (containsDocument) Directive.import("package:gql/ast.dart"),
-        if (containsJsonSerializable)
+        if (containsJsonAnnotations)
           Directive.import(
             "package:json_annotation/json_annotation.dart",
           ),
@@ -447,3 +454,4 @@ const _SCALAR_MAP = const {
 };
 
 // TODO print graphql_client
+// TODO handle custom scalars

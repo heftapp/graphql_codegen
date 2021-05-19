@@ -6,5 +6,5 @@ type Query {
 enum Enum {
     FOO
     BAR
-    BAZ
+    BAZ_BOB
 }
