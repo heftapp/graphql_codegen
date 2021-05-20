@@ -396,7 +396,7 @@ class GraphQLClientResultMutationUpdateSOptional {
 
 extension GraphQLClientExtensionMutationUpdateSOptional
     on graphql.GraphQLClient {
-  Future<GraphQLClientResultMutationUpdateSOptional> mutationUpdateSOptional(
+  Future<GraphQLClientResultMutationUpdateSOptional> mutateUpdateSOptional(
           [GraphQLClientOptionsMutationUpdateSOptional? options]) async =>
       GraphQLClientResultMutationUpdateSOptional(await this
           .mutate(options ?? GraphQLClientOptionsMutationUpdateSOptional()));
@@ -521,7 +521,7 @@ class GraphQLClientResultMutationUpdateSRequired {
 
 extension GraphQLClientExtensionMutationUpdateSRequired
     on graphql.GraphQLClient {
-  Future<GraphQLClientResultMutationUpdateSRequired> mutationUpdateSRequired(
+  Future<GraphQLClientResultMutationUpdateSRequired> mutateUpdateSRequired(
           GraphQLClientOptionsMutationUpdateSRequired options) async =>
       GraphQLClientResultMutationUpdateSRequired(await this.mutate(options));
 }
@@ -623,7 +623,7 @@ class GraphQLClientResultMutationUpdateSNoVariables {
 extension GraphQLClientExtensionMutationUpdateSNoVariables
     on graphql.GraphQLClient {
   Future<
-      GraphQLClientResultMutationUpdateSNoVariables> mutationUpdateSNoVariables(
+      GraphQLClientResultMutationUpdateSNoVariables> mutateUpdateSNoVariables(
           [GraphQLClientOptionsMutationUpdateSNoVariables? options]) async =>
       GraphQLClientResultMutationUpdateSNoVariables(await this
           .mutate(options ?? GraphQLClientOptionsMutationUpdateSNoVariables()));

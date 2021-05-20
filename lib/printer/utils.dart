@@ -3,9 +3,11 @@ import 'package:recase/recase.dart';
 
 import '../utils.dart';
 
-String _printName(Name name) => name.segments.map(_printNameSegment).join(r'$');
+String _printName(Name name, {bool isAction = false}) => name.segments
+    .map((s) => _printNameSegment(s, isAction: isAction))
+    .join(r'$');
 
-String _printNameSegment(NameSegment segment) {
+String _printNameSegment(NameSegment segment, {bool isAction = false}) {
   if (segment is EnumNameSegment) {
     return ReCase('Enum${segment.name.value}').pascalCase;
   }
@@ -22,13 +24,13 @@ String _printNameSegment(NameSegment segment) {
     String prefix;
     switch (segment.node.type) {
       case OperationType.mutation:
-        prefix = 'Mutation';
+        prefix = isAction ? 'mutate' : 'Mutation';
         break;
       case OperationType.query:
-        prefix = 'Query';
+        prefix = isAction ? 'query' : 'Query';
         break;
       case OperationType.subscription:
-        prefix = 'Subscription';
+        prefix = isAction ? 'subscribe' : 'Subscription';
         break;
     }
     return ReCase('$prefix${segment.name.value}').pascalCase;
@@ -65,7 +67,7 @@ String printGraphQLClientExtensionName(Name name) =>
     "GraphQLClientExtension${_printName(name)}";
 
 String printGraphQLClientExtensionMethodName(Name name) =>
-    ReCase(_printName(name)).camelCase;
+    ReCase(_printName(name, isAction: true)).camelCase;
 
 String printFromJsonFactoryName(String name) => "_\$${name}FromJson";
 
