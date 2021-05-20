@@ -25,7 +25,7 @@ class QueryHiBob extends JsonSerializable {
   factory QueryHiBob.fromJson(Map<String, dynamic> json) =>
       _$QueryHiBobFromJson(json);
 
-  final QueryHiBob$ffield? field;
+  final QueryHiBob$field? field;
 
   @override
   Map<String, dynamic> toJson() => _$QueryHiBobToJson(this);
@@ -68,15 +68,15 @@ const DOCUMENT_QUERY_HI_BOB = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable()
-class QueryHiBob$ffield extends JsonSerializable {
-  QueryHiBob$ffield({required this.value});
+class QueryHiBob$field extends JsonSerializable {
+  QueryHiBob$field({required this.value});
 
   @override
-  factory QueryHiBob$ffield.fromJson(Map<String, dynamic> json) =>
-      _$QueryHiBob$ffieldFromJson(json);
+  factory QueryHiBob$field.fromJson(Map<String, dynamic> json) =>
+      _$QueryHiBob$fieldFromJson(json);
 
   final String value;
 
   @override
-  Map<String, dynamic> toJson() => _$QueryHiBob$ffieldToJson(this);
+  Map<String, dynamic> toJson() => _$QueryHiBob$fieldToJson(this);
 }

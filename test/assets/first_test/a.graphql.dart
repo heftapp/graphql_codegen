@@ -11,7 +11,7 @@ class QueryFetchName extends JsonSerializable {
   factory QueryFetchName.fromJson(Map<String, dynamic> json) =>
       _$QueryFetchNameFromJson(json);
 
-  final QueryFetchName$fname? name;
+  final QueryFetchName$name? name;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchNameToJson(this);
@@ -37,15 +37,15 @@ const DOCUMENT_QUERY_FETCH_NAME = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable()
-class QueryFetchName$fname extends JsonSerializable implements FragmentF {
-  QueryFetchName$fname({required this.name});
+class QueryFetchName$name extends JsonSerializable implements FragmentF {
+  QueryFetchName$name({required this.name});
 
   @override
-  factory QueryFetchName$fname.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchName$fnameFromJson(json);
+  factory QueryFetchName$name.fromJson(Map<String, dynamic> json) =>
+      _$QueryFetchName$nameFromJson(json);
 
   final String name;
 
   @override
-  Map<String, dynamic> toJson() => _$QueryFetchName$fnameToJson(this);
+  Map<String, dynamic> toJson() => _$QueryFetchName$nameToJson(this);
 }

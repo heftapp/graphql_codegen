@@ -15,7 +15,7 @@ const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
 
 Spec printEnum(ContextEnum context) => Enum(
       (b) => b
-        ..name = context.path.key
+        ..name = printClassName(context.path)
         ..values = ListBuilder(
           [
             ...context.currentType.values.map((e) => printEnumValue(e.name)),
@@ -26,7 +26,7 @@ Spec printEnum(ContextEnum context) => Enum(
 
 Spec printInput(ContextInput context) => _printClass(
       context,
-      context.path.key,
+      printClassName(context.path),
       context.properties,
     );
 
@@ -71,7 +71,7 @@ Spec _printClass(
 
 Spec printVariables(ContextOperation context) => _printClass(
       context,
-      context.path.variableKey,
+      printVariableClassName(context.path),
       context.variables,
     );
 
@@ -86,7 +86,7 @@ EnumValue printEnumValue(NameNode name) => EnumValue(
 Spec printFragment(ContextFragment f) => Class(
       (b) => b
         ..abstract = true
-        ..name = f.path.key
+        ..name = printClassName(f.path)
         ..methods = ListBuilder<Method>(
           f.publicProperties.map(
             (property) => printFragmentProperty(f, property),
@@ -113,12 +113,12 @@ Spec printDocument(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printDocumentName(context.path)} = const DocumentNode(definitions: [",
+        "const ${printOperationDocumentName(context.path)} = const DocumentNode(definitions: [",
       ),
       gql_builder.fromNode(operation).code,
       Code(","),
       ...fragments.expand(
-        (n) => [refer(printFragmentName(n)).code, Code(",")],
+        (n) => [refer(printFragmentDocumentName(n)).code, Code(",")],
       ),
       Code("]);")
     ]),
@@ -129,7 +129,7 @@ Spec printFragmentDefinition(ContextFragment context) {
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printFragmentName(context.path)} = const ",
+        "const ${printFragmentDocumentName(context.path)} = const ",
       ),
       gql_builder.fromNode(context.fragment).code,
       Code(";")
@@ -204,14 +204,15 @@ Constructor printFromJson(
   Iterable<TypedName> possibleTypes = const [],
 ]) {
   final jsonMapReference = printJsonMap();
-  final fromJsonFactoryName = "_\$${name}FromJson";
+  final fromJsonFactoryName = printFromJsonFactoryName(name);
   Code body;
   if (typenameProperty == null || possibleTypes.isEmpty) {
     body = refer(fromJsonFactoryName).call([refer("json")]).code;
   } else {
     final cases = possibleTypes
         .map(
-          (t) => """case "${t.type.value}": return ${t.key}.fromJson(json);""",
+          (t) =>
+              """case "${t.type.value}": return ${printClassName(t.name)}.fromJson(json);""",
         )
         .join("");
     body = Block(
@@ -264,14 +265,15 @@ Class printContext(ContextOperation context) {
   );
   return Class(
     (b) => b
-      ..name = context.path.key
-      ..implements = ListBuilder(context.fragmentKeys.map((e) => refer(e)))
+      ..name = printClassName(context.path)
+      ..implements =
+          ListBuilder(context.fragments.map((e) => refer(printClassName(e))))
       ..annotations = ListBuilder(
         [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
       )
       ..extend = extendContext == null
           ? _JSON_SERIALIZABLE_BASE_CLASS
-          : refer(extendContext.path.key)
+          : refer(printClassName(extendContext.path))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -313,7 +315,7 @@ Class printContext(ContextOperation context) {
             ]),
         ),
         printFromJson(
-          context.path.key,
+          printClassName(context.path),
           context.typenameProperty,
           context.possibleTypes,
         ),
@@ -326,7 +328,11 @@ Class printContext(ContextOperation context) {
           ),
         ),
       )
-      ..methods = ListBuilder([printToJsonMethod(context.path.key)]),
+      ..methods = ListBuilder([
+        printToJsonMethod(
+          printClassName(context.path),
+        ),
+      ]),
   );
 }
 
@@ -336,7 +342,7 @@ Method printToJsonMethod(String name) => Method(
         ..returns = printJsonMap()
         ..name = "toJson"
         ..lambda = true
-        ..body = refer("_\$${name}ToJson").call([refer("this")]).code,
+        ..body = refer(printToJsonFactoryName(name)).call([refer("this")]).code,
     );
 
 Field printClassProperty(
@@ -344,7 +350,8 @@ Field printClassProperty(
   ContextProperty property,
 ) {
   final isEnum = property.isEnum;
-  final name = property.path?.key;
+  final propertyPath = property.path;
+  final name = propertyPath == null ? null : printClassName(propertyPath);
   final jsonKeyAnnotations = <String, Expression>{};
   if (isEnum && name != null) {
     jsonKeyAnnotations['unknownEnumValue'] =
@@ -436,7 +443,7 @@ Reference printNamedTypeNode(
 
   Reference reference;
   if (propertyContext != null) {
-    reference = refer(propertyContext.key);
+    reference = refer(printClassName(propertyContext));
   } else if (typeDefinition is ScalarTypeDefinitionNode) {
     reference = printScalarType(typeDefinition);
   } else if (typeDefinition is EnumTypeDefinitionNode) {

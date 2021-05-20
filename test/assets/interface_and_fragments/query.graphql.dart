@@ -54,7 +54,7 @@ class QueryFetchImplementations extends JsonSerializable {
   factory QueryFetchImplementations.fromJson(Map<String, dynamic> json) =>
       _$QueryFetchImplementationsFromJson(json);
 
-  final QueryFetchImplementations$finterface? interface;
+  final QueryFetchImplementations$interface? interface;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchImplementationsToJson(this);
@@ -135,22 +135,22 @@ const DOCUMENT_QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable()
-class QueryFetchImplementations$finterface extends JsonSerializable {
-  QueryFetchImplementations$finterface(
+class QueryFetchImplementations$interface extends JsonSerializable {
+  QueryFetchImplementations$interface(
       {required this.typename, this.b, required this.self});
 
   @override
-  factory QueryFetchImplementations$finterface.fromJson(
+  factory QueryFetchImplementations$interface.fromJson(
       Map<String, dynamic> json) {
     switch (json["typename"] as String) {
       case "ImplementationA":
-        return QueryFetchImplementations$finterface$tImplementationA.fromJson(
+        return QueryFetchImplementations$interface$ImplementationA.fromJson(
             json);
       case "ImplementationB":
-        return QueryFetchImplementations$finterface$tImplementationB.fromJson(
+        return QueryFetchImplementations$interface$ImplementationB.fromJson(
             json);
       default:
-        return _$QueryFetchImplementations$finterfaceFromJson(json);
+        return _$QueryFetchImplementations$interfaceFromJson(json);
     }
   }
 
@@ -158,117 +158,113 @@ class QueryFetchImplementations$finterface extends JsonSerializable {
 
   final bool? b;
 
-  final QueryFetchImplementations$finterface$fself self;
+  final QueryFetchImplementations$interface$self self;
 
   @override
   Map<String, dynamic> toJson() =>
-      _$QueryFetchImplementations$finterfaceToJson(this);
+      _$QueryFetchImplementations$interfaceToJson(this);
 }
 
 @JsonSerializable()
-class QueryFetchImplementations$finterface$fself extends JsonSerializable {
-  QueryFetchImplementations$finterface$fself();
+class QueryFetchImplementations$interface$self extends JsonSerializable {
+  QueryFetchImplementations$interface$self();
 
   @override
-  factory QueryFetchImplementations$finterface$fself.fromJson(
+  factory QueryFetchImplementations$interface$self.fromJson(
       Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "ImplementationA":
-        return QueryFetchImplementations$finterface$fself$tImplementationA
+        return QueryFetchImplementations$interface$self$ImplementationA
             .fromJson(json);
       case "ImplementationB":
-        return QueryFetchImplementations$finterface$fself$tImplementationB
+        return QueryFetchImplementations$interface$self$ImplementationB
             .fromJson(json);
       default:
-        return _$QueryFetchImplementations$finterface$fselfFromJson(json);
+        return _$QueryFetchImplementations$interface$selfFromJson(json);
     }
   }
 
   @override
   Map<String, dynamic> toJson() =>
-      _$QueryFetchImplementations$finterface$fselfToJson(this);
+      _$QueryFetchImplementations$interface$selfToJson(this);
 }
 
 @JsonSerializable()
-class QueryFetchImplementations$finterface$fself$tImplementationA
-    extends QueryFetchImplementations$finterface$fself
+class QueryFetchImplementations$interface$self$ImplementationA
+    extends QueryFetchImplementations$interface$self
     implements FragmentFragmentA {
-  QueryFetchImplementations$finterface$fself$tImplementationA({this.s})
-      : super();
+  QueryFetchImplementations$interface$self$ImplementationA({this.s}) : super();
 
   @override
-  factory QueryFetchImplementations$finterface$fself$tImplementationA.fromJson(
+  factory QueryFetchImplementations$interface$self$ImplementationA.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchImplementations$finterface$fself$tImplementationAFromJson(
-          json);
+      _$QueryFetchImplementations$interface$self$ImplementationAFromJson(json);
 
   final String? s;
 
   @override
   Map<String, dynamic> toJson() =>
-      _$QueryFetchImplementations$finterface$fself$tImplementationAToJson(this);
+      _$QueryFetchImplementations$interface$self$ImplementationAToJson(this);
 }
 
 @JsonSerializable()
-class QueryFetchImplementations$finterface$fself$tImplementationB
-    extends QueryFetchImplementations$finterface$fself
+class QueryFetchImplementations$interface$self$ImplementationB
+    extends QueryFetchImplementations$interface$self
     implements FragmentFragmentB {
-  QueryFetchImplementations$finterface$fself$tImplementationB({this.i})
-      : super();
+  QueryFetchImplementations$interface$self$ImplementationB({this.i}) : super();
 
   @override
-  factory QueryFetchImplementations$finterface$fself$tImplementationB.fromJson(
+  factory QueryFetchImplementations$interface$self$ImplementationB.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchImplementations$finterface$fself$tImplementationBFromJson(
-          json);
+      _$QueryFetchImplementations$interface$self$ImplementationBFromJson(json);
 
   final int? i;
 
   @override
   Map<String, dynamic> toJson() =>
-      _$QueryFetchImplementations$finterface$fself$tImplementationBToJson(this);
+      _$QueryFetchImplementations$interface$self$ImplementationBToJson(this);
 }
 
 @JsonSerializable()
-class QueryFetchImplementations$finterface$tImplementationA
-    extends QueryFetchImplementations$finterface implements FragmentFragmentA {
-  QueryFetchImplementations$finterface$tImplementationA(
+class QueryFetchImplementations$interface$ImplementationA
+    extends QueryFetchImplementations$interface implements FragmentFragmentA {
+  QueryFetchImplementations$interface$ImplementationA(
       {this.s,
       required String typename,
       bool? b,
-      required QueryFetchImplementations$finterface$fself self})
+      required QueryFetchImplementations$interface$self self})
       : super(typename: typename, b: b, self: self);
 
   @override
-  factory QueryFetchImplementations$finterface$tImplementationA.fromJson(
+  factory QueryFetchImplementations$interface$ImplementationA.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchImplementations$finterface$tImplementationAFromJson(json);
+      _$QueryFetchImplementations$interface$ImplementationAFromJson(json);
 
   final String? s;
 
   @override
   Map<String, dynamic> toJson() =>
-      _$QueryFetchImplementations$finterface$tImplementationAToJson(this);
+      _$QueryFetchImplementations$interface$ImplementationAToJson(this);
 }
 
 @JsonSerializable()
-class QueryFetchImplementations$finterface$tImplementationB
-    extends QueryFetchImplementations$finterface implements FragmentFragmentB {
-  QueryFetchImplementations$finterface$tImplementationB(
+class QueryFetchImplementations$interface$ImplementationB
+    extends QueryFetchImplementations$interface implements FragmentFragmentB {
+  QueryFetchImplementations$interface$ImplementationB(
       {this.i,
       required String typename,
       bool? b,
-      required QueryFetchImplementations$finterface$fself self})
+      required QueryFetchImplementations$interface$self self})
       : super(typename: typename, b: b, self: self);
 
   @override
-  factory QueryFetchImplementations$finterface$tImplementationB.fromJson(
+  factory QueryFetchImplementations$interface$ImplementationB.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchImplementations$finterface$tImplementationBFromJson(json);
+      _$QueryFetchImplementations$interface$ImplementationBFromJson(json);
 
   final int? i;
 
   @override
   Map<String, dynamic> toJson() =>
-      _$QueryFetchImplementations$finterface$tImplementationBToJson(this);
+      _$QueryFetchImplementations$interface$ImplementationBToJson(this);
 }

@@ -241,7 +241,7 @@ class TypedName {
   final Name name;
   final NameNode type;
 
-  String get key => name.key;
+  String get key => name._key;
 
   TypedName(this.name, this.type);
 }
@@ -278,8 +278,6 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     throw StateError("Missing current type");
   }
 
-  Iterable<String> get fragmentKeys => _fragments.values.map((nm) => nm.key);
-
   Iterable<Name> get fragments => _fragments.values;
 
   Iterable<Name> get fragmentsRecursive => {
@@ -293,8 +291,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   }
 
   void _addContext(Context c) {
-    _contexts[c.path.key] = c;
-    _childContexts[c.path.key] = c;
+    _contexts[c.path._key] = c;
+    _childContexts[c.path._key] = c;
   }
 
   ContextFragment withFragmentAndType(
@@ -344,17 +342,17 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   }
 
   ContextOperation<TKey>? _lookupContextOperation(Name path) {
-    final c = _contexts[path.key];
+    final c = _contexts[path._key];
     if (c == null) return null;
     return c is ContextOperation<TKey> ? c : null;
   }
 
   void addFragment(Name fragment) {
-    _fragments[fragment.key] = fragment;
+    _fragments[fragment._key] = fragment;
   }
 
   void addPossibleTypeName(Context c) {
-    _possibleTypeNames[c.path.key] = TypedName(c.path, c.currentType.name);
+    _possibleTypeNames[c.path._key] = TypedName(c.path, c.currentType.name);
   }
 
   void addProperty(ContextProperty property) {
@@ -535,18 +533,16 @@ class Name {
         segment,
       );
 
-  String get key => segments.map((e) => e.key).join(r"$");
-
-  String get variableKey => segments.map((e) => e.variableKey).join(r"$");
+  String get _key => segments.map((e) => e.key).join(r"$");
 
   Name withSegment(NameSegment segment) => Name(
         (segments.toBuilder()..add(segment)).build(),
         baseNameSegment,
       );
 
-  bool operator ==(Object other) => other is Name && other.key == key;
+  bool operator ==(Object other) => other is Name && other._key == _key;
   @override
-  int get hashCode => key.hashCode;
+  int get hashCode => _key.hashCode;
 }
 
 abstract class NameSegment {
@@ -555,22 +551,20 @@ abstract class NameSegment {
   NameSegment(this.name);
 
   String get key;
-
-  String get variableKey => key;
 }
 
 class EnumNameSegment extends NameSegment {
   EnumNameSegment(EnumTypeDefinitionNode tpe) : super(tpe.name);
 
   @override
-  String get key => "Enum${name.value}";
+  String get key => "E${name.value}";
 }
 
 class InputNameSegment extends NameSegment {
   InputNameSegment(InputObjectTypeDefinitionNode tpe) : super(tpe.name);
 
   @override
-  String get key => "Input${name.value}";
+  String get key => "I${name.value}";
 }
 
 class FieldNameSegment extends NameSegment {
@@ -598,21 +592,18 @@ class OperationNameSegment extends NameSegment {
   String get key {
     switch (node.type) {
       case OperationType.mutation:
-        return "Mutation${name.value}";
+        return "M${name.value}";
       case OperationType.query:
-        return "Query${name.value}";
+        return "Q${name.value}";
       case OperationType.subscription:
-        return "Subscription${name.value}";
+        return "S${name.value}";
     }
   }
-
-  @override
-  String get variableKey => "Variables${key}";
 }
 
 class FragmentNameSegment extends NameSegment {
   FragmentNameSegment(FragmentDefinitionNode node) : super(node.name);
 
   @override
-  String get key => "Fragment${name.value}";
+  String get key => "F${name.value}";
 }
