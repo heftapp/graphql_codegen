@@ -3,6 +3,7 @@ import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/errors.dart';
 import 'package:graphql_codegen/printer/clients/graphql.dart';
+import 'package:graphql_codegen/printer/clients/graphql_flutter.dart';
 import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
@@ -52,7 +53,7 @@ Spec _printClass(
                       ..named = true
                       ..toThis = true
                       ..required = property.isRequired
-                      ..name = property.name,
+                      ..name = printPropertyName(property.name),
                   ),
                 ),
               ),
@@ -77,7 +78,7 @@ Spec printVariables(ContextOperation context) => _printClass(
 
 EnumValue printEnumValue(NameNode name) => EnumValue(
       (b) => b
-        ..name = ReCase(name.value).camelCase
+        ..name = printEnumValueName(name)
         ..annotations = ListBuilder([
           refer('JsonValue').call([literal(name.value)]),
         ]),
@@ -101,7 +102,7 @@ Method printFragmentProperty(
     Method(
       (b) => b
         ..type = MethodType.getter
-        ..name = property.name
+        ..name = printPropertyName(property.name)
         ..returns = printClassPropertyType(context, property),
     );
 
@@ -117,21 +118,24 @@ Spec printDocument(
       ),
       gql_builder.fromNode(operation).code,
       Code(","),
-      ...fragments.expand(
-        (n) => [refer(printFragmentDocumentName(n)).code, Code(",")],
-      ),
+      ...fragments.where((element) => element.isRoot).expand(
+            (n) => [refer(printFragmentDocumentName(n)).code, Code(",")],
+          ),
       Code("]);")
     ]),
   );
 }
 
-Spec printFragmentDefinition(ContextFragment context) {
+Spec printFragmentDefinition(
+  ContextFragment context,
+  FragmentDefinitionNode node,
+) {
   return Block(
     (b) => b.statements.addAll([
       Code(
         "const ${printFragmentDocumentName(context.path)} = const ",
       ),
-      gql_builder.fromNode(context.fragment).code,
+      gql_builder.fromNode(node).code,
       Code(";")
     ]),
   );
@@ -147,6 +151,7 @@ Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
   final containsDocument = context.contextOperations.isNotEmpty ||
       context.contextFragments.isNotEmpty;
   final graphQLClientEnabled = clients.contains('graphql');
+  final graphQLFlutterClientEnabled = clients.contains('graphql_flutter');
   return Library(
     (b) => b
       ..directives = ListBuilder([
@@ -157,6 +162,8 @@ Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
           ),
         ...printImports<TKey>(context),
         if (graphQLClientEnabled) ...printGraphQLDirectives(context),
+        if (graphQLFlutterClientEnabled)
+          ...printGraphQLFlutterDirectives(context),
         if (containsJsonSerializable)
           Directive.part(
             "${p.basenameWithoutExtension(currentPath)}.g${p.extension(currentPath)}",
@@ -165,10 +172,17 @@ Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
       ..body = ListBuilder([
         ...context.contextInputs.map(printInput),
         ...context.contextEnums.map(printEnum),
-        ...context.contextFragments.expand((context) => [
-              printFragment(context),
-              printFragmentDefinition(context),
-            ]),
+        ...context.contextFragments.expand((context) {
+          final fragmentNode = context.fragment;
+          return [
+            printFragment(context),
+            if (fragmentNode != null)
+              printFragmentDefinition(
+                context,
+                fragmentNode,
+              ),
+          ];
+        }),
         ...context.contextOperations.expand((element) {
           final operation = element.operation;
           return [
@@ -181,6 +195,8 @@ Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
                 element.fragmentsRecursive,
               ),
             if (graphQLClientEnabled) ...printGraphQLClientSpecs(element),
+            if (graphQLFlutterClientEnabled)
+              ...printGraphQLFlutterSpecs(element),
           ];
         }),
       ]),
@@ -219,7 +235,7 @@ Constructor printFromJson(
       (b) => b
         ..statements = ListBuilder([
           Code("""
-switch(json["${typenameProperty.originalName}"] as String) {
+switch(json["${typenameProperty.name.value}"] as String) {
   ${cases}
   default:
   return ${fromJsonFactoryName}(json);
@@ -258,10 +274,10 @@ Class printContext(ContextOperation context) {
   final extendContext = context.possibleTypeOfContext;
   final parentProperties = extendContext?.publicProperties ?? [];
   final parentPropertiesSet = Set<String>.of(
-    parentProperties.map((e) => e.name),
+    parentProperties.map((e) => printPropertyName(e.name)),
   );
   final properties = context.publicProperties.where(
-    (element) => !parentPropertiesSet.contains(element.name),
+    (element) => !parentPropertiesSet.contains(printPropertyName(element.name)),
   );
   return Class(
     (b) => b
@@ -285,7 +301,7 @@ Class printContext(ContextOperation context) {
                       ..required = p.isRequired
                       ..named = true
                       ..toThis = true
-                      ..name = p.name,
+                      ..name = printPropertyName(p.name),
                   ),
                 ),
                 ...parentProperties.map<Parameter>(
@@ -293,7 +309,7 @@ Class printContext(ContextOperation context) {
                     (b) => b
                       ..required = p.isRequired
                       ..named = true
-                      ..name = p.name
+                      ..name = printPropertyName(p.name)
                       ..type = printClassPropertyType(context, p),
                   ),
                 ),
@@ -306,8 +322,8 @@ Class printContext(ContextOperation context) {
                   Map.fromEntries(
                     parentProperties.map(
                       (e) => MapEntry(
-                        e.name,
-                        refer(e.name),
+                        printPropertyName(e.name),
+                        refer(printPropertyName(e.name)),
                       ),
                     ),
                   ),
@@ -358,8 +374,8 @@ Field printClassProperty(
         refer(name).property(_UNKNOWN_ENUM_VALUE);
   }
 
-  if (property.isRenamed) {
-    jsonKeyAnnotations['name'] = literal(property.originalName);
+  if (printPropertyName(property.name) != property.name.value) {
+    jsonKeyAnnotations['name'] = literal(property.name.value);
   }
 
   return Field(
@@ -372,7 +388,7 @@ Field printClassProperty(
           )
       ])
       ..modifier = FieldModifier.final$
-      ..name = property.name
+      ..name = printPropertyName(property.name)
       ..type = printClassPropertyType(
         context,
         property,
@@ -449,7 +465,6 @@ Reference printNamedTypeNode(
   } else if (typeDefinition is EnumTypeDefinitionNode) {
     reference = refer(typeDefinition.name.value);
   } else {
-    print(typeDefinition);
     throw StateError("Field type was not a scalar");
   }
   if (typeNode.isNonNull) {
@@ -461,9 +476,9 @@ Reference printNamedTypeNode(
 Reference printScalarType(ScalarTypeDefinitionNode node) {
   final ref = _SCALAR_MAP[node.name.value];
   if (ref == null) {
-    throw PrinterError("Unsupported scalar ${node.name.value}");
+    print("Missing scalar ${node.name.value}. Defaulting to String");
   }
-  return ref;
+  return ref ?? Reference("String");
 }
 
 const _SCALAR_MAP = const {

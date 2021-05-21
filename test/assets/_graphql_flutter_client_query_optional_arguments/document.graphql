@@ -1,0 +1,7 @@
+type Query {
+  s(name: String): String
+}
+
+query FetchSOptional($name: String) {
+  s(name: $name)
+}

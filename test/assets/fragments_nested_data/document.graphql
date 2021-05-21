@@ -1,0 +1,36 @@
+type Query {
+    t: Type
+}
+
+interface Type {
+    name: String
+    other: Type
+}
+
+fragment F on Type {
+    other {
+        ...F2
+    }
+}
+
+fragment F2 on Type {
+    other {
+        ...F3
+    }
+}
+
+fragment F3 on Type {
+    other {
+        ...F4
+    }
+}
+
+fragment F4 on Type {
+    name
+}
+
+query Fetch {
+    t {
+        ...F
+    }
+}

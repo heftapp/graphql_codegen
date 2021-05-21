@@ -10,10 +10,15 @@ import 'package:test/scaffolding.dart';
 final assetsDir = Directory("test/assets");
 
 void main() {
-  for (final testSet in assetsDir.listSync().whereType<Directory>()) {
+  for (final testSet in assetsDir
+      .listSync()
+      .whereType<Directory>()
+      .where((element) => !basename(element.path).startsWith("_"))) {
     group(testSet.path, () {
       test("works", () async {
-        final folder = testSet.listSync();
+        final folder = testSet
+            .listSync()
+            .where((element) => !basename(element.path).startsWith("_"));
         final assets = <String, Object>{};
         final expectedOutputs = <String, Object>{};
         final files = folder.whereType<File>().map(

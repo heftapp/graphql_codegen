@@ -48,13 +48,14 @@ const FRAGMENT_FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
 
 @JsonSerializable()
 class QueryFetchImplementations extends JsonSerializable {
-  QueryFetchImplementations({this.interface});
+  QueryFetchImplementations({this.$interface});
 
   @override
   factory QueryFetchImplementations.fromJson(Map<String, dynamic> json) =>
       _$QueryFetchImplementationsFromJson(json);
 
-  final QueryFetchImplementations$interface? interface;
+  @JsonKey(name: 'interface')
+  final QueryFetchImplementations$interface? $interface;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchImplementationsToJson(this);

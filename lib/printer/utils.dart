@@ -1,4 +1,5 @@
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/printer/keywords.dart';
 import 'package:recase/recase.dart';
 
 import '../utils.dart';
@@ -72,3 +73,12 @@ String printGraphQLClientExtensionMethodName(Name name) =>
 String printFromJsonFactoryName(String name) => "_\$${name}FromJson";
 
 String printToJsonFactoryName(String name) => "_\$${name}ToJson";
+
+String printKeywordSafe(String name) =>
+    KEYWORDS.contains(name) ? "\$${name}" : name;
+
+String printEnumValueName(NameNode name) =>
+    printKeywordSafe(ReCase(name.value).camelCase);
+
+String printPropertyName(NameNode name) =>
+    printKeywordSafe(ReCase(name.value).camelCase);

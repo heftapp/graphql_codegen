@@ -433,13 +433,9 @@ Iterable<Spec> printGraphQLClientSpecs(
 Iterable<Directive> printGraphQLDirectives(
   ContextRoot context,
 ) {
-  final operations = context.contextOperations
-      .map((element) => element.operation)
-      .whereType<OperationDefinitionNode>();
-  if (operations.isEmpty) return [];
-  final mutations = operations.where((m) => m.type == OperationType.mutation);
+  if (!context.hasOperation) return [];
   return [
-    if (mutations.isNotEmpty) Directive.import('dart:async'),
+    if (context.hasMutation) Directive.import('dart:async'),
     Directive.import(
       'package:graphql/client.dart',
       as: 'graphql',

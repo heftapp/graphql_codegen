@@ -97,7 +97,6 @@ class GeneratorVisitor extends RecursiveVisitor {
     }
     final c = context.withFragmentAndType(node, type);
     node.visitChildren(GeneratorVisitor(context: c));
-    print(c);
   }
 
   @override
@@ -129,16 +128,18 @@ class GeneratorVisitor extends RecursiveVisitor {
       throw InvalidGraphQLDocumentError(
           "Failed to find type ${fragmentDef.typeCondition.on.name.value} for fragment ${node.name}");
     }
-
+    final fragmentName = Name.fromSegment(FragmentNameSegment(fragmentDef));
     if (typeNode.name.value == context.currentType.name.value) {
-      context.addFragment(Name.fromSegment(FragmentNameSegment(fragmentDef)));
-      fragmentDef.visitChildren(this);
+      context.visitInFragment(fragmentDef, () {
+        fragmentDef.visitChildren(this);
+      });
+      context.addFragment(fragmentName);
     } else {
       final c = context.withNameAndType(
         TypeNameSegment(fragmentDef.typeCondition),
         typeNode,
-        inFragment: fragmentDef,
         possibleTypeOf: context.path,
+        inFragment: fragmentName,
       );
       fragmentDef.visitChildren(
         GeneratorVisitor(
@@ -152,10 +153,7 @@ class GeneratorVisitor extends RecursiveVisitor {
   @override
   void visitSelectionSetNode(SelectionSetNode node) {
     super.visitSelectionSetNode(node);
-    final inFragment = context.inFragment;
-    if (inFragment != null) {
-      context.addFragment(inFragment);
-    }
+    context.addFragmentsFromInFragment();
   }
 
   @override

@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:graphql/client.dart';
 import 'package:http/http.dart' as http;
+import 'package:gql/ast.dart' as gql;
 
 const String introspectionQuery = '''
   query IntrospectionQuery {
@@ -101,13 +104,12 @@ Future<String> fetchGraphQLSchemaStringFromURL(
 }) async {
   final httpClient = client ?? http.Client();
 
-  final response = await httpClient.post(
-    Uri.parse(graphqlEndpoint),
-    body: {
-      'operationName': 'IntrospectionQuery',
-      'query': introspectionQuery,
-    },
-  );
+  final response = await httpClient.post(Uri.parse(graphqlEndpoint),
+      body: jsonEncode({
+        'operationName': 'IntrospectionQuery',
+        'query': introspectionQuery,
+      }),
+      headers: {'Content-Type': 'application/json'});
 
   return response.body;
 }

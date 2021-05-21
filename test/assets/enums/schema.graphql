@@ -7,4 +7,5 @@ enum Enum {
     FOO
     BAR
     BAZ_BOB
+    VOID
 }

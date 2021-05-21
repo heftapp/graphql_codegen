@@ -1,19 +1,20 @@
+import 'dart:collection';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
-import 'package:recase/recase.dart';
 
 class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
-  final FragmentDefinitionNode fragment;
+  final FragmentDefinitionNode? fragment;
   final Name path;
 
   ContextFragment(
     Schema<TKey> schema,
-    FragmentDefinitionNode fragment,
+    Name path,
     TypeDefinitionNode currentType,
     Map<String, Context> contexts, {
-    Name? path,
+    FragmentDefinitionNode? fragment,
   })  : this.fragment = fragment,
-        this.path = path ?? Name.fromSegment(FragmentNameSegment(fragment)),
+        this.path = path,
         super(
           schema: schema,
           currentType: currentType,
@@ -24,15 +25,14 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
   ContextFragment<TKey> withNameAndType(
     NameSegment name,
     TypeDefinitionNode currentType, {
-    FragmentDefinitionNode? inFragment,
+    Name? inFragment,
     Name? possibleTypeOf,
   }) {
     final c = ContextFragment(
       schema,
-      fragment,
+      path.withSegment(name),
       currentType,
       _contexts,
-      path: path.withSegment(name),
     );
     _addContext(c);
     return c;
@@ -189,32 +189,34 @@ class Schema<TKey> {
 
 class ContextProperty {
   final TypeNode type;
-  final NameNode nameNode;
+  final NameNode _name;
   final NameNode? alias;
   final Name? path;
   final bool isEnum;
+
+  NameNode get name => alias ?? _name;
 
   ContextProperty({
     this.path,
     this.isEnum = false,
     this.alias,
     required this.type,
-    required this.nameNode,
-  });
+    required NameNode name,
+  }) : _name = name;
 
   ContextProperty.fromFieldNode(
     FieldNode node, {
     this.path,
     this.isEnum = false,
     required this.type,
-  })   : nameNode = node.name,
+  })   : _name = node.name,
         alias = node.alias;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
     this.path,
     this.isEnum = false,
-  })  : nameNode = node.name,
+  })  : _name = node.name,
         type = node.type,
         alias = null;
 
@@ -222,17 +224,13 @@ class ContextProperty {
     VariableDefinitionNode node, {
     this.path,
     this.isEnum = false,
-  })  : nameNode = node.variable.name,
+  })  : _name = node.variable.name,
         type = node.type,
         alias = null;
 
-  String get name => ReCase(originalName).camelCase;
+  String get _key => name.value;
 
-  String get originalName => alias?.value ?? nameNode.value;
-
-  bool get isRenamed => name != originalName;
-
-  bool get isTypenameField => nameNode.value == "__typename";
+  bool get isTypenameField => _name.value == "__typename";
 
   bool get isRequired => type.isNonNull;
 }
@@ -248,13 +246,14 @@ class TypedName {
 
 abstract class Context<TKey, TType extends TypeDefinitionNode> {
   Context({
-    this.inFragment = null,
     required this.schema,
     Map<String, Context>? contexts,
     TType? currentType,
     this.possibleTypeOf,
+    Queue<Name>? inFragment,
   })  : _currentType = currentType,
-        _contexts = contexts ?? {};
+        _contexts = contexts ?? {},
+        _inFragment = inFragment ?? ListQueue();
 
   final Schema<TKey> schema;
   final Map<String, Context> _contexts;
@@ -263,7 +262,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   final TType? _currentType;
 
   final Name? possibleTypeOf;
-  final Name? inFragment;
+
+//   Name? get inFragment => _inFragment;
+
+  Queue<Name> _inFragment;
 
   final Map<String, Name> _fragments = {};
   final Map<String, TypedName> _possibleTypeNames = {};
@@ -301,9 +303,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   ) {
     final c = ContextFragment(
       schema,
-      node,
+      Name.fromSegment(FragmentNameSegment(node)),
       type,
       _contexts,
+      fragment: node,
     );
     _addContext(c);
     return c;
@@ -356,17 +359,32 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   }
 
   void addProperty(ContextProperty property) {
-    if (_properties[property.name] != null) {
+    if (_properties[property._key] != null) {
       return;
     }
-    _properties[property.name] = property;
+    _properties[property._key] = property;
   }
 
   void addVariable(ContextProperty property) {
-    if (_variables[property.name] != null) {
+    if (_variables[property._key] != null) {
       return;
     }
-    _variables[property.name] = property;
+    _variables[property._key] = property;
+  }
+
+  void visitInFragment(
+    FragmentDefinitionNode fragmentDef,
+    void Function() visitor,
+  ) {
+    this
+        ._inFragment
+        .addLast(Name.fromSegment(FragmentNameSegment(fragmentDef)));
+    visitor();
+    this._inFragment.removeLast();
+  }
+
+  void addFragmentsFromInFragment() {
+    _fragments.addEntries(_inFragment.map((e) => MapEntry(e._key, e)));
   }
 
   Iterable<ContextProperty> get properties => _properties.values;
@@ -382,16 +400,16 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
           ) !=
       null;
 
-  Iterable<ContextProperty> get publicProperties => _properties.values
-      .where((element) => !element.originalName.startsWith("_"));
+  Iterable<ContextProperty> get publicProperties =>
+      _properties.values.where((element) => !element._key.startsWith("_"));
 
   Name get path => throw StateError("Path not available");
 
   Context withNameAndType(
     NameSegment name,
     TypeDefinitionNode currentType, {
-    FragmentDefinitionNode? inFragment,
     Name? possibleTypeOf,
+    Name? inFragment,
   }) {
     throw new StateError('withNameAndType not supported');
   }
@@ -409,6 +427,14 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
         );
   Iterable<ContextOperation> get contextOperations =>
       _contexts.values.whereType<ContextOperation>();
+
+  bool get hasOperation =>
+      _contexts.values.whereType<ContextOperation>().isNotEmpty;
+
+  bool get hasMutation => _contexts.values
+      .whereType<ContextOperation>()
+      .where((element) => element.operation?.type == OperationType.mutation)
+      .isNotEmpty;
 
   Iterable<ContextFragment> get contextFragments =>
       _contexts.values.whereType<ContextFragment>();
@@ -467,12 +493,12 @@ class ContextInput<TKey> extends Context<TKey, InputObjectTypeDefinitionNode> {
 class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
   final Name path;
   ContextOperation({
+    Queue<Name>? inFragment,
     required Name path,
     required Schema<TKey> schema,
     required Map<String, Context> contexts,
     required TypeDefinitionNode currentType,
     Name? possibleTypeOf,
-    Name? inFragment,
   })  : this.path = path,
         super(
           schema: schema,
@@ -485,18 +511,18 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
   ContextOperation withNameAndType(
     NameSegment name,
     TypeDefinitionNode currentType, {
-    FragmentDefinitionNode? inFragment,
+    Name? inFragment,
     Name? possibleTypeOf,
   }) {
     final path = this.path.withSegment(name);
     final existingContext = _lookupContextOperation(path);
     if (existingContext != null) return existingContext;
-    final currentInFragment = this.inFragment;
-    final newInFragment = inFragment != null
-        ? Name.fromSegment(FragmentNameSegment(inFragment))
-        : (currentInFragment == null
-            ? null
-            : currentInFragment.withSegment(name));
+    final newInFragment = ListQueue.of(
+      [
+        ..._inFragment.map((e) => e.withSegment(name)),
+        if (inFragment != null) inFragment,
+      ],
+    );
     final c = ContextOperation(
       path: path,
       schema: schema,
@@ -533,12 +559,14 @@ class Name {
         segment,
       );
 
-  String get _key => segments.map((e) => e.key).join(r"$");
+  String get _key => segments.map((e) => e._key).join(r"$");
 
   Name withSegment(NameSegment segment) => Name(
         (segments.toBuilder()..add(segment)).build(),
         baseNameSegment,
       );
+
+  bool get isRoot => segments.length == 1;
 
   bool operator ==(Object other) => other is Name && other._key == _key;
   @override
@@ -550,28 +578,33 @@ abstract class NameSegment {
 
   NameSegment(this.name);
 
-  String get key;
+  String get _key;
+
+  bool operator ==(Object other) => other is NameSegment && other._key == _key;
+
+  @override
+  int get hashCode => _key.hashCode;
 }
 
 class EnumNameSegment extends NameSegment {
   EnumNameSegment(EnumTypeDefinitionNode tpe) : super(tpe.name);
 
   @override
-  String get key => "E${name.value}";
+  String get _key => "E${name.value}";
 }
 
 class InputNameSegment extends NameSegment {
   InputNameSegment(InputObjectTypeDefinitionNode tpe) : super(tpe.name);
 
   @override
-  String get key => "I${name.value}";
+  String get _key => "I${name.value}";
 }
 
 class FieldNameSegment extends NameSegment {
   FieldNameSegment(FieldNode name) : super(name.alias ?? name.name);
 
   @override
-  String get key => "f${name.value}";
+  String get _key => "f${name.value}";
 }
 
 class TypeNameSegment extends NameSegment {
@@ -579,7 +612,7 @@ class TypeNameSegment extends NameSegment {
       : super(typeCondition.on.name);
 
   @override
-  String get key => "t${name.value}";
+  String get _key => "t${name.value}";
 }
 
 class OperationNameSegment extends NameSegment {
@@ -589,7 +622,7 @@ class OperationNameSegment extends NameSegment {
         super(name.name!);
 
   @override
-  String get key {
+  String get _key {
     switch (node.type) {
       case OperationType.mutation:
         return "M${name.value}";
@@ -605,5 +638,5 @@ class FragmentNameSegment extends NameSegment {
   FragmentNameSegment(FragmentDefinitionNode node) : super(node.name);
 
   @override
-  String get key => "F${name.value}";
+  String get _key => "F${name.value}";
 }

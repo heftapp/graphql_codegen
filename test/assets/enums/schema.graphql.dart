@@ -7,5 +7,7 @@ enum EnumEnum {
   bar,
   @JsonValue('BAZ_BOB')
   bazBob,
+  @JsonValue('VOID')
+  $void,
   $unknown
 }
