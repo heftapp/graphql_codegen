@@ -4,6 +4,7 @@ import 'package:build/build.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/config.dart';
 import 'package:graphql_codegen/printer/printer.dart';
 import 'package:graphql_codegen/context.dart';
 import 'package:graphql_codegen/visitor/context_visitor.dart';
@@ -12,11 +13,11 @@ Library _generateDocument<TKey>(
   Schema<TKey> schema,
   DocumentNode entry,
   TKey key,
-  Set<String> clients,
+  BuildConfig config,
 ) {
   final context = ContextRoot<TKey>(schema: schema, key: key);
   entry.accept(ContextVisitor(context: context));
-  return printRootContext(context, clients);
+  return printRootContext(context, config);
 }
 
 class GenerateResult<TKey> {
@@ -25,7 +26,9 @@ class GenerateResult<TKey> {
 }
 
 FutureOr<GenerateResult<TKey>> generate<TKey>(
-    Schema<TKey> schema, BuilderOptions options) async {
+  Schema<TKey> schema,
+  BuildConfig config,
+) async {
   final entries = schema.entries.map(
     (key, value) => MapEntry<TKey, Library>(
       key,
@@ -33,9 +36,7 @@ FutureOr<GenerateResult<TKey>> generate<TKey>(
         schema,
         value,
         key,
-        ((options.config['clients'] ?? <String>[]) as List<dynamic>)
-            .whereType<String>()
-            .toSet(),
+        config,
       ),
     ),
   );

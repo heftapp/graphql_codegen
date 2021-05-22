@@ -32,13 +32,7 @@ class GraphQLBuilder extends Builder {
             ),
           )
           .toList();
-      return await generate<AssetId>(
-        Schema<AssetId>(
-          BuiltMap.of(Map.fromEntries(entries)),
-          (id) => "${id.path}.dart",
-        ),
-        options,
-      );
+      throw new UnsupportedError('');
     }));
     final targetAsset = buildStep.inputId.addExtension('.dart');
     _writeProgram(

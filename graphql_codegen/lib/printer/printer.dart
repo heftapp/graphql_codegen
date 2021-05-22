@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/config.dart';
 import 'package:graphql_codegen/errors.dart';
 import 'package:graphql_codegen/printer/clients/graphql.dart';
 import 'package:graphql_codegen/printer/clients/graphql_flutter.dart';
@@ -140,7 +141,7 @@ Spec printFragmentDefinition(
   );
 }
 
-Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
+Library printRootContext<TKey>(ContextRoot<TKey> context, BuildConfig config) {
   final currentPath = context.schema.lookupPath(context.key);
   final containsJsonSerializable =
       context.contextOperations.isNotEmpty || context.contextInputs.isNotEmpty;
@@ -149,8 +150,10 @@ Library printRootContext<TKey>(ContextRoot<TKey> context, Set<String> clients) {
       containsJsonSerializable || context.contextEnums.isNotEmpty;
   final containsDocument = context.contextOperations.isNotEmpty ||
       context.contextFragments.isNotEmpty;
-  final graphQLClientEnabled = clients.contains('graphql');
-  final graphQLFlutterClientEnabled = clients.contains('graphql_flutter');
+  final graphQLClientEnabled =
+      config.clients.contains(BuildConfigClient.graphql);
+  final graphQLFlutterClientEnabled =
+      config.clients.contains(BuildConfigClient.graphqlFlutter);
   return Library(
     (b) => b
       ..directives = ListBuilder([
