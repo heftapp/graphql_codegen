@@ -4,7 +4,7 @@ import 'package:build/build.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/config.dart';
+import 'package:graphql_codegen_config/config.dart';
 import 'package:graphql_codegen/printer/printer.dart';
 import 'package:graphql_codegen/context.dart';
 import 'package:graphql_codegen/visitor/context_visitor.dart';
