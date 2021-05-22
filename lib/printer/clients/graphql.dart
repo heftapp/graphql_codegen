@@ -21,23 +21,6 @@ Spec printOnMutationCompleted(ContextOperation context) => FunctionType(
         ),
     ).toTypeDef(printGraphQLClientOnMutationCompleteName(context.path));
 
-Spec printOnMutationUpdate(ContextOperation context) => FunctionType(
-      (b) => b
-        ..requiredParameters = ListBuilder([
-          refer('graphql.GraphQLDataProxy'),
-          TypeReference(
-            (b) => b
-              ..symbol = printGraphQLClientResultName(context.path)
-              ..isNullable = true,
-          )
-        ])
-        ..returnType = TypeReference(
-          (b) => b
-            ..symbol = 'FutureOr'
-            ..types = ListBuilder([refer("void")]),
-        ),
-    ).toTypeDef(printGraphQLClientOnMutationUpdateName(context.path));
-
 Spec printQueryOptions(ContextOperation context) {
   return Class(
     (b) => b
@@ -124,10 +107,12 @@ Parameter printOptionsParameter(
         ),
     );
 
-Spec printMutationOptions(ContextOperation context) {
+Spec printMutationOptions(ContextOperation context,
+    {String? name, bool disableVariables = false}) {
+  final hasVariables = !disableVariables && context.hasVariables;
   return Class(
     (b) => b
-      ..name = printGraphQLClientOptionsName(context.path)
+      ..name = name ?? printGraphQLClientOptionsName(context.path)
       ..extend = refer("graphql.MutationOptions")
       ..constructors = ListBuilder([
         Constructor(
@@ -135,7 +120,7 @@ Spec printMutationOptions(ContextOperation context) {
             ..optionalParameters = ListBuilder(
               [
                 printOptionsParameter('operationName', 'String'),
-                if (context.hasVariables)
+                if (hasVariables)
                   printOptionsParameter(
                     'variables',
                     printVariableClassName(context.path),
@@ -167,7 +152,7 @@ Spec printMutationOptions(ContextOperation context) {
                 ),
                 printOptionsParameter(
                   'update',
-                  printGraphQLClientOnMutationUpdateName(context.path),
+                  'graphql.OnMutationUpdate',
                 ),
                 printOptionsParameter(
                   'onError',
@@ -177,9 +162,9 @@ Spec printMutationOptions(ContextOperation context) {
             )
             ..initializers = ListBuilder([
               refer('super').call([], {
-                if (context.hasVariables && context.isVariablesRequired)
+                if (hasVariables && context.isVariablesRequired)
                   'variables': refer('variables').property('toJson').call([])
-                else if (context.hasVariables)
+                else if (hasVariables)
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
@@ -210,94 +195,12 @@ Spec printMutationOptions(ContextOperation context) {
                       ]).code,
                   ).closure,
                 ),
-                'update': printNullCheck(
-                  refer('update'),
-                  Method(
-                    (b) => b
-                      ..lambda = true
-                      ..requiredParameters = ListBuilder([
-                        Parameter((b) => b..name = 'cache'),
-                        Parameter((b) => b..name = 'result'),
-                      ])
-                      ..body = refer('update').call([
-                        refer('cache'),
-                        printNullCheck(
-                          refer('result'),
-                          refer(printGraphQLClientResultName(context.path))
-                              .call(
-                            [refer('result')],
-                          ),
-                        )
-                      ]).code,
-                  ).closure,
-                ),
+                'update': refer('update'),
                 'onError': refer('onError'),
                 'document': refer(printOperationDocumentName(context.path))
               }).code,
             ]),
         ),
-      ]),
-  );
-}
-
-Expression printNullCheck(Reference variable, Expression whenNotNull) =>
-    variable.equalTo(literalNull).conditional(literalNull, whenNotNull);
-
-Spec printResult(ContextOperation context) {
-  return Class(
-    (b) => b
-      ..name = printGraphQLClientResultName(context.path)
-      ..fields = ListBuilder([
-        Field(
-          (b) => b
-            ..name = "result"
-            ..modifier = FieldModifier.final$
-            ..type = refer("graphql.QueryResult"),
-        ),
-        Field(
-          (b) => b
-            ..name = "parsedData"
-            ..modifier = FieldModifier.final$
-            ..type = TypeReference(
-              (b) => b
-                ..symbol = printClassName(context.path)
-                ..isNullable = true,
-            ),
-        ),
-      ])
-      ..constructors = ListBuilder([
-        Constructor(
-          (b) => b
-            ..name = '_'
-            ..requiredParameters = ListBuilder([
-              Parameter(
-                (b) => b
-                  ..name = "result"
-                  ..toThis = true,
-              ),
-              Parameter(
-                (b) => b
-                  ..name = "parsedData"
-                  ..toThis = true,
-              ),
-            ]),
-        ),
-        Constructor(
-          (b) => b
-            ..factory = true
-            ..requiredParameters = ListBuilder([
-              Parameter(
-                (b) => b
-                  ..name = "result"
-                  ..type = refer("graphql.QueryResult"),
-              )
-            ])
-            ..body = Code("""
-            final data = result.data;
-            final parsedData = data == null ? null : ${printClassName(context.path)}.fromJson(data);
-            return ${printGraphQLClientResultName(context.path)}._(result, parsedData);
-            """),
-        )
       ]),
   );
 }
@@ -329,22 +232,53 @@ Spec printMutationExtension(ContextOperation context) {
             ..optionalParameters = ListBuilder([
               if (!isOptionsRequired) optionsParameter,
             ])
-            ..body = refer(printGraphQLClientResultName(context.path)).call([
-              refer("this").property("mutate").call([
-                if (isOptionsRequired)
-                  refer("options")
-                else
-                  refer("options").ifNullThen(
-                    refer(printGraphQLClientOptionsName(context.path)).call([]),
-                  )
-              ]).awaited
-            ]).code
+            ..body = refer("this")
+                .property("mutate")
+                .call([
+                  if (isOptionsRequired)
+                    refer("options")
+                  else
+                    refer("options").ifNullThen(
+                      refer(printGraphQLClientOptionsName(context.path))
+                          .call([]),
+                    )
+                ])
+                .awaited
+                .code
             ..returns = TypeReference(
               (b) => b
                 ..symbol = "Future"
-                ..types = ListBuilder(
-                    [refer(printGraphQLClientResultName(context.path))]),
+                ..types = ListBuilder([refer('graphql.QueryResult')]),
             ),
+        ),
+      ]),
+  );
+}
+
+Spec printResultExtension(ContextOperation context) {
+  return Extension(
+    (b) => b
+      ..name = printGraphQLClientResultExtensionName(context.path)
+      ..on = refer('graphql.QueryResult')
+      ..methods = ListBuilder([
+        Method(
+          (b) => b
+            ..type = MethodType.getter
+            ..name = printGraphQLClientResultExtensionGetterName(context.path)
+            ..returns = TypeReference(
+              (b) => b
+                ..symbol = printClassName(context.path)
+                ..isNullable = true,
+            )
+            ..body = Block.of([
+              refer("this").property("data").assignFinal("data").statement,
+              printNullCheck(
+                refer('data'),
+                refer(printClassName(context.path))
+                    .property('fromJson')
+                    .call([refer('data')]),
+              ).returned.statement,
+            ]),
         ),
       ]),
   );
@@ -377,21 +311,23 @@ Spec printQueryExtension(ContextOperation context) {
             ..optionalParameters = ListBuilder([
               if (!isOptionsRequired) optionsParameter,
             ])
-            ..body = refer(printGraphQLClientResultName(context.path)).call([
-              refer("this").property("query").call([
-                if (isOptionsRequired)
-                  refer("options")
-                else
-                  refer("options").ifNullThen(
-                    refer(printGraphQLClientOptionsName(context.path)).call([]),
-                  )
-              ]).awaited
-            ]).code
+            ..body = refer("this")
+                .property("query")
+                .call([
+                  if (isOptionsRequired)
+                    refer("options")
+                  else
+                    refer("options").ifNullThen(
+                      refer(printGraphQLClientOptionsName(context.path))
+                          .call([]),
+                    )
+                ])
+                .awaited
+                .code
             ..returns = TypeReference(
               (b) => b
                 ..symbol = "Future"
-                ..types = ListBuilder(
-                    [refer(printGraphQLClientResultName(context.path))]),
+                ..types = ListBuilder([refer('graphql.QueryResult')]),
             ),
         ),
       ]),
@@ -401,18 +337,17 @@ Spec printQueryExtension(ContextOperation context) {
 Iterable<Spec> printMutation(ContextOperation context) {
   return [
     printOnMutationCompleted(context),
-    printOnMutationUpdate(context),
     printMutationOptions(context),
-    printResult(context),
-    printMutationExtension(context)
+    printMutationExtension(context),
+    printResultExtension(context),
   ];
 }
 
 Iterable<Spec> printQuery(ContextOperation context) {
   return [
     printQueryOptions(context),
-    printResult(context),
     printQueryExtension(context),
+    printResultExtension(context),
   ];
 }
 

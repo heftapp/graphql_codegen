@@ -6,7 +6,7 @@ abstract class FragmentF {
   FragmentF$other? get other;
 }
 
-const FRAGMENT_FRAGMENT_F = const FragmentDefinitionNode(
+const FRAGMENT_F = const FragmentDefinitionNode(
     name: NameNode(value: 'F'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false)),
@@ -38,7 +38,7 @@ abstract class FragmentF2 {
   FragmentF2$other? get other;
 }
 
-const FRAGMENT_FRAGMENT_F2 = const FragmentDefinitionNode(
+const FRAGMENT_F2 = const FragmentDefinitionNode(
     name: NameNode(value: 'F2'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false)),
@@ -66,7 +66,7 @@ abstract class FragmentF3 {
   FragmentF3$other? get other;
 }
 
-const FRAGMENT_FRAGMENT_F3 = const FragmentDefinitionNode(
+const FRAGMENT_F3 = const FragmentDefinitionNode(
     name: NameNode(value: 'F3'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false)),
@@ -90,7 +90,7 @@ abstract class FragmentF4 {
   String? get name;
 }
 
-const FRAGMENT_FRAGMENT_F4 = const FragmentDefinitionNode(
+const FRAGMENT_F4 = const FragmentDefinitionNode(
     name: NameNode(value: 'F4'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false)),
@@ -118,7 +118,7 @@ class QueryFetch extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFetchToJson(this);
 }
 
-const DOCUMENT_QUERY_FETCH = const DocumentNode(definitions: [
+const QUERY_FETCH = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Fetch'),
@@ -134,10 +134,10 @@ const DOCUMENT_QUERY_FETCH = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'F'), directives: [])
             ]))
       ])),
-  FRAGMENT_FRAGMENT_F,
-  FRAGMENT_FRAGMENT_F2,
-  FRAGMENT_FRAGMENT_F3,
-  FRAGMENT_FRAGMENT_F4,
+  FRAGMENT_F,
+  FRAGMENT_F2,
+  FRAGMENT_F3,
+  FRAGMENT_F4,
 ]);
 
 @JsonSerializable()

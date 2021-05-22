@@ -17,7 +17,7 @@ class QueryFetchName extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFetchNameToJson(this);
 }
 
-const DOCUMENT_QUERY_FETCH_NAME = const DocumentNode(definitions: [
+const QUERY_FETCH_NAME = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchName'),
@@ -33,7 +33,7 @@ const DOCUMENT_QUERY_FETCH_NAME = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'F'), directives: [])
             ]))
       ])),
-  FRAGMENT_FRAGMENT_F,
+  FRAGMENT_F,
 ]);
 
 @JsonSerializable()

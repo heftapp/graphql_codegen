@@ -6,7 +6,7 @@ abstract class FragmentFragmentA {
   String? get s;
 }
 
-const FRAGMENT_FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
+const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentA'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(
@@ -31,7 +31,7 @@ abstract class FragmentFragmentB {
   int? get i;
 }
 
-const FRAGMENT_FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
+const FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentB'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(
@@ -61,7 +61,7 @@ class QueryFetchImplementations extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFetchImplementationsToJson(this);
 }
 
-const DOCUMENT_QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
+const QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchImplementations'),
@@ -131,8 +131,8 @@ const DOCUMENT_QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
                   ]))
             ]))
       ])),
-  FRAGMENT_FRAGMENT_FRAGMENT_A,
-  FRAGMENT_FRAGMENT_FRAGMENT_B,
+  FRAGMENT_FRAGMENT_A,
+  FRAGMENT_FRAGMENT_B,
 ]);
 
 @JsonSerializable()

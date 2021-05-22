@@ -2,6 +2,6 @@ type Mutation {
   s(name: String): String
 }
 
-mutation UpdateSNoVariables {
+mutation UpdateSNo {
   s(name: "lol")
 }

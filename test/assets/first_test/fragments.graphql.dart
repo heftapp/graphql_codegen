@@ -4,7 +4,7 @@ abstract class FragmentF {
   String get name;
 }
 
-const FRAGMENT_FRAGMENT_F = const FragmentDefinitionNode(
+const FRAGMENT_F = const FragmentDefinitionNode(
     name: NameNode(value: 'F'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false)),

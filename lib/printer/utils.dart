@@ -1,3 +1,4 @@
+import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/printer/keywords.dart';
 import 'package:recase/recase.dart';
@@ -43,32 +44,44 @@ String _printNameSegment(NameSegment segment, {bool isAction = false}) {
 }
 
 String printOperationDocumentName(Name name) =>
-    ReCase("Document" + _printName(name)).constantCase;
+    ReCase(_printName(name)).constantCase;
 
 String printFragmentDocumentName(Name name) =>
-    ReCase("Fragment" + _printName(name)).constantCase;
+    ReCase(_printName(name)).constantCase;
 
 String printClassName(Name name) => _printName(name);
 
 String printVariableClassName(Name name) => "Variables${_printName(name)}";
 
 String printGraphQLClientOptionsName(Name name) =>
-    "GraphQLClientOptions${_printName(name)}";
+    "GQLOptions${_printName(name)}";
+
+String printGraphQLFlutterClientOptionsName(Name name) =>
+    "GQLFOptions${_printName(name)}";
+
+String printGraphQLFlutterClientRunMutationName(Name name) =>
+    "GQLFRunMutation${_printName(name)}";
+
+String printGraphQLFlutterClientBuilderName(Name name) =>
+    "GQLFBuilder${_printName(name)}";
+
+String printGraphQLFlutterClientMutationName(Name name) =>
+    "GQLF${_printName(name)}";
 
 String printGraphQLClientOnMutationCompleteName(Name name) =>
-    "GraphQLClientOnMutationCompleted${_printName(name)}";
-
-String printGraphQLClientOnMutationUpdateName(Name name) =>
-    "GraphQLClientOnMutationUpdate${_printName(name)}";
-
-String printGraphQLClientResultName(Name name) =>
-    "GraphQLClientResult${_printName(name)}";
+    "GQLOnMutationCompleted${_printName(name)}";
 
 String printGraphQLClientExtensionName(Name name) =>
-    "GraphQLClientExtension${_printName(name)}";
+    "GQLExtension${_printName(name)}";
+
+String printGraphQLClientResultExtensionName(Name name) =>
+    "GQLResultExtension${_printName(name)}";
 
 String printGraphQLClientExtensionMethodName(Name name) =>
     ReCase(_printName(name, isAction: true)).camelCase;
+
+String printGraphQLClientResultExtensionGetterName(Name name) =>
+    ReCase("parsedData" + _printName(name)).camelCase;
 
 String printFromJsonFactoryName(String name) => "_\$${name}FromJson";
 
@@ -82,3 +95,6 @@ String printEnumValueName(NameNode name) =>
 
 String printPropertyName(NameNode name) =>
     printKeywordSafe(ReCase(name.value).camelCase);
+
+Expression printNullCheck(Reference variable, Expression whenNotNull) =>
+    variable.equalTo(literalNull).conditional(literalNull, whenNotNull);

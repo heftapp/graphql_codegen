@@ -31,7 +31,7 @@ class QueryHiBob extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryHiBobToJson(this);
 }
 
-const DOCUMENT_QUERY_HI_BOB = const DocumentNode(definitions: [
+const QUERY_HI_BOB = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'HiBob'),

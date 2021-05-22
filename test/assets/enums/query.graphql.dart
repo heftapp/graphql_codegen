@@ -21,7 +21,7 @@ class QueryFoobar extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFoobarToJson(this);
 }
 
-const DOCUMENT_QUERY_FOOBAR = const DocumentNode(definitions: [
+const QUERY_FOOBAR = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Foobar'),

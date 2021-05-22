@@ -32,7 +32,7 @@ class QueryFetchSOptional extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFetchSOptionalToJson(this);
 }
 
-const DOCUMENT_QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
+const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSOptional'),
@@ -59,8 +59,8 @@ const DOCUMENT_QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GraphQLClientOptionsQueryFetchSOptional extends graphql.QueryOptions {
-  GraphQLClientOptionsQueryFetchSOptional(
+class GQLOptionsQueryFetchSOptional extends graphql.QueryOptions {
+  GQLOptionsQueryFetchSOptional(
       {String? operationName,
       VariablesQueryFetchSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -78,28 +78,20 @@ class GraphQLClientOptionsQueryFetchSOptional extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: DOCUMENT_QUERY_FETCH_S_OPTIONAL);
+            document: QUERY_FETCH_S_OPTIONAL);
 }
 
-class GraphQLClientResultQueryFetchSOptional {
-  GraphQLClientResultQueryFetchSOptional._(this.result, this.parsedData);
+extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
+  Future<graphql.QueryResult> queryFetchSOptional(
+          [GQLOptionsQueryFetchSOptional? options]) async =>
+      await this.query(options ?? GQLOptionsQueryFetchSOptional());
+}
 
-  factory GraphQLClientResultQueryFetchSOptional(graphql.QueryResult result) {
-    final data = result.data;
-    final parsedData = data == null ? null : QueryFetchSOptional.fromJson(data);
-    return GraphQLClientResultQueryFetchSOptional._(result, parsedData);
+extension GQLResultExtensionQueryFetchSOptional on graphql.QueryResult {
+  QueryFetchSOptional? get parsedDataQueryFetchSOptional {
+    final data = this.data;
+    return data == null ? null : QueryFetchSOptional.fromJson(data);
   }
-
-  final graphql.QueryResult result;
-
-  final QueryFetchSOptional? parsedData;
-}
-
-extension GraphQLClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
-  Future<GraphQLClientResultQueryFetchSOptional> queryFetchSOptional(
-          [GraphQLClientOptionsQueryFetchSOptional? options]) async =>
-      GraphQLClientResultQueryFetchSOptional(await this
-          .query(options ?? GraphQLClientOptionsQueryFetchSOptional()));
 }
 
 @JsonSerializable()
@@ -130,7 +122,7 @@ class QueryFetchSRequired extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
 }
 
-const DOCUMENT_QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
+const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSRequired'),
@@ -157,8 +149,8 @@ const DOCUMENT_QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GraphQLClientOptionsQueryFetchSRequired extends graphql.QueryOptions {
-  GraphQLClientOptionsQueryFetchSRequired(
+class GQLOptionsQueryFetchSRequired extends graphql.QueryOptions {
+  GQLOptionsQueryFetchSRequired(
       {String? operationName,
       required VariablesQueryFetchSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -176,27 +168,20 @@ class GraphQLClientOptionsQueryFetchSRequired extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: DOCUMENT_QUERY_FETCH_S_REQUIRED);
+            document: QUERY_FETCH_S_REQUIRED);
 }
 
-class GraphQLClientResultQueryFetchSRequired {
-  GraphQLClientResultQueryFetchSRequired._(this.result, this.parsedData);
+extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
+  Future<graphql.QueryResult> queryFetchSRequired(
+          GQLOptionsQueryFetchSRequired options) async =>
+      await this.query(options);
+}
 
-  factory GraphQLClientResultQueryFetchSRequired(graphql.QueryResult result) {
-    final data = result.data;
-    final parsedData = data == null ? null : QueryFetchSRequired.fromJson(data);
-    return GraphQLClientResultQueryFetchSRequired._(result, parsedData);
+extension GQLResultExtensionQueryFetchSRequired on graphql.QueryResult {
+  QueryFetchSRequired? get parsedDataQueryFetchSRequired {
+    final data = this.data;
+    return data == null ? null : QueryFetchSRequired.fromJson(data);
   }
-
-  final graphql.QueryResult result;
-
-  final QueryFetchSRequired? parsedData;
-}
-
-extension GraphQLClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
-  Future<GraphQLClientResultQueryFetchSRequired> queryFetchSRequired(
-          GraphQLClientOptionsQueryFetchSRequired options) async =>
-      GraphQLClientResultQueryFetchSRequired(await this.query(options));
 }
 
 @JsonSerializable()
@@ -213,7 +198,7 @@ class QueryFetchSNoVariables extends JsonSerializable {
   Map<String, dynamic> toJson() => _$QueryFetchSNoVariablesToJson(this);
 }
 
-const DOCUMENT_QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
+const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSNoVariables'),
@@ -233,8 +218,8 @@ const DOCUMENT_QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GraphQLClientOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
-  GraphQLClientOptionsQueryFetchSNoVariables(
+class GQLOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
+  GQLOptionsQueryFetchSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -250,31 +235,20 @@ class GraphQLClientOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: DOCUMENT_QUERY_FETCH_S_NO_VARIABLES);
+            document: QUERY_FETCH_S_NO_VARIABLES);
 }
 
-class GraphQLClientResultQueryFetchSNoVariables {
-  GraphQLClientResultQueryFetchSNoVariables._(this.result, this.parsedData);
+extension GQLExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
+  Future<graphql.QueryResult> queryFetchSNoVariables(
+          [GQLOptionsQueryFetchSNoVariables? options]) async =>
+      await this.query(options ?? GQLOptionsQueryFetchSNoVariables());
+}
 
-  factory GraphQLClientResultQueryFetchSNoVariables(
-      graphql.QueryResult result) {
-    final data = result.data;
-    final parsedData =
-        data == null ? null : QueryFetchSNoVariables.fromJson(data);
-    return GraphQLClientResultQueryFetchSNoVariables._(result, parsedData);
+extension GQLResultExtensionQueryFetchSNoVariables on graphql.QueryResult {
+  QueryFetchSNoVariables? get parsedDataQueryFetchSNoVariables {
+    final data = this.data;
+    return data == null ? null : QueryFetchSNoVariables.fromJson(data);
   }
-
-  final graphql.QueryResult result;
-
-  final QueryFetchSNoVariables? parsedData;
-}
-
-extension GraphQLClientExtensionQueryFetchSNoVariables
-    on graphql.GraphQLClient {
-  Future<GraphQLClientResultQueryFetchSNoVariables> queryFetchSNoVariables(
-          [GraphQLClientOptionsQueryFetchSNoVariables? options]) async =>
-      GraphQLClientResultQueryFetchSNoVariables(await this
-          .query(options ?? GraphQLClientOptionsQueryFetchSNoVariables()));
 }
 
 @JsonSerializable()
@@ -307,7 +281,7 @@ class MutationUpdateSOptional extends JsonSerializable {
   Map<String, dynamic> toJson() => _$MutationUpdateSOptionalToJson(this);
 }
 
-const DOCUMENT_MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
+const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSOptional'),
@@ -333,15 +307,11 @@ const DOCUMENT_MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-typedef GraphQLClientOnMutationCompletedMutationUpdateSOptional = FutureOr<void>
-    Function(dynamic, MutationUpdateSOptional?);
-typedef GraphQLClientOnMutationUpdateMutationUpdateSOptional
-    = FutureOr<void> Function(
-        graphql.GraphQLDataProxy, GraphQLClientResultMutationUpdateSOptional?);
+typedef GQLOnMutationCompletedMutationUpdateSOptional = FutureOr<void> Function(
+    dynamic, MutationUpdateSOptional?);
 
-class GraphQLClientOptionsMutationUpdateSOptional
-    extends graphql.MutationOptions {
-  GraphQLClientOptionsMutationUpdateSOptional(
+class GQLOptionsMutationUpdateSOptional extends graphql.MutationOptions {
+  GQLOptionsMutationUpdateSOptional(
       {String? operationName,
       VariablesMutationUpdateSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -349,8 +319,8 @@ class GraphQLClientOptionsMutationUpdateSOptional
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GraphQLClientOnMutationCompletedMutationUpdateSOptional? onCompleted,
-      GraphQLClientOnMutationUpdateMutationUpdateSOptional? update,
+      GQLOnMutationCompletedMutationUpdateSOptional? onCompleted,
+      graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : super(
             variables: variables?.toJson() ?? {},
@@ -367,39 +337,22 @@ class GraphQLClientOptionsMutationUpdateSOptional
                     data == null
                         ? null
                         : MutationUpdateSOptional.fromJson(data)),
-            update: update == null
-                ? null
-                : (cache, result) => update(
-                    cache,
-                    result == null
-                        ? null
-                        : GraphQLClientResultMutationUpdateSOptional(result)),
+            update: update,
             onError: onError,
-            document: DOCUMENT_MUTATION_UPDATE_S_OPTIONAL);
+            document: MUTATION_UPDATE_S_OPTIONAL);
 }
 
-class GraphQLClientResultMutationUpdateSOptional {
-  GraphQLClientResultMutationUpdateSOptional._(this.result, this.parsedData);
+extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
+  Future<graphql.QueryResult> mutateUpdateSOptional(
+          [GQLOptionsMutationUpdateSOptional? options]) async =>
+      await this.mutate(options ?? GQLOptionsMutationUpdateSOptional());
+}
 
-  factory GraphQLClientResultMutationUpdateSOptional(
-      graphql.QueryResult result) {
-    final data = result.data;
-    final parsedData =
-        data == null ? null : MutationUpdateSOptional.fromJson(data);
-    return GraphQLClientResultMutationUpdateSOptional._(result, parsedData);
+extension GQLResultExtensionMutationUpdateSOptional on graphql.QueryResult {
+  MutationUpdateSOptional? get parsedDataMutationUpdateSOptional {
+    final data = this.data;
+    return data == null ? null : MutationUpdateSOptional.fromJson(data);
   }
-
-  final graphql.QueryResult result;
-
-  final MutationUpdateSOptional? parsedData;
-}
-
-extension GraphQLClientExtensionMutationUpdateSOptional
-    on graphql.GraphQLClient {
-  Future<GraphQLClientResultMutationUpdateSOptional> mutateUpdateSOptional(
-          [GraphQLClientOptionsMutationUpdateSOptional? options]) async =>
-      GraphQLClientResultMutationUpdateSOptional(await this
-          .mutate(options ?? GraphQLClientOptionsMutationUpdateSOptional()));
 }
 
 @JsonSerializable()
@@ -432,7 +385,7 @@ class MutationUpdateSRequired extends JsonSerializable {
   Map<String, dynamic> toJson() => _$MutationUpdateSRequiredToJson(this);
 }
 
-const DOCUMENT_MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
+const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSRequired'),
@@ -458,15 +411,11 @@ const DOCUMENT_MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-typedef GraphQLClientOnMutationCompletedMutationUpdateSRequired = FutureOr<void>
-    Function(dynamic, MutationUpdateSRequired?);
-typedef GraphQLClientOnMutationUpdateMutationUpdateSRequired
-    = FutureOr<void> Function(
-        graphql.GraphQLDataProxy, GraphQLClientResultMutationUpdateSRequired?);
+typedef GQLOnMutationCompletedMutationUpdateSRequired = FutureOr<void> Function(
+    dynamic, MutationUpdateSRequired?);
 
-class GraphQLClientOptionsMutationUpdateSRequired
-    extends graphql.MutationOptions {
-  GraphQLClientOptionsMutationUpdateSRequired(
+class GQLOptionsMutationUpdateSRequired extends graphql.MutationOptions {
+  GQLOptionsMutationUpdateSRequired(
       {String? operationName,
       required VariablesMutationUpdateSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -474,8 +423,8 @@ class GraphQLClientOptionsMutationUpdateSRequired
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GraphQLClientOnMutationCompletedMutationUpdateSRequired? onCompleted,
-      GraphQLClientOnMutationUpdateMutationUpdateSRequired? update,
+      GQLOnMutationCompletedMutationUpdateSRequired? onCompleted,
+      graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : super(
             variables: variables.toJson(),
@@ -492,38 +441,22 @@ class GraphQLClientOptionsMutationUpdateSRequired
                     data == null
                         ? null
                         : MutationUpdateSRequired.fromJson(data)),
-            update: update == null
-                ? null
-                : (cache, result) => update(
-                    cache,
-                    result == null
-                        ? null
-                        : GraphQLClientResultMutationUpdateSRequired(result)),
+            update: update,
             onError: onError,
-            document: DOCUMENT_MUTATION_UPDATE_S_REQUIRED);
+            document: MUTATION_UPDATE_S_REQUIRED);
 }
 
-class GraphQLClientResultMutationUpdateSRequired {
-  GraphQLClientResultMutationUpdateSRequired._(this.result, this.parsedData);
+extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
+  Future<graphql.QueryResult> mutateUpdateSRequired(
+          GQLOptionsMutationUpdateSRequired options) async =>
+      await this.mutate(options);
+}
 
-  factory GraphQLClientResultMutationUpdateSRequired(
-      graphql.QueryResult result) {
-    final data = result.data;
-    final parsedData =
-        data == null ? null : MutationUpdateSRequired.fromJson(data);
-    return GraphQLClientResultMutationUpdateSRequired._(result, parsedData);
+extension GQLResultExtensionMutationUpdateSRequired on graphql.QueryResult {
+  MutationUpdateSRequired? get parsedDataMutationUpdateSRequired {
+    final data = this.data;
+    return data == null ? null : MutationUpdateSRequired.fromJson(data);
   }
-
-  final graphql.QueryResult result;
-
-  final MutationUpdateSRequired? parsedData;
-}
-
-extension GraphQLClientExtensionMutationUpdateSRequired
-    on graphql.GraphQLClient {
-  Future<GraphQLClientResultMutationUpdateSRequired> mutateUpdateSRequired(
-          GraphQLClientOptionsMutationUpdateSRequired options) async =>
-      GraphQLClientResultMutationUpdateSRequired(await this.mutate(options));
 }
 
 @JsonSerializable()
@@ -540,8 +473,7 @@ class MutationUpdateSNoVariables extends JsonSerializable {
   Map<String, dynamic> toJson() => _$MutationUpdateSNoVariablesToJson(this);
 }
 
-const DOCUMENT_MUTATION_UPDATE_S_NO_VARIABLES =
-    const DocumentNode(definitions: [
+const MUTATION_UPDATE_S_NO_VARIABLES = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSNoVariables'),
@@ -560,23 +492,19 @@ const DOCUMENT_MUTATION_UPDATE_S_NO_VARIABLES =
             selectionSet: null)
       ])),
 ]);
-typedef GraphQLClientOnMutationCompletedMutationUpdateSNoVariables
-    = FutureOr<void> Function(dynamic, MutationUpdateSNoVariables?);
-typedef GraphQLClientOnMutationUpdateMutationUpdateSNoVariables
-    = FutureOr<void> Function(graphql.GraphQLDataProxy,
-        GraphQLClientResultMutationUpdateSNoVariables?);
+typedef GQLOnMutationCompletedMutationUpdateSNoVariables = FutureOr<void>
+    Function(dynamic, MutationUpdateSNoVariables?);
 
-class GraphQLClientOptionsMutationUpdateSNoVariables
-    extends graphql.MutationOptions {
-  GraphQLClientOptionsMutationUpdateSNoVariables(
+class GQLOptionsMutationUpdateSNoVariables extends graphql.MutationOptions {
+  GQLOptionsMutationUpdateSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GraphQLClientOnMutationCompletedMutationUpdateSNoVariables? onCompleted,
-      GraphQLClientOnMutationUpdateMutationUpdateSNoVariables? update,
+      GQLOnMutationCompletedMutationUpdateSNoVariables? onCompleted,
+      graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : super(
             operationName: operationName,
@@ -592,39 +520,20 @@ class GraphQLClientOptionsMutationUpdateSNoVariables
                     data == null
                         ? null
                         : MutationUpdateSNoVariables.fromJson(data)),
-            update: update == null
-                ? null
-                : (cache, result) => update(
-                    cache,
-                    result == null
-                        ? null
-                        : GraphQLClientResultMutationUpdateSNoVariables(
-                            result)),
+            update: update,
             onError: onError,
-            document: DOCUMENT_MUTATION_UPDATE_S_NO_VARIABLES);
+            document: MUTATION_UPDATE_S_NO_VARIABLES);
 }
 
-class GraphQLClientResultMutationUpdateSNoVariables {
-  GraphQLClientResultMutationUpdateSNoVariables._(this.result, this.parsedData);
+extension GQLExtensionMutationUpdateSNoVariables on graphql.GraphQLClient {
+  Future<graphql.QueryResult> mutateUpdateSNoVariables(
+          [GQLOptionsMutationUpdateSNoVariables? options]) async =>
+      await this.mutate(options ?? GQLOptionsMutationUpdateSNoVariables());
+}
 
-  factory GraphQLClientResultMutationUpdateSNoVariables(
-      graphql.QueryResult result) {
-    final data = result.data;
-    final parsedData =
-        data == null ? null : MutationUpdateSNoVariables.fromJson(data);
-    return GraphQLClientResultMutationUpdateSNoVariables._(result, parsedData);
+extension GQLResultExtensionMutationUpdateSNoVariables on graphql.QueryResult {
+  MutationUpdateSNoVariables? get parsedDataMutationUpdateSNoVariables {
+    final data = this.data;
+    return data == null ? null : MutationUpdateSNoVariables.fromJson(data);
   }
-
-  final graphql.QueryResult result;
-
-  final MutationUpdateSNoVariables? parsedData;
-}
-
-extension GraphQLClientExtensionMutationUpdateSNoVariables
-    on graphql.GraphQLClient {
-  Future<
-      GraphQLClientResultMutationUpdateSNoVariables> mutateUpdateSNoVariables(
-          [GraphQLClientOptionsMutationUpdateSNoVariables? options]) async =>
-      GraphQLClientResultMutationUpdateSNoVariables(await this
-          .mutate(options ?? GraphQLClientOptionsMutationUpdateSNoVariables()));
 }

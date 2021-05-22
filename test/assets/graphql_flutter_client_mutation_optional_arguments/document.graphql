@@ -1,0 +1,7 @@
+type Mutation {
+  s(name: String): String
+}
+
+mutation UpdateSOptional($name: String) {
+  s(name: $name)
+}

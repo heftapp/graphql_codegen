@@ -7,7 +7,6 @@ import 'package:graphql_codegen/printer/clients/graphql_flutter.dart';
 import 'package:graphql_codegen/utils.dart';
 import 'package:path/path.dart' as p;
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
-import 'package:recase/recase.dart';
 
 import 'utils.dart';
 
@@ -210,7 +209,9 @@ Iterable<Directive> printImports<TKey>(ContextRoot<TKey> context) {
       .map((e) => context.schema.lookupPathFromName(e))
       .whereType<String>()
       .where((element) => element != currentPath);
-  final relativePaths = paths.map((e) => p.relative(e, from: currentPathDir));
+  final relativePaths = {
+    ...paths.map((e) => p.relative(e, from: currentPathDir))
+  };
   return relativePaths.map((e) => Directive.import(e));
 }
 
