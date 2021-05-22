@@ -1,10 +1,12 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/printer/context.dart';
 import 'package:graphql_codegen/printer/utils.dart';
 import 'package:graphql_codegen/context.dart';
 
-Spec printOnMutationCompleted(ContextOperation context) => FunctionType(
+Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
+    FunctionType(
       (b) => b
         ..requiredParameters = ListBuilder([
           refer('dynamic'),
@@ -21,7 +23,8 @@ Spec printOnMutationCompleted(ContextOperation context) => FunctionType(
         ),
     ).toTypeDef(printGraphQLClientOnMutationCompleteName(context.path));
 
-Spec printQueryOptions(ContextOperation context) {
+Spec printQueryOptions(PrintContext<ContextOperation> c) {
+  final context = c.context;
   return Class(
     (b) => b
       ..name = printGraphQLClientOptionsName(context.path)
@@ -90,20 +93,9 @@ Spec printQueryOptions(ContextOperation context) {
   );
 }
 
-/* 
-    class GQLFetchMoreOptionsQueryUpdateSRequired extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryUpdateSRequired(
-      {required graphql.UpdateQuery updateQuery,
-      required VariablesQueryUpdateSRequired variables})
-      : super(
-            document: QUERY_UPDATE_S_REQUIRED,
-            variables: variables.toJson(),
-            updateQuery: updateQuery);
-}
-*/
-Spec printFetchMoreOptions(Context context) {
-  final hasVariables = context.hasVariables;
-  final areVariablesRequired = context.isVariablesRequired;
+Spec printFetchMoreOptions(PrintContext context) {
+  final hasVariables = context.context.hasVariables;
+  final areVariablesRequired = context.context.isVariablesRequired;
   return Class(
     (b) => b
       ..name = printGraphQLClientFetchMoreOptionsName(context.path)
@@ -170,8 +162,9 @@ Parameter printOptionsParameter(
         ),
     );
 
-Spec printMutationOptions(ContextOperation context,
+Spec printMutationOptions(PrintContext<ContextOperation> c,
     {String? name, bool disableVariables = false}) {
+  final context = c.context;
   final hasVariables = !disableVariables && context.hasVariables;
   return Class(
     (b) => b
@@ -268,8 +261,8 @@ Spec printMutationOptions(ContextOperation context,
   );
 }
 
-Spec printMutationExtension(ContextOperation context) {
-  final isOptionsRequired = context.isVariablesRequired;
+Spec printMutationExtension(PrintContext<ContextOperation> context) {
+  final isOptionsRequired = context.context.isVariablesRequired;
   final optionsParameter = Parameter(
     (b) => b
       ..name = "options"
@@ -318,7 +311,7 @@ Spec printMutationExtension(ContextOperation context) {
   );
 }
 
-Spec printResultExtension(ContextOperation context) {
+Spec printResultExtension(PrintContext<ContextOperation> context) {
   return Extension(
     (b) => b
       ..name = printGraphQLClientResultExtensionName(context.path)
@@ -347,8 +340,8 @@ Spec printResultExtension(ContextOperation context) {
   );
 }
 
-Spec printQueryExtension(ContextOperation context) {
-  final isOptionsRequired = context.isVariablesRequired;
+Spec printQueryExtension(PrintContext<ContextOperation> context) {
+  final isOptionsRequired = context.context.isVariablesRequired;
   final optionsParameter = Parameter(
     (b) => b
       ..name = "options"
@@ -397,7 +390,12 @@ Spec printQueryExtension(ContextOperation context) {
   );
 }
 
-Iterable<Spec> printMutation(ContextOperation context) {
+Iterable<Spec> printMutation(PrintContext<ContextOperation> context) {
+  context.addPackage('dart:async');
+  context.addPackage(
+    'package:graphql/client.dart',
+    'graphql',
+  );
   return [
     printOnMutationCompleted(context),
     printMutationOptions(context),
@@ -406,7 +404,11 @@ Iterable<Spec> printMutation(ContextOperation context) {
   ];
 }
 
-Iterable<Spec> printQuery(ContextOperation context) {
+Iterable<Spec> printQuery(PrintContext<ContextOperation> context) {
+  context.addPackage(
+    'package:graphql/client.dart',
+    'graphql',
+  );
   return [
     printQueryOptions(context),
     printFetchMoreOptions(context),
@@ -416,28 +418,16 @@ Iterable<Spec> printQuery(ContextOperation context) {
 }
 
 Iterable<Spec> printGraphQLClientSpecs(
-  ContextOperation context,
+  PrintContext<ContextOperation> c,
 ) {
+  final context = c.context;
   final operation = context.operation;
   switch (operation?.type) {
     case OperationType.mutation:
-      return printMutation(context);
+      return printMutation(c);
     case OperationType.query:
-      return printQuery(context);
+      return printQuery(c);
     default:
       return [];
   }
-}
-
-Iterable<Directive> printGraphQLDirectives(
-  ContextRoot context,
-) {
-  if (!context.hasOperation) return [];
-  return [
-    if (context.hasMutation) Directive.import('dart:async'),
-    Directive.import(
-      'package:graphql/client.dart',
-      as: 'graphql',
-    )
-  ];
 }

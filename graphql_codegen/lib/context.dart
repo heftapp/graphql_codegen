@@ -2,20 +2,25 @@ import 'dart:collection';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen_config/config.dart';
 
 class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
   final FragmentDefinitionNode? fragment;
   final Name path;
 
-  ContextFragment(
-    Schema<TKey> schema,
-    Name path,
-    TypeDefinitionNode currentType,
-    Map<String, Context> contexts, {
+  ContextFragment({
+    required TKey key,
+    required GraphQLCodegenConfig config,
+    required Schema<TKey> schema,
+    required Name path,
+    required TypeDefinitionNode currentType,
+    required Map<String, Context> contexts,
     FragmentDefinitionNode? fragment,
   })  : this.fragment = fragment,
         this.path = path,
         super(
+          key: key,
+          config: config,
           schema: schema,
           currentType: currentType,
           contexts: contexts,
@@ -29,10 +34,12 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     Name? possibleTypeOf,
   }) {
     final c = ContextFragment(
-      schema,
-      path.withSegment(name),
-      currentType,
-      _contexts,
+      key: key,
+      config: config,
+      schema: schema,
+      path: path.withSegment(name),
+      currentType: currentType,
+      contexts: _contexts,
     );
     _addContext(c);
     return c;
@@ -192,13 +199,11 @@ class ContextProperty {
   final NameNode _name;
   final NameNode? alias;
   final Name? path;
-  final bool isEnum;
 
   NameNode get name => alias ?? _name;
 
   ContextProperty({
     this.path,
-    this.isEnum = false,
     this.alias,
     required this.type,
     required NameNode name,
@@ -207,15 +212,13 @@ class ContextProperty {
   ContextProperty.fromFieldNode(
     FieldNode node, {
     this.path,
-    this.isEnum = false,
     required this.type,
-  })   : _name = node.name,
+  })  : _name = node.name,
         alias = node.alias;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
     this.path,
-    this.isEnum = false,
   })  : _name = node.name,
         type = node.type,
         alias = null;
@@ -223,7 +226,6 @@ class ContextProperty {
   ContextProperty.fromVariableDefinitionNode(
     VariableDefinitionNode node, {
     this.path,
-    this.isEnum = false,
   })  : _name = node.variable.name,
         type = node.type,
         alias = null;
@@ -246,6 +248,8 @@ class TypedName {
 
 abstract class Context<TKey, TType extends TypeDefinitionNode> {
   Context({
+    required this.key,
+    required this.config,
     required this.schema,
     Map<String, Context>? contexts,
     TType? currentType,
@@ -254,7 +258,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   })  : _currentType = currentType,
         _contexts = contexts ?? {},
         _inFragment = inFragment ?? ListQueue();
-
+  final TKey key;
+  final GraphQLCodegenConfig config;
   final Schema<TKey> schema;
   final Map<String, Context> _contexts;
   final Map<String, Context> _childContexts = {};
@@ -262,8 +267,6 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   final TType? _currentType;
 
   final Name? possibleTypeOf;
-
-//   Name? get inFragment => _inFragment;
 
   Queue<Name> _inFragment;
 
@@ -279,6 +282,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     }
     throw StateError("Missing current type");
   }
+
+  String get filePath => schema.lookupPath(key);
 
   Iterable<Name> get fragments => _fragments.values;
 
@@ -302,10 +307,12 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     TypeDefinitionNode type,
   ) {
     final c = ContextFragment(
-      schema,
-      Name.fromSegment(FragmentNameSegment(node)),
-      type,
-      _contexts,
+      key: key,
+      schema: schema,
+      config: config,
+      path: Name.fromSegment(FragmentNameSegment(node)),
+      currentType: type,
+      contexts: _contexts,
       fragment: node,
     );
     _addContext(c);
@@ -314,6 +321,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   ContextEnum<TKey> withEnum(EnumTypeDefinitionNode type) {
     final c = ContextEnum(
+      key: key,
+      config: config,
       schema: schema,
       en: type,
     );
@@ -323,6 +332,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   ContextInput<TKey> withInput(InputObjectTypeDefinitionNode input) {
     final c = ContextInput(
+      key: key,
+      config: config,
       schema: schema,
       type: input,
     );
@@ -335,6 +346,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     TypeDefinitionNode type,
   ) {
     final c = ContextOperation(
+      key: key,
+      config: config,
       path: Name.fromSegment(OperationNameSegment(node)),
       currentType: type,
       schema: schema,
@@ -416,25 +429,18 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 }
 
 class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
-  final TKey key;
-
   ContextRoot({
+    required TKey key,
+    required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
-    required this.key,
   }) : super(
+          key: key,
+          config: config,
           schema: schema,
           contexts: {},
         );
   Iterable<ContextOperation> get contextOperations =>
       _contexts.values.whereType<ContextOperation>();
-
-  bool get hasOperation =>
-      _contexts.values.whereType<ContextOperation>().isNotEmpty;
-
-  bool get hasMutation => _contexts.values
-      .whereType<ContextOperation>()
-      .where((element) => element.operation?.type == OperationType.mutation)
-      .isNotEmpty;
 
   Iterable<ContextFragment> get contextFragments =>
       _contexts.values.whereType<ContextFragment>();
@@ -445,22 +451,6 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
   Iterable<ContextInput> get contextInputs =>
       _contexts.values.whereType<ContextInput>();
 
-  Iterable<NameNode> get dependencies => Set.from(
-        [
-          ..._contexts.values.expand<NameNode>(
-            (e) => [
-              ...e.fragments.map((e) => e.baseNameSegment.name),
-              ...e.properties
-                  .map<NameNode?>((e) => e.path?.baseNameSegment.name)
-                  .whereType<NameNode>(),
-              ...e.variables
-                  .map<NameNode?>((e) => e.path?.baseNameSegment.name)
-                  .whereType<NameNode>(),
-            ],
-          ),
-        ],
-      );
-
   Iterable<OperationDefinitionNode> get operations =>
       schema.entries[key]?.definitions.whereType<OperationDefinitionNode>() ??
       <OperationDefinitionNode>[];
@@ -469,10 +459,14 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
 class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
   final Name path;
   ContextEnum({
+    required TKey key,
+    required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
     required EnumTypeDefinitionNode en,
-  })   : path = Name.fromSegment(EnumNameSegment(en)),
+  })  : path = Name.fromSegment(EnumNameSegment(en)),
         super(
+          key: key,
+          config: config,
           schema: schema,
           currentType: en,
         );
@@ -481,10 +475,14 @@ class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
 class ContextInput<TKey> extends Context<TKey, InputObjectTypeDefinitionNode> {
   final Name path;
   ContextInput({
+    required TKey key,
+    required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
     required InputObjectTypeDefinitionNode type,
-  })   : path = Name.fromSegment(InputNameSegment(type)),
+  })  : path = Name.fromSegment(InputNameSegment(type)),
         super(
+          key: key,
+          config: config,
           schema: schema,
           currentType: type,
         );
@@ -493,6 +491,8 @@ class ContextInput<TKey> extends Context<TKey, InputObjectTypeDefinitionNode> {
 class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
   final Name path;
   ContextOperation({
+    required TKey key,
+    required GraphQLCodegenConfig config,
     Queue<Name>? inFragment,
     required Name path,
     required Schema<TKey> schema,
@@ -501,6 +501,8 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
     Name? possibleTypeOf,
   })  : this.path = path,
         super(
+          key: key,
+          config: config,
           schema: schema,
           contexts: contexts,
           currentType: currentType,
@@ -524,6 +526,8 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
       ],
     );
     final c = ContextOperation(
+      key: key,
+      config: config,
       path: path,
       schema: schema,
       contexts: _contexts,

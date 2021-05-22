@@ -31,7 +31,6 @@ class ContextVisitor extends RecursiveVisitor {
         ContextProperty.fromVariableDefinitionNode(
           node,
           path: Name.fromSegment(EnumNameSegment(fieldType)),
-          isEnum: true,
         ),
       );
     } else {
@@ -72,7 +71,6 @@ class ContextVisitor extends RecursiveVisitor {
         ContextProperty.fromInputValueDefinitionNode(
           node,
           path: Name.fromSegment(EnumNameSegment(fieldType)),
-          isEnum: true,
         ),
       );
     } else {
@@ -230,7 +228,6 @@ class ContextVisitor extends RecursiveVisitor {
         ContextProperty.fromFieldNode(
           node,
           path: Name.fromSegment(EnumNameSegment(fieldType)),
-          isEnum: true,
           type: typeNodeForField,
         ),
       );

@@ -8,6 +8,7 @@ import 'package:glob/glob.dart';
 import 'package:gql/language.dart';
 import 'package:graphql_codegen/generator.dart';
 import 'package:graphql_codegen/context.dart';
+import 'package:graphql_codegen_config/config.dart';
 
 GraphQLBuilder graphQLQueryBuilder(BuilderOptions options) =>
     GraphQLBuilder(options);
@@ -32,7 +33,13 @@ class GraphQLBuilder extends Builder {
             ),
           )
           .toList();
-      throw new UnsupportedError('');
+      return await generate<AssetId>(
+        Schema<AssetId>(
+          BuiltMap.of(Map.fromEntries(entries)),
+          (id) => "${id.path}.dart",
+        ),
+        GraphQLCodegenConfig.fromJson(options.config),
+      );
     }));
     final targetAsset = buildStep.inputId.addExtension('.dart');
     _writeProgram(

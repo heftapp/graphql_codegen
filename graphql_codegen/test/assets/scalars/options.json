@@ -1,0 +1,19 @@
+{
+    "scalars": {
+        "ID": {
+            "type": "int"
+        },
+        "Custom1": {
+            "type": "String"
+        },
+        "Custom2": {
+            "type": "DateTime"
+        },
+        "Custom3": {
+            "type": "Fobbob",
+            "fromJsonFunctionName": "fobbobFromJson",
+            "toJsonFunctionName": "fobbobToJson",
+            "import": "scalar_import.dart"
+        }
+    }
+}

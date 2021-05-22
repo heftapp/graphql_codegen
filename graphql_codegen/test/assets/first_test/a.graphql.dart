@@ -1,6 +1,6 @@
+import 'fragments.graphql.dart';
 import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'fragments.graphql.dart';
 part 'a.graphql.g.dart';
 
 @JsonSerializable()

@@ -4,20 +4,11 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/printer/clients/graphql.dart';
 import 'package:graphql_codegen/context.dart';
 
+import '../context.dart';
 import '../utils.dart';
 
-Iterable<Directive> printGraphQLFlutterDirectives(ContextRoot context) {
-  if (!context.hasOperation) return [];
-  return [
-    Directive.import('package:flutter/widgets.dart', as: 'widgets'),
-    Directive.import(
-      'package:graphql_flutter/graphql_flutter.dart',
-      as: 'graphql_flutter',
-    ),
-  ];
-}
-
-Spec printRunMutationTypeDef(Context context) {
+Spec printRunMutationTypeDef(PrintContext c) {
+  final context = c.context;
   final hasVariables = context.hasVariables;
   final areVariablesRequired = context.isVariablesRequired;
   return FunctionType(
@@ -45,7 +36,7 @@ Spec printRunMutationTypeDef(Context context) {
   ).toTypeDef(printGraphQLFlutterClientRunMutationName(context.path));
 }
 
-Spec printBuilderMutationTypeDef(Context context) {
+Spec printBuilderMutationTypeDef(PrintContext context) {
   return FunctionType(
     (b) => b
       ..returnType = refer('widgets.Widget')
@@ -62,7 +53,8 @@ Spec printBuilderMutationTypeDef(Context context) {
   ).toTypeDef(printGraphQLFlutterClientBuilderName(context.path));
 }
 
-Spec printMutation(Context context) {
+Spec printMutation(PrintContext c) {
+  final context = c.context;
   final hasVariables = context.hasVariables;
   final areVariablesRequired = context.isVariablesRequired;
   return Class(
@@ -165,7 +157,8 @@ Spec printMutation(Context context) {
   );
 }
 
-Iterable<Spec> printMutationSpecs(ContextOperation context) {
+Iterable<Spec> printMutationSpecs(PrintContext<ContextOperation> context) {
+  _addDependencies(context);
   return [
     printMutationOptions(
       context,
@@ -178,7 +171,8 @@ Iterable<Spec> printMutationSpecs(ContextOperation context) {
   ];
 }
 
-Spec printQuerySpec(Context context) {
+Spec printQuerySpec(PrintContext c) {
+  final context = c.context;
   return Class(
     (b) => b
       ..name = printGraphQLFlutterClientOperationName(context.path)
@@ -235,23 +229,17 @@ Spec printQuerySpec(Context context) {
   );
 }
 
-Iterable<Spec> printQuerySpecs(Context context) {
-  /*
-  class GQLFQueryUpdateSRequired extends graphql_flutter.Query {
-  GQLFQueryUpdateSRequired(
-      {widgets.Key? key,
-      required GQLOptionsQueryUpdateSRequired options,
-      required graphql_flutter.QueryBuilder builder})
-      : super(key: key, options: options, builder: builder);
-}
-*/
+Iterable<Spec> printQuerySpecs(PrintContext<Context> context) {
+  _addDependencies(context);
   return [
     printQuerySpec(context),
   ];
 }
 
-Iterable<Spec> printGraphQLFlutterSpecs(ContextOperation context) {
-  switch (context.operation?.type) {
+Iterable<Spec> printGraphQLFlutterSpecs(
+  PrintContext<ContextOperation> context,
+) {
+  switch (context.context.operation?.type) {
     case OperationType.mutation:
       return printMutationSpecs(context);
     case OperationType.query:
@@ -259,4 +247,12 @@ Iterable<Spec> printGraphQLFlutterSpecs(ContextOperation context) {
     default:
       return [];
   }
+}
+
+void _addDependencies(PrintContext c) {
+  c.addPackage('package:flutter/widgets.dart', 'widgets');
+  c.addPackage(
+    'package:graphql_flutter/graphql_flutter.dart',
+    'graphql_flutter',
+  );
 }

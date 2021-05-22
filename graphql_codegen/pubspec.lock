@@ -260,6 +260,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0-nullsafety.5"
+  graphql_codegen_config:
+    dependency: "direct main"
+    description:
+      path: "../graphql_codegen_config"
+      relative: true
+    source: path
+    version: "0.0.1-alpha.1"
   graphs:
     dependency: transitive
     description:

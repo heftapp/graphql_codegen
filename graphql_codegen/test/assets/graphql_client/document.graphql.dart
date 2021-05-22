@@ -1,7 +1,7 @@
-import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'dart:async';
+import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
+import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable()

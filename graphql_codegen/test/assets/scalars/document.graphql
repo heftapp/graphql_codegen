@@ -1,0 +1,18 @@
+scalar Custom1
+
+scalar Custom2
+
+scalar Custom3
+
+type Query {
+    i: Int
+    id: ID
+    s: String
+    c1: Custom1
+    c2: Custom2
+    c3: Custom3
+}
+
+query FetchScalars {
+    i id s c1 c2 c3
+}
