@@ -6,37 +6,37 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 part 'document.graphql.g.dart';
 
 @JsonSerializable()
-class VariablesQueryUpdateSOptional extends JsonSerializable {
-  VariablesQueryUpdateSOptional({this.name});
+class VariablesQueryFetchSOptional extends JsonSerializable {
+  VariablesQueryFetchSOptional({this.name});
 
   @override
-  factory VariablesQueryUpdateSOptional.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryUpdateSOptionalFromJson(json);
+  factory VariablesQueryFetchSOptional.fromJson(Map<String, dynamic> json) =>
+      _$VariablesQueryFetchSOptionalFromJson(json);
 
   final String? name;
 
   @override
-  Map<String, dynamic> toJson() => _$VariablesQueryUpdateSOptionalToJson(this);
+  Map<String, dynamic> toJson() => _$VariablesQueryFetchSOptionalToJson(this);
 }
 
 @JsonSerializable()
-class QueryUpdateSOptional extends JsonSerializable {
-  QueryUpdateSOptional({this.s});
+class QueryFetchSOptional extends JsonSerializable {
+  QueryFetchSOptional({this.s});
 
   @override
-  factory QueryUpdateSOptional.fromJson(Map<String, dynamic> json) =>
-      _$QueryUpdateSOptionalFromJson(json);
+  factory QueryFetchSOptional.fromJson(Map<String, dynamic> json) =>
+      _$QueryFetchSOptionalFromJson(json);
 
   final String? s;
 
   @override
-  Map<String, dynamic> toJson() => _$QueryUpdateSOptionalToJson(this);
+  Map<String, dynamic> toJson() => _$QueryFetchSOptionalToJson(this);
 }
 
-const QUERY_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
+const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
-      name: NameNode(value: 'UpdateSOptional'),
+      name: NameNode(value: 'FetchSOptional'),
       variableDefinitions: [
         VariableDefinitionNode(
             variable: VariableNode(name: NameNode(value: 'name')),
@@ -60,10 +60,10 @@ const QUERY_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GQLOptionsQueryUpdateSOptional extends graphql.QueryOptions {
-  GQLOptionsQueryUpdateSOptional(
+class GQLOptionsQueryFetchSOptional extends graphql.QueryOptions {
+  GQLOptionsQueryFetchSOptional(
       {String? operationName,
-      VariablesQueryUpdateSOptional? variables,
+      VariablesQueryFetchSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -79,29 +79,39 @@ class GQLOptionsQueryUpdateSOptional extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_UPDATE_S_OPTIONAL);
+            document: QUERY_FETCH_S_OPTIONAL);
 }
 
-extension GQLExtensionQueryUpdateSOptional on graphql.GraphQLClient {
-  Future<graphql.QueryResult> queryUpdateSOptional(
-          [GQLOptionsQueryUpdateSOptional? options]) async =>
-      await this.query(options ?? GQLOptionsQueryUpdateSOptional());
+class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryFetchSOptional(
+      {required graphql.UpdateQuery updateQuery,
+      VariablesQueryFetchSOptional? variables})
+      : super(
+            updateQuery: updateQuery,
+            variables: variables?.toJson() ?? {},
+            document: QUERY_FETCH_S_OPTIONAL);
 }
 
-extension GQLResultExtensionQueryUpdateSOptional on graphql.QueryResult {
-  QueryUpdateSOptional? get parsedDataQueryUpdateSOptional {
+extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
+  Future<graphql.QueryResult> queryFetchSOptional(
+          [GQLOptionsQueryFetchSOptional? options]) async =>
+      await this.query(options ?? GQLOptionsQueryFetchSOptional());
+}
+
+extension GQLResultExtensionQueryFetchSOptional on graphql.QueryResult {
+  QueryFetchSOptional? get parsedDataQueryFetchSOptional {
     final data = this.data;
-    return data == null ? null : QueryUpdateSOptional.fromJson(data);
+    return data == null ? null : QueryFetchSOptional.fromJson(data);
   }
 }
 
-class GQLFQueryUpdateSOptional extends graphql_flutter.Query {
-  GQLFQueryUpdateSOptional(
+class GQLFQueryFetchSOptional extends graphql_flutter.Query {
+  GQLFQueryFetchSOptional(
       {widgets.Key? key,
-      GQLOptionsQueryUpdateSOptional? options,
+      GQLOptionsQueryFetchSOptional? options,
       required graphql_flutter.QueryBuilder builder})
       : super(
             key: key,
-            options: options ?? GQLOptionsQueryUpdateSOptional(),
+            options: options ?? GQLOptionsQueryFetchSOptional(),
             builder: builder);
 }

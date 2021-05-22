@@ -56,6 +56,9 @@ String printVariableClassName(Name name) => "Variables${_printName(name)}";
 String printGraphQLClientOptionsName(Name name) =>
     "GQLOptions${_printName(name)}";
 
+String printGraphQLClientFetchMoreOptionsName(Name name) =>
+    "GQLFetchMoreOptions${_printName(name)}";
+
 String printGraphQLFlutterClientOptionsName(Name name) =>
     "GQLFOptions${_printName(name)}";
 

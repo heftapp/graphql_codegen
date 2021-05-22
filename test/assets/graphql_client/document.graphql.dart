@@ -81,6 +81,16 @@ class GQLOptionsQueryFetchSOptional extends graphql.QueryOptions {
             document: QUERY_FETCH_S_OPTIONAL);
 }
 
+class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryFetchSOptional(
+      {required graphql.UpdateQuery updateQuery,
+      VariablesQueryFetchSOptional? variables})
+      : super(
+            updateQuery: updateQuery,
+            variables: variables?.toJson() ?? {},
+            document: QUERY_FETCH_S_OPTIONAL);
+}
+
 extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult> queryFetchSOptional(
           [GQLOptionsQueryFetchSOptional? options]) async =>
@@ -171,6 +181,16 @@ class GQLOptionsQueryFetchSRequired extends graphql.QueryOptions {
             document: QUERY_FETCH_S_REQUIRED);
 }
 
+class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryFetchSRequired(
+      {required graphql.UpdateQuery updateQuery,
+      required VariablesQueryFetchSRequired variables})
+      : super(
+            updateQuery: updateQuery,
+            variables: variables.toJson(),
+            document: QUERY_FETCH_S_REQUIRED);
+}
+
 extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult> queryFetchSRequired(
           GQLOptionsQueryFetchSRequired options) async =>
@@ -236,6 +256,13 @@ class GQLOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_NO_VARIABLES);
+}
+
+class GQLFetchMoreOptionsQueryFetchSNoVariables
+    extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryFetchSNoVariables(
+      {required graphql.UpdateQuery updateQuery})
+      : super(updateQuery: updateQuery, document: QUERY_FETCH_S_NO_VARIABLES);
 }
 
 extension GQLExtensionQueryFetchSNoVariables on graphql.GraphQLClient {

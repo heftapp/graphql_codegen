@@ -6,37 +6,37 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 part 'document.graphql.g.dart';
 
 @JsonSerializable()
-class VariablesQueryUpdateSRequired extends JsonSerializable {
-  VariablesQueryUpdateSRequired({required this.name});
+class VariablesQueryFetchSRequired extends JsonSerializable {
+  VariablesQueryFetchSRequired({required this.name});
 
   @override
-  factory VariablesQueryUpdateSRequired.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryUpdateSRequiredFromJson(json);
+  factory VariablesQueryFetchSRequired.fromJson(Map<String, dynamic> json) =>
+      _$VariablesQueryFetchSRequiredFromJson(json);
 
   final String name;
 
   @override
-  Map<String, dynamic> toJson() => _$VariablesQueryUpdateSRequiredToJson(this);
+  Map<String, dynamic> toJson() => _$VariablesQueryFetchSRequiredToJson(this);
 }
 
 @JsonSerializable()
-class QueryUpdateSRequired extends JsonSerializable {
-  QueryUpdateSRequired({this.s});
+class QueryFetchSRequired extends JsonSerializable {
+  QueryFetchSRequired({this.s});
 
   @override
-  factory QueryUpdateSRequired.fromJson(Map<String, dynamic> json) =>
-      _$QueryUpdateSRequiredFromJson(json);
+  factory QueryFetchSRequired.fromJson(Map<String, dynamic> json) =>
+      _$QueryFetchSRequiredFromJson(json);
 
   final String? s;
 
   @override
-  Map<String, dynamic> toJson() => _$QueryUpdateSRequiredToJson(this);
+  Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
 }
 
-const QUERY_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
+const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
-      name: NameNode(value: 'UpdateSRequired'),
+      name: NameNode(value: 'FetchSRequired'),
       variableDefinitions: [
         VariableDefinitionNode(
             variable: VariableNode(name: NameNode(value: 'name')),
@@ -60,10 +60,10 @@ const QUERY_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GQLOptionsQueryUpdateSRequired extends graphql.QueryOptions {
-  GQLOptionsQueryUpdateSRequired(
+class GQLOptionsQueryFetchSRequired extends graphql.QueryOptions {
+  GQLOptionsQueryFetchSRequired(
       {String? operationName,
-      required VariablesQueryUpdateSRequired variables,
+      required VariablesQueryFetchSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -79,26 +79,36 @@ class GQLOptionsQueryUpdateSRequired extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_UPDATE_S_REQUIRED);
+            document: QUERY_FETCH_S_REQUIRED);
 }
 
-extension GQLExtensionQueryUpdateSRequired on graphql.GraphQLClient {
-  Future<graphql.QueryResult> queryUpdateSRequired(
-          GQLOptionsQueryUpdateSRequired options) async =>
+class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryFetchSRequired(
+      {required graphql.UpdateQuery updateQuery,
+      required VariablesQueryFetchSRequired variables})
+      : super(
+            updateQuery: updateQuery,
+            variables: variables.toJson(),
+            document: QUERY_FETCH_S_REQUIRED);
+}
+
+extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
+  Future<graphql.QueryResult> queryFetchSRequired(
+          GQLOptionsQueryFetchSRequired options) async =>
       await this.query(options);
 }
 
-extension GQLResultExtensionQueryUpdateSRequired on graphql.QueryResult {
-  QueryUpdateSRequired? get parsedDataQueryUpdateSRequired {
+extension GQLResultExtensionQueryFetchSRequired on graphql.QueryResult {
+  QueryFetchSRequired? get parsedDataQueryFetchSRequired {
     final data = this.data;
-    return data == null ? null : QueryUpdateSRequired.fromJson(data);
+    return data == null ? null : QueryFetchSRequired.fromJson(data);
   }
 }
 
-class GQLFQueryUpdateSRequired extends graphql_flutter.Query {
-  GQLFQueryUpdateSRequired(
+class GQLFQueryFetchSRequired extends graphql_flutter.Query {
+  GQLFQueryFetchSRequired(
       {widgets.Key? key,
-      required GQLOptionsQueryUpdateSRequired options,
+      required GQLOptionsQueryFetchSRequired options,
       required graphql_flutter.QueryBuilder builder})
       : super(key: key, options: options, builder: builder);
 }

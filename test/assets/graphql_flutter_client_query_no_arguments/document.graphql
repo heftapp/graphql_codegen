@@ -2,6 +2,6 @@ type Query {
   s(name: String): String
 }
 
-query UpdateSOptional {
+query FetchSNoVariables {
   s(name: "lol")
 }

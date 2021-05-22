@@ -2,6 +2,6 @@ type Query {
   s(name: String): String
 }
 
-query UpdateSRequired($name: String!) {
+query FetchSRequired($name: String!) {
   s(name: $name)
 }

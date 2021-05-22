@@ -90,6 +90,69 @@ Spec printQueryOptions(ContextOperation context) {
   );
 }
 
+/* 
+    class GQLFetchMoreOptionsQueryUpdateSRequired extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryUpdateSRequired(
+      {required graphql.UpdateQuery updateQuery,
+      required VariablesQueryUpdateSRequired variables})
+      : super(
+            document: QUERY_UPDATE_S_REQUIRED,
+            variables: variables.toJson(),
+            updateQuery: updateQuery);
+}
+*/
+Spec printFetchMoreOptions(Context context) {
+  final hasVariables = context.hasVariables;
+  final areVariablesRequired = context.isVariablesRequired;
+  return Class(
+    (b) => b
+      ..name = printGraphQLClientFetchMoreOptionsName(context.path)
+      ..extend = refer("graphql.FetchMoreOptions")
+      ..constructors = ListBuilder([
+        Constructor(
+          (b) => b
+            ..optionalParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..required = true
+                  ..name = 'updateQuery'
+                  ..type =
+                      TypeReference((b) => b..symbol = 'graphql.UpdateQuery'),
+              ),
+              if (hasVariables)
+                Parameter(
+                  (b) => b
+                    ..named = true
+                    ..required = areVariablesRequired
+                    ..name = 'variables'
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = printVariableClassName(context.path)
+                        ..isNullable = !areVariablesRequired,
+                    ),
+                ),
+            ])
+            ..initializers = ListBuilder([
+              refer('super').call(
+                [],
+                {
+                  'updateQuery': refer('updateQuery'),
+                  if (hasVariables)
+                    'variables': areVariablesRequired
+                        ? refer('variables').property('toJson').call([])
+                        : refer('variables')
+                            .nullSafeProperty('toJson')
+                            .call([]).ifNullThen(literal({})),
+                  'document': refer(printOperationDocumentName(context.path)),
+                },
+              ).code
+            ]),
+        ),
+      ]),
+  );
+}
+
 Parameter printOptionsParameter(
   String name,
   String symbol, {
@@ -346,20 +409,9 @@ Iterable<Spec> printMutation(ContextOperation context) {
 Iterable<Spec> printQuery(ContextOperation context) {
   return [
     printQueryOptions(context),
+    printFetchMoreOptions(context),
     printQueryExtension(context),
     printResultExtension(context),
-    // TODO print fetch more options
-    /* 
-    class GQLFetchMoreOptionsQueryUpdateSRequired extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryUpdateSRequired(
-      {required graphql.UpdateQuery updateQuery,
-      required VariablesQueryUpdateSRequired variables})
-      : super(
-            document: QUERY_UPDATE_S_REQUIRED,
-            variables: variables.toJson(),
-            updateQuery: updateQuery);
-}
-*/
   ];
 }
 
