@@ -5,8 +5,8 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/printer/printer.dart';
-import 'package:graphql_codegen/utils.dart';
-import 'package:graphql_codegen/visitor/generator.dart';
+import 'package:graphql_codegen/context.dart';
+import 'package:graphql_codegen/visitor/context_visitor.dart';
 
 Library _generateDocument<TKey>(
   Schema<TKey> schema,
@@ -15,7 +15,7 @@ Library _generateDocument<TKey>(
   Set<String> clients,
 ) {
   final context = ContextRoot<TKey>(schema: schema, key: key);
-  entry.accept(GeneratorVisitor(context: context));
+  entry.accept(ContextVisitor(context: context));
   return printRootContext(context, clients);
 }
 

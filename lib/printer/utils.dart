@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/printer/keywords.dart';
 import 'package:recase/recase.dart';
 
-import '../utils.dart';
+import '../context.dart';
 
 String _printName(Name name, {bool isAction = false}) => name.segments
     .map((s) => _printNameSegment(s, isAction: isAction))

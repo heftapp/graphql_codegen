@@ -1,11 +1,11 @@
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/errors.dart';
-import 'package:graphql_codegen/utils.dart';
+import 'package:graphql_codegen/context.dart';
 
-class GeneratorVisitor extends RecursiveVisitor {
+class ContextVisitor extends RecursiveVisitor {
   final Context context;
 
-  GeneratorVisitor({required this.context});
+  ContextVisitor({required this.context});
 
   @override
   void visitVariableDefinitionNode(VariableDefinitionNode node) {
@@ -44,7 +44,7 @@ class GeneratorVisitor extends RecursiveVisitor {
   @override
   void visitInputObjectTypeDefinitionNode(InputObjectTypeDefinitionNode node) {
     final c = context.withInput(node);
-    node.visitChildren(GeneratorVisitor(context: c));
+    node.visitChildren(ContextVisitor(context: c));
   }
 
   @override
@@ -96,7 +96,7 @@ class GeneratorVisitor extends RecursiveVisitor {
       );
     }
     final c = context.withFragmentAndType(node, type);
-    node.visitChildren(GeneratorVisitor(context: c));
+    node.visitChildren(ContextVisitor(context: c));
   }
 
   @override
@@ -107,7 +107,7 @@ class GeneratorVisitor extends RecursiveVisitor {
           "Failed to find operation type for ${node.type}");
     }
     node.visitChildren(
-      GeneratorVisitor(
+      ContextVisitor(
         context: context.withOperationAndType(node, typeNode),
       ),
     );
@@ -142,7 +142,7 @@ class GeneratorVisitor extends RecursiveVisitor {
         inFragment: fragmentName,
       );
       fragmentDef.visitChildren(
-        GeneratorVisitor(
+        ContextVisitor(
           context: c,
         ),
       );
@@ -183,7 +183,7 @@ class GeneratorVisitor extends RecursiveVisitor {
       possibleTypeOf: context.path,
     );
     node.visitChildren(
-      GeneratorVisitor(
+      ContextVisitor(
         context: c,
       ),
     );
@@ -219,7 +219,7 @@ class GeneratorVisitor extends RecursiveVisitor {
         FieldNameSegment(node),
         fieldType,
       );
-      node.visitChildren(GeneratorVisitor(context: c));
+      node.visitChildren(ContextVisitor(context: c));
       context.addProperty(ContextProperty.fromFieldNode(
         node,
         path: c.path,

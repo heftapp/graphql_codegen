@@ -7,7 +7,7 @@ import 'package:dart_style/dart_style.dart';
 import 'package:glob/glob.dart';
 import 'package:gql/language.dart';
 import 'package:graphql_codegen/generator.dart';
-import 'package:graphql_codegen/utils.dart';
+import 'package:graphql_codegen/context.dart';
 
 GraphQLBuilder graphQLQueryBuilder(BuilderOptions options) =>
     GraphQLBuilder(options);

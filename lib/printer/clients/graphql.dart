@@ -2,7 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/printer/utils.dart';
-import 'package:graphql_codegen/utils.dart';
+import 'package:graphql_codegen/context.dart';
 
 Spec printOnMutationCompleted(ContextOperation context) => FunctionType(
       (b) => b

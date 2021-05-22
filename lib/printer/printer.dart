@@ -4,7 +4,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/errors.dart';
 import 'package:graphql_codegen/printer/clients/graphql.dart';
 import 'package:graphql_codegen/printer/clients/graphql_flutter.dart';
-import 'package:graphql_codegen/utils.dart';
+import 'package:graphql_codegen/context.dart';
 import 'package:path/path.dart' as p;
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 
