@@ -1,6 +1,6 @@
 name: graphql_codegen
 description: "Simple, opinionated, codegen library for GraphQL"
-version: 0.0.1-alpha.2
+version: 0.0.1
 homepage: https://github.com/heftapp/graphql_codegen
 repository: https://github.com/heftapp/graphql_codegen
 
@@ -19,7 +19,7 @@ dependencies:
   path: ^1.8.0
   gql_code_builder: ^0.2.0
   recase: ^4.0.0
-  graphql_codegen_config: ^0.0.1-alpha.1
+  graphql_codegen_config: ^0.0.1
 
 dev_dependencies:
   test: ^1.17.4
@@ -28,7 +28,3 @@ dev_dependencies:
   json_serializable: ^4.1.2
   graphql: ^5.0.0-nullsafety.5
   json_annotation: ^4.0.1
-
-dependency_overrides:
-  graphql_codegen_config: 
-    path: '../graphql_codegen_config'

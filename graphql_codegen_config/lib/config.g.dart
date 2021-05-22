@@ -6,16 +6,18 @@ part of 'config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BuildConfigScalar _$BuildConfigScalarFromJson(Map<String, dynamic> json) {
-  return BuildConfigScalar(
-    json['type'] as String,
-    json['import'] as String?,
-    json['fromJsonFunctionName'] as String?,
-    json['toJsonFunctionName'] as String?,
+GraphQLCodegenConfigScalar _$GraphQLCodegenConfigScalarFromJson(
+    Map<String, dynamic> json) {
+  return GraphQLCodegenConfigScalar(
+    type: json['type'] as String,
+    import: json['import'] as String?,
+    fromJsonFunctionName: json['fromJsonFunctionName'] as String?,
+    toJsonFunctionName: json['toJsonFunctionName'] as String?,
   );
 }
 
-Map<String, dynamic> _$BuildConfigScalarToJson(BuildConfigScalar instance) =>
+Map<String, dynamic> _$GraphQLCodegenConfigScalarToJson(
+        GraphQLCodegenConfigScalar instance) =>
     <String, dynamic>{
       'type': instance.type,
       'import': instance.import,
@@ -23,22 +25,26 @@ Map<String, dynamic> _$BuildConfigScalarToJson(BuildConfigScalar instance) =>
       'toJsonFunctionName': instance.toJsonFunctionName,
     };
 
-BuildConfig _$BuildConfigFromJson(Map<String, dynamic> json) {
-  return BuildConfig(
-    (json['clients'] as List<dynamic>)
-        .map((e) => _$enumDecode(_$BuildConfigClientEnumMap, e))
-        .toSet(),
-    (json['scalars'] as Map<String, dynamic>).map(
-      (k, e) =>
-          MapEntry(k, BuildConfigScalar.fromJson(e as Map<String, dynamic>)),
-    ),
+GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(Map<String, dynamic> json) {
+  return GraphQLCodegenConfig(
+    (json['clients'] as List<dynamic>?)
+            ?.map((e) => _$enumDecode(_$GraphQLCodegenConfigClientEnumMap, e))
+            .toSet() ??
+        {},
+    (json['scalars'] as Map<String, dynamic>?)?.map(
+          (k, e) => MapEntry(k,
+              GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
+        ) ??
+        {},
   );
 }
 
-Map<String, dynamic> _$BuildConfigToJson(BuildConfig instance) =>
+Map<String, dynamic> _$GraphQLCodegenConfigToJson(
+        GraphQLCodegenConfig instance) =>
     <String, dynamic>{
-      'clients':
-          instance.clients.map((e) => _$BuildConfigClientEnumMap[e]).toList(),
+      'clients': instance.clients
+          .map((e) => _$GraphQLCodegenConfigClientEnumMap[e])
+          .toList(),
       'scalars': instance.scalars,
     };
 
@@ -68,7 +74,7 @@ K _$enumDecode<K, V>(
   ).key;
 }
 
-const _$BuildConfigClientEnumMap = {
-  BuildConfigClient.graphql: 'graphql',
-  BuildConfigClient.graphqlFlutter: 'graphql_flutter',
+const _$GraphQLCodegenConfigClientEnumMap = {
+  GraphQLCodegenConfigClient.graphql: 'graphql',
+  GraphQLCodegenConfigClient.graphqlFlutter: 'graphql_flutter',
 };

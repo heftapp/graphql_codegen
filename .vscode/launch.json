@@ -8,7 +8,7 @@
             "name": "Dart: Run all Tests",
             "type": "dart",
             "request": "launch",
-            "program": "./graphql_codegen/test/"
+            "program": "./test/"
         },
     ]
 }

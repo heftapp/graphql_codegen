@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'config.g.dart';
 
-enum BuildConfigClient {
+enum GraphQLCodegenConfigClient {
   @JsonValue('graphql')
   graphql,
   @JsonValue('graphql_flutter')
@@ -9,38 +9,40 @@ enum BuildConfigClient {
 }
 
 @JsonSerializable()
-class BuildConfigScalar extends JsonSerializable {
+class GraphQLCodegenConfigScalar extends JsonSerializable {
   final String type;
   final String? import;
   final String? fromJsonFunctionName;
   final String? toJsonFunctionName;
 
-  BuildConfigScalar(
-    this.type,
+  const GraphQLCodegenConfigScalar({
+    required this.type,
     this.import,
     this.fromJsonFunctionName,
     this.toJsonFunctionName,
-  );
+  });
 
   @override
-  factory BuildConfigScalar.fromJson(Map<String, dynamic> json) =>
-      _$BuildConfigScalarFromJson(json);
+  factory GraphQLCodegenConfigScalar.fromJson(Map<String, dynamic> json) =>
+      _$GraphQLCodegenConfigScalarFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$BuildConfigScalarToJson(this);
+  Map<String, dynamic> toJson() => _$GraphQLCodegenConfigScalarToJson(this);
 }
 
 @JsonSerializable()
-class BuildConfig extends JsonSerializable {
-  final Set<BuildConfigClient> clients;
-  final Map<String, BuildConfigScalar> scalars;
+class GraphQLCodegenConfig extends JsonSerializable {
+  @JsonKey(defaultValue: const <GraphQLCodegenConfigClient>{})
+  final Set<GraphQLCodegenConfigClient> clients;
+  @JsonKey(defaultValue: const <String, GraphQLCodegenConfig>{})
+  final Map<String, GraphQLCodegenConfigScalar> scalars;
 
-  BuildConfig(this.clients, this.scalars);
-
-  @override
-  factory BuildConfig.fromJson(Map<String, dynamic> json) =>
-      _$BuildConfigFromJson(json);
+  GraphQLCodegenConfig(this.clients, this.scalars);
 
   @override
-  Map<String, dynamic> toJson() => _$BuildConfigToJson(this);
+  factory GraphQLCodegenConfig.fromJson(Map<String, dynamic> json) =>
+      _$GraphQLCodegenConfigFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$GraphQLCodegenConfigToJson(this);
 }
