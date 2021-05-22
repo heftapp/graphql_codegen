@@ -67,7 +67,7 @@ Spec printMutation(Context context) {
   final areVariablesRequired = context.isVariablesRequired;
   return Class(
     (b) => b
-      ..name = printGraphQLFlutterClientMutationName(context.path)
+      ..name = printGraphQLFlutterClientOperationName(context.path)
       ..extend = refer('graphql_flutter.Mutation')
       ..constructors = ListBuilder([
         Constructor(
@@ -111,7 +111,10 @@ Spec printMutation(Context context) {
             ..initializers = ListBuilder([
               refer('super').call([], {
                 'key': refer('key'),
-                'options': refer('options'),
+                'options': refer('options').ifNullThen(
+                  refer(printGraphQLFlutterClientOptionsName(context.path))
+                      .newInstance([]),
+                ),
                 'builder': Method(
                   (b) => b
                     ..requiredParameters = ListBuilder([
@@ -175,10 +178,84 @@ Iterable<Spec> printMutationSpecs(ContextOperation context) {
   ];
 }
 
+Spec printQuerySpec(Context context) {
+  return Class(
+    (b) => b
+      ..name = printGraphQLFlutterClientOperationName(context.path)
+      ..extend = refer('graphql_flutter.Query')
+      ..constructors = ListBuilder([
+        Constructor(
+          (b) => b
+            ..optionalParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'key'
+                  ..type = TypeReference(
+                    (b) => b
+                      ..symbol = 'widgets.Key'
+                      ..isNullable = true,
+                  ),
+              ),
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'options'
+                  ..required = context.isVariablesRequired
+                  ..type = TypeReference(
+                    (b) => b
+                      ..symbol = printGraphQLClientOptionsName(context.path)
+                      ..isNullable = !context.isVariablesRequired,
+                  ),
+              ),
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'builder'
+                  ..required = true
+                  ..type = TypeReference(
+                    (b) => b..symbol = "graphql_flutter.QueryBuilder",
+                  ),
+              ),
+            ])
+            ..initializers = ListBuilder([
+              refer('super').call([], {
+                'key': refer('key'),
+                'options': context.isVariablesRequired
+                    ? refer('options')
+                    : refer('options').ifNullThen(
+                        refer(printGraphQLClientOptionsName(context.path))
+                            .newInstance([]),
+                      ),
+                'builder': refer('builder'),
+              }).code,
+            ]),
+        )
+      ]),
+  );
+}
+
+Iterable<Spec> printQuerySpecs(Context context) {
+  /*
+  class GQLFQueryUpdateSRequired extends graphql_flutter.Query {
+  GQLFQueryUpdateSRequired(
+      {widgets.Key? key,
+      required GQLOptionsQueryUpdateSRequired options,
+      required graphql_flutter.QueryBuilder builder})
+      : super(key: key, options: options, builder: builder);
+}
+*/
+  return [
+    printQuerySpec(context),
+  ];
+}
+
 Iterable<Spec> printGraphQLFlutterSpecs(ContextOperation context) {
   switch (context.operation?.type) {
     case OperationType.mutation:
       return printMutationSpecs(context);
+    case OperationType.query:
+      return printQuerySpecs(context);
     default:
       return [];
   }

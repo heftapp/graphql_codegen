@@ -1,0 +1,7 @@
+type Query {
+  s(name: String): String
+}
+
+query UpdateSRequired($name: String!) {
+  s(name: $name)
+}

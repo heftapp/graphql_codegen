@@ -154,7 +154,7 @@ class GQLFMutationUpdateSOptional extends graphql_flutter.Mutation {
       required GQLFBuilderMutationUpdateSOptional builder})
       : super(
             key: key,
-            options: options,
+            options: options ?? GQLFOptionsMutationUpdateSOptional(),
             builder: (run, result) => builder(
                 ({variables, optimisticResult}) => run(
                     variables?.toJson() ?? {},

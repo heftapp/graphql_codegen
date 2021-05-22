@@ -121,7 +121,7 @@ class GQLFMutationUpdateSNo extends graphql_flutter.Mutation {
       required GQLFBuilderMutationUpdateSNo builder})
       : super(
             key: key,
-            options: options,
+            options: options ?? GQLFOptionsMutationUpdateSNo(),
             builder: (run, result) => builder(
                 ({optimisticResult}) =>
                     run({}, optimisticResult: optimisticResult),

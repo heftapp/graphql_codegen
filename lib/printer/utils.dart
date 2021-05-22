@@ -65,7 +65,7 @@ String printGraphQLFlutterClientRunMutationName(Name name) =>
 String printGraphQLFlutterClientBuilderName(Name name) =>
     "GQLFBuilder${_printName(name)}";
 
-String printGraphQLFlutterClientMutationName(Name name) =>
+String printGraphQLFlutterClientOperationName(Name name) =>
     "GQLF${_printName(name)}";
 
 String printGraphQLClientOnMutationCompleteName(Name name) =>

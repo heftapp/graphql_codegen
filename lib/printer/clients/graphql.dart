@@ -348,6 +348,18 @@ Iterable<Spec> printQuery(ContextOperation context) {
     printQueryOptions(context),
     printQueryExtension(context),
     printResultExtension(context),
+    // TODO print fetch more options
+    /* 
+    class GQLFetchMoreOptionsQueryUpdateSRequired extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsQueryUpdateSRequired(
+      {required graphql.UpdateQuery updateQuery,
+      required VariablesQueryUpdateSRequired variables})
+      : super(
+            document: QUERY_UPDATE_S_REQUIRED,
+            variables: variables.toJson(),
+            updateQuery: updateQuery);
+}
+*/
   ];
 }
 
