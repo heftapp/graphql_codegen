@@ -27,6 +27,7 @@ class PrintContext<TContext extends Context> {
   final _Value<bool> _jsonSerializable;
   final Set<String> _dependencies;
   final Set<_Package> _packages;
+  final Set<String> _badScalars;
 
   Iterable<Directive> get directives {
     final currentFile = context.filePath;
@@ -45,21 +46,19 @@ class PrintContext<TContext extends Context> {
     ];
   }
 
-  factory PrintContext(TContext context) => PrintContext._(
-        context,
-        _Value(false),
-        {},
-        {},
-      );
+  factory PrintContext(TContext context) =>
+      PrintContext._(context, _Value(false), {}, {}, {});
 
   PrintContext._(
     this.context,
     _Value<bool> jsonSerializable,
     Set<String> dependencies,
     Set<_Package> packages,
+    Set<String> badScalars,
   )   : this._jsonSerializable = jsonSerializable,
         this._dependencies = dependencies,
-        this._packages = packages;
+        this._packages = packages,
+        this._badScalars = badScalars;
 
   PrintContext<TNewContext> withContext<TNewContext extends Context>(
     TNewContext context,
@@ -69,6 +68,7 @@ class PrintContext<TContext extends Context> {
         _jsonSerializable,
         _dependencies,
         _packages,
+        _badScalars,
       );
 
   Name get path => context.path;
@@ -92,5 +92,15 @@ class PrintContext<TContext extends Context> {
 
   addPackage(String import, [String? alias]) {
     _packages.add(_Package(import, alias));
+  }
+
+  markScalarAsBad(String name) {
+    _badScalars.add(name);
+  }
+
+  printWarnings() {
+    for (final scalar in _badScalars) {
+      print("Missing scalar ${scalar}. Defaulting to String");
+    }
   }
 }

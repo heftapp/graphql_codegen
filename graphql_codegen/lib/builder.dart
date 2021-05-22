@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:build/build.dart';
 import 'package:built_collection/built_collection.dart';
@@ -38,7 +39,7 @@ class GraphQLBuilder extends Builder {
           BuiltMap.of(Map.fromEntries(entries)),
           (id) => "${id.path}.dart",
         ),
-        GraphQLCodegenConfig.fromJson(options.config),
+        GraphQLCodegenConfig.fromJson(jsonDecode(jsonEncode(options.config))),
       );
     }));
     final targetAsset = buildStep.inputId.addExtension('.dart');

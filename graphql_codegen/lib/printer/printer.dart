@@ -189,11 +189,13 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
     }),
   ]);
 
-  return Library(
+  final library = Library(
     (b) => b
       ..directives = ListBuilder(c.directives)
       ..body = body,
   );
+  c.printWarnings();
+  return library;
 }
 
 Constructor printFromJson(
@@ -494,12 +496,13 @@ Tuple2<Reference, Map<String, Expression>> printScalarType(
     'Boolean': const GraphQLCodegenConfigScalar(type: 'bool'),
     'String': const GraphQLCodegenConfigScalar(type: 'String'),
     'ID': const GraphQLCodegenConfigScalar(type: 'String'),
+    'Float': const GraphQLCodegenConfigScalar(type: 'double'),
     ...context.context.config.scalars,
   };
 
   final ref = scalars[node.name.value];
   if (ref == null) {
-    print("Missing scalar ${node.name.value}. Defaulting to String");
+    context.markScalarAsBad(node.name.value);
     return Tuple2(refer("String"), {});
   }
   final import = ref.import;
