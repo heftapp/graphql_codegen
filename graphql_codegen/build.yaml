@@ -1,7 +1,7 @@
 builders:
   graphql_codegen:
     import: 'package:graphql_codegen/builder.dart'
-    builder_factories: ['graphQLQueryBuilder']
+    builder_factories: ['GraphQLBuilder.builder']
     build_extensions: {'$lib$': ['.graphql.dart']}
     auto_apply: dependents
     build_to: source

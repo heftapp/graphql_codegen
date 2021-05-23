@@ -1,9 +1,9 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/printer/context.dart';
-import 'package:graphql_codegen/printer/utils.dart';
-import 'package:graphql_codegen/context.dart';
+import 'package:graphql_codegen/src/printer/context.dart';
+import 'package:graphql_codegen/src/printer/utils.dart';
+import 'package:graphql_codegen/src/context.dart';
 
 Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
     FunctionType(

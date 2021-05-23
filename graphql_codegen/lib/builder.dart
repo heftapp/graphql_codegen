@@ -7,15 +7,16 @@ import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:glob/glob.dart';
 import 'package:gql/language.dart';
-import 'package:graphql_codegen/generator.dart';
-import 'package:graphql_codegen/context.dart';
+import 'package:graphql_codegen/graphql_codegen.dart';
 import 'package:graphql_codegen_config/config.dart';
 
-GraphQLBuilder graphQLQueryBuilder(BuilderOptions options) =>
-    GraphQLBuilder(options);
-
+/// The builder class.
 class GraphQLBuilder extends Builder {
   final BuilderOptions options;
+
+  /// A static method to initialize the builder.
+  static GraphQLBuilder builder(BuilderOptions options) =>
+      GraphQLBuilder(options);
 
   GraphQLBuilder(this.options);
 
@@ -35,9 +36,9 @@ class GraphQLBuilder extends Builder {
           )
           .toList();
       return await generate<AssetId>(
-        Schema<AssetId>(
-          BuiltMap.of(Map.fromEntries(entries)),
-          (id) => "${id.path}.dart",
+        SchemaConfig<AssetId>(
+          entries: BuiltMap.of(Map.fromEntries(entries)),
+          lookupPath: (id) => "${id.path}.dart",
         ),
         GraphQLCodegenConfig.fromJson(jsonDecode(jsonEncode(options.config))),
       );

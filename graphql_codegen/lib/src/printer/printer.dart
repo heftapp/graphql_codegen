@@ -2,10 +2,10 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen_config/config.dart';
-import 'package:graphql_codegen/errors.dart';
-import 'package:graphql_codegen/printer/clients/graphql.dart';
-import 'package:graphql_codegen/printer/clients/graphql_flutter.dart';
-import 'package:graphql_codegen/context.dart';
+import 'package:graphql_codegen/src/errors.dart';
+import 'package:graphql_codegen/src/printer/clients/graphql.dart';
+import 'package:graphql_codegen/src/printer/clients/graphql_flutter.dart';
+import 'package:graphql_codegen/src/context.dart';
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 
 import 'context.dart';

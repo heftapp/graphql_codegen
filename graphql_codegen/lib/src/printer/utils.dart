@@ -1,6 +1,6 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/printer/keywords.dart';
+import 'package:graphql_codegen/src/printer/keywords.dart';
 import 'package:recase/recase.dart';
 
 import '../context.dart';

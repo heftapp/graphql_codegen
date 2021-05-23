@@ -1,6 +1,6 @@
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/errors.dart';
-import 'package:graphql_codegen/context.dart';
+import 'package:graphql_codegen/src/errors.dart';
+import 'package:graphql_codegen/src/context.dart';
 
 class ContextVisitor extends RecursiveVisitor {
   final Context context;
