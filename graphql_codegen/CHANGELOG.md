@@ -1,3 +1,7 @@
+# 0.2.0
+
+Update documentation and public API.
+
 # 0.1.0
 
 Fix bugs and add new documentation.
