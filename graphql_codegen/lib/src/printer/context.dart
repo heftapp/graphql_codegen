@@ -1,5 +1,4 @@
 import 'package:code_builder/code_builder.dart';
-import 'package:gql/ast.dart';
 import 'package:path/path.dart' as p;
 import '../context.dart';
 

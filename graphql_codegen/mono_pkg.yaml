@@ -1,1 +1,10 @@
-{}
+dart:
+ - stable
+ - beta
+ - dev
+stages:
+  - analyze:
+    - dartanalyzer: lib
+    - dartfmt
+  - unit_test:
+    - test

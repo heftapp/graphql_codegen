@@ -1,0 +1,476 @@
+# Created with package:mono_repo v4.0.0
+name: Dart Lint CI
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0"
+defaults:
+  run:
+    shell: bash
+env:
+  PUB_ENVIRONMENT: bot.github
+
+jobs:
+  job_001:
+    name: "analyze; Dart beta; PKG: graphql_codegen; `dartanalyzer lib`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen;commands:dartanalyzer_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:beta
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: beta
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen; dartanalyzer lib
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: dartanalyzer lib
+  job_002:
+    name: "analyze; Dart dev; PKG: graphql_codegen; `dartanalyzer lib`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen;commands:dartanalyzer_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:dev
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: dev
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen; dartanalyzer lib
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: dartanalyzer lib
+  job_003:
+    name: "analyze; Dart stable; PKG: graphql_codegen; `dartanalyzer lib`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen;commands:dartanalyzer_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: stable
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen; dartanalyzer lib
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: dartanalyzer lib
+  job_004:
+    name: "analyze; Dart beta; PKG: graphql_codegen; `dartfmt -n --set-exit-if-changed .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen;commands:dartfmt"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:beta
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: beta
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: "graphql_codegen; dartfmt -n --set-exit-if-changed ."
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: dartfmt -n --set-exit-if-changed .
+  job_005:
+    name: "analyze; Dart beta; PKG: graphql_codegen_config; `dartfmt -n --set-exit-if-changed .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen_config;commands:dartfmt"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen_config
+            os:ubuntu-latest;pub-cache-hosted;dart:beta
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: beta
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_config_pub_upgrade
+        name: "graphql_codegen_config; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: pub upgrade --no-precompile
+      - name: "graphql_codegen_config; dartfmt -n --set-exit-if-changed ."
+        if: "always() && steps.graphql_codegen_config_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: dartfmt -n --set-exit-if-changed .
+  job_006:
+    name: "analyze; Dart dev; PKG: graphql_codegen; `dartfmt -n --set-exit-if-changed .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen;commands:dartfmt"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:dev
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: dev
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: "graphql_codegen; dartfmt -n --set-exit-if-changed ."
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: dartfmt -n --set-exit-if-changed .
+  job_007:
+    name: "analyze; Dart dev; PKG: graphql_codegen_config; `dartfmt -n --set-exit-if-changed .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen_config;commands:dartfmt"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen_config
+            os:ubuntu-latest;pub-cache-hosted;dart:dev
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: dev
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_config_pub_upgrade
+        name: "graphql_codegen_config; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: pub upgrade --no-precompile
+      - name: "graphql_codegen_config; dartfmt -n --set-exit-if-changed ."
+        if: "always() && steps.graphql_codegen_config_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: dartfmt -n --set-exit-if-changed .
+  job_008:
+    name: "analyze; Dart stable; PKG: graphql_codegen; `dartfmt -n --set-exit-if-changed .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen;commands:dartfmt"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: stable
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: "graphql_codegen; dartfmt -n --set-exit-if-changed ."
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: dartfmt -n --set-exit-if-changed .
+  job_009:
+    name: "analyze; Dart stable; PKG: graphql_codegen_config; `dartfmt -n --set-exit-if-changed .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen_config;commands:dartfmt"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen_config
+            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: stable
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_config_pub_upgrade
+        name: "graphql_codegen_config; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: pub upgrade --no-precompile
+      - name: "graphql_codegen_config; dartfmt -n --set-exit-if-changed ."
+        if: "always() && steps.graphql_codegen_config_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: dartfmt -n --set-exit-if-changed .
+  job_010:
+    name: "analyze; Dart beta; PKG: graphql_codegen_config; `dartanalyzer .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen_config;commands:dartanalyzer_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen_config
+            os:ubuntu-latest;pub-cache-hosted;dart:beta
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: beta
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_config_pub_upgrade
+        name: "graphql_codegen_config; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen_config; dartanalyzer .
+        if: "always() && steps.graphql_codegen_config_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: dartanalyzer .
+  job_011:
+    name: "analyze; Dart dev; PKG: graphql_codegen_config; `dartanalyzer .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen_config;commands:dartanalyzer_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen_config
+            os:ubuntu-latest;pub-cache-hosted;dart:dev
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: dev
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_config_pub_upgrade
+        name: "graphql_codegen_config; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen_config; dartanalyzer .
+        if: "always() && steps.graphql_codegen_config_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: dartanalyzer .
+  job_012:
+    name: "analyze; Dart stable; PKG: graphql_codegen_config; `dartanalyzer .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen_config;commands:dartanalyzer_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen_config
+            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: stable
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_config_pub_upgrade
+        name: "graphql_codegen_config; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen_config; dartanalyzer .
+        if: "always() && steps.graphql_codegen_config_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen_config
+        run: dartanalyzer .
+  job_013:
+    name: "unit_test; Dart beta; PKG: graphql_codegen; `pub run test`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen;commands:test"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:beta
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: beta
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen; pub run test
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub run test
+    needs:
+      - job_001
+      - job_002
+      - job_003
+      - job_004
+      - job_005
+      - job_006
+      - job_007
+      - job_008
+      - job_009
+      - job_010
+      - job_011
+      - job_012
+  job_014:
+    name: "unit_test; Dart dev; PKG: graphql_codegen; `pub run test`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen;commands:test"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:dev
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: dev
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen; pub run test
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub run test
+    needs:
+      - job_001
+      - job_002
+      - job_003
+      - job_004
+      - job_005
+      - job_006
+      - job_007
+      - job_008
+      - job_009
+      - job_010
+      - job_011
+      - job_012
+  job_015:
+    name: "unit_test; Dart stable; PKG: graphql_codegen; `pub run test`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@v2.1.5
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen;commands:test"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:graphql_codegen
+            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: stable
+      - id: checkout
+        uses: actions/checkout@v2.3.4
+      - id: graphql_codegen_pub_upgrade
+        name: "graphql_codegen; pub upgrade --no-precompile"
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub upgrade --no-precompile
+      - name: graphql_codegen; pub run test
+        if: "always() && steps.graphql_codegen_pub_upgrade.conclusion == 'success'"
+        working-directory: graphql_codegen
+        run: pub run test
+    needs:
+      - job_001
+      - job_002
+      - job_003
+      - job_004
+      - job_005
+      - job_006
+      - job_007
+      - job_008
+      - job_009
+      - job_010
+      - job_011
+      - job_012
