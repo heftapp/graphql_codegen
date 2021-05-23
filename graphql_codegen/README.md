@@ -83,7 +83,7 @@ main () {
 
 ## Using fragments
 
-Framgents are a great tool to re-use queries throughout your app. These are used to create "interfaces"
+Fragments are a great tool to re-use queries throughout your app. These are used to create "interfaces"
 which'll allow you to easily parse your data around. Given the schema above and the query
 
 ```graphql
@@ -144,7 +144,11 @@ abstract class FragmentPersonSummary {
 and will be available in the generated `.graphql.dart` file for the `.graphql` file
 containing the fragment.
 
+<<<<<<< HEAD
 ## Custom scalars
+=======
+## Custom scalars
+>>>>>>> 5dc54fd (docs)
 
 Out of the box, the standard fragmens are supported and mapped to relevant dart types. You can add
 new mappings for your custom scalars or overwrite existing configurations.
