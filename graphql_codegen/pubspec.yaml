@@ -1,6 +1,6 @@
 name: graphql_codegen
 description: "Simple, opinionated, codegen library for GraphQL"
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/heftapp/graphql_codegen
 repository: https://github.com/heftapp/graphql_codegen
 

@@ -1,3 +1,7 @@
+# 0.1.0
+
+Fix bugs and add new documentation.
+
 # 0.0.1
 
 Add custom scalar support
