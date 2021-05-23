@@ -144,8 +144,7 @@ abstract class FragmentPersonSummary {
 and will be available in the generated `.graphql.dart` file for the `.graphql` file
 containing the fragment.
 
-
-## Custom scalars
+## Custom scalars
 
 Out of the box, the standard fragmens are supported and mapped to relevant dart types. You can add
 new mappings for your custom scalars or overwrite existing configurations.
