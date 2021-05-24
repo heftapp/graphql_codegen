@@ -1,3 +1,7 @@
+# 0.2.3
+
+Update repo paths.
+
 # 0.2.2
 
 Add example for the points.

@@ -1,3 +1,7 @@
+# 0.1.0
+
+Update documentation paths
+
 # 0.0.1
 
 Fixed bugs and stuff...
