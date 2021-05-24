@@ -1,0 +1,11 @@
+query FetchPerson ($id: ID!) {
+    fetch_person(id: $id) {
+        ...PersonSummary
+        parents {
+            ...PersonSummary
+        }
+        children {
+            ...PersonSummary
+        }
+    }
+}

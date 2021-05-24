@@ -1,0 +1,5 @@
+
+fragment PersonSummary on Person {
+    nickname
+    name: full_name
+}

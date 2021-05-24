@@ -1,0 +1,12 @@
+name: graphql_codegen_example
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  json_annotation: ^4.0.1
+
+dev_dependencies:
+  json_serializable: ^4.1.2
+  graphql_codegen: "any"
+  build_runner: ^2.0.3
