@@ -1,3 +1,8 @@
+# 0.3.0
+
+Support fragment inheritence
+
+
 # 0.2.3
 
 Update repo paths.
