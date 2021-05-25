@@ -16,6 +16,8 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     required TypeDefinitionNode currentType,
     required Map<String, Context> contexts,
     FragmentDefinitionNode? fragment,
+    Queue<Name>? inFragments,
+    Name? possibleTypeOf,
   })  : this.fragment = fragment,
         this.path = path,
         super(
@@ -24,6 +26,8 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
           schema: schema,
           currentType: currentType,
           contexts: contexts,
+          inFragment: inFragments,
+          possibleTypeOf: possibleTypeOf,
         );
 
   @override
@@ -33,6 +37,12 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     Name? inFragment,
     Name? possibleTypeOf,
   }) {
+    final newInFragment = ListQueue.of(
+      [
+        ..._inFragment.map((e) => e.withSegment(name)),
+        if (inFragment != null) inFragment,
+      ],
+    );
     final c = ContextFragment(
       key: key,
       config: config,
@@ -40,6 +50,8 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
       path: path.withSegment(name),
       currentType: currentType,
       contexts: _contexts,
+      inFragments: newInFragment,
+      possibleTypeOf: possibleTypeOf,
     );
     _addContext(c);
     return c;
@@ -292,9 +304,14 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
         ..._childContexts.values.expand((c) => c.fragmentsRecursive),
       };
 
-  ContextOperation<TKey>? get possibleTypeOfContext {
+  ContextOperation<TKey>? get possibleTypeOfContextOperaration {
     final pt = possibleTypeOf;
     return pt == null ? null : _lookupContextOperation(pt);
+  }
+
+  ContextFragment<TKey>? get possibleTypeOfContextFragment {
+    final pt = possibleTypeOf;
+    return pt == null ? null : _lookupContextFragment(pt);
   }
 
   void _addContext(Context c) {
@@ -306,11 +323,12 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     FragmentDefinitionNode node,
     TypeDefinitionNode type,
   ) {
+    final path = Name.fromSegment(FragmentNameSegment(node));
     final c = ContextFragment(
       key: key,
       schema: schema,
       config: config,
-      path: Name.fromSegment(FragmentNameSegment(node)),
+      path: path,
       currentType: type,
       contexts: _contexts,
       fragment: node,
@@ -361,6 +379,12 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     final c = _contexts[path._key];
     if (c == null) return null;
     return c is ContextOperation<TKey> ? c : null;
+  }
+
+  ContextFragment<TKey>? _lookupContextFragment(Name path) {
+    final c = _contexts[path._key];
+    if (c == null) return null;
+    return c is ContextFragment<TKey> ? c : null;
   }
 
   void addFragment(Name fragment) {

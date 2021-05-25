@@ -1,0 +1,35 @@
+type Query {
+    t: Type
+}
+
+interface Type {
+    name: String
+    other: Type
+}
+
+type T1 implements Type {
+    name: String
+    other: Type
+    b: Boolean
+}
+
+fragment F on Type {
+    other {
+        ...F2
+        ... on T1 {
+            b
+        }
+    }
+}
+
+fragment F2 on Type {
+    other {
+        name
+    }
+}
+
+query Fetch {
+    t {
+        ...F
+    }
+}

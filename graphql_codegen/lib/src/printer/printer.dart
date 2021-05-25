@@ -91,16 +91,26 @@ EnumValue printEnumValue(NameNode name) => EnumValue(
         ]),
     );
 
-Spec printFragment(PrintContext<ContextFragment> f) => Class(
-      (b) => b
-        ..abstract = true
-        ..name = printClassName(f.context.path)
-        ..methods = ListBuilder<Method>(
-          f.context.publicProperties.map(
-            (property) => printFragmentProperty(f, property),
-          ),
+Spec printFragment(PrintContext<ContextFragment> f) {
+  f.addDependencies(f.context.fragments);
+  final extendContext = f.context.possibleTypeOfContextFragment;
+  return Class(
+    (b) => b
+      ..abstract = true
+      ..name = printClassName(f.context.path)
+      ..implements = ListBuilder(
+        f.context.fragments.map((e) => refer(printClassName(e))),
+      )
+      ..extend = extendContext == null
+          ? null
+          : refer(printClassName(extendContext.path))
+      ..methods = ListBuilder<Method>(
+        f.context.publicProperties.map(
+          (property) => printFragmentProperty(f, property),
         ),
-    );
+      ),
+  );
+}
 
 Method printFragmentProperty(
   PrintContext context,
@@ -261,7 +271,7 @@ Class printContext(PrintContext<ContextOperation> c) {
   c.addDependencies(context.fragments);
   c.addDependencies(context.possibleTypes.map((e) => e.name));
 
-  final extendContext = context.possibleTypeOfContext;
+  final extendContext = context.possibleTypeOfContextOperaration;
   if (extendContext != null) {
     c.addDependency(extendContext.path);
   }

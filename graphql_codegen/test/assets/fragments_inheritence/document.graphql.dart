@@ -18,7 +18,20 @@ const FRAGMENT_F = const FragmentDefinitionNode(
           arguments: [],
           directives: [],
           selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(name: NameNode(value: 'F2'), directives: [])
+            FragmentSpreadNode(name: NameNode(value: 'F2'), directives: []),
+            InlineFragmentNode(
+                typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                        name: NameNode(value: 'T1'), isNonNull: false)),
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                      name: NameNode(value: 'b'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
+                ]))
           ]))
     ]));
 
@@ -26,13 +39,12 @@ abstract class FragmentF$other implements FragmentF2 {
   FragmentF$other$other? get other;
 }
 
-abstract class FragmentF$other$other implements FragmentF2$other, FragmentF3 {
-  FragmentF$other$other$other? get other;
+abstract class FragmentF$other$other implements FragmentF2$other {
+  String? get name;
 }
 
-abstract class FragmentF$other$other$other
-    implements FragmentF2$other$other, FragmentF3$other, FragmentF4 {
-  String? get name;
+abstract class FragmentF$other$T1 extends FragmentF$other {
+  bool? get b;
 }
 
 abstract class FragmentF2 {
@@ -51,59 +63,18 @@ const FRAGMENT_F2 = const FragmentDefinitionNode(
           arguments: [],
           directives: [],
           selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(name: NameNode(value: 'F3'), directives: [])
+            FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
           ]))
     ]));
 
-abstract class FragmentF2$other implements FragmentF3 {
-  FragmentF2$other$other? get other;
-}
-
-abstract class FragmentF2$other$other implements FragmentF3$other, FragmentF4 {
+abstract class FragmentF2$other {
   String? get name;
 }
-
-abstract class FragmentF3 {
-  FragmentF3$other? get other;
-}
-
-const FRAGMENT_F3 = const FragmentDefinitionNode(
-    name: NameNode(value: 'F3'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'other'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(name: NameNode(value: 'F4'), directives: [])
-          ]))
-    ]));
-
-abstract class FragmentF3$other implements FragmentF4 {
-  String? get name;
-}
-
-abstract class FragmentF4 {
-  String? get name;
-}
-
-const FRAGMENT_F4 = const FragmentDefinitionNode(
-    name: NameNode(value: 'F4'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null)
-    ]));
 
 @JsonSerializable()
 class QueryFetch extends JsonSerializable {
@@ -137,8 +108,6 @@ const QUERY_FETCH = const DocumentNode(definitions: [
       ])),
   FRAGMENT_F,
   FRAGMENT_F2,
-  FRAGMENT_F3,
-  FRAGMENT_F4,
 ]);
 
 @JsonSerializable()
@@ -172,34 +141,31 @@ class QueryFetch$t$other extends JsonSerializable
 
 @JsonSerializable()
 class QueryFetch$t$other$other extends JsonSerializable
-    implements FragmentF$other$other, FragmentF2$other, FragmentF3 {
-  QueryFetch$t$other$other({this.other});
+    implements FragmentF$other$other, FragmentF2$other {
+  QueryFetch$t$other$other({this.name});
 
   @override
   factory QueryFetch$t$other$other.fromJson(Map<String, dynamic> json) =>
       _$QueryFetch$t$other$otherFromJson(json);
 
-  final QueryFetch$t$other$other$other? other;
+  final String? name;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$t$other$otherToJson(this);
 }
 
 @JsonSerializable()
-class QueryFetch$t$other$other$other extends JsonSerializable
-    implements
-        FragmentF$other$other$other,
-        FragmentF2$other$other,
-        FragmentF3$other,
-        FragmentF4 {
-  QueryFetch$t$other$other$other({this.name});
+class QueryFetch$t$other$T1 extends QueryFetch$t$other
+    implements FragmentF$other$T1 {
+  QueryFetch$t$other$T1({this.b, QueryFetch$t$other$other? other})
+      : super(other: other);
 
   @override
-  factory QueryFetch$t$other$other$other.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetch$t$other$other$otherFromJson(json);
+  factory QueryFetch$t$other$T1.fromJson(Map<String, dynamic> json) =>
+      _$QueryFetch$t$other$T1FromJson(json);
 
-  final String? name;
+  final bool? b;
 
   @override
-  Map<String, dynamic> toJson() => _$QueryFetch$t$other$other$otherToJson(this);
+  Map<String, dynamic> toJson() => _$QueryFetch$t$other$T1ToJson(this);
 }
