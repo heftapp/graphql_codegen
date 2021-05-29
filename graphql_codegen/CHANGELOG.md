@@ -1,3 +1,7 @@
+# 0.3.1
+
+Improved interface/union fragment spread inside fragment on type.
+
 # 0.3.0
 
 Support fragment inheritence

@@ -127,7 +127,9 @@ class ContextVisitor extends RecursiveVisitor {
           "Failed to find type ${fragmentDef.typeCondition.on.name.value} for fragment ${node.name}");
     }
     final fragmentName = Name.fromSegment(FragmentNameSegment(fragmentDef));
-    if (typeNode.name.value == context.currentType.name.value) {
+    if (typeNode.name.value == context.currentType.name.value ||
+        typeNode is InterfaceTypeDefinitionNode ||
+        typeNode is UnionTypeDefinitionNode) {
       context.visitInFragment(fragmentDef, () {
         fragmentDef.visitChildren(this);
       });
@@ -170,7 +172,9 @@ class ContextVisitor extends RecursiveVisitor {
           "Failed to find type ${typeCondition.on.name.value} for inline fragment");
     }
 
-    if (typeNode.name.value == context.currentType.name.value) {
+    if (typeNode.name.value == context.currentType.name.value ||
+        typeNode is InterfaceTypeDefinitionNode ||
+        typeNode is UnionTypeDefinitionNode) {
       node.selectionSet.visitChildren(this);
       return;
     }
