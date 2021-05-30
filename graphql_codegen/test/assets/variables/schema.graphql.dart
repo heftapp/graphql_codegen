@@ -16,3 +16,5 @@ class InputI1 extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() => _$InputI1ToJson(this);
 }
+
+const POSSIBLE_TYPE_OF_MAP = const {};

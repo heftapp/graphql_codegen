@@ -564,3 +564,5 @@ extension GQLResultExtensionMutationUpdateSNoVariables on graphql.QueryResult {
     return data == null ? null : MutationUpdateSNoVariables.fromJson(data);
   }
 }
+
+const POSSIBLE_TYPE_OF_MAP = const {};

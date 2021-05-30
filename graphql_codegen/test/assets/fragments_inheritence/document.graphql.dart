@@ -169,3 +169,7 @@ class QueryFetch$t$other$T1 extends QueryFetch$t$other
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$t$other$T1ToJson(this);
 }
+
+const POSSIBLE_TYPE_OF_MAP = const {
+  'T1': {'Type'}
+};

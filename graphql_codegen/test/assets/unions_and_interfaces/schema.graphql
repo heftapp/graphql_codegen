@@ -1,0 +1,24 @@
+
+union UA = T1 | T2
+
+union UB = T3
+
+interface IA {
+
+}
+
+interface IB {
+    
+}
+
+type T1 implements IA & IB {
+
+}
+
+type T2 implements IA & IA {
+
+}
+
+type T3 {
+
+}

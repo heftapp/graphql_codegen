@@ -161,3 +161,5 @@ class GQLFMutationUpdateSOptional extends graphql_flutter.Mutation {
                     optimisticResult: optimisticResult),
                 result));
 }
+
+const POSSIBLE_TYPE_OF_MAP = const {};

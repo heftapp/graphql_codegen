@@ -89,3 +89,5 @@ class GQLFQueryFetchSNoVariables extends graphql_flutter.Query {
             options: options ?? GQLOptionsQueryFetchSNoVariables(),
             builder: builder);
 }
+
+const POSSIBLE_TYPE_OF_MAP = const {};

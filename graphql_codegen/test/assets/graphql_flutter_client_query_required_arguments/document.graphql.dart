@@ -112,3 +112,5 @@ class GQLFQueryFetchSRequired extends graphql_flutter.Query {
       required graphql_flutter.QueryBuilder builder})
       : super(key: key, options: options, builder: builder);
 }
+
+const POSSIBLE_TYPE_OF_MAP = const {};
