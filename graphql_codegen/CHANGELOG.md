@@ -1,3 +1,7 @@
+# 0.3.2
+
+Print a `POSSIBLE_TYPE_OF_MAP` containing type inheritence information.
+
 # 0.3.1
 
 Improved interface/union fragment spread inside fragment on type.
