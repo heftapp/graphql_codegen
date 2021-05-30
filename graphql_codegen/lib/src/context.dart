@@ -17,7 +17,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     required Map<String, Context> contexts,
     FragmentDefinitionNode? fragment,
     Queue<Name>? inFragments,
-    Name? possibleTypeOf,
+    Name? extendsName,
   })  : this.fragment = fragment,
         this.path = path,
         super(
@@ -27,7 +27,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
           currentType: currentType,
           contexts: contexts,
           inFragment: inFragments,
-          possibleTypeOf: possibleTypeOf,
+          extendsName: extendsName,
         );
 
   @override
@@ -35,7 +35,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     NameSegment name,
     TypeDefinitionNode currentType, {
     Name? inFragment,
-    Name? possibleTypeOf,
+    Name? extendsName,
   }) {
     final newInFragment = ListQueue.of(
       [
@@ -51,7 +51,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
       currentType: currentType,
       contexts: _contexts,
       inFragments: newInFragment,
-      possibleTypeOf: possibleTypeOf,
+      extendsName: extendsName,
     );
     _addContext(c);
     return c;
@@ -265,7 +265,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     required this.schema,
     Map<String, Context>? contexts,
     TType? currentType,
-    this.possibleTypeOf,
+    this.extendsName,
     Queue<Name>? inFragment,
   })  : _currentType = currentType,
         _contexts = contexts ?? {},
@@ -278,7 +278,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   final TType? _currentType;
 
-  final Name? possibleTypeOf;
+  final Name? extendsName;
 
   Queue<Name> _inFragment;
 
@@ -304,13 +304,13 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
         ..._childContexts.values.expand((c) => c.fragmentsRecursive),
       };
 
-  ContextOperation<TKey>? get possibleTypeOfContextOperaration {
-    final pt = possibleTypeOf;
+  ContextOperation<TKey>? get extendsContextOperation {
+    final pt = extendsName;
     return pt == null ? null : _lookupContextOperation(pt);
   }
 
-  ContextFragment<TKey>? get possibleTypeOfContextFragment {
-    final pt = possibleTypeOf;
+  ContextFragment<TKey>? get extendsContextFragment {
+    final pt = extendsName;
     return pt == null ? null : _lookupContextFragment(pt);
   }
 
@@ -445,7 +445,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   Context withNameAndType(
     NameSegment name,
     TypeDefinitionNode currentType, {
-    Name? possibleTypeOf,
+    Name? extendsName,
     Name? inFragment,
   }) {
     throw new StateError('withNameAndType not supported');
@@ -478,6 +478,34 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
   Iterable<OperationDefinitionNode> get operations =>
       schema.entries[key]?.definitions.whereType<OperationDefinitionNode>() ??
       <OperationDefinitionNode>[];
+
+  bool get isMainContext {
+    final definingOperation = schema.lookupOperationType(OperationType.query) ??
+        schema.lookupOperationType(OperationType.mutation) ??
+        schema.lookupOperationType(OperationType.subscription);
+    return schema.entries[key]?.definitions.contains(definingOperation) ??
+        false;
+  }
+
+  Map<String, Set<String>> get possibleTypeOfMap {
+    final possibleTypeOf = <String, Set<String>>{};
+    for (final definition in schema.definitions) {
+      if (definition is UnionTypeDefinitionNode) {
+        for (final tpe in definition.types) {
+          final types = possibleTypeOf[tpe.name.value] ?? {};
+          types.add(definition.name.value);
+          possibleTypeOf[tpe.name.value] = types;
+        }
+      } else if (definition is ObjectTypeDefinitionNode) {
+        for (final tpe in definition.interfaces) {
+          final types = possibleTypeOf[definition.name.value] ?? {};
+          types.add(tpe.name.value);
+          possibleTypeOf[definition.name.value] = types;
+        }
+      }
+    }
+    return possibleTypeOf;
+  }
 }
 
 class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
@@ -522,7 +550,7 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
     required Schema<TKey> schema,
     required Map<String, Context> contexts,
     required TypeDefinitionNode currentType,
-    Name? possibleTypeOf,
+    Name? extendsName,
   })  : this.path = path,
         super(
           key: key,
@@ -530,7 +558,7 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
           schema: schema,
           contexts: contexts,
           currentType: currentType,
-          possibleTypeOf: possibleTypeOf,
+          extendsName: extendsName,
           inFragment: inFragment,
         );
 
@@ -538,7 +566,7 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
     NameSegment name,
     TypeDefinitionNode currentType, {
     Name? inFragment,
-    Name? possibleTypeOf,
+    Name? extendsName,
   }) {
     final path = this.path.withSegment(name);
     final existingContext = _lookupContextOperation(path);
@@ -556,7 +584,7 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
       schema: schema,
       contexts: _contexts,
       currentType: currentType,
-      possibleTypeOf: possibleTypeOf,
+      extendsName: extendsName,
       inFragment: newInFragment,
     );
     _addContext(c);

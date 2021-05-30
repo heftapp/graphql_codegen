@@ -49,6 +49,8 @@ String printOperationDocumentName(Name name) =>
 String printFragmentDocumentName(Name name) =>
     ReCase(_printName(name)).constantCase;
 
+String printPossibleTypeOfMapName() => ReCase('possibleTypeOfMap').constantCase;
+
 String printClassName(Name name) => _printName(name);
 
 String printVariableClassName(Name name) => "Variables${_printName(name)}";

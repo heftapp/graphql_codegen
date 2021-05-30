@@ -93,7 +93,7 @@ EnumValue printEnumValue(NameNode name) => EnumValue(
 
 Spec printFragment(PrintContext<ContextFragment> f) {
   f.addDependencies(f.context.fragments);
-  final extendContext = f.context.possibleTypeOfContextFragment;
+  final extendContext = f.context.extendsContextFragment;
   return Class(
     (b) => b
       ..abstract = true
@@ -197,6 +197,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
           ...printGraphQLFlutterSpecs(elementContext),
       ];
     }),
+    if (context.isMainContext) printPossibleTypeOfMap(c),
   ]);
 
   final library = Library(
@@ -206,6 +207,18 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
   );
   c.printWarnings();
   return library;
+}
+
+Spec printPossibleTypeOfMap(PrintContext<ContextRoot> context) {
+  return Block(
+    (b) => b.statements.addAll([
+      Code(
+        "const ${printPossibleTypeOfMapName()} = const ",
+      ),
+      literal(context.context.possibleTypeOfMap).code,
+      Code(";")
+    ]),
+  );
 }
 
 Constructor printFromJson(
@@ -271,7 +284,7 @@ Class printContext(PrintContext<ContextOperation> c) {
   c.addDependencies(context.fragments);
   c.addDependencies(context.possibleTypes.map((e) => e.name));
 
-  final extendContext = context.possibleTypeOfContextOperaration;
+  final extendContext = context.extendsContextOperation;
   if (extendContext != null) {
     c.addDependency(extendContext.path);
   }

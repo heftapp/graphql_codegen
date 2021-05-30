@@ -138,7 +138,7 @@ class ContextVisitor extends RecursiveVisitor {
       final c = context.withNameAndType(
         TypeNameSegment(fragmentDef.typeCondition),
         typeNode,
-        possibleTypeOf: context.path,
+        extendsName: context.path,
         inFragment: fragmentName,
       );
       fragmentDef.visitChildren(
@@ -182,7 +182,7 @@ class ContextVisitor extends RecursiveVisitor {
     final c = context.withNameAndType(
       TypeNameSegment(typeCondition),
       typeNode,
-      possibleTypeOf: context.path,
+      extendsName: context.path,
     );
     node.visitChildren(
       ContextVisitor(
