@@ -182,6 +182,8 @@ class Schema<TKey> {
       fields = onType.fields;
     } else if (onType is InterfaceTypeDefinitionNode) {
       fields = onType.fields;
+    } else if (onType is UnionTypeDefinitionNode) {
+      fields = [];
     } else {
       return null;
     }

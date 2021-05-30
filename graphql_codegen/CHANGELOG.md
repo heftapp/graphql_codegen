@@ -1,3 +1,7 @@
+# 0.3.3
+
+Fix bug in introspection access on union types
+
 # 0.3.2
 
 Print a `POSSIBLE_TYPE_OF_MAP` containing type inheritence information.
