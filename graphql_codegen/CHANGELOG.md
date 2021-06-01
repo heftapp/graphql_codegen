@@ -1,3 +1,8 @@
+# 0.4.0
+
+Replace `POSSIBLE_TYPE_OF_MAP` with the inverse `POSSIBLE_TYPES_MAP`
+
+
 # 0.3.3
 
 Fix bug in introspection access on union types
