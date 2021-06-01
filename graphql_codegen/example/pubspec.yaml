@@ -8,5 +8,6 @@ dependencies:
 
 dev_dependencies:
   json_serializable: ^4.1.2
-  graphql_codegen: "^0.2.1"
+  graphql_codegen: 
+    path: "../"
   build_runner: ^2.0.3

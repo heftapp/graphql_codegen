@@ -193,17 +193,17 @@ packages:
   graphql_codegen:
     dependency: "direct dev"
     description:
-      name: graphql_codegen
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.1"
+      path: ".."
+      relative: true
+    source: path
+    version: "0.3.3"
   graphql_codegen_config:
     dependency: transitive
     description:
       name: graphql_codegen_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.1.0"
   graphs:
     dependency: transitive
     description:
