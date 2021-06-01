@@ -116,4 +116,4 @@ class GQLFQueryFetchSOptional extends graphql_flutter.Query {
             builder: builder);
 }
 
-const POSSIBLE_TYPE_OF_MAP = const {};
+const POSSIBLE_TYPES_MAP = const {};

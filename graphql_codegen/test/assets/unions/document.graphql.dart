@@ -112,7 +112,6 @@ class QueryQ$u$Tb extends QueryQ$u {
   Map<String, dynamic> toJson() => _$QueryQ$u$TbToJson(this);
 }
 
-const POSSIBLE_TYPE_OF_MAP = const {
-  'TA': {'U'},
-  'TB': {'U'}
+const POSSIBLE_TYPES_MAP = const {
+  'U': {'TA', 'TB'}
 };

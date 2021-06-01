@@ -204,4 +204,4 @@ class QueryFetch$t$other$other$other extends JsonSerializable
   Map<String, dynamic> toJson() => _$QueryFetch$t$other$other$otherToJson(this);
 }
 
-const POSSIBLE_TYPE_OF_MAP = const {};
+const POSSIBLE_TYPES_MAP = const {};

@@ -1,5 +1,6 @@
-const POSSIBLE_TYPE_OF_MAP = const {
-  'T1': {'UA', 'IA', 'IB'},
-  'T2': {'UA', 'IA'},
-  'T3': {'UB'}
+const POSSIBLE_TYPES_MAP = const {
+  'UA': {'T1', 'T2'},
+  'UB': {'T3'},
+  'IA': {'T1', 'T2'},
+  'IB': {'T1'}
 };

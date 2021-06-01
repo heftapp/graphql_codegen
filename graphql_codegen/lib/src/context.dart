@@ -489,24 +489,24 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
         false;
   }
 
-  Map<String, Set<String>> get possibleTypeOfMap {
-    final possibleTypeOf = <String, Set<String>>{};
+  Map<String, Set<String>> get possibleTypesMap {
+    final possibleTypes = <String, Set<String>>{};
     for (final definition in schema.definitions) {
       if (definition is UnionTypeDefinitionNode) {
+        final types = possibleTypes[definition.name.value] ?? {};
         for (final tpe in definition.types) {
-          final types = possibleTypeOf[tpe.name.value] ?? {};
-          types.add(definition.name.value);
-          possibleTypeOf[tpe.name.value] = types;
+          types.add(tpe.name.value);
         }
+        possibleTypes[definition.name.value] = types;
       } else if (definition is ObjectTypeDefinitionNode) {
         for (final tpe in definition.interfaces) {
-          final types = possibleTypeOf[definition.name.value] ?? {};
-          types.add(tpe.name.value);
-          possibleTypeOf[definition.name.value] = types;
+          final types = possibleTypes[tpe.name.value] ?? {};
+          types.add(definition.name.value);
+          possibleTypes[tpe.name.value] = types;
         }
       }
     }
-    return possibleTypeOf;
+    return possibleTypes;
   }
 }
 

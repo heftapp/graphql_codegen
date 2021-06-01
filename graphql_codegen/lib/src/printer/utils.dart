@@ -49,7 +49,7 @@ String printOperationDocumentName(Name name) =>
 String printFragmentDocumentName(Name name) =>
     ReCase(_printName(name)).constantCase;
 
-String printPossibleTypeOfMapName() => ReCase('possibleTypeOfMap').constantCase;
+String printPossibleTypesMapName() => ReCase('possibleTypesMap').constantCase;
 
 String printClassName(Name name) => _printName(name);
 

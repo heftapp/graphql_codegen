@@ -73,4 +73,4 @@ const QUERY_FETCH_SCALARS = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-const POSSIBLE_TYPE_OF_MAP = const {};
+const POSSIBLE_TYPES_MAP = const {};

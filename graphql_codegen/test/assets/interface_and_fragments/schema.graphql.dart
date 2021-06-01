@@ -1,4 +1,3 @@
-const POSSIBLE_TYPE_OF_MAP = const {
-  'ImplementationA': {'Interface'},
-  'ImplementationB': {'Interface'}
+const POSSIBLE_TYPES_MAP = const {
+  'Interface': {'ImplementationA', 'ImplementationB'}
 };

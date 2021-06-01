@@ -11,4 +11,4 @@ enum EnumEnum {
   $void,
   $unknown
 }
-const POSSIBLE_TYPE_OF_MAP = const {};
+const POSSIBLE_TYPES_MAP = const {};

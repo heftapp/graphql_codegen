@@ -197,7 +197,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
           ...printGraphQLFlutterSpecs(elementContext),
       ];
     }),
-    if (context.isMainContext) printPossibleTypeOfMap(c),
+    if (context.isMainContext) printPossibleTypesMap(c),
   ]);
 
   final library = Library(
@@ -209,13 +209,13 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
   return library;
 }
 
-Spec printPossibleTypeOfMap(PrintContext<ContextRoot> context) {
+Spec printPossibleTypesMap(PrintContext<ContextRoot> context) {
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printPossibleTypeOfMapName()} = const ",
+        "const ${printPossibleTypesMapName()} = const ",
       ),
-      literal(context.context.possibleTypeOfMap).code,
+      literal(context.context.possibleTypesMap).code,
       Code(";")
     ]),
   );

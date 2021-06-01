@@ -137,6 +137,6 @@ class QueryFetchStuff$field$FieldA extends QueryFetchStuff$field
   Map<String, dynamic> toJson() => _$QueryFetchStuff$field$FieldAToJson(this);
 }
 
-const POSSIBLE_TYPE_OF_MAP = const {
-  'FieldA': {'IField'}
+const POSSIBLE_TYPES_MAP = const {
+  'IField': {'FieldA'}
 };

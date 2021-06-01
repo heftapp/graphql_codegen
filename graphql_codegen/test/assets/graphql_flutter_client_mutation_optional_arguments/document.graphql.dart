@@ -162,4 +162,4 @@ class GQLFMutationUpdateSOptional extends graphql_flutter.Mutation {
                 result));
 }
 
-const POSSIBLE_TYPE_OF_MAP = const {};
+const POSSIBLE_TYPES_MAP = const {};
