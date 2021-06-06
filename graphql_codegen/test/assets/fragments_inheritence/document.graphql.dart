@@ -39,12 +39,12 @@ abstract class FragmentF$other implements FragmentF2 {
   FragmentF$other$other? get other;
 }
 
-abstract class FragmentF$other$T1 extends FragmentF$other {
-  bool? get b;
-}
-
 abstract class FragmentF$other$other implements FragmentF2$other {
   String? get name;
+}
+
+abstract class FragmentF$other$T1 extends FragmentF$other {
+  bool? get b;
 }
 
 abstract class FragmentF2 {
@@ -140,6 +140,21 @@ class QueryFetch$t$other extends JsonSerializable
 }
 
 @JsonSerializable()
+class QueryFetch$t$other$other extends JsonSerializable
+    implements FragmentF$other$other, FragmentF2$other {
+  QueryFetch$t$other$other({this.name});
+
+  @override
+  factory QueryFetch$t$other$other.fromJson(Map<String, dynamic> json) =>
+      _$QueryFetch$t$other$otherFromJson(json);
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$QueryFetch$t$other$otherToJson(this);
+}
+
+@JsonSerializable()
 class QueryFetch$t$other$T1 extends QueryFetch$t$other
     implements FragmentF$other$T1 {
   QueryFetch$t$other$T1({this.b, QueryFetch$t$other$other? other})
@@ -153,21 +168,6 @@ class QueryFetch$t$other$T1 extends QueryFetch$t$other
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$t$other$T1ToJson(this);
-}
-
-@JsonSerializable()
-class QueryFetch$t$other$other extends JsonSerializable
-    implements FragmentF$other$other, FragmentF2$other {
-  QueryFetch$t$other$other({this.name});
-
-  @override
-  factory QueryFetch$t$other$other.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetch$t$other$otherFromJson(json);
-
-  final String? name;
-
-  @override
-  Map<String, dynamic> toJson() => _$QueryFetch$t$other$otherToJson(this);
 }
 
 const POSSIBLE_TYPES_MAP = const {

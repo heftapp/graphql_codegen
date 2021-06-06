@@ -96,13 +96,13 @@ EnumValue printEnumValue(NameNode name) => EnumValue(
 Spec printFragment(PrintContext<ContextFragment> f) {
   f.addDependencies(f.context.fragments);
   final extendContext = f.context.extendsContextFragment;
-  final impl = f.context.fragments.map((e) => printClassName(e)).toList();
-  impl.sort((e1, e2) => e1.compareTo(e2));
   return Class(
     (b) => b
       ..abstract = true
       ..name = printClassName(f.context.path)
-      ..implements = ListBuilder(impl.map(refer))
+      ..implements = ListBuilder(
+        f.context.fragments.map((e) => printClassName(e)).map(refer),
+      )
       ..extend = extendContext == null
           ? null
           : refer(printClassName(extendContext.path))
@@ -327,13 +327,12 @@ Class printContext(PrintContext<ContextOperation> c) {
     (element) => !parentPropertiesSet.contains(printPropertyName(element.name)),
   );
 
-  final implNames = context.fragments.map((e) => printClassName(e)).toList();
-  implNames.sort((e1, e2) => e1.compareTo(e2));
-
   return Class(
     (b) => b
       ..name = printClassName(context.path)
-      ..implements = ListBuilder(implNames.map(refer))
+      ..implements = ListBuilder(
+        context.fragments.map((e) => printClassName(e)).map(refer),
+      )
       ..annotations = ListBuilder(
         [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
       )

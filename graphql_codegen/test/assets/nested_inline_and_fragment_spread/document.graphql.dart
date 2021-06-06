@@ -233,7 +233,7 @@ class QueryQ2$t extends JsonSerializable implements FragmentF {
 }
 
 @JsonSerializable()
-class QueryQ2$t$t extends JsonSerializable implements FragmentF, FragmentF$t {
+class QueryQ2$t$t extends JsonSerializable implements FragmentF$t, FragmentF {
   QueryQ2$t$t({this.t});
 
   @override
@@ -248,7 +248,7 @@ class QueryQ2$t$t extends JsonSerializable implements FragmentF, FragmentF$t {
 
 @JsonSerializable()
 class QueryQ2$t$t$t extends JsonSerializable
-    implements FragmentF$t, FragmentF$t$t {
+    implements FragmentF$t$t, FragmentF$t {
   QueryQ2$t$t$t({this.t});
 
   @override

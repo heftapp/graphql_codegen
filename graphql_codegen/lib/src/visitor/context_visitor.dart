@@ -177,18 +177,7 @@ class ContextVisitor extends RecursiveVisitor {
 
   @override
   void visitSelectionSetNode(SelectionSetNode node) {
-    for (final selection in node.selections) {
-      if (selection is FragmentSpreadNode) {
-        continue;
-      }
-      selection.accept(this);
-    }
-    for (final selection in node.selections) {
-      if (!(selection is FragmentSpreadNode)) {
-        continue;
-      }
-      selection.accept(this);
-    }
+    node.visitChildren(this);
     context.addFragmentsFromInFragment();
   }
 

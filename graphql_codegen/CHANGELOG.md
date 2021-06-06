@@ -1,3 +1,8 @@
+# 0.4.4
+
+Further improve consequtive fragment spreads, can it get any crazier!
+
+
 # 0.4.3
 
 Support fragment spread after overlapping keys.
