@@ -1,3 +1,6 @@
+# 0.4.1
+Support arbitrary type conditions on fragment spreads
+
 # 0.4.0
 
 Replace `POSSIBLE_TYPE_OF_MAP` with the inverse `POSSIBLE_TYPES_MAP`
