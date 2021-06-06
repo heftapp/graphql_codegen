@@ -134,14 +134,33 @@ class Schema<TKey> {
     return null;
   }
 
-  TypeDefinitionNode? lookupType(NameNode name) {
-    return definitions
-        .whereType<TypeDefinitionNode>()
-        .map<TypeDefinitionNode?>((e) => e)
-        .firstWhere(
+  TType? lookupType<TType extends TypeDefinitionNode>(NameNode name) {
+    return definitions.whereType<TType?>().firstWhere(
           (element) => element != null && element.name.value == name.value,
           orElse: () => null,
         );
+  }
+
+  Iterable<ObjectTypeDefinitionNode> lookupConcreateTypes(NameNode name) {
+    final typeDefinition = lookupType(name);
+    if (typeDefinition is ObjectTypeDefinitionNode) {
+      return [typeDefinition];
+    }
+    if (typeDefinition is UnionTypeDefinitionNode) {
+      return typeDefinition.types
+          .map((e) => lookupType<ObjectTypeDefinitionNode>(e.name))
+          .whereType<ObjectTypeDefinitionNode>();
+    }
+
+    if (typeDefinition is InterfaceTypeDefinitionNode) {
+      return definitions.whereType<ObjectTypeDefinitionNode>().where(
+            (element) => element.interfaces
+                .where((element) => element.name.value == name.value)
+                .isNotEmpty,
+          );
+    }
+
+    return [];
   }
 
   NameNode _operationTypeToDefaultClass(OperationType operationType) {
@@ -666,8 +685,7 @@ class FieldNameSegment extends NameSegment {
 }
 
 class TypeNameSegment extends NameSegment {
-  TypeNameSegment(TypeConditionNode typeCondition)
-      : super(typeCondition.on.name);
+  TypeNameSegment(NameNode typeCondition) : super(typeCondition);
 
   @override
   String get _key => "t${name.value}";

@@ -14,21 +14,27 @@ type FieldA implements IField {
 }
 
 fragment FragmentA on FieldA {
+    __typename
     value
     ...FragmentI
 }
 
 fragment FragmentI on IField {
+    __typename
     name
 }
 
 query FetchStuff {
+    __typename
     field {
+        __typename
         name
         ...FragmentA
         ...on FieldA {
+            __typename
             value
             ...on IField {
+                __typename
                 name
             }
         }

@@ -1,0 +1,58 @@
+
+interface I3 {
+    value: Float
+}
+
+interface I1 {
+    name: String
+}
+
+interface I2 {
+    size: Int
+}
+
+type T1 implements I1 & I2 {
+    name: String
+    size: Int
+}
+
+type Query {
+    field: I1
+}
+
+fragment F0 on I1 {
+    name01: name
+}
+
+fragment F1 on I2 {
+    size2: size
+}
+fragment F2 on T1 {
+    name2: name
+}
+
+fragment F3 on I3 {
+    value
+}
+
+query Q {
+    field {
+        __typename
+        ...on I1 {
+            name0: name
+        }
+        ...F0
+        ...on I2 {
+            size
+        }
+        ...on T1 {
+            name
+        }
+        ... on I3 {
+            value
+        }
+        ...F1
+        ...F2
+        ...F3
+    }
+}

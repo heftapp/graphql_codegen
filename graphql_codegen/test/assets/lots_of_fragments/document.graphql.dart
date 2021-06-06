@@ -14,6 +14,12 @@ const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
           name: NameNode(value: 'value'),
           alias: null,
           arguments: [],
@@ -32,6 +38,12 @@ const FRAGMENT_FRAGMENT_I = const FragmentDefinitionNode(
         on: NamedTypeNode(name: NameNode(value: 'IField'), isNonNull: false)),
     directives: [],
     selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
       FieldNode(
           name: NameNode(value: 'name'),
           alias: null,
@@ -62,11 +74,23 @@ const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null),
+        FieldNode(
             name: NameNode(value: 'field'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
               FieldNode(
                   name: NameNode(value: 'name'),
                   alias: null,
@@ -82,6 +106,12 @@ const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
                     FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null),
+                    FieldNode(
                         name: NameNode(value: 'value'),
                         alias: null,
                         arguments: [],
@@ -94,6 +124,12 @@ const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
                                 isNonNull: false)),
                         directives: [],
                         selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null),
                           FieldNode(
                               name: NameNode(value: 'name'),
                               alias: null,
@@ -113,8 +149,14 @@ class QueryFetchStuff$field extends JsonSerializable {
   QueryFetchStuff$field({this.name});
 
   @override
-  factory QueryFetchStuff$field.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchStuff$fieldFromJson(json);
+  factory QueryFetchStuff$field.fromJson(Map<String, dynamic> json) {
+    switch (json["__typename"] as String) {
+      case "FieldA":
+        return QueryFetchStuff$field$FieldA.fromJson(json);
+      default:
+        return _$QueryFetchStuff$fieldFromJson(json);
+    }
+  }
 
   final String? name;
 

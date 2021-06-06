@@ -119,24 +119,49 @@ class ContextVisitor extends RecursiveVisitor {
         "Failed to find fragment definition for ${node.name.value}",
       );
     }
-    final typeNode =
-        context.schema.lookupType(fragmentDef.typeCondition.on.name);
-
-    if (typeNode == null) {
-      throw InvalidGraphQLDocumentError(
-          "Failed to find type ${fragmentDef.typeCondition.on.name.value} for fragment ${node.name}");
-    }
     final fragmentName = Name.fromSegment(FragmentNameSegment(fragmentDef));
-    if (typeNode.name.value == context.currentType.name.value ||
-        typeNode is InterfaceTypeDefinitionNode ||
-        typeNode is UnionTypeDefinitionNode) {
+
+    if (fragmentDef.typeCondition.on.name == context.currentType.name) {
       context.visitInFragment(fragmentDef, () {
         fragmentDef.visitChildren(this);
       });
       context.addFragment(fragmentName);
-    } else {
+      return;
+    }
+
+    final typeCondition = fragmentDef.typeCondition;
+    final typeConditionConcreteTypes = context.schema
+        .lookupConcreateTypes(typeCondition.on.name)
+        .map((e) => e.name)
+        .toSet();
+    final currentTypeConcreteTypes = context.schema
+        .lookupConcreateTypes(context.currentType.name)
+        .map((e) => e.name)
+        .toSet();
+
+    final concreteIntersection =
+        typeConditionConcreteTypes.intersection(currentTypeConcreteTypes);
+
+    if (concreteIntersection.isEmpty) {
+      return;
+    }
+
+    if (context.currentType is ObjectTypeDefinitionNode) {
+      context.visitInFragment(fragmentDef, () {
+        fragmentDef.visitChildren(this);
+      });
+      context.addFragment(fragmentName);
+      return;
+    }
+
+    for (final typeName in concreteIntersection) {
+      final typeNode = context.schema.lookupType(typeName);
+      if (typeNode == null) {
+        throw InvalidGraphQLDocumentError(
+            "Failed to find definition for type ${typeName.value}");
+      }
       final c = context.withNameAndType(
-        TypeNameSegment(fragmentDef.typeCondition),
+        TypeNameSegment(typeName),
         typeNode,
         extendsName: context.path,
         inFragment: fragmentName,
@@ -160,36 +185,52 @@ class ContextVisitor extends RecursiveVisitor {
   void visitInlineFragmentNode(InlineFragmentNode node) {
     final typeCondition = node.typeCondition;
     // If we do not have a type condition, inline the selection set.
-    if (typeCondition == null) {
+    // TODO support directives
+    if (typeCondition == null ||
+        typeCondition.on.name == context.currentType.name) {
       node.selectionSet.visitChildren(this);
       return;
     }
 
-    final typeNode = context.schema.lookupType(typeCondition.on.name);
+    final typeConditionConcreteTypes = context.schema
+        .lookupConcreateTypes(typeCondition.on.name)
+        .map((e) => e.name)
+        .toSet();
+    final currentTypeConcreteTypes = context.schema
+        .lookupConcreateTypes(context.currentType.name)
+        .map((e) => e.name)
+        .toSet();
 
-    if (typeNode == null) {
-      throw InvalidGraphQLDocumentError(
-          "Failed to find type ${typeCondition.on.name.value} for inline fragment");
+    final concreteIntersection =
+        typeConditionConcreteTypes.intersection(currentTypeConcreteTypes);
+
+    if (concreteIntersection.isEmpty) {
+      return;
     }
 
-    if (typeNode.name.value == context.currentType.name.value ||
-        typeNode is InterfaceTypeDefinitionNode ||
-        typeNode is UnionTypeDefinitionNode) {
+    if (context.currentType is ObjectTypeDefinitionNode) {
       node.selectionSet.visitChildren(this);
       return;
     }
 
-    final c = context.withNameAndType(
-      TypeNameSegment(typeCondition),
-      typeNode,
-      extendsName: context.path,
-    );
-    node.visitChildren(
-      ContextVisitor(
-        context: c,
-      ),
-    );
-    context.addPossibleTypeName(c);
+    for (final typeName in concreteIntersection) {
+      final typeNode = context.schema.lookupType(typeName);
+      if (typeNode == null) {
+        throw InvalidGraphQLDocumentError(
+            "Failed to find definition for type ${typeName.value}");
+      }
+      final c = context.withNameAndType(
+        TypeNameSegment(typeNode.name),
+        typeNode,
+        extendsName: context.path,
+      );
+      node.visitChildren(
+        ContextVisitor(
+          context: c,
+        ),
+      );
+      context.addPossibleTypeName(c);
+    }
   }
 
   @override
