@@ -1,0 +1,11 @@
+fragment F1 on T1 {
+    name
+}
+
+
+query Q {
+    t {
+        ...F1
+        ...F2   
+    }
+}

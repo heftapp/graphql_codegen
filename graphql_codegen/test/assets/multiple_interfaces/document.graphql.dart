@@ -165,6 +165,9 @@ const QUERY_Q = const DocumentNode(definitions: [
             ]))
       ])),
   FRAGMENT_F0,
+  FRAGMENT_F1,
+  FRAGMENT_F2,
+  FRAGMENT_F3,
 ]);
 
 @JsonSerializable()
@@ -190,7 +193,7 @@ class QueryQ$field extends JsonSerializable implements FragmentF0 {
 }
 
 @JsonSerializable()
-class QueryQ$field$T1 extends QueryQ$field {
+class QueryQ$field$T1 extends QueryQ$field implements FragmentF1, FragmentF2 {
   QueryQ$field$T1(
       {this.size,
       this.name,

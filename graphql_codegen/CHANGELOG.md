@@ -1,4 +1,9 @@
+# 0.4.2
+
+Fix import of unused fragments and add right interfaces on fragment spread
+
 # 0.4.1
+
 Support arbitrary type conditions on fragment spreads
 
 # 0.4.0

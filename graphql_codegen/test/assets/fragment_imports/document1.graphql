@@ -1,0 +1,4 @@
+
+fragment F2 on T2 {
+    value
+}

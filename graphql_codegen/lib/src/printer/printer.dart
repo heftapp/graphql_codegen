@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
@@ -128,7 +130,29 @@ Spec printDocument(
   OperationDefinitionNode operation,
   Iterable<Name> fragments,
 ) {
+  final queue = ListQueue<ExecutableDefinitionNode>.of([operation]);
+  final fragments = <FragmentDefinitionNode>{};
+  while (queue.isNotEmpty) {
+    final definition = queue.removeFirst();
+    final visitor = AccumulatingVisitor<NameNode>(
+      visitors: [_FragmentsVisisitor()],
+    );
+    if (definition is OperationDefinitionNode) {
+      visitor.visitOperationDefinitionNode(definition);
+    } else if (definition is FragmentDefinitionNode) {
+      visitor.visitFragmentDefinitionNode(definition);
+    }
+    final definitions = visitor.accumulator
+        .map((e) => context.context.schema.lookupFragment(e))
+        .whereType<FragmentDefinitionNode>();
+    queue.addAll(definitions);
+    fragments.addAll(definitions);
+  }
+  final fragmentNames = fragments.map(
+    (e) => Name.fromSegment(FragmentNameSegment(e)),
+  );
   context.addPackage('package:gql/ast.dart');
+  context.addDependencies(fragmentNames);
   return Block(
     (b) => b.statements.addAll([
       Code(
@@ -136,12 +160,19 @@ Spec printDocument(
       ),
       gql_builder.fromNode(operation).code,
       Code(","),
-      ...fragments.where((element) => element.isRoot).expand(
-            (n) => [refer(printFragmentDocumentName(n)).code, Code(",")],
-          ),
+      ...fragmentNames.expand(
+        (n) => [refer(printFragmentDocumentName(n)).code, Code(",")],
+      ),
       Code("]);")
     ]),
   );
+}
+
+class _FragmentsVisisitor extends SimpleVisitor<List<NameNode>> {
+  @override
+  visitFragmentSpreadNode(FragmentSpreadNode node) {
+    return [node.name];
+  }
 }
 
 Spec printFragmentDefinition(

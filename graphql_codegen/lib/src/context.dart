@@ -591,7 +591,12 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
   }) {
     final path = this.path.withSegment(name);
     final existingContext = _lookupContextOperation(path);
-    if (existingContext != null) return existingContext;
+    if (existingContext != null) {
+      if (inFragment != null) {
+        existingContext._inFragment.add(inFragment);
+      }
+      return existingContext;
+    }
     final newInFragment = ListQueue.of(
       [
         ..._inFragment.map((e) => e.withSegment(name)),
