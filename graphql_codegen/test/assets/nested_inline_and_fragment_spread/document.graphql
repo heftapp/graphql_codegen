@@ -1,0 +1,45 @@
+type T {
+    t: T
+}
+
+fragment F on T {
+    t {
+        t {
+            __typename
+        }
+    }
+}
+
+type Query {
+    t: T
+}
+
+
+query Q {
+    t {
+        t {
+            t {
+                t {
+                    __typename
+                }
+            }
+            ...F
+        }
+        ...F
+    }
+}
+
+
+query Q2 {
+    t {
+        ...F
+        t {
+            ...F
+            t {
+                t {
+                    __typename
+                }
+            }
+        }
+    }
+}

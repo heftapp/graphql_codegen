@@ -16,7 +16,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     required TypeDefinitionNode currentType,
     required Map<String, Context> contexts,
     FragmentDefinitionNode? fragment,
-    Queue<Name>? inFragments,
+    Set<Name>? inFragments,
     Name? extendsName,
   })  : this.fragment = fragment,
         this.path = path,
@@ -37,7 +37,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     Name? inFragment,
     Name? extendsName,
   }) {
-    final newInFragment = ListQueue.of(
+    final newInFragment = Set.of(
       [
         ..._inFragment.map((e) => e.withSegment(name)),
         if (inFragment != null) inFragment,
@@ -287,10 +287,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     Map<String, Context>? contexts,
     TType? currentType,
     this.extendsName,
-    Queue<Name>? inFragment,
+    Set<Name>? inFragment,
   })  : _currentType = currentType,
         _contexts = contexts ?? {},
-        _inFragment = inFragment ?? ListQueue();
+        _inFragment = inFragment ?? {};
   final TKey key;
   final GraphQLCodegenConfig config;
   final Schema<TKey> schema;
@@ -301,7 +301,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   final Name? extendsName;
 
-  Queue<Name> _inFragment;
+  Set<Name> _inFragment;
 
   final Map<String, Name> _fragments = {};
   final Map<String, TypedName> _possibleTypeNames = {};
@@ -434,11 +434,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     FragmentDefinitionNode fragmentDef,
     void Function() visitor,
   ) {
-    this
-        ._inFragment
-        .addLast(Name.fromSegment(FragmentNameSegment(fragmentDef)));
+    final name = Name.fromSegment(FragmentNameSegment(fragmentDef));
+    this._inFragment.add(name);
     visitor();
-    this._inFragment.removeLast();
+    this._inFragment.remove(name);
   }
 
   void addFragmentsFromInFragment() {
@@ -566,7 +565,7 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
   ContextOperation({
     required TKey key,
     required GraphQLCodegenConfig config,
-    Queue<Name>? inFragment,
+    Set<Name>? inFragment,
     required Name path,
     required Schema<TKey> schema,
     required Map<String, Context> contexts,
@@ -592,12 +591,13 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
     final path = this.path.withSegment(name);
     final existingContext = _lookupContextOperation(path);
     if (existingContext != null) {
-      if (inFragment != null) {
-        existingContext._inFragment.add(inFragment);
-      }
+      existingContext._inFragment.addAll([
+        ..._inFragment.map((e) => e.withSegment(name)),
+        if (inFragment != null) inFragment,
+      ]);
       return existingContext;
     }
-    final newInFragment = ListQueue.of(
+    final newInFragment = Set.of(
       [
         ..._inFragment.map((e) => e.withSegment(name)),
         if (inFragment != null) inFragment,
@@ -651,6 +651,7 @@ class Name {
   bool get isRoot => segments.length == 1;
 
   bool operator ==(Object other) => other is Name && other._key == _key;
+
   @override
   int get hashCode => _key.hashCode;
 }
