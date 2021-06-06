@@ -1,3 +1,7 @@
+# 0.4.3
+
+Support fragment spread after overlapping keys.
+
 # 0.4.2
 
 Fix import of unused fragments and add right interfaces on fragment spread
