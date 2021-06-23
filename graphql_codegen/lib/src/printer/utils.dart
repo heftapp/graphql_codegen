@@ -58,6 +58,9 @@ String printVariableClassName(Name name) => "Variables${_printName(name)}";
 String printGraphQLClientOptionsName(Name name) =>
     "GQLOptions${_printName(name)}";
 
+String printGraphQLClientWatchOptionsName(Name name) =>
+    "GQLWatchOptions${_printName(name)}";
+
 String printGraphQLClientFetchMoreOptionsName(Name name) =>
     "GQLFetchMoreOptions${_printName(name)}";
 
@@ -84,6 +87,9 @@ String printGraphQLClientResultExtensionName(Name name) =>
 
 String printGraphQLClientExtensionMethodName(Name name) =>
     ReCase(_printName(name, isAction: true)).camelCase;
+
+String printGraphQLClientExtensionWatchMethodName(Name name) =>
+    ReCase("Watch${_printName(name, isAction: false)}").camelCase;
 
 String printGraphQLClientResultExtensionGetterName(Name name) =>
     ReCase("parsedData" + _printName(name)).camelCase;

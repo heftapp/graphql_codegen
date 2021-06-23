@@ -82,6 +82,30 @@ class GQLOptionsQueryFetchSOptional extends graphql.QueryOptions {
             document: QUERY_FETCH_S_OPTIONAL);
 }
 
+class GQLWatchOptionsQueryFetchSOptional extends graphql.WatchQueryOptions {
+  GQLWatchOptionsQueryFetchSOptional(
+      {String? operationName,
+      VariablesQueryFetchSOptional? variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables?.toJson() ?? {},
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: QUERY_FETCH_S_OPTIONAL,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
   GQLFetchMoreOptionsQueryFetchSOptional(
       {required graphql.UpdateQuery updateQuery,
@@ -96,6 +120,9 @@ extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult> queryFetchSOptional(
           [GQLOptionsQueryFetchSOptional? options]) async =>
       await this.query(options ?? GQLOptionsQueryFetchSOptional());
+  graphql.ObservableQuery watchQueryFetchSOptional(
+          [GQLWatchOptionsQueryFetchSOptional? options]) =>
+      this.watchQuery(options ?? GQLWatchOptionsQueryFetchSOptional());
 }
 
 extension GQLResultExtensionQueryFetchSOptional on graphql.QueryResult {

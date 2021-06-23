@@ -81,6 +81,30 @@ class GQLOptionsQueryFetchSOptional extends graphql.QueryOptions {
             document: QUERY_FETCH_S_OPTIONAL);
 }
 
+class GQLWatchOptionsQueryFetchSOptional extends graphql.WatchQueryOptions {
+  GQLWatchOptionsQueryFetchSOptional(
+      {String? operationName,
+      VariablesQueryFetchSOptional? variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables?.toJson() ?? {},
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: QUERY_FETCH_S_OPTIONAL,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
   GQLFetchMoreOptionsQueryFetchSOptional(
       {required graphql.UpdateQuery updateQuery,
@@ -95,6 +119,9 @@ extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult> queryFetchSOptional(
           [GQLOptionsQueryFetchSOptional? options]) async =>
       await this.query(options ?? GQLOptionsQueryFetchSOptional());
+  graphql.ObservableQuery watchQueryFetchSOptional(
+          [GQLWatchOptionsQueryFetchSOptional? options]) =>
+      this.watchQuery(options ?? GQLWatchOptionsQueryFetchSOptional());
 }
 
 extension GQLResultExtensionQueryFetchSOptional on graphql.QueryResult {
@@ -181,6 +208,30 @@ class GQLOptionsQueryFetchSRequired extends graphql.QueryOptions {
             document: QUERY_FETCH_S_REQUIRED);
 }
 
+class GQLWatchOptionsQueryFetchSRequired extends graphql.WatchQueryOptions {
+  GQLWatchOptionsQueryFetchSRequired(
+      {String? operationName,
+      required VariablesQueryFetchSRequired variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables.toJson(),
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: QUERY_FETCH_S_REQUIRED,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
   GQLFetchMoreOptionsQueryFetchSRequired(
       {required graphql.UpdateQuery updateQuery,
@@ -195,6 +246,9 @@ extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult> queryFetchSRequired(
           GQLOptionsQueryFetchSRequired options) async =>
       await this.query(options);
+  graphql.ObservableQuery watchQueryFetchSRequired(
+          GQLWatchOptionsQueryFetchSRequired options) =>
+      this.watchQuery(options);
 }
 
 extension GQLResultExtensionQueryFetchSRequired on graphql.QueryResult {
@@ -258,6 +312,28 @@ class GQLOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
             document: QUERY_FETCH_S_NO_VARIABLES);
 }
 
+class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
+  GQLWatchOptionsQueryFetchSNoVariables(
+      {String? operationName,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: QUERY_FETCH_S_NO_VARIABLES,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 class GQLFetchMoreOptionsQueryFetchSNoVariables
     extends graphql.FetchMoreOptions {
   GQLFetchMoreOptionsQueryFetchSNoVariables(
@@ -269,6 +345,9 @@ extension GQLExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
   Future<graphql.QueryResult> queryFetchSNoVariables(
           [GQLOptionsQueryFetchSNoVariables? options]) async =>
       await this.query(options ?? GQLOptionsQueryFetchSNoVariables());
+  graphql.ObservableQuery watchQueryFetchSNoVariables(
+          [GQLWatchOptionsQueryFetchSNoVariables? options]) =>
+      this.watchQuery(options ?? GQLWatchOptionsQueryFetchSNoVariables());
 }
 
 extension GQLResultExtensionQueryFetchSNoVariables on graphql.QueryResult {
@@ -369,10 +448,37 @@ class GQLOptionsMutationUpdateSOptional extends graphql.MutationOptions {
             document: MUTATION_UPDATE_S_OPTIONAL);
 }
 
+class GQLWatchOptionsMutationUpdateSOptional extends graphql.WatchQueryOptions {
+  GQLWatchOptionsMutationUpdateSOptional(
+      {String? operationName,
+      VariablesMutationUpdateSOptional? variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables?.toJson() ?? {},
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: MUTATION_UPDATE_S_OPTIONAL,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult> mutateUpdateSOptional(
           [GQLOptionsMutationUpdateSOptional? options]) async =>
       await this.mutate(options ?? GQLOptionsMutationUpdateSOptional());
+  graphql.ObservableQuery watchMutationUpdateSOptional(
+          [GQLWatchOptionsMutationUpdateSOptional? options]) =>
+      this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSOptional());
 }
 
 extension GQLResultExtensionMutationUpdateSOptional on graphql.QueryResult {
@@ -473,10 +579,37 @@ class GQLOptionsMutationUpdateSRequired extends graphql.MutationOptions {
             document: MUTATION_UPDATE_S_REQUIRED);
 }
 
+class GQLWatchOptionsMutationUpdateSRequired extends graphql.WatchQueryOptions {
+  GQLWatchOptionsMutationUpdateSRequired(
+      {String? operationName,
+      required VariablesMutationUpdateSRequired variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables.toJson(),
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: MUTATION_UPDATE_S_REQUIRED,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult> mutateUpdateSRequired(
           GQLOptionsMutationUpdateSRequired options) async =>
       await this.mutate(options);
+  graphql.ObservableQuery watchMutationUpdateSRequired(
+          GQLWatchOptionsMutationUpdateSRequired options) =>
+      this.watchMutation(options);
 }
 
 extension GQLResultExtensionMutationUpdateSRequired on graphql.QueryResult {
@@ -552,10 +685,37 @@ class GQLOptionsMutationUpdateSNoVariables extends graphql.MutationOptions {
             document: MUTATION_UPDATE_S_NO_VARIABLES);
 }
 
+class GQLWatchOptionsMutationUpdateSNoVariables
+    extends graphql.WatchQueryOptions {
+  GQLWatchOptionsMutationUpdateSNoVariables(
+      {String? operationName,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: MUTATION_UPDATE_S_NO_VARIABLES,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 extension GQLExtensionMutationUpdateSNoVariables on graphql.GraphQLClient {
   Future<graphql.QueryResult> mutateUpdateSNoVariables(
           [GQLOptionsMutationUpdateSNoVariables? options]) async =>
       await this.mutate(options ?? GQLOptionsMutationUpdateSNoVariables());
+  graphql.ObservableQuery watchMutationUpdateSNoVariables(
+          [GQLWatchOptionsMutationUpdateSNoVariables? options]) =>
+      this.watchMutation(
+          options ?? GQLWatchOptionsMutationUpdateSNoVariables());
 }
 
 extension GQLResultExtensionMutationUpdateSNoVariables on graphql.QueryResult {

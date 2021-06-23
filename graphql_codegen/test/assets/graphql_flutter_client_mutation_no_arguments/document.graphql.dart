@@ -69,10 +69,35 @@ class GQLOptionsMutationUpdateSNo extends graphql.MutationOptions {
             document: MUTATION_UPDATE_S_NO);
 }
 
+class GQLWatchOptionsMutationUpdateSNo extends graphql.WatchQueryOptions {
+  GQLWatchOptionsMutationUpdateSNo(
+      {String? operationName,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: MUTATION_UPDATE_S_NO,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 extension GQLExtensionMutationUpdateSNo on graphql.GraphQLClient {
   Future<graphql.QueryResult> mutateUpdateSNo(
           [GQLOptionsMutationUpdateSNo? options]) async =>
       await this.mutate(options ?? GQLOptionsMutationUpdateSNo());
+  graphql.ObservableQuery watchMutationUpdateSNo(
+          [GQLWatchOptionsMutationUpdateSNo? options]) =>
+      this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSNo());
 }
 
 extension GQLResultExtensionMutationUpdateSNo on graphql.QueryResult {

@@ -97,10 +97,37 @@ class GQLOptionsMutationUpdateSOptional extends graphql.MutationOptions {
             document: MUTATION_UPDATE_S_OPTIONAL);
 }
 
+class GQLWatchOptionsMutationUpdateSOptional extends graphql.WatchQueryOptions {
+  GQLWatchOptionsMutationUpdateSOptional(
+      {String? operationName,
+      VariablesMutationUpdateSOptional? variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables?.toJson() ?? {},
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: MUTATION_UPDATE_S_OPTIONAL,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult> mutateUpdateSOptional(
           [GQLOptionsMutationUpdateSOptional? options]) async =>
       await this.mutate(options ?? GQLOptionsMutationUpdateSOptional());
+  graphql.ObservableQuery watchMutationUpdateSOptional(
+          [GQLWatchOptionsMutationUpdateSOptional? options]) =>
+      this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSOptional());
 }
 
 extension GQLResultExtensionMutationUpdateSOptional on graphql.QueryResult {

@@ -261,6 +261,80 @@ Spec printMutationOptions(PrintContext<ContextOperation> c,
   );
 }
 
+Spec printWatchOptions(PrintContext<ContextOperation> c,
+    {String? name, bool disableVariables = false}) {
+  final context = c.context;
+  final hasVariables = !disableVariables && context.hasVariables;
+  return Class(
+    (b) => b
+      ..name = name ?? printGraphQLClientWatchOptionsName(context.path)
+      ..extend = refer("graphql.WatchQueryOptions")
+      ..constructors = ListBuilder([
+        Constructor(
+          (b) => b
+            ..optionalParameters = ListBuilder(
+              [
+                printOptionsParameter('operationName', 'String'),
+                if (hasVariables)
+                  printOptionsParameter(
+                    'variables',
+                    printVariableClassName(context.path),
+                    isRequired: context.isVariablesRequired,
+                  ),
+                printOptionsParameter(
+                  'fetchPolicy',
+                  'graphql.FetchPolicy',
+                ),
+                printOptionsParameter(
+                  'errorPolicy',
+                  'graphql.ErrorPolicy',
+                ),
+                printOptionsParameter(
+                  'cacheRereadPolicy',
+                  'graphql.CacheRereadPolicy',
+                ),
+                printOptionsParameter(
+                  'optimisticResult',
+                  'Object',
+                ),
+                printOptionsParameter(
+                  'context',
+                  'graphql.Context',
+                ),
+                printOptionsParameter(
+                  "pollInterval",
+                  "Duration",
+                ),
+                printOptionsParameter(
+                  "eagerlyFetchResults",
+                  "bool",
+                ),
+              ],
+            )
+            ..initializers = ListBuilder([
+              refer('super').call([], {
+                if (hasVariables && context.isVariablesRequired)
+                  'variables': refer('variables').property('toJson').call([])
+                else if (hasVariables)
+                  'variables': refer('variables')
+                      .nullSafeProperty('toJson')
+                      .call([]).ifNullThen(literalMap({})),
+                'operationName': refer('operationName'),
+                'fetchPolicy': refer('fetchPolicy'),
+                'errorPolicy': refer('errorPolicy'),
+                'cacheRereadPolicy': refer('cacheRereadPolicy'),
+                'optimisticResult': refer('optimisticResult'),
+                'context': refer('context'),
+                'document': refer(printOperationDocumentName(context.path)),
+                'pollInterval': refer('pollInterval'),
+                'eagerlyFetchResults': refer('eagerlyFetchResults'),
+              }).code,
+            ]),
+        ),
+      ]),
+  );
+}
+
 Spec printMutationExtension(PrintContext<ContextOperation> context) {
   final isOptionsRequired = context.context.isVariablesRequired;
   final optionsParameter = Parameter(
@@ -269,6 +343,15 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
       ..type = TypeReference(
         (b) => b
           ..symbol = printGraphQLClientOptionsName(context.path)
+          ..isNullable = !isOptionsRequired,
+      ),
+  );
+  final watchOptionsParameter = Parameter(
+    (b) => b
+      ..name = "options"
+      ..type = TypeReference(
+        (b) => b
+          ..symbol = printGraphQLClientWatchOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
@@ -306,6 +389,27 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
                 ..symbol = "Future"
                 ..types = ListBuilder([refer('graphql.QueryResult')]),
             ),
+        ),
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionWatchMethodName(context.path)
+            ..lambda = true
+            ..requiredParameters = ListBuilder([
+              if (isOptionsRequired) watchOptionsParameter,
+            ])
+            ..optionalParameters = ListBuilder([
+              if (!isOptionsRequired) watchOptionsParameter,
+            ])
+            ..body = refer("this").property("watchMutation").call([
+              if (isOptionsRequired)
+                refer("options")
+              else
+                refer("options").ifNullThen(
+                  refer(printGraphQLClientWatchOptionsName(context.path))
+                      .call([]),
+                )
+            ]).code
+            ..returns = refer('graphql.ObservableQuery'),
         ),
       ]),
   );
@@ -351,6 +455,15 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
           ..isNullable = !isOptionsRequired,
       ),
   );
+  final watchOptionsParameter = Parameter(
+    (b) => b
+      ..name = "options"
+      ..type = TypeReference(
+        (b) => b
+          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..isNullable = !isOptionsRequired,
+      ),
+  );
   return Extension(
     (b) => b
       ..name = printGraphQLClientExtensionName(context.path)
@@ -386,6 +499,27 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                 ..types = ListBuilder([refer('graphql.QueryResult')]),
             ),
         ),
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionWatchMethodName(context.path)
+            ..lambda = true
+            ..requiredParameters = ListBuilder([
+              if (isOptionsRequired) watchOptionsParameter,
+            ])
+            ..optionalParameters = ListBuilder([
+              if (!isOptionsRequired) watchOptionsParameter,
+            ])
+            ..body = refer("this").property("watchQuery").call([
+              if (isOptionsRequired)
+                refer("options")
+              else
+                refer("options").ifNullThen(
+                  refer(printGraphQLClientWatchOptionsName(context.path))
+                      .call([]),
+                )
+            ]).code
+            ..returns = refer('graphql.ObservableQuery'),
+        ),
       ]),
   );
 }
@@ -399,6 +533,7 @@ Iterable<Spec> printMutation(PrintContext<ContextOperation> context) {
   return [
     printOnMutationCompleted(context),
     printMutationOptions(context),
+    printWatchOptions(context),
     printMutationExtension(context),
     printResultExtension(context),
   ];
@@ -411,6 +546,7 @@ Iterable<Spec> printQuery(PrintContext<ContextOperation> context) {
   );
   return [
     printQueryOptions(context),
+    printWatchOptions(context),
     printFetchMoreOptions(context),
     printQueryExtension(context),
     printResultExtension(context),

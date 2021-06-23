@@ -9,3 +9,9 @@ query FetchPerson ($id: ID!) {
         }
     }
 }
+
+mutation UpdatePerson($id: ID!) {
+    update_person(id: $id) {
+        full_name
+    }
+}

@@ -97,10 +97,37 @@ class GQLOptionsMutationUpdateSRequired extends graphql.MutationOptions {
             document: MUTATION_UPDATE_S_REQUIRED);
 }
 
+class GQLWatchOptionsMutationUpdateSRequired extends graphql.WatchQueryOptions {
+  GQLWatchOptionsMutationUpdateSRequired(
+      {String? operationName,
+      required VariablesMutationUpdateSRequired variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults})
+      : super(
+            variables: variables.toJson(),
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: MUTATION_UPDATE_S_REQUIRED,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults);
+}
+
 extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult> mutateUpdateSRequired(
           GQLOptionsMutationUpdateSRequired options) async =>
       await this.mutate(options);
+  graphql.ObservableQuery watchMutationUpdateSRequired(
+          GQLWatchOptionsMutationUpdateSRequired options) =>
+      this.watchMutation(options);
 }
 
 extension GQLResultExtensionMutationUpdateSRequired on graphql.QueryResult {
