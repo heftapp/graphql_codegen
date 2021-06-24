@@ -91,7 +91,9 @@ class GQLWatchOptionsQueryFetchSOptional extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             variables: variables?.toJson() ?? {},
             operationName: operationName,
@@ -102,7 +104,9 @@ class GQLWatchOptionsQueryFetchSOptional extends graphql.WatchQueryOptions {
             context: context,
             document: QUERY_FETCH_S_OPTIONAL,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
@@ -218,7 +222,9 @@ class GQLWatchOptionsQueryFetchSRequired extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             variables: variables.toJson(),
             operationName: operationName,
@@ -229,7 +235,9 @@ class GQLWatchOptionsQueryFetchSRequired extends graphql.WatchQueryOptions {
             context: context,
             document: QUERY_FETCH_S_REQUIRED,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
@@ -321,7 +329,9 @@ class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -331,7 +341,9 @@ class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
             context: context,
             document: QUERY_FETCH_S_NO_VARIABLES,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 class GQLFetchMoreOptionsQueryFetchSNoVariables
@@ -458,7 +470,9 @@ class GQLWatchOptionsMutationUpdateSOptional extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             variables: variables?.toJson() ?? {},
             operationName: operationName,
@@ -469,7 +483,9 @@ class GQLWatchOptionsMutationUpdateSOptional extends graphql.WatchQueryOptions {
             context: context,
             document: MUTATION_UPDATE_S_OPTIONAL,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
@@ -589,7 +605,9 @@ class GQLWatchOptionsMutationUpdateSRequired extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             variables: variables.toJson(),
             operationName: operationName,
@@ -600,7 +618,9 @@ class GQLWatchOptionsMutationUpdateSRequired extends graphql.WatchQueryOptions {
             context: context,
             document: MUTATION_UPDATE_S_REQUIRED,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
@@ -695,7 +715,9 @@ class GQLWatchOptionsMutationUpdateSNoVariables
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -705,7 +727,9 @@ class GQLWatchOptionsMutationUpdateSNoVariables
             context: context,
             document: MUTATION_UPDATE_S_NO_VARIABLES,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 extension GQLExtensionMutationUpdateSNoVariables on graphql.GraphQLClient {

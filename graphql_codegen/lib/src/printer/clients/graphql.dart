@@ -149,15 +149,17 @@ Parameter printOptionsParameter(
   String name,
   String symbol, {
   bool isRequired = false,
+  Code? defaultTo,
 }) =>
     Parameter(
       (b) => b
         ..name = name
         ..named = true
         ..required = isRequired
+        ..defaultTo = defaultTo
         ..type = TypeReference(
           (b) => b
-            ..isNullable = !isRequired
+            ..isNullable = !isRequired && defaultTo == null
             ..symbol = symbol,
         ),
     );
@@ -309,6 +311,16 @@ Spec printWatchOptions(PrintContext<ContextOperation> c,
                   "eagerlyFetchResults",
                   "bool",
                 ),
+                printOptionsParameter(
+                  "carryForwardDataOnException",
+                  "bool",
+                  defaultTo: literalTrue.code,
+                ),
+                printOptionsParameter(
+                  "fetchResults",
+                  "bool",
+                  defaultTo: literalFalse.code,
+                ),
               ],
             )
             ..initializers = ListBuilder([
@@ -328,6 +340,10 @@ Spec printWatchOptions(PrintContext<ContextOperation> c,
                 'document': refer(printOperationDocumentName(context.path)),
                 'pollInterval': refer('pollInterval'),
                 'eagerlyFetchResults': refer('eagerlyFetchResults'),
+                'carryForwardDataOnException': refer(
+                  'carryForwardDataOnException',
+                ),
+                'fetchResults': refer('fetchResults'),
               }).code,
             ]),
         ),

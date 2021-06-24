@@ -68,7 +68,9 @@ class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -78,7 +80,9 @@ class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
             context: context,
             document: QUERY_FETCH_S_NO_VARIABLES,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 class GQLFetchMoreOptionsQueryFetchSNoVariables

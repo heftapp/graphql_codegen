@@ -92,7 +92,9 @@ class GQLWatchOptionsQueryFetchSOptional extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             variables: variables?.toJson() ?? {},
             operationName: operationName,
@@ -103,7 +105,9 @@ class GQLWatchOptionsQueryFetchSOptional extends graphql.WatchQueryOptions {
             context: context,
             document: QUERY_FETCH_S_OPTIONAL,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {

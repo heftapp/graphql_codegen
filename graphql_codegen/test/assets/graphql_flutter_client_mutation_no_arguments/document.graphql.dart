@@ -78,7 +78,9 @@ class GQLWatchOptionsMutationUpdateSNo extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -88,7 +90,9 @@ class GQLWatchOptionsMutationUpdateSNo extends graphql.WatchQueryOptions {
             context: context,
             document: MUTATION_UPDATE_S_NO,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 extension GQLExtensionMutationUpdateSNo on graphql.GraphQLClient {

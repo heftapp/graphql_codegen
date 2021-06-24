@@ -107,7 +107,9 @@ class GQLWatchOptionsMutationUpdateSRequired extends graphql.WatchQueryOptions {
       Object? optimisticResult,
       graphql.Context? context,
       Duration? pollInterval,
-      bool? eagerlyFetchResults})
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
       : super(
             variables: variables.toJson(),
             operationName: operationName,
@@ -118,7 +120,9 @@ class GQLWatchOptionsMutationUpdateSRequired extends graphql.WatchQueryOptions {
             context: context,
             document: MUTATION_UPDATE_S_REQUIRED,
             pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults);
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults);
 }
 
 extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
