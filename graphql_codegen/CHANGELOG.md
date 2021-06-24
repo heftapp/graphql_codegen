@@ -1,3 +1,7 @@
+# 0.4.5
+
+Add `watchQuery` helpers.
+
 # 0.4.4
 
 Further improve consequtive fragment spreads, can it get any crazier!
