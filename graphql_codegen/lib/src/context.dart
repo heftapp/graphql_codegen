@@ -37,6 +37,15 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     Name? inFragment,
     Name? extendsName,
   }) {
+    final path = this.path.withSegment(name);
+    final existingContext = _lookupContextFragment(path);
+    if (existingContext != null) {
+      existingContext._inFragment = ListQueue.of([
+        ..._inFragment.map((e) => e.withSegment(name)),
+        if (inFragment != null) inFragment,
+      ]);
+      return existingContext;
+    }
     final newInFragment = Queue.of(
       [
         ..._inFragment.map((e) => e.withSegment(name)),
@@ -47,7 +56,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
       key: key,
       config: config,
       schema: schema,
-      path: path.withSegment(name),
+      path: path,
       currentType: currentType,
       contexts: _contexts,
       inFragments: newInFragment,

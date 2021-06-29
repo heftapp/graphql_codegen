@@ -1,0 +1,32 @@
+type T {
+    name: String
+    t: T
+}
+
+fragment T1 on T {
+    t { 
+        name
+    }
+}
+
+fragment T2 on T {
+    t { 
+        name
+    }
+    name
+}
+
+fragment TC on T {
+    ...T1
+    ...T2
+}
+
+type Query {
+    t: T
+}
+
+query Q {
+    t {
+        ...TC
+    }
+}

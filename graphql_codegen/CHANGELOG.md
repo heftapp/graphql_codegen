@@ -1,3 +1,7 @@
+# 0.4.6
+
+Fix bug in fragments
+
 # 0.4.5
 
 Add `watchQuery` helpers.
