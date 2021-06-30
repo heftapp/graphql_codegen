@@ -119,10 +119,11 @@ class ContextVisitor extends RecursiveVisitor {
         "Failed to find fragment definition for ${node.name.value}",
       );
     }
+
     final fragmentName = Name.fromSegment(FragmentNameSegment(fragmentDef));
 
     if (fragmentDef.typeCondition.on.name == context.currentType.name) {
-      context.visitInFragment(fragmentDef, () {
+      context.visitInFragment(fragmentName, () {
         fragmentDef.visitChildren(this);
       });
       context.addFragment(fragmentName);
@@ -146,11 +147,31 @@ class ContextVisitor extends RecursiveVisitor {
       return;
     }
 
+    Context tempFragmentContext;
+    if (context.hasContextFragment(fragmentName)) {
+      tempFragmentContext = context;
+    } else {
+      tempFragmentContext = context.rootContext();
+      ContextVisitor(context: tempFragmentContext)
+          .visitFragmentDefinitionNode(fragmentDef);
+    }
+
     if (context.currentType is ObjectTypeDefinitionNode) {
-      context.visitInFragment(fragmentDef, () {
-        fragmentDef.visitChildren(this);
-      });
-      context.addFragment(fragmentName);
+      final typedFragmentName = fragmentName.withSegment(
+        TypeNameSegment(context.currentType.name),
+      );
+      final existingFragmentName =
+          tempFragmentContext.contextFragmentNameOrFallback(
+        typedFragmentName,
+        fragmentName,
+      );
+      context.visitInFragment(
+        existingFragmentName,
+        () {
+          fragmentDef.visitChildren(this);
+        },
+      );
+      context.addFragment(existingFragmentName);
       return;
     }
 
@@ -160,16 +181,23 @@ class ContextVisitor extends RecursiveVisitor {
         throw InvalidGraphQLDocumentError(
             "Failed to find definition for type ${typeName.value}");
       }
+      final typedFragmentName = fragmentName.withSegment(
+        TypeNameSegment(typeName),
+      );
+      final existingFragmentName =
+          tempFragmentContext.contextFragmentNameOrFallback(
+        typedFragmentName,
+        fragmentName,
+      );
+
       final c = context.withNameAndType(
         TypeNameSegment(typeName),
         typeNode,
         extendsName: context.path,
-        inFragment: fragmentName,
+        inFragment: existingFragmentName,
       );
       fragmentDef.visitChildren(
-        ContextVisitor(
-          context: c,
-        ),
+        ContextVisitor(context: c),
       );
       context.addPossibleTypeName(c);
     }

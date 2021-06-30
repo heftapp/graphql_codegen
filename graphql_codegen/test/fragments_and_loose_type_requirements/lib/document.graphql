@@ -1,0 +1,46 @@
+
+type Query {
+    t: T
+}
+
+interface I {
+    name: String
+}
+
+type T implements I {
+    name: String
+    t: T
+}
+
+fragment F1 on I {
+    __typename
+    name
+    ...on T {
+        __typename
+        t {
+            name
+        }
+    }
+}
+
+fragment F2 on I {
+    __typename
+    name
+}
+
+
+query Q1 {
+    t {
+        __typename
+        ...F1
+    }
+}
+
+
+
+query Q2 {
+    t {
+        __typename
+        ...F2
+    }
+}

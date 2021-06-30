@@ -349,6 +349,14 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     _childContexts[c.path._key] = c;
   }
 
+  bool hasContextFragment(Name name) => _lookupContextFragment(name) != null;
+
+  Name contextFragmentNameOrFallback(Name name, Name fallback) =>
+      hasContextFragment(name) ? name : fallback;
+
+  ContextRoot rootContext() =>
+      ContextRoot(key: key, config: config, schema: schema);
+
   ContextFragment withFragmentAndType(
     FragmentDefinitionNode node,
     TypeDefinitionNode type,
@@ -440,11 +448,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   }
 
   void visitInFragment(
-    FragmentDefinitionNode fragmentDef,
+    Name fragmentName,
     void Function() visitor,
   ) {
-    final name = Name.fromSegment(FragmentNameSegment(fragmentDef));
-    this._inFragment.addLast(name);
+    this._inFragment.addLast(fragmentName);
     visitor();
     this._inFragment.removeLast();
   }
