@@ -1,3 +1,8 @@
+# 0.4.7
+
+Fix bug in abstract fragment spread with concrete spread on concrete type.
+
+
 # 0.4.6
 
 Fix bug in fragments
