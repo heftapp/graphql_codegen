@@ -1,6 +1,8 @@
 import 'package:code_builder/code_builder.dart';
-import 'package:path/path.dart' as p;
+import 'package:path/path.dart' as path;
 import '../context.dart';
+
+final p = path.Context(style: path.Style.posix);
 
 class _Value<TValue> {
   TValue value;
