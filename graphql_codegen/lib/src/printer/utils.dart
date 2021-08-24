@@ -104,8 +104,9 @@ String printKeywordSafe(String name) =>
 String printEnumValueName(NameNode name) =>
     printKeywordSafe(ReCase(name.value).camelCase);
 
-String printPropertyName(NameNode name) =>
-    printKeywordSafe(ReCase(name.value).camelCase);
+String printPropertyName(NameNode name) => name.value == '__typename'
+    ? r'$$typename'
+    : printKeywordSafe(ReCase(name.value).camelCase);
 
 Expression printNullCheck(Reference variable, Expression whenNotNull) =>
     variable.equalTo(literalNull).conditional(literalNull, whenNotNull);

@@ -473,8 +473,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
           ) !=
       null;
 
-  Iterable<ContextProperty> get publicProperties =>
-      _properties.values.where((element) => !element._key.startsWith("_"));
+  Iterable<ContextProperty> get publicProperties => _properties.values.where(
+        (element) =>
+            element._key == '__typename' || !element._key.startsWith("_"),
+      );
 
   Name get path => throw StateError("Path not available");
 

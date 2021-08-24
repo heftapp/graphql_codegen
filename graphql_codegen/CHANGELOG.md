@@ -1,3 +1,7 @@
+# 0.4.8
+
+Generate a $$typename field.
+
 # 0.4.7
 
 Fix bug in abstract fragment spread with concrete spread on concrete type.
