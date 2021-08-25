@@ -47,7 +47,10 @@ Spec _printClass(
   return Class(
     (b) => b
       ..annotations = ListBuilder(
-        [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
+        [
+          _JSON_SERIALIZABLE_BASE_CLASS
+              .call([], {'explicitToJson': literalBool(true)})
+        ],
       )
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..name = name
@@ -334,7 +337,10 @@ Class printContext(PrintContext<ContextOperation> c) {
         context.fragments.map((e) => printClassName(e)).map(refer),
       )
       ..annotations = ListBuilder(
-        [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
+        [
+          _JSON_SERIALIZABLE_BASE_CLASS
+              .call([], {'explicitToJson': literalBool(true)})
+        ],
       )
       ..extend = extendContext == null
           ? _JSON_SERIALIZABLE_BASE_CLASS
