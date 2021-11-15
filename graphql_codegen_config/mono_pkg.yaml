@@ -4,5 +4,5 @@ dart:
  - dev
 stages:
   - analyze:
-    - dartanalyzer
-    - dartfmt
+    - analyze
+    - format

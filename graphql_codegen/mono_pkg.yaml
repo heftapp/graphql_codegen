@@ -4,7 +4,7 @@ dart:
  - dev
 stages:
   - analyze:
-    - dartanalyzer: lib
-    - dartfmt
+    - analyze
+    - format
   - unit_test:
     - test
