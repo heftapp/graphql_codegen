@@ -182,7 +182,7 @@ packages:
       name: gql_code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.3.0-alpha.0"
   gql_dedupe_link:
     dependency: transitive
     description:
@@ -238,7 +238,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.4.4"
+    version: "0.4.9"
   graphql_codegen_config:
     dependency: transitive
     description:

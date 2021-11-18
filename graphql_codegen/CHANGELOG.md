@@ -1,3 +1,7 @@
+# 0.4.9
+
+bumped version of gql_code_builder
+
 # 0.4.8
 
 Fix bug that generated wrong path separators on Windows.
