@@ -1,3 +1,7 @@
+# 0.4.9
+
+Fix: Recursively build possible types
+
 # 0.4.8
 
 Fix bug that generated wrong path separators on Windows.
