@@ -5,30 +5,27 @@ This is an opinionated code-generation tool from GraphQL to Dart/Flutter.
 It'll allow you to generate Dart serializers and client helpers with minimal config.
 The framework makes no assumption on how you structure your fragments or queries,
 for each `operation.graphql` the framework will generate a `operation.graphq.dart` file
-containing dart classes. 
+containing dart classes.
 
 The builder relies on `json_serializable` to generate the actual serializers,
-so in addition to the two files mentioned above, it'll also generate a `operation.graphql.g.dart` 
+so in addition to the two files mentioned above, it'll also generate a `operation.graphql.g.dart`
 file.
 
 The framework does not fetch your schema for you, so before you run this, you'll need
 to add your schema to your project.
 
+## Installation
 
-## Setup
-
-Add `graphql_codegen: <current_version>` to your `dev_dependencies`. 
+Add `graphql_codegen: <current_version>` to your `dev_dependencies`.
 
 The project depends on `json_serializable` so read more on how to set this up [here](https://pub.dev/packages/json_serializable).
 It is also a builder, so you'll need to set up `build_runner`. Read more [here](https://pub.dev/packages/build_runner).
 
-When you've setup the builder, you can generate your code with:
+## Basic Usage
 
-```sh
-$ dart run build_runner build
-```
+To generate dart classes from GraphQL schema, firstly you have to create a `schema.graphql` file and GraphQL document files.
 
-## Writing GraphQL files
+For instance:
 
 Given schema
 
@@ -36,17 +33,17 @@ Given schema
 # schema.graphql
 
 type Query {
-    fetch_person(id: ID!): Person
+  fetch_person(id: ID!): Person
 }
 
 type Person {
-    full_name: String!
-    nickname: String
-    website: URL
-    date_of_birth: ISODateTime
-    parents: [Person!]
-    siblings: [Person!]
-    children: [Person!]    
+  full_name: String!
+  nickname: String
+  website: URL
+  date_of_birth: ISODateTime
+  parents: [Person!]
+  siblings: [Person!]
+  children: [Person!]
 }
 
 scalar ISODateTime
@@ -59,14 +56,20 @@ and a query
 ```graphql
 # person.graphql
 
-query FetchPerson ($id: ID!) {
-    fetch_person(id: $id) {
-        name: full_name
-    }
+query FetchPerson($id: ID!) {
+  fetch_person(id: $id) {
+    name: full_name
+  }
 }
 ```
 
-you can parse the result with
+and then you can generate dart classes with:
+
+```sh
+$ dart run build_runner build
+```
+
+afterwards, you can parse the result with
 
 ```dart
 // person.dart
@@ -90,20 +93,20 @@ which'll allow you to easily parse your data around. Given the schema above and 
 # parents_and_children.graphql
 
 fragment PersonSummary on Person {
-    full_name
+  full_name
 }
 
 query FetchParentsAndChildren {
-    fetch_person(id: "1") {
-        parents {
-            ...PersonSummary
-            nickname
-        }
-
-        children {
-            ...PersonSummary
-        }
+  fetch_person(id: "1") {
+    parents {
+      ...PersonSummary
+      nickname
     }
+
+    children {
+      ...PersonSummary
+    }
+  }
 }
 ```
 
@@ -127,7 +130,7 @@ main () {
     }
     for (final child in parsedData?.fetchPerson.children ?? []) {
         printPerson(child);
-    } 
+    }
 }
 ```
 
@@ -144,7 +147,6 @@ abstract class FragmentPersonSummary {
 and will be available in the generated `.graphql.dart` file for the `.graphql` file
 containing the fragment.
 
-
 ## Custom scalars
 
 Out of the box, the standard fragmens are supported and mapped to relevant dart types. You can add
@@ -154,7 +156,6 @@ In the schema above, you can see that we have defined the `ISODateTime` scalar. 
 a string with an iso formatted date-time string. We would like to map this to darts `DateTime` type by
 adding the following configuration to the `build.yaml` file:
 
-
 ```yaml
 # build.yaml
 
@@ -163,9 +164,11 @@ targets:
     builders:
       graphql_codegen:
         options:
-            scalars:
-                ISODateTime:
-                    type: DateTime
+          scalars:
+            ISODateTime:
+              type: DateTime
+            JSON:
+              type: Map<String, dynamic>
 ```
 
 since `json_serializable` supports parsing `DateTime` from strings this is all we need to do.
@@ -180,12 +183,12 @@ targets:
     builders:
       graphql_codegen:
         options:
-            scalars:
-                ISODateTime:
-                    type: CustomDateTime
-                    fromJsonFunctionName: customDateTimeFromJson
-                    toJsonFunctionName: customDateTimeToJson
-                    import: package:my_app/scalar.dart
+          scalars:
+            ISODateTime:
+              type: CustomDateTime
+              fromJsonFunctionName: customDateTimeFromJson
+              toJsonFunctionName: customDateTimeToJson
+              import: package:my_app/scalar.dart
 ```
 
 and create a `scalar.dart` file with your converter functions and class.
@@ -199,7 +202,7 @@ class CustomDateTime {
 }
 ```
 
-and 
+and
 
 ```dart
 // scalar.dart
@@ -211,7 +214,6 @@ dynamic customDateTimeToJson(CustomDateTime time) => time.datetime;
 ```
 
 and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
-
 
 ## Clients
 
@@ -228,9 +230,9 @@ targets:
     builders:
       graphql_codegen:
         options:
-            clients:
-                - graphql
-                - graphql_flutter
+          clients:
+            - graphql
+            - graphql_flutter
 ```
 
 Currently, we support two clients:
@@ -245,10 +247,10 @@ With the query from above:
 ```graphql
 # person.graphql
 
-query FetchPerson ($id: ID!) {
-    fetch_person(id: $id) {
-        name: full_name
-    }
+query FetchPerson($id: ID!) {
+  fetch_person(id: $id) {
+    name: full_name
+  }
 }
 ```
 
@@ -273,7 +275,6 @@ main () async {
 
 ```
 
-
 ### Client `graphql_flutter`
 
 Once you've setup your `graphql_flutter` client (see [pub.dev/packages/graphql_flutter](https://pub.dev/packages/graphql_flutter)),
@@ -284,10 +285,10 @@ With the query from above:
 ```graphql
 # person.graphql
 
-query FetchPerson ($id: ID!) {
-    fetch_person(id: $id) {
-        name: full_name
-    }
+query FetchPerson($id: ID!) {
+  fetch_person(id: $id) {
+    name: full_name
+  }
 }
 ```
 
@@ -301,7 +302,7 @@ class PersonWidget extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return GQLFQueryFetchPersion(
+        return GQLFQueryFetchPerson(
             options: GQLOptionsQueryFetchPerson(
                 variables: VariablesQueryFetchPerson(
                     id: 'id',
