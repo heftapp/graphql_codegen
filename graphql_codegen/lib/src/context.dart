@@ -88,6 +88,7 @@ const _INTROSPECTION_FIELDS = const <FieldDefinitionNode>[
 class Schema<TKey> {
   final BuiltMap<TKey, DocumentNode> entries;
   Iterable<DefinitionNode>? _cachedDefinitions;
+  Map<String, TypeDefinitionNode>? _cachedTypeDefinitionsMap;
   final String Function(TKey) lookupPath;
 
   Schema(
@@ -144,10 +145,20 @@ class Schema<TKey> {
   }
 
   TType? lookupType<TType extends TypeDefinitionNode>(NameNode name) {
-    return definitions.whereType<TType?>().firstWhere(
-          (element) => element != null && element.name.value == name.value,
-          orElse: () => null,
-        );
+    var defs = _cachedTypeDefinitionsMap;
+    if (defs == null) {
+      defs = _cachedTypeDefinitionsMap = Map.fromEntries(
+        definitions
+            .whereType<TypeDefinitionNode>()
+            .map((e) => MapEntry(e.name.value, e)),
+      );
+    }
+
+    final def = defs[name.value];
+    if (def == null || !(def is TType)) {
+      return null;
+    }
+    return def;
   }
 
   Iterable<ObjectTypeDefinitionNode> lookupConcreateTypes(NameNode name) {
@@ -156,9 +167,7 @@ class Schema<TKey> {
       return [typeDefinition];
     }
     if (typeDefinition is UnionTypeDefinitionNode) {
-      return typeDefinition.types
-          .map((e) => lookupType<ObjectTypeDefinitionNode>(e.name))
-          .whereType<ObjectTypeDefinitionNode>();
+      return typeDefinition.types.expand((e) => lookupConcreateTypes(e.name));
     }
 
     if (typeDefinition is InterfaceTypeDefinitionNode) {
@@ -524,23 +533,28 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
   }
 
   Map<String, Set<String>> get possibleTypesMap {
-    final possibleTypes = <String, Set<String>>{};
+    final possibleTypes = <String, Set<NameNode>>{};
     for (final definition in schema.definitions) {
       if (definition is UnionTypeDefinitionNode) {
         final types = possibleTypes[definition.name.value] ?? {};
         for (final tpe in definition.types) {
-          types.add(tpe.name.value);
+          types.add(tpe.name);
         }
         possibleTypes[definition.name.value] = types;
       } else if (definition is ObjectTypeDefinitionNode) {
         for (final tpe in definition.interfaces) {
           final types = possibleTypes[tpe.name.value] ?? {};
-          types.add(definition.name.value);
+          types.add(definition.name);
           possibleTypes[tpe.name.value] = types;
         }
       }
     }
-    return possibleTypes;
+    return possibleTypes.map((key, value) => MapEntry<String, Set<String>>(
+        key,
+        value
+            .expand<ObjectTypeDefinitionNode>(schema.lookupConcreateTypes)
+            .map((e) => e.name.value)
+            .toSet()));
   }
 }
 

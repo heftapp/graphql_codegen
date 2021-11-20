@@ -1,0 +1,27 @@
+union UnionA = InterfaceA | TypeC | TypeA
+
+union UnionB = UnionA | TypeD
+
+interface InterfaceA {
+    name: String
+}
+
+type TypeA implements InterfaceA {
+    name: String
+}
+
+type TypeC {
+    age: Int
+}
+
+type TypeB implements InterfaceA {
+    name: String
+}
+
+type TypeD {
+    fancy: Boolean
+}
+
+type Query {
+    union: UnionA
+}
