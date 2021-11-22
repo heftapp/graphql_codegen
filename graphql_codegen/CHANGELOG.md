@@ -1,6 +1,10 @@
-# 0.4.9
+# 0.4.10
 
 bumped version of gql_code_builder
+
+# 0.4.9
+
+Fix: Recursively build possible types
 
 # 0.4.8
 
