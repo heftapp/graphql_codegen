@@ -7,6 +7,10 @@ The framework makes no assumption on how you structure your fragments or queries
 for each `operation.graphql` the framework will generate a `operation.graphq.dart` file
 containing dart classes.
 
+Read more about the tool and motiation at the [GraphQL Codegen deep-dive](https://budde377.medium.com/graphql-codegen-deep-dive-37eee522e4e5)
+and on how you can structure your flutter apps with the tool on [Structure your Flutter GraphQL apps](https://budde377.medium.com/structure-your-flutter-graphql-apps-717ab9e46a5d).
+
+
 The builder relies on `json_serializable` to generate the actual serializers,
 so in addition to the two files mentioned above, it'll also generate a `operation.graphql.g.dart`
 file.

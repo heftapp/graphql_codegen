@@ -1,3 +1,7 @@
+# 0.4.10
+
+Docs: Add blog posts to README
+
 # 0.4.9
 
 Fix: Recursively build possible types
