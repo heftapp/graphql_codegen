@@ -1,4 +1,4 @@
-dart:
+sdk:
  - stable
  - beta
  - dev
