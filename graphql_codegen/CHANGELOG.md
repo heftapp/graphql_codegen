@@ -1,3 +1,7 @@
+# 0.5.0.alpha.1
+
+Support `addTypename` transformation: Automatically add `__typename` to operations.
+
 # 0.5.0-alpha.0
 
 Update dependencies
