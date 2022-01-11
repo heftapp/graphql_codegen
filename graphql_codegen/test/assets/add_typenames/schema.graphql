@@ -1,0 +1,42 @@
+interface Document {
+    title: String
+    numPages: Int
+
+}
+
+type Contract implements Document {
+    title: String
+    numPages: Int
+}
+
+type Report implements Document {
+    title: String
+    numPages: Int
+}
+
+type Query {
+    documents: [Document]
+}
+
+query Q {
+    docsWithTypename: documents {
+        __typename
+    }
+    docsWihtoutTypename: documents {
+        title
+    }
+    docsWithAliasedTypename: documents {
+        __typename: title
+    }
+    docsWithFragment: documents {
+        ... on Contract {
+            title
+        }
+        ...FReport
+    }
+}
+
+
+fragment FReport on Report {
+    title
+}
