@@ -1,4 +1,4 @@
-# 0.5.0.alpha.1
+# 0.5.0-alpha.1
 
 Support `addTypename` transformation: Automatically add `__typename` to operations.
 
