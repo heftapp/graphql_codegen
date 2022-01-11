@@ -1,3 +1,7 @@
+# 0.1.2
+
+Add `addTypename` flag.
+
 # 0.1.1
 
 Update dependencies

@@ -36,8 +36,10 @@ class GraphQLCodegenConfig extends JsonSerializable {
   final Set<GraphQLCodegenConfigClient> clients;
   @JsonKey(defaultValue: const <String, GraphQLCodegenConfig>{})
   final Map<String, GraphQLCodegenConfigScalar> scalars;
+  @JsonKey(defaultValue: false)
+  final bool addTypename;
 
-  GraphQLCodegenConfig(this.clients, this.scalars);
+  GraphQLCodegenConfig(this.clients, this.scalars, this.addTypename);
 
   @override
   factory GraphQLCodegenConfig.fromJson(Map<String, dynamic> json) =>
