@@ -8,6 +8,7 @@ import 'package:dart_style/dart_style.dart';
 import 'package:glob/glob.dart';
 import 'package:gql/language.dart';
 import 'package:graphql_codegen/graphql_codegen.dart';
+import 'package:graphql_codegen/src/transform/transform.dart';
 import 'package:graphql_codegen_config/config.dart';
 
 /// The builder class.
@@ -22,27 +23,30 @@ class GraphQLBuilder extends Builder {
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    final result = await buildStep
-        .fetchResource<GenerateResult<AssetId>>(Resource(() async {
-      final assets = buildStep.findAssets(Glob("lib/**.graphql"));
-      final entries = await assets
-          .asyncMap(
-            (event) async => MapEntry(
-              event,
-              parseString(
-                await buildStep.readAsString(event),
+    final config =
+        GraphQLCodegenConfig.fromJson(jsonDecode(jsonEncode(options.config)));
+    final result =
+        await buildStep.fetchResource<GenerateResult<AssetId>>(Resource(
+      () async {
+        final assets = buildStep.findAssets(Glob("lib/**.graphql"));
+        final entries = await assets
+            .asyncMap(
+              (event) async => MapEntry(
+                event,
+                parseString(await buildStep.readAsString(event)),
               ),
-            ),
-          )
-          .toList();
-      return await generate<AssetId>(
-        SchemaConfig<AssetId>(
-          entries: BuiltMap.of(Map.fromEntries(entries)),
-          lookupPath: (id) => "${id.path}.dart",
-        ),
-        GraphQLCodegenConfig.fromJson(jsonDecode(jsonEncode(options.config))),
-      );
-    }));
+            )
+            .map((event) => MapEntry(event.key, transform(config, event.value)))
+            .toList();
+        return await generate<AssetId>(
+          SchemaConfig<AssetId>(
+            entries: BuiltMap.of(Map.fromEntries(entries)),
+            lookupPath: (id) => "${id.path}.dart",
+          ),
+          config,
+        );
+      },
+    ));
     final targetAsset = buildStep.inputId.addExtension('.dart');
     _writeProgram(
       buildStep,

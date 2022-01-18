@@ -4,7 +4,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
-import 'package:graphql_codegen/src/transform/transform_visitor.dart';
+import 'package:graphql_codegen/src/transform/add_typename_transforming_visitor.dart';
 import 'package:graphql_codegen_config/config.dart';
 import 'package:graphql_codegen/src/printer/printer.dart';
 import 'package:graphql_codegen/src/context.dart';
@@ -23,7 +23,6 @@ Library _generateDocument<TKey>(
     key: key,
     config: config,
   );
-  entry.accept(TransformVisitor(context: context));
   entry.accept(ContextVisitor(context: context));
   return printRootContext(PrintContext(context));
 }
