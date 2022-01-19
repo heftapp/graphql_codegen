@@ -1,3 +1,7 @@
+# 0.1.3
+
+Downgrade `json_serializable` to work with earlier version of analyze.
+
 # 0.1.2
 
 Add `addTypename` flag.

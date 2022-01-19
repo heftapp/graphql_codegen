@@ -20,4 +20,3 @@ doc/api/
 *.js.deps
 *.js.map
 /.dart_tool
-/**/test/**/*.g.dart

@@ -7,10 +7,11 @@ part of 'main.graphql.dart';
 // **************************************************************************
 
 VariablesQueryFetchPerson _$VariablesQueryFetchPersonFromJson(
-        Map<String, dynamic> json) =>
-    VariablesQueryFetchPerson(
-      id: json['id'] as String,
-    );
+    Map<String, dynamic> json) {
+  return VariablesQueryFetchPerson(
+    id: json['id'] as String,
+  );
+}
 
 Map<String, dynamic> _$VariablesQueryFetchPersonToJson(
         VariablesQueryFetchPerson instance) =>
@@ -18,13 +19,14 @@ Map<String, dynamic> _$VariablesQueryFetchPersonToJson(
       'id': instance.id,
     };
 
-QueryFetchPerson _$QueryFetchPersonFromJson(Map<String, dynamic> json) =>
-    QueryFetchPerson(
-      fetchPerson: json['fetch_person'] == null
-          ? null
-          : QueryFetchPerson$fetchPerson.fromJson(
-              json['fetch_person'] as Map<String, dynamic>),
-    );
+QueryFetchPerson _$QueryFetchPersonFromJson(Map<String, dynamic> json) {
+  return QueryFetchPerson(
+    fetchPerson: json['fetch_person'] == null
+        ? null
+        : QueryFetchPerson$fetchPerson.fromJson(
+            json['fetch_person'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$QueryFetchPersonToJson(QueryFetchPerson instance) =>
     <String, dynamic>{
@@ -32,19 +34,20 @@ Map<String, dynamic> _$QueryFetchPersonToJson(QueryFetchPerson instance) =>
     };
 
 QueryFetchPerson$fetchPerson _$QueryFetchPerson$fetchPersonFromJson(
-        Map<String, dynamic> json) =>
-    QueryFetchPerson$fetchPerson(
-      nickname: json['nickname'] as String?,
-      name: json['name'] as String,
-      parents: (json['parents'] as List<dynamic>?)
-          ?.map((e) => QueryFetchPerson$fetchPerson$parents.fromJson(
-              e as Map<String, dynamic>))
-          .toList(),
-      children: (json['children'] as List<dynamic>?)
-          ?.map((e) => QueryFetchPerson$fetchPerson$children.fromJson(
-              e as Map<String, dynamic>))
-          .toList(),
-    );
+    Map<String, dynamic> json) {
+  return QueryFetchPerson$fetchPerson(
+    nickname: json['nickname'] as String?,
+    name: json['name'] as String,
+    parents: (json['parents'] as List<dynamic>?)
+        ?.map((e) => QueryFetchPerson$fetchPerson$parents.fromJson(
+            e as Map<String, dynamic>))
+        .toList(),
+    children: (json['children'] as List<dynamic>?)
+        ?.map((e) => QueryFetchPerson$fetchPerson$children.fromJson(
+            e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$QueryFetchPerson$fetchPersonToJson(
         QueryFetchPerson$fetchPerson instance) =>
@@ -56,11 +59,12 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPersonToJson(
     };
 
 QueryFetchPerson$fetchPerson$parents
-    _$QueryFetchPerson$fetchPerson$parentsFromJson(Map<String, dynamic> json) =>
-        QueryFetchPerson$fetchPerson$parents(
-          nickname: json['nickname'] as String?,
-          name: json['name'] as String,
-        );
+    _$QueryFetchPerson$fetchPerson$parentsFromJson(Map<String, dynamic> json) {
+  return QueryFetchPerson$fetchPerson$parents(
+    nickname: json['nickname'] as String?,
+    name: json['name'] as String,
+  );
+}
 
 Map<String, dynamic> _$QueryFetchPerson$fetchPerson$parentsToJson(
         QueryFetchPerson$fetchPerson$parents instance) =>
@@ -70,12 +74,12 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPerson$parentsToJson(
     };
 
 QueryFetchPerson$fetchPerson$children
-    _$QueryFetchPerson$fetchPerson$childrenFromJson(
-            Map<String, dynamic> json) =>
-        QueryFetchPerson$fetchPerson$children(
-          nickname: json['nickname'] as String?,
-          name: json['name'] as String,
-        );
+    _$QueryFetchPerson$fetchPerson$childrenFromJson(Map<String, dynamic> json) {
+  return QueryFetchPerson$fetchPerson$children(
+    nickname: json['nickname'] as String?,
+    name: json['name'] as String,
+  );
+}
 
 Map<String, dynamic> _$QueryFetchPerson$fetchPerson$childrenToJson(
         QueryFetchPerson$fetchPerson$children instance) =>
@@ -85,10 +89,11 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPerson$childrenToJson(
     };
 
 VariablesMutationUpdatePerson _$VariablesMutationUpdatePersonFromJson(
-        Map<String, dynamic> json) =>
-    VariablesMutationUpdatePerson(
-      id: json['id'] as String,
-    );
+    Map<String, dynamic> json) {
+  return VariablesMutationUpdatePerson(
+    id: json['id'] as String,
+  );
+}
 
 Map<String, dynamic> _$VariablesMutationUpdatePersonToJson(
         VariablesMutationUpdatePerson instance) =>
@@ -96,14 +101,14 @@ Map<String, dynamic> _$VariablesMutationUpdatePersonToJson(
       'id': instance.id,
     };
 
-MutationUpdatePerson _$MutationUpdatePersonFromJson(
-        Map<String, dynamic> json) =>
-    MutationUpdatePerson(
-      updatePerson: json['update_person'] == null
-          ? null
-          : MutationUpdatePerson$updatePerson.fromJson(
-              json['update_person'] as Map<String, dynamic>),
-    );
+MutationUpdatePerson _$MutationUpdatePersonFromJson(Map<String, dynamic> json) {
+  return MutationUpdatePerson(
+    updatePerson: json['update_person'] == null
+        ? null
+        : MutationUpdatePerson$updatePerson.fromJson(
+            json['update_person'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$MutationUpdatePersonToJson(
         MutationUpdatePerson instance) =>
@@ -112,10 +117,11 @@ Map<String, dynamic> _$MutationUpdatePersonToJson(
     };
 
 MutationUpdatePerson$updatePerson _$MutationUpdatePerson$updatePersonFromJson(
-        Map<String, dynamic> json) =>
-    MutationUpdatePerson$updatePerson(
-      fullName: json['full_name'] as String,
-    );
+    Map<String, dynamic> json) {
+  return MutationUpdatePerson$updatePerson(
+    fullName: json['full_name'] as String,
+  );
+}
 
 Map<String, dynamic> _$MutationUpdatePerson$updatePersonToJson(
         MutationUpdatePerson$updatePerson instance) =>
