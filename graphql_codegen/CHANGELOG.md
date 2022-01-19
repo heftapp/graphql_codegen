@@ -1,6 +1,7 @@
 # 0.5.0-alpha.2
 
-Refactor transformation.
+* Refactor transformation.
+* Downgrade gql version to work with graphql
 
 # 0.5.0-alpha.1
 

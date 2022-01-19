@@ -1,5 +1,5 @@
 #!/bin/bash
-# Created with package:mono_repo v5.0.3
+# Created with package:mono_repo v6.0.0
 
 # Support built in commands on windows out of the box.
 # When it is a flutter repo (check the pubspec.yaml for "sdk: flutter")
@@ -67,11 +67,7 @@ for PKG in ${PKGS}; do
       echo
       echo -e "\033[1mPKG: ${PKG}; TASK: ${TASK}\033[22m"
       case ${TASK} in
-      analyze_0)
-        echo 'dart analyze lib'
-        dart analyze lib || EXIT_CODE=$?
-        ;;
-      analyze_1)
+      analyze)
         echo 'dart analyze'
         dart analyze || EXIT_CODE=$?
         ;;
