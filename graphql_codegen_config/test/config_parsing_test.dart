@@ -15,7 +15,7 @@ main() {
           GraphQLCodegenConfig(
             {GraphQLCodegenConfigClient.graphql},
             {},
-            false,
+            true,
           ).toJson(),
         ),
       );

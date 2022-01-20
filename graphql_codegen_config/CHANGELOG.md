@@ -1,3 +1,7 @@
+# 0.1.5
+
+Build config
+
 # 0.1.4
 
 Enable `addTypename` per default.

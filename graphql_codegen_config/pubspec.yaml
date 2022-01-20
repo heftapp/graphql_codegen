@@ -1,6 +1,6 @@
 name: graphql_codegen_config
 description: "Config library for graphql_codegen"
-version: 0.1.4
+version: 0.1.5
 homepage: https://github.com/heftapp/graphql_codegen/tree/main/graphql_codegen_config
 repository: https://github.com/heftapp/graphql_codegen/tree/main/graphql_codegen_config
 

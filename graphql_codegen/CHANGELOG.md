@@ -1,3 +1,7 @@
+# 0.5.0-alpha.3
+
+* Enable `addTypename` per default
+
 # 0.5.0-alpha.2
 
 * Refactor transformation.

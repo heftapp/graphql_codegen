@@ -36,7 +36,7 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(Map<String, dynamic> json) {
               GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
         ) ??
         {},
-    json['addTypename'] as bool? ?? false,
+    json['addTypename'] as bool? ?? true,
   );
 }
 

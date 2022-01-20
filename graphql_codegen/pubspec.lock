@@ -98,7 +98,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.1.3"
+    version: "8.1.4"
   charcode:
     dependency: transitive
     description:
@@ -203,7 +203,7 @@ packages:
       name: gql
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.1-alpha+1635885531641"
+    version: "0.13.0"
   gql_code_builder:
     dependency: "direct main"
     description:
@@ -231,7 +231,7 @@ packages:
       name: gql_exec
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.2-alpha+1635885531651"
+    version: "0.3.0"
   gql_http_link:
     dependency: transitive
     description:
@@ -266,7 +266,7 @@ packages:
       name: graphql_codegen_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.3"
+    version: "0.1.5"
   graphs:
     dependency: transitive
     description:
@@ -490,7 +490,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.2"
   stack_trace:
     dependency: transitive
     description:

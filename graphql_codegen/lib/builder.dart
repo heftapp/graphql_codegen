@@ -23,8 +23,9 @@ class GraphQLBuilder extends Builder {
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    final config =
-        GraphQLCodegenConfig.fromJson(jsonDecode(jsonEncode(options.config)));
+    final config = GraphQLCodegenConfig.fromJson(
+      jsonDecode(jsonEncode(options.config)),
+    );
     final result =
         await buildStep.fetchResource<GenerateResult<AssetId>>(Resource(
       () async {

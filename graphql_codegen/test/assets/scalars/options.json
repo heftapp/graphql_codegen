@@ -15,5 +15,6 @@
             "toJsonFunctionName": "fobbobToJson",
             "import": "scalar_import.dart"
         }
-    }
+    },
+    "addTypename": false
 }
