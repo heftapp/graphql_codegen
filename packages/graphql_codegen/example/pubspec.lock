@@ -240,11 +240,11 @@ packages:
     source: path
     version: "0.5.0-alpha.3"
   graphql_codegen_config:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: graphql_codegen_config
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../../graphql_codegen_config"
+      relative: true
+    source: path
     version: "0.1.5"
   graphs:
     dependency: transitive
@@ -506,4 +506,4 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
+  dart: ">=2.12.0 <3.0.0"

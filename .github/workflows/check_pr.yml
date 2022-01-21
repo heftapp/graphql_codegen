@@ -1,6 +1,13 @@
 
 name: Check PR
-on: pull_request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0"
+
 jobs:
   verify_commits:
     runs-on: ubuntu-latest
@@ -9,15 +16,38 @@ jobs:
         uses: Namchee/conventional-pr@v0.8.0
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
-          link_issue: false
+          issue: false
+          verified_commits: true
+          close: false
 
-  analyze:
+  check-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
-          channel: beta
+          channel: stable
+      - name: Activate melos
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          pub global activate melos
+      - name: Bootstrap melos
+        run: melos bs
+      - name: Validate publish
+        run: melos publish --dry-run --yes
+  analyze:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        channel: 
+          - beta
+          - stable
+          - dev
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: ${{ matrix.channel }}
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
@@ -27,51 +57,48 @@ jobs:
       - name: Analyze package
         run: melos run analyze
 
-  format:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: beta
-      - name: Activate melos
-        run: |
-          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
-      - name: Bootstrap melos
-        run: melos bs
-      - name: Format package
-        run: melos run format
-      - name: Check if changed
-        run: melos run check
-
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        channel: 
+          - beta
+          - stable
+          - dev
+
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
-          channel: beta
+          channel: ${{ matrix.channel }}
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
           pub global activate melos
       - name: Bootstrap melos
         run: melos bs
-      - name: Format package
+      - name: Build package
         run: melos run build
+      - name: Bootstrap melos
+        run: melos bs
       - name: Check if changed
         run: melos run check
 
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        channel: 
+          - beta
+          - stable
+          - dev
+
     steps:
       - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
-          channel: beta
+          channel: ${{ matrix.channel }}
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
