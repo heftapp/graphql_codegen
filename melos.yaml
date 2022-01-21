@@ -1,0 +1,9 @@
+name: graphql_codegen
+
+packages:
+  - packages/**
+  
+scripts:
+  analyze: melos exec -- "dart analyze ."
+  test: melos exec --ignore="*example*" -- "dart test"
+  build: melos exec --ignore="*example*" -- "dart run build_runner build"

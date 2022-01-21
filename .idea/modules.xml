@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/packages/graphql_codegen/melos_graphql_codegen.iml" filepath="$PROJECT_DIR$/packages/graphql_codegen/melos_graphql_codegen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/graphql_codegen_config/melos_graphql_codegen_config.iml" filepath="$PROJECT_DIR$/packages/graphql_codegen_config/melos_graphql_codegen_config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/graphql_codegen/example/melos_graphql_codegen_example.iml" filepath="$PROJECT_DIR$/packages/graphql_codegen/example/melos_graphql_codegen_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_graphql_codegen.iml" filepath="$PROJECT_DIR$/melos_graphql_codegen.iml" />
+    </modules>
+  </component>
+</project>

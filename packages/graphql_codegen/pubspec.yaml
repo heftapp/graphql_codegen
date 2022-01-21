@@ -20,7 +20,7 @@ dependencies:
   path: ^1.8.0
   gql_code_builder: ^0.2.0
   recase: ^4.0.0
-  graphql_codegen_config: ^0.1.5
+  graphql_codegen_config: ^0.1.4
 
 dev_dependencies:
   test: ^1.17.4
