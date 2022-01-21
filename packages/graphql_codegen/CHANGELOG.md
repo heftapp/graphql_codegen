@@ -1,3 +1,7 @@
+# 0.5.0-alpha.4
+
+* Allow for customisable asset path through the `assetPath` config option.
+
 # 0.5.0-alpha.3
 
 * Enable `addTypename` per default
