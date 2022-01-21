@@ -238,7 +238,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.5.0-alpha.3"
+    version: "0.5.0-alpha.4"
   graphql_codegen_config:
     dependency: "direct overridden"
     description:
