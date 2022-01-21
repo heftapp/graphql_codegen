@@ -29,7 +29,7 @@ class GraphQLBuilder extends Builder {
     final result =
         await buildStep.fetchResource<GenerateResult<AssetId>>(Resource(
       () async {
-        final assets = buildStep.findAssets(Glob("lib/**.graphql"));
+        final assets = buildStep.findAssets(Glob(config.assetsPath));
         final entries = await assets
             .asyncMap(
               (event) async => MapEntry(
