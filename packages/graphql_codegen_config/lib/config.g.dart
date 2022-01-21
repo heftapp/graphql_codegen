@@ -37,6 +37,11 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(Map<String, dynamic> json) {
         ) ??
         {},
     json['addTypename'] as bool? ?? true,
+    json['assetsPath'] as String? ?? 'lib/**.graphql',
+    (json['addTypenameExcludedPaths'] as List<dynamic>?)
+            ?.map((e) => e as String)
+            .toList() ??
+        [],
   );
 }
 
@@ -48,6 +53,8 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
           .toList(),
       'scalars': instance.scalars,
       'addTypename': instance.addTypename,
+      'assetsPath': instance.assetsPath,
+      'addTypenameExcludedPaths': instance.addTypenameExcludedPaths,
     };
 
 K _$enumDecode<K, V>(
