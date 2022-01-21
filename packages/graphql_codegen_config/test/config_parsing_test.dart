@@ -16,6 +16,8 @@ main() {
             {GraphQLCodegenConfigClient.graphql},
             {},
             true,
+            "lib/**.graphql",
+            [],
           ).toJson(),
         ),
       );
