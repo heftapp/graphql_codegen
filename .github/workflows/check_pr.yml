@@ -1,0 +1,82 @@
+
+name: Check PR
+on: pull_request
+jobs:
+  verify_commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conventional PRs
+        uses: Namchee/conventional-pr@v0.8.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+          link_issue: false
+
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: beta
+      - name: Activate melos
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          pub global activate melos
+      - name: Bootstrap melos
+        run: melos bs
+      - name: Analyze package
+        run: melos run analyze
+
+  format:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: beta
+      - name: Activate melos
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          pub global activate melos
+      - name: Bootstrap melos
+        run: melos bs
+      - name: Format package
+        run: melos run format
+      - name: Check if changed
+        run: melos run check
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: beta
+      - name: Activate melos
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          pub global activate melos
+      - name: Bootstrap melos
+        run: melos bs
+      - name: Format package
+        run: melos run build
+      - name: Check if changed
+        run: melos run check
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: beta
+      - name: Activate melos
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          pub global activate melos
+      - name: Bootstrap melos
+        run: melos bs
+      - name: Run tests
+        run: melos run test

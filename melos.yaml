@@ -5,5 +5,7 @@ packages:
   
 scripts:
   analyze: melos exec -- "dart analyze ."
-  test: melos exec --ignore="*example*" -- "dart test"
+  test: melos exec --dir-exists=test -- "dart test"
   build: melos exec --ignore="*example*" -- "dart run build_runner build"
+  format: melos exec -- "dart format"
+  check: git status --porcelain
