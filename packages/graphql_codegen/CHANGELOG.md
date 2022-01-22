@@ -1,7 +1,16 @@
+# 0.5.0
+
+* Support `addTypename` transformation: Automatically add `__typename` to operations.
+* Refactor transformation.
+* Downgrade gql version to work with graphql
+* Enable `addTypename` per default
+* Allow for customisable asset path through the `assetPath` config option.
+* Allow excluding selection-sets from getting added `__typename`.
+
+
 # 0.5.0-alpha.5
 
 * Allow excluding selection-sets from getting added `__typename`.
-
 
 # 0.5.0-alpha.4
 
