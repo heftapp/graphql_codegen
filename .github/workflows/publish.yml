@@ -23,3 +23,5 @@ jobs:
         run: melos bs
       - name: Validate publish
         run: melos publish --dry-run --yes
+      - name: Publish
+        run: melos publish --no-dry-run --yes
