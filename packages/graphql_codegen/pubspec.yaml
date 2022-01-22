@@ -4,8 +4,8 @@ description: |
   generate serializers and client helpers to easily call and parse your data.
 
 version: 0.5.0-alpha.5
-homepage: https://github.com/heftapp/graphql_codegen/tree/main/graphql_codegen
-repository: https://github.com/heftapp/graphql_codegen/tree/main/graphql_codegen
+homepage: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
+repository: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
