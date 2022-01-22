@@ -1,0 +1,22 @@
+
+name: Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Activate melos
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          pub global activate melos
+      - name: Bootstrap melos
+        run: melos bs
+      - name: Validate publish
+        run: melos publish --dry-run --yes
