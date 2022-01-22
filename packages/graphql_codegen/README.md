@@ -322,3 +322,102 @@ class PersonWidget extends StatelessWidget {
 
 }
 ```
+
+## Add typename
+
+Per default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
+
+```graphql 
+query Foo {
+  bar {
+    baz
+  }
+}
+
+```
+
+becomes
+
+```graphql
+query Foo {
+  bar {
+    baz
+    __typename
+  }
+  __typename
+}
+```
+
+This ensures best conditions for caching. 
+
+
+### Excluding some selections from adding typename.
+
+Any query, mutation, subscription, or fragment can be excluded from adding the `__typename` introspection by the `addTypenameExcludedPaths` option:
+
+Setting 
+
+```yaml
+addTypenameExcludedPaths:
+  - subscription 
+```
+or 
+```yaml
+addTypenameExcludedPaths:
+  - Foo
+```
+
+will both transform 
+
+```graphql
+
+subscription Foo {
+  bar {
+    baz
+  }
+}
+```
+
+to 
+
+```graphql
+
+subscription Foo {
+  bar { 
+    baz
+    __typename
+  }
+}
+```
+
+where
+
+```yaml
+addTypenameExcludedPaths:
+  - subscription.bar
+```
+or
+```yaml
+addTypenameExcludedPaths:
+  - subscription.*
+```
+or
+
+```yaml
+addTypenameExcludedPaths:
+  - **.bar
+```
+
+will transform to
+
+
+```graphql
+
+subscription Foo {
+  bar { 
+    baz
+    
+  }
+  __typename
+}
+```
