@@ -16,9 +16,9 @@ jobs:
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
           pub global activate melos
-      - name: Activate melos
+      - name: Login pub
         run: |
-          echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -s > $HOME/.pub-cache/credentials.json
+          echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > $HOME/.pub-cache/credentials.json
       - name: Bootstrap melos
         run: melos bs
       - name: Validate publish
