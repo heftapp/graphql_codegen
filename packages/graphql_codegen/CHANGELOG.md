@@ -1,3 +1,8 @@
+# 0.5.0-alpha.5
+
+* Allow excluding selection-sets from getting added `__typename`.
+
+
 # 0.5.0-alpha.4
 
 * Allow for customisable asset path through the `assetPath` config option.
