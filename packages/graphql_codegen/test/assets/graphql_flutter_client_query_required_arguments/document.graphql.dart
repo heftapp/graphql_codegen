@@ -60,7 +60,8 @@ const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GQLOptionsQueryFetchSRequired extends graphql.QueryOptions {
+class GQLOptionsQueryFetchSRequired
+    extends graphql.QueryOptions<QueryFetchSRequired> {
   GQLOptionsQueryFetchSRequired(
       {String? operationName,
       required VariablesQueryFetchSRequired variables,
@@ -79,10 +80,12 @@ class GQLOptionsQueryFetchSRequired extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_FETCH_S_REQUIRED);
+            document: QUERY_FETCH_S_REQUIRED,
+            parserFn: (data) => QueryFetchSRequired.fromJson(data));
 }
 
-class GQLWatchOptionsQueryFetchSRequired extends graphql.WatchQueryOptions {
+class GQLWatchOptionsQueryFetchSRequired
+    extends graphql.WatchQueryOptions<QueryFetchSRequired> {
   GQLWatchOptionsQueryFetchSRequired(
       {String? operationName,
       required VariablesQueryFetchSRequired variables,
@@ -107,7 +110,8 @@ class GQLWatchOptionsQueryFetchSRequired extends graphql.WatchQueryOptions {
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults);
+            fetchResults: fetchResults,
+            parserFn: (data) => QueryFetchSRequired.fromJson(data));
 }
 
 class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
@@ -121,22 +125,16 @@ class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
 }
 
 extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
-  Future<graphql.QueryResult> queryFetchSRequired(
+  Future<graphql.QueryResult<QueryFetchSRequired>> queryFetchSRequired(
           GQLOptionsQueryFetchSRequired options) async =>
       await this.query(options);
-  graphql.ObservableQuery watchQueryFetchSRequired(
+  graphql.ObservableQuery<QueryFetchSRequired> watchQueryFetchSRequired(
           GQLWatchOptionsQueryFetchSRequired options) =>
       this.watchQuery(options);
 }
 
-extension GQLResultExtensionQueryFetchSRequired on graphql.QueryResult {
-  QueryFetchSRequired? get parsedDataQueryFetchSRequired {
-    final data = this.data;
-    return data == null ? null : QueryFetchSRequired.fromJson(data);
-  }
-}
-
-class GQLFQueryFetchSRequired extends graphql_flutter.Query {
+class GQLFQueryFetchSRequired
+    extends graphql_flutter.Query<QueryFetchSRequired> {
   GQLFQueryFetchSRequired(
       {widgets.Key? key,
       required GQLOptionsQueryFetchSRequired options,

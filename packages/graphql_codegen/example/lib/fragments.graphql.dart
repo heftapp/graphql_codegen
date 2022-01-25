@@ -22,5 +22,11 @@ const FRAGMENT_PERSON_SUMMARY = const FragmentDefinitionNode(
           alias: NameNode(value: 'name'),
           arguments: [],
           directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
           selectionSet: null)
     ]));

@@ -1,3 +1,7 @@
+# 0.6.0-beta.1
+
+* Use parserFn introduced in `graphql: 5.0.1-beta.4`.
+
 # 0.5.0
 
 * Support `addTypename` transformation: Automatically add `__typename` to operations.

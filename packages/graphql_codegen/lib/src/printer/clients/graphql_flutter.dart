@@ -13,7 +13,9 @@ Spec printRunMutationTypeDef(PrintContext c) {
   final areVariablesRequired = context.isVariablesRequired;
   return FunctionType(
     (b) => b
-      ..returnType = refer('graphql.MultiSourceResult')
+      ..returnType = TypeReference((b) => b
+        ..symbol = 'graphql.MultiSourceResult'
+        ..types = ListBuilder([refer(printClassName(c.path))]))
       ..requiredParameters = ListBuilder([
         if (hasVariables && areVariablesRequired)
           refer(printVariableClassName(context.path)),
@@ -46,6 +48,7 @@ Spec printBuilderMutationTypeDef(PrintContext context) {
           TypeReference(
             (b) => b
               ..symbol = 'graphql.QueryResult'
+              ..types = ListBuilder([refer(printClassName(context.path))])
               ..isNullable = true,
           ),
         ],
@@ -60,7 +63,9 @@ Spec printMutation(PrintContext c) {
   return Class(
     (b) => b
       ..name = printGraphQLFlutterClientOperationName(context.path)
-      ..extend = refer('graphql_flutter.Mutation')
+      ..extend = TypeReference((b) => b
+        ..symbol = 'graphql_flutter.Mutation'
+        ..types = ListBuilder([refer(printClassName(c.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -176,7 +181,9 @@ Spec printQuerySpec(PrintContext c) {
   return Class(
     (b) => b
       ..name = printGraphQLFlutterClientOperationName(context.path)
-      ..extend = refer('graphql_flutter.Query')
+      ..extend = TypeReference((b) => b
+        ..symbol = 'graphql_flutter.Query'
+        ..types = ListBuilder([refer(printClassName(context.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
