@@ -21,11 +21,10 @@ dependencies:
   gql_code_builder: ^0.2.0
   recase: ^4.0.0
   graphql_codegen_config: ^0.1.6
-
 dev_dependencies:
   test: ^1.17.4
   build_test: ^2.1.0
   build_runner: ^2.0.3
   json_serializable: ^4.1.2
-  graphql: ^5.0.0-nullsafety.5
+  graphql: 5.0.1-beta.4
   json_annotation: ^4.0.1

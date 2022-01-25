@@ -42,7 +42,8 @@ const MUTATION_UPDATE_S_NO = const DocumentNode(definitions: [
 typedef GQLOnMutationCompletedMutationUpdateSNo = FutureOr<void> Function(
     dynamic, MutationUpdateSNo?);
 
-class GQLOptionsMutationUpdateSNo extends graphql.MutationOptions {
+class GQLOptionsMutationUpdateSNo
+    extends graphql.MutationOptions<MutationUpdateSNo> {
   GQLOptionsMutationUpdateSNo(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
@@ -66,10 +67,12 @@ class GQLOptionsMutationUpdateSNo extends graphql.MutationOptions {
                     data == null ? null : MutationUpdateSNo.fromJson(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_S_NO);
+            document: MUTATION_UPDATE_S_NO,
+            parserFn: (data) => MutationUpdateSNo.fromJson(data));
 }
 
-class GQLWatchOptionsMutationUpdateSNo extends graphql.WatchQueryOptions {
+class GQLWatchOptionsMutationUpdateSNo
+    extends graphql.WatchQueryOptions<MutationUpdateSNo> {
   GQLWatchOptionsMutationUpdateSNo(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
@@ -92,26 +95,21 @@ class GQLWatchOptionsMutationUpdateSNo extends graphql.WatchQueryOptions {
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults);
+            fetchResults: fetchResults,
+            parserFn: (data) => MutationUpdateSNo.fromJson(data));
 }
 
 extension GQLExtensionMutationUpdateSNo on graphql.GraphQLClient {
-  Future<graphql.QueryResult> mutateUpdateSNo(
+  Future<graphql.QueryResult<MutationUpdateSNo>> mutateUpdateSNo(
           [GQLOptionsMutationUpdateSNo? options]) async =>
       await this.mutate(options ?? GQLOptionsMutationUpdateSNo());
-  graphql.ObservableQuery watchMutationUpdateSNo(
+  graphql.ObservableQuery<MutationUpdateSNo> watchMutationUpdateSNo(
           [GQLWatchOptionsMutationUpdateSNo? options]) =>
       this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSNo());
 }
 
-extension GQLResultExtensionMutationUpdateSNo on graphql.QueryResult {
-  MutationUpdateSNo? get parsedDataMutationUpdateSNo {
-    final data = this.data;
-    return data == null ? null : MutationUpdateSNo.fromJson(data);
-  }
-}
-
-class GQLFOptionsMutationUpdateSNo extends graphql.MutationOptions {
+class GQLFOptionsMutationUpdateSNo
+    extends graphql.MutationOptions<MutationUpdateSNo> {
   GQLFOptionsMutationUpdateSNo(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
@@ -135,15 +133,18 @@ class GQLFOptionsMutationUpdateSNo extends graphql.MutationOptions {
                     data == null ? null : MutationUpdateSNo.fromJson(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_S_NO);
+            document: MUTATION_UPDATE_S_NO,
+            parserFn: (data) => MutationUpdateSNo.fromJson(data));
 }
 
-typedef GQLFRunMutationMutationUpdateSNo = graphql.MultiSourceResult Function(
-    {Object? optimisticResult});
+typedef GQLFRunMutationMutationUpdateSNo
+    = graphql.MultiSourceResult<MutationUpdateSNo> Function(
+        {Object? optimisticResult});
 typedef GQLFBuilderMutationUpdateSNo = widgets.Widget Function(
-    GQLFRunMutationMutationUpdateSNo, graphql.QueryResult?);
+    GQLFRunMutationMutationUpdateSNo, graphql.QueryResult<MutationUpdateSNo>?);
 
-class GQLFMutationUpdateSNo extends graphql_flutter.Mutation {
+class GQLFMutationUpdateSNo
+    extends graphql_flutter.Mutation<MutationUpdateSNo> {
   GQLFMutationUpdateSNo(
       {widgets.Key? key,
       GQLFOptionsMutationUpdateSNo? options,

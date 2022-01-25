@@ -259,7 +259,7 @@ packages:
       name: graphql
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1-beta.4"
   graphql_codegen_config:
     dependency: "direct main"
     description:
@@ -378,7 +378,7 @@ packages:
       name: normalize
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.5"
+    version: "0.6.0"
   package_config:
     dependency: transitive
     description:
@@ -434,7 +434,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.26.0"
+    version: "0.27.3"
   shelf:
     dependency: transitive
     description:

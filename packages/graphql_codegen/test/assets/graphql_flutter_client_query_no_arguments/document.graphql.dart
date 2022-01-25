@@ -39,7 +39,8 @@ const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
       ])),
 ]);
 
-class GQLOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
+class GQLOptionsQueryFetchSNoVariables
+    extends graphql.QueryOptions<QueryFetchSNoVariables> {
   GQLOptionsQueryFetchSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
@@ -56,10 +57,12 @@ class GQLOptionsQueryFetchSNoVariables extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_FETCH_S_NO_VARIABLES);
+            document: QUERY_FETCH_S_NO_VARIABLES,
+            parserFn: (data) => QueryFetchSNoVariables.fromJson(data));
 }
 
-class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
+class GQLWatchOptionsQueryFetchSNoVariables
+    extends graphql.WatchQueryOptions<QueryFetchSNoVariables> {
   GQLWatchOptionsQueryFetchSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
@@ -82,7 +85,8 @@ class GQLWatchOptionsQueryFetchSNoVariables extends graphql.WatchQueryOptions {
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults);
+            fetchResults: fetchResults,
+            parserFn: (data) => QueryFetchSNoVariables.fromJson(data));
 }
 
 class GQLFetchMoreOptionsQueryFetchSNoVariables
@@ -93,22 +97,16 @@ class GQLFetchMoreOptionsQueryFetchSNoVariables
 }
 
 extension GQLExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
-  Future<graphql.QueryResult> queryFetchSNoVariables(
+  Future<graphql.QueryResult<QueryFetchSNoVariables>> queryFetchSNoVariables(
           [GQLOptionsQueryFetchSNoVariables? options]) async =>
       await this.query(options ?? GQLOptionsQueryFetchSNoVariables());
-  graphql.ObservableQuery watchQueryFetchSNoVariables(
+  graphql.ObservableQuery<QueryFetchSNoVariables> watchQueryFetchSNoVariables(
           [GQLWatchOptionsQueryFetchSNoVariables? options]) =>
       this.watchQuery(options ?? GQLWatchOptionsQueryFetchSNoVariables());
 }
 
-extension GQLResultExtensionQueryFetchSNoVariables on graphql.QueryResult {
-  QueryFetchSNoVariables? get parsedDataQueryFetchSNoVariables {
-    final data = this.data;
-    return data == null ? null : QueryFetchSNoVariables.fromJson(data);
-  }
-}
-
-class GQLFQueryFetchSNoVariables extends graphql_flutter.Query {
+class GQLFQueryFetchSNoVariables
+    extends graphql_flutter.Query<QueryFetchSNoVariables> {
   GQLFQueryFetchSNoVariables(
       {widgets.Key? key,
       GQLOptionsQueryFetchSNoVariables? options,
