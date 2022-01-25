@@ -6,6 +6,6 @@ packages:
 scripts:
   analyze: melos exec -- "dart analyze ."
   test: melos exec --dir-exists=test -- "dart test"
-  build: melos exec --ignore="*example*" -- "dart run build_runner build --delete-conflicting-outputs"
+  build: melos exec -- "dart run build_runner build --delete-conflicting-outputs"
   format: melos exec -- "dart format"
   check: git diff --exit-code

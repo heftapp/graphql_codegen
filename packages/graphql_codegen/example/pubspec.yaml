@@ -5,10 +5,11 @@ environment:
 
 dependencies:
   json_annotation: ^4.0.1
-  graphql: "^5.0.0"
+  graphql: "^5.0.1-beta.4"
 
 dev_dependencies:
   json_serializable: ^4.1.2
   graphql_codegen: 
     path: "../"
   build_runner: ^2.0.3
+  analyzer: ^1.7.0

@@ -1,24 +1,19 @@
+import 'package:graphql/client.dart';
+
 import 'main.graphql.dart';
 
-final data = {
-  'fetch_person': {
-    'nickname': null,
-    'name': 'Christian Budde Christensen',
-    'parents': [
-      {
-        'name': 'Max Budde Christensen',
-        'nickname': 'Maxi',
-      },
-      {
-        'name': 'Bettina Budde Christensen',
-        'nickname': null,
-      },
-    ],
-    'children': null,
-  },
-};
-
-main() {
-  final parsed = QueryFetchPerson.fromJson(data);
-  print(parsed.fetchPerson?.name);
+main() async {
+  final client = GraphQLClient(
+    link: HttpLink("https://example.com"),
+    cache: GraphQLCache(store: InMemoryStore()),
+  );
+  final result = await client.queryFetchPerson(
+    GQLOptionsQueryFetchPerson(
+      variables: VariablesQueryFetchPerson(
+        id: "id1",
+      ),
+    ),
+  );
+  final parased = result.parsedData;
+  print(parased?.fetchPerson?.name);
 }

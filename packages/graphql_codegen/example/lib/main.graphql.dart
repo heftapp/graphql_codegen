@@ -66,7 +66,13 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
                     FragmentSpreadNode(
-                        name: NameNode(value: 'PersonSummary'), directives: [])
+                        name: NameNode(value: 'PersonSummary'), directives: []),
+                    FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null)
                   ])),
               FieldNode(
                   name: NameNode(value: 'children'),
@@ -75,14 +81,33 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
                     FragmentSpreadNode(
-                        name: NameNode(value: 'PersonSummary'), directives: [])
-                  ]))
-            ]))
+                        name: NameNode(value: 'PersonSummary'), directives: []),
+                    FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null)
+                  ])),
+              FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null)
+            ])),
+        FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null)
       ])),
   FRAGMENT_PERSON_SUMMARY,
 ]);
 
-class GQLOptionsQueryFetchPerson extends graphql.QueryOptions {
+class GQLOptionsQueryFetchPerson
+    extends graphql.QueryOptions<QueryFetchPerson> {
   GQLOptionsQueryFetchPerson(
       {String? operationName,
       required VariablesQueryFetchPerson variables,
@@ -101,10 +126,12 @@ class GQLOptionsQueryFetchPerson extends graphql.QueryOptions {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_FETCH_PERSON);
+            document: QUERY_FETCH_PERSON,
+            parserFn: (data) => QueryFetchPerson.fromJson(data));
 }
 
-class GQLWatchOptionsQueryFetchPerson extends graphql.WatchQueryOptions {
+class GQLWatchOptionsQueryFetchPerson
+    extends graphql.WatchQueryOptions<QueryFetchPerson> {
   GQLWatchOptionsQueryFetchPerson(
       {String? operationName,
       required VariablesQueryFetchPerson variables,
@@ -129,7 +156,8 @@ class GQLWatchOptionsQueryFetchPerson extends graphql.WatchQueryOptions {
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults);
+            fetchResults: fetchResults,
+            parserFn: (data) => QueryFetchPerson.fromJson(data));
 }
 
 class GQLFetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
@@ -143,19 +171,12 @@ class GQLFetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
 }
 
 extension GQLExtensionQueryFetchPerson on graphql.GraphQLClient {
-  Future<graphql.QueryResult> queryFetchPerson(
+  Future<graphql.QueryResult<QueryFetchPerson>> queryFetchPerson(
           GQLOptionsQueryFetchPerson options) async =>
       await this.query(options);
-  graphql.ObservableQuery watchQueryFetchPerson(
+  graphql.ObservableQuery<QueryFetchPerson> watchQueryFetchPerson(
           GQLWatchOptionsQueryFetchPerson options) =>
       this.watchQuery(options);
-}
-
-extension GQLResultExtensionQueryFetchPerson on graphql.QueryResult {
-  QueryFetchPerson? get parsedDataQueryFetchPerson {
-    final data = this.data;
-    return data == null ? null : QueryFetchPerson.fromJson(data);
-  }
 }
 
 @JsonSerializable()
@@ -275,14 +296,27 @@ const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
                   alias: null,
                   arguments: [],
                   directives: [],
+                  selectionSet: null),
+              FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
                   selectionSet: null)
-            ]))
+            ])),
+        FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null)
       ])),
 ]);
 typedef GQLOnMutationCompletedMutationUpdatePerson = FutureOr<void> Function(
     dynamic, MutationUpdatePerson?);
 
-class GQLOptionsMutationUpdatePerson extends graphql.MutationOptions {
+class GQLOptionsMutationUpdatePerson
+    extends graphql.MutationOptions<MutationUpdatePerson> {
   GQLOptionsMutationUpdatePerson(
       {String? operationName,
       required VariablesMutationUpdatePerson variables,
@@ -308,10 +342,12 @@ class GQLOptionsMutationUpdatePerson extends graphql.MutationOptions {
                     data == null ? null : MutationUpdatePerson.fromJson(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_PERSON);
+            document: MUTATION_UPDATE_PERSON,
+            parserFn: (data) => MutationUpdatePerson.fromJson(data));
 }
 
-class GQLWatchOptionsMutationUpdatePerson extends graphql.WatchQueryOptions {
+class GQLWatchOptionsMutationUpdatePerson
+    extends graphql.WatchQueryOptions<MutationUpdatePerson> {
   GQLWatchOptionsMutationUpdatePerson(
       {String? operationName,
       required VariablesMutationUpdatePerson variables,
@@ -336,23 +372,17 @@ class GQLWatchOptionsMutationUpdatePerson extends graphql.WatchQueryOptions {
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults);
+            fetchResults: fetchResults,
+            parserFn: (data) => MutationUpdatePerson.fromJson(data));
 }
 
 extension GQLExtensionMutationUpdatePerson on graphql.GraphQLClient {
-  Future<graphql.QueryResult> mutateUpdatePerson(
+  Future<graphql.QueryResult<MutationUpdatePerson>> mutateUpdatePerson(
           GQLOptionsMutationUpdatePerson options) async =>
       await this.mutate(options);
-  graphql.ObservableQuery watchMutationUpdatePerson(
+  graphql.ObservableQuery<MutationUpdatePerson> watchMutationUpdatePerson(
           GQLWatchOptionsMutationUpdatePerson options) =>
       this.watchMutation(options);
-}
-
-extension GQLResultExtensionMutationUpdatePerson on graphql.QueryResult {
-  MutationUpdatePerson? get parsedDataMutationUpdatePerson {
-    final data = this.data;
-    return data == null ? null : MutationUpdatePerson.fromJson(data);
-  }
 }
 
 @JsonSerializable()
