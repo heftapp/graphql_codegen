@@ -1,3 +1,7 @@
+# 0.6.0-beta.3
+
+* Upgrade `graphql`.
+
 # 0.6.0-beta.2
 
 * Support subscription in clients.

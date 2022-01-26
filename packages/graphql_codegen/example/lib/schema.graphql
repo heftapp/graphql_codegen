@@ -15,3 +15,7 @@ type Person {
 type Mutation {
     update_person(id: ID! full_name: String): Person
 }
+
+type Subscription {
+    watch_person(id: ID): Person
+}

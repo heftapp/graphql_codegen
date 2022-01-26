@@ -1,12 +1,14 @@
 name: graphql_codegen_example
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.14.0 <3.0.0'
 
 dependencies:
   json_annotation: ^4.0.1
-  graphql: "^5.0.1-beta.4"
-  
+  graphql_flutter: "^5.0.1-beta.5"
+  flutter:
+    sdk: flutter
+
 
 dev_dependencies:
   json_serializable: ^4.1.2

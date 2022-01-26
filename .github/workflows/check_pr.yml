@@ -78,8 +78,10 @@ jobs:
           pub global activate melos
       - name: Bootstrap melos
         run: melos bs
-      - name: Build package
-        run: melos run build
+      - name: Build dart
+        run: melos run build_dart
+      - name: Build fluter
+        run: melos run build_flutter
       - name: Bootstrap melos
         run: melos bs
       - name: Check if changed

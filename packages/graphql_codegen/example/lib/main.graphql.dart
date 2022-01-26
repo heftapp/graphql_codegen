@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'fragments.graphql.dart';
+import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
+import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'main.graphql.g.dart';
 
@@ -177,6 +179,14 @@ extension GQLExtensionQueryFetchPerson on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchPerson> watchQueryFetchPerson(
           GQLWatchOptionsQueryFetchPerson options) =>
       this.watchQuery(options);
+}
+
+class GQLFQueryFetchPerson extends graphql_flutter.Query<QueryFetchPerson> {
+  GQLFQueryFetchPerson(
+      {widgets.Key? key,
+      required GQLOptionsQueryFetchPerson options,
+      required graphql_flutter.QueryBuilder<QueryFetchPerson> builder})
+      : super(key: key, options: options, builder: builder);
 }
 
 @JsonSerializable()
@@ -385,6 +395,57 @@ extension GQLExtensionMutationUpdatePerson on graphql.GraphQLClient {
       this.watchMutation(options);
 }
 
+class GQLFOptionsMutationUpdatePerson
+    extends graphql.MutationOptions<MutationUpdatePerson> {
+  GQLFOptionsMutationUpdatePerson(
+      {String? operationName,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      GQLOnMutationCompletedMutationUpdatePerson? onCompleted,
+      graphql.OnMutationUpdate? update,
+      graphql.OnError? onError})
+      : super(
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            onCompleted: onCompleted == null
+                ? null
+                : (data) => onCompleted(data,
+                    data == null ? null : MutationUpdatePerson.fromJson(data)),
+            update: update,
+            onError: onError,
+            document: MUTATION_UPDATE_PERSON,
+            parserFn: (data) => MutationUpdatePerson.fromJson(data));
+}
+
+typedef GQLFRunMutationMutationUpdatePerson
+    = graphql.MultiSourceResult<MutationUpdatePerson>
+        Function(VariablesMutationUpdatePerson, {Object? optimisticResult});
+typedef GQLFBuilderMutationUpdatePerson = widgets.Widget Function(
+    GQLFRunMutationMutationUpdatePerson,
+    graphql.QueryResult<MutationUpdatePerson>?);
+
+class GQLFMutationUpdatePerson
+    extends graphql_flutter.Mutation<MutationUpdatePerson> {
+  GQLFMutationUpdatePerson(
+      {widgets.Key? key,
+      GQLFOptionsMutationUpdatePerson? options,
+      required GQLFBuilderMutationUpdatePerson builder})
+      : super(
+            key: key,
+            options: options ?? GQLFOptionsMutationUpdatePerson(),
+            builder: (run, result) => builder(
+                (variables, {optimisticResult}) =>
+                    run(variables.toJson(), optimisticResult: optimisticResult),
+                result));
+}
+
 @JsonSerializable()
 class MutationUpdatePerson$updatePerson extends JsonSerializable {
   MutationUpdatePerson$updatePerson({required this.fullName});
@@ -400,4 +461,185 @@ class MutationUpdatePerson$updatePerson extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$MutationUpdatePerson$updatePersonToJson(this);
+}
+
+@JsonSerializable()
+class VariablesSubscriptionWatchPerson extends JsonSerializable {
+  VariablesSubscriptionWatchPerson({this.id});
+
+  @override
+  factory VariablesSubscriptionWatchPerson.fromJson(
+          Map<String, dynamic> json) =>
+      _$VariablesSubscriptionWatchPersonFromJson(json);
+
+  final String? id;
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$VariablesSubscriptionWatchPersonToJson(this);
+}
+
+@JsonSerializable()
+class SubscriptionWatchPerson extends JsonSerializable {
+  SubscriptionWatchPerson({this.watchPerson});
+
+  @override
+  factory SubscriptionWatchPerson.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionWatchPersonFromJson(json);
+
+  @JsonKey(name: 'watch_person')
+  final SubscriptionWatchPerson$watchPerson? watchPerson;
+
+  @override
+  Map<String, dynamic> toJson() => _$SubscriptionWatchPersonToJson(this);
+}
+
+const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
+  OperationDefinitionNode(
+      type: OperationType.subscription,
+      name: NameNode(value: 'WatchPerson'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+            variable: VariableNode(name: NameNode(value: 'id')),
+            type: NamedTypeNode(name: NameNode(value: 'ID'), isNonNull: false),
+            defaultValue: DefaultValueNode(value: null),
+            directives: [])
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+            name: NameNode(value: 'watch_person'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                  name: NameNode(value: 'id'),
+                  value: VariableNode(name: NameNode(value: 'id')))
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                  name: NameNode(value: 'full_name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null)
+            ])),
+        FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null)
+      ])),
+]);
+
+class GQLOptionsSubscriptionWatchPerson
+    extends graphql.SubscriptionOptions<SubscriptionWatchPerson> {
+  GQLOptionsSubscriptionWatchPerson(
+      {String? operationName,
+      VariablesSubscriptionWatchPerson? variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context})
+      : super(
+            variables: variables?.toJson() ?? {},
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: SUBSCRIPTION_WATCH_PERSON,
+            parserFn: (data) => SubscriptionWatchPerson.fromJson(data));
+}
+
+class GQLWatchOptionsSubscriptionWatchPerson
+    extends graphql.WatchQueryOptions<SubscriptionWatchPerson> {
+  GQLWatchOptionsSubscriptionWatchPerson(
+      {String? operationName,
+      VariablesSubscriptionWatchPerson? variables,
+      graphql.FetchPolicy? fetchPolicy,
+      graphql.ErrorPolicy? errorPolicy,
+      graphql.CacheRereadPolicy? cacheRereadPolicy,
+      Object? optimisticResult,
+      graphql.Context? context,
+      Duration? pollInterval,
+      bool? eagerlyFetchResults,
+      bool carryForwardDataOnException = true,
+      bool fetchResults = false})
+      : super(
+            variables: variables?.toJson() ?? {},
+            operationName: operationName,
+            fetchPolicy: fetchPolicy,
+            errorPolicy: errorPolicy,
+            cacheRereadPolicy: cacheRereadPolicy,
+            optimisticResult: optimisticResult,
+            context: context,
+            document: SUBSCRIPTION_WATCH_PERSON,
+            pollInterval: pollInterval,
+            eagerlyFetchResults: eagerlyFetchResults,
+            carryForwardDataOnException: carryForwardDataOnException,
+            fetchResults: fetchResults,
+            parserFn: (data) => SubscriptionWatchPerson.fromJson(data));
+}
+
+class GQLFetchMoreOptionsSubscriptionWatchPerson
+    extends graphql.FetchMoreOptions {
+  GQLFetchMoreOptionsSubscriptionWatchPerson(
+      {required graphql.UpdateQuery updateQuery,
+      VariablesSubscriptionWatchPerson? variables})
+      : super(
+            updateQuery: updateQuery,
+            variables: variables?.toJson() ?? {},
+            document: SUBSCRIPTION_WATCH_PERSON);
+}
+
+extension GQLExtensionSubscriptionWatchPerson on graphql.GraphQLClient {
+  Stream<graphql.QueryResult<SubscriptionWatchPerson>> subscribeWatchPerson(
+          [GQLOptionsSubscriptionWatchPerson? options]) =>
+      this.subscribe(options ?? GQLOptionsSubscriptionWatchPerson());
+  graphql.ObservableQuery<SubscriptionWatchPerson> watchSubscriptionWatchPerson(
+          [GQLWatchOptionsSubscriptionWatchPerson? options]) =>
+      this.watchQuery(options ?? GQLWatchOptionsSubscriptionWatchPerson());
+}
+
+class GQLFSubscriptionWatchPerson
+    extends graphql_flutter.Subscription<SubscriptionWatchPerson> {
+  GQLFSubscriptionWatchPerson(
+      {widgets.Key? key,
+      GQLOptionsSubscriptionWatchPerson? options,
+      required graphql_flutter.SubscriptionBuilder<SubscriptionWatchPerson>
+          builder,
+      graphql_flutter.OnSubscriptionResult<SubscriptionWatchPerson>?
+          onSubscriptionResult})
+      : super(
+            key: key,
+            options: options ?? GQLOptionsSubscriptionWatchPerson(),
+            builder: builder,
+            onSubscriptionResult: onSubscriptionResult);
+}
+
+@JsonSerializable()
+class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
+  SubscriptionWatchPerson$watchPerson({required this.fullName});
+
+  @override
+  factory SubscriptionWatchPerson$watchPerson.fromJson(
+          Map<String, dynamic> json) =>
+      _$SubscriptionWatchPerson$watchPersonFromJson(json);
+
+  @JsonKey(name: 'full_name')
+  final String fullName;
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SubscriptionWatchPerson$watchPersonToJson(this);
 }

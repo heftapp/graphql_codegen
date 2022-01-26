@@ -128,3 +128,45 @@ Map<String, dynamic> _$MutationUpdatePerson$updatePersonToJson(
     <String, dynamic>{
       'full_name': instance.fullName,
     };
+
+VariablesSubscriptionWatchPerson _$VariablesSubscriptionWatchPersonFromJson(
+    Map<String, dynamic> json) {
+  return VariablesSubscriptionWatchPerson(
+    id: json['id'] as String?,
+  );
+}
+
+Map<String, dynamic> _$VariablesSubscriptionWatchPersonToJson(
+        VariablesSubscriptionWatchPerson instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+SubscriptionWatchPerson _$SubscriptionWatchPersonFromJson(
+    Map<String, dynamic> json) {
+  return SubscriptionWatchPerson(
+    watchPerson: json['watch_person'] == null
+        ? null
+        : SubscriptionWatchPerson$watchPerson.fromJson(
+            json['watch_person'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$SubscriptionWatchPersonToJson(
+        SubscriptionWatchPerson instance) =>
+    <String, dynamic>{
+      'watch_person': instance.watchPerson,
+    };
+
+SubscriptionWatchPerson$watchPerson
+    _$SubscriptionWatchPerson$watchPersonFromJson(Map<String, dynamic> json) {
+  return SubscriptionWatchPerson$watchPerson(
+    fullName: json['full_name'] as String,
+  );
+}
+
+Map<String, dynamic> _$SubscriptionWatchPerson$watchPersonToJson(
+        SubscriptionWatchPerson$watchPerson instance) =>
+    <String, dynamic>{
+      'full_name': instance.fullName,
+    };
