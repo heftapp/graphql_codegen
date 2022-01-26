@@ -273,7 +273,7 @@ main () async {
             ),
         ),
     );
-    final parsedData = result.parsedBodyQueryFetchPerson;
+    final parsedData = result.parsedData;
     print(parsedData?.fetchPerson?.name);
 }
 
@@ -314,7 +314,7 @@ class PersonWidget extends StatelessWidget {
             ),
             builder: (result, {fetchMore, refetch}) {
                 return Text(
-                    result.parsedDataQueryFetchPerson?.fetchPerson?.name ?? '...loading'
+                    result.parsedData?.fetchPerson?.name ?? '...loading'
                 );
             }
         );
