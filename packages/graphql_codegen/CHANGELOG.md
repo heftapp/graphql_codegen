@@ -1,3 +1,7 @@
+# 0.6.0-beta.2
+
+* Support subscription in clients.
+
 # 0.6.0-beta.1
 
 * Use parserFn introduced in `graphql: 5.0.1-beta.4`.

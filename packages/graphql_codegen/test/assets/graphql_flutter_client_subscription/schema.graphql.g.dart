@@ -1,0 +1,120 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'schema.graphql.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+SubscriptionNoArgs _$SubscriptionNoArgsFromJson(Map<String, dynamic> json) {
+  return SubscriptionNoArgs(
+    listenForChange: json['listenForChange'] == null
+        ? null
+        : SubscriptionNoArgs$listenForChange.fromJson(
+            json['listenForChange'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$SubscriptionNoArgsToJson(SubscriptionNoArgs instance) =>
+    <String, dynamic>{
+      'listenForChange': instance.listenForChange,
+    };
+
+SubscriptionNoArgs$listenForChange _$SubscriptionNoArgs$listenForChangeFromJson(
+    Map<String, dynamic> json) {
+  return SubscriptionNoArgs$listenForChange(
+    name: json['name'] as String,
+  );
+}
+
+Map<String, dynamic> _$SubscriptionNoArgs$listenForChangeToJson(
+        SubscriptionNoArgs$listenForChange instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
+VariablesSubscriptionRequiredArg _$VariablesSubscriptionRequiredArgFromJson(
+    Map<String, dynamic> json) {
+  return VariablesSubscriptionRequiredArg(
+    name: json['name'] as String,
+  );
+}
+
+Map<String, dynamic> _$VariablesSubscriptionRequiredArgToJson(
+        VariablesSubscriptionRequiredArg instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
+SubscriptionRequiredArg _$SubscriptionRequiredArgFromJson(
+    Map<String, dynamic> json) {
+  return SubscriptionRequiredArg(
+    listenForChange: json['listenForChange'] == null
+        ? null
+        : SubscriptionRequiredArg$listenForChange.fromJson(
+            json['listenForChange'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$SubscriptionRequiredArgToJson(
+        SubscriptionRequiredArg instance) =>
+    <String, dynamic>{
+      'listenForChange': instance.listenForChange,
+    };
+
+SubscriptionRequiredArg$listenForChange
+    _$SubscriptionRequiredArg$listenForChangeFromJson(
+        Map<String, dynamic> json) {
+  return SubscriptionRequiredArg$listenForChange(
+    name: json['name'] as String,
+  );
+}
+
+Map<String, dynamic> _$SubscriptionRequiredArg$listenForChangeToJson(
+        SubscriptionRequiredArg$listenForChange instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
+VariablesSubscriptionOptionalArg _$VariablesSubscriptionOptionalArgFromJson(
+    Map<String, dynamic> json) {
+  return VariablesSubscriptionOptionalArg(
+    name: json['name'] as String?,
+  );
+}
+
+Map<String, dynamic> _$VariablesSubscriptionOptionalArgToJson(
+        VariablesSubscriptionOptionalArg instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
+SubscriptionOptionalArg _$SubscriptionOptionalArgFromJson(
+    Map<String, dynamic> json) {
+  return SubscriptionOptionalArg(
+    listenForChange: json['listenForChange'] == null
+        ? null
+        : SubscriptionOptionalArg$listenForChange.fromJson(
+            json['listenForChange'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$SubscriptionOptionalArgToJson(
+        SubscriptionOptionalArg instance) =>
+    <String, dynamic>{
+      'listenForChange': instance.listenForChange,
+    };
+
+SubscriptionOptionalArg$listenForChange
+    _$SubscriptionOptionalArg$listenForChangeFromJson(
+        Map<String, dynamic> json) {
+  return SubscriptionOptionalArg$listenForChange(
+    name: json['name'] as String,
+  );
+}
+
+Map<String, dynamic> _$SubscriptionOptionalArg$listenForChangeToJson(
+        SubscriptionOptionalArg$listenForChange instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };

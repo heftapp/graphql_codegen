@@ -110,7 +110,7 @@ class GQLFQueryFetchSNoVariables
   GQLFQueryFetchSNoVariables(
       {widgets.Key? key,
       GQLOptionsQueryFetchSNoVariables? options,
-      required graphql_flutter.QueryBuilder builder})
+      required graphql_flutter.QueryBuilder<QueryFetchSNoVariables> builder})
       : super(
             key: key,
             options: options ?? GQLOptionsQueryFetchSNoVariables(),

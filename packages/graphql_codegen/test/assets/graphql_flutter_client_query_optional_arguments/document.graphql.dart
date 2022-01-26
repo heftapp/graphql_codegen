@@ -138,7 +138,7 @@ class GQLFQueryFetchSOptional
   GQLFQueryFetchSOptional(
       {widgets.Key? key,
       GQLOptionsQueryFetchSOptional? options,
-      required graphql_flutter.QueryBuilder builder})
+      required graphql_flutter.QueryBuilder<QueryFetchSOptional> builder})
       : super(
             key: key,
             options: options ?? GQLOptionsQueryFetchSOptional(),
