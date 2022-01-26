@@ -138,7 +138,7 @@ class GQLFQueryFetchSRequired
   GQLFQueryFetchSRequired(
       {widgets.Key? key,
       required GQLOptionsQueryFetchSRequired options,
-      required graphql_flutter.QueryBuilder builder})
+      required graphql_flutter.QueryBuilder<QueryFetchSRequired> builder})
       : super(key: key, options: options, builder: builder);
 }
 

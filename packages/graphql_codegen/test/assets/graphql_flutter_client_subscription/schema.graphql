@@ -1,0 +1,25 @@
+type Subscription {
+    listenForChange(name: String): Change
+}
+
+type Change {
+    name: String!
+}
+
+subscription NoArgs {
+    listenForChange {
+        name
+    }
+}
+
+subscription RequiredArg($name: String!) {
+    listenForChange(name: $name) {
+        name
+    }
+}
+
+subscription OptionalArg($name: String) {
+    listenForChange(name: $name) {
+        name
+    }
+}

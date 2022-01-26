@@ -3,6 +3,7 @@ import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql.dart';
 import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/printer/clients/utils.dart';
 
 import '../context.dart';
 import '../utils.dart';
@@ -13,9 +14,8 @@ Spec printRunMutationTypeDef(PrintContext c) {
   final areVariablesRequired = context.isVariablesRequired;
   return FunctionType(
     (b) => b
-      ..returnType = TypeReference((b) => b
-        ..symbol = 'graphql.MultiSourceResult'
-        ..types = ListBuilder([refer(printClassName(c.path))]))
+      ..returnType =
+          generic('graphql.MultiSourceResult', refer(printClassName(c.path)))
       ..requiredParameters = ListBuilder([
         if (hasVariables && areVariablesRequired)
           refer(printVariableClassName(context.path)),
@@ -45,11 +45,10 @@ Spec printBuilderMutationTypeDef(PrintContext context) {
       ..requiredParameters = ListBuilder(
         [
           refer(printGraphQLFlutterClientRunMutationName(context.path)),
-          TypeReference(
-            (b) => b
-              ..symbol = 'graphql.QueryResult'
-              ..types = ListBuilder([refer(printClassName(context.path))])
-              ..isNullable = true,
+          generic(
+            'graphql.QueryResult',
+            refer(printClassName(context.path)),
+            isNullable: true,
           ),
         ],
       ),
@@ -215,7 +214,10 @@ Spec printQuerySpec(PrintContext c) {
                   ..name = 'builder'
                   ..required = true
                   ..type = TypeReference(
-                    (b) => b..symbol = "graphql_flutter.QueryBuilder",
+                    (b) => b
+                      ..symbol = "graphql_flutter.QueryBuilder"
+                      ..types =
+                          ListBuilder([refer(printClassName(context.path))]),
                   ),
               ),
             ])
@@ -243,6 +245,82 @@ Iterable<Spec> printQuerySpecs(PrintContext<Context> context) {
   ];
 }
 
+Spec printSubscriptionSpec(PrintContext c) {
+  final context = c.context;
+  return Class(
+    (b) => b
+      ..name = printGraphQLFlutterClientOperationName(context.path)
+      ..extend = TypeReference((b) => b
+        ..symbol = 'graphql_flutter.Subscription'
+        ..types = ListBuilder([refer(printClassName(context.path))]))
+      ..constructors = ListBuilder([
+        Constructor(
+          (b) => b
+            ..optionalParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'key'
+                  ..type = TypeReference(
+                    (b) => b
+                      ..symbol = 'widgets.Key'
+                      ..isNullable = true,
+                  ),
+              ),
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'options'
+                  ..required = context.isVariablesRequired
+                  ..type = TypeReference(
+                    (b) => b
+                      ..symbol = printGraphQLClientOptionsName(context.path)
+                      ..isNullable = !context.isVariablesRequired,
+                  ),
+              ),
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'builder'
+                  ..required = true
+                  ..type = generic('graphql_flutter.SubscriptionBuilder',
+                      refer(printClassName(context.path))),
+              ),
+              Parameter(
+                (b) => b
+                  ..named = true
+                  ..name = 'onSubscriptionResult'
+                  ..required = false
+                  ..type = generic('graphql_flutter.OnSubscriptionResult',
+                      refer(printClassName(context.path)),
+                      isNullable: true),
+              ),
+            ])
+            ..initializers = ListBuilder([
+              refer('super').call([], {
+                'key': refer('key'),
+                'options': context.isVariablesRequired
+                    ? refer('options')
+                    : refer('options').ifNullThen(
+                        refer(printGraphQLClientOptionsName(context.path))
+                            .newInstance([]),
+                      ),
+                'builder': refer('builder'),
+                'onSubscriptionResult': refer('onSubscriptionResult'),
+              }).code,
+            ]),
+        )
+      ]),
+  );
+}
+
+Iterable<Spec> printSubscriptionSpecs(PrintContext<Context> context) {
+  _addDependencies(context);
+  return [
+    printSubscriptionSpec(context),
+  ];
+}
+
 Iterable<Spec> printGraphQLFlutterSpecs(
   PrintContext<ContextOperation> context,
 ) {
@@ -251,6 +329,8 @@ Iterable<Spec> printGraphQLFlutterSpecs(
       return printMutationSpecs(context);
     case OperationType.query:
       return printQuerySpecs(context);
+    case OperationType.subscription:
+      return printSubscriptionSpecs(context);
     default:
       return [];
   }

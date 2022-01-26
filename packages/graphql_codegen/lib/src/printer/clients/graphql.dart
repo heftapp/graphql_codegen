@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 import 'package:graphql_codegen/src/printer/utils.dart';
 import 'package:graphql_codegen/src/context.dart';
@@ -86,6 +87,75 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
                 'optimisticResult': refer('optimisticResult'),
                 'pollInterval': refer('pollInterval'),
+                'context': refer('context'),
+                'document': refer(printOperationDocumentName(context.path)),
+                'parserFn': printParserFn(context),
+              }).code,
+            ]),
+        ),
+      ]),
+  );
+}
+
+Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
+  final context = c.context;
+  return Class(
+    (b) => b
+      ..name = printGraphQLClientOptionsName(context.path)
+      ..extend = generic(
+        "graphql.SubscriptionOptions",
+        refer(printClassName(context.path)),
+      )
+      ..constructors = ListBuilder([
+        Constructor(
+          (b) => b
+            ..optionalParameters = ListBuilder(
+              [
+                printOptionsParameter(
+                  'operationName',
+                  'String',
+                ),
+                if (context.hasVariables)
+                  printOptionsParameter(
+                    'variables',
+                    printVariableClassName(context.path),
+                    isRequired: context.isVariablesRequired,
+                  ),
+                printOptionsParameter(
+                  'fetchPolicy',
+                  'graphql.FetchPolicy',
+                ),
+                printOptionsParameter(
+                  'errorPolicy',
+                  'graphql.ErrorPolicy',
+                ),
+                printOptionsParameter(
+                  'cacheRereadPolicy',
+                  'graphql.CacheRereadPolicy',
+                ),
+                printOptionsParameter(
+                  'optimisticResult',
+                  'Object',
+                ),
+                printOptionsParameter(
+                  'context',
+                  'graphql.Context',
+                ),
+              ],
+            )
+            ..initializers = ListBuilder([
+              refer('super').call([], {
+                if (context.hasVariables && context.isVariablesRequired)
+                  'variables': refer('variables').property('toJson').call([])
+                else if (context.hasVariables)
+                  'variables': refer('variables')
+                      .nullSafeProperty('toJson')
+                      .call([]).ifNullThen(literalMap({})),
+                'operationName': refer('operationName'),
+                'fetchPolicy': refer('fetchPolicy'),
+                'errorPolicy': refer('errorPolicy'),
+                'cacheRereadPolicy': refer('cacheRereadPolicy'),
+                'optimisticResult': refer('optimisticResult'),
                 'context': refer('context'),
                 'document': refer(printOperationDocumentName(context.path)),
                 'parserFn': printParserFn(context),
@@ -553,6 +623,84 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
   );
 }
 
+Spec printSubscriptionExtension(PrintContext<ContextOperation> context) {
+  final isOptionsRequired = context.context.isVariablesRequired;
+  final optionsParameter = Parameter(
+    (b) => b
+      ..name = "options"
+      ..type = TypeReference(
+        (b) => b
+          ..symbol = printGraphQLClientOptionsName(context.path)
+          ..isNullable = !isOptionsRequired,
+      ),
+  );
+  final watchOptionsParameter = Parameter(
+    (b) => b
+      ..name = "options"
+      ..type = TypeReference(
+        (b) => b
+          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..isNullable = !isOptionsRequired,
+      ),
+  );
+  return Extension(
+    (b) => b
+      ..name = printGraphQLClientExtensionName(context.path)
+      ..on = refer('graphql.GraphQLClient')
+      ..methods = ListBuilder([
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionMethodName(context.path)
+            ..lambda = true
+            ..requiredParameters = ListBuilder([
+              if (isOptionsRequired) optionsParameter,
+            ])
+            ..optionalParameters = ListBuilder([
+              if (!isOptionsRequired) optionsParameter,
+            ])
+            ..body = refer("this").property("subscribe").call([
+              if (isOptionsRequired)
+                refer("options")
+              else
+                refer("options").ifNullThen(
+                  refer(printGraphQLClientOptionsName(context.path)).call([]),
+                )
+            ]).code
+            ..returns = generic(
+              'Stream',
+              generic(
+                'graphql.QueryResult',
+                refer(printClassName(context.path)),
+              ),
+            ),
+        ),
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionWatchMethodName(context.path)
+            ..lambda = true
+            ..requiredParameters = ListBuilder([
+              if (isOptionsRequired) watchOptionsParameter,
+            ])
+            ..optionalParameters = ListBuilder([
+              if (!isOptionsRequired) watchOptionsParameter,
+            ])
+            ..body = refer("this").property("watchQuery").call([
+              if (isOptionsRequired)
+                refer("options")
+              else
+                refer("options").ifNullThen(
+                  refer(printGraphQLClientWatchOptionsName(context.path))
+                      .call([]),
+                )
+            ]).code
+            ..returns = TypeReference((b) => b
+              ..symbol = 'graphql.ObservableQuery'
+              ..types = ListBuilder([refer(printClassName(context.path))])),
+        ),
+      ]),
+  );
+}
+
 Iterable<Spec> printMutation(PrintContext<ContextOperation> context) {
   context.addPackage('dart:async');
   context.addPackage(
@@ -564,6 +712,20 @@ Iterable<Spec> printMutation(PrintContext<ContextOperation> context) {
     printMutationOptions(context),
     printWatchOptions(context),
     printMutationExtension(context),
+  ];
+}
+
+Iterable<Spec> printSubscription(PrintContext<ContextOperation> context) {
+  context.addPackage('dart:async');
+  context.addPackage(
+    'package:graphql/client.dart',
+    'graphql',
+  );
+  return [
+    printSubscriptionOptions(context),
+    printWatchOptions(context),
+    printFetchMoreOptions(context),
+    printSubscriptionExtension(context),
   ];
 }
 
@@ -590,6 +752,8 @@ Iterable<Spec> printGraphQLClientSpecs(
       return printMutation(c);
     case OperationType.query:
       return printQuery(c);
+    case OperationType.subscription:
+      return printSubscription(c);
     default:
       return [];
   }
