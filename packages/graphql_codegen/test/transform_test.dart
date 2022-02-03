@@ -11,13 +11,7 @@ testTransform(GraphQLCodegenConfig config, String p1, String p2) => expect(
 main() {
   group("addTypename", () {
     test("will add typename", () {
-      final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        [],
-      );
+      final config = GraphQLCodegenConfig();
       final doc1 = """
       type Query {
         test: String
@@ -38,13 +32,7 @@ main() {
       testTransform(config, doc1, doc2);
     });
     test("will not add typename", () {
-      final config = GraphQLCodegenConfig(
-        {},
-        {},
-        false,
-        "",
-        [],
-      );
+      final config = GraphQLCodegenConfig(addTypename: false);
       final doc1 = """
       type Query {
         test: String
@@ -58,11 +46,7 @@ main() {
     });
     test("will exclude query", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['query'],
+        addTypenameExcludedPaths: ['query'],
       );
       final doc1 = """
       type Query {
@@ -77,11 +61,7 @@ main() {
     });
     test("will exclude subscription", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['subscription'],
+        addTypenameExcludedPaths: ['subscription'],
       );
       final doc1 = """
       type Subscription {
@@ -96,11 +76,7 @@ main() {
     });
     test("will exclude mutation", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['mutation'],
+        addTypenameExcludedPaths: ['mutation'],
       );
       final doc1 = """
       type Mutation {
@@ -115,11 +91,7 @@ main() {
     });
     test("will exclude named operation", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['Foobar'],
+        addTypenameExcludedPaths: ['Foobar'],
       );
       final doc1 = """
       type Mutation {
@@ -135,11 +107,7 @@ main() {
 
     test("will exclude sub selection", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['Foobar.test'],
+        addTypenameExcludedPaths: ['Foobar.test'],
       );
       final doc1 = """
       query Foobar {
@@ -161,11 +129,7 @@ main() {
     });
     test("will exclude wild card", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['Foobar.*.nested_test'],
+        addTypenameExcludedPaths: ['Foobar.*.nested_test'],
       );
       final doc1 = """
       query Foobar {
@@ -211,11 +175,7 @@ main() {
     });
     test("will exclude double wild card", () {
       final config = GraphQLCodegenConfig(
-        {},
-        {},
-        true,
-        "",
-        ['Foobar.**.lol'],
+        addTypenameExcludedPaths: ['Foobar.**.lol'],
       );
       final doc1 = """
       query Foobar {
