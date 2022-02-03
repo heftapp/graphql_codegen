@@ -1,3 +1,8 @@
+# 0.2.0
+
+* Add new option `generatedFileHeader`
+* Refactored config constructor
+
 # 0.1.6
 
 Add new options:
