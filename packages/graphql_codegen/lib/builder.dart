@@ -50,6 +50,7 @@ class GraphQLBuilder extends Builder {
     ));
     final targetAsset = buildStep.inputId.addExtension('.dart');
     _writeProgram(
+      config,
       buildStep,
       targetAsset,
       result.entries[buildStep.inputId]!,
@@ -57,6 +58,7 @@ class GraphQLBuilder extends Builder {
   }
 
   void _writeProgram(
+    GraphQLCodegenConfig config,
     BuildStep buildStep,
     AssetId targetAssetId,
     Library library,
@@ -64,7 +66,7 @@ class GraphQLBuilder extends Builder {
     final formatter = DartFormatter();
     final emitter = DartEmitter(useNullSafetySyntax: true);
     final contents = formatter.format(
-      "${library.accept(emitter)}",
+      "${config.generatedFileHeader}${library.accept(emitter)}",
     );
     buildStep.writeAsString(targetAssetId, contents);
   }

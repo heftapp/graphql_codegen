@@ -13,11 +13,7 @@ main() {
         GraphQLCodegenConfig.fromJson(jsonDecode(jsonEncode(config))).toJson(),
         equals(
           GraphQLCodegenConfig(
-            {GraphQLCodegenConfigClient.graphql},
-            {},
-            true,
-            "lib/**.graphql",
-            [],
+            clients: {GraphQLCodegenConfigClient.graphql},
           ).toJson(),
         ),
       );

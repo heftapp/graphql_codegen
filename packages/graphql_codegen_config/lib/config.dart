@@ -42,14 +42,17 @@ class GraphQLCodegenConfig extends JsonSerializable {
   final String assetsPath;
   @JsonKey(defaultValue: const [])
   final List<String> addTypenameExcludedPaths;
+  @JsonKey(defaultValue: "")
+  final String generatedFileHeader;
 
-  GraphQLCodegenConfig(
-    this.clients,
-    this.scalars,
-    this.addTypename,
-    this.assetsPath,
-    this.addTypenameExcludedPaths,
-  );
+  GraphQLCodegenConfig({
+    this.clients = const {},
+    this.scalars = const {},
+    this.addTypename = true,
+    this.assetsPath = "lib/**.graphql",
+    this.addTypenameExcludedPaths = const [],
+    this.generatedFileHeader = "",
+  });
 
   @override
   factory GraphQLCodegenConfig.fromJson(Map<String, dynamic> json) =>

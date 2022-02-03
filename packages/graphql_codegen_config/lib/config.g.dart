@@ -27,21 +27,23 @@ Map<String, dynamic> _$GraphQLCodegenConfigScalarToJson(
 
 GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(Map<String, dynamic> json) {
   return GraphQLCodegenConfig(
-    (json['clients'] as List<dynamic>?)
+    clients: (json['clients'] as List<dynamic>?)
             ?.map((e) => _$enumDecode(_$GraphQLCodegenConfigClientEnumMap, e))
             .toSet() ??
         {},
-    (json['scalars'] as Map<String, dynamic>?)?.map(
+    scalars: (json['scalars'] as Map<String, dynamic>?)?.map(
           (k, e) => MapEntry(k,
               GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
         ) ??
         {},
-    json['addTypename'] as bool? ?? true,
-    json['assetsPath'] as String? ?? 'lib/**.graphql',
-    (json['addTypenameExcludedPaths'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList() ??
-        [],
+    addTypename: json['addTypename'] as bool? ?? true,
+    assetsPath: json['assetsPath'] as String? ?? 'lib/**.graphql',
+    addTypenameExcludedPaths:
+        (json['addTypenameExcludedPaths'] as List<dynamic>?)
+                ?.map((e) => e as String)
+                .toList() ??
+            [],
+    generatedFileHeader: json['generatedFileHeader'] as String? ?? '',
   );
 }
 
@@ -55,6 +57,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'addTypename': instance.addTypename,
       'assetsPath': instance.assetsPath,
       'addTypenameExcludedPaths': instance.addTypenameExcludedPaths,
+      'generatedFileHeader': instance.generatedFileHeader,
     };
 
 K _$enumDecode<K, V>(
