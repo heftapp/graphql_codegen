@@ -1,7 +1,6 @@
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/transform/transforming_visitor.dart';
 import 'package:graphql_codegen_config/config.dart';
-import 'package:path/path.dart';
 
 const _TYPENAME_FIELD = '__typename';
 
