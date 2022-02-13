@@ -1,3 +1,8 @@
+# 0.6.1-beta.1
+
+* Fix: Mover `parserFn` externally
+* Fix: Fresh referene on `onCompleted`.
+
 # 0.6.0
 
 * Support `generatedFileHeader`.
