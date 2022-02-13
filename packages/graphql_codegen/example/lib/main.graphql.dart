@@ -363,7 +363,7 @@ class GQLOptionsMutationUpdatePerson
   final GQLOnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
 
   @override
-  get properties => [
+  List<Object?> get properties => [
         ...super.onCompleted == null
             ? super.properties
             : super.properties.where((property) => property != onCompleted),
@@ -442,7 +442,7 @@ class GQLFOptionsMutationUpdatePerson
   final GQLOnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
 
   @override
-  get properties => [
+  List<Object?> get properties => [
         ...super.onCompleted == null
             ? super.properties
             : super.properties.where((property) => property != onCompleted),
