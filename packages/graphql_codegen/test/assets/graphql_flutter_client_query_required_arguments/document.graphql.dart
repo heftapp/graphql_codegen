@@ -59,6 +59,8 @@ const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+QueryFetchSRequired _parserFnQueryFetchSRequired(Map<String, dynamic> data) =>
+    QueryFetchSRequired.fromJson(data);
 
 class GQLOptionsQueryFetchSRequired
     extends graphql.QueryOptions<QueryFetchSRequired> {
@@ -81,7 +83,7 @@ class GQLOptionsQueryFetchSRequired
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_REQUIRED,
-            parserFn: (data) => QueryFetchSRequired.fromJson(data));
+            parserFn: _parserFnQueryFetchSRequired);
 }
 
 class GQLWatchOptionsQueryFetchSRequired
@@ -111,7 +113,7 @@ class GQLWatchOptionsQueryFetchSRequired
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchSRequired.fromJson(data));
+            parserFn: _parserFnQueryFetchSRequired);
 }
 
 class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {

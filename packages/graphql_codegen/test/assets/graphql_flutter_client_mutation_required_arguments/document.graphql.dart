@@ -62,6 +62,9 @@ const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+MutationUpdateSRequired _parserFnMutationUpdateSRequired(
+        Map<String, dynamic> data) =>
+    MutationUpdateSRequired.fromJson(data);
 typedef GQLOnMutationCompletedMutationUpdateSRequired = FutureOr<void> Function(
     dynamic, MutationUpdateSRequired?);
 
@@ -78,7 +81,8 @@ class GQLOptionsMutationUpdateSRequired
       GQLOnMutationCompletedMutationUpdateSRequired? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             variables: variables.toJson(),
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -92,11 +96,21 @@ class GQLOptionsMutationUpdateSRequired
                     data,
                     data == null
                         ? null
-                        : MutationUpdateSRequired.fromJson(data)),
+                        : _parserFnMutationUpdateSRequired(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_REQUIRED,
-            parserFn: (data) => MutationUpdateSRequired.fromJson(data));
+            parserFn: _parserFnMutationUpdateSRequired);
+
+  final GQLOnMutationCompletedMutationUpdateSRequired? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 class GQLWatchOptionsMutationUpdateSRequired
@@ -126,7 +140,7 @@ class GQLWatchOptionsMutationUpdateSRequired
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => MutationUpdateSRequired.fromJson(data));
+            parserFn: _parserFnMutationUpdateSRequired);
 }
 
 extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
@@ -150,7 +164,8 @@ class GQLFOptionsMutationUpdateSRequired
       GQLOnMutationCompletedMutationUpdateSRequired? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
             errorPolicy: errorPolicy,
@@ -163,11 +178,21 @@ class GQLFOptionsMutationUpdateSRequired
                     data,
                     data == null
                         ? null
-                        : MutationUpdateSRequired.fromJson(data)),
+                        : _parserFnMutationUpdateSRequired(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_REQUIRED,
-            parserFn: (data) => MutationUpdateSRequired.fromJson(data));
+            parserFn: _parserFnMutationUpdateSRequired);
+
+  final GQLOnMutationCompletedMutationUpdateSRequired? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 typedef GQLFRunMutationMutationUpdateSRequired

@@ -54,6 +54,8 @@ const SUBSCRIPTION_NO_ARGS = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+SubscriptionNoArgs _parserFnSubscriptionNoArgs(Map<String, dynamic> data) =>
+    SubscriptionNoArgs.fromJson(data);
 
 class GQLOptionsSubscriptionNoArgs
     extends graphql.SubscriptionOptions<SubscriptionNoArgs> {
@@ -72,7 +74,7 @@ class GQLOptionsSubscriptionNoArgs
             optimisticResult: optimisticResult,
             context: context,
             document: SUBSCRIPTION_NO_ARGS,
-            parserFn: (data) => SubscriptionNoArgs.fromJson(data));
+            parserFn: _parserFnSubscriptionNoArgs);
 }
 
 class GQLWatchOptionsSubscriptionNoArgs
@@ -100,7 +102,7 @@ class GQLWatchOptionsSubscriptionNoArgs
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => SubscriptionNoArgs.fromJson(data));
+            parserFn: _parserFnSubscriptionNoArgs);
 }
 
 class GQLFetchMoreOptionsSubscriptionNoArgs extends graphql.FetchMoreOptions {
@@ -224,6 +226,9 @@ const SUBSCRIPTION_REQUIRED_ARG = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+SubscriptionRequiredArg _parserFnSubscriptionRequiredArg(
+        Map<String, dynamic> data) =>
+    SubscriptionRequiredArg.fromJson(data);
 
 class GQLOptionsSubscriptionRequiredArg
     extends graphql.SubscriptionOptions<SubscriptionRequiredArg> {
@@ -244,7 +249,7 @@ class GQLOptionsSubscriptionRequiredArg
             optimisticResult: optimisticResult,
             context: context,
             document: SUBSCRIPTION_REQUIRED_ARG,
-            parserFn: (data) => SubscriptionRequiredArg.fromJson(data));
+            parserFn: _parserFnSubscriptionRequiredArg);
 }
 
 class GQLWatchOptionsSubscriptionRequiredArg
@@ -274,7 +279,7 @@ class GQLWatchOptionsSubscriptionRequiredArg
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => SubscriptionRequiredArg.fromJson(data));
+            parserFn: _parserFnSubscriptionRequiredArg);
 }
 
 class GQLFetchMoreOptionsSubscriptionRequiredArg
@@ -404,6 +409,9 @@ const SUBSCRIPTION_OPTIONAL_ARG = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+SubscriptionOptionalArg _parserFnSubscriptionOptionalArg(
+        Map<String, dynamic> data) =>
+    SubscriptionOptionalArg.fromJson(data);
 
 class GQLOptionsSubscriptionOptionalArg
     extends graphql.SubscriptionOptions<SubscriptionOptionalArg> {
@@ -424,7 +432,7 @@ class GQLOptionsSubscriptionOptionalArg
             optimisticResult: optimisticResult,
             context: context,
             document: SUBSCRIPTION_OPTIONAL_ARG,
-            parserFn: (data) => SubscriptionOptionalArg.fromJson(data));
+            parserFn: _parserFnSubscriptionOptionalArg);
 }
 
 class GQLWatchOptionsSubscriptionOptionalArg
@@ -454,7 +462,7 @@ class GQLWatchOptionsSubscriptionOptionalArg
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => SubscriptionOptionalArg.fromJson(data));
+            parserFn: _parserFnSubscriptionOptionalArg);
 }
 
 class GQLFetchMoreOptionsSubscriptionOptionalArg

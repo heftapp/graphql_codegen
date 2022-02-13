@@ -59,6 +59,8 @@ const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+QueryFetchSOptional _parserFnQueryFetchSOptional(Map<String, dynamic> data) =>
+    QueryFetchSOptional.fromJson(data);
 
 class GQLOptionsQueryFetchSOptional
     extends graphql.QueryOptions<QueryFetchSOptional> {
@@ -81,7 +83,7 @@ class GQLOptionsQueryFetchSOptional
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_OPTIONAL,
-            parserFn: (data) => QueryFetchSOptional.fromJson(data));
+            parserFn: _parserFnQueryFetchSOptional);
 }
 
 class GQLWatchOptionsQueryFetchSOptional
@@ -111,7 +113,7 @@ class GQLWatchOptionsQueryFetchSOptional
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchSOptional.fromJson(data));
+            parserFn: _parserFnQueryFetchSOptional);
 }
 
 class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {

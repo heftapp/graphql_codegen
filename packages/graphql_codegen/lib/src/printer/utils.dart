@@ -53,6 +53,9 @@ String printPossibleTypesMapName() => ReCase('possibleTypesMap').constantCase;
 
 String printClassName(Name name) => _printName(name);
 
+String printParserFnName(Name name) =>
+    "_" + ReCase("parserFn${_printName(name)}").camelCase;
+
 String printVariableClassName(Name name) => "Variables${_printName(name)}";
 
 String printGraphQLClientOptionsName(Name name) =>
