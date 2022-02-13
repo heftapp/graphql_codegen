@@ -79,6 +79,21 @@ String printGraphQLFlutterClientBuilderName(Name name) =>
 String printGraphQLFlutterClientOperationName(Name name) =>
     "GQLF${_printName(name)}";
 
+String printGraphQLFlutterClientMutationHookName(Name name) =>
+    "use${_printName(name)}";
+
+String printGraphQLFlutterClientWatchMutationHookName(Name name) =>
+    "useWatch${_printName(name)}";
+
+String printGraphQLFlutterClientQueryHookName(Name name) =>
+    "use${_printName(name)}";
+
+String printGraphQLFlutterClientWatchQueryHookName(Name name) =>
+    "useWatch${_printName(name)}";
+
+String printGraphQLFlutterClientSubscriptionHookName(Name name) =>
+    "use${_printName(name)}";
+
 String printGraphQLClientOnMutationCompleteName(Name name) =>
     "GQLOnMutationCompleted${_printName(name)}";
 

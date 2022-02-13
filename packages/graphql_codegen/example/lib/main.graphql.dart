@@ -183,6 +183,13 @@ extension GQLExtensionQueryFetchPerson on graphql.GraphQLClient {
       this.watchQuery(options);
 }
 
+graphql_flutter.QueryHookResult<QueryFetchPerson> useQueryFetchPerson(
+        GQLOptionsQueryFetchPerson options) =>
+    graphql_flutter.useQuery(options);
+graphql.ObservableQuery<QueryFetchPerson> useWatchQueryFetchPerson(
+        GQLWatchOptionsQueryFetchPerson options) =>
+    graphql_flutter.useWatchQuery(options);
+
 class GQLFQueryFetchPerson extends graphql_flutter.Query<QueryFetchPerson> {
   GQLFQueryFetchPerson(
       {widgets.Key? key,
@@ -409,6 +416,13 @@ extension GQLExtensionMutationUpdatePerson on graphql.GraphQLClient {
           GQLWatchOptionsMutationUpdatePerson options) =>
       this.watchMutation(options);
 }
+
+graphql_flutter.MutationHookResult<MutationUpdatePerson>
+    useMutationUpdatePerson(GQLOptionsMutationUpdatePerson options) =>
+        graphql_flutter.useMutation(options);
+graphql.ObservableQuery<MutationUpdatePerson> useWatchMutationUpdatePerson(
+        GQLWatchOptionsMutationUpdatePerson options) =>
+    graphql_flutter.useWatchMutation(options);
 
 class GQLFOptionsMutationUpdatePerson
     extends graphql.MutationOptions<MutationUpdatePerson> {
@@ -639,6 +653,10 @@ extension GQLExtensionSubscriptionWatchPerson on graphql.GraphQLClient {
           [GQLWatchOptionsSubscriptionWatchPerson? options]) =>
       this.watchQuery(options ?? GQLWatchOptionsSubscriptionWatchPerson());
 }
+
+graphql.QueryResult<SubscriptionWatchPerson> useSubscriptionWatchPerson(
+        GQLOptionsSubscriptionWatchPerson options) =>
+    graphql_flutter.useSubscribe(options);
 
 class GQLFSubscriptionWatchPerson
     extends graphql_flutter.Subscription<SubscriptionWatchPerson> {
