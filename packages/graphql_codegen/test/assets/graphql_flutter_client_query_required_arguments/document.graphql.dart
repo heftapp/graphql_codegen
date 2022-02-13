@@ -135,6 +135,13 @@ extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
       this.watchQuery(options);
 }
 
+graphql_flutter.QueryHookResult<QueryFetchSRequired> useQueryFetchSRequired(
+        GQLOptionsQueryFetchSRequired options) =>
+    graphql_flutter.useQuery(options);
+graphql.ObservableQuery<QueryFetchSRequired> useWatchQueryFetchSRequired(
+        GQLWatchOptionsQueryFetchSRequired options) =>
+    graphql_flutter.useWatchQuery(options);
+
 class GQLFQueryFetchSRequired
     extends graphql_flutter.Query<QueryFetchSRequired> {
   GQLFQueryFetchSRequired(

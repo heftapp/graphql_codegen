@@ -656,7 +656,7 @@ extension GQLExtensionSubscriptionWatchPerson on graphql.GraphQLClient {
 
 graphql.QueryResult<SubscriptionWatchPerson> useSubscriptionWatchPerson(
         GQLOptionsSubscriptionWatchPerson options) =>
-    graphql_flutter.useSubscribe(options);
+    graphql_flutter.useSubscription(options);
 
 class GQLFSubscriptionWatchPerson
     extends graphql_flutter.Subscription<SubscriptionWatchPerson> {

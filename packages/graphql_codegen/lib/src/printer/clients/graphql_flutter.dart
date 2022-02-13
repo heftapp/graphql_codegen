@@ -353,7 +353,7 @@ Spec printSubscriptionHook(PrintContext context) {
           ..types = ListBuilder([refer(printClassName(context.path))]),
       )
       ..name = printGraphQLFlutterClientMutationHookName(context.path)
-      ..body = refer('graphql_flutter').property('useSubscribe').call([
+      ..body = refer('graphql_flutter').property('useSubscription').call([
         refer('options'),
       ]).code,
   );

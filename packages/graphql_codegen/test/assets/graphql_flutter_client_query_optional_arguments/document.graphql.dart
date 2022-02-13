@@ -135,6 +135,13 @@ extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
       this.watchQuery(options ?? GQLWatchOptionsQueryFetchSOptional());
 }
 
+graphql_flutter.QueryHookResult<QueryFetchSOptional> useQueryFetchSOptional(
+        GQLOptionsQueryFetchSOptional options) =>
+    graphql_flutter.useQuery(options);
+graphql.ObservableQuery<QueryFetchSOptional> useWatchQueryFetchSOptional(
+        GQLWatchOptionsQueryFetchSOptional options) =>
+    graphql_flutter.useWatchQuery(options);
+
 class GQLFQueryFetchSOptional
     extends graphql_flutter.Query<QueryFetchSOptional> {
   GQLFQueryFetchSOptional(

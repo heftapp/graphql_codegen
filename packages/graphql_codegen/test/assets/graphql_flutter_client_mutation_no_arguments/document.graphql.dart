@@ -121,6 +121,13 @@ extension GQLExtensionMutationUpdateSNo on graphql.GraphQLClient {
       this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSNo());
 }
 
+graphql_flutter.MutationHookResult<MutationUpdateSNo> useMutationUpdateSNo(
+        GQLOptionsMutationUpdateSNo options) =>
+    graphql_flutter.useMutation(options);
+graphql.ObservableQuery<MutationUpdateSNo> useWatchMutationUpdateSNo(
+        GQLWatchOptionsMutationUpdateSNo options) =>
+    graphql_flutter.useWatchMutation(options);
+
 class GQLFOptionsMutationUpdateSNo
     extends graphql.MutationOptions<MutationUpdateSNo> {
   GQLFOptionsMutationUpdateSNo(
