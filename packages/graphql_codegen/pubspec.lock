@@ -263,9 +263,9 @@ packages:
   graphql_codegen_config:
     dependency: "direct main"
     description:
-      name: graphql_codegen_config
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../graphql_codegen_config"
+      relative: true
+    source: path
     version: "0.2.0"
   graphs:
     dependency: transitive
