@@ -259,7 +259,7 @@ packages:
       name: graphql
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.1-beta.5"
+    version: "5.0.1"
   graphql_codegen_config:
     dependency: "direct main"
     description:

@@ -1,3 +1,9 @@
+# 0.6.0
+
+* Support `generatedFileHeader`.
+* Support subscription in clients.
+* Use parserFn introduced in `graphql: 5.0.1-beta.4`.
+
 # 0.6.0-beta.4
 
 * Support `generatedFileHeader`.
