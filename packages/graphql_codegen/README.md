@@ -265,16 +265,14 @@ import 'person.graphql.dart';
 
 
 main () async {
-    final client = GraphQLClient();
-    final result = await client.queryFetchPerson(
-        GQLOptionsQueryFetchPerson(
-            variables: VariablesQueryFetchPerson(
-                id: "1",
-            ),
-        ),
-    );
-    final parsedData = result.parsedData;
-    print(parsedData?.fetchPerson?.name);
+  final client = GraphQLClient();
+  final result = await client.queryFetchPerson(
+    OptionsQueryFetchPerson(
+      variables: VariablesQueryFetchPerson(id: "1"),
+    ),
+  );
+  final parsedData = result.parsedData;
+  print(parsedData?.fetchPerson?.name);
 }
 
 ```
@@ -304,22 +302,19 @@ import 'package:flutter/widgets.dart';
 
 class PersonWidget extends StatelessWidget {
 
-    @override
-    Widget build(BuildContext context) {
-        return QueryFetchPerson(
-            options: OptionsQueryFetchPerson(
-                variables: VariablesQueryFetchPerson(
-                    id: 'id',
-                ),
-            ),
-            builder: (result, {fetchMore, refetch}) {
-                return Text(
-                    result.parsedData?.fetchPerson?.name ?? '...loading'
-                );
-            }
+  @override
+  Widget build(BuildContext context) {
+    return QueryFetchPerson(
+      options: OptionsQueryFetchPerson(
+        variables: VariablesQueryFetchPerson(id: 'id'),
+      ),
+      builder: (result, {fetchMore, refetch}) {
+        return Text(
+          result.parsedData?.fetchPerson?.name ?? '...loading'
         );
-    }
-
+      }
+    );
+  }
 }
 ```
 
