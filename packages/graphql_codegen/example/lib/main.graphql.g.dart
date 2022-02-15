@@ -21,16 +21,18 @@ Map<String, dynamic> _$VariablesQueryFetchPersonToJson(
 
 QueryFetchPerson _$QueryFetchPersonFromJson(Map<String, dynamic> json) {
   return QueryFetchPerson(
-    fetchPerson: json['fetch_person'] == null
+    fetchPerson: json['fetchPerson'] == null
         ? null
         : QueryFetchPerson$fetchPerson.fromJson(
-            json['fetch_person'] as Map<String, dynamic>),
+            json['fetchPerson'] as Map<String, dynamic>),
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$QueryFetchPersonToJson(QueryFetchPerson instance) =>
     <String, dynamic>{
-      'fetch_person': instance.fetchPerson,
+      'fetchPerson': instance.fetchPerson,
+      '__typename': instance.$__typename,
     };
 
 QueryFetchPerson$fetchPerson _$QueryFetchPerson$fetchPersonFromJson(
@@ -38,6 +40,7 @@ QueryFetchPerson$fetchPerson _$QueryFetchPerson$fetchPersonFromJson(
   return QueryFetchPerson$fetchPerson(
     nickname: json['nickname'] as String?,
     name: json['name'] as String,
+    $__typename: json['__typename'] as String,
     parents: (json['parents'] as List<dynamic>?)
         ?.map((e) => QueryFetchPerson$fetchPerson$parents.fromJson(
             e as Map<String, dynamic>))
@@ -54,6 +57,7 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPersonToJson(
     <String, dynamic>{
       'nickname': instance.nickname,
       'name': instance.name,
+      '__typename': instance.$__typename,
       'parents': instance.parents,
       'children': instance.children,
     };
@@ -63,6 +67,7 @@ QueryFetchPerson$fetchPerson$parents
   return QueryFetchPerson$fetchPerson$parents(
     nickname: json['nickname'] as String?,
     name: json['name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -71,6 +76,7 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPerson$parentsToJson(
     <String, dynamic>{
       'nickname': instance.nickname,
       'name': instance.name,
+      '__typename': instance.$__typename,
     };
 
 QueryFetchPerson$fetchPerson$children
@@ -78,6 +84,7 @@ QueryFetchPerson$fetchPerson$children
   return QueryFetchPerson$fetchPerson$children(
     nickname: json['nickname'] as String?,
     name: json['name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -86,6 +93,7 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPerson$childrenToJson(
     <String, dynamic>{
       'nickname': instance.nickname,
       'name': instance.name,
+      '__typename': instance.$__typename,
     };
 
 VariablesMutationUpdatePerson _$VariablesMutationUpdatePersonFromJson(
@@ -103,30 +111,34 @@ Map<String, dynamic> _$VariablesMutationUpdatePersonToJson(
 
 MutationUpdatePerson _$MutationUpdatePersonFromJson(Map<String, dynamic> json) {
   return MutationUpdatePerson(
-    updatePerson: json['update_person'] == null
+    updatePerson: json['updatePerson'] == null
         ? null
         : MutationUpdatePerson$updatePerson.fromJson(
-            json['update_person'] as Map<String, dynamic>),
+            json['updatePerson'] as Map<String, dynamic>),
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$MutationUpdatePersonToJson(
         MutationUpdatePerson instance) =>
     <String, dynamic>{
-      'update_person': instance.updatePerson,
+      'updatePerson': instance.updatePerson,
+      '__typename': instance.$__typename,
     };
 
 MutationUpdatePerson$updatePerson _$MutationUpdatePerson$updatePersonFromJson(
     Map<String, dynamic> json) {
   return MutationUpdatePerson$updatePerson(
-    fullName: json['full_name'] as String,
+    full_name: json['full_name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$MutationUpdatePerson$updatePersonToJson(
         MutationUpdatePerson$updatePerson instance) =>
     <String, dynamic>{
-      'full_name': instance.fullName,
+      'full_name': instance.full_name,
+      '__typename': instance.$__typename,
     };
 
 VariablesSubscriptionWatchPerson _$VariablesSubscriptionWatchPersonFromJson(
@@ -145,28 +157,32 @@ Map<String, dynamic> _$VariablesSubscriptionWatchPersonToJson(
 SubscriptionWatchPerson _$SubscriptionWatchPersonFromJson(
     Map<String, dynamic> json) {
   return SubscriptionWatchPerson(
-    watchPerson: json['watch_person'] == null
+    watchPerson: json['watchPerson'] == null
         ? null
         : SubscriptionWatchPerson$watchPerson.fromJson(
-            json['watch_person'] as Map<String, dynamic>),
+            json['watchPerson'] as Map<String, dynamic>),
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$SubscriptionWatchPersonToJson(
         SubscriptionWatchPerson instance) =>
     <String, dynamic>{
-      'watch_person': instance.watchPerson,
+      'watchPerson': instance.watchPerson,
+      '__typename': instance.$__typename,
     };
 
 SubscriptionWatchPerson$watchPerson
     _$SubscriptionWatchPerson$watchPersonFromJson(Map<String, dynamic> json) {
   return SubscriptionWatchPerson$watchPerson(
-    fullName: json['full_name'] as String,
+    full_name: json['full_name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$SubscriptionWatchPerson$watchPersonToJson(
         SubscriptionWatchPerson$watchPerson instance) =>
     <String, dynamic>{
-      'full_name': instance.fullName,
+      'full_name': instance.full_name,
+      '__typename': instance.$__typename,
     };

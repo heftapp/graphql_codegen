@@ -19,29 +19,37 @@ Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
     };
 
 QueryQ$u _$QueryQ$uFromJson(Map<String, dynamic> json) {
-  return QueryQ$u();
+  return QueryQ$u(
+    $__typename: json['__typename'] as String,
+  );
 }
 
-Map<String, dynamic> _$QueryQ$uToJson(QueryQ$u instance) => <String, dynamic>{};
+Map<String, dynamic> _$QueryQ$uToJson(QueryQ$u instance) => <String, dynamic>{
+      '__typename': instance.$__typename,
+    };
 
 QueryQ$u$Ta _$QueryQ$u$TaFromJson(Map<String, dynamic> json) {
   return QueryQ$u$Ta(
     name: json['name'] as String?,
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$QueryQ$u$TaToJson(QueryQ$u$Ta instance) =>
     <String, dynamic>{
+      '__typename': instance.$__typename,
       'name': instance.name,
     };
 
 QueryQ$u$Tb _$QueryQ$u$TbFromJson(Map<String, dynamic> json) {
   return QueryQ$u$Tb(
     velocity: json['velocity'] as int?,
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$QueryQ$u$TbToJson(QueryQ$u$Tb instance) =>
     <String, dynamic>{
+      '__typename': instance.$__typename,
       'velocity': instance.velocity,
     };

@@ -29,6 +29,7 @@ QueryQ _$QueryQFromJson(Map<String, dynamic> json) {
             ? null
             : QueryQ$docsWithFragment.fromJson(e as Map<String, dynamic>))
         .toList(),
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -37,21 +38,27 @@ Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
       'docsWihtoutTypename': instance.docsWihtoutTypename,
       'docsWithAliasedTypename': instance.docsWithAliasedTypename,
       'docsWithFragment': instance.docsWithFragment,
+      '__typename': instance.$__typename,
     };
 
 QueryQ$docsWithTypename _$QueryQ$docsWithTypenameFromJson(
     Map<String, dynamic> json) {
-  return QueryQ$docsWithTypename();
+  return QueryQ$docsWithTypename(
+    $__typename: json['__typename'] as String,
+  );
 }
 
 Map<String, dynamic> _$QueryQ$docsWithTypenameToJson(
         QueryQ$docsWithTypename instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+    };
 
 QueryQ$docsWihtoutTypename _$QueryQ$docsWihtoutTypenameFromJson(
     Map<String, dynamic> json) {
   return QueryQ$docsWihtoutTypename(
     title: json['title'] as String?,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -59,36 +66,47 @@ Map<String, dynamic> _$QueryQ$docsWihtoutTypenameToJson(
         QueryQ$docsWihtoutTypename instance) =>
     <String, dynamic>{
       'title': instance.title,
+      '__typename': instance.$__typename,
     };
 
 QueryQ$docsWithAliasedTypename _$QueryQ$docsWithAliasedTypenameFromJson(
     Map<String, dynamic> json) {
-  return QueryQ$docsWithAliasedTypename();
+  return QueryQ$docsWithAliasedTypename(
+    $__typename: json['__typename'] as String?,
+  );
 }
 
 Map<String, dynamic> _$QueryQ$docsWithAliasedTypenameToJson(
         QueryQ$docsWithAliasedTypename instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+    };
 
 QueryQ$docsWithFragment _$QueryQ$docsWithFragmentFromJson(
     Map<String, dynamic> json) {
-  return QueryQ$docsWithFragment();
+  return QueryQ$docsWithFragment(
+    $__typename: json['__typename'] as String,
+  );
 }
 
 Map<String, dynamic> _$QueryQ$docsWithFragmentToJson(
         QueryQ$docsWithFragment instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+    };
 
 QueryQ$docsWithFragment$Contract _$QueryQ$docsWithFragment$ContractFromJson(
     Map<String, dynamic> json) {
   return QueryQ$docsWithFragment$Contract(
     title: json['title'] as String?,
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$QueryQ$docsWithFragment$ContractToJson(
         QueryQ$docsWithFragment$Contract instance) =>
     <String, dynamic>{
+      '__typename': instance.$__typename,
       'title': instance.title,
     };
 
@@ -96,11 +114,13 @@ QueryQ$docsWithFragment$Report _$QueryQ$docsWithFragment$ReportFromJson(
     Map<String, dynamic> json) {
   return QueryQ$docsWithFragment$Report(
     title: json['title'] as String?,
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$QueryQ$docsWithFragment$ReportToJson(
         QueryQ$docsWithFragment$Report instance) =>
     <String, dynamic>{
+      '__typename': instance.$__typename,
       'title': instance.title,
     };

@@ -3,6 +3,7 @@ import 'package:gql/ast.dart';
 abstract class FragmentPersonSummary {
   String? get nickname;
   String get name;
+  String get $__typename;
 }
 
 const FRAGMENT_PERSON_SUMMARY = const FragmentDefinitionNode(

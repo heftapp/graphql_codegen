@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 abstract class FragmentFragmentA implements FragmentFragmentI {
+  String get $__typename;
   String? get value;
   String? get name;
 }
@@ -29,6 +30,7 @@ const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
     ]));
 
 abstract class FragmentFragmentI {
+  String get $__typename;
   String? get name;
 }
 
@@ -54,11 +56,14 @@ const FRAGMENT_FRAGMENT_I = const FragmentDefinitionNode(
 
 @JsonSerializable()
 class QueryFetchStuff extends JsonSerializable {
-  QueryFetchStuff({this.field});
+  QueryFetchStuff({required this.$__typename, this.field});
 
   @override
   factory QueryFetchStuff.fromJson(Map<String, dynamic> json) =>
       _$QueryFetchStuffFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final QueryFetchStuff$field? field;
 
@@ -146,7 +151,7 @@ const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryFetchStuff$field extends JsonSerializable {
-  QueryFetchStuff$field({this.name});
+  QueryFetchStuff$field({required this.$__typename, this.name});
 
   @override
   factory QueryFetchStuff$field.fromJson(Map<String, dynamic> json) {
@@ -158,6 +163,9 @@ class QueryFetchStuff$field extends JsonSerializable {
     }
   }
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   final String? name;
 
   @override
@@ -167,7 +175,9 @@ class QueryFetchStuff$field extends JsonSerializable {
 @JsonSerializable()
 class QueryFetchStuff$field$FieldA extends QueryFetchStuff$field
     implements FragmentFragmentA, FragmentFragmentI {
-  QueryFetchStuff$field$FieldA({this.value, String? name}) : super(name: name);
+  QueryFetchStuff$field$FieldA(
+      {this.value, required String $__typename, String? name})
+      : super($__typename: $__typename, name: name);
 
   @override
   factory QueryFetchStuff$field$FieldA.fromJson(Map<String, dynamic> json) =>

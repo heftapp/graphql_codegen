@@ -4,6 +4,7 @@ part 'schema.graphql.g.dart';
 
 abstract class FragmentFReport {
   String? get title;
+  String get $__typename;
 }
 
 const FRAGMENT_F_REPORT = const FragmentDefinitionNode(
@@ -32,7 +33,8 @@ class QueryQ extends JsonSerializable {
       {this.docsWithTypename,
       this.docsWihtoutTypename,
       this.docsWithAliasedTypename,
-      this.docsWithFragment});
+      this.docsWithFragment,
+      required this.$__typename});
 
   @override
   factory QueryQ.fromJson(Map<String, dynamic> json) => _$QueryQFromJson(json);
@@ -44,6 +46,9 @@ class QueryQ extends JsonSerializable {
   final List<QueryQ$docsWithAliasedTypename?>? docsWithAliasedTypename;
 
   final List<QueryQ$docsWithFragment?>? docsWithFragment;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
@@ -147,11 +152,14 @@ const QUERY_Q = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryQ$docsWithTypename extends JsonSerializable {
-  QueryQ$docsWithTypename();
+  QueryQ$docsWithTypename({required this.$__typename});
 
   @override
   factory QueryQ$docsWithTypename.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$docsWithTypenameFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithTypenameToJson(this);
@@ -159,7 +167,7 @@ class QueryQ$docsWithTypename extends JsonSerializable {
 
 @JsonSerializable()
 class QueryQ$docsWihtoutTypename extends JsonSerializable {
-  QueryQ$docsWihtoutTypename({this.title});
+  QueryQ$docsWihtoutTypename({this.title, required this.$__typename});
 
   @override
   factory QueryQ$docsWihtoutTypename.fromJson(Map<String, dynamic> json) =>
@@ -167,17 +175,23 @@ class QueryQ$docsWihtoutTypename extends JsonSerializable {
 
   final String? title;
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWihtoutTypenameToJson(this);
 }
 
 @JsonSerializable()
 class QueryQ$docsWithAliasedTypename extends JsonSerializable {
-  QueryQ$docsWithAliasedTypename();
+  QueryQ$docsWithAliasedTypename({this.$__typename});
 
   @override
   factory QueryQ$docsWithAliasedTypename.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$docsWithAliasedTypenameFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String? $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithAliasedTypenameToJson(this);
@@ -185,7 +199,7 @@ class QueryQ$docsWithAliasedTypename extends JsonSerializable {
 
 @JsonSerializable()
 class QueryQ$docsWithFragment extends JsonSerializable {
-  QueryQ$docsWithFragment();
+  QueryQ$docsWithFragment({required this.$__typename});
 
   @override
   factory QueryQ$docsWithFragment.fromJson(Map<String, dynamic> json) {
@@ -199,13 +213,17 @@ class QueryQ$docsWithFragment extends JsonSerializable {
     }
   }
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithFragmentToJson(this);
 }
 
 @JsonSerializable()
 class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
-  QueryQ$docsWithFragment$Contract({this.title}) : super();
+  QueryQ$docsWithFragment$Contract({this.title, required String $__typename})
+      : super($__typename: $__typename);
 
   @override
   factory QueryQ$docsWithFragment$Contract.fromJson(
@@ -222,7 +240,8 @@ class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
 @JsonSerializable()
 class QueryQ$docsWithFragment$Report extends QueryQ$docsWithFragment
     implements FragmentFReport {
-  QueryQ$docsWithFragment$Report({this.title}) : super();
+  QueryQ$docsWithFragment$Report({this.title, required String $__typename})
+      : super($__typename: $__typename);
 
   @override
   factory QueryQ$docsWithFragment$Report.fromJson(Map<String, dynamic> json) =>

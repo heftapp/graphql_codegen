@@ -1,5 +1,5 @@
 query FetchPerson ($id: ID!) {
-    fetch_person(id: $id) {
+    fetchPerson: fetch_person(id: $id) {
         ...PersonSummary
         parents {
             ...PersonSummary
@@ -11,13 +11,13 @@ query FetchPerson ($id: ID!) {
 }
 
 mutation UpdatePerson($id: ID!) {
-    update_person(id: $id) {
+    updatePerson: update_person(id: $id) {
         full_name
     }
 }
 
 subscription WatchPerson($id: ID) {
-    watch_person(id: $id) {
+    watchPerson: watch_person(id: $id) {
         full_name
     }
 }

@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 abstract class FragmentF {
+  String get $__typename;
   String? get name;
 }
 
@@ -52,6 +53,7 @@ const FRAGMENT_F = const FragmentDefinitionNode(
     ]));
 
 abstract class FragmentF$T extends FragmentF {
+  String get $__typename;
   FragmentF$T$t? get t;
 }
 
@@ -99,11 +101,14 @@ const QUERY_Q = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryQ$t extends JsonSerializable implements FragmentF$T {
-  QueryQ$t({this.name, this.t});
+  QueryQ$t({required this.$__typename, this.name, this.t});
 
   @override
   factory QueryQ$t.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$tFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final String? name;
 

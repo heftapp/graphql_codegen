@@ -1,3 +1,7 @@
+# 0.7.0-beta.2
+
+* Change property naming scheme
+
 # 0.7.0-beta.1
 
 * Rename classes. Remove `GQL` and `GQLF` prefixes.
