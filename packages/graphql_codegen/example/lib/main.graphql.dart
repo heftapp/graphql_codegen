@@ -107,6 +107,8 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
       ])),
   FRAGMENT_PERSON_SUMMARY,
 ]);
+QueryFetchPerson _parserFnQueryFetchPerson(Map<String, dynamic> data) =>
+    QueryFetchPerson.fromJson(data);
 
 class GQLOptionsQueryFetchPerson
     extends graphql.QueryOptions<QueryFetchPerson> {
@@ -129,7 +131,7 @@ class GQLOptionsQueryFetchPerson
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_PERSON,
-            parserFn: (data) => QueryFetchPerson.fromJson(data));
+            parserFn: _parserFnQueryFetchPerson);
 }
 
 class GQLWatchOptionsQueryFetchPerson
@@ -159,7 +161,7 @@ class GQLWatchOptionsQueryFetchPerson
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchPerson.fromJson(data));
+            parserFn: _parserFnQueryFetchPerson);
 }
 
 class GQLFetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
@@ -322,6 +324,8 @@ const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+MutationUpdatePerson _parserFnMutationUpdatePerson(Map<String, dynamic> data) =>
+    MutationUpdatePerson.fromJson(data);
 typedef GQLOnMutationCompletedMutationUpdatePerson = FutureOr<void> Function(
     dynamic, MutationUpdatePerson?);
 
@@ -338,7 +342,8 @@ class GQLOptionsMutationUpdatePerson
       GQLOnMutationCompletedMutationUpdatePerson? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             variables: variables.toJson(),
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -349,11 +354,21 @@ class GQLOptionsMutationUpdatePerson
             onCompleted: onCompleted == null
                 ? null
                 : (data) => onCompleted(data,
-                    data == null ? null : MutationUpdatePerson.fromJson(data)),
+                    data == null ? null : _parserFnMutationUpdatePerson(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_PERSON,
-            parserFn: (data) => MutationUpdatePerson.fromJson(data));
+            parserFn: _parserFnMutationUpdatePerson);
+
+  final GQLOnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 class GQLWatchOptionsMutationUpdatePerson
@@ -383,7 +398,7 @@ class GQLWatchOptionsMutationUpdatePerson
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => MutationUpdatePerson.fromJson(data));
+            parserFn: _parserFnMutationUpdatePerson);
 }
 
 extension GQLExtensionMutationUpdatePerson on graphql.GraphQLClient {
@@ -407,7 +422,8 @@ class GQLFOptionsMutationUpdatePerson
       GQLOnMutationCompletedMutationUpdatePerson? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
             errorPolicy: errorPolicy,
@@ -417,11 +433,21 @@ class GQLFOptionsMutationUpdatePerson
             onCompleted: onCompleted == null
                 ? null
                 : (data) => onCompleted(data,
-                    data == null ? null : MutationUpdatePerson.fromJson(data)),
+                    data == null ? null : _parserFnMutationUpdatePerson(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_PERSON,
-            parserFn: (data) => MutationUpdatePerson.fromJson(data));
+            parserFn: _parserFnMutationUpdatePerson);
+
+  final GQLOnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 typedef GQLFRunMutationMutationUpdatePerson
@@ -538,6 +564,9 @@ const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+SubscriptionWatchPerson _parserFnSubscriptionWatchPerson(
+        Map<String, dynamic> data) =>
+    SubscriptionWatchPerson.fromJson(data);
 
 class GQLOptionsSubscriptionWatchPerson
     extends graphql.SubscriptionOptions<SubscriptionWatchPerson> {
@@ -558,7 +587,7 @@ class GQLOptionsSubscriptionWatchPerson
             optimisticResult: optimisticResult,
             context: context,
             document: SUBSCRIPTION_WATCH_PERSON,
-            parserFn: (data) => SubscriptionWatchPerson.fromJson(data));
+            parserFn: _parserFnSubscriptionWatchPerson);
 }
 
 class GQLWatchOptionsSubscriptionWatchPerson
@@ -588,7 +617,7 @@ class GQLWatchOptionsSubscriptionWatchPerson
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => SubscriptionWatchPerson.fromJson(data));
+            parserFn: _parserFnSubscriptionWatchPerson);
 }
 
 class GQLFetchMoreOptionsSubscriptionWatchPerson

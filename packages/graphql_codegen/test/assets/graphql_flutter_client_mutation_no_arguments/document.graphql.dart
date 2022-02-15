@@ -39,6 +39,8 @@ const MUTATION_UPDATE_S_NO = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+MutationUpdateSNo _parserFnMutationUpdateSNo(Map<String, dynamic> data) =>
+    MutationUpdateSNo.fromJson(data);
 typedef GQLOnMutationCompletedMutationUpdateSNo = FutureOr<void> Function(
     dynamic, MutationUpdateSNo?);
 
@@ -54,7 +56,8 @@ class GQLOptionsMutationUpdateSNo
       GQLOnMutationCompletedMutationUpdateSNo? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
             errorPolicy: errorPolicy,
@@ -64,11 +67,21 @@ class GQLOptionsMutationUpdateSNo
             onCompleted: onCompleted == null
                 ? null
                 : (data) => onCompleted(data,
-                    data == null ? null : MutationUpdateSNo.fromJson(data)),
+                    data == null ? null : _parserFnMutationUpdateSNo(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_NO,
-            parserFn: (data) => MutationUpdateSNo.fromJson(data));
+            parserFn: _parserFnMutationUpdateSNo);
+
+  final GQLOnMutationCompletedMutationUpdateSNo? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 class GQLWatchOptionsMutationUpdateSNo
@@ -96,7 +109,7 @@ class GQLWatchOptionsMutationUpdateSNo
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => MutationUpdateSNo.fromJson(data));
+            parserFn: _parserFnMutationUpdateSNo);
 }
 
 extension GQLExtensionMutationUpdateSNo on graphql.GraphQLClient {
@@ -120,7 +133,8 @@ class GQLFOptionsMutationUpdateSNo
       GQLOnMutationCompletedMutationUpdateSNo? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
             errorPolicy: errorPolicy,
@@ -130,11 +144,21 @@ class GQLFOptionsMutationUpdateSNo
             onCompleted: onCompleted == null
                 ? null
                 : (data) => onCompleted(data,
-                    data == null ? null : MutationUpdateSNo.fromJson(data)),
+                    data == null ? null : _parserFnMutationUpdateSNo(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_NO,
-            parserFn: (data) => MutationUpdateSNo.fromJson(data));
+            parserFn: _parserFnMutationUpdateSNo);
+
+  final GQLOnMutationCompletedMutationUpdateSNo? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 typedef GQLFRunMutationMutationUpdateSNo

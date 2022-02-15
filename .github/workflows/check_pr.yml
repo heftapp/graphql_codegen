@@ -107,5 +107,7 @@ jobs:
           pub global activate melos
       - name: Bootstrap melos
         run: melos bs
-      - name: Run tests
-        run: melos run test
+      - name: Run tests dart
+        run: melos run test_dart
+      - name: Run tests flutter
+        run: melos run test_flutter

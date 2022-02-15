@@ -38,6 +38,9 @@ const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+QueryFetchSNoVariables _parserFnQueryFetchSNoVariables(
+        Map<String, dynamic> data) =>
+    QueryFetchSNoVariables.fromJson(data);
 
 class GQLOptionsQueryFetchSNoVariables
     extends graphql.QueryOptions<QueryFetchSNoVariables> {
@@ -58,7 +61,7 @@ class GQLOptionsQueryFetchSNoVariables
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_NO_VARIABLES,
-            parserFn: (data) => QueryFetchSNoVariables.fromJson(data));
+            parserFn: _parserFnQueryFetchSNoVariables);
 }
 
 class GQLWatchOptionsQueryFetchSNoVariables
@@ -86,7 +89,7 @@ class GQLWatchOptionsQueryFetchSNoVariables
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchSNoVariables.fromJson(data));
+            parserFn: _parserFnQueryFetchSNoVariables);
 }
 
 class GQLFetchMoreOptionsQueryFetchSNoVariables

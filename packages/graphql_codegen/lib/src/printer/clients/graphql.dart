@@ -89,7 +89,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'pollInterval': refer('pollInterval'),
                 'context': refer('context'),
                 'document': refer(printOperationDocumentName(context.path)),
-                'parserFn': printParserFn(context),
+                'parserFn': printParserFnRef(context),
               }).code,
             ]),
         ),
@@ -158,7 +158,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 'optimisticResult': refer('optimisticResult'),
                 'context': refer('context'),
                 'document': refer(printOperationDocumentName(context.path)),
-                'parserFn': printParserFn(context),
+                'parserFn': printParserFnRef(context),
               }).code,
             ]),
         ),
@@ -166,15 +166,41 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
   );
 }
 
-Expression printParserFn(ContextOperation context) => Method(
+Spec printParserFn(PrintContext context) => Method(
       (b) => b
-        ..lambda = true
+        ..name = printParserFnName(context.path)
+        ..returns = refer(printClassName(context.path))
         ..requiredParameters = ListBuilder([
-          Parameter((b) => b..name = 'data'),
+          Parameter((b) => b
+            ..name = 'data'
+            ..type = TypeReference((b) => b
+              ..symbol = 'Map'
+              ..types = ListBuilder([refer('String'), refer('dynamic')]))),
         ])
         ..body = refer(printClassName(context.path))
             .property('fromJson')
             .call([refer('data')]).code,
+    );
+
+Expression printParserFnRef(ContextOperation context) =>
+    refer(printParserFnName(context.path));
+
+Expression printOnCompletedFn(ContextOperation context) => Method(
+      (b) => b
+        ..lambda = true
+        ..returns = refer(printClassName(context.path))
+        ..requiredParameters = ListBuilder([
+          Parameter((b) => b..name = 'data'),
+        ])
+        ..body = refer('onCompleted').call([
+          refer('data'),
+          printNullCheck(
+            refer('data'),
+            refer(printParserFnName(context.path)).call(
+              [refer('data')],
+            ),
+          )
+        ]).code,
     ).closure;
 
 Spec printFetchMoreOptions(PrintContext context) {
@@ -263,95 +289,138 @@ Spec printMutationOptions(
           ..symbol = "graphql.MutationOptions"
           ..types = ListBuilder([refer(printClassName(context.path))]),
       )
-      ..constructors = ListBuilder([
-        Constructor(
+      ..fields = ListBuilder([
+        Field(
           (b) => b
-            ..optionalParameters = ListBuilder(
-              [
-                printOptionsParameter('operationName', 'String'),
-                if (hasVariables)
-                  printOptionsParameter(
-                    'variables',
-                    printVariableClassName(context.path),
-                    isRequired: context.isVariablesRequired,
-                  ),
-                printOptionsParameter(
-                  'fetchPolicy',
-                  'graphql.FetchPolicy',
-                ),
-                printOptionsParameter(
-                  'errorPolicy',
-                  'graphql.ErrorPolicy',
-                ),
-                printOptionsParameter(
-                  'cacheRereadPolicy',
-                  'graphql.CacheRereadPolicy',
-                ),
-                printOptionsParameter(
-                  'optimisticResult',
-                  'Object',
-                ),
-                printOptionsParameter(
-                  'context',
-                  'graphql.Context',
-                ),
-                printOptionsParameter(
-                  'onCompleted',
-                  printGraphQLClientOnMutationCompleteName(context.path),
-                ),
-                printOptionsParameter(
-                  'update',
-                  'graphql.OnMutationUpdate',
-                ),
-                printOptionsParameter(
-                  'onError',
-                  "graphql.OnError",
-                ),
-              ],
+            ..name = 'onCompletedWithParsed'
+            ..type = TypeReference(
+              (b) => b
+                ..symbol =
+                    printGraphQLClientOnMutationCompleteName(context.path)
+                ..isNullable = true,
             )
-            ..initializers = ListBuilder([
-              refer('super').call([], {
-                if (hasVariables && context.isVariablesRequired)
-                  'variables': refer('variables').property('toJson').call([])
-                else if (hasVariables)
-                  'variables': refer('variables')
-                      .nullSafeProperty('toJson')
-                      .call([]).ifNullThen(literalMap({})),
-                'operationName': refer('operationName'),
-                'fetchPolicy': refer('fetchPolicy'),
-                'errorPolicy': refer('errorPolicy'),
-                'cacheRereadPolicy': refer('cacheRereadPolicy'),
-                'optimisticResult': refer('optimisticResult'),
-                'context': refer('context'),
-                'onCompleted': printNullCheck(
-                  refer('onCompleted'),
-                  Method(
-                    (b) => b
-                      ..lambda = true
-                      ..requiredParameters = ListBuilder([
-                        Parameter((b) => b..name = 'data'),
-                      ])
-                      ..body = refer('onCompleted').call([
-                        refer('data'),
-                        printNullCheck(
-                          refer('data'),
-                          refer(printClassName(context.path))
-                              .property('fromJson')
-                              .call(
-                            [refer('data')],
-                          ),
-                        )
-                      ]).code,
-                  ).closure,
-                ),
-                'update': refer('update'),
-                'onError': refer('onError'),
-                'document': refer(printOperationDocumentName(context.path)),
-                'parserFn': printParserFn(context),
-              }).code,
-            ]),
+            ..modifier = FieldModifier.final$,
         ),
-      ]),
+      ])
+      ..methods = ListBuilder([
+        Method(
+          (b) => b
+            ..type = MethodType.getter
+            ..name = 'properties'
+            ..returns = TypeReference((b) => b
+              ..symbol = 'List'
+              ..types = ListBuilder([
+                TypeReference(
+                  (b) => b
+                    ..symbol = 'Object'
+                    ..isNullable = true,
+                )
+              ]))
+            ..annotations = ListBuilder([refer('override')])
+            ..lambda = true
+            ..body = literalList([
+              refer('super')
+                  .property('onCompleted')
+                  .equalTo(literalNull)
+                  .conditional(
+                      refer('super').property('properties'),
+                      refer('super')
+                          .property('properties')
+                          .property('where')
+                          .call([
+                        Method(
+                          (b) => b
+                            ..lambda = true
+                            ..requiredParameters = ListBuilder(
+                              [Parameter((b) => b..name = 'property')],
+                            )
+                            ..body = refer('property')
+                                .notEqualTo(refer('onCompleted'))
+                                .code,
+                        ).closure
+                      ]))
+                  .spread,
+              refer('onCompletedWithParsed')
+            ]).code,
+        )
+      ])
+      ..constructors = ListBuilder(
+        [
+          Constructor(
+            (b) => b
+              ..optionalParameters = ListBuilder(
+                [
+                  printOptionsParameter('operationName', 'String'),
+                  if (hasVariables)
+                    printOptionsParameter(
+                      'variables',
+                      printVariableClassName(context.path),
+                      isRequired: context.isVariablesRequired,
+                    ),
+                  printOptionsParameter(
+                    'fetchPolicy',
+                    'graphql.FetchPolicy',
+                  ),
+                  printOptionsParameter(
+                    'errorPolicy',
+                    'graphql.ErrorPolicy',
+                  ),
+                  printOptionsParameter(
+                    'cacheRereadPolicy',
+                    'graphql.CacheRereadPolicy',
+                  ),
+                  printOptionsParameter(
+                    'optimisticResult',
+                    'Object',
+                  ),
+                  printOptionsParameter(
+                    'context',
+                    'graphql.Context',
+                  ),
+                  printOptionsParameter(
+                    'onCompleted',
+                    printGraphQLClientOnMutationCompleteName(context.path),
+                  ),
+                  printOptionsParameter(
+                    'update',
+                    'graphql.OnMutationUpdate',
+                  ),
+                  printOptionsParameter(
+                    'onError',
+                    "graphql.OnError",
+                  ),
+                ],
+              )
+              ..initializers = ListBuilder([
+                refer('onCompletedWithParsed')
+                    .assign(refer('onCompleted'))
+                    .code,
+                refer('super').call([], {
+                  if (hasVariables && context.isVariablesRequired)
+                    'variables': refer('variables').property('toJson').call([])
+                  else if (hasVariables)
+                    'variables': refer('variables')
+                        .nullSafeProperty('toJson')
+                        .call([]).ifNullThen(literalMap({})),
+                  'operationName': refer('operationName'),
+                  'fetchPolicy': refer('fetchPolicy'),
+                  'errorPolicy': refer('errorPolicy'),
+                  'cacheRereadPolicy': refer('cacheRereadPolicy'),
+                  'optimisticResult': refer('optimisticResult'),
+                  'context': refer('context'),
+                  'onCompleted': printNullCheck(
+                    refer('onCompleted'),
+                    printOnCompletedFn(context),
+                  ),
+                  'update': refer('update'),
+                  'onError': refer('onError'),
+                  'document': refer(printOperationDocumentName(context.path)),
+                  'parserFn': printParserFnRef(context),
+                }).code,
+              ]),
+          ),
+        ],
+      ),
   );
 }
 
@@ -441,7 +510,7 @@ Spec printWatchOptions(
                   'carryForwardDataOnException',
                 ),
                 'fetchResults': refer('fetchResults'),
-                'parserFn': printParserFn(context),
+                'parserFn': printParserFnRef(context),
               }).code,
             ]),
         ),
@@ -708,6 +777,7 @@ Iterable<Spec> printMutation(PrintContext<ContextOperation> context) {
     'graphql',
   );
   return [
+    printParserFn(context),
     printOnMutationCompleted(context),
     printMutationOptions(context),
     printWatchOptions(context),
@@ -722,6 +792,7 @@ Iterable<Spec> printSubscription(PrintContext<ContextOperation> context) {
     'graphql',
   );
   return [
+    printParserFn(context),
     printSubscriptionOptions(context),
     printWatchOptions(context),
     printFetchMoreOptions(context),
@@ -735,6 +806,7 @@ Iterable<Spec> printQuery(PrintContext<ContextOperation> context) {
     'graphql',
   );
   return [
+    printParserFn(context),
     printQueryOptions(context),
     printWatchOptions(context),
     printFetchMoreOptions(context),

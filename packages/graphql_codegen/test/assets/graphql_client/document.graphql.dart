@@ -58,6 +58,8 @@ const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+QueryFetchSOptional _parserFnQueryFetchSOptional(Map<String, dynamic> data) =>
+    QueryFetchSOptional.fromJson(data);
 
 class GQLOptionsQueryFetchSOptional
     extends graphql.QueryOptions<QueryFetchSOptional> {
@@ -80,7 +82,7 @@ class GQLOptionsQueryFetchSOptional
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_OPTIONAL,
-            parserFn: (data) => QueryFetchSOptional.fromJson(data));
+            parserFn: _parserFnQueryFetchSOptional);
 }
 
 class GQLWatchOptionsQueryFetchSOptional
@@ -110,7 +112,7 @@ class GQLWatchOptionsQueryFetchSOptional
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchSOptional.fromJson(data));
+            parserFn: _parserFnQueryFetchSOptional);
 }
 
 class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
@@ -186,6 +188,8 @@ const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+QueryFetchSRequired _parserFnQueryFetchSRequired(Map<String, dynamic> data) =>
+    QueryFetchSRequired.fromJson(data);
 
 class GQLOptionsQueryFetchSRequired
     extends graphql.QueryOptions<QueryFetchSRequired> {
@@ -208,7 +212,7 @@ class GQLOptionsQueryFetchSRequired
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_REQUIRED,
-            parserFn: (data) => QueryFetchSRequired.fromJson(data));
+            parserFn: _parserFnQueryFetchSRequired);
 }
 
 class GQLWatchOptionsQueryFetchSRequired
@@ -238,7 +242,7 @@ class GQLWatchOptionsQueryFetchSRequired
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchSRequired.fromJson(data));
+            parserFn: _parserFnQueryFetchSRequired);
 }
 
 class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
@@ -293,6 +297,9 @@ const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+QueryFetchSNoVariables _parserFnQueryFetchSNoVariables(
+        Map<String, dynamic> data) =>
+    QueryFetchSNoVariables.fromJson(data);
 
 class GQLOptionsQueryFetchSNoVariables
     extends graphql.QueryOptions<QueryFetchSNoVariables> {
@@ -313,7 +320,7 @@ class GQLOptionsQueryFetchSNoVariables
             pollInterval: pollInterval,
             context: context,
             document: QUERY_FETCH_S_NO_VARIABLES,
-            parserFn: (data) => QueryFetchSNoVariables.fromJson(data));
+            parserFn: _parserFnQueryFetchSNoVariables);
 }
 
 class GQLWatchOptionsQueryFetchSNoVariables
@@ -341,7 +348,7 @@ class GQLWatchOptionsQueryFetchSNoVariables
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryFetchSNoVariables.fromJson(data));
+            parserFn: _parserFnQueryFetchSNoVariables);
 }
 
 class GQLFetchMoreOptionsQueryFetchSNoVariables
@@ -416,6 +423,9 @@ const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+MutationUpdateSOptional _parserFnMutationUpdateSOptional(
+        Map<String, dynamic> data) =>
+    MutationUpdateSOptional.fromJson(data);
 typedef GQLOnMutationCompletedMutationUpdateSOptional = FutureOr<void> Function(
     dynamic, MutationUpdateSOptional?);
 
@@ -432,7 +442,8 @@ class GQLOptionsMutationUpdateSOptional
       GQLOnMutationCompletedMutationUpdateSOptional? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             variables: variables?.toJson() ?? {},
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -446,11 +457,21 @@ class GQLOptionsMutationUpdateSOptional
                     data,
                     data == null
                         ? null
-                        : MutationUpdateSOptional.fromJson(data)),
+                        : _parserFnMutationUpdateSOptional(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_OPTIONAL,
-            parserFn: (data) => MutationUpdateSOptional.fromJson(data));
+            parserFn: _parserFnMutationUpdateSOptional);
+
+  final GQLOnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 class GQLWatchOptionsMutationUpdateSOptional
@@ -480,7 +501,7 @@ class GQLWatchOptionsMutationUpdateSOptional
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => MutationUpdateSOptional.fromJson(data));
+            parserFn: _parserFnMutationUpdateSOptional);
 }
 
 extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
@@ -548,6 +569,9 @@ const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+MutationUpdateSRequired _parserFnMutationUpdateSRequired(
+        Map<String, dynamic> data) =>
+    MutationUpdateSRequired.fromJson(data);
 typedef GQLOnMutationCompletedMutationUpdateSRequired = FutureOr<void> Function(
     dynamic, MutationUpdateSRequired?);
 
@@ -564,7 +588,8 @@ class GQLOptionsMutationUpdateSRequired
       GQLOnMutationCompletedMutationUpdateSRequired? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             variables: variables.toJson(),
             operationName: operationName,
             fetchPolicy: fetchPolicy,
@@ -578,11 +603,21 @@ class GQLOptionsMutationUpdateSRequired
                     data,
                     data == null
                         ? null
-                        : MutationUpdateSRequired.fromJson(data)),
+                        : _parserFnMutationUpdateSRequired(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_REQUIRED,
-            parserFn: (data) => MutationUpdateSRequired.fromJson(data));
+            parserFn: _parserFnMutationUpdateSRequired);
+
+  final GQLOnMutationCompletedMutationUpdateSRequired? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 class GQLWatchOptionsMutationUpdateSRequired
@@ -612,7 +647,7 @@ class GQLWatchOptionsMutationUpdateSRequired
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => MutationUpdateSRequired.fromJson(data));
+            parserFn: _parserFnMutationUpdateSRequired);
 }
 
 extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
@@ -657,6 +692,9 @@ const MUTATION_UPDATE_S_NO_VARIABLES = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+MutationUpdateSNoVariables _parserFnMutationUpdateSNoVariables(
+        Map<String, dynamic> data) =>
+    MutationUpdateSNoVariables.fromJson(data);
 typedef GQLOnMutationCompletedMutationUpdateSNoVariables = FutureOr<void>
     Function(dynamic, MutationUpdateSNoVariables?);
 
@@ -672,7 +710,8 @@ class GQLOptionsMutationUpdateSNoVariables
       GQLOnMutationCompletedMutationUpdateSNoVariables? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
-      : super(
+      : onCompletedWithParsed = onCompleted,
+        super(
             operationName: operationName,
             fetchPolicy: fetchPolicy,
             errorPolicy: errorPolicy,
@@ -685,11 +724,21 @@ class GQLOptionsMutationUpdateSNoVariables
                     data,
                     data == null
                         ? null
-                        : MutationUpdateSNoVariables.fromJson(data)),
+                        : _parserFnMutationUpdateSNoVariables(data)),
             update: update,
             onError: onError,
             document: MUTATION_UPDATE_S_NO_VARIABLES,
-            parserFn: (data) => MutationUpdateSNoVariables.fromJson(data));
+            parserFn: _parserFnMutationUpdateSNoVariables);
+
+  final GQLOnMutationCompletedMutationUpdateSNoVariables? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed
+      ];
 }
 
 class GQLWatchOptionsMutationUpdateSNoVariables
@@ -717,7 +766,7 @@ class GQLWatchOptionsMutationUpdateSNoVariables
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => MutationUpdateSNoVariables.fromJson(data));
+            parserFn: _parserFnMutationUpdateSNoVariables);
 }
 
 extension GQLExtensionMutationUpdateSNoVariables on graphql.GraphQLClient {
