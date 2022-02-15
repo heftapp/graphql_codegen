@@ -164,6 +164,8 @@ Spec printMutation(PrintContext c) {
 Iterable<Spec> printMutationSpecs(PrintContext<ContextOperation> context) {
   _addDependencies(context);
   return [
+    printMutationHook(context),
+    printWatchMutationHook(context),
     printMutationOptions(
       context,
       disableVariables: true,
@@ -241,8 +243,120 @@ Spec printQuerySpec(PrintContext c) {
 Iterable<Spec> printQuerySpecs(PrintContext<Context> context) {
   _addDependencies(context);
   return [
+    printQueryHook(context),
+    printWatchQueryHook(context),
     printQuerySpec(context),
   ];
+}
+
+Spec printMutationHook(PrintContext context) {
+  return Method(
+    (b) => b
+      ..requiredParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = refer(printGraphQLClientOptionsName(context.path))
+            ..name = 'options',
+        )
+      ])
+      ..returns = TypeReference(
+        (b) => b
+          ..symbol = 'graphql_flutter.MutationHookResult'
+          ..types = ListBuilder([refer(printClassName(context.path))]),
+      )
+      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..body = refer('graphql_flutter').property('useMutation').call([
+        refer('options'),
+      ]).code,
+  );
+}
+
+Spec printWatchMutationHook(PrintContext context) {
+  return Method(
+    (b) => b
+      ..requiredParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = refer(printGraphQLClientWatchOptionsName(context.path))
+            ..name = 'options',
+        )
+      ])
+      ..returns = TypeReference(
+        (b) => b
+          ..symbol = 'graphql.ObservableQuery'
+          ..types = ListBuilder([refer(printClassName(context.path))]),
+      )
+      ..name = printGraphQLFlutterClientWatchMutationHookName(context.path)
+      ..body = refer('graphql_flutter').property('useWatchMutation').call([
+        refer('options'),
+      ]).code,
+  );
+}
+
+Spec printQueryHook(PrintContext context) {
+  return Method(
+    (b) => b
+      ..requiredParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = refer(printGraphQLClientOptionsName(context.path))
+            ..name = 'options',
+        )
+      ])
+      ..returns = TypeReference(
+        (b) => b
+          ..symbol = 'graphql_flutter.QueryHookResult'
+          ..types = ListBuilder([refer(printClassName(context.path))]),
+      )
+      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..body = refer('graphql_flutter').property('useQuery').call([
+        refer('options'),
+      ]).code,
+  );
+}
+
+Spec printWatchQueryHook(PrintContext context) {
+  return Method(
+    (b) => b
+      ..requiredParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = refer(printGraphQLClientWatchOptionsName(context.path))
+            ..name = 'options',
+        )
+      ])
+      ..returns = TypeReference(
+        (b) => b
+          ..symbol = 'graphql.ObservableQuery'
+          ..types = ListBuilder([refer(printClassName(context.path))]),
+      )
+      ..name = printGraphQLFlutterClientWatchMutationHookName(context.path)
+      ..body = refer('graphql_flutter').property('useWatchQuery').call([
+        refer('options'),
+      ]).code,
+  );
+}
+
+Spec printSubscriptionHook(PrintContext context) {
+  return Method(
+    (b) => b
+      ..requiredParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = refer(printGraphQLClientOptionsName(context.path))
+            ..name = 'options',
+        )
+      ])
+      ..returns = TypeReference(
+        (b) => b
+          ..symbol = 'graphql.QueryResult'
+          ..types = ListBuilder([refer(printClassName(context.path))]),
+      )
+      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..body = refer('graphql_flutter').property('useSubscription').call([
+        refer('options'),
+      ]).code,
+  );
 }
 
 Spec printSubscriptionSpec(PrintContext c) {
@@ -317,6 +431,7 @@ Spec printSubscriptionSpec(PrintContext c) {
 Iterable<Spec> printSubscriptionSpecs(PrintContext<Context> context) {
   _addDependencies(context);
   return [
+    printSubscriptionHook(context),
     printSubscriptionSpec(context),
   ];
 }

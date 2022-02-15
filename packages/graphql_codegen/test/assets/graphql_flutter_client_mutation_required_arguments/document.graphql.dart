@@ -152,6 +152,14 @@ extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
       this.watchMutation(options);
 }
 
+graphql_flutter.MutationHookResult<MutationUpdateSRequired>
+    useMutationUpdateSRequired(GQLOptionsMutationUpdateSRequired options) =>
+        graphql_flutter.useMutation(options);
+graphql.ObservableQuery<MutationUpdateSRequired>
+    useWatchMutationUpdateSRequired(
+            GQLWatchOptionsMutationUpdateSRequired options) =>
+        graphql_flutter.useWatchMutation(options);
+
 class GQLFOptionsMutationUpdateSRequired
     extends graphql.MutationOptions<MutationUpdateSRequired> {
   GQLFOptionsMutationUpdateSRequired(

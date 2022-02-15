@@ -1,3 +1,7 @@
+# 0.6.1-beta.2
+
+* Feat: Build hooks!
+
 # 0.6.1-beta.1
 
 * Fix: Mover `parserFn` externally

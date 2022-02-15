@@ -120,6 +120,10 @@ extension GQLExtensionSubscriptionNoArgs on graphql.GraphQLClient {
       this.watchQuery(options ?? GQLWatchOptionsSubscriptionNoArgs());
 }
 
+graphql.QueryResult<SubscriptionNoArgs> useSubscriptionNoArgs(
+        GQLOptionsSubscriptionNoArgs options) =>
+    graphql_flutter.useSubscription(options);
+
 class GQLFSubscriptionNoArgs
     extends graphql_flutter.Subscription<SubscriptionNoArgs> {
   GQLFSubscriptionNoArgs(
@@ -301,6 +305,10 @@ extension GQLExtensionSubscriptionRequiredArg on graphql.GraphQLClient {
           GQLWatchOptionsSubscriptionRequiredArg options) =>
       this.watchQuery(options);
 }
+
+graphql.QueryResult<SubscriptionRequiredArg> useSubscriptionRequiredArg(
+        GQLOptionsSubscriptionRequiredArg options) =>
+    graphql_flutter.useSubscription(options);
 
 class GQLFSubscriptionRequiredArg
     extends graphql_flutter.Subscription<SubscriptionRequiredArg> {
@@ -484,6 +492,10 @@ extension GQLExtensionSubscriptionOptionalArg on graphql.GraphQLClient {
           [GQLWatchOptionsSubscriptionOptionalArg? options]) =>
       this.watchQuery(options ?? GQLWatchOptionsSubscriptionOptionalArg());
 }
+
+graphql.QueryResult<SubscriptionOptionalArg> useSubscriptionOptionalArg(
+        GQLOptionsSubscriptionOptionalArg options) =>
+    graphql_flutter.useSubscription(options);
 
 class GQLFSubscriptionOptionalArg
     extends graphql_flutter.Subscription<SubscriptionOptionalArg> {
