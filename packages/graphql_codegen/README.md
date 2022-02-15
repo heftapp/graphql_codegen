@@ -323,6 +323,28 @@ class PersonWidget extends StatelessWidget {
 }
 ```
 
+
+or the hook
+
+```dart
+import 'person.graphql.dart';
+import 'package:flutter/widgets.dart';
+import 'flutter_hooks/flutter_hooks.dart';
+
+class PersonWidget extends HookWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    final result = useQueryFetchPerson(
+      GQLOptionsQueryFetchPerson(
+        variables: VariablesQueryFetchPerson(id: 'id'),
+      ),
+    );
+    return Text(result.parsedData?.fetchPerson?.name ?? '...loading');
+  }
+}
+```
+
 ## Add typename
 
 Per default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
