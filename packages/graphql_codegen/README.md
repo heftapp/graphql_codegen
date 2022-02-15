@@ -306,8 +306,8 @@ class PersonWidget extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return GQLFQueryFetchPerson(
-            options: GQLOptionsQueryFetchPerson(
+        return QueryFetchPerson(
+            options: OptionsQueryFetchPerson(
                 variables: VariablesQueryFetchPerson(
                     id: 'id',
                 ),
@@ -336,7 +336,7 @@ class PersonWidget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final result = useQueryFetchPerson(
-      GQLOptionsQueryFetchPerson(
+      OptionsQueryFetchPerson(
         variables: VariablesQueryFetchPerson(id: 'id'),
       ),
     );

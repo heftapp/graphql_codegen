@@ -61,9 +61,9 @@ const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
 QueryFetchSOptional _parserFnQueryFetchSOptional(Map<String, dynamic> data) =>
     QueryFetchSOptional.fromJson(data);
 
-class GQLOptionsQueryFetchSOptional
+class OptionsQueryFetchSOptional
     extends graphql.QueryOptions<QueryFetchSOptional> {
-  GQLOptionsQueryFetchSOptional(
+  OptionsQueryFetchSOptional(
       {String? operationName,
       VariablesQueryFetchSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -85,9 +85,9 @@ class GQLOptionsQueryFetchSOptional
             parserFn: _parserFnQueryFetchSOptional);
 }
 
-class GQLWatchOptionsQueryFetchSOptional
+class WatchOptionsQueryFetchSOptional
     extends graphql.WatchQueryOptions<QueryFetchSOptional> {
-  GQLWatchOptionsQueryFetchSOptional(
+  WatchOptionsQueryFetchSOptional(
       {String? operationName,
       VariablesQueryFetchSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -115,8 +115,8 @@ class GQLWatchOptionsQueryFetchSOptional
             parserFn: _parserFnQueryFetchSOptional);
 }
 
-class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryFetchSOptional(
+class FetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
+  FetchMoreOptionsQueryFetchSOptional(
       {required graphql.UpdateQuery updateQuery,
       VariablesQueryFetchSOptional? variables})
       : super(
@@ -125,13 +125,13 @@ class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
             document: QUERY_FETCH_S_OPTIONAL);
 }
 
-extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
+extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<QueryFetchSOptional>> queryFetchSOptional(
-          [GQLOptionsQueryFetchSOptional? options]) async =>
-      await this.query(options ?? GQLOptionsQueryFetchSOptional());
+          [OptionsQueryFetchSOptional? options]) async =>
+      await this.query(options ?? OptionsQueryFetchSOptional());
   graphql.ObservableQuery<QueryFetchSOptional> watchQueryFetchSOptional(
-          [GQLWatchOptionsQueryFetchSOptional? options]) =>
-      this.watchQuery(options ?? GQLWatchOptionsQueryFetchSOptional());
+          [WatchOptionsQueryFetchSOptional? options]) =>
+      this.watchQuery(options ?? WatchOptionsQueryFetchSOptional());
 }
 
 @JsonSerializable()
@@ -191,9 +191,9 @@ const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
 QueryFetchSRequired _parserFnQueryFetchSRequired(Map<String, dynamic> data) =>
     QueryFetchSRequired.fromJson(data);
 
-class GQLOptionsQueryFetchSRequired
+class OptionsQueryFetchSRequired
     extends graphql.QueryOptions<QueryFetchSRequired> {
-  GQLOptionsQueryFetchSRequired(
+  OptionsQueryFetchSRequired(
       {String? operationName,
       required VariablesQueryFetchSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -215,9 +215,9 @@ class GQLOptionsQueryFetchSRequired
             parserFn: _parserFnQueryFetchSRequired);
 }
 
-class GQLWatchOptionsQueryFetchSRequired
+class WatchOptionsQueryFetchSRequired
     extends graphql.WatchQueryOptions<QueryFetchSRequired> {
-  GQLWatchOptionsQueryFetchSRequired(
+  WatchOptionsQueryFetchSRequired(
       {String? operationName,
       required VariablesQueryFetchSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -245,8 +245,8 @@ class GQLWatchOptionsQueryFetchSRequired
             parserFn: _parserFnQueryFetchSRequired);
 }
 
-class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryFetchSRequired(
+class FetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
+  FetchMoreOptionsQueryFetchSRequired(
       {required graphql.UpdateQuery updateQuery,
       required VariablesQueryFetchSRequired variables})
       : super(
@@ -255,12 +255,12 @@ class GQLFetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
             document: QUERY_FETCH_S_REQUIRED);
 }
 
-extension GQLExtensionQueryFetchSRequired on graphql.GraphQLClient {
+extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult<QueryFetchSRequired>> queryFetchSRequired(
-          GQLOptionsQueryFetchSRequired options) async =>
+          OptionsQueryFetchSRequired options) async =>
       await this.query(options);
   graphql.ObservableQuery<QueryFetchSRequired> watchQueryFetchSRequired(
-          GQLWatchOptionsQueryFetchSRequired options) =>
+          WatchOptionsQueryFetchSRequired options) =>
       this.watchQuery(options);
 }
 
@@ -301,9 +301,9 @@ QueryFetchSNoVariables _parserFnQueryFetchSNoVariables(
         Map<String, dynamic> data) =>
     QueryFetchSNoVariables.fromJson(data);
 
-class GQLOptionsQueryFetchSNoVariables
+class OptionsQueryFetchSNoVariables
     extends graphql.QueryOptions<QueryFetchSNoVariables> {
-  GQLOptionsQueryFetchSNoVariables(
+  OptionsQueryFetchSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -323,9 +323,9 @@ class GQLOptionsQueryFetchSNoVariables
             parserFn: _parserFnQueryFetchSNoVariables);
 }
 
-class GQLWatchOptionsQueryFetchSNoVariables
+class WatchOptionsQueryFetchSNoVariables
     extends graphql.WatchQueryOptions<QueryFetchSNoVariables> {
-  GQLWatchOptionsQueryFetchSNoVariables(
+  WatchOptionsQueryFetchSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -351,20 +351,19 @@ class GQLWatchOptionsQueryFetchSNoVariables
             parserFn: _parserFnQueryFetchSNoVariables);
 }
 
-class GQLFetchMoreOptionsQueryFetchSNoVariables
-    extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryFetchSNoVariables(
+class FetchMoreOptionsQueryFetchSNoVariables extends graphql.FetchMoreOptions {
+  FetchMoreOptionsQueryFetchSNoVariables(
       {required graphql.UpdateQuery updateQuery})
       : super(updateQuery: updateQuery, document: QUERY_FETCH_S_NO_VARIABLES);
 }
 
-extension GQLExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
+extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
   Future<graphql.QueryResult<QueryFetchSNoVariables>> queryFetchSNoVariables(
-          [GQLOptionsQueryFetchSNoVariables? options]) async =>
-      await this.query(options ?? GQLOptionsQueryFetchSNoVariables());
+          [OptionsQueryFetchSNoVariables? options]) async =>
+      await this.query(options ?? OptionsQueryFetchSNoVariables());
   graphql.ObservableQuery<QueryFetchSNoVariables> watchQueryFetchSNoVariables(
-          [GQLWatchOptionsQueryFetchSNoVariables? options]) =>
-      this.watchQuery(options ?? GQLWatchOptionsQueryFetchSNoVariables());
+          [WatchOptionsQueryFetchSNoVariables? options]) =>
+      this.watchQuery(options ?? WatchOptionsQueryFetchSNoVariables());
 }
 
 @JsonSerializable()
@@ -426,12 +425,12 @@ const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
 MutationUpdateSOptional _parserFnMutationUpdateSOptional(
         Map<String, dynamic> data) =>
     MutationUpdateSOptional.fromJson(data);
-typedef GQLOnMutationCompletedMutationUpdateSOptional = FutureOr<void> Function(
+typedef OnMutationCompletedMutationUpdateSOptional = FutureOr<void> Function(
     dynamic, MutationUpdateSOptional?);
 
-class GQLOptionsMutationUpdateSOptional
+class OptionsMutationUpdateSOptional
     extends graphql.MutationOptions<MutationUpdateSOptional> {
-  GQLOptionsMutationUpdateSOptional(
+  OptionsMutationUpdateSOptional(
       {String? operationName,
       VariablesMutationUpdateSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -439,7 +438,7 @@ class GQLOptionsMutationUpdateSOptional
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdateSOptional? onCompleted,
+      OnMutationCompletedMutationUpdateSOptional? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -463,7 +462,7 @@ class GQLOptionsMutationUpdateSOptional
             document: MUTATION_UPDATE_S_OPTIONAL,
             parserFn: _parserFnMutationUpdateSOptional);
 
-  final GQLOnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -474,9 +473,9 @@ class GQLOptionsMutationUpdateSOptional
       ];
 }
 
-class GQLWatchOptionsMutationUpdateSOptional
+class WatchOptionsMutationUpdateSOptional
     extends graphql.WatchQueryOptions<MutationUpdateSOptional> {
-  GQLWatchOptionsMutationUpdateSOptional(
+  WatchOptionsMutationUpdateSOptional(
       {String? operationName,
       VariablesMutationUpdateSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -504,13 +503,13 @@ class GQLWatchOptionsMutationUpdateSOptional
             parserFn: _parserFnMutationUpdateSOptional);
 }
 
-extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
+extension ClientExtensionMutationUpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<MutationUpdateSOptional>> mutateUpdateSOptional(
-          [GQLOptionsMutationUpdateSOptional? options]) async =>
-      await this.mutate(options ?? GQLOptionsMutationUpdateSOptional());
+          [OptionsMutationUpdateSOptional? options]) async =>
+      await this.mutate(options ?? OptionsMutationUpdateSOptional());
   graphql.ObservableQuery<MutationUpdateSOptional> watchMutationUpdateSOptional(
-          [GQLWatchOptionsMutationUpdateSOptional? options]) =>
-      this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSOptional());
+          [WatchOptionsMutationUpdateSOptional? options]) =>
+      this.watchMutation(options ?? WatchOptionsMutationUpdateSOptional());
 }
 
 @JsonSerializable()
@@ -572,12 +571,12 @@ const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
 MutationUpdateSRequired _parserFnMutationUpdateSRequired(
         Map<String, dynamic> data) =>
     MutationUpdateSRequired.fromJson(data);
-typedef GQLOnMutationCompletedMutationUpdateSRequired = FutureOr<void> Function(
+typedef OnMutationCompletedMutationUpdateSRequired = FutureOr<void> Function(
     dynamic, MutationUpdateSRequired?);
 
-class GQLOptionsMutationUpdateSRequired
+class OptionsMutationUpdateSRequired
     extends graphql.MutationOptions<MutationUpdateSRequired> {
-  GQLOptionsMutationUpdateSRequired(
+  OptionsMutationUpdateSRequired(
       {String? operationName,
       required VariablesMutationUpdateSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -585,7 +584,7 @@ class GQLOptionsMutationUpdateSRequired
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdateSRequired? onCompleted,
+      OnMutationCompletedMutationUpdateSRequired? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -609,7 +608,7 @@ class GQLOptionsMutationUpdateSRequired
             document: MUTATION_UPDATE_S_REQUIRED,
             parserFn: _parserFnMutationUpdateSRequired);
 
-  final GQLOnMutationCompletedMutationUpdateSRequired? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdateSRequired? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -620,9 +619,9 @@ class GQLOptionsMutationUpdateSRequired
       ];
 }
 
-class GQLWatchOptionsMutationUpdateSRequired
+class WatchOptionsMutationUpdateSRequired
     extends graphql.WatchQueryOptions<MutationUpdateSRequired> {
-  GQLWatchOptionsMutationUpdateSRequired(
+  WatchOptionsMutationUpdateSRequired(
       {String? operationName,
       required VariablesMutationUpdateSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -650,12 +649,12 @@ class GQLWatchOptionsMutationUpdateSRequired
             parserFn: _parserFnMutationUpdateSRequired);
 }
 
-extension GQLExtensionMutationUpdateSRequired on graphql.GraphQLClient {
+extension ClientExtensionMutationUpdateSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult<MutationUpdateSRequired>> mutateUpdateSRequired(
-          GQLOptionsMutationUpdateSRequired options) async =>
+          OptionsMutationUpdateSRequired options) async =>
       await this.mutate(options);
   graphql.ObservableQuery<MutationUpdateSRequired> watchMutationUpdateSRequired(
-          GQLWatchOptionsMutationUpdateSRequired options) =>
+          WatchOptionsMutationUpdateSRequired options) =>
       this.watchMutation(options);
 }
 
@@ -695,19 +694,19 @@ const MUTATION_UPDATE_S_NO_VARIABLES = const DocumentNode(definitions: [
 MutationUpdateSNoVariables _parserFnMutationUpdateSNoVariables(
         Map<String, dynamic> data) =>
     MutationUpdateSNoVariables.fromJson(data);
-typedef GQLOnMutationCompletedMutationUpdateSNoVariables = FutureOr<void>
-    Function(dynamic, MutationUpdateSNoVariables?);
+typedef OnMutationCompletedMutationUpdateSNoVariables = FutureOr<void> Function(
+    dynamic, MutationUpdateSNoVariables?);
 
-class GQLOptionsMutationUpdateSNoVariables
+class OptionsMutationUpdateSNoVariables
     extends graphql.MutationOptions<MutationUpdateSNoVariables> {
-  GQLOptionsMutationUpdateSNoVariables(
+  OptionsMutationUpdateSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdateSNoVariables? onCompleted,
+      OnMutationCompletedMutationUpdateSNoVariables? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -730,7 +729,7 @@ class GQLOptionsMutationUpdateSNoVariables
             document: MUTATION_UPDATE_S_NO_VARIABLES,
             parserFn: _parserFnMutationUpdateSNoVariables);
 
-  final GQLOnMutationCompletedMutationUpdateSNoVariables? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdateSNoVariables? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -741,9 +740,9 @@ class GQLOptionsMutationUpdateSNoVariables
       ];
 }
 
-class GQLWatchOptionsMutationUpdateSNoVariables
+class WatchOptionsMutationUpdateSNoVariables
     extends graphql.WatchQueryOptions<MutationUpdateSNoVariables> {
-  GQLWatchOptionsMutationUpdateSNoVariables(
+  WatchOptionsMutationUpdateSNoVariables(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -769,16 +768,15 @@ class GQLWatchOptionsMutationUpdateSNoVariables
             parserFn: _parserFnMutationUpdateSNoVariables);
 }
 
-extension GQLExtensionMutationUpdateSNoVariables on graphql.GraphQLClient {
+extension ClientExtensionMutationUpdateSNoVariables on graphql.GraphQLClient {
   Future<graphql.QueryResult<MutationUpdateSNoVariables>>
       mutateUpdateSNoVariables(
-              [GQLOptionsMutationUpdateSNoVariables? options]) async =>
-          await this.mutate(options ?? GQLOptionsMutationUpdateSNoVariables());
-  graphql.ObservableQuery<MutationUpdateSNoVariables>
-      watchMutationUpdateSNoVariables(
-              [GQLWatchOptionsMutationUpdateSNoVariables? options]) =>
-          this.watchMutation(
-              options ?? GQLWatchOptionsMutationUpdateSNoVariables());
+              [OptionsMutationUpdateSNoVariables? options]) async =>
+          await this.mutate(options ?? OptionsMutationUpdateSNoVariables());
+  graphql.ObservableQuery<
+      MutationUpdateSNoVariables> watchMutationUpdateSNoVariables(
+          [WatchOptionsMutationUpdateSNoVariables? options]) =>
+      this.watchMutation(options ?? WatchOptionsMutationUpdateSNoVariables());
 }
 
 const POSSIBLE_TYPES_MAP = const {};

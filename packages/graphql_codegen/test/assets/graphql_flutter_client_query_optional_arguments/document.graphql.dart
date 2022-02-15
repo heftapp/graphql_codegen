@@ -62,9 +62,9 @@ const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
 QueryFetchSOptional _parserFnQueryFetchSOptional(Map<String, dynamic> data) =>
     QueryFetchSOptional.fromJson(data);
 
-class GQLOptionsQueryFetchSOptional
+class OptionsQueryFetchSOptional
     extends graphql.QueryOptions<QueryFetchSOptional> {
-  GQLOptionsQueryFetchSOptional(
+  OptionsQueryFetchSOptional(
       {String? operationName,
       VariablesQueryFetchSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -86,9 +86,9 @@ class GQLOptionsQueryFetchSOptional
             parserFn: _parserFnQueryFetchSOptional);
 }
 
-class GQLWatchOptionsQueryFetchSOptional
+class WatchOptionsQueryFetchSOptional
     extends graphql.WatchQueryOptions<QueryFetchSOptional> {
-  GQLWatchOptionsQueryFetchSOptional(
+  WatchOptionsQueryFetchSOptional(
       {String? operationName,
       VariablesQueryFetchSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -116,8 +116,8 @@ class GQLWatchOptionsQueryFetchSOptional
             parserFn: _parserFnQueryFetchSOptional);
 }
 
-class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryFetchSOptional(
+class FetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
+  FetchMoreOptionsQueryFetchSOptional(
       {required graphql.UpdateQuery updateQuery,
       VariablesQueryFetchSOptional? variables})
       : super(
@@ -126,31 +126,31 @@ class GQLFetchMoreOptionsQueryFetchSOptional extends graphql.FetchMoreOptions {
             document: QUERY_FETCH_S_OPTIONAL);
 }
 
-extension GQLExtensionQueryFetchSOptional on graphql.GraphQLClient {
+extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<QueryFetchSOptional>> queryFetchSOptional(
-          [GQLOptionsQueryFetchSOptional? options]) async =>
-      await this.query(options ?? GQLOptionsQueryFetchSOptional());
+          [OptionsQueryFetchSOptional? options]) async =>
+      await this.query(options ?? OptionsQueryFetchSOptional());
   graphql.ObservableQuery<QueryFetchSOptional> watchQueryFetchSOptional(
-          [GQLWatchOptionsQueryFetchSOptional? options]) =>
-      this.watchQuery(options ?? GQLWatchOptionsQueryFetchSOptional());
+          [WatchOptionsQueryFetchSOptional? options]) =>
+      this.watchQuery(options ?? WatchOptionsQueryFetchSOptional());
 }
 
 graphql_flutter.QueryHookResult<QueryFetchSOptional> useQueryFetchSOptional(
-        GQLOptionsQueryFetchSOptional options) =>
+        OptionsQueryFetchSOptional options) =>
     graphql_flutter.useQuery(options);
 graphql.ObservableQuery<QueryFetchSOptional> useWatchQueryFetchSOptional(
-        GQLWatchOptionsQueryFetchSOptional options) =>
+        WatchOptionsQueryFetchSOptional options) =>
     graphql_flutter.useWatchQuery(options);
 
-class GQLFQueryFetchSOptional
+class QueryFetchSOptionalWidget
     extends graphql_flutter.Query<QueryFetchSOptional> {
-  GQLFQueryFetchSOptional(
+  QueryFetchSOptionalWidget(
       {widgets.Key? key,
-      GQLOptionsQueryFetchSOptional? options,
+      OptionsQueryFetchSOptional? options,
       required graphql_flutter.QueryBuilder<QueryFetchSOptional> builder})
       : super(
             key: key,
-            options: options ?? GQLOptionsQueryFetchSOptional(),
+            options: options ?? OptionsQueryFetchSOptional(),
             builder: builder);
 }
 
