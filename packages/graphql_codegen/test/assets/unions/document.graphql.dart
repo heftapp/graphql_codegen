@@ -66,7 +66,7 @@ const QUERY_Q = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryQ$u extends JsonSerializable {
-  QueryQ$u();
+  QueryQ$u({required this.$__typename});
 
   @override
   factory QueryQ$u.fromJson(Map<String, dynamic> json) {
@@ -80,13 +80,17 @@ class QueryQ$u extends JsonSerializable {
     }
   }
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   @override
   Map<String, dynamic> toJson() => _$QueryQ$uToJson(this);
 }
 
 @JsonSerializable()
 class QueryQ$u$Ta extends QueryQ$u {
-  QueryQ$u$Ta({this.name}) : super();
+  QueryQ$u$Ta({this.name, required String $__typename})
+      : super($__typename: $__typename);
 
   @override
   factory QueryQ$u$Ta.fromJson(Map<String, dynamic> json) =>
@@ -100,7 +104,8 @@ class QueryQ$u$Ta extends QueryQ$u {
 
 @JsonSerializable()
 class QueryQ$u$Tb extends QueryQ$u {
-  QueryQ$u$Tb({this.velocity}) : super();
+  QueryQ$u$Tb({this.velocity, required String $__typename})
+      : super($__typename: $__typename);
 
   @override
   factory QueryQ$u$Tb.fromJson(Map<String, dynamic> json) =>

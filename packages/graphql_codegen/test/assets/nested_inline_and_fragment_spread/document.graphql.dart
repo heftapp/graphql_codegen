@@ -38,7 +38,9 @@ abstract class FragmentF$t {
   FragmentF$t$t? get t;
 }
 
-abstract class FragmentF$t$t {}
+abstract class FragmentF$t$t {
+  String get $__typename;
+}
 
 @JsonSerializable()
 class QueryQ extends JsonSerializable {
@@ -132,7 +134,7 @@ class QueryQ$t$t extends JsonSerializable implements FragmentF, FragmentF$t {
 @JsonSerializable()
 class QueryQ$t$t$t extends JsonSerializable
     implements FragmentF$t, FragmentF$t$t {
-  QueryQ$t$t$t({this.t});
+  QueryQ$t$t$t({this.t, required this.$__typename});
 
   @override
   factory QueryQ$t$t$t.fromJson(Map<String, dynamic> json) =>
@@ -140,17 +142,23 @@ class QueryQ$t$t$t extends JsonSerializable
 
   final QueryQ$t$t$t$t? t;
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   @override
   Map<String, dynamic> toJson() => _$QueryQ$t$t$tToJson(this);
 }
 
 @JsonSerializable()
 class QueryQ$t$t$t$t extends JsonSerializable implements FragmentF$t$t {
-  QueryQ$t$t$t$t();
+  QueryQ$t$t$t$t({required this.$__typename});
 
   @override
   factory QueryQ$t$t$t$t.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$t$t$t$tFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$t$t$t$tToJson(this);
@@ -249,11 +257,14 @@ class QueryQ2$t$t extends JsonSerializable implements FragmentF$t, FragmentF {
 @JsonSerializable()
 class QueryQ2$t$t$t extends JsonSerializable
     implements FragmentF$t$t, FragmentF$t {
-  QueryQ2$t$t$t({this.t});
+  QueryQ2$t$t$t({required this.$__typename, this.t});
 
   @override
   factory QueryQ2$t$t$t.fromJson(Map<String, dynamic> json) =>
       _$QueryQ2$t$t$tFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final QueryQ2$t$t$t$t? t;
 
@@ -263,11 +274,14 @@ class QueryQ2$t$t$t extends JsonSerializable
 
 @JsonSerializable()
 class QueryQ2$t$t$t$t extends JsonSerializable implements FragmentF$t$t {
-  QueryQ2$t$t$t$t();
+  QueryQ2$t$t$t$t({required this.$__typename});
 
   @override
   factory QueryQ2$t$t$t$t.fromJson(Map<String, dynamic> json) =>
       _$QueryQ2$t$t$t$tFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ2$t$t$t$tToJson(this);

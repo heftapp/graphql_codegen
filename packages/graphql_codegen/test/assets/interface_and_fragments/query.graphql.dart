@@ -4,6 +4,7 @@ part 'query.graphql.g.dart';
 
 abstract class FragmentFragmentA {
   String? get s;
+  String? get $_s;
 }
 
 const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
@@ -168,7 +169,7 @@ class QueryFetchImplementations$interface extends JsonSerializable {
 
 @JsonSerializable()
 class QueryFetchImplementations$interface$self extends JsonSerializable {
-  QueryFetchImplementations$interface$self();
+  QueryFetchImplementations$interface$self({required this.$__typename});
 
   @override
   factory QueryFetchImplementations$interface$self.fromJson(
@@ -185,6 +186,9 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
     }
   }
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$selfToJson(this);
@@ -194,7 +198,9 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
 class QueryFetchImplementations$interface$self$ImplementationA
     extends QueryFetchImplementations$interface$self
     implements FragmentFragmentA {
-  QueryFetchImplementations$interface$self$ImplementationA({this.s}) : super();
+  QueryFetchImplementations$interface$self$ImplementationA(
+      {this.s, this.$_s, required String $__typename})
+      : super($__typename: $__typename);
 
   @override
   factory QueryFetchImplementations$interface$self$ImplementationA.fromJson(
@@ -202,6 +208,9 @@ class QueryFetchImplementations$interface$self$ImplementationA
       _$QueryFetchImplementations$interface$self$ImplementationAFromJson(json);
 
   final String? s;
+
+  @JsonKey(name: '_s')
+  final String? $_s;
 
   @override
   Map<String, dynamic> toJson() =>
@@ -212,7 +221,9 @@ class QueryFetchImplementations$interface$self$ImplementationA
 class QueryFetchImplementations$interface$self$ImplementationB
     extends QueryFetchImplementations$interface$self
     implements FragmentFragmentB {
-  QueryFetchImplementations$interface$self$ImplementationB({this.i}) : super();
+  QueryFetchImplementations$interface$self$ImplementationB(
+      {this.i, required String $__typename})
+      : super($__typename: $__typename);
 
   @override
   factory QueryFetchImplementations$interface$self$ImplementationB.fromJson(
@@ -231,6 +242,7 @@ class QueryFetchImplementations$interface$ImplementationA
     extends QueryFetchImplementations$interface implements FragmentFragmentA {
   QueryFetchImplementations$interface$ImplementationA(
       {this.s,
+      this.$_s,
       required String typename,
       bool? b,
       required QueryFetchImplementations$interface$self self})
@@ -242,6 +254,9 @@ class QueryFetchImplementations$interface$ImplementationA
       _$QueryFetchImplementations$interface$ImplementationAFromJson(json);
 
   final String? s;
+
+  @JsonKey(name: '_s')
+  final String? $_s;
 
   @override
   Map<String, dynamic> toJson() =>

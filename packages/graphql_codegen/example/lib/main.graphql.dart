@@ -23,14 +23,16 @@ class VariablesQueryFetchPerson extends JsonSerializable {
 
 @JsonSerializable()
 class QueryFetchPerson extends JsonSerializable {
-  QueryFetchPerson({this.fetchPerson});
+  QueryFetchPerson({this.fetchPerson, required this.$__typename});
 
   @override
   factory QueryFetchPerson.fromJson(Map<String, dynamic> json) =>
       _$QueryFetchPersonFromJson(json);
 
-  @JsonKey(name: 'fetch_person')
   final QueryFetchPerson$fetchPerson? fetchPerson;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchPersonToJson(this);
@@ -51,7 +53,7 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
       selectionSet: SelectionSetNode(selections: [
         FieldNode(
             name: NameNode(value: 'fetch_person'),
-            alias: null,
+            alias: NameNode(value: 'fetchPerson'),
             arguments: [
               ArgumentNode(
                   name: NameNode(value: 'id'),
@@ -201,7 +203,11 @@ class QueryFetchPersonWidget extends graphql_flutter.Query<QueryFetchPerson> {
 class QueryFetchPerson$fetchPerson extends JsonSerializable
     implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson(
-      {this.nickname, required this.name, this.parents, this.children});
+      {this.nickname,
+      required this.name,
+      required this.$__typename,
+      this.parents,
+      this.children});
 
   @override
   factory QueryFetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
@@ -210,6 +216,9 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
   final String? nickname;
 
   final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final List<QueryFetchPerson$fetchPerson$parents>? parents;
 
@@ -222,7 +231,8 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
 @JsonSerializable()
 class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
     implements FragmentPersonSummary {
-  QueryFetchPerson$fetchPerson$parents({this.nickname, required this.name});
+  QueryFetchPerson$fetchPerson$parents(
+      {this.nickname, required this.name, required this.$__typename});
 
   @override
   factory QueryFetchPerson$fetchPerson$parents.fromJson(
@@ -233,6 +243,9 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
 
   final String name;
 
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$parentsToJson(this);
@@ -241,7 +254,8 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
 @JsonSerializable()
 class QueryFetchPerson$fetchPerson$children extends JsonSerializable
     implements FragmentPersonSummary {
-  QueryFetchPerson$fetchPerson$children({this.nickname, required this.name});
+  QueryFetchPerson$fetchPerson$children(
+      {this.nickname, required this.name, required this.$__typename});
 
   @override
   factory QueryFetchPerson$fetchPerson$children.fromJson(
@@ -251,6 +265,9 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
   final String? nickname;
 
   final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>
@@ -273,14 +290,16 @@ class VariablesMutationUpdatePerson extends JsonSerializable {
 
 @JsonSerializable()
 class MutationUpdatePerson extends JsonSerializable {
-  MutationUpdatePerson({this.updatePerson});
+  MutationUpdatePerson({this.updatePerson, required this.$__typename});
 
   @override
   factory MutationUpdatePerson.fromJson(Map<String, dynamic> json) =>
       _$MutationUpdatePersonFromJson(json);
 
-  @JsonKey(name: 'update_person')
   final MutationUpdatePerson$updatePerson? updatePerson;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdatePersonToJson(this);
@@ -301,7 +320,7 @@ const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
       selectionSet: SelectionSetNode(selections: [
         FieldNode(
             name: NameNode(value: 'update_person'),
-            alias: null,
+            alias: NameNode(value: 'updatePerson'),
             arguments: [
               ArgumentNode(
                   name: NameNode(value: 'id'),
@@ -487,15 +506,18 @@ class MutationUpdatePersonWidget
 
 @JsonSerializable()
 class MutationUpdatePerson$updatePerson extends JsonSerializable {
-  MutationUpdatePerson$updatePerson({required this.fullName});
+  MutationUpdatePerson$updatePerson(
+      {required this.full_name, required this.$__typename});
 
   @override
   factory MutationUpdatePerson$updatePerson.fromJson(
           Map<String, dynamic> json) =>
       _$MutationUpdatePerson$updatePersonFromJson(json);
 
-  @JsonKey(name: 'full_name')
-  final String fullName;
+  final String full_name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>
@@ -520,14 +542,16 @@ class VariablesSubscriptionWatchPerson extends JsonSerializable {
 
 @JsonSerializable()
 class SubscriptionWatchPerson extends JsonSerializable {
-  SubscriptionWatchPerson({this.watchPerson});
+  SubscriptionWatchPerson({this.watchPerson, required this.$__typename});
 
   @override
   factory SubscriptionWatchPerson.fromJson(Map<String, dynamic> json) =>
       _$SubscriptionWatchPersonFromJson(json);
 
-  @JsonKey(name: 'watch_person')
   final SubscriptionWatchPerson$watchPerson? watchPerson;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionWatchPersonToJson(this);
@@ -548,7 +572,7 @@ const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
       selectionSet: SelectionSetNode(selections: [
         FieldNode(
             name: NameNode(value: 'watch_person'),
-            alias: null,
+            alias: NameNode(value: 'watchPerson'),
             arguments: [
               ArgumentNode(
                   name: NameNode(value: 'id'),
@@ -674,15 +698,18 @@ class SubscriptionWatchPersonWidget
 
 @JsonSerializable()
 class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
-  SubscriptionWatchPerson$watchPerson({required this.fullName});
+  SubscriptionWatchPerson$watchPerson(
+      {required this.full_name, required this.$__typename});
 
   @override
   factory SubscriptionWatchPerson$watchPerson.fromJson(
           Map<String, dynamic> json) =>
       _$SubscriptionWatchPerson$watchPersonFromJson(json);
 
-  @JsonKey(name: 'full_name')
-  final String fullName;
+  final String full_name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>

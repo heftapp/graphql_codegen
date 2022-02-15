@@ -20,6 +20,7 @@ Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
 
 QueryQ$t _$QueryQ$tFromJson(Map<String, dynamic> json) {
   return QueryQ$t(
+    $__typename: json['__typename'] as String,
     name: json['name'] as String?,
     t: json['t'] == null
         ? null
@@ -28,6 +29,7 @@ QueryQ$t _$QueryQ$tFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$QueryQ$tToJson(QueryQ$t instance) => <String, dynamic>{
+      '__typename': instance.$__typename,
       'name': instance.name,
       't': instance.t,
     };

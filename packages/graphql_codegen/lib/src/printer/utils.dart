@@ -121,8 +121,13 @@ String printKeywordSafe(String name) =>
 String printEnumValueName(NameNode name) =>
     printKeywordSafe(ReCase(name.value).camelCase);
 
-String printPropertyName(NameNode name) =>
-    printKeywordSafe(ReCase(name.value).camelCase);
+String printPropertyName(NameNode name) {
+  String value = name.value;
+  if (value.startsWith('_')) {
+    value = "\$${value}";
+  }
+  return printKeywordSafe(value);
+}
 
 Expression printNullCheck(Reference variable, Expression whenNotNull) =>
     variable.equalTo(literalNull).conditional(literalNull, whenNotNull);

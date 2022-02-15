@@ -9,13 +9,15 @@ part of 'input.graphql.dart';
 InputI1 _$InputI1FromJson(Map<String, dynamic> json) {
   return InputI1(
     s: json['s'] as String,
-    nestedInput: json['nested_input'] == null
+    nested_input: json['nested_input'] == null
         ? null
         : InputI1.fromJson(json['nested_input'] as Map<String, dynamic>),
+    $_min: json['_min'] as int?,
   );
 }
 
 Map<String, dynamic> _$InputI1ToJson(InputI1 instance) => <String, dynamic>{
       's': instance.s,
-      'nested_input': instance.nestedInput,
+      'nested_input': instance.nested_input,
+      '_min': instance.$_min,
     };

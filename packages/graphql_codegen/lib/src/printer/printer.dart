@@ -107,7 +107,7 @@ Spec printFragment(PrintContext<ContextFragment> f) {
           ? null
           : refer(printClassName(extendContext.path))
       ..methods = ListBuilder<Method>(
-        f.context.publicProperties.map(
+        f.context.properties.map(
           (property) => printFragmentProperty(f, property),
         ),
       ),
@@ -319,11 +319,11 @@ Class printContext(PrintContext<ContextOperation> c) {
   if (extendContext != null) {
     c.addDependency(extendContext.path);
   }
-  final parentProperties = extendContext?.publicProperties ?? [];
+  final parentProperties = extendContext?.properties ?? [];
   final parentPropertiesSet = Set<String>.of(
     parentProperties.map((e) => printPropertyName(e.name)),
   );
-  final properties = context.publicProperties.where(
+  final properties = context.properties.where(
     (element) => !parentPropertiesSet.contains(printPropertyName(element.name)),
   );
 

@@ -12,18 +12,21 @@ SubscriptionNoArgs _$SubscriptionNoArgsFromJson(Map<String, dynamic> json) {
         ? null
         : SubscriptionNoArgs$listenForChange.fromJson(
             json['listenForChange'] as Map<String, dynamic>),
+    $__typename: json['__typename'] as String,
   );
 }
 
 Map<String, dynamic> _$SubscriptionNoArgsToJson(SubscriptionNoArgs instance) =>
     <String, dynamic>{
       'listenForChange': instance.listenForChange,
+      '__typename': instance.$__typename,
     };
 
 SubscriptionNoArgs$listenForChange _$SubscriptionNoArgs$listenForChangeFromJson(
     Map<String, dynamic> json) {
   return SubscriptionNoArgs$listenForChange(
     name: json['name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -31,6 +34,7 @@ Map<String, dynamic> _$SubscriptionNoArgs$listenForChangeToJson(
         SubscriptionNoArgs$listenForChange instance) =>
     <String, dynamic>{
       'name': instance.name,
+      '__typename': instance.$__typename,
     };
 
 VariablesSubscriptionRequiredArg _$VariablesSubscriptionRequiredArgFromJson(
@@ -53,6 +57,7 @@ SubscriptionRequiredArg _$SubscriptionRequiredArgFromJson(
         ? null
         : SubscriptionRequiredArg$listenForChange.fromJson(
             json['listenForChange'] as Map<String, dynamic>),
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -60,6 +65,7 @@ Map<String, dynamic> _$SubscriptionRequiredArgToJson(
         SubscriptionRequiredArg instance) =>
     <String, dynamic>{
       'listenForChange': instance.listenForChange,
+      '__typename': instance.$__typename,
     };
 
 SubscriptionRequiredArg$listenForChange
@@ -67,6 +73,7 @@ SubscriptionRequiredArg$listenForChange
         Map<String, dynamic> json) {
   return SubscriptionRequiredArg$listenForChange(
     name: json['name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -74,6 +81,7 @@ Map<String, dynamic> _$SubscriptionRequiredArg$listenForChangeToJson(
         SubscriptionRequiredArg$listenForChange instance) =>
     <String, dynamic>{
       'name': instance.name,
+      '__typename': instance.$__typename,
     };
 
 VariablesSubscriptionOptionalArg _$VariablesSubscriptionOptionalArgFromJson(
@@ -96,6 +104,7 @@ SubscriptionOptionalArg _$SubscriptionOptionalArgFromJson(
         ? null
         : SubscriptionOptionalArg$listenForChange.fromJson(
             json['listenForChange'] as Map<String, dynamic>),
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -103,6 +112,7 @@ Map<String, dynamic> _$SubscriptionOptionalArgToJson(
         SubscriptionOptionalArg instance) =>
     <String, dynamic>{
       'listenForChange': instance.listenForChange,
+      '__typename': instance.$__typename,
     };
 
 SubscriptionOptionalArg$listenForChange
@@ -110,6 +120,7 @@ SubscriptionOptionalArg$listenForChange
         Map<String, dynamic> json) {
   return SubscriptionOptionalArg$listenForChange(
     name: json['name'] as String,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -117,4 +128,5 @@ Map<String, dynamic> _$SubscriptionOptionalArg$listenForChangeToJson(
         SubscriptionOptionalArg$listenForChange instance) =>
     <String, dynamic>{
       'name': instance.name,
+      '__typename': instance.$__typename,
     };

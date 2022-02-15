@@ -8,13 +8,16 @@ part 'schema.graphql.g.dart';
 
 @JsonSerializable()
 class SubscriptionNoArgs extends JsonSerializable {
-  SubscriptionNoArgs({this.listenForChange});
+  SubscriptionNoArgs({this.listenForChange, required this.$__typename});
 
   @override
   factory SubscriptionNoArgs.fromJson(Map<String, dynamic> json) =>
       _$SubscriptionNoArgsFromJson(json);
 
   final SubscriptionNoArgs$listenForChange? listenForChange;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionNoArgsToJson(this);
@@ -140,7 +143,8 @@ class SubscriptionNoArgsWidget
 
 @JsonSerializable()
 class SubscriptionNoArgs$listenForChange extends JsonSerializable {
-  SubscriptionNoArgs$listenForChange({required this.name});
+  SubscriptionNoArgs$listenForChange(
+      {required this.name, required this.$__typename});
 
   @override
   factory SubscriptionNoArgs$listenForChange.fromJson(
@@ -148,6 +152,9 @@ class SubscriptionNoArgs$listenForChange extends JsonSerializable {
       _$SubscriptionNoArgs$listenForChangeFromJson(json);
 
   final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>
@@ -172,13 +179,16 @@ class VariablesSubscriptionRequiredArg extends JsonSerializable {
 
 @JsonSerializable()
 class SubscriptionRequiredArg extends JsonSerializable {
-  SubscriptionRequiredArg({this.listenForChange});
+  SubscriptionRequiredArg({this.listenForChange, required this.$__typename});
 
   @override
   factory SubscriptionRequiredArg.fromJson(Map<String, dynamic> json) =>
       _$SubscriptionRequiredArgFromJson(json);
 
   final SubscriptionRequiredArg$listenForChange? listenForChange;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionRequiredArgToJson(this);
@@ -326,7 +336,8 @@ class SubscriptionRequiredArgWidget
 
 @JsonSerializable()
 class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
-  SubscriptionRequiredArg$listenForChange({required this.name});
+  SubscriptionRequiredArg$listenForChange(
+      {required this.name, required this.$__typename});
 
   @override
   factory SubscriptionRequiredArg$listenForChange.fromJson(
@@ -334,6 +345,9 @@ class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
       _$SubscriptionRequiredArg$listenForChangeFromJson(json);
 
   final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>
@@ -358,13 +372,16 @@ class VariablesSubscriptionOptionalArg extends JsonSerializable {
 
 @JsonSerializable()
 class SubscriptionOptionalArg extends JsonSerializable {
-  SubscriptionOptionalArg({this.listenForChange});
+  SubscriptionOptionalArg({this.listenForChange, required this.$__typename});
 
   @override
   factory SubscriptionOptionalArg.fromJson(Map<String, dynamic> json) =>
       _$SubscriptionOptionalArgFromJson(json);
 
   final SubscriptionOptionalArg$listenForChange? listenForChange;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionOptionalArgToJson(this);
@@ -512,7 +529,8 @@ class SubscriptionOptionalArgWidget
 
 @JsonSerializable()
 class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
-  SubscriptionOptionalArg$listenForChange({required this.name});
+  SubscriptionOptionalArg$listenForChange(
+      {required this.name, required this.$__typename});
 
   @override
   factory SubscriptionOptionalArg$listenForChange.fromJson(
@@ -520,6 +538,9 @@ class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
       _$SubscriptionOptionalArg$listenForChangeFromJson(json);
 
   final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>

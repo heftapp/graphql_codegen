@@ -172,7 +172,7 @@ const QUERY_Q = const DocumentNode(definitions: [
 
 @JsonSerializable()
 class QueryQ$field extends JsonSerializable implements FragmentF0 {
-  QueryQ$field({this.name0, this.name01});
+  QueryQ$field({required this.$__typename, this.name0, this.name01});
 
   @override
   factory QueryQ$field.fromJson(Map<String, dynamic> json) {
@@ -183,6 +183,9 @@ class QueryQ$field extends JsonSerializable implements FragmentF0 {
         return _$QueryQ$fieldFromJson(json);
     }
   }
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final String? name0;
 
@@ -199,9 +202,10 @@ class QueryQ$field$T1 extends QueryQ$field implements FragmentF1, FragmentF2 {
       this.name,
       this.size2,
       this.name2,
+      required String $__typename,
       String? name0,
       String? name01})
-      : super(name0: name0, name01: name01);
+      : super($__typename: $__typename, name0: name0, name01: name01);
 
   @override
   factory QueryQ$field$T1.fromJson(Map<String, dynamic> json) =>

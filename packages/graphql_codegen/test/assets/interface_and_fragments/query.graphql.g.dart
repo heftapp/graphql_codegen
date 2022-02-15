@@ -43,18 +43,24 @@ Map<String, dynamic> _$QueryFetchImplementations$interfaceToJson(
 QueryFetchImplementations$interface$self
     _$QueryFetchImplementations$interface$selfFromJson(
         Map<String, dynamic> json) {
-  return QueryFetchImplementations$interface$self();
+  return QueryFetchImplementations$interface$self(
+    $__typename: json['__typename'] as String,
+  );
 }
 
 Map<String, dynamic> _$QueryFetchImplementations$interface$selfToJson(
         QueryFetchImplementations$interface$self instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+    };
 
 QueryFetchImplementations$interface$self$ImplementationA
     _$QueryFetchImplementations$interface$self$ImplementationAFromJson(
         Map<String, dynamic> json) {
   return QueryFetchImplementations$interface$self$ImplementationA(
     s: json['s'] as String?,
+    $_s: json['_s'] as String?,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -62,7 +68,9 @@ Map<String,
     dynamic> _$QueryFetchImplementations$interface$self$ImplementationAToJson(
         QueryFetchImplementations$interface$self$ImplementationA instance) =>
     <String, dynamic>{
+      '__typename': instance.$__typename,
       's': instance.s,
+      '_s': instance.$_s,
     };
 
 QueryFetchImplementations$interface$self$ImplementationB
@@ -70,6 +78,7 @@ QueryFetchImplementations$interface$self$ImplementationB
         Map<String, dynamic> json) {
   return QueryFetchImplementations$interface$self$ImplementationB(
     i: json['i'] as int?,
+    $__typename: json['__typename'] as String,
   );
 }
 
@@ -77,6 +86,7 @@ Map<String,
     dynamic> _$QueryFetchImplementations$interface$self$ImplementationBToJson(
         QueryFetchImplementations$interface$self$ImplementationB instance) =>
     <String, dynamic>{
+      '__typename': instance.$__typename,
       'i': instance.i,
     };
 
@@ -85,6 +95,7 @@ QueryFetchImplementations$interface$ImplementationA
         Map<String, dynamic> json) {
   return QueryFetchImplementations$interface$ImplementationA(
     s: json['s'] as String?,
+    $_s: json['_s'] as String?,
     typename: json['typename'] as String,
     b: json['b'] as bool?,
     self: QueryFetchImplementations$interface$self.fromJson(
@@ -100,6 +111,7 @@ Map<String, dynamic>
           'b': instance.b,
           'self': instance.self,
           's': instance.s,
+          '_s': instance.$_s,
         };
 
 QueryFetchImplementations$interface$ImplementationB
