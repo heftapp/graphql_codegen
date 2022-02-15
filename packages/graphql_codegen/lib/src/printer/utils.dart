@@ -58,26 +58,25 @@ String printParserFnName(Name name) =>
 
 String printVariableClassName(Name name) => "Variables${_printName(name)}";
 
-String printGraphQLClientOptionsName(Name name) =>
-    "GQLOptions${_printName(name)}";
+String printGraphQLClientOptionsName(Name name) => "Options${_printName(name)}";
 
 String printGraphQLClientWatchOptionsName(Name name) =>
-    "GQLWatchOptions${_printName(name)}";
+    "WatchOptions${_printName(name)}";
 
 String printGraphQLClientFetchMoreOptionsName(Name name) =>
-    "GQLFetchMoreOptions${_printName(name)}";
+    "FetchMoreOptions${_printName(name)}";
 
 String printGraphQLFlutterClientOptionsName(Name name) =>
-    "GQLFOptions${_printName(name)}";
+    "WidgetOptions${_printName(name)}";
 
 String printGraphQLFlutterClientRunMutationName(Name name) =>
-    "GQLFRunMutation${_printName(name)}";
+    "RunMutation${_printName(name)}";
 
 String printGraphQLFlutterClientBuilderName(Name name) =>
-    "GQLFBuilder${_printName(name)}";
+    "Builder${_printName(name)}";
 
 String printGraphQLFlutterClientOperationName(Name name) =>
-    "GQLF${_printName(name)}";
+    "${_printName(name)}Widget";
 
 String printGraphQLFlutterClientMutationHookName(Name name) =>
     "use${_printName(name)}";
@@ -95,13 +94,13 @@ String printGraphQLFlutterClientSubscriptionHookName(Name name) =>
     "use${_printName(name)}";
 
 String printGraphQLClientOnMutationCompleteName(Name name) =>
-    "GQLOnMutationCompleted${_printName(name)}";
+    "OnMutationCompleted${_printName(name)}";
 
 String printGraphQLClientExtensionName(Name name) =>
-    "GQLExtension${_printName(name)}";
+    "ClientExtension${_printName(name)}";
 
 String printGraphQLClientResultExtensionName(Name name) =>
-    "GQLResultExtension${_printName(name)}";
+    "ResultExtension${_printName(name)}";
 
 String printGraphQLClientExtensionMethodName(Name name) =>
     ReCase(_printName(name, isAction: true)).camelCase;

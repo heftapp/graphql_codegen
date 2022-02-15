@@ -65,12 +65,12 @@ const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
 MutationUpdateSOptional _parserFnMutationUpdateSOptional(
         Map<String, dynamic> data) =>
     MutationUpdateSOptional.fromJson(data);
-typedef GQLOnMutationCompletedMutationUpdateSOptional = FutureOr<void> Function(
+typedef OnMutationCompletedMutationUpdateSOptional = FutureOr<void> Function(
     dynamic, MutationUpdateSOptional?);
 
-class GQLOptionsMutationUpdateSOptional
+class OptionsMutationUpdateSOptional
     extends graphql.MutationOptions<MutationUpdateSOptional> {
-  GQLOptionsMutationUpdateSOptional(
+  OptionsMutationUpdateSOptional(
       {String? operationName,
       VariablesMutationUpdateSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -78,7 +78,7 @@ class GQLOptionsMutationUpdateSOptional
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdateSOptional? onCompleted,
+      OnMutationCompletedMutationUpdateSOptional? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -102,7 +102,7 @@ class GQLOptionsMutationUpdateSOptional
             document: MUTATION_UPDATE_S_OPTIONAL,
             parserFn: _parserFnMutationUpdateSOptional);
 
-  final GQLOnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -113,9 +113,9 @@ class GQLOptionsMutationUpdateSOptional
       ];
 }
 
-class GQLWatchOptionsMutationUpdateSOptional
+class WatchOptionsMutationUpdateSOptional
     extends graphql.WatchQueryOptions<MutationUpdateSOptional> {
-  GQLWatchOptionsMutationUpdateSOptional(
+  WatchOptionsMutationUpdateSOptional(
       {String? operationName,
       VariablesMutationUpdateSOptional? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -143,33 +143,33 @@ class GQLWatchOptionsMutationUpdateSOptional
             parserFn: _parserFnMutationUpdateSOptional);
 }
 
-extension GQLExtensionMutationUpdateSOptional on graphql.GraphQLClient {
+extension ClientExtensionMutationUpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<MutationUpdateSOptional>> mutateUpdateSOptional(
-          [GQLOptionsMutationUpdateSOptional? options]) async =>
-      await this.mutate(options ?? GQLOptionsMutationUpdateSOptional());
+          [OptionsMutationUpdateSOptional? options]) async =>
+      await this.mutate(options ?? OptionsMutationUpdateSOptional());
   graphql.ObservableQuery<MutationUpdateSOptional> watchMutationUpdateSOptional(
-          [GQLWatchOptionsMutationUpdateSOptional? options]) =>
-      this.watchMutation(options ?? GQLWatchOptionsMutationUpdateSOptional());
+          [WatchOptionsMutationUpdateSOptional? options]) =>
+      this.watchMutation(options ?? WatchOptionsMutationUpdateSOptional());
 }
 
 graphql_flutter.MutationHookResult<MutationUpdateSOptional>
-    useMutationUpdateSOptional(GQLOptionsMutationUpdateSOptional options) =>
+    useMutationUpdateSOptional(OptionsMutationUpdateSOptional options) =>
         graphql_flutter.useMutation(options);
 graphql.ObservableQuery<MutationUpdateSOptional>
     useWatchMutationUpdateSOptional(
-            GQLWatchOptionsMutationUpdateSOptional options) =>
+            WatchOptionsMutationUpdateSOptional options) =>
         graphql_flutter.useWatchMutation(options);
 
-class GQLFOptionsMutationUpdateSOptional
+class WidgetOptionsMutationUpdateSOptional
     extends graphql.MutationOptions<MutationUpdateSOptional> {
-  GQLFOptionsMutationUpdateSOptional(
+  WidgetOptionsMutationUpdateSOptional(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdateSOptional? onCompleted,
+      OnMutationCompletedMutationUpdateSOptional? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -192,7 +192,7 @@ class GQLFOptionsMutationUpdateSOptional
             document: MUTATION_UPDATE_S_OPTIONAL,
             parserFn: _parserFnMutationUpdateSOptional);
 
-  final GQLOnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdateSOptional? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -203,23 +203,23 @@ class GQLFOptionsMutationUpdateSOptional
       ];
 }
 
-typedef GQLFRunMutationMutationUpdateSOptional
+typedef RunMutationMutationUpdateSOptional
     = graphql.MultiSourceResult<MutationUpdateSOptional> Function(
         {VariablesMutationUpdateSOptional? variables,
         Object? optimisticResult});
-typedef GQLFBuilderMutationUpdateSOptional = widgets.Widget Function(
-    GQLFRunMutationMutationUpdateSOptional,
+typedef BuilderMutationUpdateSOptional = widgets.Widget Function(
+    RunMutationMutationUpdateSOptional,
     graphql.QueryResult<MutationUpdateSOptional>?);
 
-class GQLFMutationUpdateSOptional
+class MutationUpdateSOptionalWidget
     extends graphql_flutter.Mutation<MutationUpdateSOptional> {
-  GQLFMutationUpdateSOptional(
+  MutationUpdateSOptionalWidget(
       {widgets.Key? key,
-      GQLFOptionsMutationUpdateSOptional? options,
-      required GQLFBuilderMutationUpdateSOptional builder})
+      WidgetOptionsMutationUpdateSOptional? options,
+      required BuilderMutationUpdateSOptional builder})
       : super(
             key: key,
-            options: options ?? GQLFOptionsMutationUpdateSOptional(),
+            options: options ?? WidgetOptionsMutationUpdateSOptional(),
             builder: (run, result) => builder(
                 ({variables, optimisticResult}) => run(
                     variables?.toJson() ?? {},

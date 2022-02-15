@@ -8,7 +8,7 @@ main() async {
     cache: GraphQLCache(store: InMemoryStore()),
   );
   final result = await client.queryFetchPerson(
-    GQLOptionsQueryFetchPerson(
+    OptionsQueryFetchPerson(
       variables: VariablesQueryFetchPerson(
         id: "id1",
       ),

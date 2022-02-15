@@ -306,8 +306,8 @@ class PersonWidget extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return GQLFQueryFetchPerson(
-            options: GQLOptionsQueryFetchPerson(
+        return QueryFetchPerson(
+            options: OptionsQueryFetchPerson(
                 variables: VariablesQueryFetchPerson(
                     id: 'id',
                 ),
@@ -320,6 +320,28 @@ class PersonWidget extends StatelessWidget {
         );
     }
 
+}
+```
+
+
+or the hook
+
+```dart
+import 'person.graphql.dart';
+import 'package:flutter/widgets.dart';
+import 'flutter_hooks/flutter_hooks.dart';
+
+class PersonWidget extends HookWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    final result = useQueryFetchPerson(
+      OptionsQueryFetchPerson(
+        variables: VariablesQueryFetchPerson(id: 'id'),
+      ),
+    );
+    return Text(result.parsedData?.fetchPerson?.name ?? '...loading');
+  }
 }
 ```
 

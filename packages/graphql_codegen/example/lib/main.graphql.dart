@@ -110,9 +110,8 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
 QueryFetchPerson _parserFnQueryFetchPerson(Map<String, dynamic> data) =>
     QueryFetchPerson.fromJson(data);
 
-class GQLOptionsQueryFetchPerson
-    extends graphql.QueryOptions<QueryFetchPerson> {
-  GQLOptionsQueryFetchPerson(
+class OptionsQueryFetchPerson extends graphql.QueryOptions<QueryFetchPerson> {
+  OptionsQueryFetchPerson(
       {String? operationName,
       required VariablesQueryFetchPerson variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -134,9 +133,9 @@ class GQLOptionsQueryFetchPerson
             parserFn: _parserFnQueryFetchPerson);
 }
 
-class GQLWatchOptionsQueryFetchPerson
+class WatchOptionsQueryFetchPerson
     extends graphql.WatchQueryOptions<QueryFetchPerson> {
-  GQLWatchOptionsQueryFetchPerson(
+  WatchOptionsQueryFetchPerson(
       {String? operationName,
       required VariablesQueryFetchPerson variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -164,8 +163,8 @@ class GQLWatchOptionsQueryFetchPerson
             parserFn: _parserFnQueryFetchPerson);
 }
 
-class GQLFetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryFetchPerson(
+class FetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
+  FetchMoreOptionsQueryFetchPerson(
       {required graphql.UpdateQuery updateQuery,
       required VariablesQueryFetchPerson variables})
       : super(
@@ -174,26 +173,26 @@ class GQLFetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
             document: QUERY_FETCH_PERSON);
 }
 
-extension GQLExtensionQueryFetchPerson on graphql.GraphQLClient {
+extension ClientExtensionQueryFetchPerson on graphql.GraphQLClient {
   Future<graphql.QueryResult<QueryFetchPerson>> queryFetchPerson(
-          GQLOptionsQueryFetchPerson options) async =>
+          OptionsQueryFetchPerson options) async =>
       await this.query(options);
   graphql.ObservableQuery<QueryFetchPerson> watchQueryFetchPerson(
-          GQLWatchOptionsQueryFetchPerson options) =>
+          WatchOptionsQueryFetchPerson options) =>
       this.watchQuery(options);
 }
 
 graphql_flutter.QueryHookResult<QueryFetchPerson> useQueryFetchPerson(
-        GQLOptionsQueryFetchPerson options) =>
+        OptionsQueryFetchPerson options) =>
     graphql_flutter.useQuery(options);
 graphql.ObservableQuery<QueryFetchPerson> useWatchQueryFetchPerson(
-        GQLWatchOptionsQueryFetchPerson options) =>
+        WatchOptionsQueryFetchPerson options) =>
     graphql_flutter.useWatchQuery(options);
 
-class GQLFQueryFetchPerson extends graphql_flutter.Query<QueryFetchPerson> {
-  GQLFQueryFetchPerson(
+class QueryFetchPersonWidget extends graphql_flutter.Query<QueryFetchPerson> {
+  QueryFetchPersonWidget(
       {widgets.Key? key,
-      required GQLOptionsQueryFetchPerson options,
+      required OptionsQueryFetchPerson options,
       required graphql_flutter.QueryBuilder<QueryFetchPerson> builder})
       : super(key: key, options: options, builder: builder);
 }
@@ -333,12 +332,12 @@ const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
 ]);
 MutationUpdatePerson _parserFnMutationUpdatePerson(Map<String, dynamic> data) =>
     MutationUpdatePerson.fromJson(data);
-typedef GQLOnMutationCompletedMutationUpdatePerson = FutureOr<void> Function(
+typedef OnMutationCompletedMutationUpdatePerson = FutureOr<void> Function(
     dynamic, MutationUpdatePerson?);
 
-class GQLOptionsMutationUpdatePerson
+class OptionsMutationUpdatePerson
     extends graphql.MutationOptions<MutationUpdatePerson> {
-  GQLOptionsMutationUpdatePerson(
+  OptionsMutationUpdatePerson(
       {String? operationName,
       required VariablesMutationUpdatePerson variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -346,7 +345,7 @@ class GQLOptionsMutationUpdatePerson
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdatePerson? onCompleted,
+      OnMutationCompletedMutationUpdatePerson? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -367,7 +366,7 @@ class GQLOptionsMutationUpdatePerson
             document: MUTATION_UPDATE_PERSON,
             parserFn: _parserFnMutationUpdatePerson);
 
-  final GQLOnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -378,9 +377,9 @@ class GQLOptionsMutationUpdatePerson
       ];
 }
 
-class GQLWatchOptionsMutationUpdatePerson
+class WatchOptionsMutationUpdatePerson
     extends graphql.WatchQueryOptions<MutationUpdatePerson> {
-  GQLWatchOptionsMutationUpdatePerson(
+  WatchOptionsMutationUpdatePerson(
       {String? operationName,
       required VariablesMutationUpdatePerson variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -408,32 +407,32 @@ class GQLWatchOptionsMutationUpdatePerson
             parserFn: _parserFnMutationUpdatePerson);
 }
 
-extension GQLExtensionMutationUpdatePerson on graphql.GraphQLClient {
+extension ClientExtensionMutationUpdatePerson on graphql.GraphQLClient {
   Future<graphql.QueryResult<MutationUpdatePerson>> mutateUpdatePerson(
-          GQLOptionsMutationUpdatePerson options) async =>
+          OptionsMutationUpdatePerson options) async =>
       await this.mutate(options);
   graphql.ObservableQuery<MutationUpdatePerson> watchMutationUpdatePerson(
-          GQLWatchOptionsMutationUpdatePerson options) =>
+          WatchOptionsMutationUpdatePerson options) =>
       this.watchMutation(options);
 }
 
 graphql_flutter.MutationHookResult<MutationUpdatePerson>
-    useMutationUpdatePerson(GQLOptionsMutationUpdatePerson options) =>
+    useMutationUpdatePerson(OptionsMutationUpdatePerson options) =>
         graphql_flutter.useMutation(options);
 graphql.ObservableQuery<MutationUpdatePerson> useWatchMutationUpdatePerson(
-        GQLWatchOptionsMutationUpdatePerson options) =>
+        WatchOptionsMutationUpdatePerson options) =>
     graphql_flutter.useWatchMutation(options);
 
-class GQLFOptionsMutationUpdatePerson
+class WidgetOptionsMutationUpdatePerson
     extends graphql.MutationOptions<MutationUpdatePerson> {
-  GQLFOptionsMutationUpdatePerson(
+  WidgetOptionsMutationUpdatePerson(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      GQLOnMutationCompletedMutationUpdatePerson? onCompleted,
+      OnMutationCompletedMutationUpdatePerson? onCompleted,
       graphql.OnMutationUpdate? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
@@ -453,7 +452,7 @@ class GQLFOptionsMutationUpdatePerson
             document: MUTATION_UPDATE_PERSON,
             parserFn: _parserFnMutationUpdatePerson);
 
-  final GQLOnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
+  final OnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -464,22 +463,22 @@ class GQLFOptionsMutationUpdatePerson
       ];
 }
 
-typedef GQLFRunMutationMutationUpdatePerson
+typedef RunMutationMutationUpdatePerson
     = graphql.MultiSourceResult<MutationUpdatePerson>
         Function(VariablesMutationUpdatePerson, {Object? optimisticResult});
-typedef GQLFBuilderMutationUpdatePerson = widgets.Widget Function(
-    GQLFRunMutationMutationUpdatePerson,
+typedef BuilderMutationUpdatePerson = widgets.Widget Function(
+    RunMutationMutationUpdatePerson,
     graphql.QueryResult<MutationUpdatePerson>?);
 
-class GQLFMutationUpdatePerson
+class MutationUpdatePersonWidget
     extends graphql_flutter.Mutation<MutationUpdatePerson> {
-  GQLFMutationUpdatePerson(
+  MutationUpdatePersonWidget(
       {widgets.Key? key,
-      GQLFOptionsMutationUpdatePerson? options,
-      required GQLFBuilderMutationUpdatePerson builder})
+      WidgetOptionsMutationUpdatePerson? options,
+      required BuilderMutationUpdatePerson builder})
       : super(
             key: key,
-            options: options ?? GQLFOptionsMutationUpdatePerson(),
+            options: options ?? WidgetOptionsMutationUpdatePerson(),
             builder: (run, result) => builder(
                 (variables, {optimisticResult}) =>
                     run(variables.toJson(), optimisticResult: optimisticResult),
@@ -582,9 +581,9 @@ SubscriptionWatchPerson _parserFnSubscriptionWatchPerson(
         Map<String, dynamic> data) =>
     SubscriptionWatchPerson.fromJson(data);
 
-class GQLOptionsSubscriptionWatchPerson
+class OptionsSubscriptionWatchPerson
     extends graphql.SubscriptionOptions<SubscriptionWatchPerson> {
-  GQLOptionsSubscriptionWatchPerson(
+  OptionsSubscriptionWatchPerson(
       {String? operationName,
       VariablesSubscriptionWatchPerson? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -604,9 +603,9 @@ class GQLOptionsSubscriptionWatchPerson
             parserFn: _parserFnSubscriptionWatchPerson);
 }
 
-class GQLWatchOptionsSubscriptionWatchPerson
+class WatchOptionsSubscriptionWatchPerson
     extends graphql.WatchQueryOptions<SubscriptionWatchPerson> {
-  GQLWatchOptionsSubscriptionWatchPerson(
+  WatchOptionsSubscriptionWatchPerson(
       {String? operationName,
       VariablesSubscriptionWatchPerson? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -634,9 +633,8 @@ class GQLWatchOptionsSubscriptionWatchPerson
             parserFn: _parserFnSubscriptionWatchPerson);
 }
 
-class GQLFetchMoreOptionsSubscriptionWatchPerson
-    extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsSubscriptionWatchPerson(
+class FetchMoreOptionsSubscriptionWatchPerson extends graphql.FetchMoreOptions {
+  FetchMoreOptionsSubscriptionWatchPerson(
       {required graphql.UpdateQuery updateQuery,
       VariablesSubscriptionWatchPerson? variables})
       : super(
@@ -645,31 +643,31 @@ class GQLFetchMoreOptionsSubscriptionWatchPerson
             document: SUBSCRIPTION_WATCH_PERSON);
 }
 
-extension GQLExtensionSubscriptionWatchPerson on graphql.GraphQLClient {
+extension ClientExtensionSubscriptionWatchPerson on graphql.GraphQLClient {
   Stream<graphql.QueryResult<SubscriptionWatchPerson>> subscribeWatchPerson(
-          [GQLOptionsSubscriptionWatchPerson? options]) =>
-      this.subscribe(options ?? GQLOptionsSubscriptionWatchPerson());
+          [OptionsSubscriptionWatchPerson? options]) =>
+      this.subscribe(options ?? OptionsSubscriptionWatchPerson());
   graphql.ObservableQuery<SubscriptionWatchPerson> watchSubscriptionWatchPerson(
-          [GQLWatchOptionsSubscriptionWatchPerson? options]) =>
-      this.watchQuery(options ?? GQLWatchOptionsSubscriptionWatchPerson());
+          [WatchOptionsSubscriptionWatchPerson? options]) =>
+      this.watchQuery(options ?? WatchOptionsSubscriptionWatchPerson());
 }
 
 graphql.QueryResult<SubscriptionWatchPerson> useSubscriptionWatchPerson(
-        GQLOptionsSubscriptionWatchPerson options) =>
+        OptionsSubscriptionWatchPerson options) =>
     graphql_flutter.useSubscription(options);
 
-class GQLFSubscriptionWatchPerson
+class SubscriptionWatchPersonWidget
     extends graphql_flutter.Subscription<SubscriptionWatchPerson> {
-  GQLFSubscriptionWatchPerson(
+  SubscriptionWatchPersonWidget(
       {widgets.Key? key,
-      GQLOptionsSubscriptionWatchPerson? options,
+      OptionsSubscriptionWatchPerson? options,
       required graphql_flutter.SubscriptionBuilder<SubscriptionWatchPerson>
           builder,
       graphql_flutter.OnSubscriptionResult<SubscriptionWatchPerson>?
           onSubscriptionResult})
       : super(
             key: key,
-            options: options ?? GQLOptionsSubscriptionWatchPerson(),
+            options: options ?? OptionsSubscriptionWatchPerson(),
             builder: builder,
             onSubscriptionResult: onSubscriptionResult);
 }

@@ -1,3 +1,7 @@
+# 0.7.0-beta.1
+
+* Rename classes. Remove `GQL` and `GQLF` prefixes.
+
 # 0.6.1-beta.2
 
 * Feat: Build hooks!

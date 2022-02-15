@@ -57,9 +57,9 @@ const SUBSCRIPTION_NO_ARGS = const DocumentNode(definitions: [
 SubscriptionNoArgs _parserFnSubscriptionNoArgs(Map<String, dynamic> data) =>
     SubscriptionNoArgs.fromJson(data);
 
-class GQLOptionsSubscriptionNoArgs
+class OptionsSubscriptionNoArgs
     extends graphql.SubscriptionOptions<SubscriptionNoArgs> {
-  GQLOptionsSubscriptionNoArgs(
+  OptionsSubscriptionNoArgs(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -77,9 +77,9 @@ class GQLOptionsSubscriptionNoArgs
             parserFn: _parserFnSubscriptionNoArgs);
 }
 
-class GQLWatchOptionsSubscriptionNoArgs
+class WatchOptionsSubscriptionNoArgs
     extends graphql.WatchQueryOptions<SubscriptionNoArgs> {
-  GQLWatchOptionsSubscriptionNoArgs(
+  WatchOptionsSubscriptionNoArgs(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -105,36 +105,35 @@ class GQLWatchOptionsSubscriptionNoArgs
             parserFn: _parserFnSubscriptionNoArgs);
 }
 
-class GQLFetchMoreOptionsSubscriptionNoArgs extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsSubscriptionNoArgs(
-      {required graphql.UpdateQuery updateQuery})
+class FetchMoreOptionsSubscriptionNoArgs extends graphql.FetchMoreOptions {
+  FetchMoreOptionsSubscriptionNoArgs({required graphql.UpdateQuery updateQuery})
       : super(updateQuery: updateQuery, document: SUBSCRIPTION_NO_ARGS);
 }
 
-extension GQLExtensionSubscriptionNoArgs on graphql.GraphQLClient {
+extension ClientExtensionSubscriptionNoArgs on graphql.GraphQLClient {
   Stream<graphql.QueryResult<SubscriptionNoArgs>> subscribeNoArgs(
-          [GQLOptionsSubscriptionNoArgs? options]) =>
-      this.subscribe(options ?? GQLOptionsSubscriptionNoArgs());
+          [OptionsSubscriptionNoArgs? options]) =>
+      this.subscribe(options ?? OptionsSubscriptionNoArgs());
   graphql.ObservableQuery<SubscriptionNoArgs> watchSubscriptionNoArgs(
-          [GQLWatchOptionsSubscriptionNoArgs? options]) =>
-      this.watchQuery(options ?? GQLWatchOptionsSubscriptionNoArgs());
+          [WatchOptionsSubscriptionNoArgs? options]) =>
+      this.watchQuery(options ?? WatchOptionsSubscriptionNoArgs());
 }
 
 graphql.QueryResult<SubscriptionNoArgs> useSubscriptionNoArgs(
-        GQLOptionsSubscriptionNoArgs options) =>
+        OptionsSubscriptionNoArgs options) =>
     graphql_flutter.useSubscription(options);
 
-class GQLFSubscriptionNoArgs
+class SubscriptionNoArgsWidget
     extends graphql_flutter.Subscription<SubscriptionNoArgs> {
-  GQLFSubscriptionNoArgs(
+  SubscriptionNoArgsWidget(
       {widgets.Key? key,
-      GQLOptionsSubscriptionNoArgs? options,
+      OptionsSubscriptionNoArgs? options,
       required graphql_flutter.SubscriptionBuilder<SubscriptionNoArgs> builder,
       graphql_flutter.OnSubscriptionResult<SubscriptionNoArgs>?
           onSubscriptionResult})
       : super(
             key: key,
-            options: options ?? GQLOptionsSubscriptionNoArgs(),
+            options: options ?? OptionsSubscriptionNoArgs(),
             builder: builder,
             onSubscriptionResult: onSubscriptionResult);
 }
@@ -234,9 +233,9 @@ SubscriptionRequiredArg _parserFnSubscriptionRequiredArg(
         Map<String, dynamic> data) =>
     SubscriptionRequiredArg.fromJson(data);
 
-class GQLOptionsSubscriptionRequiredArg
+class OptionsSubscriptionRequiredArg
     extends graphql.SubscriptionOptions<SubscriptionRequiredArg> {
-  GQLOptionsSubscriptionRequiredArg(
+  OptionsSubscriptionRequiredArg(
       {String? operationName,
       required VariablesSubscriptionRequiredArg variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -256,9 +255,9 @@ class GQLOptionsSubscriptionRequiredArg
             parserFn: _parserFnSubscriptionRequiredArg);
 }
 
-class GQLWatchOptionsSubscriptionRequiredArg
+class WatchOptionsSubscriptionRequiredArg
     extends graphql.WatchQueryOptions<SubscriptionRequiredArg> {
-  GQLWatchOptionsSubscriptionRequiredArg(
+  WatchOptionsSubscriptionRequiredArg(
       {String? operationName,
       required VariablesSubscriptionRequiredArg variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -286,9 +285,8 @@ class GQLWatchOptionsSubscriptionRequiredArg
             parserFn: _parserFnSubscriptionRequiredArg);
 }
 
-class GQLFetchMoreOptionsSubscriptionRequiredArg
-    extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsSubscriptionRequiredArg(
+class FetchMoreOptionsSubscriptionRequiredArg extends graphql.FetchMoreOptions {
+  FetchMoreOptionsSubscriptionRequiredArg(
       {required graphql.UpdateQuery updateQuery,
       required VariablesSubscriptionRequiredArg variables})
       : super(
@@ -297,24 +295,24 @@ class GQLFetchMoreOptionsSubscriptionRequiredArg
             document: SUBSCRIPTION_REQUIRED_ARG);
 }
 
-extension GQLExtensionSubscriptionRequiredArg on graphql.GraphQLClient {
+extension ClientExtensionSubscriptionRequiredArg on graphql.GraphQLClient {
   Stream<graphql.QueryResult<SubscriptionRequiredArg>> subscribeRequiredArg(
-          GQLOptionsSubscriptionRequiredArg options) =>
+          OptionsSubscriptionRequiredArg options) =>
       this.subscribe(options);
   graphql.ObservableQuery<SubscriptionRequiredArg> watchSubscriptionRequiredArg(
-          GQLWatchOptionsSubscriptionRequiredArg options) =>
+          WatchOptionsSubscriptionRequiredArg options) =>
       this.watchQuery(options);
 }
 
 graphql.QueryResult<SubscriptionRequiredArg> useSubscriptionRequiredArg(
-        GQLOptionsSubscriptionRequiredArg options) =>
+        OptionsSubscriptionRequiredArg options) =>
     graphql_flutter.useSubscription(options);
 
-class GQLFSubscriptionRequiredArg
+class SubscriptionRequiredArgWidget
     extends graphql_flutter.Subscription<SubscriptionRequiredArg> {
-  GQLFSubscriptionRequiredArg(
+  SubscriptionRequiredArgWidget(
       {widgets.Key? key,
-      required GQLOptionsSubscriptionRequiredArg options,
+      required OptionsSubscriptionRequiredArg options,
       required graphql_flutter.SubscriptionBuilder<SubscriptionRequiredArg>
           builder,
       graphql_flutter.OnSubscriptionResult<SubscriptionRequiredArg>?
@@ -421,9 +419,9 @@ SubscriptionOptionalArg _parserFnSubscriptionOptionalArg(
         Map<String, dynamic> data) =>
     SubscriptionOptionalArg.fromJson(data);
 
-class GQLOptionsSubscriptionOptionalArg
+class OptionsSubscriptionOptionalArg
     extends graphql.SubscriptionOptions<SubscriptionOptionalArg> {
-  GQLOptionsSubscriptionOptionalArg(
+  OptionsSubscriptionOptionalArg(
       {String? operationName,
       VariablesSubscriptionOptionalArg? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -443,9 +441,9 @@ class GQLOptionsSubscriptionOptionalArg
             parserFn: _parserFnSubscriptionOptionalArg);
 }
 
-class GQLWatchOptionsSubscriptionOptionalArg
+class WatchOptionsSubscriptionOptionalArg
     extends graphql.WatchQueryOptions<SubscriptionOptionalArg> {
-  GQLWatchOptionsSubscriptionOptionalArg(
+  WatchOptionsSubscriptionOptionalArg(
       {String? operationName,
       VariablesSubscriptionOptionalArg? variables,
       graphql.FetchPolicy? fetchPolicy,
@@ -473,9 +471,8 @@ class GQLWatchOptionsSubscriptionOptionalArg
             parserFn: _parserFnSubscriptionOptionalArg);
 }
 
-class GQLFetchMoreOptionsSubscriptionOptionalArg
-    extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsSubscriptionOptionalArg(
+class FetchMoreOptionsSubscriptionOptionalArg extends graphql.FetchMoreOptions {
+  FetchMoreOptionsSubscriptionOptionalArg(
       {required graphql.UpdateQuery updateQuery,
       VariablesSubscriptionOptionalArg? variables})
       : super(
@@ -484,31 +481,31 @@ class GQLFetchMoreOptionsSubscriptionOptionalArg
             document: SUBSCRIPTION_OPTIONAL_ARG);
 }
 
-extension GQLExtensionSubscriptionOptionalArg on graphql.GraphQLClient {
+extension ClientExtensionSubscriptionOptionalArg on graphql.GraphQLClient {
   Stream<graphql.QueryResult<SubscriptionOptionalArg>> subscribeOptionalArg(
-          [GQLOptionsSubscriptionOptionalArg? options]) =>
-      this.subscribe(options ?? GQLOptionsSubscriptionOptionalArg());
+          [OptionsSubscriptionOptionalArg? options]) =>
+      this.subscribe(options ?? OptionsSubscriptionOptionalArg());
   graphql.ObservableQuery<SubscriptionOptionalArg> watchSubscriptionOptionalArg(
-          [GQLWatchOptionsSubscriptionOptionalArg? options]) =>
-      this.watchQuery(options ?? GQLWatchOptionsSubscriptionOptionalArg());
+          [WatchOptionsSubscriptionOptionalArg? options]) =>
+      this.watchQuery(options ?? WatchOptionsSubscriptionOptionalArg());
 }
 
 graphql.QueryResult<SubscriptionOptionalArg> useSubscriptionOptionalArg(
-        GQLOptionsSubscriptionOptionalArg options) =>
+        OptionsSubscriptionOptionalArg options) =>
     graphql_flutter.useSubscription(options);
 
-class GQLFSubscriptionOptionalArg
+class SubscriptionOptionalArgWidget
     extends graphql_flutter.Subscription<SubscriptionOptionalArg> {
-  GQLFSubscriptionOptionalArg(
+  SubscriptionOptionalArgWidget(
       {widgets.Key? key,
-      GQLOptionsSubscriptionOptionalArg? options,
+      OptionsSubscriptionOptionalArg? options,
       required graphql_flutter.SubscriptionBuilder<SubscriptionOptionalArg>
           builder,
       graphql_flutter.OnSubscriptionResult<SubscriptionOptionalArg>?
           onSubscriptionResult})
       : super(
             key: key,
-            options: options ?? GQLOptionsSubscriptionOptionalArg(),
+            options: options ?? OptionsSubscriptionOptionalArg(),
             builder: builder,
             onSubscriptionResult: onSubscriptionResult);
 }
