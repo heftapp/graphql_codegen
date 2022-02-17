@@ -152,13 +152,32 @@ extension ClientExtensionMutationUpdateSOptional on graphql.GraphQLClient {
       this.watchMutation(options ?? WatchOptionsMutationUpdateSOptional());
 }
 
-graphql_flutter.MutationHookResult<MutationUpdateSOptional>
-    useMutationUpdateSOptional(OptionsMutationUpdateSOptional options) =>
-        graphql_flutter.useMutation(options);
+class MutationUpdateSOptionalHookResult {
+  MutationUpdateSOptionalHookResult(this.runMutation, this.result);
+
+  final RunMutationMutationUpdateSOptional runMutation;
+
+  final graphql.QueryResult<MutationUpdateSOptional> result;
+}
+
+MutationUpdateSOptionalHookResult useMutationUpdateSOptional(
+    [WidgetOptionsMutationUpdateSOptional? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptionsMutationUpdateSOptional());
+  return MutationUpdateSOptionalHookResult(
+    ({variables, optimisticResult}) => result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult,
+    ),
+    result.result,
+  );
+}
+
 graphql.ObservableQuery<MutationUpdateSOptional>
     useWatchMutationUpdateSOptional(
-            WatchOptionsMutationUpdateSOptional options) =>
-        graphql_flutter.useWatchMutation(options);
+            [WatchOptionsMutationUpdateSOptional? options]) =>
+        graphql_flutter
+            .useWatchMutation(options ?? WatchOptionsMutationUpdateSOptional());
 
 class WidgetOptionsMutationUpdateSOptional
     extends graphql.MutationOptions<MutationUpdateSOptional> {
@@ -222,7 +241,7 @@ class MutationUpdateSOptionalWidget
             options: options ?? WidgetOptionsMutationUpdateSOptional(),
             builder: (run, result) => builder(
                 ({variables, optimisticResult}) => run(
-                    variables?.toJson() ?? {},
+                    variables?.toJson() ?? const {},
                     optimisticResult: optimisticResult),
                 result));
 }
