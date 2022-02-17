@@ -1,3 +1,7 @@
+# 0.7.0-beta.3
+
+* Improve hook options
+
 # 0.7.0-beta.2
 
 * Change property naming scheme
