@@ -78,10 +78,13 @@ String printGraphQLFlutterClientBuilderName(Name name) =>
 String printGraphQLFlutterClientOperationName(Name name) =>
     "${_printName(name)}Widget";
 
+String printGraphQLFlutterClientMutationHookResultName(Name name) =>
+    "${_printName(name)}HookResult";
+
 String printGraphQLFlutterClientMutationHookName(Name name) =>
     "use${_printName(name)}";
 
-String printGraphQLFlutterClientWatchMutationHookName(Name name) =>
+String printGraphQLFlutterClientWatchHookName(Name name) =>
     "useWatch${_printName(name)}";
 
 String printGraphQLFlutterClientQueryHookName(Name name) =>

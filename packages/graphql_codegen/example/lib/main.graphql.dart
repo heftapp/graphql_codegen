@@ -435,9 +435,27 @@ extension ClientExtensionMutationUpdatePerson on graphql.GraphQLClient {
       this.watchMutation(options);
 }
 
-graphql_flutter.MutationHookResult<MutationUpdatePerson>
-    useMutationUpdatePerson(OptionsMutationUpdatePerson options) =>
-        graphql_flutter.useMutation(options);
+class MutationUpdatePersonHookResult {
+  MutationUpdatePersonHookResult(this.runMutation, this.result);
+
+  final RunMutationMutationUpdatePerson runMutation;
+
+  final graphql.QueryResult<MutationUpdatePerson> result;
+}
+
+MutationUpdatePersonHookResult useMutationUpdatePerson(
+    [WidgetOptionsMutationUpdatePerson? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptionsMutationUpdatePerson());
+  return MutationUpdatePersonHookResult(
+    (variables, {optimisticResult}) => result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult,
+    ),
+    result.result,
+  );
+}
+
 graphql.ObservableQuery<MutationUpdatePerson> useWatchMutationUpdatePerson(
         WatchOptionsMutationUpdatePerson options) =>
     graphql_flutter.useWatchMutation(options);

@@ -108,11 +108,12 @@ extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<QueryFetchSNoVariables>
-    useQueryFetchSNoVariables(OptionsQueryFetchSNoVariables options) =>
-        graphql_flutter.useQuery(options);
+    useQueryFetchSNoVariables([OptionsQueryFetchSNoVariables? options]) =>
+        graphql_flutter.useQuery(options ?? OptionsQueryFetchSNoVariables());
 graphql.ObservableQuery<QueryFetchSNoVariables> useWatchQueryFetchSNoVariables(
-        WatchOptionsQueryFetchSNoVariables options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptionsQueryFetchSNoVariables? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptionsQueryFetchSNoVariables());
 
 class QueryFetchSNoVariablesWidget
     extends graphql_flutter.Query<QueryFetchSNoVariables> {

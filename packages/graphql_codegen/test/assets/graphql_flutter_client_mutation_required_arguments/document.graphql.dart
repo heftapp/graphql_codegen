@@ -152,9 +152,27 @@ extension ClientExtensionMutationUpdateSRequired on graphql.GraphQLClient {
       this.watchMutation(options);
 }
 
-graphql_flutter.MutationHookResult<MutationUpdateSRequired>
-    useMutationUpdateSRequired(OptionsMutationUpdateSRequired options) =>
-        graphql_flutter.useMutation(options);
+class MutationUpdateSRequiredHookResult {
+  MutationUpdateSRequiredHookResult(this.runMutation, this.result);
+
+  final RunMutationMutationUpdateSRequired runMutation;
+
+  final graphql.QueryResult<MutationUpdateSRequired> result;
+}
+
+MutationUpdateSRequiredHookResult useMutationUpdateSRequired(
+    [WidgetOptionsMutationUpdateSRequired? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptionsMutationUpdateSRequired());
+  return MutationUpdateSRequiredHookResult(
+    (variables, {optimisticResult}) => result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult,
+    ),
+    result.result,
+  );
+}
+
 graphql.ObservableQuery<MutationUpdateSRequired>
     useWatchMutationUpdateSRequired(
             WatchOptionsMutationUpdateSRequired options) =>

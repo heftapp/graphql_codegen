@@ -121,12 +121,31 @@ extension ClientExtensionMutationUpdateSNo on graphql.GraphQLClient {
       this.watchMutation(options ?? WatchOptionsMutationUpdateSNo());
 }
 
-graphql_flutter.MutationHookResult<MutationUpdateSNo> useMutationUpdateSNo(
-        OptionsMutationUpdateSNo options) =>
-    graphql_flutter.useMutation(options);
+class MutationUpdateSNoHookResult {
+  MutationUpdateSNoHookResult(this.runMutation, this.result);
+
+  final RunMutationMutationUpdateSNo runMutation;
+
+  final graphql.QueryResult<MutationUpdateSNo> result;
+}
+
+MutationUpdateSNoHookResult useMutationUpdateSNo(
+    [WidgetOptionsMutationUpdateSNo? options]) {
+  final result =
+      graphql_flutter.useMutation(options ?? WidgetOptionsMutationUpdateSNo());
+  return MutationUpdateSNoHookResult(
+    ({optimisticResult}) => result.runMutation(
+      const {},
+      optimisticResult: optimisticResult,
+    ),
+    result.result,
+  );
+}
+
 graphql.ObservableQuery<MutationUpdateSNo> useWatchMutationUpdateSNo(
-        WatchOptionsMutationUpdateSNo options) =>
-    graphql_flutter.useWatchMutation(options);
+        [WatchOptionsMutationUpdateSNo? options]) =>
+    graphql_flutter
+        .useWatchMutation(options ?? WatchOptionsMutationUpdateSNo());
 
 class WidgetOptionsMutationUpdateSNo
     extends graphql.MutationOptions<MutationUpdateSNo> {
@@ -185,7 +204,7 @@ class MutationUpdateSNoWidget
             options: options ?? WidgetOptionsMutationUpdateSNo(),
             builder: (run, result) => builder(
                 ({optimisticResult}) =>
-                    run({}, optimisticResult: optimisticResult),
+                    run(const {}, optimisticResult: optimisticResult),
                 result));
 }
 

@@ -140,13 +140,13 @@ Spec printMutation(PrintContext c) {
                           ..body = refer('run').call(
                             [
                               if (!hasVariables)
-                                literalMap({})
+                                literalConstMap({})
                               else if (areVariablesRequired)
                                 refer('variables').property('toJson').call([])
                               else
                                 refer('variables')
                                     .nullSafeProperty('toJson')
-                                    .call([]).ifNullThen(literalMap({})),
+                                    .call([]).ifNullThen(literalConstMap({})),
                             ],
                             {'optimisticResult': refer('optimisticResult')},
                           ).code,
@@ -164,6 +164,7 @@ Spec printMutation(PrintContext c) {
 Iterable<Spec> printMutationSpecs(PrintContext<ContextOperation> context) {
   _addDependencies(context);
   return [
+    printMutationHookResult(context),
     printMutationHook(context),
     printWatchMutationHook(context),
     printMutationOptions(
@@ -249,59 +250,144 @@ Iterable<Spec> printQuerySpecs(PrintContext<Context> context) {
   ];
 }
 
-Spec printMutationHook(PrintContext context) {
-  return Method(
+Spec printMutationHookResult(PrintContext context) {
+  return Class(
     (b) => b
-      ..requiredParameters = ListBuilder([
-        Parameter(
-          (b) => b
-            ..type = refer(printGraphQLClientOptionsName(context.path))
-            ..name = 'options',
-        )
-      ])
-      ..returns = TypeReference(
-        (b) => b
-          ..symbol = 'graphql_flutter.MutationHookResult'
-          ..types = ListBuilder([refer(printClassName(context.path))]),
+      ..name = printGraphQLFlutterClientMutationHookResultName(
+        context.path,
       )
-      ..name = printGraphQLFlutterClientMutationHookName(context.path)
-      ..body = refer('graphql_flutter').property('useMutation').call([
-        refer('options'),
-      ]).code,
+      ..constructors = ListBuilder([
+        Constructor(
+          (b) => b
+            ..requiredParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..toThis = true
+                  ..name = 'runMutation',
+              ),
+              Parameter(
+                (b) => b
+                  ..toThis = true
+                  ..name = 'result',
+              ),
+            ]),
+        ),
+      ])
+      ..fields = ListBuilder([
+        Field(
+          (b) => b
+            ..name = 'runMutation'
+            ..modifier = FieldModifier.final$
+            ..type = refer(
+              printGraphQLFlutterClientRunMutationName(context.path),
+            ),
+        ),
+        Field(
+          (b) => b
+            ..name = 'result'
+            ..modifier = FieldModifier.final$
+            ..type = TypeReference(
+              (b) => b
+                ..symbol = 'graphql.QueryResult'
+                ..types = ListBuilder([
+                  refer(printClassName(context.path)),
+                ]),
+            ),
+        ),
+      ]),
   );
 }
 
-Spec printWatchMutationHook(PrintContext context) {
+Spec printMutationHook(PrintContext context) {
+  final runMutation = context.context.hasVariables
+      ? context.context.isVariablesRequired
+          ? '(variables, {optimisticResult}) => result.runMutation(variables.toJson(), optimisticResult: optimisticResult, )'
+          : '({variables, optimisticResult}) => result.runMutation(variables?.toJson() ?? const {}, optimisticResult: optimisticResult, )'
+      : '({optimisticResult}) => result.runMutation(const {}, optimisticResult: optimisticResult, )';
+  return Method(
+    (b) => b
+      ..optionalParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = TypeReference(
+              (b) => b
+                ..symbol = printGraphQLFlutterClientOptionsName(context.path)
+                ..isNullable = true,
+            )
+            ..name = 'options',
+        )
+      ])
+      ..returns = refer(printGraphQLFlutterClientMutationHookResultName(
+        context.path,
+      ))
+      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..body = Code("""
+      final result = graphql_flutter.useMutation(options ?? ${printGraphQLFlutterClientOptionsName(context.path)}());
+      return ${printGraphQLFlutterClientMutationHookResultName(context.path)}(
+        ${runMutation},
+        result.result,
+      );
+      """),
+  );
+}
+
+Spec printWatchHook(PrintContext context, String libraryHookName) {
+  final isOptionsRequried = context.context.isVariablesRequired;
+  final parameter = Parameter(
+    (b) => b
+      ..type = TypeReference(
+        (b) => b
+          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..isNullable = !isOptionsRequried,
+      )
+      ..name = 'options',
+  );
   return Method(
     (b) => b
       ..requiredParameters = ListBuilder([
-        Parameter(
-          (b) => b
-            ..type = refer(printGraphQLClientWatchOptionsName(context.path))
-            ..name = 'options',
-        )
+        if (isOptionsRequried) parameter,
+      ])
+      ..optionalParameters = ListBuilder([
+        if (!isOptionsRequried) parameter,
       ])
       ..returns = TypeReference(
         (b) => b
           ..symbol = 'graphql.ObservableQuery'
           ..types = ListBuilder([refer(printClassName(context.path))]),
       )
-      ..name = printGraphQLFlutterClientWatchMutationHookName(context.path)
-      ..body = refer('graphql_flutter').property('useWatchMutation').call([
-        refer('options'),
+      ..name = printGraphQLFlutterClientWatchHookName(context.path)
+      ..body = refer('graphql_flutter').property(libraryHookName).call([
+        isOptionsRequried
+            ? refer('options')
+            : refer('options').ifNullThen(
+                refer(printGraphQLClientWatchOptionsName(context.path))
+                    .newInstance([]))
       ]).code,
   );
 }
 
-Spec printQueryHook(PrintContext context) {
+Spec printWatchMutationHook(PrintContext context) =>
+    printWatchHook(context, 'useWatchMutation');
+
+Spec printQueryHook(PrintContext c) {
+  final context = c.context;
+  final isOptionsRequired = context.isVariablesRequired;
+  final parameter = Parameter(
+    (b) => b
+      ..type = TypeReference(
+        (b) => b
+          ..symbol = printGraphQLClientOptionsName(context.path)
+          ..isNullable = !isOptionsRequired,
+      )
+      ..name = 'options',
+  );
   return Method(
     (b) => b
       ..requiredParameters = ListBuilder([
-        Parameter(
-          (b) => b
-            ..type = refer(printGraphQLClientOptionsName(context.path))
-            ..name = 'options',
-        )
+        if (isOptionsRequired) parameter,
+      ])
+      ..optionalParameters = ListBuilder([
+        if (!isOptionsRequired) parameter,
       ])
       ..returns = TypeReference(
         (b) => b
@@ -310,32 +396,18 @@ Spec printQueryHook(PrintContext context) {
       )
       ..name = printGraphQLFlutterClientMutationHookName(context.path)
       ..body = refer('graphql_flutter').property('useQuery').call([
-        refer('options'),
+        isOptionsRequired
+            ? refer('options')
+            : refer('options').ifNullThen(
+                refer(printGraphQLClientOptionsName(context.path))
+                    .newInstance([]),
+              ),
       ]).code,
   );
 }
 
-Spec printWatchQueryHook(PrintContext context) {
-  return Method(
-    (b) => b
-      ..requiredParameters = ListBuilder([
-        Parameter(
-          (b) => b
-            ..type = refer(printGraphQLClientWatchOptionsName(context.path))
-            ..name = 'options',
-        )
-      ])
-      ..returns = TypeReference(
-        (b) => b
-          ..symbol = 'graphql.ObservableQuery'
-          ..types = ListBuilder([refer(printClassName(context.path))]),
-      )
-      ..name = printGraphQLFlutterClientWatchMutationHookName(context.path)
-      ..body = refer('graphql_flutter').property('useWatchQuery').call([
-        refer('options'),
-      ]).code,
-  );
-}
+Spec printWatchQueryHook(PrintContext context) =>
+    printWatchHook(context, 'useWatchQuery');
 
 Spec printSubscriptionHook(PrintContext context) {
   return Method(
