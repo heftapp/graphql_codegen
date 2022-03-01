@@ -210,7 +210,7 @@ packages:
       name: gql_code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.3.0-alpha.0"
   gql_dedupe_link:
     dependency: transitive
     description:
@@ -259,13 +259,13 @@ packages:
       name: graphql
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.2-beta.2"
+    version: "5.0.2-beta.3"
   graphql_codegen_config:
     dependency: "direct main"
     description:
-      path: "../graphql_codegen_config"
-      relative: true
-    source: path
+      name: graphql_codegen_config
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.2.0"
   graphs:
     dependency: transitive
@@ -280,7 +280,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.0.6"
   html:
     dependency: transitive
     description:
@@ -301,7 +301,7 @@ packages:
       name: http_multi_server
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.2.0"
   http_parser:
     dependency: transitive
     description:
@@ -322,7 +322,7 @@ packages:
       name: js
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.3"
+    version: "0.6.4"
   json_annotation:
     dependency: "direct dev"
     description:
@@ -567,7 +567,7 @@ packages:
       name: uuid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.5"
+    version: "3.0.6"
   vm_service:
     dependency: transitive
     description:
@@ -604,4 +604,4 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
+  dart: ">=2.16.0-100.0.dev <3.0.0"
