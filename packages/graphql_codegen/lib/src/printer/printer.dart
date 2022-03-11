@@ -122,7 +122,7 @@ Method printFragmentProperty(
       (b) => b
         ..type = MethodType.getter
         ..name = printPropertyName(property.name)
-        ..returns = printClassPropertyType(context, property).i1,
+        ..returns = printClassPropertyType(context, property).reference,
     );
 
 Spec printDocument(
@@ -229,6 +229,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       ];
     }),
     if (context.isMainContext) printPossibleTypesMap(c),
+    ...c.converters,
   ]);
 
   final library = Library(
@@ -359,7 +360,7 @@ Class printContext(PrintContext<ContextOperation> c) {
                       ..required = p.isRequired
                       ..named = true
                       ..name = printPropertyName(p.name)
-                      ..type = printClassPropertyType(c, p).i1,
+                      ..type = printClassPropertyType(c, p).reference,
                   ),
                 ),
               ],
@@ -420,8 +421,8 @@ Field printClassProperty(
     context,
     property,
   );
-  jsonKeyAnnotations.addAll(classPropertyTypeT.i2);
-
+  jsonKeyAnnotations.addAll(classPropertyTypeT.annotations);
+  context.addConverters(classPropertyTypeT.converters);
   return Field(
     (b) => b
       ..annotations = ListBuilder([
@@ -433,22 +434,154 @@ Field printClassProperty(
       ])
       ..modifier = FieldModifier.final$
       ..name = printPropertyName(property.name)
-      ..type = classPropertyTypeT.i1,
+      ..type = classPropertyTypeT.reference,
   );
 }
 
-class Tuple2<T1, T2> {
-  final T1 i1;
-  final T2 i2;
+class PrintPropertyResult {
+  final Reference reference;
+  final Map<String, Expression> annotations;
+  final Map<String, Spec> converters;
 
-  Tuple2(this.i1, this.i2);
+  factory PrintPropertyResult.withAnnotations(
+    Reference reference,
+    Map<String, Expression> annotations,
+  ) =>
+      PrintPropertyResult._(reference, annotations, {});
 
-  withI1(T1 i1) => Tuple2(i1, i2);
+  factory PrintPropertyResult(Reference reference) =>
+      PrintPropertyResult._(reference, {}, {});
 
-  withI2(T1 i2) => Tuple2(i1, i2);
+  PrintPropertyResult._(
+    this.reference,
+    this.annotations,
+    this.converters,
+  );
+
+  PrintPropertyResult _mapJsonConverters(
+      Reference Function(Reference r) generateNewReference,
+      Spec Function(Reference oldRef, Reference newRef) generateToJson,
+      Spec Function(Reference oldRef, Reference newRef) generateFromJson) {
+    final annotations = {...this.annotations};
+    final converters = {...this.converters};
+    final currentFromJson = this.annotations[_FROM_JSON_ANNOTATION_KEY];
+    final currentToJson = this.annotations[_TO_JSON_ANNOTATION_KEY];
+    if (currentFromJson is Reference) {
+      final newFromJson = generateNewReference(currentFromJson);
+      annotations[_FROM_JSON_ANNOTATION_KEY] = newFromJson;
+      converters[newFromJson.symbol ?? ''] =
+          generateFromJson(currentFromJson, newFromJson);
+    }
+    if (currentToJson is Reference) {
+      final newToJson = generateNewReference(currentToJson);
+      annotations[_TO_JSON_ANNOTATION_KEY] = newToJson;
+      converters[newToJson.symbol ?? ''] =
+          generateToJson(currentToJson, newToJson);
+    }
+    return PrintPropertyResult._(
+      reference,
+      annotations,
+      converters,
+    );
+  }
+
+  PrintPropertyResult asNullable() {
+    final reference = refer("${this.reference.symbol}?");
+    return PrintPropertyResult._(
+      reference,
+      annotations,
+      converters,
+    )._mapJsonConverters(
+      (r) => refer("_nullable\$${r.symbol}"),
+      (oldRef, newRef) => Method(
+        (b) => b
+          ..name = newRef.symbol
+          ..returns = refer('dynamic')
+          ..requiredParameters = ListBuilder([
+            Parameter(
+              (b) => b
+                ..name = 'data'
+                ..type = reference,
+            )
+          ])
+          ..body = printNullCheck(
+            refer('data'),
+            oldRef.call([refer('data')]),
+          ).code,
+      ),
+      (oldRef, newRef) => Method(
+        (b) => b
+          ..name = newRef.symbol
+          ..returns = reference
+          ..requiredParameters = ListBuilder([
+            Parameter(
+              (b) => b
+                ..name = 'data'
+                ..type = refer('dynamic'),
+            )
+          ])
+          ..body = printNullCheck(
+            refer('data'),
+            oldRef.call([refer('data')]),
+          ).code,
+      ),
+    );
+  }
+
+  PrintPropertyResult asList() {
+    final reference = refer("List<${this.reference.symbol}>");
+    return PrintPropertyResult._(
+      reference,
+      annotations,
+      converters,
+    )._mapJsonConverters(
+      (r) => refer("_list\$${r.symbol}"),
+      (oldRef, newRef) => Method(
+        (b) => b
+          ..name = newRef.symbol
+          ..returns = refer('dynamic')
+          ..requiredParameters = ListBuilder([
+            Parameter(
+              (b) => b
+                ..name = 'data'
+                ..type = reference,
+            )
+          ])
+          ..body = refer("data")
+              .property("map")
+              .call([oldRef])
+              .property('toList')
+              .call([])
+              .code,
+      ),
+      (oldRef, newRef) => Method(
+        (b) => b
+          ..name = newRef.symbol
+          ..returns = reference
+          ..requiredParameters = ListBuilder([
+            Parameter(
+              (b) => b
+                ..name = 'data'
+                ..type = refer('dynamic'),
+            )
+          ])
+          ..body = refer('data')
+              .isA(refer('List'))
+              .conditional(
+                refer('data')
+                    .property('map')
+                    .call([oldRef])
+                    .property('toList')
+                    .call([]),
+                literalList([]),
+              )
+              .code,
+      ),
+    );
+  }
 }
 
-Tuple2<Reference, Map<String, Expression>> printClassPropertyType(
+PrintPropertyResult printClassPropertyType(
   PrintContext context,
   ContextProperty property,
 ) {
@@ -460,7 +593,7 @@ Tuple2<Reference, Map<String, Expression>> printClassPropertyType(
   );
 }
 
-Tuple2<Reference, Map<String, Expression>> printTypeNode(
+PrintPropertyResult printTypeNode(
   PrintContext context,
   TypeNode typeNode, {
   Name? propertyContext,
@@ -482,7 +615,7 @@ Tuple2<Reference, Map<String, Expression>> printTypeNode(
   throw StateError("Unsupported node");
 }
 
-Tuple2<Reference, Map<String, Expression>> printListTypeNode(
+PrintPropertyResult printListTypeNode(
   PrintContext context,
   ListTypeNode typeNode, {
   Name? propertyContext,
@@ -491,13 +624,11 @@ Tuple2<Reference, Map<String, Expression>> printListTypeNode(
     context,
     typeNode.type,
     propertyContext: propertyContext,
-  );
-  return innerRef.withI1(
-    refer("List<${innerRef.i1.symbol}>${typeNode.isNonNull ? "" : "?"}"),
-  );
+  ).asList();
+  return typeNode.isNonNull ? innerRef : innerRef.asNullable();
 }
 
-Tuple2<Reference, Map<String, Expression>> printNamedTypeNode(
+PrintPropertyResult printNamedTypeNode(
   PrintContext context,
   NamedTypeNode typeNode, {
   Name? propertyContext,
@@ -514,35 +645,35 @@ Tuple2<Reference, Map<String, Expression>> printNamedTypeNode(
   if (propertyContext != null) {
     context.addDependency(propertyContext);
   }
-  Tuple2<Reference, Map<String, Expression>> reference;
+  PrintPropertyResult reference;
   if (typeDefinition is ScalarTypeDefinitionNode) {
     reference = printScalarType(context, typeDefinition);
   } else if (typeDefinition is EnumTypeDefinitionNode &&
       propertyContext != null) {
     reference = printEnumType(context, propertyContext);
   } else if (propertyContext != null) {
-    reference = Tuple2(refer(printClassName(propertyContext)), {});
+    reference = PrintPropertyResult(refer(printClassName(propertyContext)));
   } else {
     throw StateError("Failed to generate type.");
   }
   if (typeNode.isNonNull) {
     return reference;
   }
-  return reference.withI1(refer("${reference.i1.symbol}?"));
+  return reference.asNullable();
 }
 
-Tuple2<Reference, Map<String, Expression>> printEnumType(
+PrintPropertyResult printEnumType(
   PrintContext context,
   Name name,
 ) {
   final typeName = printClassName(name);
-  return Tuple2(
+  return PrintPropertyResult.withAnnotations(
     refer(typeName),
     {'unknownEnumValue': refer(typeName).property(_UNKNOWN_ENUM_VALUE)},
   );
 }
 
-Tuple2<Reference, Map<String, Expression>> printScalarType(
+PrintPropertyResult printScalarType(
   PrintContext context,
   ScalarTypeDefinitionNode node,
 ) {
@@ -558,7 +689,7 @@ Tuple2<Reference, Map<String, Expression>> printScalarType(
   final ref = scalars[node.name.value];
   if (ref == null) {
     context.markScalarAsBad(node.name.value);
-    return Tuple2(refer("String"), {});
+    return PrintPropertyResult(refer("String"));
   }
   final import = ref.import;
   if (import != null) {
@@ -566,11 +697,14 @@ Tuple2<Reference, Map<String, Expression>> printScalarType(
   }
   final fromJson = ref.fromJsonFunctionName;
   final toJson = ref.toJsonFunctionName;
-  return Tuple2(
+  return PrintPropertyResult.withAnnotations(
     Reference(ref.type),
     {
-      if (fromJson != null) 'fromJson': refer(fromJson),
-      if (toJson != null) 'toJson': refer(toJson),
+      if (fromJson != null) _FROM_JSON_ANNOTATION_KEY: refer(fromJson),
+      if (toJson != null) _TO_JSON_ANNOTATION_KEY: refer(toJson),
     },
   );
 }
+
+const _FROM_JSON_ANNOTATION_KEY = 'fromJson';
+const _TO_JSON_ANNOTATION_KEY = 'toJson';

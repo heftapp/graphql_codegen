@@ -1,8 +1,11 @@
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen_example/scalars.dart';
 
 abstract class FragmentPersonSummary {
   String? get nickname;
   String get name;
+  DateTime? get dob;
+  List<DateTime?>? get events;
   String get $__typename;
 }
 
@@ -21,6 +24,18 @@ const FRAGMENT_PERSON_SUMMARY = const FragmentDefinitionNode(
       FieldNode(
           name: NameNode(value: 'full_name'),
           alias: NameNode(value: 'name'),
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'dob'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'events'),
+          alias: null,
           arguments: [],
           directives: [],
           selectionSet: null),

@@ -3,6 +3,7 @@ import 'fragments.graphql.dart';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
+import 'package:graphql_codegen_example/scalars.dart';
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'main.graphql.g.dart';
@@ -205,6 +206,8 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
   QueryFetchPerson$fetchPerson(
       {this.nickname,
       required this.name,
+      this.dob,
+      this.events,
       required this.$__typename,
       this.parents,
       this.children});
@@ -216,6 +219,15 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
   final String? nickname;
 
   final String name;
+
+  @JsonKey(
+      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
+  final DateTime? dob;
+
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
+      toJson: _nullable$_list$_nullable$dateTimeToJson)
+  final List<DateTime?>? events;
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -232,7 +244,11 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
 class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
     implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson$parents(
-      {this.nickname, required this.name, required this.$__typename});
+      {this.nickname,
+      required this.name,
+      this.dob,
+      this.events,
+      required this.$__typename});
 
   @override
   factory QueryFetchPerson$fetchPerson$parents.fromJson(
@@ -242,6 +258,15 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
   final String? nickname;
 
   final String name;
+
+  @JsonKey(
+      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
+  final DateTime? dob;
+
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
+      toJson: _nullable$_list$_nullable$dateTimeToJson)
+  final List<DateTime?>? events;
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -255,7 +280,11 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
 class QueryFetchPerson$fetchPerson$children extends JsonSerializable
     implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson$children(
-      {this.nickname, required this.name, required this.$__typename});
+      {this.nickname,
+      required this.name,
+      this.dob,
+      this.events,
+      required this.$__typename});
 
   @override
   factory QueryFetchPerson$fetchPerson$children.fromJson(
@@ -265,6 +294,15 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
   final String? nickname;
 
   final String name;
+
+  @JsonKey(
+      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
+  final DateTime? dob;
+
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
+      toJson: _nullable$_list$_nullable$dateTimeToJson)
+  final List<DateTime?>? events;
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -733,3 +771,16 @@ class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
   Map<String, dynamic> toJson() =>
       _$SubscriptionWatchPerson$watchPersonToJson(this);
 }
+
+DateTime? _nullable$dateTimeFromJson(dynamic data) =>
+    data == null ? null : dateTimeFromJson(data);
+dynamic _nullable$dateTimeToJson(DateTime? data) =>
+    data == null ? null : dateTimeToJson(data);
+List<DateTime?> _list$_nullable$dateTimeFromJson(dynamic data) =>
+    data is List ? data.map(_nullable$dateTimeFromJson).toList() : [];
+dynamic _list$_nullable$dateTimeToJson(List<DateTime?> data) =>
+    data.map(_nullable$dateTimeToJson).toList();
+List<DateTime?>? _nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
+    data == null ? null : _list$_nullable$dateTimeFromJson(data);
+dynamic _nullable$_list$_nullable$dateTimeToJson(List<DateTime?>? data) =>
+    data == null ? null : _list$_nullable$dateTimeToJson(data);
