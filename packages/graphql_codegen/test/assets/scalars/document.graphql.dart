@@ -5,7 +5,8 @@ part 'document.graphql.g.dart';
 
 @JsonSerializable()
 class QueryFetchScalars extends JsonSerializable {
-  QueryFetchScalars({this.i, this.id, this.s, this.c1, this.c2, this.c3});
+  QueryFetchScalars(
+      {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});
 
   @override
   factory QueryFetchScalars.fromJson(Map<String, dynamic> json) =>
@@ -21,8 +22,13 @@ class QueryFetchScalars extends JsonSerializable {
 
   final DateTime? c2;
 
-  @JsonKey(fromJson: fobbobFromJson, toJson: fobbobToJson)
+  @JsonKey(fromJson: _nullable$fobbobFromJson, toJson: _nullable$fobbobToJson)
   final Fobbob? c3;
+
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$fobbobFromJson,
+      toJson: _nullable$_list$_nullable$fobbobToJson)
+  final List<Fobbob?>? c3s;
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchScalarsToJson(this);
@@ -70,7 +76,25 @@ const QUERY_FETCH_SCALARS = const DocumentNode(definitions: [
             alias: null,
             arguments: [],
             directives: [],
+            selectionSet: null),
+        FieldNode(
+            name: NameNode(value: 'c3s'),
+            alias: null,
+            arguments: [],
+            directives: [],
             selectionSet: null)
       ])),
 ]);
 const POSSIBLE_TYPES_MAP = const {};
+Fobbob? _nullable$fobbobFromJson(dynamic data) =>
+    data == null ? null : fobbobFromJson(data);
+dynamic _nullable$fobbobToJson(Fobbob? data) =>
+    data == null ? null : fobbobToJson(data);
+List<Fobbob?> _list$_nullable$fobbobFromJson(dynamic data) =>
+    data is List ? data.map(_nullable$fobbobFromJson).toList() : [];
+dynamic _list$_nullable$fobbobToJson(List<Fobbob?> data) =>
+    data.map(_nullable$fobbobToJson).toList();
+List<Fobbob?>? _nullable$_list$_nullable$fobbobFromJson(dynamic data) =>
+    data == null ? null : _list$_nullable$fobbobFromJson(data);
+dynamic _nullable$_list$_nullable$fobbobToJson(List<Fobbob?>? data) =>
+    data == null ? null : _list$_nullable$fobbobToJson(data);

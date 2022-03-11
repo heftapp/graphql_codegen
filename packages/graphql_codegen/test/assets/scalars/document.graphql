@@ -11,8 +11,15 @@ type Query {
     c1: Custom1
     c2: Custom2
     c3: Custom3
+    c3s: [Custom3]
 }
 
 query FetchScalars {
-    i id s c1 c2 c3
+    i
+    id 
+    s 
+    c1 
+    c2 
+    c3 
+    c3s
 }

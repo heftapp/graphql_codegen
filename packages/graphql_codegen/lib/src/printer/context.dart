@@ -29,6 +29,9 @@ class PrintContext<TContext extends Context> {
   final Set<String> _dependencies;
   final Set<_Package> _packages;
   final Set<String> _badScalars;
+  final Map<String, Spec> _converters;
+
+  Iterable<Spec> get converters => _converters.values;
 
   Iterable<Directive> get directives {
     final currentFile = context.filePath;
@@ -47,8 +50,14 @@ class PrintContext<TContext extends Context> {
     ];
   }
 
-  factory PrintContext(TContext context) =>
-      PrintContext._(context, _Value(false), {}, {}, {});
+  factory PrintContext(TContext context) => PrintContext._(
+        context,
+        _Value(false),
+        {},
+        {},
+        {},
+        {},
+      );
 
   PrintContext._(
     this.context,
@@ -56,10 +65,12 @@ class PrintContext<TContext extends Context> {
     Set<String> dependencies,
     Set<_Package> packages,
     Set<String> badScalars,
+    Map<String, Spec> converters,
   )   : this._jsonSerializable = jsonSerializable,
         this._dependencies = dependencies,
         this._packages = packages,
-        this._badScalars = badScalars;
+        this._badScalars = badScalars,
+        this._converters = converters;
 
   PrintContext<TNewContext> withContext<TNewContext extends Context>(
     TNewContext context,
@@ -70,6 +81,7 @@ class PrintContext<TContext extends Context> {
         _dependencies,
         _packages,
         _badScalars,
+        _converters,
       );
 
   Name get path => context.path;
@@ -93,6 +105,10 @@ class PrintContext<TContext extends Context> {
 
   addPackage(String import, [String? alias]) {
     _packages.add(_Package(import, alias));
+  }
+
+  addConverters(Map<String, Spec> converters) {
+    _converters.addAll(converters);
   }
 
   markScalarAsBad(String name) {

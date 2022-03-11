@@ -1,3 +1,7 @@
+# 0.7.0-beta.4
+
+* Improve scalar converters
+
 # 0.7.0-beta.3
 
 * Improve hook options
