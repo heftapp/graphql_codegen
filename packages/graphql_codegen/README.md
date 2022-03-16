@@ -219,6 +219,24 @@ dynamic customDateTimeToJson(CustomDateTime time) => time.datetime;
 
 and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
 
+## Multiple schemas
+
+To support multiple schemas, the codegenerator has a concept of scopes. Consider the following configuration:
+
+```yaml
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          scopes:
+            - lib/schema1/**
+            - lib/schema2/**
+```
+
+here the generator will perform independent analysis for the GraphQL files matching the relevant scope. E.g., any GraphQL file in
+the `lib/schema1` folder will be build relative to the schema in this folder, ignoring all other files completely.
+
 ## Clients
 
 Parsing data is all fine and well, but practically not extremly usable. Therefor, we can generate

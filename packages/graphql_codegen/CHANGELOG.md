@@ -1,3 +1,7 @@
+# 0.7.0-beta.6
+
+* Support scopes for multiple schemas
+
 # 0.7.0-beta.5
 
 * Upgrade dependencies (Including analyzer!)

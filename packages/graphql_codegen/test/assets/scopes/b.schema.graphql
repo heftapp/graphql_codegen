@@ -1,0 +1,13 @@
+type Query {
+    fetchPerson: Personz
+}
+
+type Personz {
+    name: String
+    age: Int
+    status: Status
+}
+
+enum Status {
+    COOL SMEANS
+}

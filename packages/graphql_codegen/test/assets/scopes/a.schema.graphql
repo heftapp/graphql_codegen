@@ -1,0 +1,12 @@
+type Query {
+    fetchPerson: Person
+}
+
+type Person {
+    name: String
+    status: Status!
+}
+
+enum Status {
+    COOL BEANS
+}
