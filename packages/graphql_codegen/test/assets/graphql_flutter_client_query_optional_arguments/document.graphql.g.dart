@@ -7,11 +7,10 @@ part of 'document.graphql.dart';
 // **************************************************************************
 
 VariablesQueryFetchSOptional _$VariablesQueryFetchSOptionalFromJson(
-    Map<String, dynamic> json) {
-  return VariablesQueryFetchSOptional(
-    name: json['name'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    VariablesQueryFetchSOptional(
+      name: json['name'] as String?,
+    );
 
 Map<String, dynamic> _$VariablesQueryFetchSOptionalToJson(
         VariablesQueryFetchSOptional instance) =>
@@ -19,11 +18,10 @@ Map<String, dynamic> _$VariablesQueryFetchSOptionalToJson(
       'name': instance.name,
     };
 
-QueryFetchSOptional _$QueryFetchSOptionalFromJson(Map<String, dynamic> json) {
-  return QueryFetchSOptional(
-    s: json['s'] as String?,
-  );
-}
+QueryFetchSOptional _$QueryFetchSOptionalFromJson(Map<String, dynamic> json) =>
+    QueryFetchSOptional(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$QueryFetchSOptionalToJson(
         QueryFetchSOptional instance) =>

@@ -1,3 +1,8 @@
+# 0.7.0-beta.5
+
+* Upgrade dependencies (Including analyzer!)
+* Add `==` operator and `hashCode` getter on all `JSONSerializable` classes.
+
 # 0.7.0-beta.4
 
 * Improve scalar converters

@@ -1,3 +1,6 @@
+# 0.2.1
+* Upgrade JSON serializable and annotations
+
 # 0.2.0
 
 * Add new option `generatedFileHeader`

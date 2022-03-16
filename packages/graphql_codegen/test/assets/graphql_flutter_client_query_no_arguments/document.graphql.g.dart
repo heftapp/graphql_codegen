@@ -7,11 +7,10 @@ part of 'document.graphql.dart';
 // **************************************************************************
 
 QueryFetchSNoVariables _$QueryFetchSNoVariablesFromJson(
-    Map<String, dynamic> json) {
-  return QueryFetchSNoVariables(
-    s: json['s'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    QueryFetchSNoVariables(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$QueryFetchSNoVariablesToJson(
         QueryFetchSNoVariables instance) =>
