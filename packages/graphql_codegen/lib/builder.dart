@@ -26,28 +26,23 @@ class GraphQLBuilder extends Builder {
     final config = GraphQLCodegenConfig.fromJson(
       jsonDecode(jsonEncode(options.config)),
     );
-    final result =
-        await buildStep.fetchResource<GenerateResult<AssetId>>(Resource(
-      () async {
-        final assets = buildStep.findAssets(Glob(config.assetsPath));
-        final entries = await assets
-            .asyncMap(
-              (event) async => MapEntry(
-                event,
-                parseString(await buildStep.readAsString(event)),
-              ),
-            )
-            .map((event) => MapEntry(event.key, transform(config, event.value)))
-            .toList();
-        return await generate<AssetId>(
-          SchemaConfig<AssetId>(
-            entries: BuiltMap.of(Map.fromEntries(entries)),
-            lookupPath: (id) => "${id.path}.dart",
+    final assets = buildStep.findAssets(Glob(config.assetsPath));
+    final entries = await assets
+        .asyncMap(
+          (event) async => MapEntry(
+            event,
+            parseString(await buildStep.readAsString(event)),
           ),
-          config,
-        );
-      },
-    ));
+        )
+        .map((event) => MapEntry(event.key, transform(config, event.value)))
+        .toList();
+    final result = await generate<AssetId>(
+      SchemaConfig<AssetId>(
+        entries: BuiltMap.of(Map.fromEntries(entries)),
+        lookupPath: (id) => "${id.path}.dart",
+      ),
+      config,
+    );
     final targetAsset = buildStep.inputId.addExtension('.dart');
     _writeProgram(
       config,
@@ -73,6 +68,6 @@ class GraphQLBuilder extends Builder {
 
   @override
   Map<String, List<String>> get buildExtensions => const {
-        r'.graphql': ['.graphql.dart'],
+        r'.graphql': const ['.graphql.dart'],
       };
 }
