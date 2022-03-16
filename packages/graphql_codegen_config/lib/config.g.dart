@@ -38,6 +38,10 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
           {},
       addTypename: json['addTypename'] as bool? ?? true,
       assetsPath: json['assetsPath'] as String? ?? 'lib/**.graphql',
+      scopes: (json['scopes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          ['**.graphql'],
       addTypenameExcludedPaths:
           (json['addTypenameExcludedPaths'] as List<dynamic>?)
                   ?.map((e) => e as String)
@@ -55,6 +59,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'scalars': instance.scalars,
       'addTypename': instance.addTypename,
       'assetsPath': instance.assetsPath,
+      'scopes': instance.scopes,
       'addTypenameExcludedPaths': instance.addTypenameExcludedPaths,
       'generatedFileHeader': instance.generatedFileHeader,
     };

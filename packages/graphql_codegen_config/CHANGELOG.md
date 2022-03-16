@@ -1,4 +1,9 @@
+# 0.2.2
+
+* Support scopes
+
 # 0.2.1
+
 * Upgrade JSON serializable and annotations
 
 # 0.2.0
