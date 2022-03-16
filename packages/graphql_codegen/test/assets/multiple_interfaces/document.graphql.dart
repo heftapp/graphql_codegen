@@ -85,6 +85,20 @@ class QueryQ extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  int get hashCode {
+    final l$field = field;
+    return Object.hashAll([l$field]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    final l$field = field;
+    final lOther$field = other.field;
+    if (l$field != lOther$field) return false;
+    return true;
+  }
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -193,6 +207,29 @@ class QueryQ$field extends JsonSerializable implements FragmentF0 {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$fieldToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    final l$name0 = name0;
+    final l$name01 = name01;
+    return Object.hashAll([l$$__typename, l$name0, l$name01]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$field) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    final l$name0 = name0;
+    final lOther$name0 = other.name0;
+    if (l$name0 != lOther$name0) return false;
+    final l$name01 = name01;
+    final lOther$name01 = other.name01;
+    if (l$name01 != lOther$name01) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -221,6 +258,33 @@ class QueryQ$field$T1 extends QueryQ$field implements FragmentF1, FragmentF2 {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$field$T1ToJson(this);
+  int get hashCode {
+    final l$size = size;
+    final l$name = name;
+    final l$size2 = size2;
+    final l$name2 = name2;
+    return Object.hashAll([l$size, l$name, l$size2, l$name2]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$field$T1) || runtimeType != other.runtimeType)
+      return false;
+    final l$size = size;
+    final lOther$size = other.size;
+    if (l$size != lOther$size) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$size2 = size2;
+    final lOther$size2 = other.size2;
+    if (l$size2 != lOther$size2) return false;
+    final l$name2 = name2;
+    final lOther$name2 = other.name2;
+    if (l$name2 != lOther$name2) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {

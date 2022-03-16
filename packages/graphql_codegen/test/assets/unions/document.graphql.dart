@@ -13,6 +13,20 @@ class QueryQ extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  int get hashCode {
+    final l$u = u;
+    return Object.hashAll([l$u]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    final l$u = u;
+    final lOther$u = other.u;
+    if (l$u != lOther$u) return false;
+    return true;
+  }
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -85,6 +99,20 @@ class QueryQ$u extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$uToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$u) || runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -100,6 +128,21 @@ class QueryQ$u$Ta extends QueryQ$u {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$u$TaToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$u$Ta) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -115,6 +158,21 @@ class QueryQ$u$Tb extends QueryQ$u {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$u$TbToJson(this);
+  int get hashCode {
+    final l$velocity = velocity;
+    return Object.hashAll([l$velocity]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$u$Tb) || runtimeType != other.runtimeType)
+      return false;
+    final l$velocity = velocity;
+    final lOther$velocity = other.velocity;
+    if (l$velocity != lOther$velocity) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {

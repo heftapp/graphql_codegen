@@ -69,6 +69,25 @@ class QueryFetchStuff extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchStuffToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    final l$field = field;
+    return Object.hashAll([l$$__typename, l$field]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchStuff) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    final l$field = field;
+    final lOther$field = other.field;
+    if (l$field != lOther$field) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
@@ -170,6 +189,25 @@ class QueryFetchStuff$field extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchStuff$fieldToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    final l$name = name;
+    return Object.hashAll([l$$__typename, l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchStuff$field) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -187,6 +225,21 @@ class QueryFetchStuff$field$FieldA extends QueryFetchStuff$field
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchStuff$field$FieldAToJson(this);
+  int get hashCode {
+    final l$value = value;
+    return Object.hashAll([l$value]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchStuff$field$FieldA) ||
+        runtimeType != other.runtimeType) return false;
+    final l$value = value;
+    final lOther$value = other.value;
+    if (l$value != lOther$value) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {

@@ -6,6 +6,7 @@ abstract class FragmentPersonSummary {
   String get name;
   DateTime? get dob;
   List<DateTime?>? get events;
+  List<List<DateTime?>?>? get eventsOfEvents;
   String get $__typename;
 }
 
@@ -36,6 +37,12 @@ const FRAGMENT_PERSON_SUMMARY = const FragmentDefinitionNode(
       FieldNode(
           name: NameNode(value: 'events'),
           alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'events_of_events'),
+          alias: NameNode(value: 'eventsOfEvents'),
           arguments: [],
           directives: [],
           selectionSet: null),

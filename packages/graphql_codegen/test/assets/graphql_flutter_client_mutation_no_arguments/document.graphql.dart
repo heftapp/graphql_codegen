@@ -18,6 +18,21 @@ class MutationUpdateSNo extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdateSNoToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdateSNo) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const MUTATION_UPDATE_S_NO = const DocumentNode(definitions: [

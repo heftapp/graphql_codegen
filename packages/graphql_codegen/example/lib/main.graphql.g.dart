@@ -42,6 +42,8 @@ QueryFetchPerson$fetchPerson _$QueryFetchPerson$fetchPersonFromJson(
     name: json['name'] as String,
     dob: _nullable$dateTimeFromJson(json['dob']),
     events: _nullable$_list$_nullable$dateTimeFromJson(json['events']),
+    eventsOfEvents: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(
+        json['eventsOfEvents']),
     $__typename: json['__typename'] as String,
     parents: (json['parents'] as List<dynamic>?)
         ?.map((e) => QueryFetchPerson$fetchPerson$parents.fromJson(
@@ -61,6 +63,9 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPersonToJson(
       'name': instance.name,
       'dob': _nullable$dateTimeToJson(instance.dob),
       'events': _nullable$_list$_nullable$dateTimeToJson(instance.events),
+      'eventsOfEvents':
+          _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
+              instance.eventsOfEvents),
       '__typename': instance.$__typename,
       'parents': instance.parents,
       'children': instance.children,
@@ -73,6 +78,8 @@ QueryFetchPerson$fetchPerson$parents
     name: json['name'] as String,
     dob: _nullable$dateTimeFromJson(json['dob']),
     events: _nullable$_list$_nullable$dateTimeFromJson(json['events']),
+    eventsOfEvents: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(
+        json['eventsOfEvents']),
     $__typename: json['__typename'] as String,
   );
 }
@@ -84,6 +91,9 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPerson$parentsToJson(
       'name': instance.name,
       'dob': _nullable$dateTimeToJson(instance.dob),
       'events': _nullable$_list$_nullable$dateTimeToJson(instance.events),
+      'eventsOfEvents':
+          _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
+              instance.eventsOfEvents),
       '__typename': instance.$__typename,
     };
 
@@ -94,6 +104,8 @@ QueryFetchPerson$fetchPerson$children
     name: json['name'] as String,
     dob: _nullable$dateTimeFromJson(json['dob']),
     events: _nullable$_list$_nullable$dateTimeFromJson(json['events']),
+    eventsOfEvents: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(
+        json['eventsOfEvents']),
     $__typename: json['__typename'] as String,
   );
 }
@@ -105,6 +117,9 @@ Map<String, dynamic> _$QueryFetchPerson$fetchPerson$childrenToJson(
       'name': instance.name,
       'dob': _nullable$dateTimeToJson(instance.dob),
       'events': _nullable$_list$_nullable$dateTimeToJson(instance.events),
+      'eventsOfEvents':
+          _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
+              instance.eventsOfEvents),
       '__typename': instance.$__typename,
     };
 
