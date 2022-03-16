@@ -21,6 +21,25 @@ class SubscriptionNoArgs extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionNoArgsToJson(this);
+  int get hashCode {
+    final l$listenForChange = listenForChange;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$listenForChange, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionNoArgs) || runtimeType != other.runtimeType)
+      return false;
+    final l$listenForChange = listenForChange;
+    final lOther$listenForChange = other.listenForChange;
+    if (l$listenForChange != lOther$listenForChange) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const SUBSCRIPTION_NO_ARGS = const DocumentNode(definitions: [
@@ -159,6 +178,25 @@ class SubscriptionNoArgs$listenForChange extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionNoArgs$listenForChangeToJson(this);
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionNoArgs$listenForChange) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -175,6 +213,21 @@ class VariablesSubscriptionRequiredArg extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$VariablesSubscriptionRequiredArgToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesSubscriptionRequiredArg) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -192,6 +245,25 @@ class SubscriptionRequiredArg extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionRequiredArgToJson(this);
+  int get hashCode {
+    final l$listenForChange = listenForChange;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$listenForChange, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionRequiredArg) || runtimeType != other.runtimeType)
+      return false;
+    final l$listenForChange = listenForChange;
+    final lOther$listenForChange = other.listenForChange;
+    if (l$listenForChange != lOther$listenForChange) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const SUBSCRIPTION_REQUIRED_ARG = const DocumentNode(definitions: [
@@ -352,6 +424,25 @@ class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionRequiredArg$listenForChangeToJson(this);
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionRequiredArg$listenForChange) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -368,6 +459,21 @@ class VariablesSubscriptionOptionalArg extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$VariablesSubscriptionOptionalArgToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesSubscriptionOptionalArg) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -385,6 +491,25 @@ class SubscriptionOptionalArg extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionOptionalArgToJson(this);
+  int get hashCode {
+    final l$listenForChange = listenForChange;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$listenForChange, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionOptionalArg) || runtimeType != other.runtimeType)
+      return false;
+    final l$listenForChange = listenForChange;
+    final lOther$listenForChange = other.listenForChange;
+    if (l$listenForChange != lOther$listenForChange) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const SUBSCRIPTION_OPTIONAL_ARG = const DocumentNode(definitions: [
@@ -545,6 +670,25 @@ class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionOptionalArg$listenForChangeToJson(this);
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionOptionalArg$listenForChange) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {};

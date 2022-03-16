@@ -15,6 +15,21 @@ class QueryFetchName extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchNameToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchName) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_NAME = const DocumentNode(definitions: [
@@ -48,4 +63,19 @@ class QueryFetchName$name extends JsonSerializable implements FragmentF {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchName$nameToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchName$name) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }

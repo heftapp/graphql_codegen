@@ -88,6 +88,21 @@ class QueryFetch extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetch) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH = const DocumentNode(definitions: [
@@ -122,6 +137,21 @@ class QueryFetch$t extends JsonSerializable implements FragmentF {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$tToJson(this);
+  int get hashCode {
+    final l$other = other;
+    return Object.hashAll([l$other]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetch$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -137,6 +167,21 @@ class QueryFetch$t$other extends JsonSerializable
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$t$otherToJson(this);
+  int get hashCode {
+    final l$other = other;
+    return Object.hashAll([l$other]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetch$t$other) || runtimeType != other.runtimeType)
+      return false;
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -152,6 +197,21 @@ class QueryFetch$t$other$other extends JsonSerializable
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$t$other$otherToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetch$t$other$other) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -168,6 +228,21 @@ class QueryFetch$t$other$T1 extends QueryFetch$t$other
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetch$t$other$T1ToJson(this);
+  int get hashCode {
+    final l$b = b;
+    return Object.hashAll([l$b]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetch$t$other$T1) || runtimeType != other.runtimeType)
+      return false;
+    final l$b = b;
+    final lOther$b = other.b;
+    if (l$b != lOther$b) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {

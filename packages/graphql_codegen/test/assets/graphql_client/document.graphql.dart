@@ -16,6 +16,21 @@ class VariablesQueryFetchSOptional extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSOptionalToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesQueryFetchSOptional) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -30,6 +45,21 @@ class QueryFetchSOptional extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchSOptionalToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchSOptional) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
@@ -146,6 +176,21 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSRequiredToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesQueryFetchSRequired) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -160,6 +205,21 @@ class QueryFetchSRequired extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchSRequired) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
@@ -276,6 +336,21 @@ class QueryFetchSNoVariables extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchSNoVariablesToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchSNoVariables) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
@@ -380,6 +455,21 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$VariablesMutationUpdateSOptionalToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesMutationUpdateSOptional) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -394,6 +484,21 @@ class MutationUpdateSOptional extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdateSOptionalToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdateSOptional) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
@@ -526,6 +631,21 @@ class VariablesMutationUpdateSRequired extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$VariablesMutationUpdateSRequiredToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesMutationUpdateSRequired) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -540,6 +660,21 @@ class MutationUpdateSRequired extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdateSRequiredToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdateSRequired) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
@@ -670,6 +805,21 @@ class MutationUpdateSNoVariables extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdateSNoVariablesToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdateSNoVariables) ||
+        runtimeType != other.runtimeType) return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const MUTATION_UPDATE_S_NO_VARIABLES = const DocumentNode(definitions: [

@@ -53,6 +53,20 @@ class QueryQ extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -115,6 +129,20 @@ class QueryQ$t extends JsonSerializable implements FragmentF {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$tToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$t) || runtimeType != other.runtimeType) return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -129,6 +157,21 @@ class QueryQ$t$t extends JsonSerializable implements FragmentF, FragmentF$t {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$t$tToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$t$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -147,6 +190,25 @@ class QueryQ$t$t$t extends JsonSerializable
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$t$t$tToJson(this);
+  int get hashCode {
+    final l$t = t;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$t, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$t$t$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -162,6 +224,21 @@ class QueryQ$t$t$t$t extends JsonSerializable implements FragmentF$t$t {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$t$t$t$tToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$t$t$t$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -176,6 +253,20 @@ class QueryQ2 extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ2ToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ2) || runtimeType != other.runtimeType) return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 const QUERY_Q2 = const DocumentNode(definitions: [
@@ -238,6 +329,20 @@ class QueryQ2$t extends JsonSerializable implements FragmentF {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ2$tToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ2$t) || runtimeType != other.runtimeType) return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -252,6 +357,21 @@ class QueryQ2$t$t extends JsonSerializable implements FragmentF$t, FragmentF {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ2$t$tToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ2$t$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -270,6 +390,25 @@ class QueryQ2$t$t$t extends JsonSerializable
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ2$t$t$tToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    final l$t = t;
+    return Object.hashAll([l$$__typename, l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ2$t$t$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -285,6 +424,21 @@ class QueryQ2$t$t$t$t extends JsonSerializable implements FragmentF$t$t {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ2$t$t$t$tToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ2$t$t$t$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {};

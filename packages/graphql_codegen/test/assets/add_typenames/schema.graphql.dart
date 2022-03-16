@@ -52,6 +52,100 @@ class QueryQ extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  int get hashCode {
+    final l$docsWithTypename = docsWithTypename;
+    final l$docsWihtoutTypename = docsWihtoutTypename;
+    final l$docsWithAliasedTypename = docsWithAliasedTypename;
+    final l$docsWithFragment = docsWithFragment;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$docsWithTypename == null
+          ? null
+          : Object.hashAll(l$docsWithTypename.map((v) => v)),
+      l$docsWihtoutTypename == null
+          ? null
+          : Object.hashAll(l$docsWihtoutTypename.map((v) => v)),
+      l$docsWithAliasedTypename == null
+          ? null
+          : Object.hashAll(l$docsWithAliasedTypename.map((v) => v)),
+      l$docsWithFragment == null
+          ? null
+          : Object.hashAll(l$docsWithFragment.map((v) => v)),
+      l$$__typename
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    final l$docsWithTypename = docsWithTypename;
+    final lOther$docsWithTypename = other.docsWithTypename;
+    if (l$docsWithTypename != null && lOther$docsWithTypename != null) {
+      if (l$docsWithTypename.length != lOther$docsWithTypename.length)
+        return false;
+      for (int i = 0; i < l$docsWithTypename.length; i++) {
+        final l$docsWithTypename$entry = l$docsWithTypename[i];
+        final lOther$docsWithTypename$entry = lOther$docsWithTypename[i];
+        if (l$docsWithTypename$entry != lOther$docsWithTypename$entry)
+          return false;
+      }
+    } else if (l$docsWithTypename != lOther$docsWithTypename) {
+      return false;
+    }
+
+    final l$docsWihtoutTypename = docsWihtoutTypename;
+    final lOther$docsWihtoutTypename = other.docsWihtoutTypename;
+    if (l$docsWihtoutTypename != null && lOther$docsWihtoutTypename != null) {
+      if (l$docsWihtoutTypename.length != lOther$docsWihtoutTypename.length)
+        return false;
+      for (int i = 0; i < l$docsWihtoutTypename.length; i++) {
+        final l$docsWihtoutTypename$entry = l$docsWihtoutTypename[i];
+        final lOther$docsWihtoutTypename$entry = lOther$docsWihtoutTypename[i];
+        if (l$docsWihtoutTypename$entry != lOther$docsWihtoutTypename$entry)
+          return false;
+      }
+    } else if (l$docsWihtoutTypename != lOther$docsWihtoutTypename) {
+      return false;
+    }
+
+    final l$docsWithAliasedTypename = docsWithAliasedTypename;
+    final lOther$docsWithAliasedTypename = other.docsWithAliasedTypename;
+    if (l$docsWithAliasedTypename != null &&
+        lOther$docsWithAliasedTypename != null) {
+      if (l$docsWithAliasedTypename.length !=
+          lOther$docsWithAliasedTypename.length) return false;
+      for (int i = 0; i < l$docsWithAliasedTypename.length; i++) {
+        final l$docsWithAliasedTypename$entry = l$docsWithAliasedTypename[i];
+        final lOther$docsWithAliasedTypename$entry =
+            lOther$docsWithAliasedTypename[i];
+        if (l$docsWithAliasedTypename$entry !=
+            lOther$docsWithAliasedTypename$entry) return false;
+      }
+    } else if (l$docsWithAliasedTypename != lOther$docsWithAliasedTypename) {
+      return false;
+    }
+
+    final l$docsWithFragment = docsWithFragment;
+    final lOther$docsWithFragment = other.docsWithFragment;
+    if (l$docsWithFragment != null && lOther$docsWithFragment != null) {
+      if (l$docsWithFragment.length != lOther$docsWithFragment.length)
+        return false;
+      for (int i = 0; i < l$docsWithFragment.length; i++) {
+        final l$docsWithFragment$entry = l$docsWithFragment[i];
+        final lOther$docsWithFragment$entry = lOther$docsWithFragment[i];
+        if (l$docsWithFragment$entry != lOther$docsWithFragment$entry)
+          return false;
+      }
+    } else if (l$docsWithFragment != lOther$docsWithFragment) {
+      return false;
+    }
+
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -163,6 +257,21 @@ class QueryQ$docsWithTypename extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithTypenameToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$docsWithTypename) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -180,6 +289,25 @@ class QueryQ$docsWihtoutTypename extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWihtoutTypenameToJson(this);
+  int get hashCode {
+    final l$title = title;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$title, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$docsWihtoutTypename) ||
+        runtimeType != other.runtimeType) return false;
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -195,6 +323,21 @@ class QueryQ$docsWithAliasedTypename extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithAliasedTypenameToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$docsWithAliasedTypename) ||
+        runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -218,6 +361,21 @@ class QueryQ$docsWithFragment extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithFragmentToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$docsWithFragment) || runtimeType != other.runtimeType)
+      return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -235,6 +393,21 @@ class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
   @override
   Map<String, dynamic> toJson() =>
       _$QueryQ$docsWithFragment$ContractToJson(this);
+  int get hashCode {
+    final l$title = title;
+    return Object.hashAll([l$title]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$docsWithFragment$Contract) ||
+        runtimeType != other.runtimeType) return false;
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -251,6 +424,21 @@ class QueryQ$docsWithFragment$Report extends QueryQ$docsWithFragment
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithFragment$ReportToJson(this);
+  int get hashCode {
+    final l$title = title;
+    return Object.hashAll([l$title]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryQ$docsWithFragment$Report) ||
+        runtimeType != other.runtimeType) return false;
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) return false;
+    return true;
+  }
 }
 
 const POSSIBLE_TYPES_MAP = const {

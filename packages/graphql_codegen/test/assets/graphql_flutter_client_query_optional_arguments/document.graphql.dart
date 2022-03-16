@@ -17,6 +17,21 @@ class VariablesQueryFetchSOptional extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSOptionalToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesQueryFetchSOptional) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -31,6 +46,21 @@ class QueryFetchSOptional extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchSOptionalToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchSOptional) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [

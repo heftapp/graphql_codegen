@@ -17,6 +17,21 @@ class QueryFetchSNoVariables extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchSNoVariablesToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchSNoVariables) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [

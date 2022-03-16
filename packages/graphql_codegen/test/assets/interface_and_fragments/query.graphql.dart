@@ -60,6 +60,21 @@ class QueryFetchImplementations extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchImplementationsToJson(this);
+  int get hashCode {
+    final l$$interface = $interface;
+    return Object.hashAll([l$$interface]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations) ||
+        runtimeType != other.runtimeType) return false;
+    final l$$interface = $interface;
+    final lOther$$interface = other.$interface;
+    if (l$$interface != lOther$$interface) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
@@ -165,6 +180,29 @@ class QueryFetchImplementations$interface extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interfaceToJson(this);
+  int get hashCode {
+    final l$typename = typename;
+    final l$b = b;
+    final l$self = self;
+    return Object.hashAll([l$typename, l$b, l$self]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations$interface) ||
+        runtimeType != other.runtimeType) return false;
+    final l$typename = typename;
+    final lOther$typename = other.typename;
+    if (l$typename != lOther$typename) return false;
+    final l$b = b;
+    final lOther$b = other.b;
+    if (l$b != lOther$b) return false;
+    final l$self = self;
+    final lOther$self = other.self;
+    if (l$self != lOther$self) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -192,6 +230,21 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$selfToJson(this);
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations$interface$self) ||
+        runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -215,6 +268,25 @@ class QueryFetchImplementations$interface$self$ImplementationA
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$self$ImplementationAToJson(this);
+  int get hashCode {
+    final l$s = s;
+    final l$$_s = $_s;
+    return Object.hashAll([l$s, l$$_s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations$interface$self$ImplementationA) ||
+        runtimeType != other.runtimeType) return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    final l$$_s = $_s;
+    final lOther$$_s = other.$_s;
+    if (l$$_s != lOther$$_s) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -235,6 +307,21 @@ class QueryFetchImplementations$interface$self$ImplementationB
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$self$ImplementationBToJson(this);
+  int get hashCode {
+    final l$i = i;
+    return Object.hashAll([l$i]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations$interface$self$ImplementationB) ||
+        runtimeType != other.runtimeType) return false;
+    final l$i = i;
+    final lOther$i = other.i;
+    if (l$i != lOther$i) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -261,6 +348,25 @@ class QueryFetchImplementations$interface$ImplementationA
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$ImplementationAToJson(this);
+  int get hashCode {
+    final l$s = s;
+    final l$$_s = $_s;
+    return Object.hashAll([l$s, l$$_s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations$interface$ImplementationA) ||
+        runtimeType != other.runtimeType) return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    final l$$_s = $_s;
+    final lOther$$_s = other.$_s;
+    if (l$$_s != lOther$$_s) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -283,4 +389,19 @@ class QueryFetchImplementations$interface$ImplementationB
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$ImplementationBToJson(this);
+  int get hashCode {
+    final l$i = i;
+    return Object.hashAll([l$i]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchImplementations$interface$ImplementationB) ||
+        runtimeType != other.runtimeType) return false;
+    final l$i = i;
+    final lOther$i = other.i;
+    if (l$i != lOther$i) return false;
+    return true;
+  }
 }

@@ -15,6 +15,21 @@ class VariablesQueryHiBob extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesQueryHiBobToJson(this);
+  int get hashCode {
+    final l$i = i;
+    return Object.hashAll([l$i]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesQueryHiBob) || runtimeType != other.runtimeType)
+      return false;
+    final l$i = i;
+    final lOther$i = other.i;
+    if (l$i != lOther$i) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -29,6 +44,21 @@ class QueryHiBob extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryHiBobToJson(this);
+  int get hashCode {
+    final l$field = field;
+    return Object.hashAll([l$field]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryHiBob) || runtimeType != other.runtimeType)
+      return false;
+    final l$field = field;
+    final lOther$field = other.field;
+    if (l$field != lOther$field) return false;
+    return true;
+  }
 }
 
 const QUERY_HI_BOB = const DocumentNode(definitions: [
@@ -79,4 +109,19 @@ class QueryHiBob$field extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryHiBob$fieldToJson(this);
+  int get hashCode {
+    final l$value = value;
+    return Object.hashAll([l$value]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryHiBob$field) || runtimeType != other.runtimeType)
+      return false;
+    final l$value = value;
+    final lOther$value = other.value;
+    if (l$value != lOther$value) return false;
+    return true;
+  }
 }

@@ -19,6 +19,38 @@ class QueryFoobar extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFoobarToJson(this);
+  int get hashCode {
+    final l$field = field;
+    final l$fields = fields;
+    return Object.hashAll([
+      l$field,
+      l$fields == null ? null : Object.hashAll(l$fields.map((v) => v))
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFoobar) || runtimeType != other.runtimeType)
+      return false;
+    final l$field = field;
+    final lOther$field = other.field;
+    if (l$field != lOther$field) return false;
+    final l$fields = fields;
+    final lOther$fields = other.fields;
+    if (l$fields != null && lOther$fields != null) {
+      if (l$fields.length != lOther$fields.length) return false;
+      for (int i = 0; i < l$fields.length; i++) {
+        final l$fields$entry = l$fields[i];
+        final lOther$fields$entry = lOther$fields[i];
+        if (l$fields$entry != lOther$fields$entry) return false;
+      }
+    } else if (l$fields != lOther$fields) {
+      return false;
+    }
+
+    return true;
+  }
 }
 
 const QUERY_FOOBAR = const DocumentNode(definitions: [

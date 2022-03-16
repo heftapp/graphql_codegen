@@ -20,6 +20,21 @@ class VariablesQueryFetchPerson extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchPersonToJson(this);
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([l$id]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesQueryFetchPerson) ||
+        runtimeType != other.runtimeType) return false;
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -37,6 +52,25 @@ class QueryFetchPerson extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchPersonToJson(this);
+  int get hashCode {
+    final l$fetchPerson = fetchPerson;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$fetchPerson, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchPerson) || runtimeType != other.runtimeType)
+      return false;
+    final l$fetchPerson = fetchPerson;
+    final lOther$fetchPerson = other.fetchPerson;
+    if (l$fetchPerson != lOther$fetchPerson) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
@@ -208,6 +242,7 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
       required this.name,
       this.dob,
       this.events,
+      this.eventsOfEvents,
       required this.$__typename,
       this.parents,
       this.children});
@@ -229,6 +264,11 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
       toJson: _nullable$_list$_nullable$dateTimeToJson)
   final List<DateTime?>? events;
 
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
+      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
+  final List<List<DateTime?>?>? eventsOfEvents;
+
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -238,6 +278,114 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchPerson$fetchPersonToJson(this);
+  int get hashCode {
+    final l$nickname = nickname;
+    final l$name = name;
+    final l$dob = dob;
+    final l$events = events;
+    final l$eventsOfEvents = eventsOfEvents;
+    final l$$__typename = $__typename;
+    final l$parents = parents;
+    final l$children = children;
+    return Object.hashAll([
+      l$nickname,
+      l$name,
+      l$dob,
+      l$events == null ? null : Object.hashAll(l$events.map((v) => v)),
+      l$eventsOfEvents == null
+          ? null
+          : Object.hashAll(l$eventsOfEvents
+              .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
+      l$$__typename,
+      l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
+      l$children == null ? null : Object.hashAll(l$children.map((v) => v))
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchPerson$fetchPerson) ||
+        runtimeType != other.runtimeType) return false;
+    final l$nickname = nickname;
+    final lOther$nickname = other.nickname;
+    if (l$nickname != lOther$nickname) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$dob = dob;
+    final lOther$dob = other.dob;
+    if (l$dob != lOther$dob) return false;
+    final l$events = events;
+    final lOther$events = other.events;
+    if (l$events != null && lOther$events != null) {
+      if (l$events.length != lOther$events.length) return false;
+      for (int i = 0; i < l$events.length; i++) {
+        final l$events$entry = l$events[i];
+        final lOther$events$entry = lOther$events[i];
+        if (l$events$entry != lOther$events$entry) return false;
+      }
+    } else if (l$events != lOther$events) {
+      return false;
+    }
+
+    final l$eventsOfEvents = eventsOfEvents;
+    final lOther$eventsOfEvents = other.eventsOfEvents;
+    if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
+      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
+      for (int i = 0; i < l$eventsOfEvents.length; i++) {
+        final l$eventsOfEvents$entry = l$eventsOfEvents[i];
+        final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
+        if (l$eventsOfEvents$entry != null &&
+            lOther$eventsOfEvents$entry != null) {
+          if (l$eventsOfEvents$entry.length !=
+              lOther$eventsOfEvents$entry.length) return false;
+          for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
+            final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
+            final lOther$eventsOfEvents$entry$entry =
+                lOther$eventsOfEvents$entry[i];
+            if (l$eventsOfEvents$entry$entry !=
+                lOther$eventsOfEvents$entry$entry) return false;
+          }
+        } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
+          return false;
+        }
+      }
+    } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
+      return false;
+    }
+
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    final l$parents = parents;
+    final lOther$parents = other.parents;
+    if (l$parents != null && lOther$parents != null) {
+      if (l$parents.length != lOther$parents.length) return false;
+      for (int i = 0; i < l$parents.length; i++) {
+        final l$parents$entry = l$parents[i];
+        final lOther$parents$entry = lOther$parents[i];
+        if (l$parents$entry != lOther$parents$entry) return false;
+      }
+    } else if (l$parents != lOther$parents) {
+      return false;
+    }
+
+    final l$children = children;
+    final lOther$children = other.children;
+    if (l$children != null && lOther$children != null) {
+      if (l$children.length != lOther$children.length) return false;
+      for (int i = 0; i < l$children.length; i++) {
+        final l$children$entry = l$children[i];
+        final lOther$children$entry = lOther$children[i];
+        if (l$children$entry != lOther$children$entry) return false;
+      }
+    } else if (l$children != lOther$children) {
+      return false;
+    }
+
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -248,6 +396,7 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
       required this.name,
       this.dob,
       this.events,
+      this.eventsOfEvents,
       required this.$__typename});
 
   @override
@@ -268,12 +417,95 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
       toJson: _nullable$_list$_nullable$dateTimeToJson)
   final List<DateTime?>? events;
 
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
+      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
+  final List<List<DateTime?>?>? eventsOfEvents;
+
   @JsonKey(name: '__typename')
   final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$parentsToJson(this);
+  int get hashCode {
+    final l$nickname = nickname;
+    final l$name = name;
+    final l$dob = dob;
+    final l$events = events;
+    final l$eventsOfEvents = eventsOfEvents;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$nickname,
+      l$name,
+      l$dob,
+      l$events == null ? null : Object.hashAll(l$events.map((v) => v)),
+      l$eventsOfEvents == null
+          ? null
+          : Object.hashAll(l$eventsOfEvents
+              .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
+      l$$__typename
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchPerson$fetchPerson$parents) ||
+        runtimeType != other.runtimeType) return false;
+    final l$nickname = nickname;
+    final lOther$nickname = other.nickname;
+    if (l$nickname != lOther$nickname) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$dob = dob;
+    final lOther$dob = other.dob;
+    if (l$dob != lOther$dob) return false;
+    final l$events = events;
+    final lOther$events = other.events;
+    if (l$events != null && lOther$events != null) {
+      if (l$events.length != lOther$events.length) return false;
+      for (int i = 0; i < l$events.length; i++) {
+        final l$events$entry = l$events[i];
+        final lOther$events$entry = lOther$events[i];
+        if (l$events$entry != lOther$events$entry) return false;
+      }
+    } else if (l$events != lOther$events) {
+      return false;
+    }
+
+    final l$eventsOfEvents = eventsOfEvents;
+    final lOther$eventsOfEvents = other.eventsOfEvents;
+    if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
+      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
+      for (int i = 0; i < l$eventsOfEvents.length; i++) {
+        final l$eventsOfEvents$entry = l$eventsOfEvents[i];
+        final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
+        if (l$eventsOfEvents$entry != null &&
+            lOther$eventsOfEvents$entry != null) {
+          if (l$eventsOfEvents$entry.length !=
+              lOther$eventsOfEvents$entry.length) return false;
+          for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
+            final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
+            final lOther$eventsOfEvents$entry$entry =
+                lOther$eventsOfEvents$entry[i];
+            if (l$eventsOfEvents$entry$entry !=
+                lOther$eventsOfEvents$entry$entry) return false;
+          }
+        } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
+          return false;
+        }
+      }
+    } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
+      return false;
+    }
+
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -284,6 +516,7 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
       required this.name,
       this.dob,
       this.events,
+      this.eventsOfEvents,
       required this.$__typename});
 
   @override
@@ -304,12 +537,95 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
       toJson: _nullable$_list$_nullable$dateTimeToJson)
   final List<DateTime?>? events;
 
+  @JsonKey(
+      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
+      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
+  final List<List<DateTime?>?>? eventsOfEvents;
+
   @JsonKey(name: '__typename')
   final String $__typename;
 
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$childrenToJson(this);
+  int get hashCode {
+    final l$nickname = nickname;
+    final l$name = name;
+    final l$dob = dob;
+    final l$events = events;
+    final l$eventsOfEvents = eventsOfEvents;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$nickname,
+      l$name,
+      l$dob,
+      l$events == null ? null : Object.hashAll(l$events.map((v) => v)),
+      l$eventsOfEvents == null
+          ? null
+          : Object.hashAll(l$eventsOfEvents
+              .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
+      l$$__typename
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchPerson$fetchPerson$children) ||
+        runtimeType != other.runtimeType) return false;
+    final l$nickname = nickname;
+    final lOther$nickname = other.nickname;
+    if (l$nickname != lOther$nickname) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$dob = dob;
+    final lOther$dob = other.dob;
+    if (l$dob != lOther$dob) return false;
+    final l$events = events;
+    final lOther$events = other.events;
+    if (l$events != null && lOther$events != null) {
+      if (l$events.length != lOther$events.length) return false;
+      for (int i = 0; i < l$events.length; i++) {
+        final l$events$entry = l$events[i];
+        final lOther$events$entry = lOther$events[i];
+        if (l$events$entry != lOther$events$entry) return false;
+      }
+    } else if (l$events != lOther$events) {
+      return false;
+    }
+
+    final l$eventsOfEvents = eventsOfEvents;
+    final lOther$eventsOfEvents = other.eventsOfEvents;
+    if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
+      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
+      for (int i = 0; i < l$eventsOfEvents.length; i++) {
+        final l$eventsOfEvents$entry = l$eventsOfEvents[i];
+        final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
+        if (l$eventsOfEvents$entry != null &&
+            lOther$eventsOfEvents$entry != null) {
+          if (l$eventsOfEvents$entry.length !=
+              lOther$eventsOfEvents$entry.length) return false;
+          for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
+            final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
+            final lOther$eventsOfEvents$entry$entry =
+                lOther$eventsOfEvents$entry[i];
+            if (l$eventsOfEvents$entry$entry !=
+                lOther$eventsOfEvents$entry$entry) return false;
+          }
+        } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
+          return false;
+        }
+      }
+    } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
+      return false;
+    }
+
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -324,6 +640,21 @@ class VariablesMutationUpdatePerson extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesMutationUpdatePersonToJson(this);
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([l$id]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesMutationUpdatePerson) ||
+        runtimeType != other.runtimeType) return false;
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -341,6 +672,25 @@ class MutationUpdatePerson extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdatePersonToJson(this);
+  int get hashCode {
+    final l$updatePerson = updatePerson;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$updatePerson, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdatePerson) || runtimeType != other.runtimeType)
+      return false;
+    final l$updatePerson = updatePerson;
+    final lOther$updatePerson = other.updatePerson;
+    if (l$updatePerson != lOther$updatePerson) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
@@ -578,6 +928,25 @@ class MutationUpdatePerson$updatePerson extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$MutationUpdatePerson$updatePersonToJson(this);
+  int get hashCode {
+    final l$full_name = full_name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$full_name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdatePerson$updatePerson) ||
+        runtimeType != other.runtimeType) return false;
+    final l$full_name = full_name;
+    final lOther$full_name = other.full_name;
+    if (l$full_name != lOther$full_name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -594,6 +963,21 @@ class VariablesSubscriptionWatchPerson extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$VariablesSubscriptionWatchPersonToJson(this);
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([l$id]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesSubscriptionWatchPerson) ||
+        runtimeType != other.runtimeType) return false;
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -611,6 +995,25 @@ class SubscriptionWatchPerson extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$SubscriptionWatchPersonToJson(this);
+  int get hashCode {
+    final l$watchPerson = watchPerson;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$watchPerson, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionWatchPerson) || runtimeType != other.runtimeType)
+      return false;
+    final l$watchPerson = watchPerson;
+    final lOther$watchPerson = other.watchPerson;
+    if (l$watchPerson != lOther$watchPerson) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
@@ -770,6 +1173,25 @@ class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionWatchPerson$watchPersonToJson(this);
+  int get hashCode {
+    final l$full_name = full_name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$full_name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is SubscriptionWatchPerson$watchPerson) ||
+        runtimeType != other.runtimeType) return false;
+    final l$full_name = full_name;
+    final lOther$full_name = other.full_name;
+    if (l$full_name != lOther$full_name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 DateTime? _nullable$dateTimeFromJson(dynamic data) =>
@@ -784,3 +1206,19 @@ List<DateTime?>? _nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
     data == null ? null : _list$_nullable$dateTimeFromJson(data);
 dynamic _nullable$_list$_nullable$dateTimeToJson(List<DateTime?>? data) =>
     data == null ? null : _list$_nullable$dateTimeToJson(data);
+List<List<DateTime?>?> _list$_nullable$_list$_nullable$dateTimeFromJson(
+        dynamic data) =>
+    data is List
+        ? data.map(_nullable$_list$_nullable$dateTimeFromJson).toList()
+        : [];
+dynamic _list$_nullable$_list$_nullable$dateTimeToJson(
+        List<List<DateTime?>?> data) =>
+    data.map(_nullable$_list$_nullable$dateTimeToJson).toList();
+List<List<DateTime?>?>?
+    _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
+        data == null
+            ? null
+            : _list$_nullable$_list$_nullable$dateTimeFromJson(data);
+dynamic _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
+        List<List<DateTime?>?>? data) =>
+    data == null ? null : _list$_nullable$_list$_nullable$dateTimeToJson(data);

@@ -69,14 +69,71 @@ Spec _printClass(
         printFromJson(name),
       ])
       ..fields = ListBuilder(
-        properties.map(
-          (property) => printClassProperty(context, property),
-        ),
+        properties.map((property) => printClassProperty(
+              context,
+              property,
+            )),
       )
       ..methods = ListBuilder([
         printToJsonMethod(name),
+        printHashCodeMethod(properties),
+        printEqualityOperator(name, properties),
       ]),
   );
+}
+
+String printLocalPropertyName(NameNode name, [String prefix = "l"]) =>
+    "${prefix}\$" + printPropertyName(name);
+
+Method printHashCodeMethod(Iterable<ContextProperty> properties) => Method(
+      (b) => b
+        ..name = "hashCode"
+        ..returns = refer("int")
+        ..type = MethodType.getter
+        ..lambda = false
+        ..body = Block((b) => b.statements = ListBuilder([
+              ...properties.map(
+                (e) => refer(printPropertyName(e.name))
+                    .assignFinal(printLocalPropertyName(e.name))
+                    .statement,
+              ),
+              refer("Object")
+                  .property("hashAll")
+                  .call([
+                    literalList(
+                      properties.map((e) => printPropertyHash(
+                            e.type,
+                            refer(printLocalPropertyName(e.name)),
+                          )),
+                    ),
+                  ])
+                  .returned
+                  .statement,
+            ])),
+    );
+
+Expression printPropertyHash(TypeNode type, Expression name) {
+  if (type is NamedTypeNode) {
+    return name;
+  }
+  if (type is ListTypeNode) {
+    final inner = refer("Object").property("hashAll").call([
+      name.property("map").call([
+        Method(
+          (b) => b
+            ..lambda = true
+            ..requiredParameters =
+                ListBuilder([Parameter((b) => b..name = "v")])
+            ..body = printPropertyHash(type.type, refer("v")).code,
+        ).closure,
+      ]),
+    ]);
+    if (type.isNonNull) {
+      return inner;
+    }
+    return name.equalTo(literalNull).conditional(literalNull, inner);
+  }
+  throw StateError("Unsupported type node");
 }
 
 Spec printVariables(PrintContext<ContextOperation> context) => _printClass(
@@ -395,8 +452,95 @@ Class printContext(PrintContext<ContextOperation> c) {
         printToJsonMethod(
           printClassName(context.path),
         ),
+        printHashCodeMethod(properties),
+        printEqualityOperator(
+          printClassName(context.path),
+          properties,
+        ),
       ]),
   );
+}
+
+Method printEqualityOperator(
+  String name,
+  Iterable<ContextProperty> properties,
+) =>
+    Method((b) => b
+      ..name = "operator=="
+      ..returns = refer("bool")
+      ..requiredParameters = ListBuilder([
+        Parameter(
+          (b) => b
+            ..type = refer("Object")
+            ..name = "other",
+        )
+      ])
+      ..lambda = false
+      ..annotations = ListBuilder([refer("override")])
+      ..body = Block((b) => b
+        ..statements = ListBuilder([
+          Code("if (identical(this, other)) return true;"),
+          Code(
+              "if (!(other is ${name}) || runtimeType != other.runtimeType) return false;"),
+          ...properties.expand(
+            (e) => [
+              refer(printPropertyName(e.name))
+                  .assignFinal(printLocalPropertyName(e.name))
+                  .statement,
+              refer("other")
+                  .property(printPropertyName(e.name))
+                  .assignFinal(printLocalPropertyName(e.name, "lOther"))
+                  .statement,
+              printPropertyEqualityCheck(
+                e.type,
+                printLocalPropertyName(e.name),
+                printLocalPropertyName(e.name, "lOther"),
+              )
+            ],
+          ),
+          literalTrue.returned.statement,
+        ])));
+
+Code printPropertyEqualityCheck(
+  TypeNode type,
+  String self,
+  String other,
+) {
+  if (type is NamedTypeNode) {
+    return Code(
+      "if (${self} != ${other}) return false;",
+    );
+  }
+  if (type is ListTypeNode) {
+    final emitter = DartEmitter(useNullSafetySyntax: true);
+    final selfEntryName = "${self}\$entry";
+    final otherEntryName = "${other}\$entry";
+    final innerCheck = printPropertyEqualityCheck(
+      type.type,
+      selfEntryName,
+      otherEntryName,
+    ).accept(emitter);
+    final listCheck = Block((b) => b
+      ..statements = ListBuilder([
+        Code("if (${self}.length != ${other}.length) return false;"),
+        Code("""
+          for (int i = 0; i < ${self}.length; i ++) {
+            final ${selfEntryName} = ${self}[i];
+            final ${otherEntryName} = ${other}[i];
+            ${innerCheck}
+          }
+          """)
+      ]));
+    if (type.isNonNull) return listCheck;
+    return Code("""
+    if (${self} != null && ${other} != null) {
+      ${listCheck.accept(emitter)}
+    } else if (${self} != ${other}) {
+      return false;
+    }
+    """);
+  }
+  throw new StateError("Unsupported type node");
 }
 
 Method printToJsonMethod(String name) => Method(

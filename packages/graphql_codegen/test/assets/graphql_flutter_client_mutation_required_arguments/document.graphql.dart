@@ -20,6 +20,21 @@ class VariablesMutationUpdateSRequired extends JsonSerializable {
   @override
   Map<String, dynamic> toJson() =>
       _$VariablesMutationUpdateSRequiredToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesMutationUpdateSRequired) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -34,6 +49,21 @@ class MutationUpdateSRequired extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$MutationUpdateSRequiredToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is MutationUpdateSRequired) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [

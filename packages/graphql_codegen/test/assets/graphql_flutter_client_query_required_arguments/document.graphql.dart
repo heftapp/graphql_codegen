@@ -17,6 +17,21 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSRequiredToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesQueryFetchSRequired) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()
@@ -31,6 +46,21 @@ class QueryFetchSRequired extends JsonSerializable {
 
   @override
   Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchSRequired) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
 }
 
 const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
