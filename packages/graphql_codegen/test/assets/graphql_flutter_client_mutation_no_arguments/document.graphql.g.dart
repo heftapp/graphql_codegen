@@ -6,11 +6,10 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MutationUpdateSNo _$MutationUpdateSNoFromJson(Map<String, dynamic> json) {
-  return MutationUpdateSNo(
-    s: json['s'] as String?,
-  );
-}
+MutationUpdateSNo _$MutationUpdateSNoFromJson(Map<String, dynamic> json) =>
+    MutationUpdateSNo(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$MutationUpdateSNoToJson(MutationUpdateSNo instance) =>
     <String, dynamic>{

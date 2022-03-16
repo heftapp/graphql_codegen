@@ -7,11 +7,10 @@ part of 'document.graphql.dart';
 // **************************************************************************
 
 VariablesQueryFetchSOptional _$VariablesQueryFetchSOptionalFromJson(
-    Map<String, dynamic> json) {
-  return VariablesQueryFetchSOptional(
-    name: json['name'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    VariablesQueryFetchSOptional(
+      name: json['name'] as String?,
+    );
 
 Map<String, dynamic> _$VariablesQueryFetchSOptionalToJson(
         VariablesQueryFetchSOptional instance) =>
@@ -19,11 +18,10 @@ Map<String, dynamic> _$VariablesQueryFetchSOptionalToJson(
       'name': instance.name,
     };
 
-QueryFetchSOptional _$QueryFetchSOptionalFromJson(Map<String, dynamic> json) {
-  return QueryFetchSOptional(
-    s: json['s'] as String?,
-  );
-}
+QueryFetchSOptional _$QueryFetchSOptionalFromJson(Map<String, dynamic> json) =>
+    QueryFetchSOptional(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$QueryFetchSOptionalToJson(
         QueryFetchSOptional instance) =>
@@ -32,11 +30,10 @@ Map<String, dynamic> _$QueryFetchSOptionalToJson(
     };
 
 VariablesQueryFetchSRequired _$VariablesQueryFetchSRequiredFromJson(
-    Map<String, dynamic> json) {
-  return VariablesQueryFetchSRequired(
-    name: json['name'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    VariablesQueryFetchSRequired(
+      name: json['name'] as String,
+    );
 
 Map<String, dynamic> _$VariablesQueryFetchSRequiredToJson(
         VariablesQueryFetchSRequired instance) =>
@@ -44,11 +41,10 @@ Map<String, dynamic> _$VariablesQueryFetchSRequiredToJson(
       'name': instance.name,
     };
 
-QueryFetchSRequired _$QueryFetchSRequiredFromJson(Map<String, dynamic> json) {
-  return QueryFetchSRequired(
-    s: json['s'] as String?,
-  );
-}
+QueryFetchSRequired _$QueryFetchSRequiredFromJson(Map<String, dynamic> json) =>
+    QueryFetchSRequired(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$QueryFetchSRequiredToJson(
         QueryFetchSRequired instance) =>
@@ -57,11 +53,10 @@ Map<String, dynamic> _$QueryFetchSRequiredToJson(
     };
 
 QueryFetchSNoVariables _$QueryFetchSNoVariablesFromJson(
-    Map<String, dynamic> json) {
-  return QueryFetchSNoVariables(
-    s: json['s'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    QueryFetchSNoVariables(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$QueryFetchSNoVariablesToJson(
         QueryFetchSNoVariables instance) =>
@@ -70,11 +65,10 @@ Map<String, dynamic> _$QueryFetchSNoVariablesToJson(
     };
 
 VariablesMutationUpdateSOptional _$VariablesMutationUpdateSOptionalFromJson(
-    Map<String, dynamic> json) {
-  return VariablesMutationUpdateSOptional(
-    name: json['name'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    VariablesMutationUpdateSOptional(
+      name: json['name'] as String?,
+    );
 
 Map<String, dynamic> _$VariablesMutationUpdateSOptionalToJson(
         VariablesMutationUpdateSOptional instance) =>
@@ -83,11 +77,10 @@ Map<String, dynamic> _$VariablesMutationUpdateSOptionalToJson(
     };
 
 MutationUpdateSOptional _$MutationUpdateSOptionalFromJson(
-    Map<String, dynamic> json) {
-  return MutationUpdateSOptional(
-    s: json['s'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    MutationUpdateSOptional(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$MutationUpdateSOptionalToJson(
         MutationUpdateSOptional instance) =>
@@ -96,11 +89,10 @@ Map<String, dynamic> _$MutationUpdateSOptionalToJson(
     };
 
 VariablesMutationUpdateSRequired _$VariablesMutationUpdateSRequiredFromJson(
-    Map<String, dynamic> json) {
-  return VariablesMutationUpdateSRequired(
-    name: json['name'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    VariablesMutationUpdateSRequired(
+      name: json['name'] as String,
+    );
 
 Map<String, dynamic> _$VariablesMutationUpdateSRequiredToJson(
         VariablesMutationUpdateSRequired instance) =>
@@ -109,11 +101,10 @@ Map<String, dynamic> _$VariablesMutationUpdateSRequiredToJson(
     };
 
 MutationUpdateSRequired _$MutationUpdateSRequiredFromJson(
-    Map<String, dynamic> json) {
-  return MutationUpdateSRequired(
-    s: json['s'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    MutationUpdateSRequired(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$MutationUpdateSRequiredToJson(
         MutationUpdateSRequired instance) =>
@@ -122,11 +113,10 @@ Map<String, dynamic> _$MutationUpdateSRequiredToJson(
     };
 
 MutationUpdateSNoVariables _$MutationUpdateSNoVariablesFromJson(
-    Map<String, dynamic> json) {
-  return MutationUpdateSNoVariables(
-    s: json['s'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    MutationUpdateSNoVariables(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$MutationUpdateSNoVariablesToJson(
         MutationUpdateSNoVariables instance) =>

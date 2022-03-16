@@ -7,11 +7,10 @@ part of 'document.graphql.dart';
 // **************************************************************************
 
 VariablesMutationUpdateSRequired _$VariablesMutationUpdateSRequiredFromJson(
-    Map<String, dynamic> json) {
-  return VariablesMutationUpdateSRequired(
-    name: json['name'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    VariablesMutationUpdateSRequired(
+      name: json['name'] as String,
+    );
 
 Map<String, dynamic> _$VariablesMutationUpdateSRequiredToJson(
         VariablesMutationUpdateSRequired instance) =>
@@ -20,11 +19,10 @@ Map<String, dynamic> _$VariablesMutationUpdateSRequiredToJson(
     };
 
 MutationUpdateSRequired _$MutationUpdateSRequiredFromJson(
-    Map<String, dynamic> json) {
-  return MutationUpdateSRequired(
-    s: json['s'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    MutationUpdateSRequired(
+      s: json['s'] as String?,
+    );
 
 Map<String, dynamic> _$MutationUpdateSRequiredToJson(
         MutationUpdateSRequired instance) =>

@@ -6,17 +6,16 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-QueryFetchScalars _$QueryFetchScalarsFromJson(Map<String, dynamic> json) {
-  return QueryFetchScalars(
-    i: json['i'] as int?,
-    id: json['id'] as int?,
-    s: json['s'] as String?,
-    c1: json['c1'] as String?,
-    c2: json['c2'] == null ? null : DateTime.parse(json['c2'] as String),
-    c3: _nullable$fobbobFromJson(json['c3']),
-    c3s: _nullable$_list$_nullable$fobbobFromJson(json['c3s']),
-  );
-}
+QueryFetchScalars _$QueryFetchScalarsFromJson(Map<String, dynamic> json) =>
+    QueryFetchScalars(
+      i: json['i'] as int?,
+      id: json['id'] as int?,
+      s: json['s'] as String?,
+      c1: json['c1'] as String?,
+      c2: json['c2'] == null ? null : DateTime.parse(json['c2'] as String),
+      c3: _nullable$fobbobFromJson(json['c3']),
+      c3s: _nullable$_list$_nullable$fobbobFromJson(json['c3s']),
+    );
 
 Map<String, dynamic> _$QueryFetchScalarsToJson(QueryFetchScalars instance) =>
     <String, dynamic>{

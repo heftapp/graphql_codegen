@@ -1,3 +1,7 @@
+# 0.7.0-beta.5
+
+* Upgrade dependencies (Including analyzer!)
+
 # 0.7.0-beta.4
 
 * Improve scalar converters
