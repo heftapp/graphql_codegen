@@ -40,6 +40,10 @@ class GraphQLCodegenConfig extends JsonSerializable {
   final bool addTypename;
   @JsonKey(defaultValue: "lib/**.graphql")
   final String assetsPath;
+
+  @JsonKey(defaultValue: const ["**.graphql"])
+  final List<String> scopes;
+
   @JsonKey(defaultValue: const [])
   final List<String> addTypenameExcludedPaths;
   @JsonKey(defaultValue: "")
@@ -50,6 +54,7 @@ class GraphQLCodegenConfig extends JsonSerializable {
     this.scalars = const {},
     this.addTypename = true,
     this.assetsPath = "lib/**.graphql",
+    this.scopes = const ["**.graphql"],
     this.addTypenameExcludedPaths = const [],
     this.generatedFileHeader = "",
   });
