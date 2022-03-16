@@ -14,20 +14,35 @@ import 'package:graphql_codegen_config/config.dart';
 /// The builder class.
 class GraphQLBuilder extends Builder {
   final BuilderOptions options;
+  final GraphQLCodegenConfig config;
 
   /// A static method to initialize the builder.
   static GraphQLBuilder builder(BuilderOptions options) =>
       GraphQLBuilder(options);
 
-  GraphQLBuilder(this.options);
+  GraphQLBuilder(this.options)
+      : config = GraphQLCodegenConfig.fromJson(
+          jsonDecode(
+            jsonEncode(
+              options.config,
+            ),
+          ),
+        );
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    final config = GraphQLCodegenConfig.fromJson(
-      jsonDecode(jsonEncode(options.config)),
-    );
-    final assets = buildStep.findAssets(Glob(config.assetsPath));
+    final scope = (config.scopes).whereType<String?>().firstWhere(
+          (element) =>
+              element != null && Glob(element).matches(buildStep.inputId.path),
+          orElse: () => null,
+        );
+    if (scope == null) {
+      return;
+    }
+    final assets = buildStep.findAssets(Glob(scope));
+    final assetsPathGlob = Glob(config.assetsPath);
     final entries = await assets
+        .where((asset) => assetsPathGlob.matches(asset.path))
         .asyncMap(
           (event) async => MapEntry(
             event,

@@ -1,0 +1,6 @@
+{
+    "scopes": [
+        "**/a.*.graphql",
+        "**/b.*.graphql"
+    ]
+}

@@ -1,0 +1,6 @@
+query FetchPerson {
+    fetchPerson {
+        name
+        status
+    }
+}
