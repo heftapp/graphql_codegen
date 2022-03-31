@@ -6,6 +6,18 @@ part of 'schema.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FragmentFReport _$FragmentFReportFromJson(Map<String, dynamic> json) =>
+    FragmentFReport(
+      title: json['title'] as String?,
+      $__typename: json['__typename'] as String,
+    );
+
+Map<String, dynamic> _$FragmentFReportToJson(FragmentFReport instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      '__typename': instance.$__typename,
+    };
+
 QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
       docsWithTypename: (json['docsWithTypename'] as List<dynamic>?)
           ?.map((e) => e == null
@@ -93,8 +105,8 @@ Map<String, dynamic> _$QueryQ$docsWithFragmentToJson(
 QueryQ$docsWithFragment$Contract _$QueryQ$docsWithFragment$ContractFromJson(
         Map<String, dynamic> json) =>
     QueryQ$docsWithFragment$Contract(
-      title: json['title'] as String?,
       $__typename: json['__typename'] as String,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$QueryQ$docsWithFragment$ContractToJson(
@@ -107,8 +119,8 @@ Map<String, dynamic> _$QueryQ$docsWithFragment$ContractToJson(
 QueryQ$docsWithFragment$Report _$QueryQ$docsWithFragment$ReportFromJson(
         Map<String, dynamic> json) =>
     QueryQ$docsWithFragment$Report(
-      title: json['title'] as String?,
       $__typename: json['__typename'] as String,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$QueryQ$docsWithFragment$ReportToJson(

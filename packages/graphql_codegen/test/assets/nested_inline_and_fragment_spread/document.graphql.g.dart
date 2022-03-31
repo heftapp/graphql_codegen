@@ -6,6 +6,37 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FragmentF _$FragmentFFromJson(Map<String, dynamic> json) => FragmentF(
+      t: json['t'] == null
+          ? null
+          : FragmentF$t.fromJson(json['t'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$FragmentFToJson(FragmentF instance) => <String, dynamic>{
+      't': instance.t,
+    };
+
+FragmentF$t _$FragmentF$tFromJson(Map<String, dynamic> json) => FragmentF$t(
+      t: json['t'] == null
+          ? null
+          : FragmentF$t$t.fromJson(json['t'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$FragmentF$tToJson(FragmentF$t instance) =>
+    <String, dynamic>{
+      't': instance.t,
+    };
+
+FragmentF$t$t _$FragmentF$t$tFromJson(Map<String, dynamic> json) =>
+    FragmentF$t$t(
+      $__typename: json['__typename'] as String,
+    );
+
+Map<String, dynamic> _$FragmentF$t$tToJson(FragmentF$t$t instance) =>
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+    };
+
 QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
       t: json['t'] == null
           ? null

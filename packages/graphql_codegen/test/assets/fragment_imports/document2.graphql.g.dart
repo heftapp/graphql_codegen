@@ -6,6 +6,15 @@ part of 'document2.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FragmentF1 _$FragmentF1FromJson(Map<String, dynamic> json) => FragmentF1(
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentF1ToJson(FragmentF1 instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
 QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
       t: json['t'] == null
           ? null

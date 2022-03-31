@@ -6,6 +6,32 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FragmentFragmentA _$FragmentFragmentAFromJson(Map<String, dynamic> json) =>
+    FragmentFragmentA(
+      $__typename: json['__typename'] as String,
+      value: json['value'] as String?,
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentFragmentAToJson(FragmentFragmentA instance) =>
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+      'value': instance.value,
+      'name': instance.name,
+    };
+
+FragmentFragmentI _$FragmentFragmentIFromJson(Map<String, dynamic> json) =>
+    FragmentFragmentI(
+      $__typename: json['__typename'] as String,
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentFragmentIToJson(FragmentFragmentI instance) =>
+    <String, dynamic>{
+      '__typename': instance.$__typename,
+      'name': instance.name,
+    };
+
 QueryFetchStuff _$QueryFetchStuffFromJson(Map<String, dynamic> json) =>
     QueryFetchStuff(
       $__typename: json['__typename'] as String,
@@ -38,9 +64,9 @@ Map<String, dynamic> _$QueryFetchStuff$fieldToJson(
 QueryFetchStuff$field$FieldA _$QueryFetchStuff$field$FieldAFromJson(
         Map<String, dynamic> json) =>
     QueryFetchStuff$field$FieldA(
-      value: json['value'] as String?,
       $__typename: json['__typename'] as String,
       name: json['name'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic> _$QueryFetchStuff$field$FieldAToJson(

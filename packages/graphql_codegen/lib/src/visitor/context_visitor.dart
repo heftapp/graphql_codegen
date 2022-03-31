@@ -286,9 +286,11 @@ class ContextVisitor extends RecursiveVisitor {
     if (fieldType is ObjectTypeDefinitionNode ||
         fieldType is InterfaceTypeDefinitionNode ||
         fieldType is UnionTypeDefinitionNode) {
+      final segment = FieldNameSegment(node);
       final c = context.withNameAndType(
-        FieldNameSegment(node),
+        segment,
         fieldType,
+        extendsName: context.extendsName?.withSegment(segment),
       );
       node.visitChildren(ContextVisitor(context: c));
       context.addProperty(ContextProperty.fromFieldNode(

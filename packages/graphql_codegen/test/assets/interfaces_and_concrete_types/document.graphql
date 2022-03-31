@@ -1,0 +1,56 @@
+interface IField {
+    name: String 
+}
+
+type TField implements IField {
+    name: String
+    age: Int
+}
+
+interface I1 {
+    i2: I2
+}
+
+type T1 implements I1 {
+    i2: I2
+    i2c: T2
+}
+
+interface I2 {
+    field: IField
+}
+
+type T2 implements I2 {
+    field: TField
+}
+
+type Query {
+    i1: I1
+}
+
+query FetchI {
+    i1 {
+        i2 {
+            field {
+                name
+            }
+        }
+        ... on T1 {
+            i2c {
+                field {
+                    age
+                }
+            }
+            i2 {
+                field {
+                    name
+                }
+                ...on T2 {
+                    field {
+                        age
+                    }
+                }
+            }
+        }
+    }
+}
