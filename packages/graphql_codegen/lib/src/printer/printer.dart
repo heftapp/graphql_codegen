@@ -46,9 +46,9 @@ Spec _printClass(
   context.markAsJsonSerializable();
   return Class(
     (b) => b
-      ..annotations = ListBuilder(
-        [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
-      )
+      ..annotations = ListBuilder([
+        _JSON_SERIALIZABLE_BASE_CLASS.call([]),
+      ])
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..name = name
       ..constructors = ListBuilder([
@@ -150,38 +150,6 @@ EnumValue printEnumValue(NameNode name) => EnumValue(
         ]),
     );
 
-Spec printFragment(PrintContext<ContextFragment> f) {
-  f.addDependencies(f.context.fragments);
-  final extendContext = f.context.extendsContextFragment;
-  return Class(
-    (b) => b
-      ..abstract = true
-      ..name = printClassName(f.context.path)
-      ..implements = ListBuilder(
-        f.context.fragments.map((e) => printClassName(e)).map(refer),
-      )
-      ..extend = extendContext == null
-          ? null
-          : refer(printClassName(extendContext.path))
-      ..methods = ListBuilder<Method>(
-        f.context.properties.map(
-          (property) => printFragmentProperty(f, property),
-        ),
-      ),
-  );
-}
-
-Method printFragmentProperty(
-  PrintContext context,
-  ContextProperty property,
-) =>
-    Method(
-      (b) => b
-        ..type = MethodType.getter
-        ..name = printPropertyName(property.name)
-        ..returns = printClassPropertyType(context, property).reference,
-    );
-
 Spec printDocument(
   PrintContext context,
   OperationDefinitionNode operation,
@@ -259,7 +227,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
     ...context.contextFragments.expand((context) {
       final fragmentNode = context.fragment;
       return [
-        printFragment(c.withContext(context)),
+        printContext(c.withContext(context)),
         if (fragmentNode != null)
           printFragmentDefinition(
             c.withContext(context),
@@ -366,88 +334,74 @@ Reference printJsonMap() => TypeReference(
         ]),
     );
 
-Class printContext(PrintContext<ContextOperation> c) {
+Constructor printConstructor(
+  PrintContext c,
+  Iterable<ContextProperty> properties,
+) {
+  return Constructor(
+    (b) => b
+      ..optionalParameters = ListBuilder(
+        [
+          ...properties.map<Parameter>(
+            (p) => Parameter(
+              (b) => b
+                ..required = p.isRequired
+                ..named = true
+                ..toThis = true
+                ..name = printPropertyName(p.name),
+            ),
+          ),
+        ],
+      )
+      ..initializers = ListBuilder<Code>([]),
+  );
+}
+
+Iterable<ContextProperty> _mergeProperties(
+  Iterable<ContextProperty> ps1,
+  Iterable<ContextProperty> ps2,
+) {
+  return {
+    for (final v in [...ps1, ...ps2]) printPropertyName(v.name): v
+  }.values;
+}
+
+Class printContext(PrintContext c) {
   c.addPackage('package:json_annotation/json_annotation.dart');
   c.markAsJsonSerializable();
   final context = c.context;
   c.addDependencies(context.fragments);
   c.addDependencies(context.possibleTypes.map((e) => e.name));
 
-  final extendContext = context.extendsContextOperation;
+  final extendContext = context.extendsContext;
   if (extendContext != null) {
     c.addDependency(extendContext.path);
   }
-  final parentProperties = extendContext?.properties ?? [];
-  final parentPropertiesSet = Set<String>.of(
-    parentProperties.map((e) => printPropertyName(e.name)),
-  );
-  final properties = context.properties.where(
-    (element) => !parentPropertiesSet.contains(printPropertyName(element.name)),
+  final properties = _mergeProperties(
+    extendContext?.properties ?? [],
+    c.context.properties,
   );
 
   return Class(
     (b) => b
       ..name = printClassName(context.path)
-      ..implements = ListBuilder(
-        context.fragments.map((e) => printClassName(e)).map(refer),
-      )
+      ..implements = ListBuilder([
+        ...context.fragments.map((e) => printClassName(e)).map(refer),
+        if (extendContext != null) refer(printClassName(extendContext.path)),
+      ])
       ..annotations = ListBuilder(
         [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
       )
-      ..extend = extendContext == null
-          ? _JSON_SERIALIZABLE_BASE_CLASS
-          : refer(printClassName(extendContext.path))
+      ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..constructors = ListBuilder([
-        Constructor(
-          (b) => b
-            ..optionalParameters = ListBuilder(
-              [
-                ...properties.map<Parameter>(
-                  (p) => Parameter(
-                    (b) => b
-                      ..required = p.isRequired
-                      ..named = true
-                      ..toThis = true
-                      ..name = printPropertyName(p.name),
-                  ),
-                ),
-                ...parentProperties.map<Parameter>(
-                  (p) => Parameter(
-                    (b) => b
-                      ..required = p.isRequired
-                      ..named = true
-                      ..name = printPropertyName(p.name)
-                      ..type = printClassPropertyType(c, p).reference,
-                  ),
-                ),
-              ],
-            )
-            ..initializers = ListBuilder<Code>([
-              if (extendContext != null)
-                refer('super').call(
-                  [],
-                  Map.fromEntries(
-                    parentProperties.map(
-                      (e) => MapEntry(
-                        printPropertyName(e.name),
-                        refer(printPropertyName(e.name)),
-                      ),
-                    ),
-                  ),
-                ).code,
-            ]),
-        ),
+        printConstructor(c, properties),
         printFromJson(
           printClassName(context.path),
           context.typenameProperty,
           context.possibleTypes,
         ),
       ])
-      ..fields = ListBuilder(
-        properties.map(
-          (p) => printClassProperty(c, p),
-        ),
-      )
+      ..fields = ListBuilder(properties.map((p) => printClassProperty(c, p)))
       ..methods = ListBuilder([
         printToJsonMethod(
           printClassName(context.path),

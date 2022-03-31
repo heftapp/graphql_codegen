@@ -2,9 +2,40 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'query.graphql.g.dart';
 
-abstract class FragmentFragmentA {
-  String? get s;
-  String? get $_s;
+@JsonSerializable()
+class FragmentFragmentA extends JsonSerializable {
+  FragmentFragmentA({this.s, this.$_s});
+
+  @override
+  factory FragmentFragmentA.fromJson(Map<String, dynamic> json) =>
+      _$FragmentFragmentAFromJson(json);
+
+  final String? s;
+
+  @JsonKey(name: '_s')
+  final String? $_s;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentFragmentAToJson(this);
+  int get hashCode {
+    final l$s = s;
+    final l$$_s = $_s;
+    return Object.hashAll([l$s, l$$_s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentFragmentA) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    final l$$_s = $_s;
+    final lOther$$_s = other.$_s;
+    if (l$$_s != lOther$$_s) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
@@ -28,8 +59,33 @@ const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
           selectionSet: null)
     ]));
 
-abstract class FragmentFragmentB {
-  int? get i;
+@JsonSerializable()
+class FragmentFragmentB extends JsonSerializable {
+  FragmentFragmentB({this.i});
+
+  @override
+  factory FragmentFragmentB.fromJson(Map<String, dynamic> json) =>
+      _$FragmentFragmentBFromJson(json);
+
+  final int? i;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentFragmentBToJson(this);
+  int get hashCode {
+    final l$i = i;
+    return Object.hashAll([l$i]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentFragmentB) || runtimeType != other.runtimeType)
+      return false;
+    final l$i = i;
+    final lOther$i = other.i;
+    if (l$i != lOther$i) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
@@ -249,16 +305,18 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
 
 @JsonSerializable()
 class QueryFetchImplementations$interface$self$ImplementationA
-    extends QueryFetchImplementations$interface$self
-    implements FragmentFragmentA {
+    extends JsonSerializable
+    implements FragmentFragmentA, QueryFetchImplementations$interface$self {
   QueryFetchImplementations$interface$self$ImplementationA(
-      {this.s, this.$_s, required String $__typename})
-      : super($__typename: $__typename);
+      {required this.$__typename, this.s, this.$_s});
 
   @override
   factory QueryFetchImplementations$interface$self$ImplementationA.fromJson(
           Map<String, dynamic> json) =>
       _$QueryFetchImplementations$interface$self$ImplementationAFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final String? s;
 
@@ -269,9 +327,10 @@ class QueryFetchImplementations$interface$self$ImplementationA
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$self$ImplementationAToJson(this);
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$s = s;
     final l$$_s = $_s;
-    return Object.hashAll([l$s, l$$_s]);
+    return Object.hashAll([l$$__typename, l$s, l$$_s]);
   }
 
   @override
@@ -279,6 +338,9 @@ class QueryFetchImplementations$interface$self$ImplementationA
     if (identical(this, other)) return true;
     if (!(other is QueryFetchImplementations$interface$self$ImplementationA) ||
         runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$s = s;
     final lOther$s = other.s;
     if (l$s != lOther$s) return false;
@@ -291,16 +353,18 @@ class QueryFetchImplementations$interface$self$ImplementationA
 
 @JsonSerializable()
 class QueryFetchImplementations$interface$self$ImplementationB
-    extends QueryFetchImplementations$interface$self
-    implements FragmentFragmentB {
+    extends JsonSerializable
+    implements FragmentFragmentB, QueryFetchImplementations$interface$self {
   QueryFetchImplementations$interface$self$ImplementationB(
-      {this.i, required String $__typename})
-      : super($__typename: $__typename);
+      {required this.$__typename, this.i});
 
   @override
   factory QueryFetchImplementations$interface$self$ImplementationB.fromJson(
           Map<String, dynamic> json) =>
       _$QueryFetchImplementations$interface$self$ImplementationBFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final int? i;
 
@@ -308,8 +372,9 @@ class QueryFetchImplementations$interface$self$ImplementationB
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$self$ImplementationBToJson(this);
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$i = i;
-    return Object.hashAll([l$i]);
+    return Object.hashAll([l$$__typename, l$i]);
   }
 
   @override
@@ -317,6 +382,9 @@ class QueryFetchImplementations$interface$self$ImplementationB
     if (identical(this, other)) return true;
     if (!(other is QueryFetchImplementations$interface$self$ImplementationB) ||
         runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$i = i;
     final lOther$i = other.i;
     if (l$i != lOther$i) return false;
@@ -326,19 +394,21 @@ class QueryFetchImplementations$interface$self$ImplementationB
 
 @JsonSerializable()
 class QueryFetchImplementations$interface$ImplementationA
-    extends QueryFetchImplementations$interface implements FragmentFragmentA {
+    extends JsonSerializable
+    implements FragmentFragmentA, QueryFetchImplementations$interface {
   QueryFetchImplementations$interface$ImplementationA(
-      {this.s,
-      this.$_s,
-      required String typename,
-      bool? b,
-      required QueryFetchImplementations$interface$self self})
-      : super(typename: typename, b: b, self: self);
+      {required this.typename, this.b, required this.self, this.s, this.$_s});
 
   @override
   factory QueryFetchImplementations$interface$ImplementationA.fromJson(
           Map<String, dynamic> json) =>
       _$QueryFetchImplementations$interface$ImplementationAFromJson(json);
+
+  final String typename;
+
+  final bool? b;
+
+  final QueryFetchImplementations$interface$self self;
 
   final String? s;
 
@@ -349,9 +419,12 @@ class QueryFetchImplementations$interface$ImplementationA
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$ImplementationAToJson(this);
   int get hashCode {
+    final l$typename = typename;
+    final l$b = b;
+    final l$self = self;
     final l$s = s;
     final l$$_s = $_s;
-    return Object.hashAll([l$s, l$$_s]);
+    return Object.hashAll([l$typename, l$b, l$self, l$s, l$$_s]);
   }
 
   @override
@@ -359,6 +432,15 @@ class QueryFetchImplementations$interface$ImplementationA
     if (identical(this, other)) return true;
     if (!(other is QueryFetchImplementations$interface$ImplementationA) ||
         runtimeType != other.runtimeType) return false;
+    final l$typename = typename;
+    final lOther$typename = other.typename;
+    if (l$typename != lOther$typename) return false;
+    final l$b = b;
+    final lOther$b = other.b;
+    if (l$b != lOther$b) return false;
+    final l$self = self;
+    final lOther$self = other.self;
+    if (l$self != lOther$self) return false;
     final l$s = s;
     final lOther$s = other.s;
     if (l$s != lOther$s) return false;
@@ -371,18 +453,21 @@ class QueryFetchImplementations$interface$ImplementationA
 
 @JsonSerializable()
 class QueryFetchImplementations$interface$ImplementationB
-    extends QueryFetchImplementations$interface implements FragmentFragmentB {
+    extends JsonSerializable
+    implements FragmentFragmentB, QueryFetchImplementations$interface {
   QueryFetchImplementations$interface$ImplementationB(
-      {this.i,
-      required String typename,
-      bool? b,
-      required QueryFetchImplementations$interface$self self})
-      : super(typename: typename, b: b, self: self);
+      {required this.typename, this.b, required this.self, this.i});
 
   @override
   factory QueryFetchImplementations$interface$ImplementationB.fromJson(
           Map<String, dynamic> json) =>
       _$QueryFetchImplementations$interface$ImplementationBFromJson(json);
+
+  final String typename;
+
+  final bool? b;
+
+  final QueryFetchImplementations$interface$self self;
 
   final int? i;
 
@@ -390,8 +475,11 @@ class QueryFetchImplementations$interface$ImplementationB
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$ImplementationBToJson(this);
   int get hashCode {
+    final l$typename = typename;
+    final l$b = b;
+    final l$self = self;
     final l$i = i;
-    return Object.hashAll([l$i]);
+    return Object.hashAll([l$typename, l$b, l$self, l$i]);
   }
 
   @override
@@ -399,6 +487,15 @@ class QueryFetchImplementations$interface$ImplementationB
     if (identical(this, other)) return true;
     if (!(other is QueryFetchImplementations$interface$ImplementationB) ||
         runtimeType != other.runtimeType) return false;
+    final l$typename = typename;
+    final lOther$typename = other.typename;
+    if (l$typename != lOther$typename) return false;
+    final l$b = b;
+    final lOther$b = other.b;
+    if (l$b != lOther$b) return false;
+    final l$self = self;
+    final lOther$self = other.self;
+    if (l$self != lOther$self) return false;
     final l$i = i;
     final lOther$i = other.i;
     if (l$i != lOther$i) return false;

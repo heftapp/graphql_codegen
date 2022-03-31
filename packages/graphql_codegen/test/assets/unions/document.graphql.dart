@@ -116,21 +116,24 @@ class QueryQ$u extends JsonSerializable {
 }
 
 @JsonSerializable()
-class QueryQ$u$Ta extends QueryQ$u {
-  QueryQ$u$Ta({this.name, required String $__typename})
-      : super($__typename: $__typename);
+class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
+  QueryQ$u$Ta({required this.$__typename, this.name});
 
   @override
   factory QueryQ$u$Ta.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$u$TaFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final String? name;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$u$TaToJson(this);
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$name = name;
-    return Object.hashAll([l$name]);
+    return Object.hashAll([l$$__typename, l$name]);
   }
 
   @override
@@ -138,6 +141,9 @@ class QueryQ$u$Ta extends QueryQ$u {
     if (identical(this, other)) return true;
     if (!(other is QueryQ$u$Ta) || runtimeType != other.runtimeType)
       return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) return false;
@@ -146,21 +152,24 @@ class QueryQ$u$Ta extends QueryQ$u {
 }
 
 @JsonSerializable()
-class QueryQ$u$Tb extends QueryQ$u {
-  QueryQ$u$Tb({this.velocity, required String $__typename})
-      : super($__typename: $__typename);
+class QueryQ$u$Tb extends JsonSerializable implements QueryQ$u {
+  QueryQ$u$Tb({required this.$__typename, this.velocity});
 
   @override
   factory QueryQ$u$Tb.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$u$TbFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final int? velocity;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$u$TbToJson(this);
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$velocity = velocity;
-    return Object.hashAll([l$velocity]);
+    return Object.hashAll([l$$__typename, l$velocity]);
   }
 
   @override
@@ -168,6 +177,9 @@ class QueryQ$u$Tb extends QueryQ$u {
     if (identical(this, other)) return true;
     if (!(other is QueryQ$u$Tb) || runtimeType != other.runtimeType)
       return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$velocity = velocity;
     final lOther$velocity = other.velocity;
     if (l$velocity != lOther$velocity) return false;

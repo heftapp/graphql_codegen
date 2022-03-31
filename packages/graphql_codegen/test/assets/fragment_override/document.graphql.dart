@@ -2,8 +2,33 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-abstract class FragmentT1 {
-  FragmentT1$t? get t;
+@JsonSerializable()
+class FragmentT1 extends JsonSerializable {
+  FragmentT1({this.t});
+
+  @override
+  factory FragmentT1.fromJson(Map<String, dynamic> json) =>
+      _$FragmentT1FromJson(json);
+
+  final FragmentT1$t? t;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentT1ToJson(this);
+  int get hashCode {
+    final l$t = t;
+    return Object.hashAll([l$t]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentT1) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_T1 = const FragmentDefinitionNode(
@@ -27,13 +52,68 @@ const FRAGMENT_T1 = const FragmentDefinitionNode(
           ]))
     ]));
 
-abstract class FragmentT1$t {
-  String? get name;
+@JsonSerializable()
+class FragmentT1$t extends JsonSerializable {
+  FragmentT1$t({this.name});
+
+  @override
+  factory FragmentT1$t.fromJson(Map<String, dynamic> json) =>
+      _$FragmentT1$tFromJson(json);
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentT1$tToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentT1$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
-abstract class FragmentT2 {
-  FragmentT2$t? get t;
-  String? get name;
+@JsonSerializable()
+class FragmentT2 extends JsonSerializable {
+  FragmentT2({this.t, this.name});
+
+  @override
+  factory FragmentT2.fromJson(Map<String, dynamic> json) =>
+      _$FragmentT2FromJson(json);
+
+  final FragmentT2$t? t;
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentT2ToJson(this);
+  int get hashCode {
+    final l$t = t;
+    final l$name = name;
+    return Object.hashAll([l$t, l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentT2) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_T2 = const FragmentDefinitionNode(
@@ -63,13 +143,68 @@ const FRAGMENT_T2 = const FragmentDefinitionNode(
           selectionSet: null)
     ]));
 
-abstract class FragmentT2$t {
-  String? get name;
+@JsonSerializable()
+class FragmentT2$t extends JsonSerializable {
+  FragmentT2$t({this.name});
+
+  @override
+  factory FragmentT2$t.fromJson(Map<String, dynamic> json) =>
+      _$FragmentT2$tFromJson(json);
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentT2$tToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentT2$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
-abstract class FragmentTC implements FragmentT1, FragmentT2 {
-  FragmentTC$t? get t;
-  String? get name;
+@JsonSerializable()
+class FragmentTC extends JsonSerializable implements FragmentT1, FragmentT2 {
+  FragmentTC({this.t, this.name});
+
+  @override
+  factory FragmentTC.fromJson(Map<String, dynamic> json) =>
+      _$FragmentTCFromJson(json);
+
+  final FragmentTC$t? t;
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentTCToJson(this);
+  int get hashCode {
+    final l$t = t;
+    final l$name = name;
+    return Object.hashAll([l$t, l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentTC) || runtimeType != other.runtimeType)
+      return false;
+    final l$t = t;
+    final lOther$t = other.t;
+    if (l$t != lOther$t) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_T_C = const FragmentDefinitionNode(
@@ -82,8 +217,34 @@ const FRAGMENT_T_C = const FragmentDefinitionNode(
       FragmentSpreadNode(name: NameNode(value: 'T2'), directives: [])
     ]));
 
-abstract class FragmentTC$t implements FragmentT1$t, FragmentT2$t {
-  String? get name;
+@JsonSerializable()
+class FragmentTC$t extends JsonSerializable
+    implements FragmentT1$t, FragmentT2$t {
+  FragmentTC$t({this.name});
+
+  @override
+  factory FragmentTC$t.fromJson(Map<String, dynamic> json) =>
+      _$FragmentTC$tFromJson(json);
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentTC$tToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentTC$t) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 @JsonSerializable()

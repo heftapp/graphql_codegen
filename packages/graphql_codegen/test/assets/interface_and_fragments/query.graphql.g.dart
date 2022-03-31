@@ -6,6 +6,28 @@ part of 'query.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FragmentFragmentA _$FragmentFragmentAFromJson(Map<String, dynamic> json) =>
+    FragmentFragmentA(
+      s: json['s'] as String?,
+      $_s: json['_s'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentFragmentAToJson(FragmentFragmentA instance) =>
+    <String, dynamic>{
+      's': instance.s,
+      '_s': instance.$_s,
+    };
+
+FragmentFragmentB _$FragmentFragmentBFromJson(Map<String, dynamic> json) =>
+    FragmentFragmentB(
+      i: json['i'] as int?,
+    );
+
+Map<String, dynamic> _$FragmentFragmentBToJson(FragmentFragmentB instance) =>
+    <String, dynamic>{
+      'i': instance.i,
+    };
+
 QueryFetchImplementations _$QueryFetchImplementationsFromJson(
         Map<String, dynamic> json) =>
     QueryFetchImplementations(
@@ -55,9 +77,9 @@ QueryFetchImplementations$interface$self$ImplementationA
     _$QueryFetchImplementations$interface$self$ImplementationAFromJson(
             Map<String, dynamic> json) =>
         QueryFetchImplementations$interface$self$ImplementationA(
+          $__typename: json['__typename'] as String,
           s: json['s'] as String?,
           $_s: json['_s'] as String?,
-          $__typename: json['__typename'] as String,
         );
 
 Map<String,
@@ -73,8 +95,8 @@ QueryFetchImplementations$interface$self$ImplementationB
     _$QueryFetchImplementations$interface$self$ImplementationBFromJson(
             Map<String, dynamic> json) =>
         QueryFetchImplementations$interface$self$ImplementationB(
-          i: json['i'] as int?,
           $__typename: json['__typename'] as String,
+          i: json['i'] as int?,
         );
 
 Map<String,
@@ -89,12 +111,12 @@ QueryFetchImplementations$interface$ImplementationA
     _$QueryFetchImplementations$interface$ImplementationAFromJson(
             Map<String, dynamic> json) =>
         QueryFetchImplementations$interface$ImplementationA(
-          s: json['s'] as String?,
-          $_s: json['_s'] as String?,
           typename: json['typename'] as String,
           b: json['b'] as bool?,
           self: QueryFetchImplementations$interface$self.fromJson(
               json['self'] as Map<String, dynamic>),
+          s: json['s'] as String?,
+          $_s: json['_s'] as String?,
         );
 
 Map<String, dynamic>
@@ -112,11 +134,11 @@ QueryFetchImplementations$interface$ImplementationB
     _$QueryFetchImplementations$interface$ImplementationBFromJson(
             Map<String, dynamic> json) =>
         QueryFetchImplementations$interface$ImplementationB(
-          i: json['i'] as int?,
           typename: json['typename'] as String,
           b: json['b'] as bool?,
           self: QueryFetchImplementations$interface$self.fromJson(
               json['self'] as Map<String, dynamic>),
+          i: json['i'] as int?,
         );
 
 Map<String, dynamic>

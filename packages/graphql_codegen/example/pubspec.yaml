@@ -5,7 +5,7 @@ environment:
 
 dependencies:
   json_annotation: ^4.4.0
-  graphql_flutter: 5.0.2-beta.6
+  graphql_flutter: 5.0.2-beta.7
   flutter:
     sdk: flutter
 

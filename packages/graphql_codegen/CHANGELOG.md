@@ -1,3 +1,7 @@
+
+* Make fragments concrete classes
+* Improve type accuracy on interfaces
+
 # 0.7.0-beta.6
 
 * Support scopes for multiple schemas

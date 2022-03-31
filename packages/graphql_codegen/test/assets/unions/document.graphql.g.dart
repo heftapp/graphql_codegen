@@ -25,8 +25,8 @@ Map<String, dynamic> _$QueryQ$uToJson(QueryQ$u instance) => <String, dynamic>{
     };
 
 QueryQ$u$Ta _$QueryQ$u$TaFromJson(Map<String, dynamic> json) => QueryQ$u$Ta(
-      name: json['name'] as String?,
       $__typename: json['__typename'] as String,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$QueryQ$u$TaToJson(QueryQ$u$Ta instance) =>
@@ -36,8 +36,8 @@ Map<String, dynamic> _$QueryQ$u$TaToJson(QueryQ$u$Ta instance) =>
     };
 
 QueryQ$u$Tb _$QueryQ$u$TbFromJson(Map<String, dynamic> json) => QueryQ$u$Tb(
-      velocity: json['velocity'] as int?,
       $__typename: json['__typename'] as String,
+      velocity: json['velocity'] as int?,
     );
 
 Map<String, dynamic> _$QueryQ$u$TbToJson(QueryQ$u$Tb instance) =>

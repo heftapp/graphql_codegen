@@ -3,8 +3,33 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document2.graphql.g.dart';
 
-abstract class FragmentF1 {
-  String? get name;
+@JsonSerializable()
+class FragmentF1 extends JsonSerializable {
+  FragmentF1({this.name});
+
+  @override
+  factory FragmentF1.fromJson(Map<String, dynamic> json) =>
+      _$FragmentF1FromJson(json);
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentF1ToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentF1) || runtimeType != other.runtimeType)
+      return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_F1 = const FragmentDefinitionNode(

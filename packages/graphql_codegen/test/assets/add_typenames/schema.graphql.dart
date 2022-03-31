@@ -2,9 +2,40 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
-abstract class FragmentFReport {
-  String? get title;
-  String get $__typename;
+@JsonSerializable()
+class FragmentFReport extends JsonSerializable {
+  FragmentFReport({this.title, required this.$__typename});
+
+  @override
+  factory FragmentFReport.fromJson(Map<String, dynamic> json) =>
+      _$FragmentFReportFromJson(json);
+
+  final String? title;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentFReportToJson(this);
+  int get hashCode {
+    final l$title = title;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$title, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentFReport) || runtimeType != other.runtimeType)
+      return false;
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
 const FRAGMENT_F_REPORT = const FragmentDefinitionNode(
@@ -379,14 +410,17 @@ class QueryQ$docsWithFragment extends JsonSerializable {
 }
 
 @JsonSerializable()
-class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
-  QueryQ$docsWithFragment$Contract({this.title, required String $__typename})
-      : super($__typename: $__typename);
+class QueryQ$docsWithFragment$Contract extends JsonSerializable
+    implements QueryQ$docsWithFragment {
+  QueryQ$docsWithFragment$Contract({required this.$__typename, this.title});
 
   @override
   factory QueryQ$docsWithFragment$Contract.fromJson(
           Map<String, dynamic> json) =>
       _$QueryQ$docsWithFragment$ContractFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final String? title;
 
@@ -394,8 +428,9 @@ class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
   Map<String, dynamic> toJson() =>
       _$QueryQ$docsWithFragment$ContractToJson(this);
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$title = title;
-    return Object.hashAll([l$title]);
+    return Object.hashAll([l$$__typename, l$title]);
   }
 
   @override
@@ -403,6 +438,9 @@ class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
     if (identical(this, other)) return true;
     if (!(other is QueryQ$docsWithFragment$Contract) ||
         runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$title = title;
     final lOther$title = other.title;
     if (l$title != lOther$title) return false;
@@ -411,22 +449,25 @@ class QueryQ$docsWithFragment$Contract extends QueryQ$docsWithFragment {
 }
 
 @JsonSerializable()
-class QueryQ$docsWithFragment$Report extends QueryQ$docsWithFragment
-    implements FragmentFReport {
-  QueryQ$docsWithFragment$Report({this.title, required String $__typename})
-      : super($__typename: $__typename);
+class QueryQ$docsWithFragment$Report extends JsonSerializable
+    implements FragmentFReport, QueryQ$docsWithFragment {
+  QueryQ$docsWithFragment$Report({required this.$__typename, this.title});
 
   @override
   factory QueryQ$docsWithFragment$Report.fromJson(Map<String, dynamic> json) =>
       _$QueryQ$docsWithFragment$ReportFromJson(json);
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
 
   final String? title;
 
   @override
   Map<String, dynamic> toJson() => _$QueryQ$docsWithFragment$ReportToJson(this);
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$title = title;
-    return Object.hashAll([l$title]);
+    return Object.hashAll([l$$__typename, l$title]);
   }
 
   @override
@@ -434,6 +475,9 @@ class QueryQ$docsWithFragment$Report extends QueryQ$docsWithFragment
     if (identical(this, other)) return true;
     if (!(other is QueryQ$docsWithFragment$Report) ||
         runtimeType != other.runtimeType) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$title = title;
     final lOther$title = other.title;
     if (l$title != lOther$title) return false;

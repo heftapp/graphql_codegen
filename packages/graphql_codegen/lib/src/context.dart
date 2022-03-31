@@ -353,6 +353,10 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     return pt == null ? null : _lookupContextFragment(pt);
   }
 
+  Context<TKey, TypeDefinitionNode>? get extendsContext {
+    return extendsContextOperation ?? extendsContextFragment;
+  }
+
   void _addContext(Context c) {
     _contexts[c.path._key] = c;
     _childContexts[c.path._key] = c;
@@ -492,6 +496,14 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   }) {
     throw new StateError('withNameAndType not supported');
   }
+
+  ContextProperty? get typenameProperty =>
+      properties.whereType<ContextProperty?>().firstWhere(
+            (element) => element?.isTypenameField == true,
+            orElse: () => null,
+          );
+
+  Iterable<TypedName> get possibleTypes => _possibleTypeNames.values;
 }
 
 class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
@@ -643,14 +655,6 @@ class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
     _addContext(c);
     return c;
   }
-
-  ContextProperty? get typenameProperty =>
-      properties.whereType<ContextProperty?>().firstWhere(
-            (element) => element?.isTypenameField == true,
-            orElse: () => null,
-          );
-
-  Iterable<TypedName> get possibleTypes => _possibleTypeNames.values;
 
   OperationDefinitionNode? get operation => path.segments.length == 1
       ? schema.lookupOperationDefinition(path.baseNameSegment.name)
