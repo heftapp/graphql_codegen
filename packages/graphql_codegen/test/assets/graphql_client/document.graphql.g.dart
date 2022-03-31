@@ -6,6 +6,29 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FragmentNoVariables _$FragmentNoVariablesFromJson(Map<String, dynamic> json) =>
+    FragmentNoVariables(
+      s: json['s'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentNoVariablesToJson(
+        FragmentNoVariables instance) =>
+    <String, dynamic>{
+      's': instance.s,
+    };
+
+FragmentWithVariables _$FragmentWithVariablesFromJson(
+        Map<String, dynamic> json) =>
+    FragmentWithVariables(
+      s: json['s'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentWithVariablesToJson(
+        FragmentWithVariables instance) =>
+    <String, dynamic>{
+      's': instance.s,
+    };
+
 VariablesQueryFetchSOptional _$VariablesQueryFetchSOptionalFromJson(
         Map<String, dynamic> json) =>
     VariablesQueryFetchSOptional(

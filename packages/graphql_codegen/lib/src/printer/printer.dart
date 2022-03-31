@@ -233,6 +233,8 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
             c.withContext(context),
             fragmentNode,
           ),
+        if (clients.contains(GraphQLCodegenConfigClient.graphql))
+          ...printGraphQLClientFragmentSpecs(c.withContext(context))
       ];
     }),
     ...context.contextOperations.expand((element) {

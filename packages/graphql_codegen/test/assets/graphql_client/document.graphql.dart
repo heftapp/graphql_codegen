@@ -5,6 +5,162 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable()
+class FragmentNoVariables extends JsonSerializable {
+  FragmentNoVariables({this.s});
+
+  @override
+  factory FragmentNoVariables.fromJson(Map<String, dynamic> json) =>
+      _$FragmentNoVariablesFromJson(json);
+
+  final String? s;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentNoVariablesToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentNoVariables) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
+}
+
+const FRAGMENT_NO_VARIABLES = const FragmentDefinitionNode(
+    name: NameNode(value: 'NoVariables'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: 's'),
+          alias: null,
+          arguments: [
+            ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: StringValueNode(value: 'name', isBlock: false))
+          ],
+          directives: [],
+          selectionSet: null)
+    ]));
+
+extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
+  void writeFragmentNoVariables(
+          {required FragmentNoVariables data,
+          required Map<String, dynamic> idFields,
+          Map<String, dynamic> variables = const {},
+          broadcast = true}) =>
+      this.writeFragment(
+          graphql.FragmentRequest(
+              idFields: idFields,
+              fragment: graphql.Fragment(
+                  document:
+                      const DocumentNode(definitions: [FRAGMENT_NO_VARIABLES])),
+              variables: variables),
+          data: data.toJson(),
+          broadcast: broadcast);
+  FragmentNoVariables? readFragmentNoVariables(
+      {required Map<String, dynamic> idFields,
+      Map<String, dynamic> variables = const {},
+      optimistic = true}) {
+    final result = this.readFragment(
+        graphql.FragmentRequest(
+            idFields: idFields,
+            fragment: graphql.Fragment(
+                document:
+                    const DocumentNode(definitions: [FRAGMENT_NO_VARIABLES])),
+            variables: variables),
+        optimistic: optimistic);
+    return result == null ? null : FragmentNoVariables.fromJson(result);
+  }
+}
+
+@JsonSerializable()
+class FragmentWithVariables extends JsonSerializable {
+  FragmentWithVariables({this.s});
+
+  @override
+  factory FragmentWithVariables.fromJson(Map<String, dynamic> json) =>
+      _$FragmentWithVariablesFromJson(json);
+
+  final String? s;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentWithVariablesToJson(this);
+  int get hashCode {
+    final l$s = s;
+    return Object.hashAll([l$s]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentWithVariables) || runtimeType != other.runtimeType)
+      return false;
+    final l$s = s;
+    final lOther$s = other.s;
+    if (l$s != lOther$s) return false;
+    return true;
+  }
+}
+
+const FRAGMENT_WITH_VARIABLES = const FragmentDefinitionNode(
+    name: NameNode(value: 'WithVariables'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: 's'),
+          alias: null,
+          arguments: [
+            ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')))
+          ],
+          directives: [],
+          selectionSet: null)
+    ]));
+
+extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
+  void writeFragmentWithVariables(
+          {required FragmentWithVariables data,
+          required Map<String, dynamic> idFields,
+          Map<String, dynamic> variables = const {},
+          broadcast = true}) =>
+      this.writeFragment(
+          graphql.FragmentRequest(
+              idFields: idFields,
+              fragment: graphql.Fragment(
+                  document: const DocumentNode(
+                      definitions: [FRAGMENT_WITH_VARIABLES])),
+              variables: variables),
+          data: data.toJson(),
+          broadcast: broadcast);
+  FragmentWithVariables? readFragmentWithVariables(
+      {required Map<String, dynamic> idFields,
+      Map<String, dynamic> variables = const {},
+      optimistic = true}) {
+    final result = this.readFragment(
+        graphql.FragmentRequest(
+            idFields: idFields,
+            fragment: graphql.Fragment(
+                document:
+                    const DocumentNode(definitions: [FRAGMENT_WITH_VARIABLES])),
+            variables: variables),
+        optimistic: optimistic);
+    return result == null ? null : FragmentWithVariables.fromJson(result);
+  }
+}
+
+@JsonSerializable()
 class VariablesQueryFetchSOptional extends JsonSerializable {
   VariablesQueryFetchSOptional({this.name});
 
@@ -162,6 +318,25 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchSOptional> watchQueryFetchSOptional(
           [WatchOptionsQueryFetchSOptional? options]) =>
       this.watchQuery(options ?? WatchOptionsQueryFetchSOptional());
+  void writeQueryFetchSOptional(
+          {required QueryFetchSOptional data,
+          VariablesQueryFetchSOptional? variables,
+          broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
+              variables: variables?.toJson() ?? const {}),
+          data: data.toJson(),
+          broadcast: broadcast);
+  QueryFetchSOptional? readQueryFetchSOptional(
+      {VariablesQueryFetchSOptional? variables, optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
+            variables: variables?.toJson() ?? const {}),
+        optimistic: optimistic);
+    return result == null ? null : QueryFetchSOptional.fromJson(result);
+  }
 }
 
 @JsonSerializable()
@@ -322,6 +497,25 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchSRequired> watchQueryFetchSRequired(
           WatchOptionsQueryFetchSRequired options) =>
       this.watchQuery(options);
+  void writeQueryFetchSRequired(
+          {required QueryFetchSRequired data,
+          required VariablesQueryFetchSRequired variables,
+          broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
+              variables: variables.toJson()),
+          data: data.toJson(),
+          broadcast: broadcast);
+  QueryFetchSRequired? readQueryFetchSRequired(
+      {required VariablesQueryFetchSRequired variables, optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
+            variables: variables.toJson()),
+        optimistic: optimistic);
+    return result == null ? null : QueryFetchSRequired.fromJson(result);
+  }
 }
 
 @JsonSerializable()
@@ -439,6 +633,21 @@ extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchSNoVariables> watchQueryFetchSNoVariables(
           [WatchOptionsQueryFetchSNoVariables? options]) =>
       this.watchQuery(options ?? WatchOptionsQueryFetchSNoVariables());
+  void writeQueryFetchSNoVariables(
+          {required QueryFetchSNoVariables data, broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation:
+                  graphql.Operation(document: QUERY_FETCH_S_NO_VARIABLES)),
+          data: data.toJson(),
+          broadcast: broadcast);
+  QueryFetchSNoVariables? readQueryFetchSNoVariables({optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: QUERY_FETCH_S_NO_VARIABLES)),
+        optimistic: optimistic);
+    return result == null ? null : QueryFetchSNoVariables.fromJson(result);
+  }
 }
 
 @JsonSerializable()

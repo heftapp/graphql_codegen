@@ -1,4 +1,5 @@
 import 'package:gql/ast.dart';
+import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_codegen_example/scalars.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'fragments.graphql.g.dart';
@@ -163,6 +164,38 @@ const FRAGMENT_PERSON_SUMMARY = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+
+extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
+  void writeFragmentPersonSummary(
+          {required FragmentPersonSummary data,
+          required Map<String, dynamic> idFields,
+          Map<String, dynamic> variables = const {},
+          broadcast = true}) =>
+      this.writeFragment(
+          graphql.FragmentRequest(
+              idFields: idFields,
+              fragment: graphql.Fragment(
+                  document: const DocumentNode(
+                      definitions: [FRAGMENT_PERSON_SUMMARY])),
+              variables: variables),
+          data: data.toJson(),
+          broadcast: broadcast);
+  FragmentPersonSummary? readFragmentPersonSummary(
+      {required Map<String, dynamic> idFields,
+      Map<String, dynamic> variables = const {},
+      optimistic = true}) {
+    final result = this.readFragment(
+        graphql.FragmentRequest(
+            idFields: idFields,
+            fragment: graphql.Fragment(
+                document:
+                    const DocumentNode(definitions: [FRAGMENT_PERSON_SUMMARY])),
+            variables: variables),
+        optimistic: optimistic);
+    return result == null ? null : FragmentPersonSummary.fromJson(result);
+  }
+}
+
 DateTime? _nullable$dateTimeFromJson(dynamic data) =>
     data == null ? null : dateTimeFromJson(data);
 dynamic _nullable$dateTimeToJson(DateTime? data) =>

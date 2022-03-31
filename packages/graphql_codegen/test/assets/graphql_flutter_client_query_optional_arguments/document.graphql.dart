@@ -163,6 +163,25 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchSOptional> watchQueryFetchSOptional(
           [WatchOptionsQueryFetchSOptional? options]) =>
       this.watchQuery(options ?? WatchOptionsQueryFetchSOptional());
+  void writeQueryFetchSOptional(
+          {required QueryFetchSOptional data,
+          VariablesQueryFetchSOptional? variables,
+          broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
+              variables: variables?.toJson() ?? const {}),
+          data: data.toJson(),
+          broadcast: broadcast);
+  QueryFetchSOptional? readQueryFetchSOptional(
+      {VariablesQueryFetchSOptional? variables, optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
+            variables: variables?.toJson() ?? const {}),
+        optimistic: optimistic);
+    return result == null ? null : QueryFetchSOptional.fromJson(result);
+  }
 }
 
 graphql_flutter.QueryHookResult<QueryFetchSOptional> useQueryFetchSOptional(
