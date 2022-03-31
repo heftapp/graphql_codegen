@@ -111,6 +111,12 @@ String printGraphQLClientExtensionMethodName(Name name) =>
 String printGraphQLClientExtensionWatchMethodName(Name name) =>
     ReCase("Watch${_printName(name, isAction: false)}").camelCase;
 
+String printGraphQLClientExtensionWriteQueryMethodName(Name name) =>
+    ReCase("write${_printName(name, isAction: false)}").camelCase;
+
+String printGraphQLClientExtensionReadQueryMethodName(Name name) =>
+    ReCase("read${_printName(name, isAction: false)}").camelCase;
+
 String printGraphQLClientResultExtensionGetterName(Name name) =>
     ReCase("parsedData" + _printName(name)).camelCase;
 

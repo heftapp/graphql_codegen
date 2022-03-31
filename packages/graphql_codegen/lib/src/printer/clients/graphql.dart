@@ -166,16 +166,20 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
   );
 }
 
+final _DYNAMIC_MAP = TypeReference((b) => b
+  ..symbol = 'Map'
+  ..types = ListBuilder([refer('String'), refer('dynamic')]));
+
 Spec printParserFn(PrintContext context) => Method(
       (b) => b
         ..name = printParserFnName(context.path)
         ..returns = refer(printClassName(context.path))
         ..requiredParameters = ListBuilder([
-          Parameter((b) => b
-            ..name = 'data'
-            ..type = TypeReference((b) => b
-              ..symbol = 'Map'
-              ..types = ListBuilder([refer('String'), refer('dynamic')]))),
+          Parameter(
+            (b) => b
+              ..name = 'data'
+              ..type = _DYNAMIC_MAP,
+          ),
         ])
         ..body = refer(printClassName(context.path))
             .property('fromJson')
@@ -625,6 +629,21 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
           ..isNullable = !isOptionsRequired,
       ),
   );
+  final request = refer('graphql.Request').call(
+    [],
+    {
+      'operation': refer('graphql.Operation').call(
+        [],
+        {'document': refer(printOperationDocumentName(context.path))},
+      ),
+      if (context.context.hasVariables)
+        'variables': context.context.isVariablesRequired
+            ? refer('variables').property('toJson').call([])
+            : refer('variables')
+                .nullSafeProperty('toJson')
+                .call([]).ifNullThen(literalConstMap({}))
+    },
+  );
   return Extension(
     (b) => b
       ..name = printGraphQLClientExtensionName(context.path)
@@ -687,6 +706,244 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
             ..returns = TypeReference((b) => b
               ..symbol = 'graphql.ObservableQuery'
               ..types = ListBuilder([refer(printClassName(context.path))])),
+        ),
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionWriteQueryMethodName(
+              context.path,
+            )
+            ..lambda = true
+            ..optionalParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..required = true
+                  ..named = true
+                  ..name = 'data'
+                  ..type = refer(printClassName(context.path)),
+              ),
+              if (context.context.hasVariables)
+                Parameter(
+                  (b) => b
+                    ..required = context.context.isVariablesRequired
+                    ..named = true
+                    ..name = 'variables'
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = printVariableClassName(context.path)
+                        ..isNullable = !context.context.isVariablesRequired,
+                    ),
+                ),
+              Parameter(
+                (b) => b
+                  ..name = 'broadcast'
+                  ..named = true
+                  ..required = false
+                  ..defaultTo = literalTrue.code,
+              ),
+            ])
+            ..body = refer("this").property("writeQuery").call(
+              [request],
+              {
+                'data': refer('data').property('toJson').call([]),
+                'broadcast': refer('broadcast'),
+              },
+            ).code
+            ..returns = refer('void'),
+        ),
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionReadQueryMethodName(
+              context.path,
+            )
+            ..lambda = false
+            ..optionalParameters = ListBuilder([
+              if (context.context.hasVariables)
+                Parameter(
+                  (b) => b
+                    ..required = context.context.isVariablesRequired
+                    ..named = true
+                    ..name = 'variables'
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = printVariableClassName(context.path)
+                        ..isNullable = !context.context.isVariablesRequired,
+                    ),
+                ),
+              Parameter(
+                (b) => b
+                  ..name = 'optimistic'
+                  ..named = true
+                  ..required = false
+                  ..defaultTo = literalTrue.code,
+              ),
+            ])
+            ..body = Block.of([
+              refer("this")
+                  .property("readQuery")
+                  .call(
+                    [request],
+                    {'optimistic': refer('optimistic')},
+                  )
+                  .assignFinal('result')
+                  .statement,
+              refer('result')
+                  .equalTo(literalNull)
+                  .conditional(
+                      literalNull,
+                      refer(printClassName(context.path))
+                          .property('fromJson')
+                          .call([refer('result')]))
+                  .returned
+                  .statement
+            ])
+            ..returns = TypeReference(
+              (b) => b
+                ..symbol = printClassName(context.path)
+                ..isNullable = true,
+            ),
+        ),
+      ]),
+  );
+}
+
+Spec printFragmentExtension(PrintContext<ContextFragment> context) {
+  final fragmentRequest = refer('graphql.FragmentRequest').call(
+    [],
+    {
+      'idFields': refer('idFields'),
+      'fragment': refer('graphql.Fragment').call(
+        [],
+        {
+          'document': refer('const DocumentNode').call(
+            [],
+            {
+              'definitions':
+                  literalList([refer(printOperationDocumentName(context.path))])
+            },
+          )
+        },
+      ),
+      'variables': refer('variables'),
+    },
+  );
+  final idFieldsParameter = Parameter(
+    (b) => b
+      ..required = true
+      ..named = true
+      ..name = 'idFields'
+      ..type = _DYNAMIC_MAP,
+  );
+  final variblesParameter = Parameter(
+    (b) => b
+      ..required = false
+      ..named = true
+      ..name = 'variables'
+      ..defaultTo = literalConstMap({}).code
+      ..type = _DYNAMIC_MAP,
+  );
+  return Extension(
+    (b) => b
+      ..name = printGraphQLClientExtensionName(context.path)
+      ..on = refer('graphql.GraphQLClient')
+      ..methods = ListBuilder([
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionWriteQueryMethodName(
+              context.path,
+            )
+            ..lambda = true
+            ..optionalParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..required = true
+                  ..named = true
+                  ..name = 'data'
+                  ..type = refer(printClassName(context.path)),
+              ),
+              idFieldsParameter,
+              variblesParameter,
+              if (context.context.hasVariables)
+                Parameter(
+                  (b) => b
+                    ..required = context.context.isVariablesRequired
+                    ..named = true
+                    ..name = 'variables'
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = printVariableClassName(context.path)
+                        ..isNullable = !context.context.isVariablesRequired,
+                    ),
+                ),
+              Parameter(
+                (b) => b
+                  ..name = 'broadcast'
+                  ..named = true
+                  ..required = false
+                  ..defaultTo = literalTrue.code,
+              ),
+            ])
+            ..body = refer("this").property("writeFragment").call(
+              [fragmentRequest],
+              {
+                'data': refer('data').property('toJson').call([]),
+                'broadcast': refer('broadcast'),
+              },
+            ).code
+            ..returns = refer('void'),
+        ),
+        Method(
+          (b) => b
+            ..name = printGraphQLClientExtensionReadQueryMethodName(
+              context.path,
+            )
+            ..lambda = false
+            ..optionalParameters = ListBuilder([
+              idFieldsParameter,
+              variblesParameter,
+              if (context.context.hasVariables)
+                Parameter(
+                  (b) => b
+                    ..required = context.context.isVariablesRequired
+                    ..named = true
+                    ..name = 'variables'
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = printVariableClassName(context.path)
+                        ..isNullable = !context.context.isVariablesRequired,
+                    ),
+                ),
+              Parameter(
+                (b) => b
+                  ..name = 'optimistic'
+                  ..named = true
+                  ..required = false
+                  ..defaultTo = literalTrue.code,
+              ),
+            ])
+            ..body = Block.of([
+              refer("this")
+                  .property("readFragment")
+                  .call(
+                    [fragmentRequest],
+                    {'optimistic': refer('optimistic')},
+                  )
+                  .assignFinal('result')
+                  .statement,
+              refer('result')
+                  .equalTo(literalNull)
+                  .conditional(
+                      literalNull,
+                      refer(printClassName(context.path))
+                          .property('fromJson')
+                          .call([refer('result')]))
+                  .returned
+                  .statement
+            ])
+            ..returns = TypeReference(
+              (b) => b
+                ..symbol = printClassName(context.path)
+                ..isNullable = true,
+            ),
         ),
       ]),
   );
@@ -829,4 +1086,14 @@ Iterable<Spec> printGraphQLClientSpecs(
     default:
       return [];
   }
+}
+
+Iterable<Spec> printGraphQLClientFragmentSpecs(
+  PrintContext<ContextFragment> c,
+) {
+  c.addPackage(
+    'package:graphql/client.dart',
+    'graphql',
+  );
+  return [printFragmentExtension(c)];
 }

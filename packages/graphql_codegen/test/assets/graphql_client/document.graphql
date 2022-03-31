@@ -6,6 +6,14 @@ type Mutation {
   s(name: String): String
 }
 
+fragment NoVariables on Query {
+  s(name: "name")
+}
+
+fragment WithVariables on Query {
+  s(name: $name)
+}
+
 query FetchSOptional($name: String) {
   s(name: $name)
 }

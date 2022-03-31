@@ -1,4 +1,6 @@
+# 0.7.0-beta.7
 
+* Generate cache write/read methods
 * Make fragments concrete classes
 * Improve type accuracy on interfaces
 

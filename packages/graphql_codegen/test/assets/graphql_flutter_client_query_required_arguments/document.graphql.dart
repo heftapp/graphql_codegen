@@ -163,6 +163,25 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchSRequired> watchQueryFetchSRequired(
           WatchOptionsQueryFetchSRequired options) =>
       this.watchQuery(options);
+  void writeQueryFetchSRequired(
+          {required QueryFetchSRequired data,
+          required VariablesQueryFetchSRequired variables,
+          broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
+              variables: variables.toJson()),
+          data: data.toJson(),
+          broadcast: broadcast);
+  QueryFetchSRequired? readQueryFetchSRequired(
+      {required VariablesQueryFetchSRequired variables, optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
+            variables: variables.toJson()),
+        optimistic: optimistic);
+    return result == null ? null : QueryFetchSRequired.fromJson(result);
+  }
 }
 
 graphql_flutter.QueryHookResult<QueryFetchSRequired> useQueryFetchSRequired(

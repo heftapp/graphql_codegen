@@ -217,6 +217,25 @@ extension ClientExtensionQueryFetchPerson on graphql.GraphQLClient {
   graphql.ObservableQuery<QueryFetchPerson> watchQueryFetchPerson(
           WatchOptionsQueryFetchPerson options) =>
       this.watchQuery(options);
+  void writeQueryFetchPerson(
+          {required QueryFetchPerson data,
+          required VariablesQueryFetchPerson variables,
+          broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation: graphql.Operation(document: QUERY_FETCH_PERSON),
+              variables: variables.toJson()),
+          data: data.toJson(),
+          broadcast: broadcast);
+  QueryFetchPerson? readQueryFetchPerson(
+      {required VariablesQueryFetchPerson variables, optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: QUERY_FETCH_PERSON),
+            variables: variables.toJson()),
+        optimistic: optimistic);
+    return result == null ? null : QueryFetchPerson.fromJson(result);
+  }
 }
 
 graphql_flutter.QueryHookResult<QueryFetchPerson> useQueryFetchPerson(
