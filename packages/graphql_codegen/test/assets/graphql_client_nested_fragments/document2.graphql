@@ -1,0 +1,3 @@
+fragment F2 on T1 {
+    name
+}

@@ -431,11 +431,6 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   Iterable<Name> get fragments => _fragments.values;
 
-  Iterable<Name> get fragmentsRecursive => {
-        ..._fragments.values,
-        ..._childContexts.values.expand((c) => c.fragmentsRecursive),
-      };
-
   ContextOperation<TKey>? get extendsContextOperation {
     final pt = extendsName;
     return pt == null ? null : _lookupContextOperation(pt);

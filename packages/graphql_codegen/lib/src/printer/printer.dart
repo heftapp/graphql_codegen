@@ -1,8 +1,7 @@
-import 'dart:collection';
-
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen_config/config.dart';
 import 'package:graphql_codegen/src/errors.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql.dart';
@@ -152,27 +151,10 @@ EnumValue printEnumValue(NameNode name) => EnumValue(
 
 Spec printDocument(
   PrintContext context,
-  OperationDefinitionNode operation,
-  Iterable<Name> fragments,
-) {
-  final queue = ListQueue<ExecutableDefinitionNode>.of([operation]);
-  final fragments = <FragmentDefinitionNode>{};
-  while (queue.isNotEmpty) {
-    final definition = queue.removeFirst();
-    final visitor = AccumulatingVisitor<NameNode>(
-      visitors: [_FragmentsVisisitor()],
-    );
-    if (definition is OperationDefinitionNode) {
-      visitor.visitOperationDefinitionNode(definition);
-    } else if (definition is FragmentDefinitionNode) {
-      visitor.visitFragmentDefinitionNode(definition);
-    }
-    final definitions = visitor.accumulator
-        .map((e) => context.context.schema.lookupFragment(e))
-        .whereType<FragmentDefinitionNode>();
-    queue.addAll(definitions);
-    fragments.addAll(definitions);
-  }
+  ExecutableDefinitionNode operation, [
+  Code? mainDefinition,
+]) {
+  final fragments = findFragments(context.context.schema, operation);
   final fragmentNames = fragments.map(
     (e) => Name.fromSegment(FragmentNameSegment(e)),
   );
@@ -181,23 +163,17 @@ Spec printDocument(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printOperationDocumentName(context.context.path)} = const DocumentNode(definitions: [",
+        "const ${printDocumentDefinitionNodeName(context.context.path)} = const DocumentNode(definitions: [",
       ),
-      gql_builder.fromNode(operation).code,
+      mainDefinition ?? gql_builder.fromNode(operation).code,
       Code(","),
-      ...fragmentNames.expand(
-        (n) => [refer(printFragmentDocumentName(n)).code, Code(",")],
-      ),
+      ...fragmentNames.expand((n) => [
+            refer(printFragmentDefinitionNodeName(n)).code,
+            Code(","),
+          ]),
       Code("]);")
     ]),
   );
-}
-
-class _FragmentsVisisitor extends SimpleVisitor<List<NameNode>> {
-  @override
-  visitFragmentSpreadNode(FragmentSpreadNode node) {
-    return [node.name];
-  }
 }
 
 Spec printFragmentDefinition(
@@ -208,7 +184,7 @@ Spec printFragmentDefinition(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printFragmentDocumentName(context.context.path)} = const ",
+        "const ${printFragmentDefinitionNodeName(context.context.path)} = const ",
       ),
       gql_builder.fromNode(node).code,
       Code(";")
@@ -230,11 +206,17 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       return [
         if (context.hasVariables) printVariables(elementContext),
         printContext(elementContext),
-        if (fragmentNode != null)
+        if (fragmentNode != null) ...[
           printFragmentDefinition(
-            c.withContext(context),
+            elementContext,
             fragmentNode,
           ),
+          printDocument(
+            elementContext,
+            fragmentNode,
+            refer(printFragmentDefinitionNodeName(elementContext.path)).code,
+          ),
+        ],
         if (clients.contains(GraphQLCodegenConfigClient.graphql))
           ...printGraphQLClientFragmentSpecs(c.withContext(context))
       ];
@@ -249,7 +231,6 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
           printDocument(
             elementContext,
             operation,
-            element.fragmentsRecursive,
           ),
         if (clients.contains(GraphQLCodegenConfigClient.graphql))
           ...printGraphQLClientSpecs(elementContext),
@@ -287,7 +268,6 @@ Constructor printFromJson(
   ContextProperty? typenameProperty,
   Iterable<TypedName> possibleTypes = const [],
 ]) {
-  final jsonMapReference = printJsonMap();
   final fromJsonFactoryName = printFromJsonFactoryName(name);
   Code body;
   if (typenameProperty == null || possibleTypes.isEmpty) {
@@ -321,22 +301,13 @@ switch(json["${typenameProperty.name.value}"] as String) {
         Parameter(
           (b) => b
             ..name = "json"
-            ..type = jsonMapReference,
+            ..type = dynamicMap,
         ),
       ])
       ..body = body
       ..lambda = possibleTypes.isEmpty || typenameProperty == null,
   );
 }
-
-Reference printJsonMap() => TypeReference(
-      (b) => b
-        ..symbol = "Map"
-        ..types = ListBuilder([
-          refer('String'),
-          refer('dynamic'),
-        ]),
-    );
 
 Constructor printConstructor(
   PrintContext c,
@@ -504,7 +475,7 @@ Code printPropertyEqualityCheck(
 Method printToJsonMethod(String name) => Method(
       (b) => b
         ..annotations = ListBuilder([refer("override")])
-        ..returns = printJsonMap()
+        ..returns = dynamicMap
         ..name = "toJson"
         ..lambda = true
         ..body = refer(printToJsonFactoryName(name)).call([refer("this")]).code,

@@ -31,7 +31,7 @@ class FragmentT1 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_T1 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_T1 = const FragmentDefinitionNode(
     name: NameNode(value: 'T1'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false)),
@@ -51,6 +51,9 @@ const FRAGMENT_T1 = const FragmentDefinitionNode(
                 selectionSet: null)
           ]))
     ]));
+const FRAGMENT_T1 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_T1,
+]);
 
 @JsonSerializable()
 class FragmentT1$t extends JsonSerializable {
@@ -116,7 +119,7 @@ class FragmentT2 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_T2 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_T2 = const FragmentDefinitionNode(
     name: NameNode(value: 'T2'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false)),
@@ -142,6 +145,9 @@ const FRAGMENT_T2 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_T2 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_T2,
+]);
 
 @JsonSerializable()
 class FragmentT2$t extends JsonSerializable {
@@ -207,7 +213,7 @@ class FragmentTC extends JsonSerializable implements FragmentT1, FragmentT2 {
   }
 }
 
-const FRAGMENT_T_C = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_T_C = const FragmentDefinitionNode(
     name: NameNode(value: 'TC'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false)),
@@ -216,6 +222,11 @@ const FRAGMENT_T_C = const FragmentDefinitionNode(
       FragmentSpreadNode(name: NameNode(value: 'T1'), directives: []),
       FragmentSpreadNode(name: NameNode(value: 'T2'), directives: [])
     ]));
+const FRAGMENT_T_C = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_T_C,
+  FRAGMENT_DEFINITION_FRAGMENT_T1,
+  FRAGMENT_DEFINITION_FRAGMENT_T2,
+]);
 
 @JsonSerializable()
 class FragmentTC$t extends JsonSerializable
@@ -290,9 +301,9 @@ const QUERY_Q = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'TC'), directives: [])
             ]))
       ])),
-  FRAGMENT_T_C,
-  FRAGMENT_T1,
-  FRAGMENT_T2,
+  FRAGMENT_DEFINITION_FRAGMENT_T_C,
+  FRAGMENT_DEFINITION_FRAGMENT_T1,
+  FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
 @JsonSerializable()

@@ -121,49 +121,54 @@ class FragmentPersonSummary extends JsonSerializable {
   }
 }
 
-const FRAGMENT_PERSON_SUMMARY = const FragmentDefinitionNode(
-    name: NameNode(value: 'PersonSummary'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'nickname'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'full_name'),
-          alias: NameNode(value: 'name'),
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'dob'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'events'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'events_of_events'),
-          alias: NameNode(value: 'eventsOfEvents'),
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null)
-    ]));
+const FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY =
+    const FragmentDefinitionNode(
+        name: NameNode(value: 'PersonSummary'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'Person'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'nickname'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'full_name'),
+              alias: NameNode(value: 'name'),
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dob'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'events'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'events_of_events'),
+              alias: NameNode(value: 'eventsOfEvents'),
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null)
+        ]));
+const FRAGMENT_PERSON_SUMMARY = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY,
+]);
 
 extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
   void writeFragmentPersonSummary(
@@ -173,9 +178,9 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
-              fragment: graphql.Fragment(
-                  document: const DocumentNode(
-                      definitions: [FRAGMENT_PERSON_SUMMARY]))),
+              fragment: const graphql.Fragment(
+                  fragmentName: 'PersonSummary',
+                  document: FRAGMENT_PERSON_SUMMARY)),
           data: data.toJson(),
           broadcast: broadcast);
   FragmentPersonSummary? readFragmentPersonSummary(
@@ -183,9 +188,9 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
-            fragment: graphql.Fragment(
-                document: const DocumentNode(
-                    definitions: [FRAGMENT_PERSON_SUMMARY]))),
+            fragment: const graphql.Fragment(
+                fragmentName: 'PersonSummary',
+                document: FRAGMENT_PERSON_SUMMARY)),
         optimistic: optimistic);
     return result == null ? null : FragmentPersonSummary.fromJson(result);
   }

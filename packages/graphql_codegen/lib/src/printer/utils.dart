@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/keywords.dart';
@@ -43,11 +45,11 @@ String _printNameSegment(NameSegment segment, {bool isAction = false}) {
   throw new UnsupportedError("Unsupported segment type");
 }
 
-String printOperationDocumentName(Name name) =>
+String printDocumentDefinitionNodeName(Name name) =>
     ReCase(_printName(name)).constantCase;
 
-String printFragmentDocumentName(Name name) =>
-    ReCase(_printName(name)).constantCase;
+String printFragmentDefinitionNodeName(Name name) =>
+    ReCase("FragmentDefinition" + _printName(name)).constantCase;
 
 String printPossibleTypesMapName() => ReCase('possibleTypesMap').constantCase;
 
@@ -140,3 +142,35 @@ String printPropertyName(NameNode name) {
 
 Expression printNullCheck(Reference variable, Expression whenNotNull) =>
     variable.equalTo(literalNull).conditional(literalNull, whenNotNull);
+
+Iterable<FragmentDefinitionNode> findFragments(
+  Schema schema,
+  ExecutableDefinitionNode node,
+) {
+  final queue = ListQueue<ExecutableDefinitionNode>.of([node]);
+  final fragments = <FragmentDefinitionNode>{};
+  while (queue.isNotEmpty) {
+    final definition = queue.removeFirst();
+    final visitor = AccumulatingVisitor<NameNode>(visitors: [
+      _FragmentsVisisitor(),
+    ]);
+    if (definition is OperationDefinitionNode) {
+      visitor.visitOperationDefinitionNode(definition);
+    } else if (definition is FragmentDefinitionNode) {
+      visitor.visitFragmentDefinitionNode(definition);
+    }
+    final definitions = visitor.accumulator
+        .map(schema.lookupFragment)
+        .whereType<FragmentDefinitionNode>();
+    queue.addAll(definitions);
+    fragments.addAll(definitions);
+  }
+  return fragments;
+}
+
+class _FragmentsVisisitor extends SimpleVisitor<List<NameNode>> {
+  @override
+  visitFragmentSpreadNode(FragmentSpreadNode node) {
+    return [node.name];
+  }
+}

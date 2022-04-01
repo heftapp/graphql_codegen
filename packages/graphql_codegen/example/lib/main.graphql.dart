@@ -142,7 +142,7 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
             directives: [],
             selectionSet: null)
       ])),
-  FRAGMENT_PERSON_SUMMARY,
+  FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY,
 ]);
 QueryFetchPerson _parserFnQueryFetchPerson(Map<String, dynamic> data) =>
     QueryFetchPerson.fromJson(data);

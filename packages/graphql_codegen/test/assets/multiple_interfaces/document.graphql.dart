@@ -31,7 +31,7 @@ class FragmentF0 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F0 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F0 = const FragmentDefinitionNode(
     name: NameNode(value: 'F0'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'I1'), isNonNull: false)),
@@ -44,6 +44,9 @@ const FRAGMENT_F0 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F0 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F0,
+]);
 
 @JsonSerializable()
 class FragmentF1 extends JsonSerializable {
@@ -74,7 +77,7 @@ class FragmentF1 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F1 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'I2'), isNonNull: false)),
@@ -87,6 +90,9 @@ const FRAGMENT_F1 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F1 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F1,
+]);
 
 @JsonSerializable()
 class FragmentF2 extends JsonSerializable {
@@ -117,7 +123,7 @@ class FragmentF2 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F2 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
     name: NameNode(value: 'F2'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T1'), isNonNull: false)),
@@ -130,6 +136,9 @@ const FRAGMENT_F2 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F2 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F2,
+]);
 
 @JsonSerializable()
 class FragmentF3 extends JsonSerializable {
@@ -160,7 +169,7 @@ class FragmentF3 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F3 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F3 = const FragmentDefinitionNode(
     name: NameNode(value: 'F3'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'I3'), isNonNull: false)),
@@ -173,6 +182,9 @@ const FRAGMENT_F3 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F3 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F3,
+]);
 
 @JsonSerializable()
 class QueryQ extends JsonSerializable {
@@ -278,10 +290,10 @@ const QUERY_Q = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'F3'), directives: [])
             ]))
       ])),
-  FRAGMENT_F0,
-  FRAGMENT_F1,
-  FRAGMENT_F2,
-  FRAGMENT_F3,
+  FRAGMENT_DEFINITION_FRAGMENT_F0,
+  FRAGMENT_DEFINITION_FRAGMENT_F1,
+  FRAGMENT_DEFINITION_FRAGMENT_F2,
+  FRAGMENT_DEFINITION_FRAGMENT_F3,
 ]);
 
 @JsonSerializable()
