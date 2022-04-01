@@ -1,3 +1,5 @@
+* Fix: Bad naming of variable
+
 # 0.7.0-beta.9
 
 * Fix: Don't generate cache methods for nested fragments
