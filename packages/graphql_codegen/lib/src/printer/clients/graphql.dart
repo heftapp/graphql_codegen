@@ -166,10 +166,6 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
   );
 }
 
-final _DYNAMIC_MAP = TypeReference((b) => b
-  ..symbol = 'Map'
-  ..types = ListBuilder([refer('String'), refer('dynamic')]));
-
 Spec printParserFn(PrintContext context) => Method(
       (b) => b
         ..name = printParserFnName(context.path)
@@ -178,7 +174,7 @@ Spec printParserFn(PrintContext context) => Method(
           Parameter(
             (b) => b
               ..name = 'data'
-              ..type = _DYNAMIC_MAP,
+              ..type = dynamicMap,
           ),
         ])
         ..body = refer(printClassName(context.path))
@@ -813,7 +809,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
         ..required = true
         ..named = true
         ..name = 'idFields'
-        ..type = _DYNAMIC_MAP,
+        ..type = dynamicMap,
     ),
     if (context.context.hasVariables)
       Parameter(

@@ -6,3 +6,7 @@ Reference generic(String symbol, Reference type, {bool isNullable = false}) =>
       ..symbol = symbol
       ..isNullable = isNullable
       ..types = ListBuilder([type]));
+
+final dynamicMap = TypeReference((b) => b
+  ..symbol = 'Map'
+  ..types = ListBuilder([refer('String'), refer('dynamic')]));
