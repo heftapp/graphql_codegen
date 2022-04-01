@@ -1,0 +1,42 @@
+type Query {
+    level1(name: String): Level1
+}
+
+type Level1 {
+    level2 (list: [String!]!): Level2
+}
+
+type Level2 {
+    level3(i: Input): Level3
+}
+
+type Level3 {
+    level4: Int
+}
+
+input Input {
+    inputField: Boolean
+}
+
+fragment F1 on Query {
+    level1(name: $name){
+        level2(list: $name) {
+            level3(i: {inputField: $i}) {
+                level4
+            }
+        }
+    }
+}
+fragment F2 on Query {
+    level1(name: $name){
+        ...F21
+    }
+}
+
+fragment F21 on Level1 {
+    level2(list: "foobar") {
+        level3(i: {inputField: $i}) {
+            level4
+        }
+    }
+}

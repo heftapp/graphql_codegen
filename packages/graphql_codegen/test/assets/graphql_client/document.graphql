@@ -1,5 +1,6 @@
 type Query {
   s(name: String): String
+  s2(name: String!): String
 }
 
 type Mutation {
@@ -10,8 +11,12 @@ fragment NoVariables on Query {
   s(name: "name")
 }
 
-fragment WithVariables on Query {
+fragment WithOptionalVariables on Query {
   s(name: $name)
+}
+
+fragment WithVariables on Query {
+  s2(name: $name)
 }
 
 query FetchSOptional($name: String) {

@@ -136,7 +136,7 @@ Expression printPropertyHash(TypeNode type, Expression name) {
   throw StateError("Unsupported type node");
 }
 
-Spec printVariables(PrintContext<ContextOperation> context) => _printClass(
+Spec printVariables(PrintContext context) => _printClass(
       context,
       printVariableClassName(context.context.path),
       context.context.variables,
@@ -226,8 +226,10 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
     ...context.contextEnums.map((context) => printEnum(c.withContext(context))),
     ...context.contextFragments.expand((context) {
       final fragmentNode = context.fragment;
+      final elementContext = c.withContext(context);
       return [
-        printContext(c.withContext(context)),
+        if (context.hasVariables) printVariables(elementContext),
+        printContext(elementContext),
         if (fragmentNode != null)
           printFragmentDefinition(
             c.withContext(context),
@@ -241,7 +243,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       final operation = element.operation;
       final elementContext = c.withContext(element);
       return [
-        if (element.variables.isNotEmpty) printVariables(elementContext),
+        if (element.hasVariables) printVariables(elementContext),
         printContext(elementContext),
         if (operation != null)
           printDocument(

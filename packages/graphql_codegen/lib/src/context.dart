@@ -15,6 +15,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
     required Name path,
     required TypeDefinitionNode currentType,
     required Map<String, Context> contexts,
+    required Map<String, ContextProperty> variables,
     FragmentDefinitionNode? fragment,
     Queue<Name>? inFragments,
     Name? extendsName,
@@ -28,6 +29,7 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
           contexts: contexts,
           inFragment: inFragments,
           extendsName: extendsName,
+          variables: variables,
         );
 
   @override
@@ -61,9 +63,48 @@ class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
       contexts: _contexts,
       inFragments: newInFragment,
       extendsName: extendsName,
+      variables: _variables,
     );
     _addContext(c);
     return c;
+  }
+
+  @override
+  Iterable<ContextProperty> get variables =>
+      fragment == null ? [] : _variables.values;
+
+  @override
+  void addArgument(ValueNode argument, TypeNode type) {
+    if (argument is VariableNode) {
+      addVariable(ContextProperty(type: type, name: argument.name));
+      return;
+    }
+    if (argument is ListValueNode && type is ListTypeNode) {
+      for (final v in argument.values) {
+        addArgument(v, type.type);
+      }
+      return;
+    }
+    if (type is ListTypeNode) {
+      addArgument(argument, type.type);
+      return;
+    }
+    if (argument is ObjectValueNode && type is NamedTypeNode) {
+      final typeDef =
+          schema.lookupType<InputObjectTypeDefinitionNode>(type.name);
+      final fields = typeDef?.fields ?? [];
+      for (final f in argument.fields) {
+        final fieldType = fields
+            .whereType<InputValueDefinitionNode?>()
+            .firstWhere(
+              (element) => element?.name.value == f.name.value,
+              orElse: () => null,
+            )
+            ?.type;
+        if (fieldType == null) continue;
+        addArgument(f.value, fieldType);
+      }
+    }
   }
 }
 
@@ -214,6 +255,11 @@ class Schema<TKey> {
     TypeDefinitionNode onType,
     NameNode node,
   ) {
+    return lookupFieldDefinitionNode(onType, node)?.type;
+  }
+
+  FieldDefinitionNode? lookupFieldDefinitionNode(
+      TypeDefinitionNode onType, NameNode field) {
     List<FieldDefinitionNode> fields;
     if (onType is ObjectTypeDefinitionNode) {
       fields = onType.fields;
@@ -227,10 +273,28 @@ class Schema<TKey> {
     final currentFieldDefinition = [...fields, ..._INTROSPECTION_FIELDS]
         .whereType<FieldDefinitionNode?>()
         .firstWhere(
-          (element) => element != null && element.name.value == node.value,
+          (element) => element != null && element.name.value == field.value,
           orElse: () => null,
         );
-    return currentFieldDefinition?.type;
+    return currentFieldDefinition;
+  }
+
+  TypeNode? lookupTypeNodeForArgument(
+    TypeDefinitionNode onType,
+    NameNode field,
+    ArgumentNode argument,
+  ) {
+    final fieldDefinition = lookupFieldDefinitionNode(onType, field);
+    if (fieldDefinition == null) {
+      return null;
+    }
+    return fieldDefinition.args
+        .whereType<InputValueDefinitionNode?>()
+        .firstWhere(
+          (element) => element?.name.value == argument.name.value,
+          orElse: () => null,
+        )
+        ?.type;
   }
 
   TypeDefinitionNode? lookupTypeDefinitionFromTypeNode(TypeNode node) {
@@ -281,11 +345,38 @@ class ContextProperty {
         type = node.type,
         alias = null;
 
+  ContextProperty merge(ContextProperty other) => ContextProperty(
+        type: _mergeTypes(type, other.type),
+        name: name,
+      );
+
   String get _key => name.value;
 
   bool get isTypenameField => _name.value == "__typename";
 
   bool get isRequired => type.isNonNull;
+
+  static TypeNode _mergeTypes(TypeNode t1, TypeNode t2) {
+    if (t1 is ListTypeNode && t2 is ListTypeNode) {
+      return ListTypeNode(
+        type: _mergeTypes(t1.type, t2.type),
+        isNonNull: t1.isNonNull || t2.isNonNull,
+      );
+    }
+    if (t1 is ListTypeNode) {
+      return _mergeTypes(t1.type, t2);
+    }
+    if (t2 is ListTypeNode) {
+      return _mergeTypes(t1, t2.type);
+    }
+    if (t1 is! NamedTypeNode) {
+      return t1;
+    }
+    return NamedTypeNode(
+      name: t1.name,
+      isNonNull: t1.isNonNull || t2.isNonNull,
+    );
+  }
 }
 
 class TypedName {
@@ -305,9 +396,11 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
     Map<String, Context>? contexts,
     TType? currentType,
     this.extendsName,
+    Map<String, ContextProperty>? variables,
     Queue<Name>? inFragment,
   })  : _currentType = currentType,
         _contexts = contexts ?? {},
+        _variables = variables ?? {},
         _inFragment = inFragment ?? ListQueue();
   final TKey key;
   final GraphQLCodegenConfig config;
@@ -324,7 +417,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   final Map<String, Name> _fragments = {};
   final Map<String, TypedName> _possibleTypeNames = {};
   final Map<String, ContextProperty> _properties = {};
-  final Map<String, ContextProperty> _variables = {};
+  final Map<String, ContextProperty> _variables;
 
   TType get currentType {
     final lt = _currentType;
@@ -383,6 +476,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
       currentType: type,
       contexts: _contexts,
       fragment: node,
+      variables: {},
     );
     _addContext(c);
     return c;
@@ -454,11 +548,11 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   }
 
   void addVariable(ContextProperty property) {
-    if (_variables[property._key] != null) {
-      return;
-    }
-    _variables[property._key] = property;
+    _variables[property._key] =
+        _variables[property._key]?.merge(property) ?? property;
   }
+
+  void addArgument(ValueNode argument, TypeNode argumentType) {}
 
   void visitInFragment(
     Name fragmentName,
@@ -477,7 +571,7 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
 
   Iterable<ContextProperty> get variables => _variables.values;
 
-  bool get hasVariables => _variables.isNotEmpty;
+  bool get hasVariables => variables.isNotEmpty;
 
   bool get isVariablesRequired =>
       variables.whereType<ContextProperty?>().firstWhere(

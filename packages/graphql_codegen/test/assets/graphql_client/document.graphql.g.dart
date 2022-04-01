@@ -17,16 +17,53 @@ Map<String, dynamic> _$FragmentNoVariablesToJson(
       's': instance.s,
     };
 
+VariablesFragmentWithOptionalVariables
+    _$VariablesFragmentWithOptionalVariablesFromJson(
+            Map<String, dynamic> json) =>
+        VariablesFragmentWithOptionalVariables(
+          name: json['name'] as String?,
+        );
+
+Map<String, dynamic> _$VariablesFragmentWithOptionalVariablesToJson(
+        VariablesFragmentWithOptionalVariables instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
+FragmentWithOptionalVariables _$FragmentWithOptionalVariablesFromJson(
+        Map<String, dynamic> json) =>
+    FragmentWithOptionalVariables(
+      s: json['s'] as String?,
+    );
+
+Map<String, dynamic> _$FragmentWithOptionalVariablesToJson(
+        FragmentWithOptionalVariables instance) =>
+    <String, dynamic>{
+      's': instance.s,
+    };
+
+VariablesFragmentWithVariables _$VariablesFragmentWithVariablesFromJson(
+        Map<String, dynamic> json) =>
+    VariablesFragmentWithVariables(
+      name: json['name'] as String,
+    );
+
+Map<String, dynamic> _$VariablesFragmentWithVariablesToJson(
+        VariablesFragmentWithVariables instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
 FragmentWithVariables _$FragmentWithVariablesFromJson(
         Map<String, dynamic> json) =>
     FragmentWithVariables(
-      s: json['s'] as String?,
+      s2: json['s2'] as String?,
     );
 
 Map<String, dynamic> _$FragmentWithVariablesToJson(
         FragmentWithVariables instance) =>
     <String, dynamic>{
-      's': instance.s,
+      's2': instance.s2,
     };
 
 VariablesQueryFetchSOptional _$VariablesQueryFetchSOptionalFromJson(

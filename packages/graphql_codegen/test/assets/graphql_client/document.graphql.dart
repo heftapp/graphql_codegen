@@ -55,45 +55,71 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
   void writeFragmentNoVariables(
           {required FragmentNoVariables data,
           required Map<String, dynamic> idFields,
-          Map<String, dynamic> variables = const {},
           broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
               fragment: graphql.Fragment(
-                  document:
-                      const DocumentNode(definitions: [FRAGMENT_NO_VARIABLES])),
-              variables: variables),
+                  document: const DocumentNode(
+                      definitions: [FRAGMENT_NO_VARIABLES]))),
           data: data.toJson(),
           broadcast: broadcast);
   FragmentNoVariables? readFragmentNoVariables(
-      {required Map<String, dynamic> idFields,
-      Map<String, dynamic> variables = const {},
-      optimistic = true}) {
+      {required Map<String, dynamic> idFields, optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: graphql.Fragment(
                 document:
-                    const DocumentNode(definitions: [FRAGMENT_NO_VARIABLES])),
-            variables: variables),
+                    const DocumentNode(definitions: [FRAGMENT_NO_VARIABLES]))),
         optimistic: optimistic);
     return result == null ? null : FragmentNoVariables.fromJson(result);
   }
 }
 
 @JsonSerializable()
-class FragmentWithVariables extends JsonSerializable {
-  FragmentWithVariables({this.s});
+class VariablesFragmentWithOptionalVariables extends JsonSerializable {
+  VariablesFragmentWithOptionalVariables({this.name});
 
   @override
-  factory FragmentWithVariables.fromJson(Map<String, dynamic> json) =>
-      _$FragmentWithVariablesFromJson(json);
+  factory VariablesFragmentWithOptionalVariables.fromJson(
+          Map<String, dynamic> json) =>
+      _$VariablesFragmentWithOptionalVariablesFromJson(json);
+
+  final String? name;
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$VariablesFragmentWithOptionalVariablesToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesFragmentWithOptionalVariables) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
+}
+
+@JsonSerializable()
+class FragmentWithOptionalVariables extends JsonSerializable {
+  FragmentWithOptionalVariables({this.s});
+
+  @override
+  factory FragmentWithOptionalVariables.fromJson(Map<String, dynamic> json) =>
+      _$FragmentWithOptionalVariablesFromJson(json);
 
   final String? s;
 
   @override
-  Map<String, dynamic> toJson() => _$FragmentWithVariablesToJson(this);
+  Map<String, dynamic> toJson() => _$FragmentWithOptionalVariablesToJson(this);
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -102,8 +128,8 @@ class FragmentWithVariables extends JsonSerializable {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentWithVariables) || runtimeType != other.runtimeType)
-      return false;
+    if (!(other is FragmentWithOptionalVariables) ||
+        runtimeType != other.runtimeType) return false;
     final l$s = s;
     final lOther$s = other.s;
     if (l$s != lOther$s) return false;
@@ -111,8 +137,8 @@ class FragmentWithVariables extends JsonSerializable {
   }
 }
 
-const FRAGMENT_WITH_VARIABLES = const FragmentDefinitionNode(
-    name: NameNode(value: 'WithVariables'),
+const FRAGMENT_WITH_OPTIONAL_VARIABLES = const FragmentDefinitionNode(
+    name: NameNode(value: 'WithOptionalVariables'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
     directives: [],
@@ -129,11 +155,121 @@ const FRAGMENT_WITH_VARIABLES = const FragmentDefinitionNode(
           selectionSet: null)
     ]));
 
+extension ClientExtensionFragmentWithOptionalVariables
+    on graphql.GraphQLClient {
+  void writeFragmentWithOptionalVariables(
+          {required FragmentWithOptionalVariables data,
+          required Map<String, dynamic> idFields,
+          VariablesFragmentWithOptionalVariables? variables,
+          broadcast = true}) =>
+      this.writeFragment(
+          graphql.FragmentRequest(
+              idFields: idFields,
+              fragment: graphql.Fragment(
+                  document: const DocumentNode(
+                      definitions: [FRAGMENT_WITH_OPTIONAL_VARIABLES])),
+              variables: variables?.toJson() ?? const {}),
+          data: data.toJson(),
+          broadcast: broadcast);
+  FragmentWithOptionalVariables? readFragmentWithOptionalVariables(
+      {required Map<String, dynamic> idFields,
+      VariablesFragmentWithOptionalVariables? variables,
+      optimistic = true}) {
+    final result = this.readFragment(
+        graphql.FragmentRequest(
+            idFields: idFields,
+            fragment: graphql.Fragment(
+                document: const DocumentNode(
+                    definitions: [FRAGMENT_WITH_OPTIONAL_VARIABLES])),
+            variables: variables?.toJson() ?? const {}),
+        optimistic: optimistic);
+    return result == null
+        ? null
+        : FragmentWithOptionalVariables.fromJson(result);
+  }
+}
+
+@JsonSerializable()
+class VariablesFragmentWithVariables extends JsonSerializable {
+  VariablesFragmentWithVariables({required this.name});
+
+  @override
+  factory VariablesFragmentWithVariables.fromJson(Map<String, dynamic> json) =>
+      _$VariablesFragmentWithVariablesFromJson(json);
+
+  final String name;
+
+  @override
+  Map<String, dynamic> toJson() => _$VariablesFragmentWithVariablesToJson(this);
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is VariablesFragmentWithVariables) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
+}
+
+@JsonSerializable()
+class FragmentWithVariables extends JsonSerializable {
+  FragmentWithVariables({this.s2});
+
+  @override
+  factory FragmentWithVariables.fromJson(Map<String, dynamic> json) =>
+      _$FragmentWithVariablesFromJson(json);
+
+  final String? s2;
+
+  @override
+  Map<String, dynamic> toJson() => _$FragmentWithVariablesToJson(this);
+  int get hashCode {
+    final l$s2 = s2;
+    return Object.hashAll([l$s2]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is FragmentWithVariables) || runtimeType != other.runtimeType)
+      return false;
+    final l$s2 = s2;
+    final lOther$s2 = other.s2;
+    if (l$s2 != lOther$s2) return false;
+    return true;
+  }
+}
+
+const FRAGMENT_WITH_VARIABLES = const FragmentDefinitionNode(
+    name: NameNode(value: 'WithVariables'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: 's2'),
+          alias: null,
+          arguments: [
+            ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')))
+          ],
+          directives: [],
+          selectionSet: null)
+    ]));
+
 extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
   void writeFragmentWithVariables(
           {required FragmentWithVariables data,
           required Map<String, dynamic> idFields,
-          Map<String, dynamic> variables = const {},
+          required VariablesFragmentWithVariables variables,
           broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
@@ -141,12 +277,12 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
               fragment: graphql.Fragment(
                   document: const DocumentNode(
                       definitions: [FRAGMENT_WITH_VARIABLES])),
-              variables: variables),
+              variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
   FragmentWithVariables? readFragmentWithVariables(
       {required Map<String, dynamic> idFields,
-      Map<String, dynamic> variables = const {},
+      required VariablesFragmentWithVariables variables,
       optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
@@ -154,7 +290,7 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
             fragment: graphql.Fragment(
                 document:
                     const DocumentNode(definitions: [FRAGMENT_WITH_VARIABLES])),
-            variables: variables),
+            variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : FragmentWithVariables.fromJson(result);
   }

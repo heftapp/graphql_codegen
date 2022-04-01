@@ -807,6 +807,27 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
 }
 
 Spec printFragmentExtension(PrintContext<ContextFragment> context) {
+  final sharedParameters = [
+    Parameter(
+      (b) => b
+        ..required = true
+        ..named = true
+        ..name = 'idFields'
+        ..type = _DYNAMIC_MAP,
+    ),
+    if (context.context.hasVariables)
+      Parameter(
+        (b) => b
+          ..required = context.context.isVariablesRequired
+          ..named = true
+          ..name = 'variables'
+          ..type = TypeReference(
+            (b) => b
+              ..symbol = printVariableClassName(context.path)
+              ..isNullable = !context.context.isVariablesRequired,
+          ),
+      ),
+  ];
   final fragmentRequest = refer('graphql.FragmentRequest').call(
     [],
     {
@@ -823,23 +844,13 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
           )
         },
       ),
-      'variables': refer('variables'),
+      if (context.context.hasVariables)
+        'variables': context.context.isVariablesRequired
+            ? refer('variables').property('toJson').call([])
+            : refer('variables')
+                .nullSafeProperty('toJson')
+                .call([]).ifNullThen(literalConstMap({})),
     },
-  );
-  final idFieldsParameter = Parameter(
-    (b) => b
-      ..required = true
-      ..named = true
-      ..name = 'idFields'
-      ..type = _DYNAMIC_MAP,
-  );
-  final variblesParameter = Parameter(
-    (b) => b
-      ..required = false
-      ..named = true
-      ..name = 'variables'
-      ..defaultTo = literalConstMap({}).code
-      ..type = _DYNAMIC_MAP,
   );
   return Extension(
     (b) => b
@@ -860,20 +871,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
                   ..name = 'data'
                   ..type = refer(printClassName(context.path)),
               ),
-              idFieldsParameter,
-              variblesParameter,
-              if (context.context.hasVariables)
-                Parameter(
-                  (b) => b
-                    ..required = context.context.isVariablesRequired
-                    ..named = true
-                    ..name = 'variables'
-                    ..type = TypeReference(
-                      (b) => b
-                        ..symbol = printVariableClassName(context.path)
-                        ..isNullable = !context.context.isVariablesRequired,
-                    ),
-                ),
+              ...sharedParameters,
               Parameter(
                 (b) => b
                   ..name = 'broadcast'
@@ -898,20 +896,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
             )
             ..lambda = false
             ..optionalParameters = ListBuilder([
-              idFieldsParameter,
-              variblesParameter,
-              if (context.context.hasVariables)
-                Parameter(
-                  (b) => b
-                    ..required = context.context.isVariablesRequired
-                    ..named = true
-                    ..name = 'variables'
-                    ..type = TypeReference(
-                      (b) => b
-                        ..symbol = printVariableClassName(context.path)
-                        ..isNullable = !context.context.isVariablesRequired,
-                    ),
-                ),
+              ...sharedParameters,
               Parameter(
                 (b) => b
                   ..name = 'optimistic'
