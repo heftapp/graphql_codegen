@@ -169,28 +169,23 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
   void writeFragmentPersonSummary(
           {required FragmentPersonSummary data,
           required Map<String, dynamic> idFields,
-          Map<String, dynamic> variables = const {},
           broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
               fragment: graphql.Fragment(
                   document: const DocumentNode(
-                      definitions: [FRAGMENT_PERSON_SUMMARY])),
-              variables: variables),
+                      definitions: [FRAGMENT_PERSON_SUMMARY]))),
           data: data.toJson(),
           broadcast: broadcast);
   FragmentPersonSummary? readFragmentPersonSummary(
-      {required Map<String, dynamic> idFields,
-      Map<String, dynamic> variables = const {},
-      optimistic = true}) {
+      {required Map<String, dynamic> idFields, optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: graphql.Fragment(
-                document:
-                    const DocumentNode(definitions: [FRAGMENT_PERSON_SUMMARY])),
-            variables: variables),
+                document: const DocumentNode(
+                    definitions: [FRAGMENT_PERSON_SUMMARY]))),
         optimistic: optimistic);
     return result == null ? null : FragmentPersonSummary.fromJson(result);
   }

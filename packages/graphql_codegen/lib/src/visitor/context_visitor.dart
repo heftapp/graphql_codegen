@@ -312,5 +312,19 @@ class ContextVisitor extends RecursiveVisitor {
         type: typeNodeForField,
       ));
     }
+
+    for (final argument in node.arguments) {
+      final argumentType = context.schema.lookupTypeNodeForArgument(
+        context.currentType,
+        node.name,
+        argument,
+      );
+      if (argumentType == null) {
+        throw InvalidGraphQLDocumentError(
+          "Failed to find type for argument ${argument.name.value} on field ${node.name.value} on type ${currentType.name.value}",
+        );
+      }
+      context.addArgument(argument.value, argumentType);
+    }
   }
 }

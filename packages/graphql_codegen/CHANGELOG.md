@@ -1,3 +1,7 @@
+# 0.7.0-beta.8
+
+* Generate fragment variables
+
 # 0.7.0-beta.7
 
 * Generate cache write/read methods
