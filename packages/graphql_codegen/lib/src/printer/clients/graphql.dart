@@ -88,7 +88,8 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'optimisticResult': refer('optimisticResult'),
                 'pollInterval': refer('pollInterval'),
                 'context': refer('context'),
-                'document': refer(printOperationDocumentName(context.path)),
+                'document':
+                    refer(printDocumentDefinitionNodeName(context.path)),
                 'parserFn': printParserFnRef(context),
               }).code,
             ]),
@@ -157,7 +158,8 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
                 'optimisticResult': refer('optimisticResult'),
                 'context': refer('context'),
-                'document': refer(printOperationDocumentName(context.path)),
+                'document':
+                    refer(printDocumentDefinitionNodeName(context.path)),
                 'parserFn': printParserFnRef(context),
               }).code,
             ]),
@@ -246,7 +248,8 @@ Spec printFetchMoreOptions(PrintContext context) {
                         : refer('variables')
                             .nullSafeProperty('toJson')
                             .call([]).ifNullThen(literal({})),
-                  'document': refer(printOperationDocumentName(context.path)),
+                  'document':
+                      refer(printDocumentDefinitionNodeName(context.path)),
                 },
               ).code
             ]),
@@ -414,7 +417,8 @@ Spec printMutationOptions(
                   ),
                   'update': refer('update'),
                   'onError': refer('onError'),
-                  'document': refer(printOperationDocumentName(context.path)),
+                  'document':
+                      refer(printDocumentDefinitionNodeName(context.path)),
                   'parserFn': printParserFnRef(context),
                 }).code,
               ]),
@@ -503,7 +507,8 @@ Spec printWatchOptions(
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
                 'optimisticResult': refer('optimisticResult'),
                 'context': refer('context'),
-                'document': refer(printOperationDocumentName(context.path)),
+                'document':
+                    refer(printDocumentDefinitionNodeName(context.path)),
                 'pollInterval': refer('pollInterval'),
                 'eagerlyFetchResults': refer('eagerlyFetchResults'),
                 'carryForwardDataOnException': refer(
@@ -630,7 +635,7 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
     {
       'operation': refer('graphql.Operation').call(
         [],
-        {'document': refer(printOperationDocumentName(context.path))},
+        {'document': refer(printDocumentDefinitionNodeName(context.path))},
       ),
       if (context.context.hasVariables)
         'variables': context.context.isVariablesRequired
@@ -824,20 +829,16 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
           ),
       ),
   ];
+  final fragmentName = context.context.fragment?.name.value;
   final fragmentRequest = refer('graphql.FragmentRequest').call(
     [],
     {
       'idFields': refer('idFields'),
-      'fragment': refer('graphql.Fragment').call(
+      'fragment': refer('const graphql.Fragment').call(
         [],
         {
-          'document': refer('const DocumentNode').call(
-            [],
-            {
-              'definitions':
-                  literalList([refer(printOperationDocumentName(context.path))])
-            },
-          )
+          if (fragmentName != null) 'fragmentName': literalString(fragmentName),
+          'document': refer(printDocumentDefinitionNodeName(context.path)),
         },
       ),
       if (context.context.hasVariables)

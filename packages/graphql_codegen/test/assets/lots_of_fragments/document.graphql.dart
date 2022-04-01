@@ -44,7 +44,7 @@ class FragmentFragmentA extends JsonSerializable implements FragmentFragmentI {
   }
 }
 
-const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentA'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'FieldA'), isNonNull: false)),
@@ -64,6 +64,10 @@ const FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
           selectionSet: null),
       FragmentSpreadNode(name: NameNode(value: 'FragmentI'), directives: [])
     ]));
+const FRAGMENT_FRAGMENT_A = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_A,
+  FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_I,
+]);
 
 @JsonSerializable()
 class FragmentFragmentI extends JsonSerializable {
@@ -101,7 +105,7 @@ class FragmentFragmentI extends JsonSerializable {
   }
 }
 
-const FRAGMENT_FRAGMENT_I = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_I = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentI'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'IField'), isNonNull: false)),
@@ -120,6 +124,9 @@ const FRAGMENT_FRAGMENT_I = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_FRAGMENT_I = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_I,
+]);
 
 @JsonSerializable()
 class QueryFetchStuff extends JsonSerializable {
@@ -231,8 +238,8 @@ const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
                   ]))
             ]))
       ])),
-  FRAGMENT_FRAGMENT_A,
-  FRAGMENT_FRAGMENT_I,
+  FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_A,
+  FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_I,
 ]);
 
 @JsonSerializable()

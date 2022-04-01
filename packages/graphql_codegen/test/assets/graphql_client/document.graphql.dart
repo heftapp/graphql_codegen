@@ -33,7 +33,7 @@ class FragmentNoVariables extends JsonSerializable {
   }
 }
 
-const FRAGMENT_NO_VARIABLES = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_NO_VARIABLES = const FragmentDefinitionNode(
     name: NameNode(value: 'NoVariables'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
@@ -50,6 +50,9 @@ const FRAGMENT_NO_VARIABLES = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_NO_VARIABLES = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_NO_VARIABLES,
+]);
 
 extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
   void writeFragmentNoVariables(
@@ -59,9 +62,9 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
-              fragment: graphql.Fragment(
-                  document: const DocumentNode(
-                      definitions: [FRAGMENT_NO_VARIABLES]))),
+              fragment: const graphql.Fragment(
+                  fragmentName: 'NoVariables',
+                  document: FRAGMENT_NO_VARIABLES)),
           data: data.toJson(),
           broadcast: broadcast);
   FragmentNoVariables? readFragmentNoVariables(
@@ -69,9 +72,8 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
-            fragment: graphql.Fragment(
-                document:
-                    const DocumentNode(definitions: [FRAGMENT_NO_VARIABLES]))),
+            fragment: const graphql.Fragment(
+                fragmentName: 'NoVariables', document: FRAGMENT_NO_VARIABLES)),
         optimistic: optimistic);
     return result == null ? null : FragmentNoVariables.fromJson(result);
   }
@@ -137,23 +139,28 @@ class FragmentWithOptionalVariables extends JsonSerializable {
   }
 }
 
-const FRAGMENT_WITH_OPTIONAL_VARIABLES = const FragmentDefinitionNode(
-    name: NameNode(value: 'WithOptionalVariables'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 's'),
-          alias: null,
-          arguments: [
-            ArgumentNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')))
-          ],
-          directives: [],
-          selectionSet: null)
-    ]));
+const FRAGMENT_DEFINITION_FRAGMENT_WITH_OPTIONAL_VARIABLES =
+    const FragmentDefinitionNode(
+        name: NameNode(value: 'WithOptionalVariables'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'Query'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 's'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                    name: NameNode(value: 'name'),
+                    value: VariableNode(name: NameNode(value: 'name')))
+              ],
+              directives: [],
+              selectionSet: null)
+        ]));
+const FRAGMENT_WITH_OPTIONAL_VARIABLES = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_WITH_OPTIONAL_VARIABLES,
+]);
 
 extension ClientExtensionFragmentWithOptionalVariables
     on graphql.GraphQLClient {
@@ -165,9 +172,9 @@ extension ClientExtensionFragmentWithOptionalVariables
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
-              fragment: graphql.Fragment(
-                  document: const DocumentNode(
-                      definitions: [FRAGMENT_WITH_OPTIONAL_VARIABLES])),
+              fragment: const graphql.Fragment(
+                  fragmentName: 'WithOptionalVariables',
+                  document: FRAGMENT_WITH_OPTIONAL_VARIABLES),
               variables: variables?.toJson() ?? const {}),
           data: data.toJson(),
           broadcast: broadcast);
@@ -178,9 +185,9 @@ extension ClientExtensionFragmentWithOptionalVariables
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
-            fragment: graphql.Fragment(
-                document: const DocumentNode(
-                    definitions: [FRAGMENT_WITH_OPTIONAL_VARIABLES])),
+            fragment: const graphql.Fragment(
+                fragmentName: 'WithOptionalVariables',
+                document: FRAGMENT_WITH_OPTIONAL_VARIABLES),
             variables: variables?.toJson() ?? const {}),
         optimistic: optimistic);
     return result == null
@@ -247,23 +254,28 @@ class FragmentWithVariables extends JsonSerializable {
   }
 }
 
-const FRAGMENT_WITH_VARIABLES = const FragmentDefinitionNode(
-    name: NameNode(value: 'WithVariables'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 's2'),
-          alias: null,
-          arguments: [
-            ArgumentNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')))
-          ],
-          directives: [],
-          selectionSet: null)
-    ]));
+const FRAGMENT_DEFINITION_FRAGMENT_WITH_VARIABLES =
+    const FragmentDefinitionNode(
+        name: NameNode(value: 'WithVariables'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'Query'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 's2'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                    name: NameNode(value: 'name'),
+                    value: VariableNode(name: NameNode(value: 'name')))
+              ],
+              directives: [],
+              selectionSet: null)
+        ]));
+const FRAGMENT_WITH_VARIABLES = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_WITH_VARIABLES,
+]);
 
 extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
   void writeFragmentWithVariables(
@@ -274,9 +286,9 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
-              fragment: graphql.Fragment(
-                  document: const DocumentNode(
-                      definitions: [FRAGMENT_WITH_VARIABLES])),
+              fragment: const graphql.Fragment(
+                  fragmentName: 'WithVariables',
+                  document: FRAGMENT_WITH_VARIABLES),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -287,9 +299,9 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
-            fragment: graphql.Fragment(
-                document:
-                    const DocumentNode(definitions: [FRAGMENT_WITH_VARIABLES])),
+            fragment: const graphql.Fragment(
+                fragmentName: 'WithVariables',
+                document: FRAGMENT_WITH_VARIABLES),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : FragmentWithVariables.fromJson(result);

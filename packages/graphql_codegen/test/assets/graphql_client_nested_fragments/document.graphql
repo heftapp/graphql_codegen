@@ -13,7 +13,3 @@ fragment F1 on T1{
         ...F2
     }
 }
-
-fragment F2 on T1 {
-    name
-}

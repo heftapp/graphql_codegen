@@ -48,7 +48,7 @@ const QUERY_FETCH_NAME = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'F'), directives: [])
             ]))
       ])),
-  FRAGMENT_F,
+  FRAGMENT_DEFINITION_FRAGMENT_F,
 ]);
 
 @JsonSerializable()

@@ -102,7 +102,7 @@ class FragmentF1 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F1 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
@@ -177,6 +177,9 @@ const FRAGMENT_F1 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F1 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F1,
+]);
 
 @JsonSerializable()
 class FragmentF1$level1 extends JsonSerializable {
@@ -358,7 +361,7 @@ class FragmentF2 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F2 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
     name: NameNode(value: 'F2'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
@@ -389,6 +392,10 @@ const FRAGMENT_F2 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F2 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F2,
+  FRAGMENT_DEFINITION_FRAGMENT_F21,
+]);
 
 @JsonSerializable()
 class FragmentF2$level1 extends JsonSerializable implements FragmentF21 {
@@ -566,7 +573,7 @@ class FragmentF21 extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F21 = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F21 = const FragmentDefinitionNode(
     name: NameNode(value: 'F21'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Level1'), isNonNull: false)),
@@ -623,6 +630,9 @@ const FRAGMENT_F21 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F21 = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F21,
+]);
 
 @JsonSerializable()
 class FragmentF21$level2 extends JsonSerializable {

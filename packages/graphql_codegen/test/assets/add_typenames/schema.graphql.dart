@@ -38,7 +38,7 @@ class FragmentFReport extends JsonSerializable {
   }
 }
 
-const FRAGMENT_F_REPORT = const FragmentDefinitionNode(
+const FRAGMENT_DEFINITION_FRAGMENT_F_REPORT = const FragmentDefinitionNode(
     name: NameNode(value: 'FReport'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Report'), isNonNull: false)),
@@ -57,6 +57,9 @@ const FRAGMENT_F_REPORT = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
+const FRAGMENT_F_REPORT = const DocumentNode(definitions: [
+  FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
+]);
 
 @JsonSerializable()
 class QueryQ extends JsonSerializable {
@@ -272,7 +275,7 @@ const QUERY_Q = const DocumentNode(definitions: [
             directives: [],
             selectionSet: null)
       ])),
-  FRAGMENT_F_REPORT,
+  FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
 ]);
 
 @JsonSerializable()
