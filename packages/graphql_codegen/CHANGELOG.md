@@ -1,3 +1,7 @@
+# 0.7.0-beta.9
+
+* Fix: Don't generate cache methods for nested fragments
+
 # 0.7.0-beta.8
 
 * Generate fragment variables

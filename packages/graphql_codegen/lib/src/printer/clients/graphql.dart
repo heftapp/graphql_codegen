@@ -1076,6 +1076,7 @@ Iterable<Spec> printGraphQLClientSpecs(
 Iterable<Spec> printGraphQLClientFragmentSpecs(
   PrintContext<ContextFragment> c,
 ) {
+  if (c.context.fragment == null) return [];
   c.addPackage(
     'package:graphql/client.dart',
     'graphql',
