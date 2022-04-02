@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentFReport extends JsonSerializable {
   FragmentFReport({this.title, required this.$__typename});
 
@@ -38,6 +38,13 @@ class FragmentFReport extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentFReport on FragmentFReport {
+  FragmentFReport copyWith({String? Function()? title, String? $__typename}) =>
+      FragmentFReport(
+          title: title == null ? this.title : title(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F_REPORT = const FragmentDefinitionNode(
     name: NameNode(value: 'FReport'),
     typeCondition: TypeConditionNode(
@@ -61,7 +68,7 @@ const FRAGMENT_F_REPORT = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ(
       {this.docsWithTypename,
@@ -182,6 +189,30 @@ class QueryQ extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith(
+          {List<QueryQ$docsWithTypename?>? Function()? docsWithTypename,
+          List<QueryQ$docsWihtoutTypename?>? Function()? docsWihtoutTypename,
+          List<QueryQ$docsWithAliasedTypename?>? Function()?
+              docsWithAliasedTypename,
+          List<QueryQ$docsWithFragment?>? Function()? docsWithFragment,
+          String? $__typename}) =>
+      QueryQ(
+          docsWithTypename: docsWithTypename == null
+              ? this.docsWithTypename
+              : docsWithTypename(),
+          docsWihtoutTypename: docsWihtoutTypename == null
+              ? this.docsWihtoutTypename
+              : docsWihtoutTypename(),
+          docsWithAliasedTypename: docsWithAliasedTypename == null
+              ? this.docsWithAliasedTypename
+              : docsWithAliasedTypename(),
+          docsWithFragment: docsWithFragment == null
+              ? this.docsWithFragment
+              : docsWithFragment(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const QUERY_Q = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -278,7 +309,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithTypename extends JsonSerializable {
   QueryQ$docsWithTypename({required this.$__typename});
 
@@ -308,7 +339,13 @@ class QueryQ$docsWithTypename extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$docsWithTypename on QueryQ$docsWithTypename {
+  QueryQ$docsWithTypename copyWith({String? $__typename}) =>
+      QueryQ$docsWithTypename(
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWihtoutTypename extends JsonSerializable {
   QueryQ$docsWihtoutTypename({this.title, required this.$__typename});
 
@@ -344,7 +381,16 @@ class QueryQ$docsWihtoutTypename extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$docsWihtoutTypename
+    on QueryQ$docsWihtoutTypename {
+  QueryQ$docsWihtoutTypename copyWith(
+          {String? Function()? title, String? $__typename}) =>
+      QueryQ$docsWihtoutTypename(
+          title: title == null ? this.title : title(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithAliasedTypename extends JsonSerializable {
   QueryQ$docsWithAliasedTypename({this.$__typename});
 
@@ -374,7 +420,14 @@ class QueryQ$docsWithAliasedTypename extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$docsWithAliasedTypename
+    on QueryQ$docsWithAliasedTypename {
+  QueryQ$docsWithAliasedTypename copyWith({String? Function()? $__typename}) =>
+      QueryQ$docsWithAliasedTypename(
+          $__typename: $__typename == null ? this.$__typename : $__typename());
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment extends JsonSerializable {
   QueryQ$docsWithFragment({required this.$__typename});
 
@@ -412,7 +465,13 @@ class QueryQ$docsWithFragment extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$docsWithFragment on QueryQ$docsWithFragment {
+  QueryQ$docsWithFragment copyWith({String? $__typename}) =>
+      QueryQ$docsWithFragment(
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment$Contract extends JsonSerializable
     implements QueryQ$docsWithFragment {
   QueryQ$docsWithFragment$Contract({required this.$__typename, this.title});
@@ -451,7 +510,16 @@ class QueryQ$docsWithFragment$Contract extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$docsWithFragment$Contract
+    on QueryQ$docsWithFragment$Contract {
+  QueryQ$docsWithFragment$Contract copyWith(
+          {String? $__typename, String? Function()? title}) =>
+      QueryQ$docsWithFragment$Contract(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          title: title == null ? this.title : title());
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment$Report extends JsonSerializable
     implements FragmentFReport, QueryQ$docsWithFragment {
   QueryQ$docsWithFragment$Report({required this.$__typename, this.title});
@@ -486,6 +554,15 @@ class QueryQ$docsWithFragment$Report extends JsonSerializable
     if (l$title != lOther$title) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$docsWithFragment$Report
+    on QueryQ$docsWithFragment$Report {
+  QueryQ$docsWithFragment$Report copyWith(
+          {String? $__typename, String? Function()? title}) =>
+      QueryQ$docsWithFragment$Report(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          title: title == null ? this.title : title());
 }
 
 const POSSIBLE_TYPES_MAP = const {

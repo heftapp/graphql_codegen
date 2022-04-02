@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
 part 'query.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFoobar extends JsonSerializable {
   QueryFoobar({this.field, this.fields});
 
@@ -51,6 +51,14 @@ class QueryFoobar extends JsonSerializable {
 
     return true;
   }
+}
+
+extension UtilityExtensionQueryFoobar on QueryFoobar {
+  QueryFoobar copyWith(
+          {EnumEnum? Function()? field, List<EnumEnum>? Function()? fields}) =>
+      QueryFoobar(
+          field: field == null ? this.field : field(),
+          fields: fields == null ? this.fields : fields());
 }
 
 const QUERY_FOOBAR = const DocumentNode(definitions: [

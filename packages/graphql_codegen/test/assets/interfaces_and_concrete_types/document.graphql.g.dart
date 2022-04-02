@@ -15,7 +15,7 @@ QueryFetchI _$QueryFetchIFromJson(Map<String, dynamic> json) => QueryFetchI(
 
 Map<String, dynamic> _$QueryFetchIToJson(QueryFetchI instance) =>
     <String, dynamic>{
-      'i1': instance.i1,
+      'i1': instance.i1?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -29,7 +29,7 @@ QueryFetchI$i1 _$QueryFetchI$i1FromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryFetchI$i1ToJson(QueryFetchI$i1 instance) =>
     <String, dynamic>{
-      'i2': instance.i2,
+      'i2': instance.i2?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -44,7 +44,7 @@ QueryFetchI$i1$i2 _$QueryFetchI$i1$i2FromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryFetchI$i1$i2ToJson(QueryFetchI$i1$i2 instance) =>
     <String, dynamic>{
-      'field': instance.field,
+      'field': instance.field?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -75,9 +75,9 @@ QueryFetchI$i1$T1 _$QueryFetchI$i1$T1FromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryFetchI$i1$T1ToJson(QueryFetchI$i1$T1 instance) =>
     <String, dynamic>{
-      'i2': instance.i2,
+      'i2': instance.i2?.toJson(),
       '__typename': instance.$__typename,
-      'i2c': instance.i2c,
+      'i2c': instance.i2c?.toJson(),
     };
 
 QueryFetchI$i1$T1$i2c _$QueryFetchI$i1$T1$i2cFromJson(
@@ -93,7 +93,7 @@ QueryFetchI$i1$T1$i2c _$QueryFetchI$i1$T1$i2cFromJson(
 Map<String, dynamic> _$QueryFetchI$i1$T1$i2cToJson(
         QueryFetchI$i1$T1$i2c instance) =>
     <String, dynamic>{
-      'field': instance.field,
+      'field': instance.field?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -124,7 +124,7 @@ QueryFetchI$i1$T1$i2 _$QueryFetchI$i1$T1$i2FromJson(
 Map<String, dynamic> _$QueryFetchI$i1$T1$i2ToJson(
         QueryFetchI$i1$T1$i2 instance) =>
     <String, dynamic>{
-      'field': instance.field,
+      'field': instance.field?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -155,7 +155,7 @@ QueryFetchI$i1$T1$i2$T2 _$QueryFetchI$i1$T1$i2$T2FromJson(
 Map<String, dynamic> _$QueryFetchI$i1$T1$i2$T2ToJson(
         QueryFetchI$i1$T1$i2$T2 instance) =>
     <String, dynamic>{
-      'field': instance.field,
+      'field': instance.field?.toJson(),
       '__typename': instance.$__typename,
     };
 

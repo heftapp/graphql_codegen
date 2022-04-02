@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT1 extends JsonSerializable {
   FragmentT1({this.t});
 
@@ -31,6 +31,11 @@ class FragmentT1 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentT1 on FragmentT1 {
+  FragmentT1 copyWith({FragmentT1$t? Function()? t}) =>
+      FragmentT1(t: t == null ? this.t : t());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_T1 = const FragmentDefinitionNode(
     name: NameNode(value: 'T1'),
     typeCondition: TypeConditionNode(
@@ -55,7 +60,7 @@ const FRAGMENT_T1 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T1,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT1$t extends JsonSerializable {
   FragmentT1$t({this.name});
 
@@ -84,7 +89,12 @@ class FragmentT1$t extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionFragmentT1$t on FragmentT1$t {
+  FragmentT1$t copyWith({String? Function()? name}) =>
+      FragmentT1$t(name: name == null ? this.name : name());
+}
+
+@JsonSerializable(explicitToJson: true)
 class FragmentT2 extends JsonSerializable {
   FragmentT2({this.t, this.name});
 
@@ -119,6 +129,13 @@ class FragmentT2 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentT2 on FragmentT2 {
+  FragmentT2 copyWith(
+          {FragmentT2$t? Function()? t, String? Function()? name}) =>
+      FragmentT2(
+          t: t == null ? this.t : t(), name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_T2 = const FragmentDefinitionNode(
     name: NameNode(value: 'T2'),
     typeCondition: TypeConditionNode(
@@ -149,7 +166,7 @@ const FRAGMENT_T2 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT2$t extends JsonSerializable {
   FragmentT2$t({this.name});
 
@@ -178,7 +195,12 @@ class FragmentT2$t extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionFragmentT2$t on FragmentT2$t {
+  FragmentT2$t copyWith({String? Function()? name}) =>
+      FragmentT2$t(name: name == null ? this.name : name());
+}
+
+@JsonSerializable(explicitToJson: true)
 class FragmentTC extends JsonSerializable implements FragmentT1, FragmentT2 {
   FragmentTC({this.t, this.name});
 
@@ -213,6 +235,13 @@ class FragmentTC extends JsonSerializable implements FragmentT1, FragmentT2 {
   }
 }
 
+extension UtilityExtensionFragmentTC on FragmentTC {
+  FragmentTC copyWith(
+          {FragmentTC$t? Function()? t, String? Function()? name}) =>
+      FragmentTC(
+          t: t == null ? this.t : t(), name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_T_C = const FragmentDefinitionNode(
     name: NameNode(value: 'TC'),
     typeCondition: TypeConditionNode(
@@ -228,7 +257,7 @@ const FRAGMENT_T_C = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentTC$t extends JsonSerializable
     implements FragmentT1$t, FragmentT2$t {
   FragmentTC$t({this.name});
@@ -258,7 +287,12 @@ class FragmentTC$t extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionFragmentTC$t on FragmentTC$t {
+  FragmentTC$t copyWith({String? Function()? name}) =>
+      FragmentTC$t(name: name == null ? this.name : name());
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.t});
 
@@ -285,6 +319,11 @@ class QueryQ extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith({QueryQ$t? Function()? t}) =>
+      QueryQ(t: t == null ? this.t : t());
+}
+
 const QUERY_Q = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -306,7 +345,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t extends JsonSerializable
     implements FragmentTC, FragmentT1, FragmentT2 {
   QueryQ$t({this.t, this.name});
@@ -341,7 +380,13 @@ class QueryQ$t extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$t on QueryQ$t {
+  QueryQ$t copyWith({QueryQ$t$t? Function()? t, String? Function()? name}) =>
+      QueryQ$t(
+          t: t == null ? this.t : t(), name: name == null ? this.name : name());
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t$t extends JsonSerializable
     implements FragmentTC$t, FragmentT1$t, FragmentT2$t {
   QueryQ$t$t({this.name});
@@ -369,6 +414,11 @@ class QueryQ$t$t extends JsonSerializable
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$t$t on QueryQ$t$t {
+  QueryQ$t$t copyWith({String? Function()? name}) =>
+      QueryQ$t$t(name: name == null ? this.name : name());
 }
 
 const POSSIBLE_TYPES_MAP = const {};

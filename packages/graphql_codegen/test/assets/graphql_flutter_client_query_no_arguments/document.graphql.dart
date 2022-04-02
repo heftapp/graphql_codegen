@@ -5,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchSNoVariables extends JsonSerializable {
   QueryFetchSNoVariables({this.s});
 
@@ -32,6 +32,11 @@ class QueryFetchSNoVariables extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchSNoVariables on QueryFetchSNoVariables {
+  QueryFetchSNoVariables copyWith({String? Function()? s}) =>
+      QueryFetchSNoVariables(s: s == null ? this.s : s());
 }
 
 const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [

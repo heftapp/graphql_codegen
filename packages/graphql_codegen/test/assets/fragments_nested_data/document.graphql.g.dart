@@ -13,7 +13,7 @@ FragmentF _$FragmentFFromJson(Map<String, dynamic> json) => FragmentF(
     );
 
 Map<String, dynamic> _$FragmentFToJson(FragmentF instance) => <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 FragmentF$other _$FragmentF$otherFromJson(Map<String, dynamic> json) =>
@@ -26,7 +26,7 @@ FragmentF$other _$FragmentF$otherFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FragmentF$otherToJson(FragmentF$other instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 FragmentF$other$other _$FragmentF$other$otherFromJson(
@@ -41,7 +41,7 @@ FragmentF$other$other _$FragmentF$other$otherFromJson(
 Map<String, dynamic> _$FragmentF$other$otherToJson(
         FragmentF$other$other instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 FragmentF$other$other$other _$FragmentF$other$other$otherFromJson(
@@ -64,7 +64,7 @@ FragmentF2 _$FragmentF2FromJson(Map<String, dynamic> json) => FragmentF2(
 
 Map<String, dynamic> _$FragmentF2ToJson(FragmentF2 instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 FragmentF2$other _$FragmentF2$otherFromJson(Map<String, dynamic> json) =>
@@ -77,7 +77,7 @@ FragmentF2$other _$FragmentF2$otherFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FragmentF2$otherToJson(FragmentF2$other instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 FragmentF2$other$other _$FragmentF2$other$otherFromJson(
@@ -100,7 +100,7 @@ FragmentF3 _$FragmentF3FromJson(Map<String, dynamic> json) => FragmentF3(
 
 Map<String, dynamic> _$FragmentF3ToJson(FragmentF3 instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 FragmentF3$other _$FragmentF3$otherFromJson(Map<String, dynamic> json) =>
@@ -130,7 +130,7 @@ QueryFetch _$QueryFetchFromJson(Map<String, dynamic> json) => QueryFetch(
 
 Map<String, dynamic> _$QueryFetchToJson(QueryFetch instance) =>
     <String, dynamic>{
-      't': instance.t,
+      't': instance.t?.toJson(),
     };
 
 QueryFetch$t _$QueryFetch$tFromJson(Map<String, dynamic> json) => QueryFetch$t(
@@ -141,7 +141,7 @@ QueryFetch$t _$QueryFetch$tFromJson(Map<String, dynamic> json) => QueryFetch$t(
 
 Map<String, dynamic> _$QueryFetch$tToJson(QueryFetch$t instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 QueryFetch$t$other _$QueryFetch$t$otherFromJson(Map<String, dynamic> json) =>
@@ -154,7 +154,7 @@ QueryFetch$t$other _$QueryFetch$t$otherFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryFetch$t$otherToJson(QueryFetch$t$other instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 QueryFetch$t$other$other _$QueryFetch$t$other$otherFromJson(
@@ -169,7 +169,7 @@ QueryFetch$t$other$other _$QueryFetch$t$other$otherFromJson(
 Map<String, dynamic> _$QueryFetch$t$other$otherToJson(
         QueryFetch$t$other$other instance) =>
     <String, dynamic>{
-      'other': instance.other,
+      'other': instance.other?.toJson(),
     };
 
 QueryFetch$t$other$other$other _$QueryFetch$t$other$other$otherFromJson(

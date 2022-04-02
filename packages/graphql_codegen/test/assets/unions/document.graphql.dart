@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.u});
 
@@ -27,6 +27,11 @@ class QueryQ extends JsonSerializable {
     if (l$u != lOther$u) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith({QueryQ$u? Function()? u}) =>
+      QueryQ(u: u == null ? this.u : u());
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -78,7 +83,7 @@ const QUERY_Q = const DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$u extends JsonSerializable {
   QueryQ$u({required this.$__typename});
 
@@ -115,7 +120,12 @@ class QueryQ$u extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$u on QueryQ$u {
+  QueryQ$u copyWith({String? $__typename}) => QueryQ$u(
+      $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
   QueryQ$u$Ta({required this.$__typename, this.name});
 
@@ -151,7 +161,14 @@ class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryQ$u$Ta on QueryQ$u$Ta {
+  QueryQ$u$Ta copyWith({String? $__typename, String? Function()? name}) =>
+      QueryQ$u$Ta(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name());
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryQ$u$Tb extends JsonSerializable implements QueryQ$u {
   QueryQ$u$Tb({required this.$__typename, this.velocity});
 
@@ -185,6 +202,13 @@ class QueryQ$u$Tb extends JsonSerializable implements QueryQ$u {
     if (l$velocity != lOther$velocity) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$u$Tb on QueryQ$u$Tb {
+  QueryQ$u$Tb copyWith({String? $__typename, int? Function()? velocity}) =>
+      QueryQ$u$Tb(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          velocity: velocity == null ? this.velocity : velocity());
 }
 
 const POSSIBLE_TYPES_MAP = const {

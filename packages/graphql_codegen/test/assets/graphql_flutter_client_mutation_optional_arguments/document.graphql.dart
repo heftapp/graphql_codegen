@@ -6,7 +6,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesMutationUpdateSOptional extends JsonSerializable {
   VariablesMutationUpdateSOptional({this.name});
 
@@ -37,7 +37,7 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MutationUpdateSOptional extends JsonSerializable {
   MutationUpdateSOptional({this.s});
 
@@ -64,6 +64,11 @@ class MutationUpdateSOptional extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionMutationUpdateSOptional on MutationUpdateSOptional {
+  MutationUpdateSOptional copyWith({String? Function()? s}) =>
+      MutationUpdateSOptional(s: s == null ? this.s : s());
 }
 
 const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [

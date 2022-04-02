@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document2.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF1 extends JsonSerializable {
   FragmentF1({this.name});
 
@@ -32,6 +32,11 @@ class FragmentF1 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF1 on FragmentF1 {
+  FragmentF1 copyWith({String? Function()? name}) =>
+      FragmentF1(name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
@@ -49,7 +54,7 @@ const FRAGMENT_F1 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F1,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.t});
 
@@ -76,6 +81,11 @@ class QueryQ extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith({QueryQ$t? Function()? t}) =>
+      QueryQ(t: t == null ? this.t : t());
+}
+
 const QUERY_Q = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -97,7 +107,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t extends JsonSerializable implements FragmentF1 {
   QueryQ$t({this.name});
 
@@ -123,4 +133,9 @@ class QueryQ$t extends JsonSerializable implements FragmentF1 {
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$t on QueryQ$t {
+  QueryQ$t copyWith({String? Function()? name}) =>
+      QueryQ$t(name: name == null ? this.name : name());
 }

@@ -8,7 +8,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'main.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesQueryFetchPerson extends JsonSerializable {
   VariablesQueryFetchPerson({required this.id});
 
@@ -37,7 +37,7 @@ class VariablesQueryFetchPerson extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson extends JsonSerializable {
   QueryFetchPerson({this.fetchPerson, required this.$__typename});
 
@@ -71,6 +71,15 @@ class QueryFetchPerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchPerson on QueryFetchPerson {
+  QueryFetchPerson copyWith(
+          {QueryFetchPerson$fetchPerson? Function()? fetchPerson,
+          String? $__typename}) =>
+      QueryFetchPerson(
+          fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
@@ -143,6 +152,7 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
   FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY,
+  FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT,
 ]);
 QueryFetchPerson _parserFnQueryFetchPerson(Map<String, dynamic> data) =>
     QueryFetchPerson.fromJson(data);
@@ -253,7 +263,7 @@ class QueryFetchPersonWidget extends graphql_flutter.Query<QueryFetchPerson> {
       : super(key: key, options: options, builder: builder);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson$fetchPerson extends JsonSerializable
     implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson(
@@ -262,8 +272,8 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
       this.dob,
       this.events,
       this.eventsOfEvents,
-      required this.$__typename,
       this.parents,
+      required this.$__typename,
       this.children});
 
   @override
@@ -288,10 +298,10 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
+  final List<QueryFetchPerson$fetchPerson$parents>? parents;
+
   @JsonKey(name: '__typename')
   final String $__typename;
-
-  final List<QueryFetchPerson$fetchPerson$parents>? parents;
 
   final List<QueryFetchPerson$fetchPerson$children>? children;
 
@@ -303,8 +313,8 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
     final l$dob = dob;
     final l$events = events;
     final l$eventsOfEvents = eventsOfEvents;
-    final l$$__typename = $__typename;
     final l$parents = parents;
+    final l$$__typename = $__typename;
     final l$children = children;
     return Object.hashAll([
       l$nickname,
@@ -315,8 +325,8 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
           ? null
           : Object.hashAll(l$eventsOfEvents
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
-      l$$__typename,
       l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
+      l$$__typename,
       l$children == null ? null : Object.hashAll(l$children.map((v) => v))
     ]);
   }
@@ -374,9 +384,6 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
       return false;
     }
 
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
     final l$parents = parents;
     final lOther$parents = other.parents;
     if (l$parents != null && lOther$parents != null) {
@@ -390,6 +397,9 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
       return false;
     }
 
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
     final l$children = children;
     final lOther$children = other.children;
     if (l$children != null && lOther$children != null) {
@@ -407,25 +417,55 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryFetchPerson$fetchPerson
+    on QueryFetchPerson$fetchPerson {
+  QueryFetchPerson$fetchPerson copyWith(
+          {String? Function()? nickname,
+          String? name,
+          DateTime? Function()? dob,
+          List<DateTime?>? Function()? events,
+          List<List<DateTime?>?>? Function()? eventsOfEvents,
+          List<QueryFetchPerson$fetchPerson$parents>? Function()? parents,
+          String? $__typename,
+          List<QueryFetchPerson$fetchPerson$children>? Function()? children}) =>
+      QueryFetchPerson$fetchPerson(
+          nickname: nickname == null ? this.nickname : nickname(),
+          name: name == null ? this.name : name,
+          dob: dob == null ? this.dob : dob(),
+          events: events == null ? this.events : events(),
+          eventsOfEvents:
+              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
+          parents: parents == null ? this.parents : parents(),
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          children: children == null ? this.children : children());
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
-    implements FragmentPersonSummary {
+    implements
+        FragmentPersonSummary$parents,
+        FragmentPersonParent,
+        FragmentPersonSummary {
   QueryFetchPerson$fetchPerson$parents(
-      {this.nickname,
-      required this.name,
+      {required this.name,
+      required this.$__typename,
+      this.nickname,
       this.dob,
       this.events,
       this.eventsOfEvents,
-      required this.$__typename});
+      this.parents});
 
   @override
   factory QueryFetchPerson$fetchPerson$parents.fromJson(
           Map<String, dynamic> json) =>
       _$QueryFetchPerson$fetchPerson$parentsFromJson(json);
 
-  final String? nickname;
-
   final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
+  final String? nickname;
 
   @JsonKey(
       fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
@@ -441,29 +481,30 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  @JsonKey(name: '__typename')
-  final String $__typename;
+  final List<QueryFetchPerson$fetchPerson$parents$parents>? parents;
 
   @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$parentsToJson(this);
   int get hashCode {
-    final l$nickname = nickname;
     final l$name = name;
+    final l$$__typename = $__typename;
+    final l$nickname = nickname;
     final l$dob = dob;
     final l$events = events;
     final l$eventsOfEvents = eventsOfEvents;
-    final l$$__typename = $__typename;
+    final l$parents = parents;
     return Object.hashAll([
-      l$nickname,
       l$name,
+      l$$__typename,
+      l$nickname,
       l$dob,
       l$events == null ? null : Object.hashAll(l$events.map((v) => v)),
       l$eventsOfEvents == null
           ? null
           : Object.hashAll(l$eventsOfEvents
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
-      l$$__typename
+      l$parents == null ? null : Object.hashAll(l$parents.map((v) => v))
     ]);
   }
 
@@ -472,12 +513,15 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
     if (identical(this, other)) return true;
     if (!(other is QueryFetchPerson$fetchPerson$parents) ||
         runtimeType != other.runtimeType) return false;
-    final l$nickname = nickname;
-    final lOther$nickname = other.nickname;
-    if (l$nickname != lOther$nickname) return false;
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    final l$nickname = nickname;
+    final lOther$nickname = other.nickname;
+    if (l$nickname != lOther$nickname) return false;
     final l$dob = dob;
     final lOther$dob = other.dob;
     if (l$dob != lOther$dob) return false;
@@ -520,6 +564,78 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
       return false;
     }
 
+    final l$parents = parents;
+    final lOther$parents = other.parents;
+    if (l$parents != null && lOther$parents != null) {
+      if (l$parents.length != lOther$parents.length) return false;
+      for (int i = 0; i < l$parents.length; i++) {
+        final l$parents$entry = l$parents[i];
+        final lOther$parents$entry = lOther$parents[i];
+        if (l$parents$entry != lOther$parents$entry) return false;
+      }
+    } else if (l$parents != lOther$parents) {
+      return false;
+    }
+
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryFetchPerson$fetchPerson$parents
+    on QueryFetchPerson$fetchPerson$parents {
+  QueryFetchPerson$fetchPerson$parents copyWith(
+          {String? name,
+          String? $__typename,
+          String? Function()? nickname,
+          DateTime? Function()? dob,
+          List<DateTime?>? Function()? events,
+          List<List<DateTime?>?>? Function()? eventsOfEvents,
+          List<QueryFetchPerson$fetchPerson$parents$parents>? Function()?
+              parents}) =>
+      QueryFetchPerson$fetchPerson$parents(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          nickname: nickname == null ? this.nickname : nickname(),
+          dob: dob == null ? this.dob : dob(),
+          events: events == null ? this.events : events(),
+          eventsOfEvents:
+              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
+          parents: parents == null ? this.parents : parents());
+}
+
+@JsonSerializable(explicitToJson: true)
+class QueryFetchPerson$fetchPerson$parents$parents extends JsonSerializable
+    implements FragmentPersonSummary$parents, FragmentPersonParent {
+  QueryFetchPerson$fetchPerson$parents$parents(
+      {required this.name, required this.$__typename});
+
+  @override
+  factory QueryFetchPerson$fetchPerson$parents$parents.fromJson(
+          Map<String, dynamic> json) =>
+      _$QueryFetchPerson$fetchPerson$parents$parentsFromJson(json);
+
+  final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$QueryFetchPerson$fetchPerson$parents$parentsToJson(this);
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchPerson$fetchPerson$parents$parents) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -527,7 +643,16 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryFetchPerson$fetchPerson$parents$parents
+    on QueryFetchPerson$fetchPerson$parents$parents {
+  QueryFetchPerson$fetchPerson$parents$parents copyWith(
+          {String? name, String? $__typename}) =>
+      QueryFetchPerson$fetchPerson$parents$parents(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson$fetchPerson$children extends JsonSerializable
     implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson$children(
@@ -536,6 +661,7 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
       this.dob,
       this.events,
       this.eventsOfEvents,
+      this.parents,
       required this.$__typename});
 
   @override
@@ -561,6 +687,8 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
+  final List<QueryFetchPerson$fetchPerson$children$parents>? parents;
+
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -573,6 +701,7 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
     final l$dob = dob;
     final l$events = events;
     final l$eventsOfEvents = eventsOfEvents;
+    final l$parents = parents;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$nickname,
@@ -583,6 +712,7 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
           ? null
           : Object.hashAll(l$eventsOfEvents
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
+      l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
       l$$__typename
     ]);
   }
@@ -640,6 +770,19 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
       return false;
     }
 
+    final l$parents = parents;
+    final lOther$parents = other.parents;
+    if (l$parents != null && lOther$parents != null) {
+      if (l$parents.length != lOther$parents.length) return false;
+      for (int i = 0; i < l$parents.length; i++) {
+        final l$parents$entry = l$parents[i];
+        final lOther$parents$entry = lOther$parents[i];
+        if (l$parents$entry != lOther$parents$entry) return false;
+      }
+    } else if (l$parents != lOther$parents) {
+      return false;
+    }
+
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -647,7 +790,78 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionQueryFetchPerson$fetchPerson$children
+    on QueryFetchPerson$fetchPerson$children {
+  QueryFetchPerson$fetchPerson$children copyWith(
+          {String? Function()? nickname,
+          String? name,
+          DateTime? Function()? dob,
+          List<DateTime?>? Function()? events,
+          List<List<DateTime?>?>? Function()? eventsOfEvents,
+          List<QueryFetchPerson$fetchPerson$children$parents>? Function()?
+              parents,
+          String? $__typename}) =>
+      QueryFetchPerson$fetchPerson$children(
+          nickname: nickname == null ? this.nickname : nickname(),
+          name: name == null ? this.name : name,
+          dob: dob == null ? this.dob : dob(),
+          events: events == null ? this.events : events(),
+          eventsOfEvents:
+              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
+          parents: parents == null ? this.parents : parents(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
+class QueryFetchPerson$fetchPerson$children$parents extends JsonSerializable
+    implements FragmentPersonSummary$parents, FragmentPersonParent {
+  QueryFetchPerson$fetchPerson$children$parents(
+      {required this.name, required this.$__typename});
+
+  @override
+  factory QueryFetchPerson$fetchPerson$children$parents.fromJson(
+          Map<String, dynamic> json) =>
+      _$QueryFetchPerson$fetchPerson$children$parentsFromJson(json);
+
+  final String name;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$QueryFetchPerson$fetchPerson$children$parentsToJson(this);
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$name, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is QueryFetchPerson$fetchPerson$children$parents) ||
+        runtimeType != other.runtimeType) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryFetchPerson$fetchPerson$children$parents
+    on QueryFetchPerson$fetchPerson$children$parents {
+  QueryFetchPerson$fetchPerson$children$parents copyWith(
+          {String? name, String? $__typename}) =>
+      QueryFetchPerson$fetchPerson$children$parents(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class VariablesMutationUpdatePerson extends JsonSerializable {
   VariablesMutationUpdatePerson({required this.id});
 
@@ -676,7 +890,7 @@ class VariablesMutationUpdatePerson extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MutationUpdatePerson extends JsonSerializable {
   MutationUpdatePerson({this.updatePerson, required this.$__typename});
 
@@ -710,6 +924,16 @@ class MutationUpdatePerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionMutationUpdatePerson on MutationUpdatePerson {
+  MutationUpdatePerson copyWith(
+          {MutationUpdatePerson$updatePerson? Function()? updatePerson,
+          String? $__typename}) =>
+      MutationUpdatePerson(
+          updatePerson:
+              updatePerson == null ? this.updatePerson : updatePerson(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
@@ -929,7 +1153,7 @@ class MutationUpdatePersonWidget
                 result));
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MutationUpdatePerson$updatePerson extends JsonSerializable {
   MutationUpdatePerson$updatePerson(
       {required this.full_name, required this.$__typename});
@@ -968,7 +1192,16 @@ class MutationUpdatePerson$updatePerson extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+extension UtilityExtensionMutationUpdatePerson$updatePerson
+    on MutationUpdatePerson$updatePerson {
+  MutationUpdatePerson$updatePerson copyWith(
+          {String? full_name, String? $__typename}) =>
+      MutationUpdatePerson$updatePerson(
+          full_name: full_name == null ? this.full_name : full_name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
 class VariablesSubscriptionWatchPerson extends JsonSerializable {
   VariablesSubscriptionWatchPerson({this.id});
 
@@ -999,7 +1232,7 @@ class VariablesSubscriptionWatchPerson extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionWatchPerson extends JsonSerializable {
   SubscriptionWatchPerson({this.watchPerson, required this.$__typename});
 
@@ -1033,6 +1266,15 @@ class SubscriptionWatchPerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionSubscriptionWatchPerson on SubscriptionWatchPerson {
+  SubscriptionWatchPerson copyWith(
+          {SubscriptionWatchPerson$watchPerson? Function()? watchPerson,
+          String? $__typename}) =>
+      SubscriptionWatchPerson(
+          watchPerson: watchPerson == null ? this.watchPerson : watchPerson(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
@@ -1174,7 +1416,7 @@ class SubscriptionWatchPersonWidget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
   SubscriptionWatchPerson$watchPerson(
       {required this.full_name, required this.$__typename});
@@ -1211,6 +1453,15 @@ class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionSubscriptionWatchPerson$watchPerson
+    on SubscriptionWatchPerson$watchPerson {
+  SubscriptionWatchPerson$watchPerson copyWith(
+          {String? full_name, String? $__typename}) =>
+      SubscriptionWatchPerson$watchPerson(
+          full_name: full_name == null ? this.full_name : full_name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 DateTime? _nullable$dateTimeFromJson(dynamic data) =>

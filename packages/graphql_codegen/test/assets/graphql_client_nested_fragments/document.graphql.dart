@@ -4,7 +4,7 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF1 extends JsonSerializable {
   FragmentF1({this.name, this.field, required this.$__typename});
 
@@ -44,6 +44,17 @@ class FragmentF1 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF1 on FragmentF1 {
+  FragmentF1 copyWith(
+          {String? Function()? name,
+          FragmentF1$field? Function()? field,
+          String? $__typename}) =>
+      FragmentF1(
+          name: name == null ? this.name : name(),
+          field: field == null ? this.field : field(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
@@ -108,7 +119,7 @@ extension ClientExtensionFragmentF1 on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF1$field extends JsonSerializable implements FragmentF2 {
   FragmentF1$field({this.name, required this.$__typename});
 
@@ -142,6 +153,13 @@ class FragmentF1$field extends JsonSerializable implements FragmentF2 {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF1$field on FragmentF1$field {
+  FragmentF1$field copyWith({String? Function()? name, String? $__typename}) =>
+      FragmentF1$field(
+          name: name == null ? this.name : name(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const POSSIBLE_TYPES_MAP = const {};

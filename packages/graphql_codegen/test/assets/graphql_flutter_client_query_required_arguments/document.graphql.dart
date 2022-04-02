@@ -5,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesQueryFetchSRequired extends JsonSerializable {
   VariablesQueryFetchSRequired({required this.name});
 
@@ -34,7 +34,7 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchSRequired extends JsonSerializable {
   QueryFetchSRequired({this.s});
 
@@ -61,6 +61,11 @@ class QueryFetchSRequired extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchSRequired on QueryFetchSRequired {
+  QueryFetchSRequired copyWith({String? Function()? s}) =>
+      QueryFetchSRequired(s: s == null ? this.s : s());
 }
 
 const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [

@@ -45,10 +45,14 @@ QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
     );
 
 Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
-      'docsWithTypename': instance.docsWithTypename,
-      'docsWihtoutTypename': instance.docsWihtoutTypename,
-      'docsWithAliasedTypename': instance.docsWithAliasedTypename,
-      'docsWithFragment': instance.docsWithFragment,
+      'docsWithTypename':
+          instance.docsWithTypename?.map((e) => e?.toJson()).toList(),
+      'docsWihtoutTypename':
+          instance.docsWihtoutTypename?.map((e) => e?.toJson()).toList(),
+      'docsWithAliasedTypename':
+          instance.docsWithAliasedTypename?.map((e) => e?.toJson()).toList(),
+      'docsWithFragment':
+          instance.docsWithFragment?.map((e) => e?.toJson()).toList(),
       '__typename': instance.$__typename,
     };
 

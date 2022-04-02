@@ -15,7 +15,7 @@ QueryFetchName _$QueryFetchNameFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryFetchNameToJson(QueryFetchName instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'name': instance.name?.toJson(),
     };
 
 QueryFetchName$name _$QueryFetchName$nameFromJson(Map<String, dynamic> json) =>

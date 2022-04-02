@@ -14,7 +14,7 @@ FragmentT1 _$FragmentT1FromJson(Map<String, dynamic> json) => FragmentT1(
 
 Map<String, dynamic> _$FragmentT1ToJson(FragmentT1 instance) =>
     <String, dynamic>{
-      't': instance.t,
+      't': instance.t?.toJson(),
     };
 
 FragmentT1$t _$FragmentT1$tFromJson(Map<String, dynamic> json) => FragmentT1$t(
@@ -35,7 +35,7 @@ FragmentT2 _$FragmentT2FromJson(Map<String, dynamic> json) => FragmentT2(
 
 Map<String, dynamic> _$FragmentT2ToJson(FragmentT2 instance) =>
     <String, dynamic>{
-      't': instance.t,
+      't': instance.t?.toJson(),
       'name': instance.name,
     };
 
@@ -57,7 +57,7 @@ FragmentTC _$FragmentTCFromJson(Map<String, dynamic> json) => FragmentTC(
 
 Map<String, dynamic> _$FragmentTCToJson(FragmentTC instance) =>
     <String, dynamic>{
-      't': instance.t,
+      't': instance.t?.toJson(),
       'name': instance.name,
     };
 
@@ -77,7 +77,7 @@ QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
     );
 
 Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
-      't': instance.t,
+      't': instance.t?.toJson(),
     };
 
 QueryQ$t _$QueryQ$tFromJson(Map<String, dynamic> json) => QueryQ$t(
@@ -88,7 +88,7 @@ QueryQ$t _$QueryQ$tFromJson(Map<String, dynamic> json) => QueryQ$t(
     );
 
 Map<String, dynamic> _$QueryQ$tToJson(QueryQ$t instance) => <String, dynamic>{
-      't': instance.t,
+      't': instance.t?.toJson(),
       'name': instance.name,
     };
 

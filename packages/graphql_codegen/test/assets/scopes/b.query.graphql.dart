@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'b.query.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson extends JsonSerializable {
   QueryFetchPerson({this.fetchPerson, required this.$__typename});
 
@@ -37,6 +37,15 @@ class QueryFetchPerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchPerson on QueryFetchPerson {
+  QueryFetchPerson copyWith(
+          {QueryFetchPerson$fetchPerson? Function()? fetchPerson,
+          String? $__typename}) =>
+      QueryFetchPerson(
+          fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
@@ -86,7 +95,7 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson$fetchPerson extends JsonSerializable {
   QueryFetchPerson$fetchPerson(
       {this.age, this.name, this.status, required this.$__typename});
@@ -134,4 +143,18 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchPerson$fetchPerson
+    on QueryFetchPerson$fetchPerson {
+  QueryFetchPerson$fetchPerson copyWith(
+          {int? Function()? age,
+          String? Function()? name,
+          EnumStatus? Function()? status,
+          String? $__typename}) =>
+      QueryFetchPerson$fetchPerson(
+          age: age == null ? this.age : age(),
+          name: name == null ? this.name : name(),
+          status: status == null ? this.status : status(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }

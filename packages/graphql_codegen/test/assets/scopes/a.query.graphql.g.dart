@@ -17,7 +17,7 @@ QueryFetchPerson _$QueryFetchPersonFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryFetchPersonToJson(QueryFetchPerson instance) =>
     <String, dynamic>{
-      'fetchPerson': instance.fetchPerson,
+      'fetchPerson': instance.fetchPerson?.toJson(),
       '__typename': instance.$__typename,
     };
 

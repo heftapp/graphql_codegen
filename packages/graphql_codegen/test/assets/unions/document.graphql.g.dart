@@ -13,7 +13,7 @@ QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
     );
 
 Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
-      'u': instance.u,
+      'u': instance.u?.toJson(),
     };
 
 QueryQ$u _$QueryQ$uFromJson(Map<String, dynamic> json) => QueryQ$u(

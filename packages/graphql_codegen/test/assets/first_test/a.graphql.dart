@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'a.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchName extends JsonSerializable {
   QueryFetchName({this.name});
 
@@ -32,6 +32,11 @@ class QueryFetchName extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchName on QueryFetchName {
+  QueryFetchName copyWith({QueryFetchName$name? Function()? name}) =>
+      QueryFetchName(name: name == null ? this.name : name());
+}
+
 const QUERY_FETCH_NAME = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -51,7 +56,7 @@ const QUERY_FETCH_NAME = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchName$name extends JsonSerializable implements FragmentF {
   QueryFetchName$name({required this.name});
 
@@ -78,4 +83,9 @@ class QueryFetchName$name extends JsonSerializable implements FragmentF {
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchName$name on QueryFetchName$name {
+  QueryFetchName$name copyWith({String? name}) =>
+      QueryFetchName$name(name: name == null ? this.name : name);
 }

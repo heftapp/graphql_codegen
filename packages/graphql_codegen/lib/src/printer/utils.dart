@@ -55,6 +55,9 @@ String printPossibleTypesMapName() => ReCase('possibleTypesMap').constantCase;
 
 String printClassName(Name name) => _printName(name);
 
+String printClassExtensionName(Name name) =>
+    "UtilityExtension" + _printName(name);
+
 String printParserFnName(Name name) =>
     "_" + ReCase("parserFn${_printName(name)}").camelCase;
 

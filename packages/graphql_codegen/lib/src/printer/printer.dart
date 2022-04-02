@@ -8,6 +8,7 @@ import 'package:graphql_codegen/src/printer/clients/graphql.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql_flutter.dart';
 import 'package:graphql_codegen/src/context.dart';
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
+import 'package:path/path.dart';
 
 import 'context.dart';
 import 'utils.dart';
@@ -36,6 +37,12 @@ Spec printInput(PrintContext<ContextInput> context) => _printClass(
       context.context.properties,
     );
 
+Expression printJsonSerializableAnnotation() =>
+    _JSON_SERIALIZABLE_BASE_CLASS.call(
+      [],
+      {"explicitToJson": literalTrue},
+    );
+
 Spec _printClass(
   PrintContext context,
   String name,
@@ -45,9 +52,7 @@ Spec _printClass(
   context.markAsJsonSerializable();
   return Class(
     (b) => b
-      ..annotations = ListBuilder([
-        _JSON_SERIALIZABLE_BASE_CLASS.call([]),
-      ])
+      ..annotations = ListBuilder([printJsonSerializableAnnotation()])
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..name = name
       ..constructors = ListBuilder([
@@ -78,6 +83,57 @@ Spec _printClass(
         printHashCodeMethod(properties),
         printEqualityOperator(name, properties),
       ]),
+  );
+}
+
+Method printCopyWithMethod(
+  PrintContext context,
+  Iterable<ContextProperty> properties,
+) {
+  final name = refer(printClassName(context.path));
+  return Method(
+    (b) => b
+      ..returns = name
+      ..name = 'copyWith'
+      ..optionalParameters = ListBuilder(properties.map(
+        (property) {
+          final parameterType =
+              printClassPropertyType(context, property).reference;
+          return Parameter(
+            (b) => b
+              ..name = printPropertyName(property.name)
+              ..named = true
+              ..type = property.type.isNonNull
+                  ? TypeReference(
+                      (b) => b
+                        ..isNullable = true
+                        ..symbol = parameterType.symbol,
+                    )
+                  : FunctionType(
+                      (b) => b
+                        ..returnType =
+                            printClassPropertyType(context, property).reference
+                        ..isNullable = true,
+                    ),
+          );
+        },
+      ))
+      ..lambda = true
+      ..body = name.call(
+        [],
+        Map.fromEntries(properties.map((property) {
+          final propertyName = printPropertyName(property.name);
+          return MapEntry(
+            propertyName,
+            refer(propertyName).equalTo(literalNull).conditional(
+                  refer('this').property(propertyName),
+                  property.type.isNonNull
+                      ? refer(propertyName)
+                      : refer(propertyName).call([]),
+                ),
+          );
+        })),
+      ).code,
   );
 }
 
@@ -206,6 +262,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       return [
         if (context.hasVariables) printVariables(elementContext),
         printContext(elementContext),
+        printContextExtension(elementContext),
         if (fragmentNode != null) ...[
           printFragmentDefinition(
             elementContext,
@@ -227,6 +284,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       return [
         if (element.hasVariables) printVariables(elementContext),
         printContext(elementContext),
+        printContextExtension(elementContext),
         if (operation != null)
           printDocument(
             elementContext,
@@ -364,9 +422,7 @@ Class printContext(PrintContext c) {
         ...context.fragments.map((e) => printClassName(e)).map(refer),
         if (extendContext != null) refer(printClassName(extendContext.path)),
       ])
-      ..annotations = ListBuilder(
-        [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
-      )
+      ..annotations = ListBuilder([printJsonSerializableAnnotation()])
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..constructors = ListBuilder([
         printConstructor(c, properties),
@@ -386,6 +442,23 @@ Class printContext(PrintContext c) {
           printClassName(context.path),
           properties,
         ),
+      ]),
+  );
+}
+
+Extension printContextExtension(PrintContext c) {
+  final context = c.context;
+  final extendContext = context.extendsContext;
+  final properties = _mergeProperties(
+    extendContext?.properties ?? [],
+    c.context.properties,
+  );
+  return Extension(
+    (b) => b
+      ..name = printClassExtensionName(context.path)
+      ..on = refer(printClassName(context.path))
+      ..methods = ListBuilder([
+        printCopyWithMethod(c, properties),
       ]),
   );
 }

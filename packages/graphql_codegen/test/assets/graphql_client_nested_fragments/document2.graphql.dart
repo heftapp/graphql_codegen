@@ -3,7 +3,7 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:json_annotation/json_annotation.dart';
 part 'document2.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF2 extends JsonSerializable {
   FragmentF2({this.name, required this.$__typename});
 
@@ -37,6 +37,13 @@ class FragmentF2 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF2 on FragmentF2 {
+  FragmentF2 copyWith({String? Function()? name, String? $__typename}) =>
+      FragmentF2(
+          name: name == null ? this.name : name(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(

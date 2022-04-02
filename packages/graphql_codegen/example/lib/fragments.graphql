@@ -5,4 +5,12 @@ fragment PersonSummary on Person {
     dob
     events
     eventsOfEvents: events_of_events
+    parents {
+        ...PersonParent
+    }
+}
+
+
+fragment PersonParent on Person {
+    name: full_name
 }

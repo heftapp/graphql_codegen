@@ -17,7 +17,7 @@ SubscriptionNoArgs _$SubscriptionNoArgsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$SubscriptionNoArgsToJson(SubscriptionNoArgs instance) =>
     <String, dynamic>{
-      'listenForChange': instance.listenForChange,
+      'listenForChange': instance.listenForChange?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -60,7 +60,7 @@ SubscriptionRequiredArg _$SubscriptionRequiredArgFromJson(
 Map<String, dynamic> _$SubscriptionRequiredArgToJson(
         SubscriptionRequiredArg instance) =>
     <String, dynamic>{
-      'listenForChange': instance.listenForChange,
+      'listenForChange': instance.listenForChange?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -104,7 +104,7 @@ SubscriptionOptionalArg _$SubscriptionOptionalArgFromJson(
 Map<String, dynamic> _$SubscriptionOptionalArgToJson(
         SubscriptionOptionalArg instance) =>
     <String, dynamic>{
-      'listenForChange': instance.listenForChange,
+      'listenForChange': instance.listenForChange?.toJson(),
       '__typename': instance.$__typename,
     };
 
