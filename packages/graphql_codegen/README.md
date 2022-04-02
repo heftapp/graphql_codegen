@@ -138,11 +138,11 @@ main () {
 }
 ```
 
-The `FragmentPersonSummary` is an abstract class on the shape of
+The `FragmentPersonSummary` is an class on the shape of
 
 ```dart
 ...
-abstract class FragmentPersonSummary {
+class FragmentPersonSummary {
     String get fullName;
 }
 ...
@@ -294,6 +294,38 @@ main () async {
 }
 
 ```
+
+#### Cache access
+
+You can also manipulate the cache directly using the generated `readFragmentX`, `writeFragmentX`, `readQueryX`, and `writeQueryX` methods.
+
+Given the fragment:
+
+```graphql
+fragment PersonSummary on Person {
+  name
+}
+```
+
+you can update the fragment with
+
+```dart
+
+main () {
+  // ...
+  final person = client.readFragmentPersonSummary(
+    idFields: {'__typename': 'Person', 'id': '1'},
+  );
+  assert(person != null);
+  client.writeFragmentPersonSummary(
+    idFields: {'__typename': 'Person', 'id': '1'},
+    data: person.copyWith(name: 'Kurt'),
+  );
+}
+```
+
+the query methods work similarly.
+
 
 ### Client `graphql_flutter`
 
