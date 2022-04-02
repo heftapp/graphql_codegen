@@ -4,7 +4,7 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentNoVariables extends JsonSerializable {
   FragmentNoVariables({this.s});
 
@@ -79,7 +79,7 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesFragmentWithOptionalVariables extends JsonSerializable {
   VariablesFragmentWithOptionalVariables({this.name});
 
@@ -110,7 +110,7 @@ class VariablesFragmentWithOptionalVariables extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentWithOptionalVariables extends JsonSerializable {
   FragmentWithOptionalVariables({this.s});
 
@@ -196,7 +196,7 @@ extension ClientExtensionFragmentWithOptionalVariables
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesFragmentWithVariables extends JsonSerializable {
   VariablesFragmentWithVariables({required this.name});
 
@@ -225,7 +225,7 @@ class VariablesFragmentWithVariables extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentWithVariables extends JsonSerializable {
   FragmentWithVariables({this.s2});
 
@@ -308,7 +308,7 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesQueryFetchSOptional extends JsonSerializable {
   VariablesQueryFetchSOptional({this.name});
 
@@ -337,7 +337,7 @@ class VariablesQueryFetchSOptional extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchSOptional extends JsonSerializable {
   QueryFetchSOptional({this.s});
 
@@ -487,7 +487,7 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesQueryFetchSRequired extends JsonSerializable {
   VariablesQueryFetchSRequired({required this.name});
 
@@ -516,7 +516,7 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchSRequired extends JsonSerializable {
   QueryFetchSRequired({this.s});
 
@@ -666,7 +666,7 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchSNoVariables extends JsonSerializable {
   QueryFetchSNoVariables({this.s});
 
@@ -798,7 +798,7 @@ extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesMutationUpdateSOptional extends JsonSerializable {
   VariablesMutationUpdateSOptional({this.name});
 
@@ -829,7 +829,7 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MutationUpdateSOptional extends JsonSerializable {
   MutationUpdateSOptional({this.s});
 
@@ -974,7 +974,7 @@ extension ClientExtensionMutationUpdateSOptional on graphql.GraphQLClient {
       this.watchMutation(options ?? WatchOptionsMutationUpdateSOptional());
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesMutationUpdateSRequired extends JsonSerializable {
   VariablesMutationUpdateSRequired({required this.name});
 
@@ -1005,7 +1005,7 @@ class VariablesMutationUpdateSRequired extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MutationUpdateSRequired extends JsonSerializable {
   MutationUpdateSRequired({this.s});
 
@@ -1150,7 +1150,7 @@ extension ClientExtensionMutationUpdateSRequired on graphql.GraphQLClient {
       this.watchMutation(options);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class MutationUpdateSNoVariables extends JsonSerializable {
   MutationUpdateSNoVariables({this.s});
 

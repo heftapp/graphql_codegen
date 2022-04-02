@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
 part 'query.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFoobar extends JsonSerializable {
   QueryFoobar({this.field, this.fields});
 

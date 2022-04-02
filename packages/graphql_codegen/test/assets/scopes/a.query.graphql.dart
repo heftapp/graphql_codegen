@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'a.query.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson extends JsonSerializable {
   QueryFetchPerson({this.fetchPerson, required this.$__typename});
 
@@ -80,7 +80,7 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchPerson$fetchPerson extends JsonSerializable {
   QueryFetchPerson$fetchPerson(
       {this.name, required this.status, required this.$__typename});

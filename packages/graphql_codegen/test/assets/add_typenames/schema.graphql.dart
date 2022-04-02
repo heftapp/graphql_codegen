@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentFReport extends JsonSerializable {
   FragmentFReport({this.title, required this.$__typename});
 
@@ -61,7 +61,7 @@ const FRAGMENT_F_REPORT = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ(
       {this.docsWithTypename,
@@ -278,7 +278,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithTypename extends JsonSerializable {
   QueryQ$docsWithTypename({required this.$__typename});
 
@@ -308,7 +308,7 @@ class QueryQ$docsWithTypename extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWihtoutTypename extends JsonSerializable {
   QueryQ$docsWihtoutTypename({this.title, required this.$__typename});
 
@@ -344,7 +344,7 @@ class QueryQ$docsWihtoutTypename extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithAliasedTypename extends JsonSerializable {
   QueryQ$docsWithAliasedTypename({this.$__typename});
 
@@ -374,7 +374,7 @@ class QueryQ$docsWithAliasedTypename extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment extends JsonSerializable {
   QueryQ$docsWithFragment({required this.$__typename});
 
@@ -412,7 +412,7 @@ class QueryQ$docsWithFragment extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment$Contract extends JsonSerializable
     implements QueryQ$docsWithFragment {
   QueryQ$docsWithFragment$Contract({required this.$__typename, this.title});
@@ -451,7 +451,7 @@ class QueryQ$docsWithFragment$Contract extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment$Report extends JsonSerializable
     implements FragmentFReport, QueryQ$docsWithFragment {
   QueryQ$docsWithFragment$Report({required this.$__typename, this.title});

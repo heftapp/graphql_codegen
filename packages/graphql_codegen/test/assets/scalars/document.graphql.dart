@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'scalar_import.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchScalars extends JsonSerializable {
   QueryFetchScalars(
       {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});

@@ -40,7 +40,7 @@ QueryFetchImplementations _$QueryFetchImplementationsFromJson(
 Map<String, dynamic> _$QueryFetchImplementationsToJson(
         QueryFetchImplementations instance) =>
     <String, dynamic>{
-      'interface': instance.$interface,
+      'interface': instance.$interface?.toJson(),
     };
 
 QueryFetchImplementations$interface
@@ -57,7 +57,7 @@ Map<String, dynamic> _$QueryFetchImplementations$interfaceToJson(
     <String, dynamic>{
       'typename': instance.typename,
       'b': instance.b,
-      'self': instance.self,
+      'self': instance.self.toJson(),
     };
 
 QueryFetchImplementations$interface$self
@@ -125,7 +125,7 @@ Map<String, dynamic>
         <String, dynamic>{
           'typename': instance.typename,
           'b': instance.b,
-          'self': instance.self,
+          'self': instance.self.toJson(),
           's': instance.s,
           '_s': instance.$_s,
         };
@@ -147,6 +147,6 @@ Map<String, dynamic>
         <String, dynamic>{
           'typename': instance.typename,
           'b': instance.b,
-          'self': instance.self,
+          'self': instance.self.toJson(),
           'i': instance.i,
         };

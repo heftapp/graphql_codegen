@@ -49,7 +49,7 @@ QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
     );
 
 Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
-      'field': instance.field,
+      'field': instance.field?.toJson(),
     };
 
 QueryQ$field _$QueryQ$fieldFromJson(Map<String, dynamic> json) => QueryQ$field(

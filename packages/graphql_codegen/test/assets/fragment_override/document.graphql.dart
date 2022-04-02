@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT1 extends JsonSerializable {
   FragmentT1({this.t});
 
@@ -55,7 +55,7 @@ const FRAGMENT_T1 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T1,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT1$t extends JsonSerializable {
   FragmentT1$t({this.name});
 
@@ -84,7 +84,7 @@ class FragmentT1$t extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT2 extends JsonSerializable {
   FragmentT2({this.t, this.name});
 
@@ -149,7 +149,7 @@ const FRAGMENT_T2 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentT2$t extends JsonSerializable {
   FragmentT2$t({this.name});
 
@@ -178,7 +178,7 @@ class FragmentT2$t extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentTC extends JsonSerializable implements FragmentT1, FragmentT2 {
   FragmentTC({this.t, this.name});
 
@@ -228,7 +228,7 @@ const FRAGMENT_T_C = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentTC$t extends JsonSerializable
     implements FragmentT1$t, FragmentT2$t {
   FragmentTC$t({this.name});
@@ -258,7 +258,7 @@ class FragmentTC$t extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.t});
 
@@ -306,7 +306,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_T2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t extends JsonSerializable
     implements FragmentTC, FragmentT1, FragmentT2 {
   QueryQ$t({this.t, this.name});
@@ -341,7 +341,7 @@ class QueryQ$t extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t$t extends JsonSerializable
     implements FragmentTC$t, FragmentT1$t, FragmentT2$t {
   QueryQ$t$t({this.name});

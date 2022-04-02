@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document1.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF2 extends JsonSerializable {
   FragmentF2({this.value});
 

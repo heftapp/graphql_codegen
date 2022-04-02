@@ -5,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesQueryFetchSOptional extends JsonSerializable {
   VariablesQueryFetchSOptional({this.name});
 
@@ -34,7 +34,7 @@ class VariablesQueryFetchSOptional extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchSOptional extends JsonSerializable {
   QueryFetchSOptional({this.s});
 

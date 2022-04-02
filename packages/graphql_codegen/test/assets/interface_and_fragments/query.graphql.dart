@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'query.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentFragmentA extends JsonSerializable {
   FragmentFragmentA({this.s, this.$_s});
 
@@ -62,7 +62,7 @@ const FRAGMENT_FRAGMENT_A = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_A,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentFragmentB extends JsonSerializable {
   FragmentFragmentB({this.i});
 
@@ -109,7 +109,7 @@ const FRAGMENT_FRAGMENT_B = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_B,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations extends JsonSerializable {
   QueryFetchImplementations({this.$interface});
 
@@ -213,7 +213,7 @@ const QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_B,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface extends JsonSerializable {
   QueryFetchImplementations$interface(
       {required this.typename, this.b, required this.self});
@@ -267,7 +267,7 @@ class QueryFetchImplementations$interface extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self extends JsonSerializable {
   QueryFetchImplementations$interface$self({required this.$__typename});
 
@@ -309,7 +309,7 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self$ImplementationA
     extends JsonSerializable
     implements FragmentFragmentA, QueryFetchImplementations$interface$self {
@@ -357,7 +357,7 @@ class QueryFetchImplementations$interface$self$ImplementationA
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self$ImplementationB
     extends JsonSerializable
     implements FragmentFragmentB, QueryFetchImplementations$interface$self {
@@ -398,7 +398,7 @@ class QueryFetchImplementations$interface$self$ImplementationB
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$ImplementationA
     extends JsonSerializable
     implements FragmentFragmentA, QueryFetchImplementations$interface {
@@ -457,7 +457,7 @@ class QueryFetchImplementations$interface$ImplementationA
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$ImplementationB
     extends JsonSerializable
     implements FragmentFragmentB, QueryFetchImplementations$interface {

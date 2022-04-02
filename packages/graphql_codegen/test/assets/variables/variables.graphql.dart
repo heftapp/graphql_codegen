@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
 part 'variables.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesQueryHiBob extends JsonSerializable {
   VariablesQueryHiBob({required this.i});
 
@@ -32,7 +32,7 @@ class VariablesQueryHiBob extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryHiBob extends JsonSerializable {
   QueryHiBob({this.field});
 
@@ -97,7 +97,7 @@ const QUERY_HI_BOB = const DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryHiBob$field extends JsonSerializable {
   QueryHiBob$field({required this.value});
 

@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF extends JsonSerializable {
   FragmentF({this.other});
 
@@ -52,7 +52,7 @@ const FRAGMENT_F = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F4,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF$other extends JsonSerializable implements FragmentF2 {
   FragmentF$other({this.other});
 
@@ -81,7 +81,7 @@ class FragmentF$other extends JsonSerializable implements FragmentF2 {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF$other$other extends JsonSerializable
     implements FragmentF2$other, FragmentF3 {
   FragmentF$other$other({this.other});
@@ -111,7 +111,7 @@ class FragmentF$other$other extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF$other$other$other extends JsonSerializable
     implements FragmentF2$other$other, FragmentF3$other, FragmentF4 {
   FragmentF$other$other$other({this.name});
@@ -141,7 +141,7 @@ class FragmentF$other$other$other extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF2 extends JsonSerializable {
   FragmentF2({this.other});
 
@@ -191,7 +191,7 @@ const FRAGMENT_F2 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F4,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF2$other extends JsonSerializable implements FragmentF3 {
   FragmentF2$other({this.other});
 
@@ -220,7 +220,7 @@ class FragmentF2$other extends JsonSerializable implements FragmentF3 {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF2$other$other extends JsonSerializable
     implements FragmentF3$other, FragmentF4 {
   FragmentF2$other$other({this.name});
@@ -250,7 +250,7 @@ class FragmentF2$other$other extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF3 extends JsonSerializable {
   FragmentF3({this.other});
 
@@ -299,7 +299,7 @@ const FRAGMENT_F3 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F4,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF3$other extends JsonSerializable implements FragmentF4 {
   FragmentF3$other({this.name});
 
@@ -328,7 +328,7 @@ class FragmentF3$other extends JsonSerializable implements FragmentF4 {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF4 extends JsonSerializable {
   FragmentF4({this.name});
 
@@ -374,7 +374,7 @@ const FRAGMENT_F4 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F4,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetch extends JsonSerializable {
   QueryFetch({this.t});
 
@@ -425,7 +425,7 @@ const QUERY_FETCH = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F4,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetch$t extends JsonSerializable implements FragmentF {
   QueryFetch$t({this.other});
 
@@ -454,7 +454,7 @@ class QueryFetch$t extends JsonSerializable implements FragmentF {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetch$t$other extends JsonSerializable
     implements FragmentF$other, FragmentF2 {
   QueryFetch$t$other({this.other});
@@ -484,7 +484,7 @@ class QueryFetch$t$other extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetch$t$other$other extends JsonSerializable
     implements FragmentF$other$other, FragmentF2$other, FragmentF3 {
   QueryFetch$t$other$other({this.other});
@@ -514,7 +514,7 @@ class QueryFetch$t$other$other extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetch$t$other$other$other extends JsonSerializable
     implements
         FragmentF$other$other$other,

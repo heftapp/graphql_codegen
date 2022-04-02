@@ -17,7 +17,7 @@ FragmentF1 _$FragmentF1FromJson(Map<String, dynamic> json) => FragmentF1(
 Map<String, dynamic> _$FragmentF1ToJson(FragmentF1 instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'field': instance.field,
+      'field': instance.field?.toJson(),
       '__typename': instance.$__typename,
     };
 

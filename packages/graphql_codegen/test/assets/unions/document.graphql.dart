@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.u});
 
@@ -78,7 +78,7 @@ const QUERY_Q = const DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$u extends JsonSerializable {
   QueryQ$u({required this.$__typename});
 
@@ -115,7 +115,7 @@ class QueryQ$u extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
   QueryQ$u$Ta({required this.$__typename, this.name});
 
@@ -151,7 +151,7 @@ class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$u$Tb extends JsonSerializable implements QueryQ$u {
   QueryQ$u$Tb({required this.$__typename, this.velocity});
 

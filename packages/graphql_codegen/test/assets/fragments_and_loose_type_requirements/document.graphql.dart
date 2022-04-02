@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF extends JsonSerializable {
   FragmentF({required this.$__typename, this.name});
 
@@ -91,7 +91,7 @@ const FRAGMENT_F = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF$T extends JsonSerializable implements FragmentF {
   FragmentF$T({required this.$__typename, this.name, this.t});
 
@@ -133,7 +133,7 @@ class FragmentF$T extends JsonSerializable implements FragmentF {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF$T$t extends JsonSerializable {
   FragmentF$T$t({this.name});
 
@@ -162,7 +162,7 @@ class FragmentF$T$t extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.t});
 
@@ -214,7 +214,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t extends JsonSerializable implements FragmentF$T {
   QueryQ$t({required this.$__typename, this.name, this.t});
 
@@ -255,7 +255,7 @@ class QueryQ$t extends JsonSerializable implements FragmentF$T {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$t$t extends JsonSerializable implements FragmentF$T$t {
   QueryQ$t$t({this.name});
 

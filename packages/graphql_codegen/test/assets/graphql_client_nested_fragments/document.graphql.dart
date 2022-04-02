@@ -4,7 +4,7 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF1 extends JsonSerializable {
   FragmentF1({this.name, this.field, required this.$__typename});
 
@@ -108,7 +108,7 @@ extension ClientExtensionFragmentF1 on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF1$field extends JsonSerializable implements FragmentF2 {
   FragmentF1$field({this.name, required this.$__typename});
 

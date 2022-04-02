@@ -8,6 +8,7 @@ import 'package:graphql_codegen/src/printer/clients/graphql.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql_flutter.dart';
 import 'package:graphql_codegen/src/context.dart';
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
+import 'package:path/path.dart';
 
 import 'context.dart';
 import 'utils.dart';
@@ -36,6 +37,12 @@ Spec printInput(PrintContext<ContextInput> context) => _printClass(
       context.context.properties,
     );
 
+Expression printJsonSerializableAnnotation() =>
+    _JSON_SERIALIZABLE_BASE_CLASS.call(
+      [],
+      {"explicitToJson": literalTrue},
+    );
+
 Spec _printClass(
   PrintContext context,
   String name,
@@ -45,9 +52,7 @@ Spec _printClass(
   context.markAsJsonSerializable();
   return Class(
     (b) => b
-      ..annotations = ListBuilder([
-        _JSON_SERIALIZABLE_BASE_CLASS.call([]),
-      ])
+      ..annotations = ListBuilder([printJsonSerializableAnnotation()])
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..name = name
       ..constructors = ListBuilder([
@@ -364,9 +369,7 @@ Class printContext(PrintContext c) {
         ...context.fragments.map((e) => printClassName(e)).map(refer),
         if (extendContext != null) refer(printClassName(extendContext.path)),
       ])
-      ..annotations = ListBuilder(
-        [_JSON_SERIALIZABLE_BASE_CLASS.call([])],
-      )
+      ..annotations = ListBuilder([printJsonSerializableAnnotation()])
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..constructors = ListBuilder([
         printConstructor(c, properties),

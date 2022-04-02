@@ -37,7 +37,7 @@ FragmentF1 _$FragmentF1FromJson(Map<String, dynamic> json) => FragmentF1(
 
 Map<String, dynamic> _$FragmentF1ToJson(FragmentF1 instance) =>
     <String, dynamic>{
-      'level1': instance.level1,
+      'level1': instance.level1?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -52,7 +52,7 @@ FragmentF1$level1 _$FragmentF1$level1FromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FragmentF1$level1ToJson(FragmentF1$level1 instance) =>
     <String, dynamic>{
-      'level2': instance.level2,
+      'level2': instance.level2?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -69,7 +69,7 @@ FragmentF1$level1$level2 _$FragmentF1$level1$level2FromJson(
 Map<String, dynamic> _$FragmentF1$level1$level2ToJson(
         FragmentF1$level1$level2 instance) =>
     <String, dynamic>{
-      'level3': instance.level3,
+      'level3': instance.level3?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -109,7 +109,7 @@ FragmentF2 _$FragmentF2FromJson(Map<String, dynamic> json) => FragmentF2(
 
 Map<String, dynamic> _$FragmentF2ToJson(FragmentF2 instance) =>
     <String, dynamic>{
-      'level1': instance.level1,
+      'level1': instance.level1?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -124,7 +124,7 @@ FragmentF2$level1 _$FragmentF2$level1FromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FragmentF2$level1ToJson(FragmentF2$level1 instance) =>
     <String, dynamic>{
-      'level2': instance.level2,
+      'level2': instance.level2?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -141,7 +141,7 @@ FragmentF2$level1$level2 _$FragmentF2$level1$level2FromJson(
 Map<String, dynamic> _$FragmentF2$level1$level2ToJson(
         FragmentF2$level1$level2 instance) =>
     <String, dynamic>{
-      'level3': instance.level3,
+      'level3': instance.level3?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -180,7 +180,7 @@ FragmentF21 _$FragmentF21FromJson(Map<String, dynamic> json) => FragmentF21(
 
 Map<String, dynamic> _$FragmentF21ToJson(FragmentF21 instance) =>
     <String, dynamic>{
-      'level2': instance.level2,
+      'level2': instance.level2?.toJson(),
       '__typename': instance.$__typename,
     };
 
@@ -195,7 +195,7 @@ FragmentF21$level2 _$FragmentF21$level2FromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FragmentF21$level2ToJson(FragmentF21$level2 instance) =>
     <String, dynamic>{
-      'level3': instance.level3,
+      'level3': instance.level3?.toJson(),
       '__typename': instance.$__typename,
     };
 

@@ -13,6 +13,7 @@ type Person {
     dob: ISODateTime
     events: [ISODateTime]
     events_of_events: [[ISODateTime]]
+    parents: [Person!]
 }
 
 scalar ISODateTime

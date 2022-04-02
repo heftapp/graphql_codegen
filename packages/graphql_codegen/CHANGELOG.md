@@ -1,3 +1,6 @@
+
+* Fix: Explicity call `toJson`.
+
 # 0.7.0-beta.10
 
 * Fix: Import nested fragments and create DocumentNode for fragments

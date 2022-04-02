@@ -44,7 +44,7 @@ QueryFetchStuff _$QueryFetchStuffFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$QueryFetchStuffToJson(QueryFetchStuff instance) =>
     <String, dynamic>{
       '__typename': instance.$__typename,
-      'field': instance.field,
+      'field': instance.field?.toJson(),
     };
 
 QueryFetchStuff$field _$QueryFetchStuff$fieldFromJson(

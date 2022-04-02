@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI extends JsonSerializable {
   QueryFetchI({this.i1, required this.$__typename});
 
@@ -209,7 +209,7 @@ const QUERY_FETCH_I = const DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1 extends JsonSerializable {
   QueryFetchI$i1({this.i2, required this.$__typename});
 
@@ -251,7 +251,7 @@ class QueryFetchI$i1 extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$i2 extends JsonSerializable {
   QueryFetchI$i1$i2({this.field, required this.$__typename});
 
@@ -287,7 +287,7 @@ class QueryFetchI$i1$i2 extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$i2$field extends JsonSerializable {
   QueryFetchI$i1$i2$field({this.name, required this.$__typename});
 
@@ -323,7 +323,7 @@ class QueryFetchI$i1$i2$field extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1 extends JsonSerializable implements QueryFetchI$i1 {
   QueryFetchI$i1$T1({this.i2, required this.$__typename, this.i2c});
 
@@ -365,7 +365,7 @@ class QueryFetchI$i1$T1 extends JsonSerializable implements QueryFetchI$i1 {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2c extends JsonSerializable {
   QueryFetchI$i1$T1$i2c({this.field, required this.$__typename});
 
@@ -401,7 +401,7 @@ class QueryFetchI$i1$T1$i2c extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2c$field extends JsonSerializable {
   QueryFetchI$i1$T1$i2c$field({this.age, required this.$__typename});
 
@@ -437,7 +437,7 @@ class QueryFetchI$i1$T1$i2c$field extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2 extends JsonSerializable
     implements QueryFetchI$i1$i2 {
   QueryFetchI$i1$T1$i2({this.field, required this.$__typename});
@@ -480,7 +480,7 @@ class QueryFetchI$i1$T1$i2 extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2$field extends JsonSerializable
     implements QueryFetchI$i1$i2$field {
   QueryFetchI$i1$T1$i2$field({this.name, required this.$__typename});
@@ -517,7 +517,7 @@ class QueryFetchI$i1$T1$i2$field extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2$T2 extends JsonSerializable
     implements QueryFetchI$i1$T1$i2 {
   QueryFetchI$i1$T1$i2$T2({this.field, required this.$__typename});
@@ -554,7 +554,7 @@ class QueryFetchI$i1$T1$i2$T2 extends JsonSerializable
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2$T2$field extends JsonSerializable
     implements QueryFetchI$i1$T1$i2$field {
   QueryFetchI$i1$T1$i2$T2$field(

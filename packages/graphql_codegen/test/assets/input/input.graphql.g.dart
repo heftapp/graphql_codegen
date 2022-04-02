@@ -16,6 +16,6 @@ InputI1 _$InputI1FromJson(Map<String, dynamic> json) => InputI1(
 
 Map<String, dynamic> _$InputI1ToJson(InputI1 instance) => <String, dynamic>{
       's': instance.s,
-      'nested_input': instance.nested_input,
+      'nested_input': instance.nested_input?.toJson(),
       '_min': instance.$_min,
     };

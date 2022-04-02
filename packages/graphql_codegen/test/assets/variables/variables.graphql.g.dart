@@ -14,7 +14,7 @@ VariablesQueryHiBob _$VariablesQueryHiBobFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$VariablesQueryHiBobToJson(
         VariablesQueryHiBob instance) =>
     <String, dynamic>{
-      'i': instance.i,
+      'i': instance.i.toJson(),
     };
 
 QueryHiBob _$QueryHiBobFromJson(Map<String, dynamic> json) => QueryHiBob(
@@ -25,7 +25,7 @@ QueryHiBob _$QueryHiBobFromJson(Map<String, dynamic> json) => QueryHiBob(
 
 Map<String, dynamic> _$QueryHiBobToJson(QueryHiBob instance) =>
     <String, dynamic>{
-      'field': instance.field,
+      'field': instance.field?.toJson(),
     };
 
 QueryHiBob$field _$QueryHiBob$fieldFromJson(Map<String, dynamic> json) =>

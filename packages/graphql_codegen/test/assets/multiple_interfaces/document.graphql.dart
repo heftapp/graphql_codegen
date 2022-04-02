@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF0 extends JsonSerializable {
   FragmentF0({this.name01});
 
@@ -48,7 +48,7 @@ const FRAGMENT_F0 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F0,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF1 extends JsonSerializable {
   FragmentF1({this.size2});
 
@@ -94,7 +94,7 @@ const FRAGMENT_F1 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F1,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF2 extends JsonSerializable {
   FragmentF2({this.name2});
 
@@ -140,7 +140,7 @@ const FRAGMENT_F2 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F2,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FragmentF3 extends JsonSerializable {
   FragmentF3({this.value});
 
@@ -186,7 +186,7 @@ const FRAGMENT_F3 = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F3,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.field});
 
@@ -296,7 +296,7 @@ const QUERY_Q = const DocumentNode(definitions: [
   FRAGMENT_DEFINITION_FRAGMENT_F3,
 ]);
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$field extends JsonSerializable implements FragmentF0 {
   QueryQ$field({required this.$__typename, this.name0, this.name01});
 
@@ -344,7 +344,7 @@ class QueryQ$field extends JsonSerializable implements FragmentF0 {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class QueryQ$field$T1 extends JsonSerializable
     implements FragmentF1, FragmentF2, QueryQ$field {
   QueryQ$field$T1(

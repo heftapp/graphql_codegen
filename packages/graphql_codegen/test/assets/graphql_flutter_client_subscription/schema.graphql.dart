@@ -6,7 +6,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionNoArgs extends JsonSerializable {
   SubscriptionNoArgs({this.listenForChange, required this.$__typename});
 
@@ -160,7 +160,7 @@ class SubscriptionNoArgsWidget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionNoArgs$listenForChange extends JsonSerializable {
   SubscriptionNoArgs$listenForChange(
       {required this.name, required this.$__typename});
@@ -199,7 +199,7 @@ class SubscriptionNoArgs$listenForChange extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesSubscriptionRequiredArg extends JsonSerializable {
   VariablesSubscriptionRequiredArg({required this.name});
 
@@ -230,7 +230,7 @@ class VariablesSubscriptionRequiredArg extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionRequiredArg extends JsonSerializable {
   SubscriptionRequiredArg({this.listenForChange, required this.$__typename});
 
@@ -406,7 +406,7 @@ class SubscriptionRequiredArgWidget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
   SubscriptionRequiredArg$listenForChange(
       {required this.name, required this.$__typename});
@@ -445,7 +445,7 @@ class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class VariablesSubscriptionOptionalArg extends JsonSerializable {
   VariablesSubscriptionOptionalArg({this.name});
 
@@ -476,7 +476,7 @@ class VariablesSubscriptionOptionalArg extends JsonSerializable {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionOptionalArg extends JsonSerializable {
   SubscriptionOptionalArg({this.listenForChange, required this.$__typename});
 
@@ -652,7 +652,7 @@ class SubscriptionOptionalArgWidget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
   SubscriptionOptionalArg$listenForChange(
       {required this.name, required this.$__typename});

@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class InputI1 extends JsonSerializable {
   InputI1({required this.s, this.nested});
 
