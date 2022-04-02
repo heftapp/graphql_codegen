@@ -91,6 +91,25 @@ class QueryFetchScalars extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchScalars on QueryFetchScalars {
+  QueryFetchScalars copyWith(
+          {int? Function()? i,
+          int? Function()? id,
+          String? Function()? s,
+          String? Function()? c1,
+          DateTime? Function()? c2,
+          Fobbob? Function()? c3,
+          List<Fobbob?>? Function()? c3s}) =>
+      QueryFetchScalars(
+          i: i == null ? this.i : i(),
+          id: id == null ? this.id : id(),
+          s: s == null ? this.s : s(),
+          c1: c1 == null ? this.c1 : c1(),
+          c2: c2 == null ? this.c2 : c2(),
+          c3: c3 == null ? this.c3 : c3(),
+          c3s: c3s == null ? this.c3s : c3s());
+}
+
 const QUERY_FETCH_SCALARS = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,

@@ -34,5 +34,35 @@ main() {
             '__typename': 'Person'
           }));
     });
+    test("Can mutate fragments", () {
+      final fragment = FragmentPersonSummary(
+        $__typename: "Person",
+        name: "Lars",
+        parents: [
+          FragmentPersonSummary$parents(
+            name: "Father",
+            $__typename: "Person",
+          ),
+          FragmentPersonSummary$parents(
+            name: "Mother",
+            $__typename: "Person",
+          ),
+        ],
+      );
+      expect(
+          fragment.copyWith(name: "Kurt").toJson(),
+          equals({
+            'nickname': null,
+            'name': 'Kurt',
+            'dob': null,
+            'events': null,
+            'eventsOfEvents': null,
+            'parents': [
+              {'name': 'Father', '__typename': 'Person'},
+              {'name': 'Mother', '__typename': 'Person'},
+            ],
+            '__typename': 'Person'
+          }));
+    });
   });
 }

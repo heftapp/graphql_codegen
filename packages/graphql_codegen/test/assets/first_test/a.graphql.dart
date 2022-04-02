@@ -32,6 +32,11 @@ class QueryFetchName extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchName on QueryFetchName {
+  QueryFetchName copyWith({QueryFetchName$name? Function()? name}) =>
+      QueryFetchName(name: name == null ? this.name : name());
+}
+
 const QUERY_FETCH_NAME = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -78,4 +83,9 @@ class QueryFetchName$name extends JsonSerializable implements FragmentF {
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchName$name on QueryFetchName$name {
+  QueryFetchName$name copyWith({String? name}) =>
+      QueryFetchName$name(name: name == null ? this.name : name);
 }

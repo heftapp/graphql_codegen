@@ -34,6 +34,11 @@ class QueryFetchSNoVariables extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchSNoVariables on QueryFetchSNoVariables {
+  QueryFetchSNoVariables copyWith({String? Function()? s}) =>
+      QueryFetchSNoVariables(s: s == null ? this.s : s());
+}
+
 const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,

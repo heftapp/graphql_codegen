@@ -30,6 +30,11 @@ class FragmentF extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF on FragmentF {
+  FragmentF copyWith({String? name}) =>
+      FragmentF(name: name == null ? this.name : name);
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F = const FragmentDefinitionNode(
     name: NameNode(value: 'F'),
     typeCondition: TypeConditionNode(

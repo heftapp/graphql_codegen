@@ -44,6 +44,17 @@ class FragmentFragmentA extends JsonSerializable implements FragmentFragmentI {
   }
 }
 
+extension UtilityExtensionFragmentFragmentA on FragmentFragmentA {
+  FragmentFragmentA copyWith(
+          {String? $__typename,
+          String? Function()? value,
+          String? Function()? name}) =>
+      FragmentFragmentA(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          value: value == null ? this.value : value(),
+          name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentA'),
     typeCondition: TypeConditionNode(
@@ -105,6 +116,13 @@ class FragmentFragmentI extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentFragmentI on FragmentFragmentI {
+  FragmentFragmentI copyWith({String? $__typename, String? Function()? name}) =>
+      FragmentFragmentI(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_I = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentI'),
     typeCondition: TypeConditionNode(
@@ -162,6 +180,14 @@ class QueryFetchStuff extends JsonSerializable {
     if (l$field != lOther$field) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchStuff on QueryFetchStuff {
+  QueryFetchStuff copyWith(
+          {String? $__typename, QueryFetchStuff$field? Function()? field}) =>
+      QueryFetchStuff(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          field: field == null ? this.field : field());
 }
 
 const QUERY_FETCH_STUFF = const DocumentNode(definitions: [
@@ -284,6 +310,14 @@ class QueryFetchStuff$field extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchStuff$field on QueryFetchStuff$field {
+  QueryFetchStuff$field copyWith(
+          {String? $__typename, String? Function()? name}) =>
+      QueryFetchStuff$field(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchStuff$field$FieldA extends JsonSerializable
     implements FragmentFragmentA, FragmentFragmentI, QueryFetchStuff$field {
@@ -326,6 +360,18 @@ class QueryFetchStuff$field$FieldA extends JsonSerializable
     if (l$value != lOther$value) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchStuff$field$FieldA
+    on QueryFetchStuff$field$FieldA {
+  QueryFetchStuff$field$FieldA copyWith(
+          {String? $__typename,
+          String? Function()? name,
+          String? Function()? value}) =>
+      QueryFetchStuff$field$FieldA(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name(),
+          value: value == null ? this.value : value());
 }
 
 const POSSIBLE_TYPES_MAP = const {

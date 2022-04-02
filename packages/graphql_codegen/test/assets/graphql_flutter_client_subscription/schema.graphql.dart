@@ -42,6 +42,17 @@ class SubscriptionNoArgs extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionSubscriptionNoArgs on SubscriptionNoArgs {
+  SubscriptionNoArgs copyWith(
+          {SubscriptionNoArgs$listenForChange? Function()? listenForChange,
+          String? $__typename}) =>
+      SubscriptionNoArgs(
+          listenForChange: listenForChange == null
+              ? this.listenForChange
+              : listenForChange(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const SUBSCRIPTION_NO_ARGS = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
@@ -199,6 +210,15 @@ class SubscriptionNoArgs$listenForChange extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionSubscriptionNoArgs$listenForChange
+    on SubscriptionNoArgs$listenForChange {
+  SubscriptionNoArgs$listenForChange copyWith(
+          {String? name, String? $__typename}) =>
+      SubscriptionNoArgs$listenForChange(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class VariablesSubscriptionRequiredArg extends JsonSerializable {
   VariablesSubscriptionRequiredArg({required this.name});
@@ -264,6 +284,17 @@ class SubscriptionRequiredArg extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionSubscriptionRequiredArg on SubscriptionRequiredArg {
+  SubscriptionRequiredArg copyWith(
+          {SubscriptionRequiredArg$listenForChange? Function()? listenForChange,
+          String? $__typename}) =>
+      SubscriptionRequiredArg(
+          listenForChange: listenForChange == null
+              ? this.listenForChange
+              : listenForChange(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const SUBSCRIPTION_REQUIRED_ARG = const DocumentNode(definitions: [
@@ -445,6 +476,15 @@ class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionSubscriptionRequiredArg$listenForChange
+    on SubscriptionRequiredArg$listenForChange {
+  SubscriptionRequiredArg$listenForChange copyWith(
+          {String? name, String? $__typename}) =>
+      SubscriptionRequiredArg$listenForChange(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class VariablesSubscriptionOptionalArg extends JsonSerializable {
   VariablesSubscriptionOptionalArg({this.name});
@@ -510,6 +550,17 @@ class SubscriptionOptionalArg extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionSubscriptionOptionalArg on SubscriptionOptionalArg {
+  SubscriptionOptionalArg copyWith(
+          {SubscriptionOptionalArg$listenForChange? Function()? listenForChange,
+          String? $__typename}) =>
+      SubscriptionOptionalArg(
+          listenForChange: listenForChange == null
+              ? this.listenForChange
+              : listenForChange(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const SUBSCRIPTION_OPTIONAL_ARG = const DocumentNode(definitions: [
@@ -689,6 +740,15 @@ class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionSubscriptionOptionalArg$listenForChange
+    on SubscriptionOptionalArg$listenForChange {
+  SubscriptionOptionalArg$listenForChange copyWith(
+          {String? name, String? $__typename}) =>
+      SubscriptionOptionalArg$listenForChange(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const POSSIBLE_TYPES_MAP = const {};

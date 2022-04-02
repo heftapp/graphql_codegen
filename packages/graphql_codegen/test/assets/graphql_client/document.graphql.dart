@@ -33,6 +33,11 @@ class FragmentNoVariables extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentNoVariables on FragmentNoVariables {
+  FragmentNoVariables copyWith({String? Function()? s}) =>
+      FragmentNoVariables(s: s == null ? this.s : s());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_NO_VARIABLES = const FragmentDefinitionNode(
     name: NameNode(value: 'NoVariables'),
     typeCondition: TypeConditionNode(
@@ -137,6 +142,12 @@ class FragmentWithOptionalVariables extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentWithOptionalVariables
+    on FragmentWithOptionalVariables {
+  FragmentWithOptionalVariables copyWith({String? Function()? s}) =>
+      FragmentWithOptionalVariables(s: s == null ? this.s : s());
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_WITH_OPTIONAL_VARIABLES =
@@ -254,6 +265,11 @@ class FragmentWithVariables extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentWithVariables on FragmentWithVariables {
+  FragmentWithVariables copyWith({String? Function()? s2}) =>
+      FragmentWithVariables(s2: s2 == null ? this.s2 : s2());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_WITH_VARIABLES =
     const FragmentDefinitionNode(
         name: NameNode(value: 'WithVariables'),
@@ -364,6 +380,11 @@ class QueryFetchSOptional extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchSOptional on QueryFetchSOptional {
+  QueryFetchSOptional copyWith({String? Function()? s}) =>
+      QueryFetchSOptional(s: s == null ? this.s : s());
 }
 
 const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
@@ -545,6 +566,11 @@ class QueryFetchSRequired extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchSRequired on QueryFetchSRequired {
+  QueryFetchSRequired copyWith({String? Function()? s}) =>
+      QueryFetchSRequired(s: s == null ? this.s : s());
+}
+
 const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -693,6 +719,11 @@ class QueryFetchSNoVariables extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchSNoVariables on QueryFetchSNoVariables {
+  QueryFetchSNoVariables copyWith({String? Function()? s}) =>
+      QueryFetchSNoVariables(s: s == null ? this.s : s());
 }
 
 const QUERY_FETCH_S_NO_VARIABLES = const DocumentNode(definitions: [
@@ -856,6 +887,11 @@ class MutationUpdateSOptional extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionMutationUpdateSOptional on MutationUpdateSOptional {
+  MutationUpdateSOptional copyWith({String? Function()? s}) =>
+      MutationUpdateSOptional(s: s == null ? this.s : s());
 }
 
 const MUTATION_UPDATE_S_OPTIONAL = const DocumentNode(definitions: [
@@ -1034,6 +1070,11 @@ class MutationUpdateSRequired extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionMutationUpdateSRequired on MutationUpdateSRequired {
+  MutationUpdateSRequired copyWith({String? Function()? s}) =>
+      MutationUpdateSRequired(s: s == null ? this.s : s());
+}
+
 const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
@@ -1177,6 +1218,12 @@ class MutationUpdateSNoVariables extends JsonSerializable {
     if (l$s != lOther$s) return false;
     return true;
   }
+}
+
+extension UtilityExtensionMutationUpdateSNoVariables
+    on MutationUpdateSNoVariables {
+  MutationUpdateSNoVariables copyWith({String? Function()? s}) =>
+      MutationUpdateSNoVariables(s: s == null ? this.s : s());
 }
 
 const MUTATION_UPDATE_S_NO_VARIABLES = const DocumentNode(definitions: [

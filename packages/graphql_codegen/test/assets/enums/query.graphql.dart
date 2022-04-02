@@ -53,6 +53,14 @@ class QueryFoobar extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFoobar on QueryFoobar {
+  QueryFoobar copyWith(
+          {EnumEnum? Function()? field, List<EnumEnum>? Function()? fields}) =>
+      QueryFoobar(
+          field: field == null ? this.field : field(),
+          fields: fields == null ? this.fields : fields());
+}
+
 const QUERY_FOOBAR = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,

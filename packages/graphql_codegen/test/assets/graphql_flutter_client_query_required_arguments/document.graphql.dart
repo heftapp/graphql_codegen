@@ -63,6 +63,11 @@ class QueryFetchSRequired extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchSRequired on QueryFetchSRequired {
+  QueryFetchSRequired copyWith({String? Function()? s}) =>
+      QueryFetchSRequired(s: s == null ? this.s : s());
+}
+
 const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,

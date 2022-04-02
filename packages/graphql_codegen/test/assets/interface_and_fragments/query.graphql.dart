@@ -38,6 +38,13 @@ class FragmentFragmentA extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentFragmentA on FragmentFragmentA {
+  FragmentFragmentA copyWith(
+          {String? Function()? s, String? Function()? $_s}) =>
+      FragmentFragmentA(
+          s: s == null ? this.s : s(), $_s: $_s == null ? this.$_s : $_s());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_A = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentA'),
     typeCondition: TypeConditionNode(
@@ -91,6 +98,11 @@ class FragmentFragmentB extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentFragmentB on FragmentFragmentB {
+  FragmentFragmentB copyWith({int? Function()? i}) =>
+      FragmentFragmentB(i: i == null ? this.i : i());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_FRAGMENT_B = const FragmentDefinitionNode(
     name: NameNode(value: 'FragmentB'),
     typeCondition: TypeConditionNode(
@@ -137,6 +149,14 @@ class QueryFetchImplementations extends JsonSerializable {
     if (l$$interface != lOther$$interface) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchImplementations
+    on QueryFetchImplementations {
+  QueryFetchImplementations copyWith(
+          {QueryFetchImplementations$interface? Function()? $interface}) =>
+      QueryFetchImplementations(
+          $interface: $interface == null ? this.$interface : $interface());
 }
 
 const QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
@@ -267,6 +287,18 @@ class QueryFetchImplementations$interface extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchImplementations$interface
+    on QueryFetchImplementations$interface {
+  QueryFetchImplementations$interface copyWith(
+          {String? typename,
+          bool? Function()? b,
+          QueryFetchImplementations$interface$self? self}) =>
+      QueryFetchImplementations$interface(
+          typename: typename == null ? this.typename : typename,
+          b: b == null ? this.b : b(),
+          self: self == null ? this.self : self);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self extends JsonSerializable {
   QueryFetchImplementations$interface$self({required this.$__typename});
@@ -307,6 +339,13 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchImplementations$interface$self
+    on QueryFetchImplementations$interface$self {
+  QueryFetchImplementations$interface$self copyWith({String? $__typename}) =>
+      QueryFetchImplementations$interface$self(
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -357,6 +396,18 @@ class QueryFetchImplementations$interface$self$ImplementationA
   }
 }
 
+extension UtilityExtensionQueryFetchImplementations$interface$self$ImplementationA
+    on QueryFetchImplementations$interface$self$ImplementationA {
+  QueryFetchImplementations$interface$self$ImplementationA copyWith(
+          {String? $__typename,
+          String? Function()? s,
+          String? Function()? $_s}) =>
+      QueryFetchImplementations$interface$self$ImplementationA(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          s: s == null ? this.s : s(),
+          $_s: $_s == null ? this.$_s : $_s());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self$ImplementationB
     extends JsonSerializable
@@ -396,6 +447,15 @@ class QueryFetchImplementations$interface$self$ImplementationB
     if (l$i != lOther$i) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchImplementations$interface$self$ImplementationB
+    on QueryFetchImplementations$interface$self$ImplementationB {
+  QueryFetchImplementations$interface$self$ImplementationB copyWith(
+          {String? $__typename, int? Function()? i}) =>
+      QueryFetchImplementations$interface$self$ImplementationB(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          i: i == null ? this.i : i());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -457,6 +517,22 @@ class QueryFetchImplementations$interface$ImplementationA
   }
 }
 
+extension UtilityExtensionQueryFetchImplementations$interface$ImplementationA
+    on QueryFetchImplementations$interface$ImplementationA {
+  QueryFetchImplementations$interface$ImplementationA copyWith(
+          {String? typename,
+          bool? Function()? b,
+          QueryFetchImplementations$interface$self? self,
+          String? Function()? s,
+          String? Function()? $_s}) =>
+      QueryFetchImplementations$interface$ImplementationA(
+          typename: typename == null ? this.typename : typename,
+          b: b == null ? this.b : b(),
+          self: self == null ? this.self : self,
+          s: s == null ? this.s : s(),
+          $_s: $_s == null ? this.$_s : $_s());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$ImplementationB
     extends JsonSerializable
@@ -507,4 +583,18 @@ class QueryFetchImplementations$interface$ImplementationB
     if (l$i != lOther$i) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchImplementations$interface$ImplementationB
+    on QueryFetchImplementations$interface$ImplementationB {
+  QueryFetchImplementations$interface$ImplementationB copyWith(
+          {String? typename,
+          bool? Function()? b,
+          QueryFetchImplementations$interface$self? self,
+          int? Function()? i}) =>
+      QueryFetchImplementations$interface$ImplementationB(
+          typename: typename == null ? this.typename : typename,
+          b: b == null ? this.b : b(),
+          self: self == null ? this.self : self,
+          i: i == null ? this.i : i());
 }

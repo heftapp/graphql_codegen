@@ -38,6 +38,13 @@ class FragmentFReport extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentFReport on FragmentFReport {
+  FragmentFReport copyWith({String? Function()? title, String? $__typename}) =>
+      FragmentFReport(
+          title: title == null ? this.title : title(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F_REPORT = const FragmentDefinitionNode(
     name: NameNode(value: 'FReport'),
     typeCondition: TypeConditionNode(
@@ -182,6 +189,30 @@ class QueryQ extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith(
+          {List<QueryQ$docsWithTypename?>? Function()? docsWithTypename,
+          List<QueryQ$docsWihtoutTypename?>? Function()? docsWihtoutTypename,
+          List<QueryQ$docsWithAliasedTypename?>? Function()?
+              docsWithAliasedTypename,
+          List<QueryQ$docsWithFragment?>? Function()? docsWithFragment,
+          String? $__typename}) =>
+      QueryQ(
+          docsWithTypename: docsWithTypename == null
+              ? this.docsWithTypename
+              : docsWithTypename(),
+          docsWihtoutTypename: docsWihtoutTypename == null
+              ? this.docsWihtoutTypename
+              : docsWihtoutTypename(),
+          docsWithAliasedTypename: docsWithAliasedTypename == null
+              ? this.docsWithAliasedTypename
+              : docsWithAliasedTypename(),
+          docsWithFragment: docsWithFragment == null
+              ? this.docsWithFragment
+              : docsWithFragment(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const QUERY_Q = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -308,6 +339,12 @@ class QueryQ$docsWithTypename extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryQ$docsWithTypename on QueryQ$docsWithTypename {
+  QueryQ$docsWithTypename copyWith({String? $__typename}) =>
+      QueryQ$docsWithTypename(
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryQ$docsWihtoutTypename extends JsonSerializable {
   QueryQ$docsWihtoutTypename({this.title, required this.$__typename});
@@ -344,6 +381,15 @@ class QueryQ$docsWihtoutTypename extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryQ$docsWihtoutTypename
+    on QueryQ$docsWihtoutTypename {
+  QueryQ$docsWihtoutTypename copyWith(
+          {String? Function()? title, String? $__typename}) =>
+      QueryQ$docsWihtoutTypename(
+          title: title == null ? this.title : title(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithAliasedTypename extends JsonSerializable {
   QueryQ$docsWithAliasedTypename({this.$__typename});
@@ -372,6 +418,13 @@ class QueryQ$docsWithAliasedTypename extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$docsWithAliasedTypename
+    on QueryQ$docsWithAliasedTypename {
+  QueryQ$docsWithAliasedTypename copyWith({String? Function()? $__typename}) =>
+      QueryQ$docsWithAliasedTypename(
+          $__typename: $__typename == null ? this.$__typename : $__typename());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -410,6 +463,12 @@ class QueryQ$docsWithFragment extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$docsWithFragment on QueryQ$docsWithFragment {
+  QueryQ$docsWithFragment copyWith({String? $__typename}) =>
+      QueryQ$docsWithFragment(
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -451,6 +510,15 @@ class QueryQ$docsWithFragment$Contract extends JsonSerializable
   }
 }
 
+extension UtilityExtensionQueryQ$docsWithFragment$Contract
+    on QueryQ$docsWithFragment$Contract {
+  QueryQ$docsWithFragment$Contract copyWith(
+          {String? $__typename, String? Function()? title}) =>
+      QueryQ$docsWithFragment$Contract(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          title: title == null ? this.title : title());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryQ$docsWithFragment$Report extends JsonSerializable
     implements FragmentFReport, QueryQ$docsWithFragment {
@@ -486,6 +554,15 @@ class QueryQ$docsWithFragment$Report extends JsonSerializable
     if (l$title != lOther$title) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$docsWithFragment$Report
+    on QueryQ$docsWithFragment$Report {
+  QueryQ$docsWithFragment$Report copyWith(
+          {String? $__typename, String? Function()? title}) =>
+      QueryQ$docsWithFragment$Report(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          title: title == null ? this.title : title());
 }
 
 const POSSIBLE_TYPES_MAP = const {

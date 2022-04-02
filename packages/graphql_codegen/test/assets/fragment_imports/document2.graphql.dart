@@ -32,6 +32,11 @@ class FragmentF1 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF1 on FragmentF1 {
+  FragmentF1 copyWith({String? Function()? name}) =>
+      FragmentF1(name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
@@ -74,6 +79,11 @@ class QueryQ extends JsonSerializable {
     if (l$t != lOther$t) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith({QueryQ$t? Function()? t}) =>
+      QueryQ(t: t == null ? this.t : t());
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -123,4 +133,9 @@ class QueryQ$t extends JsonSerializable implements FragmentF1 {
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$t on QueryQ$t {
+  QueryQ$t copyWith({String? Function()? name}) =>
+      QueryQ$t(name: name == null ? this.name : name());
 }

@@ -39,6 +39,15 @@ class QueryFetchPerson extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchPerson on QueryFetchPerson {
+  QueryFetchPerson copyWith(
+          {QueryFetchPerson$fetchPerson? Function()? fetchPerson,
+          String? $__typename}) =>
+      QueryFetchPerson(
+          fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -122,4 +131,16 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchPerson$fetchPerson
+    on QueryFetchPerson$fetchPerson {
+  QueryFetchPerson$fetchPerson copyWith(
+          {String? Function()? name,
+          EnumStatus? status,
+          String? $__typename}) =>
+      QueryFetchPerson$fetchPerson(
+          name: name == null ? this.name : name(),
+          status: status == null ? this.status : status,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }

@@ -43,6 +43,13 @@ class FragmentF extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF on FragmentF {
+  FragmentF copyWith({String? $__typename, String? Function()? name}) =>
+      FragmentF(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F = const FragmentDefinitionNode(
     name: NameNode(value: 'F'),
     typeCondition: TypeConditionNode(
@@ -133,6 +140,17 @@ class FragmentF$T extends JsonSerializable implements FragmentF {
   }
 }
 
+extension UtilityExtensionFragmentF$T on FragmentF$T {
+  FragmentF$T copyWith(
+          {String? $__typename,
+          String? Function()? name,
+          FragmentF$T$t? Function()? t}) =>
+      FragmentF$T(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name(),
+          t: t == null ? this.t : t());
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentF$T$t extends JsonSerializable {
   FragmentF$T$t({this.name});
@@ -162,6 +180,11 @@ class FragmentF$T$t extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF$T$t on FragmentF$T$t {
+  FragmentF$T$t copyWith({String? Function()? name}) =>
+      FragmentF$T$t(name: name == null ? this.name : name());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryQ extends JsonSerializable {
   QueryQ({this.t});
@@ -187,6 +210,11 @@ class QueryQ extends JsonSerializable {
     if (l$t != lOther$t) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ on QueryQ {
+  QueryQ copyWith({QueryQ$t? Function()? t}) =>
+      QueryQ(t: t == null ? this.t : t());
 }
 
 const QUERY_Q = const DocumentNode(definitions: [
@@ -255,6 +283,17 @@ class QueryQ$t extends JsonSerializable implements FragmentF$T {
   }
 }
 
+extension UtilityExtensionQueryQ$t on QueryQ$t {
+  QueryQ$t copyWith(
+          {String? $__typename,
+          String? Function()? name,
+          QueryQ$t$t? Function()? t}) =>
+      QueryQ$t(
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          name: name == null ? this.name : name(),
+          t: t == null ? this.t : t());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryQ$t$t extends JsonSerializable implements FragmentF$T$t {
   QueryQ$t$t({this.name});
@@ -282,6 +321,11 @@ class QueryQ$t$t extends JsonSerializable implements FragmentF$T$t {
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryQ$t$t on QueryQ$t$t {
+  QueryQ$t$t copyWith({String? Function()? name}) =>
+      QueryQ$t$t(name: name == null ? this.name : name());
 }
 
 const POSSIBLE_TYPES_MAP = const {

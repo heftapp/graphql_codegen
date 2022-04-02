@@ -102,6 +102,14 @@ class FragmentF1 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF1 on FragmentF1 {
+  FragmentF1 copyWith(
+          {FragmentF1$level1? Function()? level1, String? $__typename}) =>
+      FragmentF1(
+          level1: level1 == null ? this.level1 : level1(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
@@ -217,6 +225,15 @@ class FragmentF1$level1 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF1$level1 on FragmentF1$level1 {
+  FragmentF1$level1 copyWith(
+          {FragmentF1$level1$level2? Function()? level2,
+          String? $__typename}) =>
+      FragmentF1$level1(
+          level2: level2 == null ? this.level2 : level2(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentF1$level1$level2 extends JsonSerializable {
   FragmentF1$level1$level2({this.level3, required this.$__typename});
@@ -251,6 +268,15 @@ class FragmentF1$level1$level2 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF1$level1$level2 on FragmentF1$level1$level2 {
+  FragmentF1$level1$level2 copyWith(
+          {FragmentF1$level1$level2$level3? Function()? level3,
+          String? $__typename}) =>
+      FragmentF1$level1$level2(
+          level3: level3 == null ? this.level3 : level3(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -288,6 +314,15 @@ class FragmentF1$level1$level2$level3 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF1$level1$level2$level3
+    on FragmentF1$level1$level2$level3 {
+  FragmentF1$level1$level2$level3 copyWith(
+          {int? Function()? level4, String? $__typename}) =>
+      FragmentF1$level1$level2$level3(
+          level4: level4 == null ? this.level4 : level4(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -359,6 +394,14 @@ class FragmentF2 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF2 on FragmentF2 {
+  FragmentF2 copyWith(
+          {FragmentF2$level1? Function()? level1, String? $__typename}) =>
+      FragmentF2(
+          level1: level1 == null ? this.level1 : level1(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
@@ -433,6 +476,15 @@ class FragmentF2$level1 extends JsonSerializable implements FragmentF21 {
   }
 }
 
+extension UtilityExtensionFragmentF2$level1 on FragmentF2$level1 {
+  FragmentF2$level1 copyWith(
+          {FragmentF2$level1$level2? Function()? level2,
+          String? $__typename}) =>
+      FragmentF2$level1(
+          level2: level2 == null ? this.level2 : level2(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentF2$level1$level2 extends JsonSerializable
     implements FragmentF21$level2 {
@@ -468,6 +520,15 @@ class FragmentF2$level1$level2 extends JsonSerializable
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF2$level1$level2 on FragmentF2$level1$level2 {
+  FragmentF2$level1$level2 copyWith(
+          {FragmentF2$level1$level2$level3? Function()? level3,
+          String? $__typename}) =>
+      FragmentF2$level1$level2(
+          level3: level3 == null ? this.level3 : level3(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -506,6 +567,15 @@ class FragmentF2$level1$level2$level3 extends JsonSerializable
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF2$level1$level2$level3
+    on FragmentF2$level1$level2$level3 {
+  FragmentF2$level1$level2$level3 copyWith(
+          {int? Function()? level4, String? $__typename}) =>
+      FragmentF2$level1$level2$level3(
+          level4: level4 == null ? this.level4 : level4(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -571,6 +641,14 @@ class FragmentF21 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF21 on FragmentF21 {
+  FragmentF21 copyWith(
+          {FragmentF21$level2? Function()? level2, String? $__typename}) =>
+      FragmentF21(
+          level2: level2 == null ? this.level2 : level2(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_F21 = const FragmentDefinitionNode(
@@ -670,6 +748,15 @@ class FragmentF21$level2 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF21$level2 on FragmentF21$level2 {
+  FragmentF21$level2 copyWith(
+          {FragmentF21$level2$level3? Function()? level3,
+          String? $__typename}) =>
+      FragmentF21$level2(
+          level3: level3 == null ? this.level3 : level3(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentF21$level2$level3 extends JsonSerializable {
   FragmentF21$level2$level3({this.level4, required this.$__typename});
@@ -704,6 +791,15 @@ class FragmentF21$level2$level3 extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF21$level2$level3
+    on FragmentF21$level2$level3 {
+  FragmentF21$level2$level3 copyWith(
+          {int? Function()? level4, String? $__typename}) =>
+      FragmentF21$level2$level3(
+          level4: level4 == null ? this.level4 : level4(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const POSSIBLE_TYPES_MAP = const {};

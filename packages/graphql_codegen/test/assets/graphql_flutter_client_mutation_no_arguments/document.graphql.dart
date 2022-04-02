@@ -35,6 +35,11 @@ class MutationUpdateSNo extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionMutationUpdateSNo on MutationUpdateSNo {
+  MutationUpdateSNo copyWith({String? Function()? s}) =>
+      MutationUpdateSNo(s: s == null ? this.s : s());
+}
+
 const MUTATION_UPDATE_S_NO = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,

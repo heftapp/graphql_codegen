@@ -63,6 +63,11 @@ class QueryFetchSOptional extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchSOptional on QueryFetchSOptional {
+  QueryFetchSOptional copyWith({String? Function()? s}) =>
+      QueryFetchSOptional(s: s == null ? this.s : s());
+}
+
 const QUERY_FETCH_S_OPTIONAL = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,

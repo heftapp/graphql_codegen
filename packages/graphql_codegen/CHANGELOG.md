@@ -1,4 +1,6 @@
+# 0.7.0-beta.11
 
+* Feat: Add utility extension containing `copyWith` method.
 * Fix: Explicity call `toJson`.
 
 # 0.7.0-beta.10

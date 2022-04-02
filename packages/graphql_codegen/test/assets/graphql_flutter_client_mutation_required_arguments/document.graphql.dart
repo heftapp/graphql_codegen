@@ -66,6 +66,11 @@ class MutationUpdateSRequired extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionMutationUpdateSRequired on MutationUpdateSRequired {
+  MutationUpdateSRequired copyWith({String? Function()? s}) =>
+      MutationUpdateSRequired(s: s == null ? this.s : s());
+}
+
 const MUTATION_UPDATE_S_REQUIRED = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,

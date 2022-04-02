@@ -30,6 +30,11 @@ class FragmentF extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF on FragmentF {
+  FragmentF copyWith({FragmentF$other? Function()? other}) =>
+      FragmentF(other: other == null ? this.other : other());
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_F = const FragmentDefinitionNode(
     name: NameNode(value: 'F'),
     typeCondition: TypeConditionNode(
@@ -92,6 +97,11 @@ class FragmentF$other extends JsonSerializable implements FragmentF2 {
   }
 }
 
+extension UtilityExtensionFragmentF$other on FragmentF$other {
+  FragmentF$other copyWith({FragmentF$other$other? Function()? other}) =>
+      FragmentF$other(other: other == null ? this.other : other());
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentF$other$other extends JsonSerializable
     implements FragmentF2$other {
@@ -120,6 +130,11 @@ class FragmentF$other$other extends JsonSerializable
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF$other$other on FragmentF$other$other {
+  FragmentF$other$other copyWith({String? Function()? name}) =>
+      FragmentF$other$other(name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -157,6 +172,14 @@ class FragmentF$other$T1 extends JsonSerializable implements FragmentF$other {
   }
 }
 
+extension UtilityExtensionFragmentF$other$T1 on FragmentF$other$T1 {
+  FragmentF$other$T1 copyWith(
+          {FragmentF$other$other? Function()? other, bool? Function()? b}) =>
+      FragmentF$other$T1(
+          other: other == null ? this.other : other(),
+          b: b == null ? this.b : b());
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentF2 extends JsonSerializable {
   FragmentF2({this.other});
@@ -184,6 +207,11 @@ class FragmentF2 extends JsonSerializable {
     if (l$other != lOther$other) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentF2 on FragmentF2 {
+  FragmentF2 copyWith({FragmentF2$other? Function()? other}) =>
+      FragmentF2(other: other == null ? this.other : other());
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
@@ -239,6 +267,11 @@ class FragmentF2$other extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentF2$other on FragmentF2$other {
+  FragmentF2$other copyWith({String? Function()? name}) =>
+      FragmentF2$other(name: name == null ? this.name : name());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetch extends JsonSerializable {
   QueryFetch({this.t});
@@ -266,6 +299,11 @@ class QueryFetch extends JsonSerializable {
     if (l$t != lOther$t) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetch on QueryFetch {
+  QueryFetch copyWith({QueryFetch$t? Function()? t}) =>
+      QueryFetch(t: t == null ? this.t : t());
 }
 
 const QUERY_FETCH = const DocumentNode(definitions: [
@@ -317,6 +355,11 @@ class QueryFetch$t extends JsonSerializable implements FragmentF {
   }
 }
 
+extension UtilityExtensionQueryFetch$t on QueryFetch$t {
+  QueryFetch$t copyWith({QueryFetch$t$other? Function()? other}) =>
+      QueryFetch$t(other: other == null ? this.other : other());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetch$t$other extends JsonSerializable
     implements FragmentF$other, FragmentF2 {
@@ -347,6 +390,11 @@ class QueryFetch$t$other extends JsonSerializable
   }
 }
 
+extension UtilityExtensionQueryFetch$t$other on QueryFetch$t$other {
+  QueryFetch$t$other copyWith({QueryFetch$t$other$other? Function()? other}) =>
+      QueryFetch$t$other(other: other == null ? this.other : other());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetch$t$other$other extends JsonSerializable
     implements FragmentF$other$other, FragmentF2$other {
@@ -375,6 +423,11 @@ class QueryFetch$t$other$other extends JsonSerializable
     if (l$name != lOther$name) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetch$t$other$other on QueryFetch$t$other$other {
+  QueryFetch$t$other$other copyWith({String? Function()? name}) =>
+      QueryFetch$t$other$other(name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -411,6 +464,14 @@ class QueryFetch$t$other$T1 extends JsonSerializable
     if (l$b != lOther$b) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetch$t$other$T1 on QueryFetch$t$other$T1 {
+  QueryFetch$t$other$T1 copyWith(
+          {QueryFetch$t$other$other? Function()? other, bool? Function()? b}) =>
+      QueryFetch$t$other$T1(
+          other: other == null ? this.other : other(),
+          b: b == null ? this.b : b());
 }
 
 const POSSIBLE_TYPES_MAP = const {

@@ -38,6 +38,13 @@ class QueryFetchI extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchI on QueryFetchI {
+  QueryFetchI copyWith({QueryFetchI$i1? Function()? i1, String? $__typename}) =>
+      QueryFetchI(
+          i1: i1 == null ? this.i1 : i1(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const QUERY_FETCH_I = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -251,6 +258,14 @@ class QueryFetchI$i1 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchI$i1 on QueryFetchI$i1 {
+  QueryFetchI$i1 copyWith(
+          {QueryFetchI$i1$i2? Function()? i2, String? $__typename}) =>
+      QueryFetchI$i1(
+          i2: i2 == null ? this.i2 : i2(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$i2 extends JsonSerializable {
   QueryFetchI$i1$i2({this.field, required this.$__typename});
@@ -287,6 +302,14 @@ class QueryFetchI$i1$i2 extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchI$i1$i2 on QueryFetchI$i1$i2 {
+  QueryFetchI$i1$i2 copyWith(
+          {QueryFetchI$i1$i2$field? Function()? field, String? $__typename}) =>
+      QueryFetchI$i1$i2(
+          field: field == null ? this.field : field(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$i2$field extends JsonSerializable {
   QueryFetchI$i1$i2$field({this.name, required this.$__typename});
@@ -321,6 +344,14 @@ class QueryFetchI$i1$i2$field extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchI$i1$i2$field on QueryFetchI$i1$i2$field {
+  QueryFetchI$i1$i2$field copyWith(
+          {String? Function()? name, String? $__typename}) =>
+      QueryFetchI$i1$i2$field(
+          name: name == null ? this.name : name(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -365,6 +396,17 @@ class QueryFetchI$i1$T1 extends JsonSerializable implements QueryFetchI$i1 {
   }
 }
 
+extension UtilityExtensionQueryFetchI$i1$T1 on QueryFetchI$i1$T1 {
+  QueryFetchI$i1$T1 copyWith(
+          {QueryFetchI$i1$T1$i2? Function()? i2,
+          String? $__typename,
+          QueryFetchI$i1$T1$i2c? Function()? i2c}) =>
+      QueryFetchI$i1$T1(
+          i2: i2 == null ? this.i2 : i2(),
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          i2c: i2c == null ? this.i2c : i2c());
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2c extends JsonSerializable {
   QueryFetchI$i1$T1$i2c({this.field, required this.$__typename});
@@ -401,6 +443,15 @@ class QueryFetchI$i1$T1$i2c extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryFetchI$i1$T1$i2c on QueryFetchI$i1$T1$i2c {
+  QueryFetchI$i1$T1$i2c copyWith(
+          {QueryFetchI$i1$T1$i2c$field? Function()? field,
+          String? $__typename}) =>
+      QueryFetchI$i1$T1$i2c(
+          field: field == null ? this.field : field(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2c$field extends JsonSerializable {
   QueryFetchI$i1$T1$i2c$field({this.age, required this.$__typename});
@@ -435,6 +486,15 @@ class QueryFetchI$i1$T1$i2c$field extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchI$i1$T1$i2c$field
+    on QueryFetchI$i1$T1$i2c$field {
+  QueryFetchI$i1$T1$i2c$field copyWith(
+          {int? Function()? age, String? $__typename}) =>
+      QueryFetchI$i1$T1$i2c$field(
+          age: age == null ? this.age : age(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -480,6 +540,15 @@ class QueryFetchI$i1$T1$i2 extends JsonSerializable
   }
 }
 
+extension UtilityExtensionQueryFetchI$i1$T1$i2 on QueryFetchI$i1$T1$i2 {
+  QueryFetchI$i1$T1$i2 copyWith(
+          {QueryFetchI$i1$T1$i2$field? Function()? field,
+          String? $__typename}) =>
+      QueryFetchI$i1$T1$i2(
+          field: field == null ? this.field : field(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2$field extends JsonSerializable
     implements QueryFetchI$i1$i2$field {
@@ -517,6 +586,15 @@ class QueryFetchI$i1$T1$i2$field extends JsonSerializable
   }
 }
 
+extension UtilityExtensionQueryFetchI$i1$T1$i2$field
+    on QueryFetchI$i1$T1$i2$field {
+  QueryFetchI$i1$T1$i2$field copyWith(
+          {String? Function()? name, String? $__typename}) =>
+      QueryFetchI$i1$T1$i2$field(
+          name: name == null ? this.name : name(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class QueryFetchI$i1$T1$i2$T2 extends JsonSerializable
     implements QueryFetchI$i1$T1$i2 {
@@ -552,6 +630,15 @@ class QueryFetchI$i1$T1$i2$T2 extends JsonSerializable
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchI$i1$T1$i2$T2 on QueryFetchI$i1$T1$i2$T2 {
+  QueryFetchI$i1$T1$i2$T2 copyWith(
+          {QueryFetchI$i1$T1$i2$T2$field? Function()? field,
+          String? $__typename}) =>
+      QueryFetchI$i1$T1$i2$T2(
+          field: field == null ? this.field : field(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -596,6 +683,18 @@ class QueryFetchI$i1$T1$i2$T2$field extends JsonSerializable
     if (l$age != lOther$age) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryFetchI$i1$T1$i2$T2$field
+    on QueryFetchI$i1$T1$i2$T2$field {
+  QueryFetchI$i1$T1$i2$T2$field copyWith(
+          {String? Function()? name,
+          String? $__typename,
+          int? Function()? age}) =>
+      QueryFetchI$i1$T1$i2$T2$field(
+          name: name == null ? this.name : name(),
+          $__typename: $__typename == null ? this.$__typename : $__typename,
+          age: age == null ? this.age : age());
 }
 
 const POSSIBLE_TYPES_MAP = const {

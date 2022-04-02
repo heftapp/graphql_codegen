@@ -139,6 +139,26 @@ class FragmentPersonSummary extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionFragmentPersonSummary on FragmentPersonSummary {
+  FragmentPersonSummary copyWith(
+          {String? Function()? nickname,
+          String? name,
+          DateTime? Function()? dob,
+          List<DateTime?>? Function()? events,
+          List<List<DateTime?>?>? Function()? eventsOfEvents,
+          List<FragmentPersonSummary$parents>? Function()? parents,
+          String? $__typename}) =>
+      FragmentPersonSummary(
+          nickname: nickname == null ? this.nickname : nickname(),
+          name: name == null ? this.name : name,
+          dob: dob == null ? this.dob : dob(),
+          events: events == null ? this.events : events(),
+          eventsOfEvents:
+              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
+          parents: parents == null ? this.parents : parents(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 const FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY =
     const FragmentDefinitionNode(
         name: NameNode(value: 'PersonSummary'),
@@ -268,6 +288,14 @@ class FragmentPersonSummary$parents extends JsonSerializable
   }
 }
 
+extension UtilityExtensionFragmentPersonSummary$parents
+    on FragmentPersonSummary$parents {
+  FragmentPersonSummary$parents copyWith({String? name, String? $__typename}) =>
+      FragmentPersonSummary$parents(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
 @JsonSerializable(explicitToJson: true)
 class FragmentPersonParent extends JsonSerializable {
   FragmentPersonParent({required this.name, required this.$__typename});
@@ -302,6 +330,13 @@ class FragmentPersonParent extends JsonSerializable {
     if (l$$__typename != lOther$$__typename) return false;
     return true;
   }
+}
+
+extension UtilityExtensionFragmentPersonParent on FragmentPersonParent {
+  FragmentPersonParent copyWith({String? name, String? $__typename}) =>
+      FragmentPersonParent(
+          name: name == null ? this.name : name,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT = const FragmentDefinitionNode(

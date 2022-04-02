@@ -86,6 +86,57 @@ Spec _printClass(
   );
 }
 
+Method printCopyWithMethod(
+  PrintContext context,
+  Iterable<ContextProperty> properties,
+) {
+  final name = refer(printClassName(context.path));
+  return Method(
+    (b) => b
+      ..returns = name
+      ..name = 'copyWith'
+      ..optionalParameters = ListBuilder(properties.map(
+        (property) {
+          final parameterType =
+              printClassPropertyType(context, property).reference;
+          return Parameter(
+            (b) => b
+              ..name = printPropertyName(property.name)
+              ..named = true
+              ..type = property.type.isNonNull
+                  ? TypeReference(
+                      (b) => b
+                        ..isNullable = true
+                        ..symbol = parameterType.symbol,
+                    )
+                  : FunctionType(
+                      (b) => b
+                        ..returnType =
+                            printClassPropertyType(context, property).reference
+                        ..isNullable = true,
+                    ),
+          );
+        },
+      ))
+      ..lambda = true
+      ..body = name.call(
+        [],
+        Map.fromEntries(properties.map((property) {
+          final propertyName = printPropertyName(property.name);
+          return MapEntry(
+            propertyName,
+            refer(propertyName).equalTo(literalNull).conditional(
+                  refer('this').property(propertyName),
+                  property.type.isNonNull
+                      ? refer(propertyName)
+                      : refer(propertyName).call([]),
+                ),
+          );
+        })),
+      ).code,
+  );
+}
+
 String printLocalPropertyName(NameNode name, [String prefix = "l"]) =>
     "${prefix}\$" + printPropertyName(name);
 
@@ -211,6 +262,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       return [
         if (context.hasVariables) printVariables(elementContext),
         printContext(elementContext),
+        printContextExtension(elementContext),
         if (fragmentNode != null) ...[
           printFragmentDefinition(
             elementContext,
@@ -232,6 +284,7 @@ Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
       return [
         if (element.hasVariables) printVariables(elementContext),
         printContext(elementContext),
+        printContextExtension(elementContext),
         if (operation != null)
           printDocument(
             elementContext,
@@ -389,6 +442,23 @@ Class printContext(PrintContext c) {
           printClassName(context.path),
           properties,
         ),
+      ]),
+  );
+}
+
+Extension printContextExtension(PrintContext c) {
+  final context = c.context;
+  final extendContext = context.extendsContext;
+  final properties = _mergeProperties(
+    extendContext?.properties ?? [],
+    c.context.properties,
+  );
+  return Extension(
+    (b) => b
+      ..name = printClassExtensionName(context.path)
+      ..on = refer(printClassName(context.path))
+      ..methods = ListBuilder([
+        printCopyWithMethod(c, properties),
       ]),
   );
 }

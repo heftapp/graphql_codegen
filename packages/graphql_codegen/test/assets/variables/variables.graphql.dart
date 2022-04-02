@@ -61,6 +61,11 @@ class QueryHiBob extends JsonSerializable {
   }
 }
 
+extension UtilityExtensionQueryHiBob on QueryHiBob {
+  QueryHiBob copyWith({QueryHiBob$field? Function()? field}) =>
+      QueryHiBob(field: field == null ? this.field : field());
+}
+
 const QUERY_HI_BOB = const DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
@@ -124,4 +129,9 @@ class QueryHiBob$field extends JsonSerializable {
     if (l$value != lOther$value) return false;
     return true;
   }
+}
+
+extension UtilityExtensionQueryHiBob$field on QueryHiBob$field {
+  QueryHiBob$field copyWith({String? value}) =>
+      QueryHiBob$field(value: value == null ? this.value : value);
 }
