@@ -48,6 +48,7 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
                   .toList() ??
               [],
       generatedFileHeader: json['generatedFileHeader'] as String? ?? '',
+      includeIfNullOnInput: json['includeIfNullOnInput'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -62,6 +63,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'scopes': instance.scopes,
       'addTypenameExcludedPaths': instance.addTypenameExcludedPaths,
       'generatedFileHeader': instance.generatedFileHeader,
+      'includeIfNullOnInput': instance.includeIfNullOnInput,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {

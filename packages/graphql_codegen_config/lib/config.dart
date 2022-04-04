@@ -46,8 +46,12 @@ class GraphQLCodegenConfig extends JsonSerializable {
 
   @JsonKey(defaultValue: const [])
   final List<String> addTypenameExcludedPaths;
+
   @JsonKey(defaultValue: "")
   final String generatedFileHeader;
+
+  @JsonKey(defaultValue: true)
+  final bool includeIfNullOnInput;
 
   GraphQLCodegenConfig({
     this.clients = const {},
@@ -57,6 +61,7 @@ class GraphQLCodegenConfig extends JsonSerializable {
     this.scopes = const ["**.graphql"],
     this.addTypenameExcludedPaths = const [],
     this.generatedFileHeader = "",
+    this.includeIfNullOnInput = true,
   });
 
   @override

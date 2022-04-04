@@ -1,3 +1,7 @@
+# 0.2.3
+
+* Add `includeIfNullOnInput` flag
+
 # 0.2.2
 
 * Support scopes
