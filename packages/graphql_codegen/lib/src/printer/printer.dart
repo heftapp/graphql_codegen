@@ -31,19 +31,22 @@ Spec printEnum(PrintContext<ContextEnum> context) {
   );
 }
 
-Spec printInput(PrintContext<ContextInput> context) => _printClass(
+Spec printInput(PrintContext<ContextInput> context) => _printInputClass(
       context,
       printClassName(context.context.path),
       context.context.properties,
     );
 
-Expression printJsonSerializableAnnotation() =>
+Expression printJsonSerializableAnnotation([bool skipNulls = false]) =>
     _JSON_SERIALIZABLE_BASE_CLASS.call(
       [],
-      {"explicitToJson": literalTrue},
+      {
+        "explicitToJson": literalTrue,
+        if (skipNulls) "includeIfNull": literalFalse,
+      },
     );
 
-Spec _printClass(
+Spec _printInputClass(
   PrintContext context,
   String name,
   Iterable<ContextProperty> properties,
@@ -52,7 +55,11 @@ Spec _printClass(
   context.markAsJsonSerializable();
   return Class(
     (b) => b
-      ..annotations = ListBuilder([printJsonSerializableAnnotation()])
+      ..annotations = ListBuilder([
+        printJsonSerializableAnnotation(
+          !context.context.config.includeIfNullOnInput,
+        )
+      ])
       ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..name = name
       ..constructors = ListBuilder([
@@ -191,7 +198,7 @@ Expression printPropertyHash(TypeNode type, Expression name) {
   throw StateError("Unsupported type node");
 }
 
-Spec printVariables(PrintContext context) => _printClass(
+Spec printVariables(PrintContext context) => _printInputClass(
       context,
       printVariableClassName(context.context.path),
       context.context.variables,

@@ -488,3 +488,19 @@ subscription Foo {
   __typename
 }
 ```
+
+## Strip `null` from input serializers
+
+Some APIs don't allow input fields with a `null` value but prefer to have no field provided, e.g.,:
+
+```json
+{ "foo": null, "bar": "Hello" } // Will fail
+{ "bar": "Hello" } // Is preferred
+```
+
+You can strip null values for all input serializers (variables and inputs) with the option
+
+```yaml
+includeIfNullOnInput: false
+```
+

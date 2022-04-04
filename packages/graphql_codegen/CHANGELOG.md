@@ -1,3 +1,8 @@
+# 0.7.0-beta.12
+
+* Feat: Support not including null values on input serializers
+
+
 # 0.7.0-beta.11
 
 * Feat: Add utility extension containing `copyWith` method.
