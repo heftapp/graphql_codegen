@@ -1,0 +1,12 @@
+input Input {
+    field: String
+    flag: Boolean
+}
+
+type Query {
+    field(input: Input): String
+}
+
+query Q1($input: Input) {
+    field(input: $input)
+}
