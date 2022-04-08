@@ -1,3 +1,27 @@
+# 0.7.0
+
+* Feat: Support not including null values on input serializers
+* Feat: Add utility extension containing `copyWith` method.
+* Fix: Explicity call `toJson`.
+* Fix: Import nested fragments and create DocumentNode for fragments
+* Fix: Bad naming of variable
+* Fix: Don't generate cache methods for nested fragments
+* Generate fragment variables
+* Generate cache write/read methods
+* Make fragments concrete classes
+* Improve type accuracy on interfaces
+* Support scopes for multiple schemas
+* Upgrade dependencies (Including analyzer!)
+* Add `==` operator and `hashCode` getter on all `JSONSerializable` classes.
+* Improve scalar converters
+* Improve hook options
+* Change property naming scheme
+* Rename classes. Remove `GQL` and `GQLF` prefixes.
+* Feat: Build hooks!
+* Fix: Mover `parserFn` externally
+* Fix: Fresh referene on `onCompleted`.
+
+
 # 0.7.0-beta.12
 
 * Feat: Support not including null values on input serializers

@@ -259,7 +259,7 @@ packages:
       name: graphql
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.2-beta.6"
+    version: "5.1.0"
   graphql_codegen_config:
     dependency: "direct main"
     description:
@@ -280,7 +280,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.1.0"
   html:
     dependency: transitive
     description:
