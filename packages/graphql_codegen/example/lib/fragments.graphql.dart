@@ -228,7 +228,7 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
   void writeFragmentPersonSummary(
           {required FragmentPersonSummary data,
           required Map<String, dynamic> idFields,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
@@ -238,7 +238,7 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   FragmentPersonSummary? readFragmentPersonSummary(
-      {required Map<String, dynamic> idFields, optimistic = true}) {
+      {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
@@ -366,7 +366,7 @@ extension ClientExtensionFragmentPersonParent on graphql.GraphQLClient {
   void writeFragmentPersonParent(
           {required FragmentPersonParent data,
           required Map<String, dynamic> idFields,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
@@ -376,7 +376,7 @@ extension ClientExtensionFragmentPersonParent on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   FragmentPersonParent? readFragmentPersonParent(
-      {required Map<String, dynamic> idFields, optimistic = true}) {
+      {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,

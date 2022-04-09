@@ -2,7 +2,7 @@ import 'package:graphql/client.dart';
 
 import 'main.graphql.dart';
 
-main() async {
+void main() async {
   final client = GraphQLClient(
     link: HttpLink("https://example.com"),
     cache: GraphQLCache(store: InMemoryStore()),

@@ -230,7 +230,7 @@ extension ClientExtensionQueryFetchPerson on graphql.GraphQLClient {
   void writeQueryFetchPerson(
           {required QueryFetchPerson data,
           required VariablesQueryFetchPerson variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation: graphql.Operation(document: QUERY_FETCH_PERSON),
@@ -238,7 +238,7 @@ extension ClientExtensionQueryFetchPerson on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   QueryFetchPerson? readQueryFetchPerson(
-      {required VariablesQueryFetchPerson variables, optimistic = true}) {
+      {required VariablesQueryFetchPerson variables, bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_PERSON),
@@ -996,7 +996,7 @@ class OptionsMutationUpdatePerson
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdatePerson? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdatePerson>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -1101,7 +1101,7 @@ class WidgetOptionsMutationUpdatePerson
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdatePerson? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdatePerson>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(

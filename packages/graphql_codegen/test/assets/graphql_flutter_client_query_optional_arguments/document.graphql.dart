@@ -171,7 +171,7 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   void writeQueryFetchSOptional(
           {required QueryFetchSOptional data,
           VariablesQueryFetchSOptional? variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
@@ -179,7 +179,7 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   QueryFetchSOptional? readQueryFetchSOptional(
-      {VariablesQueryFetchSOptional? variables, optimistic = true}) {
+      {VariablesQueryFetchSOptional? variables, bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),

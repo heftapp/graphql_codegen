@@ -63,7 +63,7 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
   void writeFragmentNoVariables(
           {required FragmentNoVariables data,
           required Map<String, dynamic> idFields,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
@@ -73,7 +73,7 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   FragmentNoVariables? readFragmentNoVariables(
-      {required Map<String, dynamic> idFields, optimistic = true}) {
+      {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
@@ -179,7 +179,7 @@ extension ClientExtensionFragmentWithOptionalVariables
           {required FragmentWithOptionalVariables data,
           required Map<String, dynamic> idFields,
           VariablesFragmentWithOptionalVariables? variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
@@ -192,7 +192,7 @@ extension ClientExtensionFragmentWithOptionalVariables
   FragmentWithOptionalVariables? readFragmentWithOptionalVariables(
       {required Map<String, dynamic> idFields,
       VariablesFragmentWithOptionalVariables? variables,
-      optimistic = true}) {
+      bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
@@ -298,7 +298,7 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
           {required FragmentWithVariables data,
           required Map<String, dynamic> idFields,
           required VariablesFragmentWithVariables variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
@@ -311,7 +311,7 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
   FragmentWithVariables? readFragmentWithVariables(
       {required Map<String, dynamic> idFields,
       required VariablesFragmentWithVariables variables,
-      optimistic = true}) {
+      bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
@@ -490,7 +490,7 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
   void writeQueryFetchSOptional(
           {required QueryFetchSOptional data,
           VariablesQueryFetchSOptional? variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
@@ -498,7 +498,7 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   QueryFetchSOptional? readQueryFetchSOptional(
-      {VariablesQueryFetchSOptional? variables, optimistic = true}) {
+      {VariablesQueryFetchSOptional? variables, bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_S_OPTIONAL),
@@ -674,7 +674,7 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
   void writeQueryFetchSRequired(
           {required QueryFetchSRequired data,
           required VariablesQueryFetchSRequired variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
@@ -682,7 +682,8 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   QueryFetchSRequired? readQueryFetchSRequired(
-      {required VariablesQueryFetchSRequired variables, optimistic = true}) {
+      {required VariablesQueryFetchSRequired variables,
+      bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
@@ -813,14 +814,14 @@ extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
           [WatchOptionsQueryFetchSNoVariables? options]) =>
       this.watchQuery(options ?? WatchOptionsQueryFetchSNoVariables());
   void writeQueryFetchSNoVariables(
-          {required QueryFetchSNoVariables data, broadcast = true}) =>
+          {required QueryFetchSNoVariables data, bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation:
                   graphql.Operation(document: QUERY_FETCH_S_NO_VARIABLES)),
           data: data.toJson(),
           broadcast: broadcast);
-  QueryFetchSNoVariables? readQueryFetchSNoVariables({optimistic = true}) {
+  QueryFetchSNoVariables? readQueryFetchSNoVariables({bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_S_NO_VARIABLES)),
@@ -937,7 +938,7 @@ class OptionsMutationUpdateSOptional
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdateSOptional? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdateSOptional>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -1118,7 +1119,7 @@ class OptionsMutationUpdateSRequired
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdateSRequired? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdateSRequired>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -1261,7 +1262,7 @@ class OptionsMutationUpdateSNoVariables
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdateSNoVariables? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdateSNoVariables>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(

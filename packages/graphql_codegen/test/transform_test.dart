@@ -4,11 +4,11 @@ import 'package:graphql_codegen_config/config.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
-testTransform(GraphQLCodegenConfig config, String p1, String p2) => expect(
+void testTransform(GraphQLCodegenConfig config, String p1, String p2) => expect(
     printNode(transform(config, parseString(p1))),
     equals(printNode(parseString(p2))));
 
-main() {
+void main() {
   group("addTypename", () {
     test("will add typename", () {
       final config = GraphQLCodegenConfig();

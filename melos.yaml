@@ -4,7 +4,7 @@ packages:
   - packages/**
   
 scripts:
-  analyze: melos exec -- "dart analyze ."
+  analyze: melos exec -- "dart analyze --fatal-infos ."
   test_dart: melos exec --ignore=*example* --dir-exists=test -- "dart test"
   test_flutter: melos exec --scope=*example* --dir-exists=test -- "flutter test"
   build_dart:  melos exec --ignore=*example* -- "dart run build_runner build --delete-conflicting-outputs" 

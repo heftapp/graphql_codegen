@@ -171,7 +171,7 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
   void writeQueryFetchSRequired(
           {required QueryFetchSRequired data,
           required VariablesQueryFetchSRequired variables,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
@@ -179,7 +179,8 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   QueryFetchSRequired? readQueryFetchSRequired(
-      {required VariablesQueryFetchSRequired variables, optimistic = true}) {
+      {required VariablesQueryFetchSRequired variables,
+      bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),

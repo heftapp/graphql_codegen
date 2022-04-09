@@ -2,7 +2,7 @@ import 'package:graphql_codegen_example/fragments.graphql.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
-main() {
+void main() {
   group("Serialize fragments", () {
     test("Can serialize nested fragments", () {
       final fragment = FragmentPersonSummary(

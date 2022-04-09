@@ -114,7 +114,7 @@ class OptionsMutationUpdateSRequired
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdateSRequired? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdateSRequired>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -223,7 +223,7 @@ class WidgetOptionsMutationUpdateSRequired
       Object? optimisticResult,
       graphql.Context? context,
       OnMutationCompletedMutationUpdateSRequired? onCompleted,
-      graphql.OnMutationUpdate? update,
+      graphql.OnMutationUpdate<MutationUpdateSRequired>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
