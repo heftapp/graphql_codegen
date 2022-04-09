@@ -126,14 +126,14 @@ extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
           [WatchOptionsQueryFetchSNoVariables? options]) =>
       this.watchQuery(options ?? WatchOptionsQueryFetchSNoVariables());
   void writeQueryFetchSNoVariables(
-          {required QueryFetchSNoVariables data, broadcast = true}) =>
+          {required QueryFetchSNoVariables data, bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
               operation:
                   graphql.Operation(document: QUERY_FETCH_S_NO_VARIABLES)),
           data: data.toJson(),
           broadcast: broadcast);
-  QueryFetchSNoVariables? readQueryFetchSNoVariables({optimistic = true}) {
+  QueryFetchSNoVariables? readQueryFetchSNoVariables({bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(document: QUERY_FETCH_S_NO_VARIABLES)),

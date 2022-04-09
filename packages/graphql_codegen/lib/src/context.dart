@@ -4,7 +4,8 @@ import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen_config/config.dart';
 
-class ContextFragment<TKey> extends Context<TKey, TypeDefinitionNode> {
+class ContextFragment<TKey extends Object>
+    extends Context<TKey, TypeDefinitionNode> {
   final FragmentDefinitionNode? fragment;
   final Name path;
 
@@ -126,7 +127,7 @@ const _INTROSPECTION_FIELDS = const <FieldDefinitionNode>[
   ),
 ];
 
-class Schema<TKey> {
+class Schema<TKey extends Object> {
   final BuiltMap<TKey, DocumentNode> entries;
   Iterable<DefinitionNode>? _cachedDefinitions;
   Map<String, TypeDefinitionNode>? _cachedTypeDefinitionsMap;
@@ -388,7 +389,7 @@ class TypedName {
   TypedName(this.name, this.type);
 }
 
-abstract class Context<TKey, TType extends TypeDefinitionNode> {
+abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   Context({
     required this.key,
     required this.config,
@@ -595,7 +596,8 @@ abstract class Context<TKey, TType extends TypeDefinitionNode> {
   Iterable<TypedName> get possibleTypes => _possibleTypeNames.values;
 }
 
-class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
+class ContextRoot<TKey extends Object>
+    extends Context<TKey, TypeDefinitionNode> {
   ContextRoot({
     required TKey key,
     required GraphQLCodegenConfig config,
@@ -656,7 +658,8 @@ class ContextRoot<TKey> extends Context<TKey, TypeDefinitionNode> {
   }
 }
 
-class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
+class ContextEnum<TKey extends Object>
+    extends Context<TKey, EnumTypeDefinitionNode> {
   final Name path;
   ContextEnum({
     required TKey key,
@@ -672,7 +675,8 @@ class ContextEnum<TKey> extends Context<TKey, EnumTypeDefinitionNode> {
         );
 }
 
-class ContextInput<TKey> extends Context<TKey, InputObjectTypeDefinitionNode> {
+class ContextInput<TKey extends Object>
+    extends Context<TKey, InputObjectTypeDefinitionNode> {
   final Name path;
   ContextInput({
     required TKey key,
@@ -688,7 +692,8 @@ class ContextInput<TKey> extends Context<TKey, InputObjectTypeDefinitionNode> {
         );
 }
 
-class ContextOperation<TKey> extends Context<TKey, TypeDefinitionNode> {
+class ContextOperation<TKey extends Object>
+    extends Context<TKey, TypeDefinitionNode> {
   final Name path;
   ContextOperation({
     required TKey key,

@@ -86,36 +86,36 @@ class PrintContext<TContext extends Context> {
 
   Name get path => context.path;
 
-  markAsJsonSerializable() {
+  void markAsJsonSerializable() {
     _jsonSerializable.value = true;
   }
 
-  addDependency(Name name) {
+  void addDependency(Name name) {
     final lookupPath =
         context.schema.lookupPathFromName(name.baseNameSegment.name);
     if (lookupPath == null) return;
     _dependencies.add(lookupPath);
   }
 
-  addDependencies(Iterable<Name> names) {
+  void addDependencies(Iterable<Name> names) {
     for (final name in names) {
       addDependency(name);
     }
   }
 
-  addPackage(String import, [String? alias]) {
+  void addPackage(String import, [String? alias]) {
     _packages.add(_Package(import, alias));
   }
 
-  addConverters(Map<String, Spec> converters) {
+  void addConverters(Map<String, Spec> converters) {
     _converters.addAll(converters);
   }
 
-  markScalarAsBad(String name) {
+  void markScalarAsBad(String name) {
     _badScalars.add(name);
   }
 
-  printWarnings() {
+  void printWarnings() {
     for (final scalar in _badScalars) {
       print("Missing scalar ${scalar}. Defaulting to String");
     }

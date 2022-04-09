@@ -28,7 +28,9 @@ void main() {
         }
       }
       """;
-      final parsed = QueryFetchPerson.fromJson(jsonDecode(json));
+      final parsed = QueryFetchPerson.fromJson(
+        jsonDecode(json) as Map<String, dynamic>,
+      );
       expect(
         parsed,
         equals(

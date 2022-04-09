@@ -8,7 +8,6 @@ import 'package:graphql_codegen/src/printer/clients/graphql.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql_flutter.dart';
 import 'package:graphql_codegen/src/context.dart';
 import 'package:gql_code_builder/src/ast.dart' as gql_builder;
-import 'package:path/path.dart';
 
 import 'context.dart';
 import 'utils.dart';
@@ -255,7 +254,8 @@ Spec printFragmentDefinition(
   );
 }
 
-Library printRootContext<TKey>(PrintContext<ContextRoot<TKey>> c) {
+Library printRootContext<TKey extends Object>(
+    PrintContext<ContextRoot<TKey>> c) {
   final context = c.context;
   final clients = context.config.clients;
   final body = ListBuilder<Spec>([

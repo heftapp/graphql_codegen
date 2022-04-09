@@ -26,7 +26,7 @@ class GraphQLBuilder extends Builder {
             jsonEncode(
               options.config,
             ),
-          ),
+          ) as Map<String, dynamic>,
         );
 
   @override

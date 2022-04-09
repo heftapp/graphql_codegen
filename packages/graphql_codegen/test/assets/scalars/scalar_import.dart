@@ -2,6 +2,6 @@ import 'fobbob.dart';
 
 export 'fobbob.dart' show Fobbob;
 
-fobbobFromJson(dynamic) => Fobbob();
+Fobbob? fobbobFromJson(dynamic) => Fobbob();
 
-fobbobToJson(Fobbob) => 1337;
+dynamic fobbobToJson(Fobbob) => 1337;

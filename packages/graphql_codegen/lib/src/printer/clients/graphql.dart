@@ -263,6 +263,7 @@ Parameter printOptionsParameter(
   String symbol, {
   bool isRequired = false,
   Code? defaultTo,
+  List<Reference> types = const [],
 }) =>
     Parameter(
       (b) => b
@@ -273,7 +274,8 @@ Parameter printOptionsParameter(
         ..type = TypeReference(
           (b) => b
             ..isNullable = !isRequired && defaultTo == null
-            ..symbol = symbol,
+            ..symbol = symbol
+            ..types = ListBuilder(types),
         ),
     );
 
@@ -387,6 +389,7 @@ Spec printMutationOptions(
                   printOptionsParameter(
                     'update',
                     'graphql.OnMutationUpdate',
+                    types: [refer(printClassName(context.path))],
                   ),
                   printOptionsParameter(
                     'onError',
@@ -739,6 +742,7 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                   ..name = 'broadcast'
                   ..named = true
                   ..required = false
+                  ..type = refer('bool')
                   ..defaultTo = literalTrue.code,
               ),
             ])
@@ -775,6 +779,7 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                   ..name = 'optimistic'
                   ..named = true
                   ..required = false
+                  ..type = refer('bool')
                   ..defaultTo = literalTrue.code,
               ),
             ])
@@ -874,6 +879,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
                   ..name = 'broadcast'
                   ..named = true
                   ..required = false
+                  ..type = refer('bool')
                   ..defaultTo = literalTrue.code,
               ),
             ])
@@ -899,6 +905,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
                   ..name = 'optimistic'
                   ..named = true
                   ..required = false
+                  ..type = refer('bool')
                   ..defaultTo = literalTrue.code,
               ),
             ])

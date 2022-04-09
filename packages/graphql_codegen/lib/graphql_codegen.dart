@@ -11,7 +11,7 @@ import 'package:graphql_codegen/src/visitor/context_visitor.dart';
 
 export 'src/errors.dart';
 
-Library _generateDocument<TKey>(
+Library _generateDocument<TKey extends Object>(
   Schema<TKey> schema,
   DocumentNode entry,
   TKey key,
@@ -42,7 +42,7 @@ class SchemaConfig<TKey> {
 }
 
 /// Result of code generation.
-class GenerateResult<TKey> {
+class GenerateResult<TKey extends Object> {
   /// Generated libraries
   final BuiltMap<TKey, Library> entries;
 
@@ -52,7 +52,7 @@ class GenerateResult<TKey> {
 
 /// This is where the magic happens! It generates
 /// programs from GraphQL documents.
-FutureOr<GenerateResult<TKey>> generate<TKey>(
+FutureOr<GenerateResult<TKey>> generate<TKey extends Object>(
   /// Schema containing a mapping from TKey to graphql documents
   SchemaConfig<TKey> schemaConfig,
 

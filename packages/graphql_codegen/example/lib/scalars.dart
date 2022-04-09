@@ -3,5 +3,5 @@ String dateTimeToJson(DateTime data) {
 }
 
 DateTime dateTimeFromJson(dynamic data) {
-  return DateTime.parse(data);
+  return DateTime.parse(data as String);
 }

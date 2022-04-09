@@ -51,7 +51,8 @@ void main() {
                 );
         final options = optionsFile == null
             ? BuilderOptions.empty
-            : BuilderOptions(jsonDecode(optionsFile.value));
+            : BuilderOptions(
+                jsonDecode(optionsFile.value) as Map<String, dynamic>);
         final writer = InMemoryAssetWriter();
         try {
           await testBuilder(

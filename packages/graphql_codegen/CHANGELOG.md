@@ -1,3 +1,7 @@
+# 0.7.1
+
+* Stricten the analysis: Gotta get them points.
+
 # 0.7.0
 
 * Feat: Support not including null values on input serializers

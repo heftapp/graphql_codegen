@@ -73,7 +73,7 @@ extension ClientExtensionFragmentF2 on graphql.GraphQLClient {
   void writeFragmentF2(
           {required FragmentF2 data,
           required Map<String, dynamic> idFields,
-          broadcast = true}) =>
+          bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
@@ -82,7 +82,7 @@ extension ClientExtensionFragmentF2 on graphql.GraphQLClient {
           data: data.toJson(),
           broadcast: broadcast);
   FragmentF2? readFragmentF2(
-      {required Map<String, dynamic> idFields, optimistic = true}) {
+      {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
