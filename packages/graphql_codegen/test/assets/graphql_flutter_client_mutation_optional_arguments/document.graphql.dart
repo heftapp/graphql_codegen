@@ -7,7 +7,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesMutationUpdateSOptional extends JsonSerializable {
+class VariablesMutationUpdateSOptional {
   VariablesMutationUpdateSOptional({this.name});
 
   @override
@@ -17,7 +17,6 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesMutationUpdateSOptionalToJson(this);
   int get hashCode {
@@ -38,7 +37,7 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdateSOptional extends JsonSerializable {
+class MutationUpdateSOptional {
   MutationUpdateSOptional({this.s});
 
   @override
@@ -47,7 +46,6 @@ class MutationUpdateSOptional extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$MutationUpdateSOptionalToJson(this);
   int get hashCode {
     final l$s = s;

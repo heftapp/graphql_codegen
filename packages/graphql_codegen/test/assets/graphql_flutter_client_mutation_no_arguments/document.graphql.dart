@@ -7,7 +7,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdateSNo extends JsonSerializable {
+class MutationUpdateSNo {
   MutationUpdateSNo({this.s});
 
   @override
@@ -16,7 +16,6 @@ class MutationUpdateSNo extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$MutationUpdateSNoToJson(this);
   int get hashCode {
     final l$s = s;

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'a.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchName extends JsonSerializable {
+class QueryFetchName {
   QueryFetchName({this.name});
 
   @override
@@ -13,7 +13,6 @@ class QueryFetchName extends JsonSerializable {
 
   final QueryFetchName$name? name;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchNameToJson(this);
   int get hashCode {
     final l$name = name;
@@ -57,7 +56,7 @@ const QUERY_FETCH_NAME = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchName$name extends JsonSerializable implements FragmentF {
+class QueryFetchName$name implements FragmentF {
   QueryFetchName$name({required this.name});
 
   @override
@@ -66,7 +65,6 @@ class QueryFetchName$name extends JsonSerializable implements FragmentF {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchName$nameToJson(this);
   int get hashCode {
     final l$name = name;

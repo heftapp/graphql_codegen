@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1 extends JsonSerializable {
+class FragmentF1 {
   FragmentF1({this.name, this.field, required this.$__typename});
 
   @override
@@ -19,7 +19,6 @@ class FragmentF1 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF1ToJson(this);
   int get hashCode {
     final l$name = name;
@@ -120,7 +119,7 @@ extension ClientExtensionFragmentF1 on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1$field extends JsonSerializable implements FragmentF2 {
+class FragmentF1$field implements FragmentF2 {
   FragmentF1$field({this.name, required this.$__typename});
 
   @override
@@ -132,7 +131,6 @@ class FragmentF1$field extends JsonSerializable implements FragmentF2 {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF1$fieldToJson(this);
   int get hashCode {
     final l$name = name;

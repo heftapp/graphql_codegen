@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentFragmentA extends JsonSerializable {
+class FragmentFragmentA {
   FragmentFragmentA({this.s, this.$_s});
 
   @override
@@ -15,7 +15,6 @@ class FragmentFragmentA extends JsonSerializable {
   @JsonKey(name: '_s')
   final String? $_s;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentFragmentAToJson(this);
   int get hashCode {
     final l$s = s;
@@ -70,7 +69,7 @@ const FRAGMENT_FRAGMENT_A = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentFragmentB extends JsonSerializable {
+class FragmentFragmentB {
   FragmentFragmentB({this.i});
 
   @override
@@ -79,7 +78,6 @@ class FragmentFragmentB extends JsonSerializable {
 
   final int? i;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentFragmentBToJson(this);
   int get hashCode {
     final l$i = i;
@@ -122,7 +120,7 @@ const FRAGMENT_FRAGMENT_B = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchImplementations extends JsonSerializable {
+class QueryFetchImplementations {
   QueryFetchImplementations({this.$interface});
 
   @override
@@ -132,7 +130,6 @@ class QueryFetchImplementations extends JsonSerializable {
   @JsonKey(name: 'interface')
   final QueryFetchImplementations$interface? $interface;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchImplementationsToJson(this);
   int get hashCode {
     final l$$interface = $interface;
@@ -234,7 +231,7 @@ const QUERY_FETCH_IMPLEMENTATIONS = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchImplementations$interface extends JsonSerializable {
+class QueryFetchImplementations$interface {
   QueryFetchImplementations$interface(
       {required this.typename, this.b, required this.self});
 
@@ -259,7 +256,6 @@ class QueryFetchImplementations$interface extends JsonSerializable {
 
   final QueryFetchImplementations$interface$self self;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interfaceToJson(this);
   int get hashCode {
@@ -300,7 +296,7 @@ extension UtilityExtensionQueryFetchImplementations$interface
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchImplementations$interface$self extends JsonSerializable {
+class QueryFetchImplementations$interface$self {
   QueryFetchImplementations$interface$self({required this.$__typename});
 
   @override
@@ -321,7 +317,6 @@ class QueryFetchImplementations$interface$self extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$selfToJson(this);
   int get hashCode {
@@ -350,7 +345,6 @@ extension UtilityExtensionQueryFetchImplementations$interface$self
 
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self$ImplementationA
-    extends JsonSerializable
     implements FragmentFragmentA, QueryFetchImplementations$interface$self {
   QueryFetchImplementations$interface$self$ImplementationA(
       {required this.$__typename, this.s, this.$_s});
@@ -368,7 +362,6 @@ class QueryFetchImplementations$interface$self$ImplementationA
   @JsonKey(name: '_s')
   final String? $_s;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$self$ImplementationAToJson(this);
   int get hashCode {
@@ -410,7 +403,6 @@ extension UtilityExtensionQueryFetchImplementations$interface$self$Implementatio
 
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$self$ImplementationB
-    extends JsonSerializable
     implements FragmentFragmentB, QueryFetchImplementations$interface$self {
   QueryFetchImplementations$interface$self$ImplementationB(
       {required this.$__typename, this.i});
@@ -425,7 +417,6 @@ class QueryFetchImplementations$interface$self$ImplementationB
 
   final int? i;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$self$ImplementationBToJson(this);
   int get hashCode {
@@ -460,7 +451,6 @@ extension UtilityExtensionQueryFetchImplementations$interface$self$Implementatio
 
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$ImplementationA
-    extends JsonSerializable
     implements FragmentFragmentA, QueryFetchImplementations$interface {
   QueryFetchImplementations$interface$ImplementationA(
       {required this.typename, this.b, required this.self, this.s, this.$_s});
@@ -481,7 +471,6 @@ class QueryFetchImplementations$interface$ImplementationA
   @JsonKey(name: '_s')
   final String? $_s;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$ImplementationAToJson(this);
   int get hashCode {
@@ -535,7 +524,6 @@ extension UtilityExtensionQueryFetchImplementations$interface$ImplementationA
 
 @JsonSerializable(explicitToJson: true)
 class QueryFetchImplementations$interface$ImplementationB
-    extends JsonSerializable
     implements FragmentFragmentB, QueryFetchImplementations$interface {
   QueryFetchImplementations$interface$ImplementationB(
       {required this.typename, this.b, required this.self, this.i});
@@ -553,7 +541,6 @@ class QueryFetchImplementations$interface$ImplementationB
 
   final int? i;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchImplementations$interface$ImplementationBToJson(this);
   int get hashCode {

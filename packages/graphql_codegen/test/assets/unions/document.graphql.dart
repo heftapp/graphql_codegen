@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ extends JsonSerializable {
+class QueryQ {
   QueryQ({this.u});
 
   @override
@@ -11,7 +11,6 @@ class QueryQ extends JsonSerializable {
 
   final QueryQ$u? u;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
   int get hashCode {
     final l$u = u;
@@ -84,7 +83,7 @@ const QUERY_Q = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$u extends JsonSerializable {
+class QueryQ$u {
   QueryQ$u({required this.$__typename});
 
   @override
@@ -102,7 +101,6 @@ class QueryQ$u extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ$uToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
@@ -126,7 +124,7 @@ extension UtilityExtensionQueryQ$u on QueryQ$u {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
+class QueryQ$u$Ta implements QueryQ$u {
   QueryQ$u$Ta({required this.$__typename, this.name});
 
   @override
@@ -138,7 +136,6 @@ class QueryQ$u$Ta extends JsonSerializable implements QueryQ$u {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ$u$TaToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
@@ -169,7 +166,7 @@ extension UtilityExtensionQueryQ$u$Ta on QueryQ$u$Ta {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$u$Tb extends JsonSerializable implements QueryQ$u {
+class QueryQ$u$Tb implements QueryQ$u {
   QueryQ$u$Tb({required this.$__typename, this.velocity});
 
   @override
@@ -181,7 +178,6 @@ class QueryQ$u$Tb extends JsonSerializable implements QueryQ$u {
 
   final int? velocity;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ$u$TbToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document2.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1 extends JsonSerializable {
+class FragmentF1 {
   FragmentF1({this.name});
 
   @override
@@ -13,7 +13,6 @@ class FragmentF1 extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF1ToJson(this);
   int get hashCode {
     final l$name = name;
@@ -55,7 +54,7 @@ const FRAGMENT_F1 = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ extends JsonSerializable {
+class QueryQ {
   QueryQ({this.t});
 
   @override
@@ -63,7 +62,6 @@ class QueryQ extends JsonSerializable {
 
   final QueryQ$t? t;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
   int get hashCode {
     final l$t = t;
@@ -108,7 +106,7 @@ const QUERY_Q = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$t extends JsonSerializable implements FragmentF1 {
+class QueryQ$t implements FragmentF1 {
   QueryQ$t({this.name});
 
   @override
@@ -117,7 +115,6 @@ class QueryQ$t extends JsonSerializable implements FragmentF1 {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ$tToJson(this);
   int get hashCode {
     final l$name = name;

@@ -1,3 +1,7 @@
+# 0.7.2
+
+* Remove useless extend of `JsonSerializable`
+
 # 0.7.1
 
 * Stricten the analysis: Gotta get them points.

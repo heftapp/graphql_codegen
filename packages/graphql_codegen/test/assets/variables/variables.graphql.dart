@@ -4,7 +4,7 @@ import 'schema.graphql.dart';
 part 'variables.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryHiBob extends JsonSerializable {
+class VariablesQueryHiBob {
   VariablesQueryHiBob({required this.i});
 
   @override
@@ -13,7 +13,6 @@ class VariablesQueryHiBob extends JsonSerializable {
 
   final InputI1 i;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesQueryHiBobToJson(this);
   int get hashCode {
     final l$i = i;
@@ -33,7 +32,7 @@ class VariablesQueryHiBob extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryHiBob extends JsonSerializable {
+class QueryHiBob {
   QueryHiBob({this.field});
 
   @override
@@ -42,7 +41,6 @@ class QueryHiBob extends JsonSerializable {
 
   final QueryHiBob$field? field;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryHiBobToJson(this);
   int get hashCode {
     final l$field = field;
@@ -103,7 +101,7 @@ const QUERY_HI_BOB = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryHiBob$field extends JsonSerializable {
+class QueryHiBob$field {
   QueryHiBob$field({required this.value});
 
   @override
@@ -112,7 +110,6 @@ class QueryHiBob$field extends JsonSerializable {
 
   final String value;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryHiBob$fieldToJson(this);
   int get hashCode {
     final l$value = value;

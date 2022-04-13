@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI extends JsonSerializable {
+class QueryFetchI {
   QueryFetchI({this.i1, required this.$__typename});
 
   @override
@@ -15,7 +15,6 @@ class QueryFetchI extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchIToJson(this);
   int get hashCode {
     final l$i1 = i1;
@@ -217,7 +216,7 @@ const QUERY_FETCH_I = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1 extends JsonSerializable {
+class QueryFetchI$i1 {
   QueryFetchI$i1({this.i2, required this.$__typename});
 
   @override
@@ -235,7 +234,6 @@ class QueryFetchI$i1 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1ToJson(this);
   int get hashCode {
     final l$i2 = i2;
@@ -267,7 +265,7 @@ extension UtilityExtensionQueryFetchI$i1 on QueryFetchI$i1 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$i2 extends JsonSerializable {
+class QueryFetchI$i1$i2 {
   QueryFetchI$i1$i2({this.field, required this.$__typename});
 
   @override
@@ -279,7 +277,6 @@ class QueryFetchI$i1$i2 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$i2ToJson(this);
   int get hashCode {
     final l$field = field;
@@ -311,7 +308,7 @@ extension UtilityExtensionQueryFetchI$i1$i2 on QueryFetchI$i1$i2 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$i2$field extends JsonSerializable {
+class QueryFetchI$i1$i2$field {
   QueryFetchI$i1$i2$field({this.name, required this.$__typename});
 
   @override
@@ -323,7 +320,6 @@ class QueryFetchI$i1$i2$field extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$i2$fieldToJson(this);
   int get hashCode {
     final l$name = name;
@@ -355,7 +351,7 @@ extension UtilityExtensionQueryFetchI$i1$i2$field on QueryFetchI$i1$i2$field {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1 extends JsonSerializable implements QueryFetchI$i1 {
+class QueryFetchI$i1$T1 implements QueryFetchI$i1 {
   QueryFetchI$i1$T1({this.i2, required this.$__typename, this.i2c});
 
   @override
@@ -369,7 +365,6 @@ class QueryFetchI$i1$T1 extends JsonSerializable implements QueryFetchI$i1 {
 
   final QueryFetchI$i1$T1$i2c? i2c;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1ToJson(this);
   int get hashCode {
     final l$i2 = i2;
@@ -408,7 +403,7 @@ extension UtilityExtensionQueryFetchI$i1$T1 on QueryFetchI$i1$T1 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1$i2c extends JsonSerializable {
+class QueryFetchI$i1$T1$i2c {
   QueryFetchI$i1$T1$i2c({this.field, required this.$__typename});
 
   @override
@@ -420,7 +415,6 @@ class QueryFetchI$i1$T1$i2c extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1$i2cToJson(this);
   int get hashCode {
     final l$field = field;
@@ -453,7 +447,7 @@ extension UtilityExtensionQueryFetchI$i1$T1$i2c on QueryFetchI$i1$T1$i2c {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1$i2c$field extends JsonSerializable {
+class QueryFetchI$i1$T1$i2c$field {
   QueryFetchI$i1$T1$i2c$field({this.age, required this.$__typename});
 
   @override
@@ -465,7 +459,6 @@ class QueryFetchI$i1$T1$i2c$field extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1$i2c$fieldToJson(this);
   int get hashCode {
     final l$age = age;
@@ -498,8 +491,7 @@ extension UtilityExtensionQueryFetchI$i1$T1$i2c$field
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1$i2 extends JsonSerializable
-    implements QueryFetchI$i1$i2 {
+class QueryFetchI$i1$T1$i2 implements QueryFetchI$i1$i2 {
   QueryFetchI$i1$T1$i2({this.field, required this.$__typename});
 
   @override
@@ -517,7 +509,6 @@ class QueryFetchI$i1$T1$i2 extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1$i2ToJson(this);
   int get hashCode {
     final l$field = field;
@@ -550,8 +541,7 @@ extension UtilityExtensionQueryFetchI$i1$T1$i2 on QueryFetchI$i1$T1$i2 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1$i2$field extends JsonSerializable
-    implements QueryFetchI$i1$i2$field {
+class QueryFetchI$i1$T1$i2$field implements QueryFetchI$i1$i2$field {
   QueryFetchI$i1$T1$i2$field({this.name, required this.$__typename});
 
   @override
@@ -563,7 +553,6 @@ class QueryFetchI$i1$T1$i2$field extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1$i2$fieldToJson(this);
   int get hashCode {
     final l$name = name;
@@ -596,8 +585,7 @@ extension UtilityExtensionQueryFetchI$i1$T1$i2$field
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1$i2$T2 extends JsonSerializable
-    implements QueryFetchI$i1$T1$i2 {
+class QueryFetchI$i1$T1$i2$T2 implements QueryFetchI$i1$T1$i2 {
   QueryFetchI$i1$T1$i2$T2({this.field, required this.$__typename});
 
   @override
@@ -609,7 +597,6 @@ class QueryFetchI$i1$T1$i2$T2 extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1$i2$T2ToJson(this);
   int get hashCode {
     final l$field = field;
@@ -642,8 +629,7 @@ extension UtilityExtensionQueryFetchI$i1$T1$i2$T2 on QueryFetchI$i1$T1$i2$T2 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchI$i1$T1$i2$T2$field extends JsonSerializable
-    implements QueryFetchI$i1$T1$i2$field {
+class QueryFetchI$i1$T1$i2$T2$field implements QueryFetchI$i1$T1$i2$field {
   QueryFetchI$i1$T1$i2$T2$field(
       {this.name, required this.$__typename, this.age});
 
@@ -658,7 +644,6 @@ class QueryFetchI$i1$T1$i2$T2$field extends JsonSerializable
 
   final int? age;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchI$i1$T1$i2$T2$fieldToJson(this);
   int get hashCode {
     final l$name = name;

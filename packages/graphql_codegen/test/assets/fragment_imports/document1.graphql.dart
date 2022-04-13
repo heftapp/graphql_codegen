@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document1.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2 extends JsonSerializable {
+class FragmentF2 {
   FragmentF2({this.value});
 
   @override
@@ -12,7 +12,6 @@ class FragmentF2 extends JsonSerializable {
 
   final int? value;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF2ToJson(this);
   int get hashCode {
     final l$value = value;

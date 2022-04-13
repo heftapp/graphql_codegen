@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class InputI1 extends JsonSerializable {
+class InputI1 {
   InputI1({required this.s, this.nested});
 
   @override
@@ -13,7 +13,6 @@ class InputI1 extends JsonSerializable {
 
   final InputI1? nested;
 
-  @override
   Map<String, dynamic> toJson() => _$InputI1ToJson(this);
   int get hashCode {
     final l$s = s;

@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class InputInput extends JsonSerializable {
+class InputInput {
   InputInput({this.inputField});
 
   @override
@@ -12,7 +12,6 @@ class InputInput extends JsonSerializable {
 
   final bool? inputField;
 
-  @override
   Map<String, dynamic> toJson() => _$InputInputToJson(this);
   int get hashCode {
     final l$inputField = inputField;
@@ -32,7 +31,7 @@ class InputInput extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesFragmentF1 extends JsonSerializable {
+class VariablesFragmentF1 {
   VariablesFragmentF1({this.i, required this.name});
 
   @override
@@ -43,7 +42,6 @@ class VariablesFragmentF1 extends JsonSerializable {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesFragmentF1ToJson(this);
   int get hashCode {
     final l$i = i;
@@ -67,7 +65,7 @@ class VariablesFragmentF1 extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1 extends JsonSerializable {
+class FragmentF1 {
   FragmentF1({this.level1, required this.$__typename});
 
   @override
@@ -79,7 +77,6 @@ class FragmentF1 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF1ToJson(this);
   int get hashCode {
     final l$level1 = level1;
@@ -190,7 +187,7 @@ const FRAGMENT_F1 = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1$level1 extends JsonSerializable {
+class FragmentF1$level1 {
   FragmentF1$level1({this.level2, required this.$__typename});
 
   @override
@@ -202,7 +199,6 @@ class FragmentF1$level1 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF1$level1ToJson(this);
   int get hashCode {
     final l$level2 = level2;
@@ -235,7 +231,7 @@ extension UtilityExtensionFragmentF1$level1 on FragmentF1$level1 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1$level1$level2 extends JsonSerializable {
+class FragmentF1$level1$level2 {
   FragmentF1$level1$level2({this.level3, required this.$__typename});
 
   @override
@@ -247,7 +243,6 @@ class FragmentF1$level1$level2 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF1$level1$level2ToJson(this);
   int get hashCode {
     final l$level3 = level3;
@@ -280,7 +275,7 @@ extension UtilityExtensionFragmentF1$level1$level2 on FragmentF1$level1$level2 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1$level1$level2$level3 extends JsonSerializable {
+class FragmentF1$level1$level2$level3 {
   FragmentF1$level1$level2$level3({this.level4, required this.$__typename});
 
   @override
@@ -292,7 +287,6 @@ class FragmentF1$level1$level2$level3 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$FragmentF1$level1$level2$level3ToJson(this);
   int get hashCode {
@@ -326,7 +320,7 @@ extension UtilityExtensionFragmentF1$level1$level2$level3
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesFragmentF2 extends JsonSerializable {
+class VariablesFragmentF2 {
   VariablesFragmentF2({this.i, this.name});
 
   @override
@@ -337,7 +331,6 @@ class VariablesFragmentF2 extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesFragmentF2ToJson(this);
   int get hashCode {
     final l$i = i;
@@ -361,7 +354,7 @@ class VariablesFragmentF2 extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2 extends JsonSerializable {
+class FragmentF2 {
   FragmentF2({this.level1, required this.$__typename});
 
   @override
@@ -373,7 +366,6 @@ class FragmentF2 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF2ToJson(this);
   int get hashCode {
     final l$level1 = level1;
@@ -441,7 +433,7 @@ const FRAGMENT_F2 = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2$level1 extends JsonSerializable implements FragmentF21 {
+class FragmentF2$level1 implements FragmentF21 {
   FragmentF2$level1({this.level2, required this.$__typename});
 
   @override
@@ -453,7 +445,6 @@ class FragmentF2$level1 extends JsonSerializable implements FragmentF21 {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF2$level1ToJson(this);
   int get hashCode {
     final l$level2 = level2;
@@ -486,8 +477,7 @@ extension UtilityExtensionFragmentF2$level1 on FragmentF2$level1 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2$level1$level2 extends JsonSerializable
-    implements FragmentF21$level2 {
+class FragmentF2$level1$level2 implements FragmentF21$level2 {
   FragmentF2$level1$level2({this.level3, required this.$__typename});
 
   @override
@@ -499,7 +489,6 @@ class FragmentF2$level1$level2 extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF2$level1$level2ToJson(this);
   int get hashCode {
     final l$level3 = level3;
@@ -532,8 +521,7 @@ extension UtilityExtensionFragmentF2$level1$level2 on FragmentF2$level1$level2 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2$level1$level2$level3 extends JsonSerializable
-    implements FragmentF21$level2$level3 {
+class FragmentF2$level1$level2$level3 implements FragmentF21$level2$level3 {
   FragmentF2$level1$level2$level3({this.level4, required this.$__typename});
 
   @override
@@ -545,7 +533,6 @@ class FragmentF2$level1$level2$level3 extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$FragmentF2$level1$level2$level3ToJson(this);
   int get hashCode {
@@ -579,7 +566,7 @@ extension UtilityExtensionFragmentF2$level1$level2$level3
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesFragmentF21 extends JsonSerializable {
+class VariablesFragmentF21 {
   VariablesFragmentF21({this.i});
 
   @override
@@ -588,7 +575,6 @@ class VariablesFragmentF21 extends JsonSerializable {
 
   final bool? i;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesFragmentF21ToJson(this);
   int get hashCode {
     final l$i = i;
@@ -608,7 +594,7 @@ class VariablesFragmentF21 extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF21 extends JsonSerializable {
+class FragmentF21 {
   FragmentF21({this.level2, required this.$__typename});
 
   @override
@@ -620,7 +606,6 @@ class FragmentF21 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF21ToJson(this);
   int get hashCode {
     final l$level2 = level2;
@@ -713,7 +698,7 @@ const FRAGMENT_F21 = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF21$level2 extends JsonSerializable {
+class FragmentF21$level2 {
   FragmentF21$level2({this.level3, required this.$__typename});
 
   @override
@@ -725,7 +710,6 @@ class FragmentF21$level2 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF21$level2ToJson(this);
   int get hashCode {
     final l$level3 = level3;
@@ -758,7 +742,7 @@ extension UtilityExtensionFragmentF21$level2 on FragmentF21$level2 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF21$level2$level3 extends JsonSerializable {
+class FragmentF21$level2$level3 {
   FragmentF21$level2$level3({this.level4, required this.$__typename});
 
   @override
@@ -770,7 +754,6 @@ class FragmentF21$level2$level3 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF21$level2$level3ToJson(this);
   int get hashCode {
     final l$level4 = level4;

@@ -59,7 +59,6 @@ Spec _printInputClass(
           !context.context.config.includeIfNullOnInput,
         )
       ])
-      ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..name = name
       ..constructors = ListBuilder([
         Constructor(
@@ -430,7 +429,6 @@ Class printContext(PrintContext c) {
         if (extendContext != null) refer(printClassName(extendContext.path)),
       ])
       ..annotations = ListBuilder([printJsonSerializableAnnotation()])
-      ..extend = _JSON_SERIALIZABLE_BASE_CLASS
       ..constructors = ListBuilder([
         printConstructor(c, properties),
         printFromJson(
@@ -554,7 +552,6 @@ Code printPropertyEqualityCheck(
 
 Method printToJsonMethod(String name) => Method(
       (b) => b
-        ..annotations = ListBuilder([refer("override")])
         ..returns = dynamicMap
         ..name = "toJson"
         ..lambda = true

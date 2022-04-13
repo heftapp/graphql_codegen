@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF extends JsonSerializable {
+class FragmentF {
   FragmentF({required this.$__typename, this.name});
 
   @override
@@ -21,7 +21,6 @@ class FragmentF extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentFToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
@@ -99,7 +98,7 @@ const FRAGMENT_F = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF$T extends JsonSerializable implements FragmentF {
+class FragmentF$T implements FragmentF {
   FragmentF$T({required this.$__typename, this.name, this.t});
 
   @override
@@ -113,7 +112,6 @@ class FragmentF$T extends JsonSerializable implements FragmentF {
 
   final FragmentF$T$t? t;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF$TToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
@@ -152,7 +150,7 @@ extension UtilityExtensionFragmentF$T on FragmentF$T {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF$T$t extends JsonSerializable {
+class FragmentF$T$t {
   FragmentF$T$t({this.name});
 
   @override
@@ -161,7 +159,6 @@ class FragmentF$T$t extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentF$T$tToJson(this);
   int get hashCode {
     final l$name = name;
@@ -186,7 +183,7 @@ extension UtilityExtensionFragmentF$T$t on FragmentF$T$t {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ extends JsonSerializable {
+class QueryQ {
   QueryQ({this.t});
 
   @override
@@ -194,7 +191,6 @@ class QueryQ extends JsonSerializable {
 
   final QueryQ$t? t;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQToJson(this);
   int get hashCode {
     final l$t = t;
@@ -243,7 +239,7 @@ const QUERY_Q = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$t extends JsonSerializable implements FragmentF$T {
+class QueryQ$t implements FragmentF$T {
   QueryQ$t({required this.$__typename, this.name, this.t});
 
   @override
@@ -257,7 +253,6 @@ class QueryQ$t extends JsonSerializable implements FragmentF$T {
 
   final QueryQ$t$t? t;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ$tToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
@@ -295,7 +290,7 @@ extension UtilityExtensionQueryQ$t on QueryQ$t {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$t$t extends JsonSerializable implements FragmentF$T$t {
+class QueryQ$t$t implements FragmentF$T$t {
   QueryQ$t$t({this.name});
 
   @override
@@ -304,7 +299,6 @@ class QueryQ$t$t extends JsonSerializable implements FragmentF$T$t {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ$t$tToJson(this);
   int get hashCode {
     final l$name = name;

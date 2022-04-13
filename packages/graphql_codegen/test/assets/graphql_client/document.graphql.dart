@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentNoVariables extends JsonSerializable {
+class FragmentNoVariables {
   FragmentNoVariables({this.s});
 
   @override
@@ -14,7 +14,6 @@ class FragmentNoVariables extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentNoVariablesToJson(this);
   int get hashCode {
     final l$s = s;
@@ -85,7 +84,7 @@ extension ClientExtensionFragmentNoVariables on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesFragmentWithOptionalVariables extends JsonSerializable {
+class VariablesFragmentWithOptionalVariables {
   VariablesFragmentWithOptionalVariables({this.name});
 
   @override
@@ -95,7 +94,6 @@ class VariablesFragmentWithOptionalVariables extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesFragmentWithOptionalVariablesToJson(this);
   int get hashCode {
@@ -116,7 +114,7 @@ class VariablesFragmentWithOptionalVariables extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentWithOptionalVariables extends JsonSerializable {
+class FragmentWithOptionalVariables {
   FragmentWithOptionalVariables({this.s});
 
   @override
@@ -125,7 +123,6 @@ class FragmentWithOptionalVariables extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentWithOptionalVariablesToJson(this);
   int get hashCode {
     final l$s = s;
@@ -208,7 +205,7 @@ extension ClientExtensionFragmentWithOptionalVariables
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesFragmentWithVariables extends JsonSerializable {
+class VariablesFragmentWithVariables {
   VariablesFragmentWithVariables({required this.name});
 
   @override
@@ -217,7 +214,6 @@ class VariablesFragmentWithVariables extends JsonSerializable {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesFragmentWithVariablesToJson(this);
   int get hashCode {
     final l$name = name;
@@ -237,7 +233,7 @@ class VariablesFragmentWithVariables extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentWithVariables extends JsonSerializable {
+class FragmentWithVariables {
   FragmentWithVariables({this.s2});
 
   @override
@@ -246,7 +242,6 @@ class FragmentWithVariables extends JsonSerializable {
 
   final String? s2;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentWithVariablesToJson(this);
   int get hashCode {
     final l$s2 = s2;
@@ -325,7 +320,7 @@ extension ClientExtensionFragmentWithVariables on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryFetchSOptional extends JsonSerializable {
+class VariablesQueryFetchSOptional {
   VariablesQueryFetchSOptional({this.name});
 
   @override
@@ -334,7 +329,6 @@ class VariablesQueryFetchSOptional extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSOptionalToJson(this);
   int get hashCode {
     final l$name = name;
@@ -354,7 +348,7 @@ class VariablesQueryFetchSOptional extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchSOptional extends JsonSerializable {
+class QueryFetchSOptional {
   QueryFetchSOptional({this.s});
 
   @override
@@ -363,7 +357,6 @@ class QueryFetchSOptional extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchSOptionalToJson(this);
   int get hashCode {
     final l$s = s;
@@ -509,7 +502,7 @@ extension ClientExtensionQueryFetchSOptional on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryFetchSRequired extends JsonSerializable {
+class VariablesQueryFetchSRequired {
   VariablesQueryFetchSRequired({required this.name});
 
   @override
@@ -518,7 +511,6 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSRequiredToJson(this);
   int get hashCode {
     final l$name = name;
@@ -538,7 +530,7 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchSRequired extends JsonSerializable {
+class QueryFetchSRequired {
   QueryFetchSRequired({this.s});
 
   @override
@@ -547,7 +539,6 @@ class QueryFetchSRequired extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
   int get hashCode {
     final l$s = s;
@@ -694,7 +685,7 @@ extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchSNoVariables extends JsonSerializable {
+class QueryFetchSNoVariables {
   QueryFetchSNoVariables({this.s});
 
   @override
@@ -703,7 +694,6 @@ class QueryFetchSNoVariables extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchSNoVariablesToJson(this);
   int get hashCode {
     final l$s = s;
@@ -831,7 +821,7 @@ extension ClientExtensionQueryFetchSNoVariables on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesMutationUpdateSOptional extends JsonSerializable {
+class VariablesMutationUpdateSOptional {
   VariablesMutationUpdateSOptional({this.name});
 
   @override
@@ -841,7 +831,6 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesMutationUpdateSOptionalToJson(this);
   int get hashCode {
@@ -862,7 +851,7 @@ class VariablesMutationUpdateSOptional extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdateSOptional extends JsonSerializable {
+class MutationUpdateSOptional {
   MutationUpdateSOptional({this.s});
 
   @override
@@ -871,7 +860,6 @@ class MutationUpdateSOptional extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$MutationUpdateSOptionalToJson(this);
   int get hashCode {
     final l$s = s;
@@ -1012,7 +1000,7 @@ extension ClientExtensionMutationUpdateSOptional on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesMutationUpdateSRequired extends JsonSerializable {
+class VariablesMutationUpdateSRequired {
   VariablesMutationUpdateSRequired({required this.name});
 
   @override
@@ -1022,7 +1010,6 @@ class VariablesMutationUpdateSRequired extends JsonSerializable {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesMutationUpdateSRequiredToJson(this);
   int get hashCode {
@@ -1043,7 +1030,7 @@ class VariablesMutationUpdateSRequired extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdateSRequired extends JsonSerializable {
+class MutationUpdateSRequired {
   MutationUpdateSRequired({this.s});
 
   @override
@@ -1052,7 +1039,6 @@ class MutationUpdateSRequired extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$MutationUpdateSRequiredToJson(this);
   int get hashCode {
     final l$s = s;
@@ -1193,7 +1179,7 @@ extension ClientExtensionMutationUpdateSRequired on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdateSNoVariables extends JsonSerializable {
+class MutationUpdateSNoVariables {
   MutationUpdateSNoVariables({this.s});
 
   @override
@@ -1202,7 +1188,6 @@ class MutationUpdateSNoVariables extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$MutationUpdateSNoVariablesToJson(this);
   int get hashCode {
     final l$s = s;

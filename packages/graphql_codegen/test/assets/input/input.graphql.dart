@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'input.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class InputI1 extends JsonSerializable {
+class InputI1 {
   InputI1({required this.s, this.nested_input, this.$_min});
 
   @override
@@ -16,7 +16,6 @@ class InputI1 extends JsonSerializable {
   @JsonKey(name: '_min')
   final int? $_min;
 
-  @override
   Map<String, dynamic> toJson() => _$InputI1ToJson(this);
   int get hashCode {
     final l$s = s;

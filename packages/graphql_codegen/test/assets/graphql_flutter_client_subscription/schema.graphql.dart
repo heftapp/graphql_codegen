@@ -7,7 +7,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionNoArgs extends JsonSerializable {
+class SubscriptionNoArgs {
   SubscriptionNoArgs({this.listenForChange, required this.$__typename});
 
   @override
@@ -19,7 +19,6 @@ class SubscriptionNoArgs extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$SubscriptionNoArgsToJson(this);
   int get hashCode {
     final l$listenForChange = listenForChange;
@@ -172,7 +171,7 @@ class SubscriptionNoArgsWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionNoArgs$listenForChange extends JsonSerializable {
+class SubscriptionNoArgs$listenForChange {
   SubscriptionNoArgs$listenForChange(
       {required this.name, required this.$__typename});
 
@@ -186,7 +185,6 @@ class SubscriptionNoArgs$listenForChange extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionNoArgs$listenForChangeToJson(this);
   int get hashCode {
@@ -220,7 +218,7 @@ extension UtilityExtensionSubscriptionNoArgs$listenForChange
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesSubscriptionRequiredArg extends JsonSerializable {
+class VariablesSubscriptionRequiredArg {
   VariablesSubscriptionRequiredArg({required this.name});
 
   @override
@@ -230,7 +228,6 @@ class VariablesSubscriptionRequiredArg extends JsonSerializable {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesSubscriptionRequiredArgToJson(this);
   int get hashCode {
@@ -251,7 +248,7 @@ class VariablesSubscriptionRequiredArg extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionRequiredArg extends JsonSerializable {
+class SubscriptionRequiredArg {
   SubscriptionRequiredArg({this.listenForChange, required this.$__typename});
 
   @override
@@ -263,7 +260,6 @@ class SubscriptionRequiredArg extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$SubscriptionRequiredArgToJson(this);
   int get hashCode {
     final l$listenForChange = listenForChange;
@@ -438,7 +434,7 @@ class SubscriptionRequiredArgWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
+class SubscriptionRequiredArg$listenForChange {
   SubscriptionRequiredArg$listenForChange(
       {required this.name, required this.$__typename});
 
@@ -452,7 +448,6 @@ class SubscriptionRequiredArg$listenForChange extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionRequiredArg$listenForChangeToJson(this);
   int get hashCode {
@@ -486,7 +481,7 @@ extension UtilityExtensionSubscriptionRequiredArg$listenForChange
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesSubscriptionOptionalArg extends JsonSerializable {
+class VariablesSubscriptionOptionalArg {
   VariablesSubscriptionOptionalArg({this.name});
 
   @override
@@ -496,7 +491,6 @@ class VariablesSubscriptionOptionalArg extends JsonSerializable {
 
   final String? name;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesSubscriptionOptionalArgToJson(this);
   int get hashCode {
@@ -517,7 +511,7 @@ class VariablesSubscriptionOptionalArg extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionOptionalArg extends JsonSerializable {
+class SubscriptionOptionalArg {
   SubscriptionOptionalArg({this.listenForChange, required this.$__typename});
 
   @override
@@ -529,7 +523,6 @@ class SubscriptionOptionalArg extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$SubscriptionOptionalArgToJson(this);
   int get hashCode {
     final l$listenForChange = listenForChange;
@@ -704,7 +697,7 @@ class SubscriptionOptionalArgWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
+class SubscriptionOptionalArg$listenForChange {
   SubscriptionOptionalArg$listenForChange(
       {required this.name, required this.$__typename});
 
@@ -718,7 +711,6 @@ class SubscriptionOptionalArg$listenForChange extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionOptionalArg$listenForChangeToJson(this);
   int get hashCode {

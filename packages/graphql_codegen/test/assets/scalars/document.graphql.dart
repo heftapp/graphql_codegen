@@ -4,7 +4,7 @@ import 'scalar_import.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchScalars extends JsonSerializable {
+class QueryFetchScalars {
   QueryFetchScalars(
       {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});
 
@@ -30,7 +30,6 @@ class QueryFetchScalars extends JsonSerializable {
       toJson: _nullable$_list$_nullable$fobbobToJson)
   final List<Fobbob?>? c3s;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchScalarsToJson(this);
   int get hashCode {
     final l$i = i;

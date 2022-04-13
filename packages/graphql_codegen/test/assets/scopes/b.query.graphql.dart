@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'b.query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson extends JsonSerializable {
+class QueryFetchPerson {
   QueryFetchPerson({this.fetchPerson, required this.$__typename});
 
   @override
@@ -16,7 +16,6 @@ class QueryFetchPerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchPersonToJson(this);
   int get hashCode {
     final l$fetchPerson = fetchPerson;
@@ -96,7 +95,7 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson extends JsonSerializable {
+class QueryFetchPerson$fetchPerson {
   QueryFetchPerson$fetchPerson(
       {this.age, this.name, this.status, required this.$__typename});
 
@@ -114,7 +113,6 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchPerson$fetchPersonToJson(this);
   int get hashCode {
     final l$age = age;

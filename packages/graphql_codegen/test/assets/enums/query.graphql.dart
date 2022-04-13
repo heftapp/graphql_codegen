@@ -4,7 +4,7 @@ import 'schema.graphql.dart';
 part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFoobar extends JsonSerializable {
+class QueryFoobar {
   QueryFoobar({this.field, this.fields});
 
   @override
@@ -17,7 +17,6 @@ class QueryFoobar extends JsonSerializable {
   @JsonKey(unknownEnumValue: EnumEnum.$unknown)
   final List<EnumEnum>? fields;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFoobarToJson(this);
   int get hashCode {
     final l$field = field;

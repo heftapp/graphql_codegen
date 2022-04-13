@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'fragments.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentPersonSummary extends JsonSerializable {
+class FragmentPersonSummary {
   FragmentPersonSummary(
       {this.nickname,
       required this.name,
@@ -42,7 +42,6 @@ class FragmentPersonSummary extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentPersonSummaryToJson(this);
   int get hashCode {
     final l$nickname = nickname;
@@ -251,8 +250,7 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentPersonSummary$parents extends JsonSerializable
-    implements FragmentPersonParent {
+class FragmentPersonSummary$parents implements FragmentPersonParent {
   FragmentPersonSummary$parents(
       {required this.name, required this.$__typename});
 
@@ -265,7 +263,6 @@ class FragmentPersonSummary$parents extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentPersonSummary$parentsToJson(this);
   int get hashCode {
     final l$name = name;
@@ -297,7 +294,7 @@ extension UtilityExtensionFragmentPersonSummary$parents
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentPersonParent extends JsonSerializable {
+class FragmentPersonParent {
   FragmentPersonParent({required this.name, required this.$__typename});
 
   @override
@@ -309,7 +306,6 @@ class FragmentPersonParent extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$FragmentPersonParentToJson(this);
   int get hashCode {
     final l$name = name;

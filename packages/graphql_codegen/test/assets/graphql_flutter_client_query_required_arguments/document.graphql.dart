@@ -6,7 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryFetchSRequired extends JsonSerializable {
+class VariablesQueryFetchSRequired {
   VariablesQueryFetchSRequired({required this.name});
 
   @override
@@ -15,7 +15,6 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
 
   final String name;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchSRequiredToJson(this);
   int get hashCode {
     final l$name = name;
@@ -35,7 +34,7 @@ class VariablesQueryFetchSRequired extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchSRequired extends JsonSerializable {
+class QueryFetchSRequired {
   QueryFetchSRequired({this.s});
 
   @override
@@ -44,7 +43,6 @@ class QueryFetchSRequired extends JsonSerializable {
 
   final String? s;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
   int get hashCode {
     final l$s = s;

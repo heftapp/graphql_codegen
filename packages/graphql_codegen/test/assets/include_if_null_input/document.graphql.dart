@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class InputInput extends JsonSerializable {
+class InputInput {
   InputInput({this.field, this.flag});
 
   @override
@@ -14,7 +14,6 @@ class InputInput extends JsonSerializable {
 
   final bool? flag;
 
-  @override
   Map<String, dynamic> toJson() => _$InputInputToJson(this);
   int get hashCode {
     final l$field = field;
@@ -38,7 +37,7 @@ class InputInput extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class VariablesQueryQ1 extends JsonSerializable {
+class VariablesQueryQ1 {
   VariablesQueryQ1({this.input});
 
   @override
@@ -47,7 +46,6 @@ class VariablesQueryQ1 extends JsonSerializable {
 
   final InputInput? input;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesQueryQ1ToJson(this);
   int get hashCode {
     final l$input = input;
@@ -67,7 +65,7 @@ class VariablesQueryQ1 extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ1 extends JsonSerializable {
+class QueryQ1 {
   QueryQ1({this.field, required this.$__typename});
 
   @override
@@ -79,7 +77,6 @@ class QueryQ1 extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryQ1ToJson(this);
   int get hashCode {
     final l$field = field;

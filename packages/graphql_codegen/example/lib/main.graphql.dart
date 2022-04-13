@@ -9,7 +9,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'main.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryFetchPerson extends JsonSerializable {
+class VariablesQueryFetchPerson {
   VariablesQueryFetchPerson({required this.id});
 
   @override
@@ -18,7 +18,6 @@ class VariablesQueryFetchPerson extends JsonSerializable {
 
   final String id;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesQueryFetchPersonToJson(this);
   int get hashCode {
     final l$id = id;
@@ -38,7 +37,7 @@ class VariablesQueryFetchPerson extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson extends JsonSerializable {
+class QueryFetchPerson {
   QueryFetchPerson({this.fetchPerson, required this.$__typename});
 
   @override
@@ -50,7 +49,6 @@ class QueryFetchPerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchPersonToJson(this);
   int get hashCode {
     final l$fetchPerson = fetchPerson;
@@ -264,8 +262,7 @@ class QueryFetchPersonWidget extends graphql_flutter.Query<QueryFetchPerson> {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson extends JsonSerializable
-    implements FragmentPersonSummary {
+class QueryFetchPerson$fetchPerson implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson(
       {this.nickname,
       required this.name,
@@ -305,7 +302,6 @@ class QueryFetchPerson$fetchPerson extends JsonSerializable
 
   final List<QueryFetchPerson$fetchPerson$children>? children;
 
-  @override
   Map<String, dynamic> toJson() => _$QueryFetchPerson$fetchPersonToJson(this);
   int get hashCode {
     final l$nickname = nickname;
@@ -441,7 +437,7 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
+class QueryFetchPerson$fetchPerson$parents
     implements
         FragmentPersonSummary$parents,
         FragmentPersonParent,
@@ -483,7 +479,6 @@ class QueryFetchPerson$fetchPerson$parents extends JsonSerializable
 
   final List<QueryFetchPerson$fetchPerson$parents$parents>? parents;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$parentsToJson(this);
   int get hashCode {
@@ -604,7 +599,7 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson$parents
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$parents$parents extends JsonSerializable
+class QueryFetchPerson$fetchPerson$parents$parents
     implements FragmentPersonSummary$parents, FragmentPersonParent {
   QueryFetchPerson$fetchPerson$parents$parents(
       {required this.name, required this.$__typename});
@@ -619,7 +614,6 @@ class QueryFetchPerson$fetchPerson$parents$parents extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$parents$parentsToJson(this);
   int get hashCode {
@@ -653,8 +647,7 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson$parents$parents
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$children extends JsonSerializable
-    implements FragmentPersonSummary {
+class QueryFetchPerson$fetchPerson$children implements FragmentPersonSummary {
   QueryFetchPerson$fetchPerson$children(
       {this.nickname,
       required this.name,
@@ -692,7 +685,6 @@ class QueryFetchPerson$fetchPerson$children extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$childrenToJson(this);
   int get hashCode {
@@ -813,7 +805,7 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson$children
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$children$parents extends JsonSerializable
+class QueryFetchPerson$fetchPerson$children$parents
     implements FragmentPersonSummary$parents, FragmentPersonParent {
   QueryFetchPerson$fetchPerson$children$parents(
       {required this.name, required this.$__typename});
@@ -828,7 +820,6 @@ class QueryFetchPerson$fetchPerson$children$parents extends JsonSerializable
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$QueryFetchPerson$fetchPerson$children$parentsToJson(this);
   int get hashCode {
@@ -862,7 +853,7 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson$children$parents
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesMutationUpdatePerson extends JsonSerializable {
+class VariablesMutationUpdatePerson {
   VariablesMutationUpdatePerson({required this.id});
 
   @override
@@ -871,7 +862,6 @@ class VariablesMutationUpdatePerson extends JsonSerializable {
 
   final String id;
 
-  @override
   Map<String, dynamic> toJson() => _$VariablesMutationUpdatePersonToJson(this);
   int get hashCode {
     final l$id = id;
@@ -891,7 +881,7 @@ class VariablesMutationUpdatePerson extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdatePerson extends JsonSerializable {
+class MutationUpdatePerson {
   MutationUpdatePerson({this.updatePerson, required this.$__typename});
 
   @override
@@ -903,7 +893,6 @@ class MutationUpdatePerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$MutationUpdatePersonToJson(this);
   int get hashCode {
     final l$updatePerson = updatePerson;
@@ -1154,7 +1143,7 @@ class MutationUpdatePersonWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdatePerson$updatePerson extends JsonSerializable {
+class MutationUpdatePerson$updatePerson {
   MutationUpdatePerson$updatePerson(
       {required this.full_name, required this.$__typename});
 
@@ -1168,7 +1157,6 @@ class MutationUpdatePerson$updatePerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$MutationUpdatePerson$updatePersonToJson(this);
   int get hashCode {
@@ -1202,7 +1190,7 @@ extension UtilityExtensionMutationUpdatePerson$updatePerson
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesSubscriptionWatchPerson extends JsonSerializable {
+class VariablesSubscriptionWatchPerson {
   VariablesSubscriptionWatchPerson({this.id});
 
   @override
@@ -1212,7 +1200,6 @@ class VariablesSubscriptionWatchPerson extends JsonSerializable {
 
   final String? id;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$VariablesSubscriptionWatchPersonToJson(this);
   int get hashCode {
@@ -1233,7 +1220,7 @@ class VariablesSubscriptionWatchPerson extends JsonSerializable {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionWatchPerson extends JsonSerializable {
+class SubscriptionWatchPerson {
   SubscriptionWatchPerson({this.watchPerson, required this.$__typename});
 
   @override
@@ -1245,7 +1232,6 @@ class SubscriptionWatchPerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() => _$SubscriptionWatchPersonToJson(this);
   int get hashCode {
     final l$watchPerson = watchPerson;
@@ -1417,7 +1403,7 @@ class SubscriptionWatchPersonWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
+class SubscriptionWatchPerson$watchPerson {
   SubscriptionWatchPerson$watchPerson(
       {required this.full_name, required this.$__typename});
 
@@ -1431,7 +1417,6 @@ class SubscriptionWatchPerson$watchPerson extends JsonSerializable {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  @override
   Map<String, dynamic> toJson() =>
       _$SubscriptionWatchPerson$watchPersonToJson(this);
   int get hashCode {
