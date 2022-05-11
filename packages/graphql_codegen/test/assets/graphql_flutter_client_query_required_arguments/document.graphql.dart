@@ -6,16 +6,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryFetchSRequired {
-  VariablesQueryFetchSRequired({required this.name});
+class Variables$Query$FetchSRequired {
+  Variables$Query$FetchSRequired({required this.name});
 
   @override
-  factory VariablesQueryFetchSRequired.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryFetchSRequiredFromJson(json);
+  factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
+      _$Variables$Query$FetchSRequiredFromJson(json);
 
   final String name;
 
-  Map<String, dynamic> toJson() => _$VariablesQueryFetchSRequiredToJson(this);
+  Map<String, dynamic> toJson() => _$Variables$Query$FetchSRequiredToJson(this);
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -24,7 +24,7 @@ class VariablesQueryFetchSRequired {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesQueryFetchSRequired) ||
+    if (!(other is Variables$Query$FetchSRequired) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -34,16 +34,16 @@ class VariablesQueryFetchSRequired {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchSRequired {
-  QueryFetchSRequired({this.s});
+class Query$FetchSRequired {
+  Query$FetchSRequired({this.s});
 
   @override
-  factory QueryFetchSRequired.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchSRequiredFromJson(json);
+  factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchSRequiredFromJson(json);
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$QueryFetchSRequiredToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchSRequiredToJson(this);
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -52,7 +52,7 @@ class QueryFetchSRequired {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchSRequired) || runtimeType != other.runtimeType)
+    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType)
       return false;
     final l$s = s;
     final lOther$s = other.s;
@@ -61,12 +61,12 @@ class QueryFetchSRequired {
   }
 }
 
-extension UtilityExtensionQueryFetchSRequired on QueryFetchSRequired {
-  QueryFetchSRequired copyWith({String? Function()? s}) =>
-      QueryFetchSRequired(s: s == null ? this.s : s());
+extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
+  Query$FetchSRequired copyWith({String? Function()? s}) =>
+      Query$FetchSRequired(s: s == null ? this.s : s());
 }
 
-const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
+const queryDocumentFetchSRequired = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSRequired'),
@@ -92,14 +92,15 @@ const QUERY_FETCH_S_REQUIRED = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-QueryFetchSRequired _parserFnQueryFetchSRequired(Map<String, dynamic> data) =>
-    QueryFetchSRequired.fromJson(data);
+Query$FetchSRequired _parserFn$Query$FetchSRequired(
+        Map<String, dynamic> data) =>
+    Query$FetchSRequired.fromJson(data);
 
-class OptionsQueryFetchSRequired
-    extends graphql.QueryOptions<QueryFetchSRequired> {
-  OptionsQueryFetchSRequired(
+class Options$Query$FetchSRequired
+    extends graphql.QueryOptions<Query$FetchSRequired> {
+  Options$Query$FetchSRequired(
       {String? operationName,
-      required VariablesQueryFetchSRequired variables,
+      required Variables$Query$FetchSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -115,15 +116,15 @@ class OptionsQueryFetchSRequired
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_FETCH_S_REQUIRED,
-            parserFn: _parserFnQueryFetchSRequired);
+            document: queryDocumentFetchSRequired,
+            parserFn: _parserFn$Query$FetchSRequired);
 }
 
-class WatchOptionsQueryFetchSRequired
-    extends graphql.WatchQueryOptions<QueryFetchSRequired> {
-  WatchOptionsQueryFetchSRequired(
+class WatchOptions$Query$FetchSRequired
+    extends graphql.WatchQueryOptions<Query$FetchSRequired> {
+  WatchOptions$Query$FetchSRequired(
       {String? operationName,
-      required VariablesQueryFetchSRequired variables,
+      required Variables$Query$FetchSRequired variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -141,67 +142,68 @@ class WatchOptionsQueryFetchSRequired
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: QUERY_FETCH_S_REQUIRED,
+            document: queryDocumentFetchSRequired,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnQueryFetchSRequired);
+            parserFn: _parserFn$Query$FetchSRequired);
 }
 
-class FetchMoreOptionsQueryFetchSRequired extends graphql.FetchMoreOptions {
-  FetchMoreOptionsQueryFetchSRequired(
+class FetchMoreOptions$Query$FetchSRequired extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$FetchSRequired(
       {required graphql.UpdateQuery updateQuery,
-      required VariablesQueryFetchSRequired variables})
+      required Variables$Query$FetchSRequired variables})
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: QUERY_FETCH_S_REQUIRED);
+            document: queryDocumentFetchSRequired);
 }
 
-extension ClientExtensionQueryFetchSRequired on graphql.GraphQLClient {
-  Future<graphql.QueryResult<QueryFetchSRequired>> queryFetchSRequired(
-          OptionsQueryFetchSRequired options) async =>
+extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$FetchSRequired>> query$FetchSRequired(
+          Options$Query$FetchSRequired options) async =>
       await this.query(options);
-  graphql.ObservableQuery<QueryFetchSRequired> watchQueryFetchSRequired(
-          WatchOptionsQueryFetchSRequired options) =>
+  graphql.ObservableQuery<Query$FetchSRequired> watchQuery$FetchSRequired(
+          WatchOptions$Query$FetchSRequired options) =>
       this.watchQuery(options);
-  void writeQueryFetchSRequired(
-          {required QueryFetchSRequired data,
-          required VariablesQueryFetchSRequired variables,
+  void writeQuery$FetchSRequired(
+          {required Query$FetchSRequired data,
+          required Variables$Query$FetchSRequired variables,
           bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
-              operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
+              operation:
+                  graphql.Operation(document: queryDocumentFetchSRequired),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
-  QueryFetchSRequired? readQueryFetchSRequired(
-      {required VariablesQueryFetchSRequired variables,
+  Query$FetchSRequired? readQuery$FetchSRequired(
+      {required Variables$Query$FetchSRequired variables,
       bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: QUERY_FETCH_S_REQUIRED),
+            operation: graphql.Operation(document: queryDocumentFetchSRequired),
             variables: variables.toJson()),
         optimistic: optimistic);
-    return result == null ? null : QueryFetchSRequired.fromJson(result);
+    return result == null ? null : Query$FetchSRequired.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<QueryFetchSRequired> useQueryFetchSRequired(
-        OptionsQueryFetchSRequired options) =>
+graphql_flutter.QueryHookResult<Query$FetchSRequired> useQuery$FetchSRequired(
+        Options$Query$FetchSRequired options) =>
     graphql_flutter.useQuery(options);
-graphql.ObservableQuery<QueryFetchSRequired> useWatchQueryFetchSRequired(
-        WatchOptionsQueryFetchSRequired options) =>
+graphql.ObservableQuery<Query$FetchSRequired> useWatchQuery$FetchSRequired(
+        WatchOptions$Query$FetchSRequired options) =>
     graphql_flutter.useWatchQuery(options);
 
-class QueryFetchSRequiredWidget
-    extends graphql_flutter.Query<QueryFetchSRequired> {
-  QueryFetchSRequiredWidget(
+class Query$FetchSRequired$Widget
+    extends graphql_flutter.Query<Query$FetchSRequired> {
+  Query$FetchSRequired$Widget(
       {widgets.Key? key,
-      required OptionsQueryFetchSRequired options,
-      required graphql_flutter.QueryBuilder<QueryFetchSRequired> builder})
+      required Options$Query$FetchSRequired options,
+      required graphql_flutter.QueryBuilder<Query$FetchSRequired> builder})
       : super(key: key, options: options, builder: builder);
 }
 
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

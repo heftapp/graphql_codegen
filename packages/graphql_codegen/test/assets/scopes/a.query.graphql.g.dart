@@ -6,40 +6,40 @@ part of 'a.query.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-QueryFetchPerson _$QueryFetchPersonFromJson(Map<String, dynamic> json) =>
-    QueryFetchPerson(
+Query$FetchPerson _$Query$FetchPersonFromJson(Map<String, dynamic> json) =>
+    Query$FetchPerson(
       fetchPerson: json['fetchPerson'] == null
           ? null
-          : QueryFetchPerson$fetchPerson.fromJson(
+          : Query$FetchPerson$fetchPerson.fromJson(
               json['fetchPerson'] as Map<String, dynamic>),
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$QueryFetchPersonToJson(QueryFetchPerson instance) =>
+Map<String, dynamic> _$Query$FetchPersonToJson(Query$FetchPerson instance) =>
     <String, dynamic>{
       'fetchPerson': instance.fetchPerson?.toJson(),
       '__typename': instance.$__typename,
     };
 
-QueryFetchPerson$fetchPerson _$QueryFetchPerson$fetchPersonFromJson(
+Query$FetchPerson$fetchPerson _$Query$FetchPerson$fetchPersonFromJson(
         Map<String, dynamic> json) =>
-    QueryFetchPerson$fetchPerson(
+    Query$FetchPerson$fetchPerson(
       name: json['name'] as String?,
-      status: $enumDecode(_$EnumStatusEnumMap, json['status'],
-          unknownValue: EnumStatus.$unknown),
+      status: $enumDecode(_$Enum$StatusEnumMap, json['status'],
+          unknownValue: Enum$Status.$unknown),
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$QueryFetchPerson$fetchPersonToJson(
-        QueryFetchPerson$fetchPerson instance) =>
+Map<String, dynamic> _$Query$FetchPerson$fetchPersonToJson(
+        Query$FetchPerson$fetchPerson instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'status': _$EnumStatusEnumMap[instance.status],
+      'status': _$Enum$StatusEnumMap[instance.status],
       '__typename': instance.$__typename,
     };
 
-const _$EnumStatusEnumMap = {
-  EnumStatus.cool: 'COOL',
-  EnumStatus.beans: 'BEANS',
-  EnumStatus.$unknown: r'$unknown',
+const _$Enum$StatusEnumMap = {
+  Enum$Status.COOL: 'COOL',
+  Enum$Status.BEANS: 'BEANS',
+  Enum$Status.$unknown: r'$unknown',
 };

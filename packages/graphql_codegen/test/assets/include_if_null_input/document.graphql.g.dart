@@ -6,12 +6,12 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-InputInput _$InputInputFromJson(Map<String, dynamic> json) => InputInput(
+Input$Input _$Input$InputFromJson(Map<String, dynamic> json) => Input$Input(
       field: json['field'] as String?,
       flag: json['flag'] as bool?,
     );
 
-Map<String, dynamic> _$InputInputToJson(InputInput instance) {
+Map<String, dynamic> _$Input$InputToJson(Input$Input instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -25,14 +25,14 @@ Map<String, dynamic> _$InputInputToJson(InputInput instance) {
   return val;
 }
 
-VariablesQueryQ1 _$VariablesQueryQ1FromJson(Map<String, dynamic> json) =>
-    VariablesQueryQ1(
+Variables$Query$Q1 _$Variables$Query$Q1FromJson(Map<String, dynamic> json) =>
+    Variables$Query$Q1(
       input: json['input'] == null
           ? null
-          : InputInput.fromJson(json['input'] as Map<String, dynamic>),
+          : Input$Input.fromJson(json['input'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$VariablesQueryQ1ToJson(VariablesQueryQ1 instance) {
+Map<String, dynamic> _$Variables$Query$Q1ToJson(Variables$Query$Q1 instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -45,12 +45,12 @@ Map<String, dynamic> _$VariablesQueryQ1ToJson(VariablesQueryQ1 instance) {
   return val;
 }
 
-QueryQ1 _$QueryQ1FromJson(Map<String, dynamic> json) => QueryQ1(
+Query$Q1 _$Query$Q1FromJson(Map<String, dynamic> json) => Query$Q1(
       field: json['field'] as String?,
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$QueryQ1ToJson(QueryQ1 instance) => <String, dynamic>{
+Map<String, dynamic> _$Query$Q1ToJson(Query$Q1 instance) => <String, dynamic>{
       'field': instance.field,
       '__typename': instance.$__typename,
     };

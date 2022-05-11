@@ -15,7 +15,7 @@ jobs:
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
+          dart pub global activate melos
       - name: Login pub
         run: |
           echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > $HOME/.pub-cache/credentials.json

@@ -3,88 +3,107 @@ import 'dart:collection';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/keywords.dart';
-import 'package:recase/recase.dart';
 
 import '../context.dart';
 
-String _printName(Name name, {bool isAction = false}) => name.segments
-    .map((s) => _printNameSegment(s, isAction: isAction))
-    .join(r'$');
+String _printName(
+  Name name, {
+  bool isAction = false,
+  String separator = r'$',
+  String? prefix,
+}) =>
+    name.segments
+        .map((s) => _printNameSegment(
+              s,
+              isAction: isAction,
+              separator: separator,
+              prefix: prefix,
+            ))
+        .join(separator);
 
-String _printNameSegment(NameSegment segment, {bool isAction = false}) {
+String _printPrefix(NameSegment segment, {bool isAction = false}) {
   if (segment is EnumNameSegment) {
-    return ReCase('Enum${segment.name.value}').pascalCase;
+    return 'Enum';
   }
   if (segment is InputNameSegment) {
-    return ReCase('Input${segment.name.value}').pascalCase;
-  }
-  if (segment is FieldNameSegment) {
-    return ReCase(segment.name.value).camelCase;
+    return 'Input';
   }
   if (segment is TypeNameSegment) {
-    return ReCase(segment.name.value).pascalCase;
+    return '';
   }
   if (segment is OperationNameSegment) {
-    String prefix;
     switch (segment.node.type) {
       case OperationType.mutation:
-        prefix = isAction ? 'mutate' : 'Mutation';
-        break;
+        return isAction ? 'mutate' : 'Mutation';
       case OperationType.query:
-        prefix = isAction ? 'query' : 'Query';
-        break;
+        return isAction ? 'query' : 'Query';
       case OperationType.subscription:
-        prefix = isAction ? 'subscribe' : 'Subscription';
-        break;
+        return isAction ? 'subscribe' : 'Subscription';
+      default:
+        throw new UnsupportedError("Unsupported opreation type");
     }
-    return ReCase('$prefix${segment.name.value}').pascalCase;
   }
   if (segment is FragmentNameSegment) {
-    return ReCase('Fragment${segment.name.value}').pascalCase;
+    return 'Fragment';
   }
   throw new UnsupportedError("Unsupported segment type");
 }
 
+String _printNameSegment(
+  NameSegment segment, {
+  bool isAction = false,
+  String separator = r'$',
+  String? prefix,
+}) {
+  if (segment is FieldNameSegment) {
+    return segment.name.value;
+  }
+  return '${prefix ?? _printPrefix(segment, isAction: isAction)}${separator}${segment.name.value}';
+}
+
 String printDocumentDefinitionNodeName(Name name) =>
-    ReCase(_printName(name)).constantCase;
+    _printName(name, separator: '', prefix: 'queryDocument');
 
-String printFragmentDefinitionNodeName(Name name) =>
-    ReCase("FragmentDefinition" + _printName(name)).constantCase;
+String printFragmentDefinitionNodeName(Name name) => _printName(
+      name,
+      separator: '',
+      prefix: 'fragmentDefinition',
+    );
 
-String printPossibleTypesMapName() => ReCase('possibleTypesMap').constantCase;
+String printPossibleTypesMapName() => 'possibleTypesMap';
 
 String printClassName(Name name) => _printName(name);
 
 String printClassExtensionName(Name name) =>
-    "UtilityExtension" + _printName(name);
+    "UtilityExtension\$" + _printName(name);
 
-String printParserFnName(Name name) =>
-    "_" + ReCase("parserFn${_printName(name)}").camelCase;
+String printParserFnName(Name name) => "_parserFn\$${_printName(name)}";
 
-String printVariableClassName(Name name) => "Variables${_printName(name)}";
+String printVariableClassName(Name name) => "Variables\$${_printName(name)}";
 
-String printGraphQLClientOptionsName(Name name) => "Options${_printName(name)}";
+String printGraphQLClientOptionsName(Name name) =>
+    "Options\$${_printName(name)}";
 
 String printGraphQLClientWatchOptionsName(Name name) =>
-    "WatchOptions${_printName(name)}";
+    "WatchOptions\$${_printName(name)}";
 
 String printGraphQLClientFetchMoreOptionsName(Name name) =>
-    "FetchMoreOptions${_printName(name)}";
+    "FetchMoreOptions\$${_printName(name)}";
 
 String printGraphQLFlutterClientOptionsName(Name name) =>
-    "WidgetOptions${_printName(name)}";
+    "WidgetOptions\$${_printName(name)}";
 
 String printGraphQLFlutterClientRunMutationName(Name name) =>
-    "RunMutation${_printName(name)}";
+    "RunMutation\$${_printName(name)}";
 
 String printGraphQLFlutterClientBuilderName(Name name) =>
-    "Builder${_printName(name)}";
+    "Builder\$${_printName(name)}";
 
 String printGraphQLFlutterClientOperationName(Name name) =>
-    "${_printName(name)}Widget";
+    "${_printName(name)}\$Widget";
 
 String printGraphQLFlutterClientMutationHookResultName(Name name) =>
-    "${_printName(name)}HookResult";
+    "${_printName(name)}\$HookResult";
 
 String printGraphQLFlutterClientMutationHookName(Name name) =>
     "use${_printName(name)}";
@@ -102,28 +121,28 @@ String printGraphQLFlutterClientSubscriptionHookName(Name name) =>
     "use${_printName(name)}";
 
 String printGraphQLClientOnMutationCompleteName(Name name) =>
-    "OnMutationCompleted${_printName(name)}";
+    "OnMutationCompleted\$${_printName(name)}";
 
 String printGraphQLClientExtensionName(Name name) =>
-    "ClientExtension${_printName(name)}";
+    "ClientExtension\$${_printName(name)}";
 
 String printGraphQLClientResultExtensionName(Name name) =>
-    "ResultExtension${_printName(name)}";
+    "ResultExtension\$${_printName(name)}";
 
 String printGraphQLClientExtensionMethodName(Name name) =>
-    ReCase(_printName(name, isAction: true)).camelCase;
+    _printName(name, isAction: true);
 
 String printGraphQLClientExtensionWatchMethodName(Name name) =>
-    ReCase("Watch${_printName(name, isAction: false)}").camelCase;
+    "watch${_printName(name, isAction: false)}";
 
 String printGraphQLClientExtensionWriteQueryMethodName(Name name) =>
-    ReCase("write${_printName(name, isAction: false)}").camelCase;
+    "write${_printName(name, isAction: false)}";
 
 String printGraphQLClientExtensionReadQueryMethodName(Name name) =>
-    ReCase("read${_printName(name, isAction: false)}").camelCase;
+    "read${_printName(name, isAction: false)}";
 
 String printGraphQLClientResultExtensionGetterName(Name name) =>
-    ReCase("parsedData" + _printName(name)).camelCase;
+    "parsedData" + _printName(name);
 
 String printFromJsonFactoryName(String name) => "_\$${name}FromJson";
 
@@ -132,8 +151,7 @@ String printToJsonFactoryName(String name) => "_\$${name}ToJson";
 String printKeywordSafe(String name) =>
     KEYWORDS.contains(name) ? "\$${name}" : name;
 
-String printEnumValueName(NameNode name) =>
-    printKeywordSafe(ReCase(name.value).camelCase);
+String printEnumValueName(NameNode name) => printKeywordSafe(name.value);
 
 String printPropertyName(NameNode name) {
   String value = name.value;

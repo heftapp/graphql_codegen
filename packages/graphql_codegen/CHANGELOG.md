@@ -1,3 +1,7 @@
+# 0.8.0-beta.1
+
+* Change naming strategy
+
 # 0.7.2
 
 * Remove useless extend of `JsonSerializable`

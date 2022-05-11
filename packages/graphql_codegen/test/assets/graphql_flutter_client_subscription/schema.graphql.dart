@@ -7,19 +7,19 @@ import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionNoArgs {
-  SubscriptionNoArgs({this.listenForChange, required this.$__typename});
+class Subscription$NoArgs {
+  Subscription$NoArgs({this.listenForChange, required this.$__typename});
 
   @override
-  factory SubscriptionNoArgs.fromJson(Map<String, dynamic> json) =>
-      _$SubscriptionNoArgsFromJson(json);
+  factory Subscription$NoArgs.fromJson(Map<String, dynamic> json) =>
+      _$Subscription$NoArgsFromJson(json);
 
-  final SubscriptionNoArgs$listenForChange? listenForChange;
+  final Subscription$NoArgs$listenForChange? listenForChange;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$SubscriptionNoArgsToJson(this);
+  Map<String, dynamic> toJson() => _$Subscription$NoArgsToJson(this);
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
@@ -29,7 +29,7 @@ class SubscriptionNoArgs {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionNoArgs) || runtimeType != other.runtimeType)
+    if (!(other is Subscription$NoArgs) || runtimeType != other.runtimeType)
       return false;
     final l$listenForChange = listenForChange;
     final lOther$listenForChange = other.listenForChange;
@@ -41,18 +41,18 @@ class SubscriptionNoArgs {
   }
 }
 
-extension UtilityExtensionSubscriptionNoArgs on SubscriptionNoArgs {
-  SubscriptionNoArgs copyWith(
-          {SubscriptionNoArgs$listenForChange? Function()? listenForChange,
+extension UtilityExtension$Subscription$NoArgs on Subscription$NoArgs {
+  Subscription$NoArgs copyWith(
+          {Subscription$NoArgs$listenForChange? Function()? listenForChange,
           String? $__typename}) =>
-      SubscriptionNoArgs(
+      Subscription$NoArgs(
           listenForChange: listenForChange == null
               ? this.listenForChange
               : listenForChange(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const SUBSCRIPTION_NO_ARGS = const DocumentNode(definitions: [
+const queryDocumentNoArgs = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'NoArgs'),
@@ -86,12 +86,12 @@ const SUBSCRIPTION_NO_ARGS = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-SubscriptionNoArgs _parserFnSubscriptionNoArgs(Map<String, dynamic> data) =>
-    SubscriptionNoArgs.fromJson(data);
+Subscription$NoArgs _parserFn$Subscription$NoArgs(Map<String, dynamic> data) =>
+    Subscription$NoArgs.fromJson(data);
 
-class OptionsSubscriptionNoArgs
-    extends graphql.SubscriptionOptions<SubscriptionNoArgs> {
-  OptionsSubscriptionNoArgs(
+class Options$Subscription$NoArgs
+    extends graphql.SubscriptionOptions<Subscription$NoArgs> {
+  Options$Subscription$NoArgs(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -105,13 +105,13 @@ class OptionsSubscriptionNoArgs
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_NO_ARGS,
-            parserFn: _parserFnSubscriptionNoArgs);
+            document: queryDocumentNoArgs,
+            parserFn: _parserFn$Subscription$NoArgs);
 }
 
-class WatchOptionsSubscriptionNoArgs
-    extends graphql.WatchQueryOptions<SubscriptionNoArgs> {
-  WatchOptionsSubscriptionNoArgs(
+class WatchOptions$Subscription$NoArgs
+    extends graphql.WatchQueryOptions<Subscription$NoArgs> {
+  WatchOptions$Subscription$NoArgs(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -129,56 +129,57 @@ class WatchOptionsSubscriptionNoArgs
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_NO_ARGS,
+            document: queryDocumentNoArgs,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnSubscriptionNoArgs);
+            parserFn: _parserFn$Subscription$NoArgs);
 }
 
-class FetchMoreOptionsSubscriptionNoArgs extends graphql.FetchMoreOptions {
-  FetchMoreOptionsSubscriptionNoArgs({required graphql.UpdateQuery updateQuery})
-      : super(updateQuery: updateQuery, document: SUBSCRIPTION_NO_ARGS);
+class FetchMoreOptions$Subscription$NoArgs extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Subscription$NoArgs(
+      {required graphql.UpdateQuery updateQuery})
+      : super(updateQuery: updateQuery, document: queryDocumentNoArgs);
 }
 
-extension ClientExtensionSubscriptionNoArgs on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<SubscriptionNoArgs>> subscribeNoArgs(
-          [OptionsSubscriptionNoArgs? options]) =>
-      this.subscribe(options ?? OptionsSubscriptionNoArgs());
-  graphql.ObservableQuery<SubscriptionNoArgs> watchSubscriptionNoArgs(
-          [WatchOptionsSubscriptionNoArgs? options]) =>
-      this.watchQuery(options ?? WatchOptionsSubscriptionNoArgs());
+extension ClientExtension$Subscription$NoArgs on graphql.GraphQLClient {
+  Stream<graphql.QueryResult<Subscription$NoArgs>> subscribe$NoArgs(
+          [Options$Subscription$NoArgs? options]) =>
+      this.subscribe(options ?? Options$Subscription$NoArgs());
+  graphql.ObservableQuery<Subscription$NoArgs> watchSubscription$NoArgs(
+          [WatchOptions$Subscription$NoArgs? options]) =>
+      this.watchQuery(options ?? WatchOptions$Subscription$NoArgs());
 }
 
-graphql.QueryResult<SubscriptionNoArgs> useSubscriptionNoArgs(
-        OptionsSubscriptionNoArgs options) =>
+graphql.QueryResult<Subscription$NoArgs> useSubscription$NoArgs(
+        Options$Subscription$NoArgs options) =>
     graphql_flutter.useSubscription(options);
 
-class SubscriptionNoArgsWidget
-    extends graphql_flutter.Subscription<SubscriptionNoArgs> {
-  SubscriptionNoArgsWidget(
+class Subscription$NoArgs$Widget
+    extends graphql_flutter.Subscription<Subscription$NoArgs> {
+  Subscription$NoArgs$Widget(
       {widgets.Key? key,
-      OptionsSubscriptionNoArgs? options,
-      required graphql_flutter.SubscriptionBuilder<SubscriptionNoArgs> builder,
-      graphql_flutter.OnSubscriptionResult<SubscriptionNoArgs>?
+      Options$Subscription$NoArgs? options,
+      required graphql_flutter.SubscriptionBuilder<Subscription$NoArgs> builder,
+      graphql_flutter.OnSubscriptionResult<Subscription$NoArgs>?
           onSubscriptionResult})
       : super(
             key: key,
-            options: options ?? OptionsSubscriptionNoArgs(),
+            options: options ?? Options$Subscription$NoArgs(),
             builder: builder,
             onSubscriptionResult: onSubscriptionResult);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionNoArgs$listenForChange {
-  SubscriptionNoArgs$listenForChange(
+class Subscription$NoArgs$listenForChange {
+  Subscription$NoArgs$listenForChange(
       {required this.name, required this.$__typename});
 
   @override
-  factory SubscriptionNoArgs$listenForChange.fromJson(
+  factory Subscription$NoArgs$listenForChange.fromJson(
           Map<String, dynamic> json) =>
-      _$SubscriptionNoArgs$listenForChangeFromJson(json);
+      _$Subscription$NoArgs$listenForChangeFromJson(json);
 
   final String name;
 
@@ -186,7 +187,7 @@ class SubscriptionNoArgs$listenForChange {
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$SubscriptionNoArgs$listenForChangeToJson(this);
+      _$Subscription$NoArgs$listenForChangeToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -196,7 +197,7 @@ class SubscriptionNoArgs$listenForChange {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionNoArgs$listenForChange) ||
+    if (!(other is Subscription$NoArgs$listenForChange) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -208,28 +209,28 @@ class SubscriptionNoArgs$listenForChange {
   }
 }
 
-extension UtilityExtensionSubscriptionNoArgs$listenForChange
-    on SubscriptionNoArgs$listenForChange {
-  SubscriptionNoArgs$listenForChange copyWith(
+extension UtilityExtension$Subscription$NoArgs$listenForChange
+    on Subscription$NoArgs$listenForChange {
+  Subscription$NoArgs$listenForChange copyWith(
           {String? name, String? $__typename}) =>
-      SubscriptionNoArgs$listenForChange(
+      Subscription$NoArgs$listenForChange(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesSubscriptionRequiredArg {
-  VariablesSubscriptionRequiredArg({required this.name});
+class Variables$Subscription$RequiredArg {
+  Variables$Subscription$RequiredArg({required this.name});
 
   @override
-  factory VariablesSubscriptionRequiredArg.fromJson(
+  factory Variables$Subscription$RequiredArg.fromJson(
           Map<String, dynamic> json) =>
-      _$VariablesSubscriptionRequiredArgFromJson(json);
+      _$Variables$Subscription$RequiredArgFromJson(json);
 
   final String name;
 
   Map<String, dynamic> toJson() =>
-      _$VariablesSubscriptionRequiredArgToJson(this);
+      _$Variables$Subscription$RequiredArgToJson(this);
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -238,7 +239,7 @@ class VariablesSubscriptionRequiredArg {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesSubscriptionRequiredArg) ||
+    if (!(other is Variables$Subscription$RequiredArg) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -248,19 +249,19 @@ class VariablesSubscriptionRequiredArg {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionRequiredArg {
-  SubscriptionRequiredArg({this.listenForChange, required this.$__typename});
+class Subscription$RequiredArg {
+  Subscription$RequiredArg({this.listenForChange, required this.$__typename});
 
   @override
-  factory SubscriptionRequiredArg.fromJson(Map<String, dynamic> json) =>
-      _$SubscriptionRequiredArgFromJson(json);
+  factory Subscription$RequiredArg.fromJson(Map<String, dynamic> json) =>
+      _$Subscription$RequiredArgFromJson(json);
 
-  final SubscriptionRequiredArg$listenForChange? listenForChange;
+  final Subscription$RequiredArg$listenForChange? listenForChange;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$SubscriptionRequiredArgToJson(this);
+  Map<String, dynamic> toJson() => _$Subscription$RequiredArgToJson(this);
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
@@ -270,8 +271,8 @@ class SubscriptionRequiredArg {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionRequiredArg) || runtimeType != other.runtimeType)
-      return false;
+    if (!(other is Subscription$RequiredArg) ||
+        runtimeType != other.runtimeType) return false;
     final l$listenForChange = listenForChange;
     final lOther$listenForChange = other.listenForChange;
     if (l$listenForChange != lOther$listenForChange) return false;
@@ -282,18 +283,20 @@ class SubscriptionRequiredArg {
   }
 }
 
-extension UtilityExtensionSubscriptionRequiredArg on SubscriptionRequiredArg {
-  SubscriptionRequiredArg copyWith(
-          {SubscriptionRequiredArg$listenForChange? Function()? listenForChange,
+extension UtilityExtension$Subscription$RequiredArg
+    on Subscription$RequiredArg {
+  Subscription$RequiredArg copyWith(
+          {Subscription$RequiredArg$listenForChange? Function()?
+              listenForChange,
           String? $__typename}) =>
-      SubscriptionRequiredArg(
+      Subscription$RequiredArg(
           listenForChange: listenForChange == null
               ? this.listenForChange
               : listenForChange(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const SUBSCRIPTION_REQUIRED_ARG = const DocumentNode(definitions: [
+const queryDocumentRequiredArg = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'RequiredArg'),
@@ -338,15 +341,15 @@ const SUBSCRIPTION_REQUIRED_ARG = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-SubscriptionRequiredArg _parserFnSubscriptionRequiredArg(
+Subscription$RequiredArg _parserFn$Subscription$RequiredArg(
         Map<String, dynamic> data) =>
-    SubscriptionRequiredArg.fromJson(data);
+    Subscription$RequiredArg.fromJson(data);
 
-class OptionsSubscriptionRequiredArg
-    extends graphql.SubscriptionOptions<SubscriptionRequiredArg> {
-  OptionsSubscriptionRequiredArg(
+class Options$Subscription$RequiredArg
+    extends graphql.SubscriptionOptions<Subscription$RequiredArg> {
+  Options$Subscription$RequiredArg(
       {String? operationName,
-      required VariablesSubscriptionRequiredArg variables,
+      required Variables$Subscription$RequiredArg variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -360,15 +363,15 @@ class OptionsSubscriptionRequiredArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_REQUIRED_ARG,
-            parserFn: _parserFnSubscriptionRequiredArg);
+            document: queryDocumentRequiredArg,
+            parserFn: _parserFn$Subscription$RequiredArg);
 }
 
-class WatchOptionsSubscriptionRequiredArg
-    extends graphql.WatchQueryOptions<SubscriptionRequiredArg> {
-  WatchOptionsSubscriptionRequiredArg(
+class WatchOptions$Subscription$RequiredArg
+    extends graphql.WatchQueryOptions<Subscription$RequiredArg> {
+  WatchOptions$Subscription$RequiredArg(
       {String? operationName,
-      required VariablesSubscriptionRequiredArg variables,
+      required Variables$Subscription$RequiredArg variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -386,45 +389,47 @@ class WatchOptionsSubscriptionRequiredArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_REQUIRED_ARG,
+            document: queryDocumentRequiredArg,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnSubscriptionRequiredArg);
+            parserFn: _parserFn$Subscription$RequiredArg);
 }
 
-class FetchMoreOptionsSubscriptionRequiredArg extends graphql.FetchMoreOptions {
-  FetchMoreOptionsSubscriptionRequiredArg(
+class FetchMoreOptions$Subscription$RequiredArg
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Subscription$RequiredArg(
       {required graphql.UpdateQuery updateQuery,
-      required VariablesSubscriptionRequiredArg variables})
+      required Variables$Subscription$RequiredArg variables})
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: SUBSCRIPTION_REQUIRED_ARG);
+            document: queryDocumentRequiredArg);
 }
 
-extension ClientExtensionSubscriptionRequiredArg on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<SubscriptionRequiredArg>> subscribeRequiredArg(
-          OptionsSubscriptionRequiredArg options) =>
+extension ClientExtension$Subscription$RequiredArg on graphql.GraphQLClient {
+  Stream<graphql.QueryResult<Subscription$RequiredArg>> subscribe$RequiredArg(
+          Options$Subscription$RequiredArg options) =>
       this.subscribe(options);
-  graphql.ObservableQuery<SubscriptionRequiredArg> watchSubscriptionRequiredArg(
-          WatchOptionsSubscriptionRequiredArg options) =>
-      this.watchQuery(options);
+  graphql.ObservableQuery<Subscription$RequiredArg>
+      watchSubscription$RequiredArg(
+              WatchOptions$Subscription$RequiredArg options) =>
+          this.watchQuery(options);
 }
 
-graphql.QueryResult<SubscriptionRequiredArg> useSubscriptionRequiredArg(
-        OptionsSubscriptionRequiredArg options) =>
+graphql.QueryResult<Subscription$RequiredArg> useSubscription$RequiredArg(
+        Options$Subscription$RequiredArg options) =>
     graphql_flutter.useSubscription(options);
 
-class SubscriptionRequiredArgWidget
-    extends graphql_flutter.Subscription<SubscriptionRequiredArg> {
-  SubscriptionRequiredArgWidget(
+class Subscription$RequiredArg$Widget
+    extends graphql_flutter.Subscription<Subscription$RequiredArg> {
+  Subscription$RequiredArg$Widget(
       {widgets.Key? key,
-      required OptionsSubscriptionRequiredArg options,
-      required graphql_flutter.SubscriptionBuilder<SubscriptionRequiredArg>
+      required Options$Subscription$RequiredArg options,
+      required graphql_flutter.SubscriptionBuilder<Subscription$RequiredArg>
           builder,
-      graphql_flutter.OnSubscriptionResult<SubscriptionRequiredArg>?
+      graphql_flutter.OnSubscriptionResult<Subscription$RequiredArg>?
           onSubscriptionResult})
       : super(
             key: key,
@@ -434,14 +439,14 @@ class SubscriptionRequiredArgWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionRequiredArg$listenForChange {
-  SubscriptionRequiredArg$listenForChange(
+class Subscription$RequiredArg$listenForChange {
+  Subscription$RequiredArg$listenForChange(
       {required this.name, required this.$__typename});
 
   @override
-  factory SubscriptionRequiredArg$listenForChange.fromJson(
+  factory Subscription$RequiredArg$listenForChange.fromJson(
           Map<String, dynamic> json) =>
-      _$SubscriptionRequiredArg$listenForChangeFromJson(json);
+      _$Subscription$RequiredArg$listenForChangeFromJson(json);
 
   final String name;
 
@@ -449,7 +454,7 @@ class SubscriptionRequiredArg$listenForChange {
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$SubscriptionRequiredArg$listenForChangeToJson(this);
+      _$Subscription$RequiredArg$listenForChangeToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -459,7 +464,7 @@ class SubscriptionRequiredArg$listenForChange {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionRequiredArg$listenForChange) ||
+    if (!(other is Subscription$RequiredArg$listenForChange) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -471,28 +476,28 @@ class SubscriptionRequiredArg$listenForChange {
   }
 }
 
-extension UtilityExtensionSubscriptionRequiredArg$listenForChange
-    on SubscriptionRequiredArg$listenForChange {
-  SubscriptionRequiredArg$listenForChange copyWith(
+extension UtilityExtension$Subscription$RequiredArg$listenForChange
+    on Subscription$RequiredArg$listenForChange {
+  Subscription$RequiredArg$listenForChange copyWith(
           {String? name, String? $__typename}) =>
-      SubscriptionRequiredArg$listenForChange(
+      Subscription$RequiredArg$listenForChange(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesSubscriptionOptionalArg {
-  VariablesSubscriptionOptionalArg({this.name});
+class Variables$Subscription$OptionalArg {
+  Variables$Subscription$OptionalArg({this.name});
 
   @override
-  factory VariablesSubscriptionOptionalArg.fromJson(
+  factory Variables$Subscription$OptionalArg.fromJson(
           Map<String, dynamic> json) =>
-      _$VariablesSubscriptionOptionalArgFromJson(json);
+      _$Variables$Subscription$OptionalArgFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() =>
-      _$VariablesSubscriptionOptionalArgToJson(this);
+      _$Variables$Subscription$OptionalArgToJson(this);
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -501,7 +506,7 @@ class VariablesSubscriptionOptionalArg {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesSubscriptionOptionalArg) ||
+    if (!(other is Variables$Subscription$OptionalArg) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -511,19 +516,19 @@ class VariablesSubscriptionOptionalArg {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionOptionalArg {
-  SubscriptionOptionalArg({this.listenForChange, required this.$__typename});
+class Subscription$OptionalArg {
+  Subscription$OptionalArg({this.listenForChange, required this.$__typename});
 
   @override
-  factory SubscriptionOptionalArg.fromJson(Map<String, dynamic> json) =>
-      _$SubscriptionOptionalArgFromJson(json);
+  factory Subscription$OptionalArg.fromJson(Map<String, dynamic> json) =>
+      _$Subscription$OptionalArgFromJson(json);
 
-  final SubscriptionOptionalArg$listenForChange? listenForChange;
+  final Subscription$OptionalArg$listenForChange? listenForChange;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$SubscriptionOptionalArgToJson(this);
+  Map<String, dynamic> toJson() => _$Subscription$OptionalArgToJson(this);
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
@@ -533,8 +538,8 @@ class SubscriptionOptionalArg {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionOptionalArg) || runtimeType != other.runtimeType)
-      return false;
+    if (!(other is Subscription$OptionalArg) ||
+        runtimeType != other.runtimeType) return false;
     final l$listenForChange = listenForChange;
     final lOther$listenForChange = other.listenForChange;
     if (l$listenForChange != lOther$listenForChange) return false;
@@ -545,18 +550,20 @@ class SubscriptionOptionalArg {
   }
 }
 
-extension UtilityExtensionSubscriptionOptionalArg on SubscriptionOptionalArg {
-  SubscriptionOptionalArg copyWith(
-          {SubscriptionOptionalArg$listenForChange? Function()? listenForChange,
+extension UtilityExtension$Subscription$OptionalArg
+    on Subscription$OptionalArg {
+  Subscription$OptionalArg copyWith(
+          {Subscription$OptionalArg$listenForChange? Function()?
+              listenForChange,
           String? $__typename}) =>
-      SubscriptionOptionalArg(
+      Subscription$OptionalArg(
           listenForChange: listenForChange == null
               ? this.listenForChange
               : listenForChange(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const SUBSCRIPTION_OPTIONAL_ARG = const DocumentNode(definitions: [
+const queryDocumentOptionalArg = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'OptionalArg'),
@@ -601,15 +608,15 @@ const SUBSCRIPTION_OPTIONAL_ARG = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-SubscriptionOptionalArg _parserFnSubscriptionOptionalArg(
+Subscription$OptionalArg _parserFn$Subscription$OptionalArg(
         Map<String, dynamic> data) =>
-    SubscriptionOptionalArg.fromJson(data);
+    Subscription$OptionalArg.fromJson(data);
 
-class OptionsSubscriptionOptionalArg
-    extends graphql.SubscriptionOptions<SubscriptionOptionalArg> {
-  OptionsSubscriptionOptionalArg(
+class Options$Subscription$OptionalArg
+    extends graphql.SubscriptionOptions<Subscription$OptionalArg> {
+  Options$Subscription$OptionalArg(
       {String? operationName,
-      VariablesSubscriptionOptionalArg? variables,
+      Variables$Subscription$OptionalArg? variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -623,15 +630,15 @@ class OptionsSubscriptionOptionalArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_OPTIONAL_ARG,
-            parserFn: _parserFnSubscriptionOptionalArg);
+            document: queryDocumentOptionalArg,
+            parserFn: _parserFn$Subscription$OptionalArg);
 }
 
-class WatchOptionsSubscriptionOptionalArg
-    extends graphql.WatchQueryOptions<SubscriptionOptionalArg> {
-  WatchOptionsSubscriptionOptionalArg(
+class WatchOptions$Subscription$OptionalArg
+    extends graphql.WatchQueryOptions<Subscription$OptionalArg> {
+  WatchOptions$Subscription$OptionalArg(
       {String? operationName,
-      VariablesSubscriptionOptionalArg? variables,
+      Variables$Subscription$OptionalArg? variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -649,62 +656,64 @@ class WatchOptionsSubscriptionOptionalArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_OPTIONAL_ARG,
+            document: queryDocumentOptionalArg,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnSubscriptionOptionalArg);
+            parserFn: _parserFn$Subscription$OptionalArg);
 }
 
-class FetchMoreOptionsSubscriptionOptionalArg extends graphql.FetchMoreOptions {
-  FetchMoreOptionsSubscriptionOptionalArg(
+class FetchMoreOptions$Subscription$OptionalArg
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Subscription$OptionalArg(
       {required graphql.UpdateQuery updateQuery,
-      VariablesSubscriptionOptionalArg? variables})
+      Variables$Subscription$OptionalArg? variables})
       : super(
             updateQuery: updateQuery,
             variables: variables?.toJson() ?? {},
-            document: SUBSCRIPTION_OPTIONAL_ARG);
+            document: queryDocumentOptionalArg);
 }
 
-extension ClientExtensionSubscriptionOptionalArg on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<SubscriptionOptionalArg>> subscribeOptionalArg(
-          [OptionsSubscriptionOptionalArg? options]) =>
-      this.subscribe(options ?? OptionsSubscriptionOptionalArg());
-  graphql.ObservableQuery<SubscriptionOptionalArg> watchSubscriptionOptionalArg(
-          [WatchOptionsSubscriptionOptionalArg? options]) =>
-      this.watchQuery(options ?? WatchOptionsSubscriptionOptionalArg());
+extension ClientExtension$Subscription$OptionalArg on graphql.GraphQLClient {
+  Stream<graphql.QueryResult<Subscription$OptionalArg>> subscribe$OptionalArg(
+          [Options$Subscription$OptionalArg? options]) =>
+      this.subscribe(options ?? Options$Subscription$OptionalArg());
+  graphql.ObservableQuery<Subscription$OptionalArg>
+      watchSubscription$OptionalArg(
+              [WatchOptions$Subscription$OptionalArg? options]) =>
+          this.watchQuery(options ?? WatchOptions$Subscription$OptionalArg());
 }
 
-graphql.QueryResult<SubscriptionOptionalArg> useSubscriptionOptionalArg(
-        OptionsSubscriptionOptionalArg options) =>
+graphql.QueryResult<Subscription$OptionalArg> useSubscription$OptionalArg(
+        Options$Subscription$OptionalArg options) =>
     graphql_flutter.useSubscription(options);
 
-class SubscriptionOptionalArgWidget
-    extends graphql_flutter.Subscription<SubscriptionOptionalArg> {
-  SubscriptionOptionalArgWidget(
+class Subscription$OptionalArg$Widget
+    extends graphql_flutter.Subscription<Subscription$OptionalArg> {
+  Subscription$OptionalArg$Widget(
       {widgets.Key? key,
-      OptionsSubscriptionOptionalArg? options,
-      required graphql_flutter.SubscriptionBuilder<SubscriptionOptionalArg>
+      Options$Subscription$OptionalArg? options,
+      required graphql_flutter.SubscriptionBuilder<Subscription$OptionalArg>
           builder,
-      graphql_flutter.OnSubscriptionResult<SubscriptionOptionalArg>?
+      graphql_flutter.OnSubscriptionResult<Subscription$OptionalArg>?
           onSubscriptionResult})
       : super(
             key: key,
-            options: options ?? OptionsSubscriptionOptionalArg(),
+            options: options ?? Options$Subscription$OptionalArg(),
             builder: builder,
             onSubscriptionResult: onSubscriptionResult);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionOptionalArg$listenForChange {
-  SubscriptionOptionalArg$listenForChange(
+class Subscription$OptionalArg$listenForChange {
+  Subscription$OptionalArg$listenForChange(
       {required this.name, required this.$__typename});
 
   @override
-  factory SubscriptionOptionalArg$listenForChange.fromJson(
+  factory Subscription$OptionalArg$listenForChange.fromJson(
           Map<String, dynamic> json) =>
-      _$SubscriptionOptionalArg$listenForChangeFromJson(json);
+      _$Subscription$OptionalArg$listenForChangeFromJson(json);
 
   final String name;
 
@@ -712,7 +721,7 @@ class SubscriptionOptionalArg$listenForChange {
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$SubscriptionOptionalArg$listenForChangeToJson(this);
+      _$Subscription$OptionalArg$listenForChangeToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -722,7 +731,7 @@ class SubscriptionOptionalArg$listenForChange {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionOptionalArg$listenForChange) ||
+    if (!(other is Subscription$OptionalArg$listenForChange) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -734,13 +743,13 @@ class SubscriptionOptionalArg$listenForChange {
   }
 }
 
-extension UtilityExtensionSubscriptionOptionalArg$listenForChange
-    on SubscriptionOptionalArg$listenForChange {
-  SubscriptionOptionalArg$listenForChange copyWith(
+extension UtilityExtension$Subscription$OptionalArg$listenForChange
+    on Subscription$OptionalArg$listenForChange {
+  Subscription$OptionalArg$listenForChange copyWith(
           {String? name, String? $__typename}) =>
-      SubscriptionOptionalArg$listenForChange(
+      Subscription$OptionalArg$listenForChange(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

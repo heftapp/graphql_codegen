@@ -6,122 +6,122 @@ part of 'query.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentFragmentA _$FragmentFragmentAFromJson(Map<String, dynamic> json) =>
-    FragmentFragmentA(
+Fragment$FragmentA _$Fragment$FragmentAFromJson(Map<String, dynamic> json) =>
+    Fragment$FragmentA(
       s: json['s'] as String?,
       $_s: json['_s'] as String?,
     );
 
-Map<String, dynamic> _$FragmentFragmentAToJson(FragmentFragmentA instance) =>
+Map<String, dynamic> _$Fragment$FragmentAToJson(Fragment$FragmentA instance) =>
     <String, dynamic>{
       's': instance.s,
       '_s': instance.$_s,
     };
 
-FragmentFragmentB _$FragmentFragmentBFromJson(Map<String, dynamic> json) =>
-    FragmentFragmentB(
+Fragment$FragmentB _$Fragment$FragmentBFromJson(Map<String, dynamic> json) =>
+    Fragment$FragmentB(
       i: json['i'] as int?,
     );
 
-Map<String, dynamic> _$FragmentFragmentBToJson(FragmentFragmentB instance) =>
+Map<String, dynamic> _$Fragment$FragmentBToJson(Fragment$FragmentB instance) =>
     <String, dynamic>{
       'i': instance.i,
     };
 
-QueryFetchImplementations _$QueryFetchImplementationsFromJson(
+Query$FetchImplementations _$Query$FetchImplementationsFromJson(
         Map<String, dynamic> json) =>
-    QueryFetchImplementations(
+    Query$FetchImplementations(
       $interface: json['interface'] == null
           ? null
-          : QueryFetchImplementations$interface.fromJson(
+          : Query$FetchImplementations$interface.fromJson(
               json['interface'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryFetchImplementationsToJson(
-        QueryFetchImplementations instance) =>
+Map<String, dynamic> _$Query$FetchImplementationsToJson(
+        Query$FetchImplementations instance) =>
     <String, dynamic>{
       'interface': instance.$interface?.toJson(),
     };
 
-QueryFetchImplementations$interface
-    _$QueryFetchImplementations$interfaceFromJson(Map<String, dynamic> json) =>
-        QueryFetchImplementations$interface(
+Query$FetchImplementations$interface
+    _$Query$FetchImplementations$interfaceFromJson(Map<String, dynamic> json) =>
+        Query$FetchImplementations$interface(
           typename: json['typename'] as String,
           b: json['b'] as bool?,
-          self: QueryFetchImplementations$interface$self.fromJson(
+          self: Query$FetchImplementations$interface$self.fromJson(
               json['self'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$QueryFetchImplementations$interfaceToJson(
-        QueryFetchImplementations$interface instance) =>
+Map<String, dynamic> _$Query$FetchImplementations$interfaceToJson(
+        Query$FetchImplementations$interface instance) =>
     <String, dynamic>{
       'typename': instance.typename,
       'b': instance.b,
       'self': instance.self.toJson(),
     };
 
-QueryFetchImplementations$interface$self
-    _$QueryFetchImplementations$interface$selfFromJson(
+Query$FetchImplementations$interface$self
+    _$Query$FetchImplementations$interface$selfFromJson(
             Map<String, dynamic> json) =>
-        QueryFetchImplementations$interface$self(
+        Query$FetchImplementations$interface$self(
           $__typename: json['__typename'] as String,
         );
 
-Map<String, dynamic> _$QueryFetchImplementations$interface$selfToJson(
-        QueryFetchImplementations$interface$self instance) =>
+Map<String, dynamic> _$Query$FetchImplementations$interface$selfToJson(
+        Query$FetchImplementations$interface$self instance) =>
     <String, dynamic>{
       '__typename': instance.$__typename,
     };
 
-QueryFetchImplementations$interface$self$ImplementationA
-    _$QueryFetchImplementations$interface$self$ImplementationAFromJson(
+Query$FetchImplementations$interface$self$$ImplementationA
+    _$Query$FetchImplementations$interface$self$$ImplementationAFromJson(
             Map<String, dynamic> json) =>
-        QueryFetchImplementations$interface$self$ImplementationA(
+        Query$FetchImplementations$interface$self$$ImplementationA(
           $__typename: json['__typename'] as String,
           s: json['s'] as String?,
           $_s: json['_s'] as String?,
         );
 
 Map<String,
-    dynamic> _$QueryFetchImplementations$interface$self$ImplementationAToJson(
-        QueryFetchImplementations$interface$self$ImplementationA instance) =>
+    dynamic> _$Query$FetchImplementations$interface$self$$ImplementationAToJson(
+        Query$FetchImplementations$interface$self$$ImplementationA instance) =>
     <String, dynamic>{
       '__typename': instance.$__typename,
       's': instance.s,
       '_s': instance.$_s,
     };
 
-QueryFetchImplementations$interface$self$ImplementationB
-    _$QueryFetchImplementations$interface$self$ImplementationBFromJson(
+Query$FetchImplementations$interface$self$$ImplementationB
+    _$Query$FetchImplementations$interface$self$$ImplementationBFromJson(
             Map<String, dynamic> json) =>
-        QueryFetchImplementations$interface$self$ImplementationB(
+        Query$FetchImplementations$interface$self$$ImplementationB(
           $__typename: json['__typename'] as String,
           i: json['i'] as int?,
         );
 
 Map<String,
-    dynamic> _$QueryFetchImplementations$interface$self$ImplementationBToJson(
-        QueryFetchImplementations$interface$self$ImplementationB instance) =>
+    dynamic> _$Query$FetchImplementations$interface$self$$ImplementationBToJson(
+        Query$FetchImplementations$interface$self$$ImplementationB instance) =>
     <String, dynamic>{
       '__typename': instance.$__typename,
       'i': instance.i,
     };
 
-QueryFetchImplementations$interface$ImplementationA
-    _$QueryFetchImplementations$interface$ImplementationAFromJson(
+Query$FetchImplementations$interface$$ImplementationA
+    _$Query$FetchImplementations$interface$$ImplementationAFromJson(
             Map<String, dynamic> json) =>
-        QueryFetchImplementations$interface$ImplementationA(
+        Query$FetchImplementations$interface$$ImplementationA(
           typename: json['typename'] as String,
           b: json['b'] as bool?,
-          self: QueryFetchImplementations$interface$self.fromJson(
+          self: Query$FetchImplementations$interface$self.fromJson(
               json['self'] as Map<String, dynamic>),
           s: json['s'] as String?,
           $_s: json['_s'] as String?,
         );
 
 Map<String, dynamic>
-    _$QueryFetchImplementations$interface$ImplementationAToJson(
-            QueryFetchImplementations$interface$ImplementationA instance) =>
+    _$Query$FetchImplementations$interface$$ImplementationAToJson(
+            Query$FetchImplementations$interface$$ImplementationA instance) =>
         <String, dynamic>{
           'typename': instance.typename,
           'b': instance.b,
@@ -130,20 +130,20 @@ Map<String, dynamic>
           '_s': instance.$_s,
         };
 
-QueryFetchImplementations$interface$ImplementationB
-    _$QueryFetchImplementations$interface$ImplementationBFromJson(
+Query$FetchImplementations$interface$$ImplementationB
+    _$Query$FetchImplementations$interface$$ImplementationBFromJson(
             Map<String, dynamic> json) =>
-        QueryFetchImplementations$interface$ImplementationB(
+        Query$FetchImplementations$interface$$ImplementationB(
           typename: json['typename'] as String,
           b: json['b'] as bool?,
-          self: QueryFetchImplementations$interface$self.fromJson(
+          self: Query$FetchImplementations$interface$self.fromJson(
               json['self'] as Map<String, dynamic>),
           i: json['i'] as int?,
         );
 
 Map<String, dynamic>
-    _$QueryFetchImplementations$interface$ImplementationBToJson(
-            QueryFetchImplementations$interface$ImplementationB instance) =>
+    _$Query$FetchImplementations$interface$$ImplementationBToJson(
+            Query$FetchImplementations$interface$$ImplementationB instance) =>
         <String, dynamic>{
           'typename': instance.typename,
           'b': instance.b,

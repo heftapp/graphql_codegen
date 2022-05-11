@@ -9,16 +9,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'main.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryFetchPerson {
-  VariablesQueryFetchPerson({required this.id});
+class Variables$Query$FetchPerson {
+  Variables$Query$FetchPerson({required this.id});
 
   @override
-  factory VariablesQueryFetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryFetchPersonFromJson(json);
+  factory Variables$Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
+      _$Variables$Query$FetchPersonFromJson(json);
 
   final String id;
 
-  Map<String, dynamic> toJson() => _$VariablesQueryFetchPersonToJson(this);
+  Map<String, dynamic> toJson() => _$Variables$Query$FetchPersonToJson(this);
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
@@ -27,7 +27,7 @@ class VariablesQueryFetchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesQueryFetchPerson) ||
+    if (!(other is Variables$Query$FetchPerson) ||
         runtimeType != other.runtimeType) return false;
     final l$id = id;
     final lOther$id = other.id;
@@ -37,19 +37,19 @@ class VariablesQueryFetchPerson {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson {
-  QueryFetchPerson({this.fetchPerson, required this.$__typename});
+class Query$FetchPerson {
+  Query$FetchPerson({this.fetchPerson, required this.$__typename});
 
   @override
-  factory QueryFetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchPersonFromJson(json);
+  factory Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchPersonFromJson(json);
 
-  final QueryFetchPerson$fetchPerson? fetchPerson;
+  final Query$FetchPerson$fetchPerson? fetchPerson;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryFetchPersonToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchPersonToJson(this);
   int get hashCode {
     final l$fetchPerson = fetchPerson;
     final l$$__typename = $__typename;
@@ -59,7 +59,7 @@ class QueryFetchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson) || runtimeType != other.runtimeType)
+    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType)
       return false;
     final l$fetchPerson = fetchPerson;
     final lOther$fetchPerson = other.fetchPerson;
@@ -71,16 +71,16 @@ class QueryFetchPerson {
   }
 }
 
-extension UtilityExtensionQueryFetchPerson on QueryFetchPerson {
-  QueryFetchPerson copyWith(
-          {QueryFetchPerson$fetchPerson? Function()? fetchPerson,
+extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
+  Query$FetchPerson copyWith(
+          {Query$FetchPerson$fetchPerson? Function()? fetchPerson,
           String? $__typename}) =>
-      QueryFetchPerson(
+      Query$FetchPerson(
           fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
+const queryDocumentFetchPerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchPerson'),
@@ -149,16 +149,17 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
             directives: [],
             selectionSet: null)
       ])),
-  FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY,
-  FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT,
+  fragmentDefinitionPersonSummary,
+  fragmentDefinitionPersonParent,
 ]);
-QueryFetchPerson _parserFnQueryFetchPerson(Map<String, dynamic> data) =>
-    QueryFetchPerson.fromJson(data);
+Query$FetchPerson _parserFn$Query$FetchPerson(Map<String, dynamic> data) =>
+    Query$FetchPerson.fromJson(data);
 
-class OptionsQueryFetchPerson extends graphql.QueryOptions<QueryFetchPerson> {
-  OptionsQueryFetchPerson(
+class Options$Query$FetchPerson
+    extends graphql.QueryOptions<Query$FetchPerson> {
+  Options$Query$FetchPerson(
       {String? operationName,
-      required VariablesQueryFetchPerson variables,
+      required Variables$Query$FetchPerson variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -174,15 +175,15 @@ class OptionsQueryFetchPerson extends graphql.QueryOptions<QueryFetchPerson> {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_FETCH_PERSON,
-            parserFn: _parserFnQueryFetchPerson);
+            document: queryDocumentFetchPerson,
+            parserFn: _parserFn$Query$FetchPerson);
 }
 
-class WatchOptionsQueryFetchPerson
-    extends graphql.WatchQueryOptions<QueryFetchPerson> {
-  WatchOptionsQueryFetchPerson(
+class WatchOptions$Query$FetchPerson
+    extends graphql.WatchQueryOptions<Query$FetchPerson> {
+  WatchOptions$Query$FetchPerson(
       {String? operationName,
-      required VariablesQueryFetchPerson variables,
+      required Variables$Query$FetchPerson variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -200,70 +201,72 @@ class WatchOptionsQueryFetchPerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: QUERY_FETCH_PERSON,
+            document: queryDocumentFetchPerson,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnQueryFetchPerson);
+            parserFn: _parserFn$Query$FetchPerson);
 }
 
-class FetchMoreOptionsQueryFetchPerson extends graphql.FetchMoreOptions {
-  FetchMoreOptionsQueryFetchPerson(
+class FetchMoreOptions$Query$FetchPerson extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$FetchPerson(
       {required graphql.UpdateQuery updateQuery,
-      required VariablesQueryFetchPerson variables})
+      required Variables$Query$FetchPerson variables})
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: QUERY_FETCH_PERSON);
+            document: queryDocumentFetchPerson);
 }
 
-extension ClientExtensionQueryFetchPerson on graphql.GraphQLClient {
-  Future<graphql.QueryResult<QueryFetchPerson>> queryFetchPerson(
-          OptionsQueryFetchPerson options) async =>
+extension ClientExtension$Query$FetchPerson on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$FetchPerson>> query$FetchPerson(
+          Options$Query$FetchPerson options) async =>
       await this.query(options);
-  graphql.ObservableQuery<QueryFetchPerson> watchQueryFetchPerson(
-          WatchOptionsQueryFetchPerson options) =>
+  graphql.ObservableQuery<Query$FetchPerson> watchQuery$FetchPerson(
+          WatchOptions$Query$FetchPerson options) =>
       this.watchQuery(options);
-  void writeQueryFetchPerson(
-          {required QueryFetchPerson data,
-          required VariablesQueryFetchPerson variables,
+  void writeQuery$FetchPerson(
+          {required Query$FetchPerson data,
+          required Variables$Query$FetchPerson variables,
           bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
-              operation: graphql.Operation(document: QUERY_FETCH_PERSON),
+              operation: graphql.Operation(document: queryDocumentFetchPerson),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
-  QueryFetchPerson? readQueryFetchPerson(
-      {required VariablesQueryFetchPerson variables, bool optimistic = true}) {
+  Query$FetchPerson? readQuery$FetchPerson(
+      {required Variables$Query$FetchPerson variables,
+      bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: QUERY_FETCH_PERSON),
+            operation: graphql.Operation(document: queryDocumentFetchPerson),
             variables: variables.toJson()),
         optimistic: optimistic);
-    return result == null ? null : QueryFetchPerson.fromJson(result);
+    return result == null ? null : Query$FetchPerson.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<QueryFetchPerson> useQueryFetchPerson(
-        OptionsQueryFetchPerson options) =>
+graphql_flutter.QueryHookResult<Query$FetchPerson> useQuery$FetchPerson(
+        Options$Query$FetchPerson options) =>
     graphql_flutter.useQuery(options);
-graphql.ObservableQuery<QueryFetchPerson> useWatchQueryFetchPerson(
-        WatchOptionsQueryFetchPerson options) =>
+graphql.ObservableQuery<Query$FetchPerson> useWatchQuery$FetchPerson(
+        WatchOptions$Query$FetchPerson options) =>
     graphql_flutter.useWatchQuery(options);
 
-class QueryFetchPersonWidget extends graphql_flutter.Query<QueryFetchPerson> {
-  QueryFetchPersonWidget(
+class Query$FetchPerson$Widget
+    extends graphql_flutter.Query<Query$FetchPerson> {
+  Query$FetchPerson$Widget(
       {widgets.Key? key,
-      required OptionsQueryFetchPerson options,
-      required graphql_flutter.QueryBuilder<QueryFetchPerson> builder})
+      required Options$Query$FetchPerson options,
+      required graphql_flutter.QueryBuilder<Query$FetchPerson> builder})
       : super(key: key, options: options, builder: builder);
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson implements FragmentPersonSummary {
-  QueryFetchPerson$fetchPerson(
+class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
+  Query$FetchPerson$fetchPerson(
       {this.nickname,
       required this.name,
       this.dob,
@@ -274,8 +277,8 @@ class QueryFetchPerson$fetchPerson implements FragmentPersonSummary {
       this.children});
 
   @override
-  factory QueryFetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchPerson$fetchPersonFromJson(json);
+  factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchPerson$fetchPersonFromJson(json);
 
   final String? nickname;
 
@@ -295,14 +298,14 @@ class QueryFetchPerson$fetchPerson implements FragmentPersonSummary {
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  final List<QueryFetchPerson$fetchPerson$parents>? parents;
+  final List<Query$FetchPerson$fetchPerson$parents>? parents;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  final List<QueryFetchPerson$fetchPerson$children>? children;
+  final List<Query$FetchPerson$fetchPerson$children>? children;
 
-  Map<String, dynamic> toJson() => _$QueryFetchPerson$fetchPersonToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
   int get hashCode {
     final l$nickname = nickname;
     final l$name = name;
@@ -330,7 +333,7 @@ class QueryFetchPerson$fetchPerson implements FragmentPersonSummary {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson$fetchPerson) ||
+    if (!(other is Query$FetchPerson$fetchPerson) ||
         runtimeType != other.runtimeType) return false;
     final l$nickname = nickname;
     final lOther$nickname = other.nickname;
@@ -413,18 +416,19 @@ class QueryFetchPerson$fetchPerson implements FragmentPersonSummary {
   }
 }
 
-extension UtilityExtensionQueryFetchPerson$fetchPerson
-    on QueryFetchPerson$fetchPerson {
-  QueryFetchPerson$fetchPerson copyWith(
+extension UtilityExtension$Query$FetchPerson$fetchPerson
+    on Query$FetchPerson$fetchPerson {
+  Query$FetchPerson$fetchPerson copyWith(
           {String? Function()? nickname,
           String? name,
           DateTime? Function()? dob,
           List<DateTime?>? Function()? events,
           List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<QueryFetchPerson$fetchPerson$parents>? Function()? parents,
+          List<Query$FetchPerson$fetchPerson$parents>? Function()? parents,
           String? $__typename,
-          List<QueryFetchPerson$fetchPerson$children>? Function()? children}) =>
-      QueryFetchPerson$fetchPerson(
+          List<Query$FetchPerson$fetchPerson$children>? Function()?
+              children}) =>
+      Query$FetchPerson$fetchPerson(
           nickname: nickname == null ? this.nickname : nickname(),
           name: name == null ? this.name : name,
           dob: dob == null ? this.dob : dob(),
@@ -437,12 +441,12 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$parents
+class Query$FetchPerson$fetchPerson$parents
     implements
-        FragmentPersonSummary$parents,
-        FragmentPersonParent,
-        FragmentPersonSummary {
-  QueryFetchPerson$fetchPerson$parents(
+        Fragment$PersonSummary$parents,
+        Fragment$PersonParent,
+        Fragment$PersonSummary {
+  Query$FetchPerson$fetchPerson$parents(
       {required this.name,
       required this.$__typename,
       this.nickname,
@@ -452,9 +456,9 @@ class QueryFetchPerson$fetchPerson$parents
       this.parents});
 
   @override
-  factory QueryFetchPerson$fetchPerson$parents.fromJson(
+  factory Query$FetchPerson$fetchPerson$parents.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchPerson$fetchPerson$parentsFromJson(json);
+      _$Query$FetchPerson$fetchPerson$parentsFromJson(json);
 
   final String name;
 
@@ -477,10 +481,10 @@ class QueryFetchPerson$fetchPerson$parents
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  final List<QueryFetchPerson$fetchPerson$parents$parents>? parents;
+  final List<Query$FetchPerson$fetchPerson$parents$parents>? parents;
 
   Map<String, dynamic> toJson() =>
-      _$QueryFetchPerson$fetchPerson$parentsToJson(this);
+      _$Query$FetchPerson$fetchPerson$parentsToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -506,7 +510,7 @@ class QueryFetchPerson$fetchPerson$parents
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson$fetchPerson$parents) ||
+    if (!(other is Query$FetchPerson$fetchPerson$parents) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -576,18 +580,18 @@ class QueryFetchPerson$fetchPerson$parents
   }
 }
 
-extension UtilityExtensionQueryFetchPerson$fetchPerson$parents
-    on QueryFetchPerson$fetchPerson$parents {
-  QueryFetchPerson$fetchPerson$parents copyWith(
+extension UtilityExtension$Query$FetchPerson$fetchPerson$parents
+    on Query$FetchPerson$fetchPerson$parents {
+  Query$FetchPerson$fetchPerson$parents copyWith(
           {String? name,
           String? $__typename,
           String? Function()? nickname,
           DateTime? Function()? dob,
           List<DateTime?>? Function()? events,
           List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<QueryFetchPerson$fetchPerson$parents$parents>? Function()?
+          List<Query$FetchPerson$fetchPerson$parents$parents>? Function()?
               parents}) =>
-      QueryFetchPerson$fetchPerson$parents(
+      Query$FetchPerson$fetchPerson$parents(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename,
           nickname: nickname == null ? this.nickname : nickname(),
@@ -599,15 +603,15 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson$parents
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$parents$parents
-    implements FragmentPersonSummary$parents, FragmentPersonParent {
-  QueryFetchPerson$fetchPerson$parents$parents(
+class Query$FetchPerson$fetchPerson$parents$parents
+    implements Fragment$PersonSummary$parents, Fragment$PersonParent {
+  Query$FetchPerson$fetchPerson$parents$parents(
       {required this.name, required this.$__typename});
 
   @override
-  factory QueryFetchPerson$fetchPerson$parents$parents.fromJson(
+  factory Query$FetchPerson$fetchPerson$parents$parents.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchPerson$fetchPerson$parents$parentsFromJson(json);
+      _$Query$FetchPerson$fetchPerson$parents$parentsFromJson(json);
 
   final String name;
 
@@ -615,7 +619,7 @@ class QueryFetchPerson$fetchPerson$parents$parents
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$QueryFetchPerson$fetchPerson$parents$parentsToJson(this);
+      _$Query$FetchPerson$fetchPerson$parents$parentsToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -625,7 +629,7 @@ class QueryFetchPerson$fetchPerson$parents$parents
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson$fetchPerson$parents$parents) ||
+    if (!(other is Query$FetchPerson$fetchPerson$parents$parents) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -637,18 +641,18 @@ class QueryFetchPerson$fetchPerson$parents$parents
   }
 }
 
-extension UtilityExtensionQueryFetchPerson$fetchPerson$parents$parents
-    on QueryFetchPerson$fetchPerson$parents$parents {
-  QueryFetchPerson$fetchPerson$parents$parents copyWith(
+extension UtilityExtension$Query$FetchPerson$fetchPerson$parents$parents
+    on Query$FetchPerson$fetchPerson$parents$parents {
+  Query$FetchPerson$fetchPerson$parents$parents copyWith(
           {String? name, String? $__typename}) =>
-      QueryFetchPerson$fetchPerson$parents$parents(
+      Query$FetchPerson$fetchPerson$parents$parents(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$children implements FragmentPersonSummary {
-  QueryFetchPerson$fetchPerson$children(
+class Query$FetchPerson$fetchPerson$children implements Fragment$PersonSummary {
+  Query$FetchPerson$fetchPerson$children(
       {this.nickname,
       required this.name,
       this.dob,
@@ -658,9 +662,9 @@ class QueryFetchPerson$fetchPerson$children implements FragmentPersonSummary {
       required this.$__typename});
 
   @override
-  factory QueryFetchPerson$fetchPerson$children.fromJson(
+  factory Query$FetchPerson$fetchPerson$children.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchPerson$fetchPerson$childrenFromJson(json);
+      _$Query$FetchPerson$fetchPerson$childrenFromJson(json);
 
   final String? nickname;
 
@@ -680,13 +684,13 @@ class QueryFetchPerson$fetchPerson$children implements FragmentPersonSummary {
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  final List<QueryFetchPerson$fetchPerson$children$parents>? parents;
+  final List<Query$FetchPerson$fetchPerson$children$parents>? parents;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$QueryFetchPerson$fetchPerson$childrenToJson(this);
+      _$Query$FetchPerson$fetchPerson$childrenToJson(this);
   int get hashCode {
     final l$nickname = nickname;
     final l$name = name;
@@ -712,7 +716,7 @@ class QueryFetchPerson$fetchPerson$children implements FragmentPersonSummary {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson$fetchPerson$children) ||
+    if (!(other is Query$FetchPerson$fetchPerson$children) ||
         runtimeType != other.runtimeType) return false;
     final l$nickname = nickname;
     final lOther$nickname = other.nickname;
@@ -782,18 +786,18 @@ class QueryFetchPerson$fetchPerson$children implements FragmentPersonSummary {
   }
 }
 
-extension UtilityExtensionQueryFetchPerson$fetchPerson$children
-    on QueryFetchPerson$fetchPerson$children {
-  QueryFetchPerson$fetchPerson$children copyWith(
+extension UtilityExtension$Query$FetchPerson$fetchPerson$children
+    on Query$FetchPerson$fetchPerson$children {
+  Query$FetchPerson$fetchPerson$children copyWith(
           {String? Function()? nickname,
           String? name,
           DateTime? Function()? dob,
           List<DateTime?>? Function()? events,
           List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<QueryFetchPerson$fetchPerson$children$parents>? Function()?
+          List<Query$FetchPerson$fetchPerson$children$parents>? Function()?
               parents,
           String? $__typename}) =>
-      QueryFetchPerson$fetchPerson$children(
+      Query$FetchPerson$fetchPerson$children(
           nickname: nickname == null ? this.nickname : nickname(),
           name: name == null ? this.name : name,
           dob: dob == null ? this.dob : dob(),
@@ -805,15 +809,15 @@ extension UtilityExtensionQueryFetchPerson$fetchPerson$children
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson$children$parents
-    implements FragmentPersonSummary$parents, FragmentPersonParent {
-  QueryFetchPerson$fetchPerson$children$parents(
+class Query$FetchPerson$fetchPerson$children$parents
+    implements Fragment$PersonSummary$parents, Fragment$PersonParent {
+  Query$FetchPerson$fetchPerson$children$parents(
       {required this.name, required this.$__typename});
 
   @override
-  factory QueryFetchPerson$fetchPerson$children$parents.fromJson(
+  factory Query$FetchPerson$fetchPerson$children$parents.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryFetchPerson$fetchPerson$children$parentsFromJson(json);
+      _$Query$FetchPerson$fetchPerson$children$parentsFromJson(json);
 
   final String name;
 
@@ -821,7 +825,7 @@ class QueryFetchPerson$fetchPerson$children$parents
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$QueryFetchPerson$fetchPerson$children$parentsToJson(this);
+      _$Query$FetchPerson$fetchPerson$children$parentsToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -831,7 +835,7 @@ class QueryFetchPerson$fetchPerson$children$parents
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson$fetchPerson$children$parents) ||
+    if (!(other is Query$FetchPerson$fetchPerson$children$parents) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -843,26 +847,27 @@ class QueryFetchPerson$fetchPerson$children$parents
   }
 }
 
-extension UtilityExtensionQueryFetchPerson$fetchPerson$children$parents
-    on QueryFetchPerson$fetchPerson$children$parents {
-  QueryFetchPerson$fetchPerson$children$parents copyWith(
+extension UtilityExtension$Query$FetchPerson$fetchPerson$children$parents
+    on Query$FetchPerson$fetchPerson$children$parents {
+  Query$FetchPerson$fetchPerson$children$parents copyWith(
           {String? name, String? $__typename}) =>
-      QueryFetchPerson$fetchPerson$children$parents(
+      Query$FetchPerson$fetchPerson$children$parents(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesMutationUpdatePerson {
-  VariablesMutationUpdatePerson({required this.id});
+class Variables$Mutation$UpdatePerson {
+  Variables$Mutation$UpdatePerson({required this.id});
 
   @override
-  factory VariablesMutationUpdatePerson.fromJson(Map<String, dynamic> json) =>
-      _$VariablesMutationUpdatePersonFromJson(json);
+  factory Variables$Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) =>
+      _$Variables$Mutation$UpdatePersonFromJson(json);
 
   final String id;
 
-  Map<String, dynamic> toJson() => _$VariablesMutationUpdatePersonToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$Variables$Mutation$UpdatePersonToJson(this);
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
@@ -871,7 +876,7 @@ class VariablesMutationUpdatePerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesMutationUpdatePerson) ||
+    if (!(other is Variables$Mutation$UpdatePerson) ||
         runtimeType != other.runtimeType) return false;
     final l$id = id;
     final lOther$id = other.id;
@@ -881,19 +886,19 @@ class VariablesMutationUpdatePerson {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdatePerson {
-  MutationUpdatePerson({this.updatePerson, required this.$__typename});
+class Mutation$UpdatePerson {
+  Mutation$UpdatePerson({this.updatePerson, required this.$__typename});
 
   @override
-  factory MutationUpdatePerson.fromJson(Map<String, dynamic> json) =>
-      _$MutationUpdatePersonFromJson(json);
+  factory Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) =>
+      _$Mutation$UpdatePersonFromJson(json);
 
-  final MutationUpdatePerson$updatePerson? updatePerson;
+  final Mutation$UpdatePerson$updatePerson? updatePerson;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$MutationUpdatePersonToJson(this);
+  Map<String, dynamic> toJson() => _$Mutation$UpdatePersonToJson(this);
   int get hashCode {
     final l$updatePerson = updatePerson;
     final l$$__typename = $__typename;
@@ -903,7 +908,7 @@ class MutationUpdatePerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is MutationUpdatePerson) || runtimeType != other.runtimeType)
+    if (!(other is Mutation$UpdatePerson) || runtimeType != other.runtimeType)
       return false;
     final l$updatePerson = updatePerson;
     final lOther$updatePerson = other.updatePerson;
@@ -915,17 +920,17 @@ class MutationUpdatePerson {
   }
 }
 
-extension UtilityExtensionMutationUpdatePerson on MutationUpdatePerson {
-  MutationUpdatePerson copyWith(
-          {MutationUpdatePerson$updatePerson? Function()? updatePerson,
+extension UtilityExtension$Mutation$UpdatePerson on Mutation$UpdatePerson {
+  Mutation$UpdatePerson copyWith(
+          {Mutation$UpdatePerson$updatePerson? Function()? updatePerson,
           String? $__typename}) =>
-      MutationUpdatePerson(
+      Mutation$UpdatePerson(
           updatePerson:
               updatePerson == null ? this.updatePerson : updatePerson(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
+const queryDocumentUpdatePerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdatePerson'),
@@ -969,23 +974,24 @@ const MUTATION_UPDATE_PERSON = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-MutationUpdatePerson _parserFnMutationUpdatePerson(Map<String, dynamic> data) =>
-    MutationUpdatePerson.fromJson(data);
-typedef OnMutationCompletedMutationUpdatePerson = FutureOr<void> Function(
-    dynamic, MutationUpdatePerson?);
+Mutation$UpdatePerson _parserFn$Mutation$UpdatePerson(
+        Map<String, dynamic> data) =>
+    Mutation$UpdatePerson.fromJson(data);
+typedef OnMutationCompleted$Mutation$UpdatePerson = FutureOr<void> Function(
+    dynamic, Mutation$UpdatePerson?);
 
-class OptionsMutationUpdatePerson
-    extends graphql.MutationOptions<MutationUpdatePerson> {
-  OptionsMutationUpdatePerson(
+class Options$Mutation$UpdatePerson
+    extends graphql.MutationOptions<Mutation$UpdatePerson> {
+  Options$Mutation$UpdatePerson(
       {String? operationName,
-      required VariablesMutationUpdatePerson variables,
+      required Variables$Mutation$UpdatePerson variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      OnMutationCompletedMutationUpdatePerson? onCompleted,
-      graphql.OnMutationUpdate<MutationUpdatePerson>? update,
+      OnMutationCompleted$Mutation$UpdatePerson? onCompleted,
+      graphql.OnMutationUpdate<Mutation$UpdatePerson>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -998,14 +1004,17 @@ class OptionsMutationUpdatePerson
             context: context,
             onCompleted: onCompleted == null
                 ? null
-                : (data) => onCompleted(data,
-                    data == null ? null : _parserFnMutationUpdatePerson(data)),
+                : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$UpdatePerson(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_PERSON,
-            parserFn: _parserFnMutationUpdatePerson);
+            document: queryDocumentUpdatePerson,
+            parserFn: _parserFn$Mutation$UpdatePerson);
 
-  final OnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$UpdatePerson? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -1016,11 +1025,11 @@ class OptionsMutationUpdatePerson
       ];
 }
 
-class WatchOptionsMutationUpdatePerson
-    extends graphql.WatchQueryOptions<MutationUpdatePerson> {
-  WatchOptionsMutationUpdatePerson(
+class WatchOptions$Mutation$UpdatePerson
+    extends graphql.WatchQueryOptions<Mutation$UpdatePerson> {
+  WatchOptions$Mutation$UpdatePerson(
       {String? operationName,
-      required VariablesMutationUpdatePerson variables,
+      required Variables$Mutation$UpdatePerson variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1038,36 +1047,36 @@ class WatchOptionsMutationUpdatePerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: MUTATION_UPDATE_PERSON,
+            document: queryDocumentUpdatePerson,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnMutationUpdatePerson);
+            parserFn: _parserFn$Mutation$UpdatePerson);
 }
 
-extension ClientExtensionMutationUpdatePerson on graphql.GraphQLClient {
-  Future<graphql.QueryResult<MutationUpdatePerson>> mutateUpdatePerson(
-          OptionsMutationUpdatePerson options) async =>
+extension ClientExtension$Mutation$UpdatePerson on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$UpdatePerson>> mutate$UpdatePerson(
+          Options$Mutation$UpdatePerson options) async =>
       await this.mutate(options);
-  graphql.ObservableQuery<MutationUpdatePerson> watchMutationUpdatePerson(
-          WatchOptionsMutationUpdatePerson options) =>
+  graphql.ObservableQuery<Mutation$UpdatePerson> watchMutation$UpdatePerson(
+          WatchOptions$Mutation$UpdatePerson options) =>
       this.watchMutation(options);
 }
 
-class MutationUpdatePersonHookResult {
-  MutationUpdatePersonHookResult(this.runMutation, this.result);
+class Mutation$UpdatePerson$HookResult {
+  Mutation$UpdatePerson$HookResult(this.runMutation, this.result);
 
-  final RunMutationMutationUpdatePerson runMutation;
+  final RunMutation$Mutation$UpdatePerson runMutation;
 
-  final graphql.QueryResult<MutationUpdatePerson> result;
+  final graphql.QueryResult<Mutation$UpdatePerson> result;
 }
 
-MutationUpdatePersonHookResult useMutationUpdatePerson(
-    [WidgetOptionsMutationUpdatePerson? options]) {
+Mutation$UpdatePerson$HookResult useMutation$UpdatePerson(
+    [WidgetOptions$Mutation$UpdatePerson? options]) {
   final result = graphql_flutter
-      .useMutation(options ?? WidgetOptionsMutationUpdatePerson());
-  return MutationUpdatePersonHookResult(
+      .useMutation(options ?? WidgetOptions$Mutation$UpdatePerson());
+  return Mutation$UpdatePerson$HookResult(
     (variables, {optimisticResult}) => result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult,
@@ -1076,21 +1085,21 @@ MutationUpdatePersonHookResult useMutationUpdatePerson(
   );
 }
 
-graphql.ObservableQuery<MutationUpdatePerson> useWatchMutationUpdatePerson(
-        WatchOptionsMutationUpdatePerson options) =>
+graphql.ObservableQuery<Mutation$UpdatePerson> useWatchMutation$UpdatePerson(
+        WatchOptions$Mutation$UpdatePerson options) =>
     graphql_flutter.useWatchMutation(options);
 
-class WidgetOptionsMutationUpdatePerson
-    extends graphql.MutationOptions<MutationUpdatePerson> {
-  WidgetOptionsMutationUpdatePerson(
+class WidgetOptions$Mutation$UpdatePerson
+    extends graphql.MutationOptions<Mutation$UpdatePerson> {
+  WidgetOptions$Mutation$UpdatePerson(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      OnMutationCompletedMutationUpdatePerson? onCompleted,
-      graphql.OnMutationUpdate<MutationUpdatePerson>? update,
+      OnMutationCompleted$Mutation$UpdatePerson? onCompleted,
+      graphql.OnMutationUpdate<Mutation$UpdatePerson>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -1102,14 +1111,17 @@ class WidgetOptionsMutationUpdatePerson
             context: context,
             onCompleted: onCompleted == null
                 ? null
-                : (data) => onCompleted(data,
-                    data == null ? null : _parserFnMutationUpdatePerson(data)),
+                : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$UpdatePerson(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_PERSON,
-            parserFn: _parserFnMutationUpdatePerson);
+            document: queryDocumentUpdatePerson,
+            parserFn: _parserFn$Mutation$UpdatePerson);
 
-  final OnMutationCompletedMutationUpdatePerson? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$UpdatePerson? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -1120,22 +1132,22 @@ class WidgetOptionsMutationUpdatePerson
       ];
 }
 
-typedef RunMutationMutationUpdatePerson
-    = graphql.MultiSourceResult<MutationUpdatePerson>
-        Function(VariablesMutationUpdatePerson, {Object? optimisticResult});
-typedef BuilderMutationUpdatePerson = widgets.Widget Function(
-    RunMutationMutationUpdatePerson,
-    graphql.QueryResult<MutationUpdatePerson>?);
+typedef RunMutation$Mutation$UpdatePerson
+    = graphql.MultiSourceResult<Mutation$UpdatePerson>
+        Function(Variables$Mutation$UpdatePerson, {Object? optimisticResult});
+typedef Builder$Mutation$UpdatePerson = widgets.Widget Function(
+    RunMutation$Mutation$UpdatePerson,
+    graphql.QueryResult<Mutation$UpdatePerson>?);
 
-class MutationUpdatePersonWidget
-    extends graphql_flutter.Mutation<MutationUpdatePerson> {
-  MutationUpdatePersonWidget(
+class Mutation$UpdatePerson$Widget
+    extends graphql_flutter.Mutation<Mutation$UpdatePerson> {
+  Mutation$UpdatePerson$Widget(
       {widgets.Key? key,
-      WidgetOptionsMutationUpdatePerson? options,
-      required BuilderMutationUpdatePerson builder})
+      WidgetOptions$Mutation$UpdatePerson? options,
+      required Builder$Mutation$UpdatePerson builder})
       : super(
             key: key,
-            options: options ?? WidgetOptionsMutationUpdatePerson(),
+            options: options ?? WidgetOptions$Mutation$UpdatePerson(),
             builder: (run, result) => builder(
                 (variables, {optimisticResult}) =>
                     run(variables.toJson(), optimisticResult: optimisticResult),
@@ -1143,14 +1155,14 @@ class MutationUpdatePersonWidget
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdatePerson$updatePerson {
-  MutationUpdatePerson$updatePerson(
+class Mutation$UpdatePerson$updatePerson {
+  Mutation$UpdatePerson$updatePerson(
       {required this.full_name, required this.$__typename});
 
   @override
-  factory MutationUpdatePerson$updatePerson.fromJson(
+  factory Mutation$UpdatePerson$updatePerson.fromJson(
           Map<String, dynamic> json) =>
-      _$MutationUpdatePerson$updatePersonFromJson(json);
+      _$Mutation$UpdatePerson$updatePersonFromJson(json);
 
   final String full_name;
 
@@ -1158,7 +1170,7 @@ class MutationUpdatePerson$updatePerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$MutationUpdatePerson$updatePersonToJson(this);
+      _$Mutation$UpdatePerson$updatePersonToJson(this);
   int get hashCode {
     final l$full_name = full_name;
     final l$$__typename = $__typename;
@@ -1168,7 +1180,7 @@ class MutationUpdatePerson$updatePerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is MutationUpdatePerson$updatePerson) ||
+    if (!(other is Mutation$UpdatePerson$updatePerson) ||
         runtimeType != other.runtimeType) return false;
     final l$full_name = full_name;
     final lOther$full_name = other.full_name;
@@ -1180,28 +1192,28 @@ class MutationUpdatePerson$updatePerson {
   }
 }
 
-extension UtilityExtensionMutationUpdatePerson$updatePerson
-    on MutationUpdatePerson$updatePerson {
-  MutationUpdatePerson$updatePerson copyWith(
+extension UtilityExtension$Mutation$UpdatePerson$updatePerson
+    on Mutation$UpdatePerson$updatePerson {
+  Mutation$UpdatePerson$updatePerson copyWith(
           {String? full_name, String? $__typename}) =>
-      MutationUpdatePerson$updatePerson(
+      Mutation$UpdatePerson$updatePerson(
           full_name: full_name == null ? this.full_name : full_name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class VariablesSubscriptionWatchPerson {
-  VariablesSubscriptionWatchPerson({this.id});
+class Variables$Subscription$WatchPerson {
+  Variables$Subscription$WatchPerson({this.id});
 
   @override
-  factory VariablesSubscriptionWatchPerson.fromJson(
+  factory Variables$Subscription$WatchPerson.fromJson(
           Map<String, dynamic> json) =>
-      _$VariablesSubscriptionWatchPersonFromJson(json);
+      _$Variables$Subscription$WatchPersonFromJson(json);
 
   final String? id;
 
   Map<String, dynamic> toJson() =>
-      _$VariablesSubscriptionWatchPersonToJson(this);
+      _$Variables$Subscription$WatchPersonToJson(this);
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
@@ -1210,7 +1222,7 @@ class VariablesSubscriptionWatchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesSubscriptionWatchPerson) ||
+    if (!(other is Variables$Subscription$WatchPerson) ||
         runtimeType != other.runtimeType) return false;
     final l$id = id;
     final lOther$id = other.id;
@@ -1220,19 +1232,19 @@ class VariablesSubscriptionWatchPerson {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionWatchPerson {
-  SubscriptionWatchPerson({this.watchPerson, required this.$__typename});
+class Subscription$WatchPerson {
+  Subscription$WatchPerson({this.watchPerson, required this.$__typename});
 
   @override
-  factory SubscriptionWatchPerson.fromJson(Map<String, dynamic> json) =>
-      _$SubscriptionWatchPersonFromJson(json);
+  factory Subscription$WatchPerson.fromJson(Map<String, dynamic> json) =>
+      _$Subscription$WatchPersonFromJson(json);
 
-  final SubscriptionWatchPerson$watchPerson? watchPerson;
+  final Subscription$WatchPerson$watchPerson? watchPerson;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$SubscriptionWatchPersonToJson(this);
+  Map<String, dynamic> toJson() => _$Subscription$WatchPersonToJson(this);
   int get hashCode {
     final l$watchPerson = watchPerson;
     final l$$__typename = $__typename;
@@ -1242,8 +1254,8 @@ class SubscriptionWatchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionWatchPerson) || runtimeType != other.runtimeType)
-      return false;
+    if (!(other is Subscription$WatchPerson) ||
+        runtimeType != other.runtimeType) return false;
     final l$watchPerson = watchPerson;
     final lOther$watchPerson = other.watchPerson;
     if (l$watchPerson != lOther$watchPerson) return false;
@@ -1254,16 +1266,17 @@ class SubscriptionWatchPerson {
   }
 }
 
-extension UtilityExtensionSubscriptionWatchPerson on SubscriptionWatchPerson {
-  SubscriptionWatchPerson copyWith(
-          {SubscriptionWatchPerson$watchPerson? Function()? watchPerson,
+extension UtilityExtension$Subscription$WatchPerson
+    on Subscription$WatchPerson {
+  Subscription$WatchPerson copyWith(
+          {Subscription$WatchPerson$watchPerson? Function()? watchPerson,
           String? $__typename}) =>
-      SubscriptionWatchPerson(
+      Subscription$WatchPerson(
           watchPerson: watchPerson == null ? this.watchPerson : watchPerson(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
+const queryDocumentWatchPerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'WatchPerson'),
@@ -1307,15 +1320,15 @@ const SUBSCRIPTION_WATCH_PERSON = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-SubscriptionWatchPerson _parserFnSubscriptionWatchPerson(
+Subscription$WatchPerson _parserFn$Subscription$WatchPerson(
         Map<String, dynamic> data) =>
-    SubscriptionWatchPerson.fromJson(data);
+    Subscription$WatchPerson.fromJson(data);
 
-class OptionsSubscriptionWatchPerson
-    extends graphql.SubscriptionOptions<SubscriptionWatchPerson> {
-  OptionsSubscriptionWatchPerson(
+class Options$Subscription$WatchPerson
+    extends graphql.SubscriptionOptions<Subscription$WatchPerson> {
+  Options$Subscription$WatchPerson(
       {String? operationName,
-      VariablesSubscriptionWatchPerson? variables,
+      Variables$Subscription$WatchPerson? variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1329,15 +1342,15 @@ class OptionsSubscriptionWatchPerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_WATCH_PERSON,
-            parserFn: _parserFnSubscriptionWatchPerson);
+            document: queryDocumentWatchPerson,
+            parserFn: _parserFn$Subscription$WatchPerson);
 }
 
-class WatchOptionsSubscriptionWatchPerson
-    extends graphql.WatchQueryOptions<SubscriptionWatchPerson> {
-  WatchOptionsSubscriptionWatchPerson(
+class WatchOptions$Subscription$WatchPerson
+    extends graphql.WatchQueryOptions<Subscription$WatchPerson> {
+  WatchOptions$Subscription$WatchPerson(
       {String? operationName,
-      VariablesSubscriptionWatchPerson? variables,
+      Variables$Subscription$WatchPerson? variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1355,62 +1368,64 @@ class WatchOptionsSubscriptionWatchPerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: SUBSCRIPTION_WATCH_PERSON,
+            document: queryDocumentWatchPerson,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnSubscriptionWatchPerson);
+            parserFn: _parserFn$Subscription$WatchPerson);
 }
 
-class FetchMoreOptionsSubscriptionWatchPerson extends graphql.FetchMoreOptions {
-  FetchMoreOptionsSubscriptionWatchPerson(
+class FetchMoreOptions$Subscription$WatchPerson
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Subscription$WatchPerson(
       {required graphql.UpdateQuery updateQuery,
-      VariablesSubscriptionWatchPerson? variables})
+      Variables$Subscription$WatchPerson? variables})
       : super(
             updateQuery: updateQuery,
             variables: variables?.toJson() ?? {},
-            document: SUBSCRIPTION_WATCH_PERSON);
+            document: queryDocumentWatchPerson);
 }
 
-extension ClientExtensionSubscriptionWatchPerson on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<SubscriptionWatchPerson>> subscribeWatchPerson(
-          [OptionsSubscriptionWatchPerson? options]) =>
-      this.subscribe(options ?? OptionsSubscriptionWatchPerson());
-  graphql.ObservableQuery<SubscriptionWatchPerson> watchSubscriptionWatchPerson(
-          [WatchOptionsSubscriptionWatchPerson? options]) =>
-      this.watchQuery(options ?? WatchOptionsSubscriptionWatchPerson());
+extension ClientExtension$Subscription$WatchPerson on graphql.GraphQLClient {
+  Stream<graphql.QueryResult<Subscription$WatchPerson>> subscribe$WatchPerson(
+          [Options$Subscription$WatchPerson? options]) =>
+      this.subscribe(options ?? Options$Subscription$WatchPerson());
+  graphql.ObservableQuery<Subscription$WatchPerson>
+      watchSubscription$WatchPerson(
+              [WatchOptions$Subscription$WatchPerson? options]) =>
+          this.watchQuery(options ?? WatchOptions$Subscription$WatchPerson());
 }
 
-graphql.QueryResult<SubscriptionWatchPerson> useSubscriptionWatchPerson(
-        OptionsSubscriptionWatchPerson options) =>
+graphql.QueryResult<Subscription$WatchPerson> useSubscription$WatchPerson(
+        Options$Subscription$WatchPerson options) =>
     graphql_flutter.useSubscription(options);
 
-class SubscriptionWatchPersonWidget
-    extends graphql_flutter.Subscription<SubscriptionWatchPerson> {
-  SubscriptionWatchPersonWidget(
+class Subscription$WatchPerson$Widget
+    extends graphql_flutter.Subscription<Subscription$WatchPerson> {
+  Subscription$WatchPerson$Widget(
       {widgets.Key? key,
-      OptionsSubscriptionWatchPerson? options,
-      required graphql_flutter.SubscriptionBuilder<SubscriptionWatchPerson>
+      Options$Subscription$WatchPerson? options,
+      required graphql_flutter.SubscriptionBuilder<Subscription$WatchPerson>
           builder,
-      graphql_flutter.OnSubscriptionResult<SubscriptionWatchPerson>?
+      graphql_flutter.OnSubscriptionResult<Subscription$WatchPerson>?
           onSubscriptionResult})
       : super(
             key: key,
-            options: options ?? OptionsSubscriptionWatchPerson(),
+            options: options ?? Options$Subscription$WatchPerson(),
             builder: builder,
             onSubscriptionResult: onSubscriptionResult);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SubscriptionWatchPerson$watchPerson {
-  SubscriptionWatchPerson$watchPerson(
+class Subscription$WatchPerson$watchPerson {
+  Subscription$WatchPerson$watchPerson(
       {required this.full_name, required this.$__typename});
 
   @override
-  factory SubscriptionWatchPerson$watchPerson.fromJson(
+  factory Subscription$WatchPerson$watchPerson.fromJson(
           Map<String, dynamic> json) =>
-      _$SubscriptionWatchPerson$watchPersonFromJson(json);
+      _$Subscription$WatchPerson$watchPersonFromJson(json);
 
   final String full_name;
 
@@ -1418,7 +1433,7 @@ class SubscriptionWatchPerson$watchPerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() =>
-      _$SubscriptionWatchPerson$watchPersonToJson(this);
+      _$Subscription$WatchPerson$watchPersonToJson(this);
   int get hashCode {
     final l$full_name = full_name;
     final l$$__typename = $__typename;
@@ -1428,7 +1443,7 @@ class SubscriptionWatchPerson$watchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is SubscriptionWatchPerson$watchPerson) ||
+    if (!(other is Subscription$WatchPerson$watchPerson) ||
         runtimeType != other.runtimeType) return false;
     final l$full_name = full_name;
     final lOther$full_name = other.full_name;
@@ -1440,11 +1455,11 @@ class SubscriptionWatchPerson$watchPerson {
   }
 }
 
-extension UtilityExtensionSubscriptionWatchPerson$watchPerson
-    on SubscriptionWatchPerson$watchPerson {
-  SubscriptionWatchPerson$watchPerson copyWith(
+extension UtilityExtension$Subscription$WatchPerson$watchPerson
+    on Subscription$WatchPerson$watchPerson {
+  Subscription$WatchPerson$watchPerson copyWith(
           {String? full_name, String? $__typename}) =>
-      SubscriptionWatchPerson$watchPerson(
+      Subscription$WatchPerson$watchPerson(
           full_name: full_name == null ? this.full_name : full_name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }

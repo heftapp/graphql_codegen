@@ -4,13 +4,13 @@ import 'scalar_import.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchScalars {
-  QueryFetchScalars(
+class Query$FetchScalars {
+  Query$FetchScalars(
       {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});
 
   @override
-  factory QueryFetchScalars.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchScalarsFromJson(json);
+  factory Query$FetchScalars.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchScalarsFromJson(json);
 
   final int? i;
 
@@ -30,7 +30,7 @@ class QueryFetchScalars {
       toJson: _nullable$_list$_nullable$fobbobToJson)
   final List<Fobbob?>? c3s;
 
-  Map<String, dynamic> toJson() => _$QueryFetchScalarsToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchScalarsToJson(this);
   int get hashCode {
     final l$i = i;
     final l$id = id;
@@ -53,7 +53,7 @@ class QueryFetchScalars {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchScalars) || runtimeType != other.runtimeType)
+    if (!(other is Query$FetchScalars) || runtimeType != other.runtimeType)
       return false;
     final l$i = i;
     final lOther$i = other.i;
@@ -90,8 +90,8 @@ class QueryFetchScalars {
   }
 }
 
-extension UtilityExtensionQueryFetchScalars on QueryFetchScalars {
-  QueryFetchScalars copyWith(
+extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
+  Query$FetchScalars copyWith(
           {int? Function()? i,
           int? Function()? id,
           String? Function()? s,
@@ -99,7 +99,7 @@ extension UtilityExtensionQueryFetchScalars on QueryFetchScalars {
           DateTime? Function()? c2,
           Fobbob? Function()? c3,
           List<Fobbob?>? Function()? c3s}) =>
-      QueryFetchScalars(
+      Query$FetchScalars(
           i: i == null ? this.i : i(),
           id: id == null ? this.id : id(),
           s: s == null ? this.s : s(),
@@ -109,7 +109,7 @@ extension UtilityExtensionQueryFetchScalars on QueryFetchScalars {
           c3s: c3s == null ? this.c3s : c3s());
 }
 
-const QUERY_FETCH_SCALARS = const DocumentNode(definitions: [
+const queryDocumentFetchScalars = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchScalars'),
@@ -160,7 +160,7 @@ const QUERY_FETCH_SCALARS = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};
 Fobbob? _nullable$fobbobFromJson(dynamic data) =>
     data == null ? null : fobbobFromJson(data);
 dynamic _nullable$fobbobToJson(Fobbob? data) =>

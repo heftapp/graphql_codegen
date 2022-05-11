@@ -6,11 +6,11 @@ part of 'document1.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentF2 _$FragmentF2FromJson(Map<String, dynamic> json) => FragmentF2(
+Fragment$F2 _$Fragment$F2FromJson(Map<String, dynamic> json) => Fragment$F2(
       value: json['value'] as int?,
     );
 
-Map<String, dynamic> _$FragmentF2ToJson(FragmentF2 instance) =>
+Map<String, dynamic> _$Fragment$F2ToJson(Fragment$F2 instance) =>
     <String, dynamic>{
       'value': instance.value,
     };

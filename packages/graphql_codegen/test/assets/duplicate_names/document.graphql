@@ -1,0 +1,11 @@
+input I {
+  title: String
+}
+
+input I_ {
+    value: Float
+}
+
+input i {
+    enabled: Boolean
+}

@@ -1,14 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
 
-enum EnumEnum {
+enum Enum$Enum {
   @JsonValue('FOO')
-  foo,
+  FOO,
   @JsonValue('BAR')
-  bar,
+  BAR,
   @JsonValue('BAZ_BOB')
-  bazBob,
+  BAZ_BOB,
   @JsonValue('VOID')
-  $void,
+  VOID,
   $unknown
 }
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

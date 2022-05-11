@@ -6,25 +6,26 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VariablesQueryFetchSOptional _$VariablesQueryFetchSOptionalFromJson(
+Variables$Query$FetchSOptional _$Variables$Query$FetchSOptionalFromJson(
         Map<String, dynamic> json) =>
-    VariablesQueryFetchSOptional(
+    Variables$Query$FetchSOptional(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$VariablesQueryFetchSOptionalToJson(
-        VariablesQueryFetchSOptional instance) =>
+Map<String, dynamic> _$Variables$Query$FetchSOptionalToJson(
+        Variables$Query$FetchSOptional instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryFetchSOptional _$QueryFetchSOptionalFromJson(Map<String, dynamic> json) =>
-    QueryFetchSOptional(
+Query$FetchSOptional _$Query$FetchSOptionalFromJson(
+        Map<String, dynamic> json) =>
+    Query$FetchSOptional(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$QueryFetchSOptionalToJson(
-        QueryFetchSOptional instance) =>
+Map<String, dynamic> _$Query$FetchSOptionalToJson(
+        Query$FetchSOptional instance) =>
     <String, dynamic>{
       's': instance.s,
     };

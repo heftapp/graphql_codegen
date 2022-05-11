@@ -3,15 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ {
-  QueryQ({this.u});
+class Query$Q {
+  Query$Q({this.u});
 
   @override
-  factory QueryQ.fromJson(Map<String, dynamic> json) => _$QueryQFromJson(json);
+  factory Query$Q.fromJson(Map<String, dynamic> json) =>
+      _$Query$QFromJson(json);
 
-  final QueryQ$u? u;
+  final Query$Q$u? u;
 
-  Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  Map<String, dynamic> toJson() => _$Query$QToJson(this);
   int get hashCode {
     final l$u = u;
     return Object.hashAll([l$u]);
@@ -20,7 +21,7 @@ class QueryQ {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    if (!(other is Query$Q) || runtimeType != other.runtimeType) return false;
     final l$u = u;
     final lOther$u = other.u;
     if (l$u != lOther$u) return false;
@@ -28,12 +29,12 @@ class QueryQ {
   }
 }
 
-extension UtilityExtensionQueryQ on QueryQ {
-  QueryQ copyWith({QueryQ$u? Function()? u}) =>
-      QueryQ(u: u == null ? this.u : u());
+extension UtilityExtension$Query$Q on Query$Q {
+  Query$Q copyWith({Query$Q$u? Function()? u}) =>
+      Query$Q(u: u == null ? this.u : u());
 }
 
-const QUERY_Q = const DocumentNode(definitions: [
+const queryDocumentQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),
@@ -83,25 +84,25 @@ const QUERY_Q = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$u {
-  QueryQ$u({required this.$__typename});
+class Query$Q$u {
+  Query$Q$u({required this.$__typename});
 
   @override
-  factory QueryQ$u.fromJson(Map<String, dynamic> json) {
+  factory Query$Q$u.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "TA":
-        return QueryQ$u$Ta.fromJson(json);
+        return Query$Q$u$$TA.fromJson(json);
       case "TB":
-        return QueryQ$u$Tb.fromJson(json);
+        return Query$Q$u$$TB.fromJson(json);
       default:
-        return _$QueryQ$uFromJson(json);
+        return _$Query$Q$uFromJson(json);
     }
   }
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQ$uToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$uToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -110,7 +111,7 @@ class QueryQ$u {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$u) || runtimeType != other.runtimeType) return false;
+    if (!(other is Query$Q$u) || runtimeType != other.runtimeType) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -118,25 +119,25 @@ class QueryQ$u {
   }
 }
 
-extension UtilityExtensionQueryQ$u on QueryQ$u {
-  QueryQ$u copyWith({String? $__typename}) => QueryQ$u(
+extension UtilityExtension$Query$Q$u on Query$Q$u {
+  Query$Q$u copyWith({String? $__typename}) => Query$Q$u(
       $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$u$Ta implements QueryQ$u {
-  QueryQ$u$Ta({required this.$__typename, this.name});
+class Query$Q$u$$TA implements Query$Q$u {
+  Query$Q$u$$TA({required this.$__typename, this.name});
 
   @override
-  factory QueryQ$u$Ta.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$u$TaFromJson(json);
+  factory Query$Q$u$$TA.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q$u$$TAFromJson(json);
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? name;
 
-  Map<String, dynamic> toJson() => _$QueryQ$u$TaToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$u$$TAToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -146,7 +147,7 @@ class QueryQ$u$Ta implements QueryQ$u {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$u$Ta) || runtimeType != other.runtimeType)
+    if (!(other is Query$Q$u$$TA) || runtimeType != other.runtimeType)
       return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -158,27 +159,27 @@ class QueryQ$u$Ta implements QueryQ$u {
   }
 }
 
-extension UtilityExtensionQueryQ$u$Ta on QueryQ$u$Ta {
-  QueryQ$u$Ta copyWith({String? $__typename, String? Function()? name}) =>
-      QueryQ$u$Ta(
+extension UtilityExtension$Query$Q$u$$TA on Query$Q$u$$TA {
+  Query$Q$u$$TA copyWith({String? $__typename, String? Function()? name}) =>
+      Query$Q$u$$TA(
           $__typename: $__typename == null ? this.$__typename : $__typename,
           name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$u$Tb implements QueryQ$u {
-  QueryQ$u$Tb({required this.$__typename, this.velocity});
+class Query$Q$u$$TB implements Query$Q$u {
+  Query$Q$u$$TB({required this.$__typename, this.velocity});
 
   @override
-  factory QueryQ$u$Tb.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$u$TbFromJson(json);
+  factory Query$Q$u$$TB.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q$u$$TBFromJson(json);
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
   final int? velocity;
 
-  Map<String, dynamic> toJson() => _$QueryQ$u$TbToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$u$$TBToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     final l$velocity = velocity;
@@ -188,7 +189,7 @@ class QueryQ$u$Tb implements QueryQ$u {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$u$Tb) || runtimeType != other.runtimeType)
+    if (!(other is Query$Q$u$$TB) || runtimeType != other.runtimeType)
       return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -200,13 +201,13 @@ class QueryQ$u$Tb implements QueryQ$u {
   }
 }
 
-extension UtilityExtensionQueryQ$u$Tb on QueryQ$u$Tb {
-  QueryQ$u$Tb copyWith({String? $__typename, int? Function()? velocity}) =>
-      QueryQ$u$Tb(
+extension UtilityExtension$Query$Q$u$$TB on Query$Q$u$$TB {
+  Query$Q$u$$TB copyWith({String? $__typename, int? Function()? velocity}) =>
+      Query$Q$u$$TB(
           $__typename: $__typename == null ? this.$__typename : $__typename,
           velocity: velocity == null ? this.velocity : velocity());
 }
 
-const POSSIBLE_TYPES_MAP = const {
+const possibleTypesMap = {
   'U': {'TA', 'TB'}
 };

@@ -2,21 +2,21 @@ import 'package:json_annotation/json_annotation.dart';
 part 'input.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class InputI1 {
-  InputI1({required this.s, this.nested_input, this.$_min});
+class Input$I1 {
+  Input$I1({required this.s, this.nested_input, this.$_min});
 
   @override
-  factory InputI1.fromJson(Map<String, dynamic> json) =>
-      _$InputI1FromJson(json);
+  factory Input$I1.fromJson(Map<String, dynamic> json) =>
+      _$Input$I1FromJson(json);
 
   final String s;
 
-  final InputI1? nested_input;
+  final Input$I1? nested_input;
 
   @JsonKey(name: '_min')
   final int? $_min;
 
-  Map<String, dynamic> toJson() => _$InputI1ToJson(this);
+  Map<String, dynamic> toJson() => _$Input$I1ToJson(this);
   int get hashCode {
     final l$s = s;
     final l$nested_input = nested_input;
@@ -27,7 +27,7 @@ class InputI1 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is InputI1) || runtimeType != other.runtimeType) return false;
+    if (!(other is Input$I1) || runtimeType != other.runtimeType) return false;
     final l$s = s;
     final lOther$s = other.s;
     if (l$s != lOther$s) return false;

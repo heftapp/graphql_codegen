@@ -5,8 +5,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'fragments.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentPersonSummary {
-  FragmentPersonSummary(
+class Fragment$PersonSummary {
+  Fragment$PersonSummary(
       {this.nickname,
       required this.name,
       this.dob,
@@ -16,8 +16,8 @@ class FragmentPersonSummary {
       required this.$__typename});
 
   @override
-  factory FragmentPersonSummary.fromJson(Map<String, dynamic> json) =>
-      _$FragmentPersonSummaryFromJson(json);
+  factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$PersonSummaryFromJson(json);
 
   final String? nickname;
 
@@ -37,12 +37,12 @@ class FragmentPersonSummary {
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  final List<FragmentPersonSummary$parents>? parents;
+  final List<Fragment$PersonSummary$parents>? parents;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentPersonSummaryToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$PersonSummaryToJson(this);
   int get hashCode {
     final l$nickname = nickname;
     final l$name = name;
@@ -68,7 +68,7 @@ class FragmentPersonSummary {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentPersonSummary) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$PersonSummary) || runtimeType != other.runtimeType)
       return false;
     final l$nickname = nickname;
     final lOther$nickname = other.nickname;
@@ -138,16 +138,16 @@ class FragmentPersonSummary {
   }
 }
 
-extension UtilityExtensionFragmentPersonSummary on FragmentPersonSummary {
-  FragmentPersonSummary copyWith(
+extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
+  Fragment$PersonSummary copyWith(
           {String? Function()? nickname,
           String? name,
           DateTime? Function()? dob,
           List<DateTime?>? Function()? events,
           List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<FragmentPersonSummary$parents>? Function()? parents,
+          List<Fragment$PersonSummary$parents>? Function()? parents,
           String? $__typename}) =>
-      FragmentPersonSummary(
+      Fragment$PersonSummary(
           nickname: nickname == null ? this.nickname : nickname(),
           name: name == null ? this.name : name,
           dob: dob == null ? this.dob : dob(),
@@ -158,74 +158,72 @@ extension UtilityExtensionFragmentPersonSummary on FragmentPersonSummary {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY =
-    const FragmentDefinitionNode(
-        name: NameNode(value: 'PersonSummary'),
-        typeCondition: TypeConditionNode(
-            on: NamedTypeNode(
-                name: NameNode(value: 'Person'), isNonNull: false)),
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-              name: NameNode(value: 'nickname'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null),
-          FieldNode(
-              name: NameNode(value: 'full_name'),
-              alias: NameNode(value: 'name'),
-              arguments: [],
-              directives: [],
-              selectionSet: null),
-          FieldNode(
-              name: NameNode(value: 'dob'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null),
-          FieldNode(
-              name: NameNode(value: 'events'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null),
-          FieldNode(
-              name: NameNode(value: 'events_of_events'),
-              alias: NameNode(value: 'eventsOfEvents'),
-              arguments: [],
-              directives: [],
-              selectionSet: null),
-          FieldNode(
-              name: NameNode(value: 'parents'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FragmentSpreadNode(
-                    name: NameNode(value: 'PersonParent'), directives: []),
-                FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null)
-              ])),
-          FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null)
-        ]));
-const FRAGMENT_PERSON_SUMMARY = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_PERSON_SUMMARY,
-  FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT,
+const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
+    name: NameNode(value: 'PersonSummary'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+          name: NameNode(value: 'nickname'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'full_name'),
+          alias: NameNode(value: 'name'),
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'dob'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'events'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'events_of_events'),
+          alias: NameNode(value: 'eventsOfEvents'),
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      FieldNode(
+          name: NameNode(value: 'parents'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FragmentSpreadNode(
+                name: NameNode(value: 'PersonParent'), directives: []),
+            FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ])),
+      FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null)
+    ]));
+const queryDocumentPersonSummary = DocumentNode(definitions: [
+  fragmentDefinitionPersonSummary,
+  fragmentDefinitionPersonParent,
 ]);
 
-extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
-  void writeFragmentPersonSummary(
-          {required FragmentPersonSummary data,
+extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
+  void writeFragment$PersonSummary(
+          {required Fragment$PersonSummary data,
           required Map<String, dynamic> idFields,
           bool broadcast = true}) =>
       this.writeFragment(
@@ -233,37 +231,37 @@ extension ClientExtensionFragmentPersonSummary on graphql.GraphQLClient {
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'PersonSummary',
-                  document: FRAGMENT_PERSON_SUMMARY)),
+                  document: queryDocumentPersonSummary)),
           data: data.toJson(),
           broadcast: broadcast);
-  FragmentPersonSummary? readFragmentPersonSummary(
+  Fragment$PersonSummary? readFragment$PersonSummary(
       {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'PersonSummary',
-                document: FRAGMENT_PERSON_SUMMARY)),
+                document: queryDocumentPersonSummary)),
         optimistic: optimistic);
-    return result == null ? null : FragmentPersonSummary.fromJson(result);
+    return result == null ? null : Fragment$PersonSummary.fromJson(result);
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentPersonSummary$parents implements FragmentPersonParent {
-  FragmentPersonSummary$parents(
+class Fragment$PersonSummary$parents implements Fragment$PersonParent {
+  Fragment$PersonSummary$parents(
       {required this.name, required this.$__typename});
 
   @override
-  factory FragmentPersonSummary$parents.fromJson(Map<String, dynamic> json) =>
-      _$FragmentPersonSummary$parentsFromJson(json);
+  factory Fragment$PersonSummary$parents.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$PersonSummary$parentsFromJson(json);
 
   final String name;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentPersonSummary$parentsToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$PersonSummary$parentsToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -273,7 +271,7 @@ class FragmentPersonSummary$parents implements FragmentPersonParent {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentPersonSummary$parents) ||
+    if (!(other is Fragment$PersonSummary$parents) ||
         runtimeType != other.runtimeType) return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -285,28 +283,29 @@ class FragmentPersonSummary$parents implements FragmentPersonParent {
   }
 }
 
-extension UtilityExtensionFragmentPersonSummary$parents
-    on FragmentPersonSummary$parents {
-  FragmentPersonSummary$parents copyWith({String? name, String? $__typename}) =>
-      FragmentPersonSummary$parents(
+extension UtilityExtension$Fragment$PersonSummary$parents
+    on Fragment$PersonSummary$parents {
+  Fragment$PersonSummary$parents copyWith(
+          {String? name, String? $__typename}) =>
+      Fragment$PersonSummary$parents(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentPersonParent {
-  FragmentPersonParent({required this.name, required this.$__typename});
+class Fragment$PersonParent {
+  Fragment$PersonParent({required this.name, required this.$__typename});
 
   @override
-  factory FragmentPersonParent.fromJson(Map<String, dynamic> json) =>
-      _$FragmentPersonParentFromJson(json);
+  factory Fragment$PersonParent.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$PersonParentFromJson(json);
 
   final String name;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentPersonParentToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$PersonParentToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -316,7 +315,7 @@ class FragmentPersonParent {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentPersonParent) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$PersonParent) || runtimeType != other.runtimeType)
       return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -328,14 +327,14 @@ class FragmentPersonParent {
   }
 }
 
-extension UtilityExtensionFragmentPersonParent on FragmentPersonParent {
-  FragmentPersonParent copyWith({String? name, String? $__typename}) =>
-      FragmentPersonParent(
+extension UtilityExtension$Fragment$PersonParent on Fragment$PersonParent {
+  Fragment$PersonParent copyWith({String? name, String? $__typename}) =>
+      Fragment$PersonParent(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT = const FragmentDefinitionNode(
+const fragmentDefinitionPersonParent = FragmentDefinitionNode(
     name: NameNode(value: 'PersonParent'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
@@ -354,13 +353,13 @@ const FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_PERSON_PARENT = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_PERSON_PARENT,
+const queryDocumentPersonParent = DocumentNode(definitions: [
+  fragmentDefinitionPersonParent,
 ]);
 
-extension ClientExtensionFragmentPersonParent on graphql.GraphQLClient {
-  void writeFragmentPersonParent(
-          {required FragmentPersonParent data,
+extension ClientExtension$Fragment$PersonParent on graphql.GraphQLClient {
+  void writeFragment$PersonParent(
+          {required Fragment$PersonParent data,
           required Map<String, dynamic> idFields,
           bool broadcast = true}) =>
       this.writeFragment(
@@ -368,19 +367,19 @@ extension ClientExtensionFragmentPersonParent on graphql.GraphQLClient {
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'PersonParent',
-                  document: FRAGMENT_PERSON_PARENT)),
+                  document: queryDocumentPersonParent)),
           data: data.toJson(),
           broadcast: broadcast);
-  FragmentPersonParent? readFragmentPersonParent(
+  Fragment$PersonParent? readFragment$PersonParent(
       {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'PersonParent',
-                document: FRAGMENT_PERSON_PARENT)),
+                document: queryDocumentPersonParent)),
         optimistic: optimistic);
-    return result == null ? null : FragmentPersonParent.fromJson(result);
+    return result == null ? null : Fragment$PersonParent.fromJson(result);
   }
 }
 

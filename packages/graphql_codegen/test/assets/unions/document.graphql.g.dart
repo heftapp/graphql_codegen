@@ -6,41 +6,43 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
+Query$Q _$Query$QFromJson(Map<String, dynamic> json) => Query$Q(
       u: json['u'] == null
           ? null
-          : QueryQ$u.fromJson(json['u'] as Map<String, dynamic>),
+          : Query$Q$u.fromJson(json['u'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
+Map<String, dynamic> _$Query$QToJson(Query$Q instance) => <String, dynamic>{
       'u': instance.u?.toJson(),
     };
 
-QueryQ$u _$QueryQ$uFromJson(Map<String, dynamic> json) => QueryQ$u(
+Query$Q$u _$Query$Q$uFromJson(Map<String, dynamic> json) => Query$Q$u(
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$QueryQ$uToJson(QueryQ$u instance) => <String, dynamic>{
+Map<String, dynamic> _$Query$Q$uToJson(Query$Q$u instance) => <String, dynamic>{
       '__typename': instance.$__typename,
     };
 
-QueryQ$u$Ta _$QueryQ$u$TaFromJson(Map<String, dynamic> json) => QueryQ$u$Ta(
+Query$Q$u$$TA _$Query$Q$u$$TAFromJson(Map<String, dynamic> json) =>
+    Query$Q$u$$TA(
       $__typename: json['__typename'] as String,
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$QueryQ$u$TaToJson(QueryQ$u$Ta instance) =>
+Map<String, dynamic> _$Query$Q$u$$TAToJson(Query$Q$u$$TA instance) =>
     <String, dynamic>{
       '__typename': instance.$__typename,
       'name': instance.name,
     };
 
-QueryQ$u$Tb _$QueryQ$u$TbFromJson(Map<String, dynamic> json) => QueryQ$u$Tb(
+Query$Q$u$$TB _$Query$Q$u$$TBFromJson(Map<String, dynamic> json) =>
+    Query$Q$u$$TB(
       $__typename: json['__typename'] as String,
       velocity: json['velocity'] as int?,
     );
 
-Map<String, dynamic> _$QueryQ$u$TbToJson(QueryQ$u$Tb instance) =>
+Map<String, dynamic> _$Query$Q$u$$TBToJson(Query$Q$u$$TB instance) =>
     <String, dynamic>{
       '__typename': instance.$__typename,
       'velocity': instance.velocity,

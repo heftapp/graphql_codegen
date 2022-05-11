@@ -3,16 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'fragments.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF {
-  FragmentF({required this.name});
+class Fragment$F {
+  Fragment$F({required this.name});
 
   @override
-  factory FragmentF.fromJson(Map<String, dynamic> json) =>
-      _$FragmentFFromJson(json);
+  factory Fragment$F.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$FFromJson(json);
 
   final String name;
 
-  Map<String, dynamic> toJson() => _$FragmentFToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$FToJson(this);
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -21,7 +21,8 @@ class FragmentF {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF) || runtimeType != other.runtimeType) return false;
+    if (!(other is Fragment$F) || runtimeType != other.runtimeType)
+      return false;
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) return false;
@@ -29,12 +30,12 @@ class FragmentF {
   }
 }
 
-extension UtilityExtensionFragmentF on FragmentF {
-  FragmentF copyWith({String? name}) =>
-      FragmentF(name: name == null ? this.name : name);
+extension UtilityExtension$Fragment$F on Fragment$F {
+  Fragment$F copyWith({String? name}) =>
+      Fragment$F(name: name == null ? this.name : name);
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F = const FragmentDefinitionNode(
+const fragmentDefinitionF = FragmentDefinitionNode(
     name: NameNode(value: 'F'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false)),
@@ -47,6 +48,6 @@ const FRAGMENT_DEFINITION_FRAGMENT_F = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F,
+const queryDocumentF = DocumentNode(definitions: [
+  fragmentDefinitionF,
 ]);

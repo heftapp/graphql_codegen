@@ -6,97 +6,100 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentT1 _$FragmentT1FromJson(Map<String, dynamic> json) => FragmentT1(
+Fragment$T1 _$Fragment$T1FromJson(Map<String, dynamic> json) => Fragment$T1(
       t: json['t'] == null
           ? null
-          : FragmentT1$t.fromJson(json['t'] as Map<String, dynamic>),
+          : Fragment$T1$t.fromJson(json['t'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$FragmentT1ToJson(FragmentT1 instance) =>
+Map<String, dynamic> _$Fragment$T1ToJson(Fragment$T1 instance) =>
     <String, dynamic>{
       't': instance.t?.toJson(),
     };
 
-FragmentT1$t _$FragmentT1$tFromJson(Map<String, dynamic> json) => FragmentT1$t(
+Fragment$T1$t _$Fragment$T1$tFromJson(Map<String, dynamic> json) =>
+    Fragment$T1$t(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$FragmentT1$tToJson(FragmentT1$t instance) =>
+Map<String, dynamic> _$Fragment$T1$tToJson(Fragment$T1$t instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-FragmentT2 _$FragmentT2FromJson(Map<String, dynamic> json) => FragmentT2(
+Fragment$T2 _$Fragment$T2FromJson(Map<String, dynamic> json) => Fragment$T2(
       t: json['t'] == null
           ? null
-          : FragmentT2$t.fromJson(json['t'] as Map<String, dynamic>),
+          : Fragment$T2$t.fromJson(json['t'] as Map<String, dynamic>),
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$FragmentT2ToJson(FragmentT2 instance) =>
-    <String, dynamic>{
-      't': instance.t?.toJson(),
-      'name': instance.name,
-    };
-
-FragmentT2$t _$FragmentT2$tFromJson(Map<String, dynamic> json) => FragmentT2$t(
-      name: json['name'] as String?,
-    );
-
-Map<String, dynamic> _$FragmentT2$tToJson(FragmentT2$t instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-    };
-
-FragmentTC _$FragmentTCFromJson(Map<String, dynamic> json) => FragmentTC(
-      t: json['t'] == null
-          ? null
-          : FragmentTC$t.fromJson(json['t'] as Map<String, dynamic>),
-      name: json['name'] as String?,
-    );
-
-Map<String, dynamic> _$FragmentTCToJson(FragmentTC instance) =>
+Map<String, dynamic> _$Fragment$T2ToJson(Fragment$T2 instance) =>
     <String, dynamic>{
       't': instance.t?.toJson(),
       'name': instance.name,
     };
 
-FragmentTC$t _$FragmentTC$tFromJson(Map<String, dynamic> json) => FragmentTC$t(
+Fragment$T2$t _$Fragment$T2$tFromJson(Map<String, dynamic> json) =>
+    Fragment$T2$t(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$FragmentTC$tToJson(FragmentTC$t instance) =>
+Map<String, dynamic> _$Fragment$T2$tToJson(Fragment$T2$t instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryQ _$QueryQFromJson(Map<String, dynamic> json) => QueryQ(
+Fragment$TC _$Fragment$TCFromJson(Map<String, dynamic> json) => Fragment$TC(
       t: json['t'] == null
           ? null
-          : QueryQ$t.fromJson(json['t'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$QueryQToJson(QueryQ instance) => <String, dynamic>{
-      't': instance.t?.toJson(),
-    };
-
-QueryQ$t _$QueryQ$tFromJson(Map<String, dynamic> json) => QueryQ$t(
-      t: json['t'] == null
-          ? null
-          : QueryQ$t$t.fromJson(json['t'] as Map<String, dynamic>),
+          : Fragment$TC$t.fromJson(json['t'] as Map<String, dynamic>),
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$QueryQ$tToJson(QueryQ$t instance) => <String, dynamic>{
+Map<String, dynamic> _$Fragment$TCToJson(Fragment$TC instance) =>
+    <String, dynamic>{
       't': instance.t?.toJson(),
       'name': instance.name,
     };
 
-QueryQ$t$t _$QueryQ$t$tFromJson(Map<String, dynamic> json) => QueryQ$t$t(
+Fragment$TC$t _$Fragment$TC$tFromJson(Map<String, dynamic> json) =>
+    Fragment$TC$t(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$QueryQ$t$tToJson(QueryQ$t$t instance) =>
+Map<String, dynamic> _$Fragment$TC$tToJson(Fragment$TC$t instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };
+
+Query$Q _$Query$QFromJson(Map<String, dynamic> json) => Query$Q(
+      t: json['t'] == null
+          ? null
+          : Query$Q$t.fromJson(json['t'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$Query$QToJson(Query$Q instance) => <String, dynamic>{
+      't': instance.t?.toJson(),
+    };
+
+Query$Q$t _$Query$Q$tFromJson(Map<String, dynamic> json) => Query$Q$t(
+      t: json['t'] == null
+          ? null
+          : Query$Q$t$t.fromJson(json['t'] as Map<String, dynamic>),
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$Query$Q$tToJson(Query$Q$t instance) => <String, dynamic>{
+      't': instance.t?.toJson(),
+      'name': instance.name,
+    };
+
+Query$Q$t$t _$Query$Q$t$tFromJson(Map<String, dynamic> json) => Query$Q$t$t(
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$Query$Q$t$tToJson(Query$Q$t$t instance) =>
     <String, dynamic>{
       'name': instance.name,
     };

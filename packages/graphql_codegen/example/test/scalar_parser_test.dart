@@ -28,14 +28,14 @@ void main() {
         }
       }
       """;
-      final parsed = QueryFetchPerson.fromJson(
+      final parsed = Query$FetchPerson.fromJson(
         jsonDecode(json) as Map<String, dynamic>,
       );
       expect(
         parsed,
         equals(
-          QueryFetchPerson(
-            fetchPerson: QueryFetchPerson$fetchPerson(
+          Query$FetchPerson(
+            fetchPerson: Query$FetchPerson$fetchPerson(
                 dob: DateTime.parse("1990-03-16T10:07:29.362Z"),
                 $__typename: 'Person',
                 name: 'Bob',

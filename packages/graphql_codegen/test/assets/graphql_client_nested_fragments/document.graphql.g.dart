@@ -6,28 +6,28 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentF1 _$FragmentF1FromJson(Map<String, dynamic> json) => FragmentF1(
+Fragment$F1 _$Fragment$F1FromJson(Map<String, dynamic> json) => Fragment$F1(
       name: json['name'] as String?,
       field: json['field'] == null
           ? null
-          : FragmentF1$field.fromJson(json['field'] as Map<String, dynamic>),
+          : Fragment$F1$field.fromJson(json['field'] as Map<String, dynamic>),
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$FragmentF1ToJson(FragmentF1 instance) =>
+Map<String, dynamic> _$Fragment$F1ToJson(Fragment$F1 instance) =>
     <String, dynamic>{
       'name': instance.name,
       'field': instance.field?.toJson(),
       '__typename': instance.$__typename,
     };
 
-FragmentF1$field _$FragmentF1$fieldFromJson(Map<String, dynamic> json) =>
-    FragmentF1$field(
+Fragment$F1$field _$Fragment$F1$fieldFromJson(Map<String, dynamic> json) =>
+    Fragment$F1$field(
       name: json['name'] as String?,
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$FragmentF1$fieldToJson(FragmentF1$field instance) =>
+Map<String, dynamic> _$Fragment$F1$fieldToJson(Fragment$F1$field instance) =>
     <String, dynamic>{
       'name': instance.name,
       '__typename': instance.$__typename,
