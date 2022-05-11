@@ -13,12 +13,10 @@ jobs:
         with:
           channel: stable
       - name: Activate melos
-        run: |
-          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          dart pub global activate melos
+        run: dart pub global activate melos
       - name: Login pub
         run: |
-          echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > $HOME/.pub-cache/credentials.json
+          echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > "$PUB_CACHE/credentials.json"
       - name: Bootstrap melos
         run: melos bs
       - name: Validate publish
