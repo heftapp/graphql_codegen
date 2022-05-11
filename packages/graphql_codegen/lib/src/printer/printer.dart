@@ -224,7 +224,7 @@ Spec printDocument(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printDocumentDefinitionNodeName(context.context.path)} = const DocumentNode(definitions: [",
+        "const ${printDocumentDefinitionNodeName(context.context.path)} = DocumentNode(definitions: [",
       ),
       mainDefinition ?? gql_builder.fromNode(operation).code,
       Code(","),
@@ -245,7 +245,7 @@ Spec printFragmentDefinition(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printFragmentDefinitionNodeName(context.context.path)} = const ",
+        "const ${printFragmentDefinitionNodeName(context.context.path)} = ",
       ),
       gql_builder.fromNode(node).code,
       Code(";")
@@ -319,7 +319,7 @@ Spec printPossibleTypesMap(PrintContext<ContextRoot> context) {
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printPossibleTypesMapName()} = const ",
+        "const ${printPossibleTypesMapName()} = ",
       ),
       literal(context.context.possibleTypesMap).code,
       Code(";")

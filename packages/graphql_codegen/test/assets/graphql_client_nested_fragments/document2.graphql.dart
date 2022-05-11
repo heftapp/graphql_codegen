@@ -4,19 +4,19 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document2.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2 {
-  FragmentF2({this.name, required this.$__typename});
+class Fragment$F2 {
+  Fragment$F2({this.name, required this.$__typename});
 
   @override
-  factory FragmentF2.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF2FromJson(json);
+  factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F2FromJson(json);
 
   final String? name;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentF2ToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -26,7 +26,7 @@ class FragmentF2 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF2) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F2) || runtimeType != other.runtimeType)
       return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -38,14 +38,14 @@ class FragmentF2 {
   }
 }
 
-extension UtilityExtensionFragmentF2 on FragmentF2 {
-  FragmentF2 copyWith({String? Function()? name, String? $__typename}) =>
-      FragmentF2(
+extension UtilityExtension$Fragment$F2 on Fragment$F2 {
+  Fragment$F2 copyWith({String? Function()? name, String? $__typename}) =>
+      Fragment$F2(
           name: name == null ? this.name : name(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
+const fragmentDefinitionF2 = FragmentDefinitionNode(
     name: NameNode(value: 'F2'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T1'), isNonNull: false)),
@@ -64,30 +64,30 @@ const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F2 = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F2,
+const queryDocumentF2 = DocumentNode(definitions: [
+  fragmentDefinitionF2,
 ]);
 
-extension ClientExtensionFragmentF2 on graphql.GraphQLClient {
-  void writeFragmentF2(
-          {required FragmentF2 data,
+extension ClientExtension$Fragment$F2 on graphql.GraphQLClient {
+  void writeFragment$F2(
+          {required Fragment$F2 data,
           required Map<String, dynamic> idFields,
           bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
               fragment: const graphql.Fragment(
-                  fragmentName: 'F2', document: FRAGMENT_F2)),
+                  fragmentName: 'F2', document: queryDocumentF2)),
           data: data.toJson(),
           broadcast: broadcast);
-  FragmentF2? readFragmentF2(
+  Fragment$F2? readFragment$F2(
       {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: const graphql.Fragment(
-                fragmentName: 'F2', document: FRAGMENT_F2)),
+                fragmentName: 'F2', document: queryDocumentF2)),
         optimistic: optimistic);
-    return result == null ? null : FragmentF2.fromJson(result);
+    return result == null ? null : Fragment$F2.fromJson(result);
   }
 }

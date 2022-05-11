@@ -5,15 +5,15 @@ import 'package:test/scaffolding.dart';
 void main() {
   group("Serialize fragments", () {
     test("Can serialize nested fragments", () {
-      final fragment = FragmentPersonSummary(
+      final fragment = Fragment$PersonSummary(
         $__typename: "Person",
         name: "Lars",
         parents: [
-          FragmentPersonSummary$parents(
+          Fragment$PersonSummary$parents(
             name: "Father",
             $__typename: "Person",
           ),
-          FragmentPersonSummary$parents(
+          Fragment$PersonSummary$parents(
             name: "Mother",
             $__typename: "Person",
           ),
@@ -35,15 +35,15 @@ void main() {
           }));
     });
     test("Can mutate fragments", () {
-      final fragment = FragmentPersonSummary(
+      final fragment = Fragment$PersonSummary(
         $__typename: "Person",
         name: "Lars",
         parents: [
-          FragmentPersonSummary$parents(
+          Fragment$PersonSummary$parents(
             name: "Father",
             $__typename: "Person",
           ),
-          FragmentPersonSummary$parents(
+          Fragment$PersonSummary$parents(
             name: "Mother",
             $__typename: "Person",
           ),

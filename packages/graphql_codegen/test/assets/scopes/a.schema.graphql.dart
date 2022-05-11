@@ -1,10 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 
-enum EnumStatus {
+enum Enum$Status {
   @JsonValue('COOL')
-  cool,
+  COOL,
   @JsonValue('BEANS')
-  beans,
+  BEANS,
   $unknown
 }
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

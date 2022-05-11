@@ -6,136 +6,141 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentF _$FragmentFFromJson(Map<String, dynamic> json) => FragmentF(
+Fragment$F _$Fragment$FFromJson(Map<String, dynamic> json) => Fragment$F(
       other: json['other'] == null
           ? null
-          : FragmentF$other.fromJson(json['other'] as Map<String, dynamic>),
+          : Fragment$F$other.fromJson(json['other'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$FragmentFToJson(FragmentF instance) => <String, dynamic>{
-      'other': instance.other?.toJson(),
-    };
-
-FragmentF$other _$FragmentF$otherFromJson(Map<String, dynamic> json) =>
-    FragmentF$other(
-      other: json['other'] == null
-          ? null
-          : FragmentF$other$other.fromJson(
-              json['other'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$FragmentF$otherToJson(FragmentF$other instance) =>
+Map<String, dynamic> _$Fragment$FToJson(Fragment$F instance) =>
     <String, dynamic>{
       'other': instance.other?.toJson(),
     };
 
-FragmentF$other$other _$FragmentF$other$otherFromJson(
+Fragment$F$other _$Fragment$F$otherFromJson(Map<String, dynamic> json) =>
+    Fragment$F$other(
+      other: json['other'] == null
+          ? null
+          : Fragment$F$other$other.fromJson(
+              json['other'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$Fragment$F$otherToJson(Fragment$F$other instance) =>
+    <String, dynamic>{
+      'other': instance.other?.toJson(),
+    };
+
+Fragment$F$other$other _$Fragment$F$other$otherFromJson(
         Map<String, dynamic> json) =>
-    FragmentF$other$other(
+    Fragment$F$other$other(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$FragmentF$other$otherToJson(
-        FragmentF$other$other instance) =>
+Map<String, dynamic> _$Fragment$F$other$otherToJson(
+        Fragment$F$other$other instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-FragmentF$other$T1 _$FragmentF$other$T1FromJson(Map<String, dynamic> json) =>
-    FragmentF$other$T1(
+Fragment$F$other$$T1 _$Fragment$F$other$$T1FromJson(
+        Map<String, dynamic> json) =>
+    Fragment$F$other$$T1(
       other: json['other'] == null
           ? null
-          : FragmentF$other$other.fromJson(
+          : Fragment$F$other$other.fromJson(
               json['other'] as Map<String, dynamic>),
       b: json['b'] as bool?,
     );
 
-Map<String, dynamic> _$FragmentF$other$T1ToJson(FragmentF$other$T1 instance) =>
+Map<String, dynamic> _$Fragment$F$other$$T1ToJson(
+        Fragment$F$other$$T1 instance) =>
     <String, dynamic>{
       'other': instance.other?.toJson(),
       'b': instance.b,
     };
 
-FragmentF2 _$FragmentF2FromJson(Map<String, dynamic> json) => FragmentF2(
+Fragment$F2 _$Fragment$F2FromJson(Map<String, dynamic> json) => Fragment$F2(
       other: json['other'] == null
           ? null
-          : FragmentF2$other.fromJson(json['other'] as Map<String, dynamic>),
+          : Fragment$F2$other.fromJson(json['other'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$FragmentF2ToJson(FragmentF2 instance) =>
+Map<String, dynamic> _$Fragment$F2ToJson(Fragment$F2 instance) =>
     <String, dynamic>{
       'other': instance.other?.toJson(),
     };
 
-FragmentF2$other _$FragmentF2$otherFromJson(Map<String, dynamic> json) =>
-    FragmentF2$other(
+Fragment$F2$other _$Fragment$F2$otherFromJson(Map<String, dynamic> json) =>
+    Fragment$F2$other(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$FragmentF2$otherToJson(FragmentF2$other instance) =>
+Map<String, dynamic> _$Fragment$F2$otherToJson(Fragment$F2$other instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryFetch _$QueryFetchFromJson(Map<String, dynamic> json) => QueryFetch(
+Query$Fetch _$Query$FetchFromJson(Map<String, dynamic> json) => Query$Fetch(
       t: json['t'] == null
           ? null
-          : QueryFetch$t.fromJson(json['t'] as Map<String, dynamic>),
+          : Query$Fetch$t.fromJson(json['t'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryFetchToJson(QueryFetch instance) =>
+Map<String, dynamic> _$Query$FetchToJson(Query$Fetch instance) =>
     <String, dynamic>{
       't': instance.t?.toJson(),
     };
 
-QueryFetch$t _$QueryFetch$tFromJson(Map<String, dynamic> json) => QueryFetch$t(
+Query$Fetch$t _$Query$Fetch$tFromJson(Map<String, dynamic> json) =>
+    Query$Fetch$t(
       other: json['other'] == null
           ? null
-          : QueryFetch$t$other.fromJson(json['other'] as Map<String, dynamic>),
+          : Query$Fetch$t$other.fromJson(json['other'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryFetch$tToJson(QueryFetch$t instance) =>
+Map<String, dynamic> _$Query$Fetch$tToJson(Query$Fetch$t instance) =>
     <String, dynamic>{
       'other': instance.other?.toJson(),
     };
 
-QueryFetch$t$other _$QueryFetch$t$otherFromJson(Map<String, dynamic> json) =>
-    QueryFetch$t$other(
+Query$Fetch$t$other _$Query$Fetch$t$otherFromJson(Map<String, dynamic> json) =>
+    Query$Fetch$t$other(
       other: json['other'] == null
           ? null
-          : QueryFetch$t$other$other.fromJson(
+          : Query$Fetch$t$other$other.fromJson(
               json['other'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryFetch$t$otherToJson(QueryFetch$t$other instance) =>
+Map<String, dynamic> _$Query$Fetch$t$otherToJson(
+        Query$Fetch$t$other instance) =>
     <String, dynamic>{
       'other': instance.other?.toJson(),
     };
 
-QueryFetch$t$other$other _$QueryFetch$t$other$otherFromJson(
+Query$Fetch$t$other$other _$Query$Fetch$t$other$otherFromJson(
         Map<String, dynamic> json) =>
-    QueryFetch$t$other$other(
+    Query$Fetch$t$other$other(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$QueryFetch$t$other$otherToJson(
-        QueryFetch$t$other$other instance) =>
+Map<String, dynamic> _$Query$Fetch$t$other$otherToJson(
+        Query$Fetch$t$other$other instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryFetch$t$other$T1 _$QueryFetch$t$other$T1FromJson(
+Query$Fetch$t$other$$T1 _$Query$Fetch$t$other$$T1FromJson(
         Map<String, dynamic> json) =>
-    QueryFetch$t$other$T1(
+    Query$Fetch$t$other$$T1(
       other: json['other'] == null
           ? null
-          : QueryFetch$t$other$other.fromJson(
+          : Query$Fetch$t$other$other.fromJson(
               json['other'] as Map<String, dynamic>),
       b: json['b'] as bool?,
     );
 
-Map<String, dynamic> _$QueryFetch$t$other$T1ToJson(
-        QueryFetch$t$other$T1 instance) =>
+Map<String, dynamic> _$Query$Fetch$t$other$$T1ToJson(
+        Query$Fetch$t$other$$T1 instance) =>
     <String, dynamic>{
       'other': instance.other?.toJson(),
       'b': instance.b,

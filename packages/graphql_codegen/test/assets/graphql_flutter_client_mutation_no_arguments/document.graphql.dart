@@ -7,16 +7,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class MutationUpdateSNo {
-  MutationUpdateSNo({this.s});
+class Mutation$UpdateSNo {
+  Mutation$UpdateSNo({this.s});
 
   @override
-  factory MutationUpdateSNo.fromJson(Map<String, dynamic> json) =>
-      _$MutationUpdateSNoFromJson(json);
+  factory Mutation$UpdateSNo.fromJson(Map<String, dynamic> json) =>
+      _$Mutation$UpdateSNoFromJson(json);
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$MutationUpdateSNoToJson(this);
+  Map<String, dynamic> toJson() => _$Mutation$UpdateSNoToJson(this);
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -25,7 +25,7 @@ class MutationUpdateSNo {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is MutationUpdateSNo) || runtimeType != other.runtimeType)
+    if (!(other is Mutation$UpdateSNo) || runtimeType != other.runtimeType)
       return false;
     final l$s = s;
     final lOther$s = other.s;
@@ -34,12 +34,12 @@ class MutationUpdateSNo {
   }
 }
 
-extension UtilityExtensionMutationUpdateSNo on MutationUpdateSNo {
-  MutationUpdateSNo copyWith({String? Function()? s}) =>
-      MutationUpdateSNo(s: s == null ? this.s : s());
+extension UtilityExtension$Mutation$UpdateSNo on Mutation$UpdateSNo {
+  Mutation$UpdateSNo copyWith({String? Function()? s}) =>
+      Mutation$UpdateSNo(s: s == null ? this.s : s());
 }
 
-const MUTATION_UPDATE_S_NO = const DocumentNode(definitions: [
+const queryDocumentUpdateSNo = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSNo'),
@@ -58,22 +58,22 @@ const MUTATION_UPDATE_S_NO = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-MutationUpdateSNo _parserFnMutationUpdateSNo(Map<String, dynamic> data) =>
-    MutationUpdateSNo.fromJson(data);
-typedef OnMutationCompletedMutationUpdateSNo = FutureOr<void> Function(
-    dynamic, MutationUpdateSNo?);
+Mutation$UpdateSNo _parserFn$Mutation$UpdateSNo(Map<String, dynamic> data) =>
+    Mutation$UpdateSNo.fromJson(data);
+typedef OnMutationCompleted$Mutation$UpdateSNo = FutureOr<void> Function(
+    dynamic, Mutation$UpdateSNo?);
 
-class OptionsMutationUpdateSNo
-    extends graphql.MutationOptions<MutationUpdateSNo> {
-  OptionsMutationUpdateSNo(
+class Options$Mutation$UpdateSNo
+    extends graphql.MutationOptions<Mutation$UpdateSNo> {
+  Options$Mutation$UpdateSNo(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      OnMutationCompletedMutationUpdateSNo? onCompleted,
-      graphql.OnMutationUpdate<MutationUpdateSNo>? update,
+      OnMutationCompleted$Mutation$UpdateSNo? onCompleted,
+      graphql.OnMutationUpdate<Mutation$UpdateSNo>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -86,13 +86,13 @@ class OptionsMutationUpdateSNo
             onCompleted: onCompleted == null
                 ? null
                 : (data) => onCompleted(data,
-                    data == null ? null : _parserFnMutationUpdateSNo(data)),
+                    data == null ? null : _parserFn$Mutation$UpdateSNo(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_S_NO,
-            parserFn: _parserFnMutationUpdateSNo);
+            document: queryDocumentUpdateSNo,
+            parserFn: _parserFn$Mutation$UpdateSNo);
 
-  final OnMutationCompletedMutationUpdateSNo? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$UpdateSNo? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -103,9 +103,9 @@ class OptionsMutationUpdateSNo
       ];
 }
 
-class WatchOptionsMutationUpdateSNo
-    extends graphql.WatchQueryOptions<MutationUpdateSNo> {
-  WatchOptionsMutationUpdateSNo(
+class WatchOptions$Mutation$UpdateSNo
+    extends graphql.WatchQueryOptions<Mutation$UpdateSNo> {
+  WatchOptions$Mutation$UpdateSNo(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
@@ -123,36 +123,36 @@ class WatchOptionsMutationUpdateSNo
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: MUTATION_UPDATE_S_NO,
+            document: queryDocumentUpdateSNo,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: _parserFnMutationUpdateSNo);
+            parserFn: _parserFn$Mutation$UpdateSNo);
 }
 
-extension ClientExtensionMutationUpdateSNo on graphql.GraphQLClient {
-  Future<graphql.QueryResult<MutationUpdateSNo>> mutateUpdateSNo(
-          [OptionsMutationUpdateSNo? options]) async =>
-      await this.mutate(options ?? OptionsMutationUpdateSNo());
-  graphql.ObservableQuery<MutationUpdateSNo> watchMutationUpdateSNo(
-          [WatchOptionsMutationUpdateSNo? options]) =>
-      this.watchMutation(options ?? WatchOptionsMutationUpdateSNo());
+extension ClientExtension$Mutation$UpdateSNo on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$UpdateSNo>> mutate$UpdateSNo(
+          [Options$Mutation$UpdateSNo? options]) async =>
+      await this.mutate(options ?? Options$Mutation$UpdateSNo());
+  graphql.ObservableQuery<Mutation$UpdateSNo> watchMutation$UpdateSNo(
+          [WatchOptions$Mutation$UpdateSNo? options]) =>
+      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSNo());
 }
 
-class MutationUpdateSNoHookResult {
-  MutationUpdateSNoHookResult(this.runMutation, this.result);
+class Mutation$UpdateSNo$HookResult {
+  Mutation$UpdateSNo$HookResult(this.runMutation, this.result);
 
-  final RunMutationMutationUpdateSNo runMutation;
+  final RunMutation$Mutation$UpdateSNo runMutation;
 
-  final graphql.QueryResult<MutationUpdateSNo> result;
+  final graphql.QueryResult<Mutation$UpdateSNo> result;
 }
 
-MutationUpdateSNoHookResult useMutationUpdateSNo(
-    [WidgetOptionsMutationUpdateSNo? options]) {
-  final result =
-      graphql_flutter.useMutation(options ?? WidgetOptionsMutationUpdateSNo());
-  return MutationUpdateSNoHookResult(
+Mutation$UpdateSNo$HookResult useMutation$UpdateSNo(
+    [WidgetOptions$Mutation$UpdateSNo? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$UpdateSNo());
+  return Mutation$UpdateSNo$HookResult(
     ({optimisticResult}) => result.runMutation(
       const {},
       optimisticResult: optimisticResult,
@@ -161,22 +161,22 @@ MutationUpdateSNoHookResult useMutationUpdateSNo(
   );
 }
 
-graphql.ObservableQuery<MutationUpdateSNo> useWatchMutationUpdateSNo(
-        [WatchOptionsMutationUpdateSNo? options]) =>
+graphql.ObservableQuery<Mutation$UpdateSNo> useWatchMutation$UpdateSNo(
+        [WatchOptions$Mutation$UpdateSNo? options]) =>
     graphql_flutter
-        .useWatchMutation(options ?? WatchOptionsMutationUpdateSNo());
+        .useWatchMutation(options ?? WatchOptions$Mutation$UpdateSNo());
 
-class WidgetOptionsMutationUpdateSNo
-    extends graphql.MutationOptions<MutationUpdateSNo> {
-  WidgetOptionsMutationUpdateSNo(
+class WidgetOptions$Mutation$UpdateSNo
+    extends graphql.MutationOptions<Mutation$UpdateSNo> {
+  WidgetOptions$Mutation$UpdateSNo(
       {String? operationName,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
       Object? optimisticResult,
       graphql.Context? context,
-      OnMutationCompletedMutationUpdateSNo? onCompleted,
-      graphql.OnMutationUpdate<MutationUpdateSNo>? update,
+      OnMutationCompleted$Mutation$UpdateSNo? onCompleted,
+      graphql.OnMutationUpdate<Mutation$UpdateSNo>? update,
       graphql.OnError? onError})
       : onCompletedWithParsed = onCompleted,
         super(
@@ -189,13 +189,13 @@ class WidgetOptionsMutationUpdateSNo
             onCompleted: onCompleted == null
                 ? null
                 : (data) => onCompleted(data,
-                    data == null ? null : _parserFnMutationUpdateSNo(data)),
+                    data == null ? null : _parserFn$Mutation$UpdateSNo(data)),
             update: update,
             onError: onError,
-            document: MUTATION_UPDATE_S_NO,
-            parserFn: _parserFnMutationUpdateSNo);
+            document: queryDocumentUpdateSNo,
+            parserFn: _parserFn$Mutation$UpdateSNo);
 
-  final OnMutationCompletedMutationUpdateSNo? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$UpdateSNo? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -206,25 +206,25 @@ class WidgetOptionsMutationUpdateSNo
       ];
 }
 
-typedef RunMutationMutationUpdateSNo
-    = graphql.MultiSourceResult<MutationUpdateSNo> Function(
+typedef RunMutation$Mutation$UpdateSNo
+    = graphql.MultiSourceResult<Mutation$UpdateSNo> Function(
         {Object? optimisticResult});
-typedef BuilderMutationUpdateSNo = widgets.Widget Function(
-    RunMutationMutationUpdateSNo, graphql.QueryResult<MutationUpdateSNo>?);
+typedef Builder$Mutation$UpdateSNo = widgets.Widget Function(
+    RunMutation$Mutation$UpdateSNo, graphql.QueryResult<Mutation$UpdateSNo>?);
 
-class MutationUpdateSNoWidget
-    extends graphql_flutter.Mutation<MutationUpdateSNo> {
-  MutationUpdateSNoWidget(
+class Mutation$UpdateSNo$Widget
+    extends graphql_flutter.Mutation<Mutation$UpdateSNo> {
+  Mutation$UpdateSNo$Widget(
       {widgets.Key? key,
-      WidgetOptionsMutationUpdateSNo? options,
-      required BuilderMutationUpdateSNo builder})
+      WidgetOptions$Mutation$UpdateSNo? options,
+      required Builder$Mutation$UpdateSNo builder})
       : super(
             key: key,
-            options: options ?? WidgetOptionsMutationUpdateSNo(),
+            options: options ?? WidgetOptions$Mutation$UpdateSNo(),
             builder: (run, result) => builder(
                 ({optimisticResult}) =>
                     run(const {}, optimisticResult: optimisticResult),
                 result));
 }
 
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

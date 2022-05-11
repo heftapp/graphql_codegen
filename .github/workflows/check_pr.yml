@@ -30,7 +30,7 @@ jobs:
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Validate publish
@@ -51,7 +51,7 @@ jobs:
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Analyze package
@@ -75,7 +75,7 @@ jobs:
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Build dart
@@ -104,7 +104,7 @@ jobs:
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Run tests dart

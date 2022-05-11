@@ -6,25 +6,25 @@ part of 'query.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-QueryFoobar _$QueryFoobarFromJson(Map<String, dynamic> json) => QueryFoobar(
-      field: $enumDecodeNullable(_$EnumEnumEnumMap, json['field'],
-          unknownValue: EnumEnum.$unknown),
+Query$Foobar _$Query$FoobarFromJson(Map<String, dynamic> json) => Query$Foobar(
+      field: $enumDecodeNullable(_$Enum$EnumEnumMap, json['field'],
+          unknownValue: Enum$Enum.$unknown),
       fields: (json['fields'] as List<dynamic>?)
-          ?.map((e) => $enumDecode(_$EnumEnumEnumMap, e,
-              unknownValue: EnumEnum.$unknown))
+          ?.map((e) => $enumDecode(_$Enum$EnumEnumMap, e,
+              unknownValue: Enum$Enum.$unknown))
           .toList(),
     );
 
-Map<String, dynamic> _$QueryFoobarToJson(QueryFoobar instance) =>
+Map<String, dynamic> _$Query$FoobarToJson(Query$Foobar instance) =>
     <String, dynamic>{
-      'field': _$EnumEnumEnumMap[instance.field],
-      'fields': instance.fields?.map((e) => _$EnumEnumEnumMap[e]).toList(),
+      'field': _$Enum$EnumEnumMap[instance.field],
+      'fields': instance.fields?.map((e) => _$Enum$EnumEnumMap[e]).toList(),
     };
 
-const _$EnumEnumEnumMap = {
-  EnumEnum.foo: 'FOO',
-  EnumEnum.bar: 'BAR',
-  EnumEnum.bazBob: 'BAZ_BOB',
-  EnumEnum.$void: 'VOID',
-  EnumEnum.$unknown: r'$unknown',
+const _$Enum$EnumEnumMap = {
+  Enum$Enum.FOO: 'FOO',
+  Enum$Enum.BAR: 'BAR',
+  Enum$Enum.BAZ_BOB: 'BAZ_BOB',
+  Enum$Enum.VOID: 'VOID',
+  Enum$Enum.$unknown: r'$unknown',
 };

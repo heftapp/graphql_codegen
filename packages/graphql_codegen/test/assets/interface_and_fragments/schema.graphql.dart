@@ -1,3 +1,3 @@
-const POSSIBLE_TYPES_MAP = const {
+const possibleTypesMap = {
   'Interface': {'ImplementationA', 'ImplementationB'}
 };

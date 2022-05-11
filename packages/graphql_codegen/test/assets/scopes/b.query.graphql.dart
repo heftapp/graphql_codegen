@@ -4,19 +4,19 @@ import 'package:json_annotation/json_annotation.dart';
 part 'b.query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson {
-  QueryFetchPerson({this.fetchPerson, required this.$__typename});
+class Query$FetchPerson {
+  Query$FetchPerson({this.fetchPerson, required this.$__typename});
 
   @override
-  factory QueryFetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchPersonFromJson(json);
+  factory Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchPersonFromJson(json);
 
-  final QueryFetchPerson$fetchPerson? fetchPerson;
+  final Query$FetchPerson$fetchPerson? fetchPerson;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryFetchPersonToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchPersonToJson(this);
   int get hashCode {
     final l$fetchPerson = fetchPerson;
     final l$$__typename = $__typename;
@@ -26,7 +26,7 @@ class QueryFetchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson) || runtimeType != other.runtimeType)
+    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType)
       return false;
     final l$fetchPerson = fetchPerson;
     final lOther$fetchPerson = other.fetchPerson;
@@ -38,16 +38,16 @@ class QueryFetchPerson {
   }
 }
 
-extension UtilityExtensionQueryFetchPerson on QueryFetchPerson {
-  QueryFetchPerson copyWith(
-          {QueryFetchPerson$fetchPerson? Function()? fetchPerson,
+extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
+  Query$FetchPerson copyWith(
+          {Query$FetchPerson$fetchPerson? Function()? fetchPerson,
           String? $__typename}) =>
-      QueryFetchPerson(
+      Query$FetchPerson(
           fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
+const queryDocumentFetchPerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchPerson'),
@@ -95,25 +95,25 @@ const QUERY_FETCH_PERSON = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchPerson$fetchPerson {
-  QueryFetchPerson$fetchPerson(
+class Query$FetchPerson$fetchPerson {
+  Query$FetchPerson$fetchPerson(
       {this.age, this.name, this.status, required this.$__typename});
 
   @override
-  factory QueryFetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchPerson$fetchPersonFromJson(json);
+  factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchPerson$fetchPersonFromJson(json);
 
   final int? age;
 
   final String? name;
 
-  @JsonKey(unknownEnumValue: EnumStatus.$unknown)
-  final EnumStatus? status;
+  @JsonKey(unknownEnumValue: Enum$Status.$unknown)
+  final Enum$Status? status;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryFetchPerson$fetchPersonToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
   int get hashCode {
     final l$age = age;
     final l$name = name;
@@ -125,7 +125,7 @@ class QueryFetchPerson$fetchPerson {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchPerson$fetchPerson) ||
+    if (!(other is Query$FetchPerson$fetchPerson) ||
         runtimeType != other.runtimeType) return false;
     final l$age = age;
     final lOther$age = other.age;
@@ -143,14 +143,14 @@ class QueryFetchPerson$fetchPerson {
   }
 }
 
-extension UtilityExtensionQueryFetchPerson$fetchPerson
-    on QueryFetchPerson$fetchPerson {
-  QueryFetchPerson$fetchPerson copyWith(
+extension UtilityExtension$Query$FetchPerson$fetchPerson
+    on Query$FetchPerson$fetchPerson {
+  Query$FetchPerson$fetchPerson copyWith(
           {int? Function()? age,
           String? Function()? name,
-          EnumStatus? Function()? status,
+          Enum$Status? Function()? status,
           String? $__typename}) =>
-      QueryFetchPerson$fetchPerson(
+      Query$FetchPerson$fetchPerson(
           age: age == null ? this.age : age(),
           name: name == null ? this.name : name(),
           status: status == null ? this.status : status(),

@@ -3,18 +3,18 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class InputInput {
-  InputInput({this.field, this.flag});
+class Input$Input {
+  Input$Input({this.field, this.flag});
 
   @override
-  factory InputInput.fromJson(Map<String, dynamic> json) =>
-      _$InputInputFromJson(json);
+  factory Input$Input.fromJson(Map<String, dynamic> json) =>
+      _$Input$InputFromJson(json);
 
   final String? field;
 
   final bool? flag;
 
-  Map<String, dynamic> toJson() => _$InputInputToJson(this);
+  Map<String, dynamic> toJson() => _$Input$InputToJson(this);
   int get hashCode {
     final l$field = field;
     final l$flag = flag;
@@ -24,7 +24,7 @@ class InputInput {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is InputInput) || runtimeType != other.runtimeType)
+    if (!(other is Input$Input) || runtimeType != other.runtimeType)
       return false;
     final l$field = field;
     final lOther$field = other.field;
@@ -37,16 +37,16 @@ class InputInput {
 }
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class VariablesQueryQ1 {
-  VariablesQueryQ1({this.input});
+class Variables$Query$Q1 {
+  Variables$Query$Q1({this.input});
 
   @override
-  factory VariablesQueryQ1.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryQ1FromJson(json);
+  factory Variables$Query$Q1.fromJson(Map<String, dynamic> json) =>
+      _$Variables$Query$Q1FromJson(json);
 
-  final InputInput? input;
+  final Input$Input? input;
 
-  Map<String, dynamic> toJson() => _$VariablesQueryQ1ToJson(this);
+  Map<String, dynamic> toJson() => _$Variables$Query$Q1ToJson(this);
   int get hashCode {
     final l$input = input;
     return Object.hashAll([l$input]);
@@ -55,7 +55,7 @@ class VariablesQueryQ1 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesQueryQ1) || runtimeType != other.runtimeType)
+    if (!(other is Variables$Query$Q1) || runtimeType != other.runtimeType)
       return false;
     final l$input = input;
     final lOther$input = other.input;
@@ -65,19 +65,19 @@ class VariablesQueryQ1 {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ1 {
-  QueryQ1({this.field, required this.$__typename});
+class Query$Q1 {
+  Query$Q1({this.field, required this.$__typename});
 
   @override
-  factory QueryQ1.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ1FromJson(json);
+  factory Query$Q1.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q1FromJson(json);
 
   final String? field;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQ1ToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q1ToJson(this);
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;
@@ -87,7 +87,7 @@ class QueryQ1 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ1) || runtimeType != other.runtimeType) return false;
+    if (!(other is Query$Q1) || runtimeType != other.runtimeType) return false;
     final l$field = field;
     final lOther$field = other.field;
     if (l$field != lOther$field) return false;
@@ -98,13 +98,14 @@ class QueryQ1 {
   }
 }
 
-extension UtilityExtensionQueryQ1 on QueryQ1 {
-  QueryQ1 copyWith({String? Function()? field, String? $__typename}) => QueryQ1(
-      field: field == null ? this.field : field(),
-      $__typename: $__typename == null ? this.$__typename : $__typename);
+extension UtilityExtension$Query$Q1 on Query$Q1 {
+  Query$Q1 copyWith({String? Function()? field, String? $__typename}) =>
+      Query$Q1(
+          field: field == null ? this.field : field(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const QUERY_Q1 = const DocumentNode(definitions: [
+const queryDocumentQ1 = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q1'),
@@ -136,4 +137,4 @@ const QUERY_Q1 = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

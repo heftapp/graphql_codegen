@@ -5,21 +5,21 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1 {
-  FragmentF1({this.name, this.field, required this.$__typename});
+class Fragment$F1 {
+  Fragment$F1({this.name, this.field, required this.$__typename});
 
   @override
-  factory FragmentF1.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF1FromJson(json);
+  factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F1FromJson(json);
 
   final String? name;
 
-  final FragmentF1$field? field;
+  final Fragment$F1$field? field;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentF1ToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
   int get hashCode {
     final l$name = name;
     final l$field = field;
@@ -30,7 +30,7 @@ class FragmentF1 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF1) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F1) || runtimeType != other.runtimeType)
       return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -45,18 +45,18 @@ class FragmentF1 {
   }
 }
 
-extension UtilityExtensionFragmentF1 on FragmentF1 {
-  FragmentF1 copyWith(
+extension UtilityExtension$Fragment$F1 on Fragment$F1 {
+  Fragment$F1 copyWith(
           {String? Function()? name,
-          FragmentF1$field? Function()? field,
+          Fragment$F1$field? Function()? field,
           String? $__typename}) =>
-      FragmentF1(
+      Fragment$F1(
           name: name == null ? this.name : name(),
           field: field == null ? this.field : field(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
+const fragmentDefinitionF1 = FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T1'), isNonNull: false)),
@@ -89,49 +89,49 @@ const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F1 = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F1,
-  FRAGMENT_DEFINITION_FRAGMENT_F2,
+const queryDocumentF1 = DocumentNode(definitions: [
+  fragmentDefinitionF1,
+  fragmentDefinitionF2,
 ]);
 
-extension ClientExtensionFragmentF1 on graphql.GraphQLClient {
-  void writeFragmentF1(
-          {required FragmentF1 data,
+extension ClientExtension$Fragment$F1 on graphql.GraphQLClient {
+  void writeFragment$F1(
+          {required Fragment$F1 data,
           required Map<String, dynamic> idFields,
           bool broadcast = true}) =>
       this.writeFragment(
           graphql.FragmentRequest(
               idFields: idFields,
               fragment: const graphql.Fragment(
-                  fragmentName: 'F1', document: FRAGMENT_F1)),
+                  fragmentName: 'F1', document: queryDocumentF1)),
           data: data.toJson(),
           broadcast: broadcast);
-  FragmentF1? readFragmentF1(
+  Fragment$F1? readFragment$F1(
       {required Map<String, dynamic> idFields, bool optimistic = true}) {
     final result = this.readFragment(
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: const graphql.Fragment(
-                fragmentName: 'F1', document: FRAGMENT_F1)),
+                fragmentName: 'F1', document: queryDocumentF1)),
         optimistic: optimistic);
-    return result == null ? null : FragmentF1.fromJson(result);
+    return result == null ? null : Fragment$F1.fromJson(result);
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1$field implements FragmentF2 {
-  FragmentF1$field({this.name, required this.$__typename});
+class Fragment$F1$field implements Fragment$F2 {
+  Fragment$F1$field({this.name, required this.$__typename});
 
   @override
-  factory FragmentF1$field.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF1$fieldFromJson(json);
+  factory Fragment$F1$field.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F1$fieldFromJson(json);
 
   final String? name;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentF1$fieldToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F1$fieldToJson(this);
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -141,7 +141,7 @@ class FragmentF1$field implements FragmentF2 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF1$field) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F1$field) || runtimeType != other.runtimeType)
       return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -153,11 +153,11 @@ class FragmentF1$field implements FragmentF2 {
   }
 }
 
-extension UtilityExtensionFragmentF1$field on FragmentF1$field {
-  FragmentF1$field copyWith({String? Function()? name, String? $__typename}) =>
-      FragmentF1$field(
+extension UtilityExtension$Fragment$F1$field on Fragment$F1$field {
+  Fragment$F1$field copyWith({String? Function()? name, String? $__typename}) =>
+      Fragment$F1$field(
           name: name == null ? this.name : name(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const POSSIBLE_TYPES_MAP = const {};
+const possibleTypesMap = {};

@@ -4,16 +4,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'a.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchName {
-  QueryFetchName({this.name});
+class Query$FetchName {
+  Query$FetchName({this.name});
 
   @override
-  factory QueryFetchName.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchNameFromJson(json);
+  factory Query$FetchName.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchNameFromJson(json);
 
-  final QueryFetchName$name? name;
+  final Query$FetchName$name? name;
 
-  Map<String, dynamic> toJson() => _$QueryFetchNameToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchNameToJson(this);
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -22,7 +22,7 @@ class QueryFetchName {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchName) || runtimeType != other.runtimeType)
+    if (!(other is Query$FetchName) || runtimeType != other.runtimeType)
       return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -31,12 +31,12 @@ class QueryFetchName {
   }
 }
 
-extension UtilityExtensionQueryFetchName on QueryFetchName {
-  QueryFetchName copyWith({QueryFetchName$name? Function()? name}) =>
-      QueryFetchName(name: name == null ? this.name : name());
+extension UtilityExtension$Query$FetchName on Query$FetchName {
+  Query$FetchName copyWith({Query$FetchName$name? Function()? name}) =>
+      Query$FetchName(name: name == null ? this.name : name());
 }
 
-const QUERY_FETCH_NAME = const DocumentNode(definitions: [
+const queryDocumentFetchName = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchName'),
@@ -52,20 +52,20 @@ const QUERY_FETCH_NAME = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'F'), directives: [])
             ]))
       ])),
-  FRAGMENT_DEFINITION_FRAGMENT_F,
+  fragmentDefinitionF,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryFetchName$name implements FragmentF {
-  QueryFetchName$name({required this.name});
+class Query$FetchName$name implements Fragment$F {
+  Query$FetchName$name({required this.name});
 
   @override
-  factory QueryFetchName$name.fromJson(Map<String, dynamic> json) =>
-      _$QueryFetchName$nameFromJson(json);
+  factory Query$FetchName$name.fromJson(Map<String, dynamic> json) =>
+      _$Query$FetchName$nameFromJson(json);
 
   final String name;
 
-  Map<String, dynamic> toJson() => _$QueryFetchName$nameToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FetchName$nameToJson(this);
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -74,7 +74,7 @@ class QueryFetchName$name implements FragmentF {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFetchName$name) || runtimeType != other.runtimeType)
+    if (!(other is Query$FetchName$name) || runtimeType != other.runtimeType)
       return false;
     final l$name = name;
     final lOther$name = other.name;
@@ -83,7 +83,7 @@ class QueryFetchName$name implements FragmentF {
   }
 }
 
-extension UtilityExtensionQueryFetchName$name on QueryFetchName$name {
-  QueryFetchName$name copyWith({String? name}) =>
-      QueryFetchName$name(name: name == null ? this.name : name);
+extension UtilityExtension$Query$FetchName$name on Query$FetchName$name {
+  Query$FetchName$name copyWith({String? name}) =>
+      Query$FetchName$name(name: name == null ? this.name : name);
 }

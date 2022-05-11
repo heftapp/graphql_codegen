@@ -6,9 +6,9 @@ part of 'fragments.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentPersonSummary _$FragmentPersonSummaryFromJson(
+Fragment$PersonSummary _$Fragment$PersonSummaryFromJson(
         Map<String, dynamic> json) =>
-    FragmentPersonSummary(
+    Fragment$PersonSummary(
       nickname: json['nickname'] as String?,
       name: json['name'] as String,
       dob: _nullable$dateTimeFromJson(json['dob']),
@@ -17,14 +17,14 @@ FragmentPersonSummary _$FragmentPersonSummaryFromJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(
               json['eventsOfEvents']),
       parents: (json['parents'] as List<dynamic>?)
-          ?.map((e) =>
-              FragmentPersonSummary$parents.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Fragment$PersonSummary$parents.fromJson(
+              e as Map<String, dynamic>))
           .toList(),
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$FragmentPersonSummaryToJson(
-        FragmentPersonSummary instance) =>
+Map<String, dynamic> _$Fragment$PersonSummaryToJson(
+        Fragment$PersonSummary instance) =>
     <String, dynamic>{
       'nickname': instance.nickname,
       'name': instance.name,
@@ -37,29 +37,29 @@ Map<String, dynamic> _$FragmentPersonSummaryToJson(
       '__typename': instance.$__typename,
     };
 
-FragmentPersonSummary$parents _$FragmentPersonSummary$parentsFromJson(
+Fragment$PersonSummary$parents _$Fragment$PersonSummary$parentsFromJson(
         Map<String, dynamic> json) =>
-    FragmentPersonSummary$parents(
+    Fragment$PersonSummary$parents(
       name: json['name'] as String,
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$FragmentPersonSummary$parentsToJson(
-        FragmentPersonSummary$parents instance) =>
+Map<String, dynamic> _$Fragment$PersonSummary$parentsToJson(
+        Fragment$PersonSummary$parents instance) =>
     <String, dynamic>{
       'name': instance.name,
       '__typename': instance.$__typename,
     };
 
-FragmentPersonParent _$FragmentPersonParentFromJson(
+Fragment$PersonParent _$Fragment$PersonParentFromJson(
         Map<String, dynamic> json) =>
-    FragmentPersonParent(
+    Fragment$PersonParent(
       name: json['name'] as String,
       $__typename: json['__typename'] as String,
     );
 
-Map<String, dynamic> _$FragmentPersonParentToJson(
-        FragmentPersonParent instance) =>
+Map<String, dynamic> _$Fragment$PersonParentToJson(
+        Fragment$PersonParent instance) =>
     <String, dynamic>{
       'name': instance.name,
       '__typename': instance.$__typename,

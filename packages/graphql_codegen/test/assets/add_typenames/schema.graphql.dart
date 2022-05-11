@@ -3,19 +3,19 @@ import 'package:json_annotation/json_annotation.dart';
 part 'schema.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentFReport {
-  FragmentFReport({this.title, required this.$__typename});
+class Fragment$FReport {
+  Fragment$FReport({this.title, required this.$__typename});
 
   @override
-  factory FragmentFReport.fromJson(Map<String, dynamic> json) =>
-      _$FragmentFReportFromJson(json);
+  factory Fragment$FReport.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$FReportFromJson(json);
 
   final String? title;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$FragmentFReportToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$FReportToJson(this);
   int get hashCode {
     final l$title = title;
     final l$$__typename = $__typename;
@@ -25,7 +25,7 @@ class FragmentFReport {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentFReport) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$FReport) || runtimeType != other.runtimeType)
       return false;
     final l$title = title;
     final lOther$title = other.title;
@@ -37,14 +37,14 @@ class FragmentFReport {
   }
 }
 
-extension UtilityExtensionFragmentFReport on FragmentFReport {
-  FragmentFReport copyWith({String? Function()? title, String? $__typename}) =>
-      FragmentFReport(
+extension UtilityExtension$Fragment$FReport on Fragment$FReport {
+  Fragment$FReport copyWith({String? Function()? title, String? $__typename}) =>
+      Fragment$FReport(
           title: title == null ? this.title : title(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F_REPORT = const FragmentDefinitionNode(
+const fragmentDefinitionFReport = FragmentDefinitionNode(
     name: NameNode(value: 'FReport'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'Report'), isNonNull: false)),
@@ -63,13 +63,13 @@ const FRAGMENT_DEFINITION_FRAGMENT_F_REPORT = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F_REPORT = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
+const queryDocumentFReport = DocumentNode(definitions: [
+  fragmentDefinitionFReport,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ {
-  QueryQ(
+class Query$Q {
+  Query$Q(
       {this.docsWithTypename,
       this.docsWihtoutTypename,
       this.docsWithAliasedTypename,
@@ -77,20 +77,21 @@ class QueryQ {
       required this.$__typename});
 
   @override
-  factory QueryQ.fromJson(Map<String, dynamic> json) => _$QueryQFromJson(json);
+  factory Query$Q.fromJson(Map<String, dynamic> json) =>
+      _$Query$QFromJson(json);
 
-  final List<QueryQ$docsWithTypename?>? docsWithTypename;
+  final List<Query$Q$docsWithTypename?>? docsWithTypename;
 
-  final List<QueryQ$docsWihtoutTypename?>? docsWihtoutTypename;
+  final List<Query$Q$docsWihtoutTypename?>? docsWihtoutTypename;
 
-  final List<QueryQ$docsWithAliasedTypename?>? docsWithAliasedTypename;
+  final List<Query$Q$docsWithAliasedTypename?>? docsWithAliasedTypename;
 
-  final List<QueryQ$docsWithFragment?>? docsWithFragment;
+  final List<Query$Q$docsWithFragment?>? docsWithFragment;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  Map<String, dynamic> toJson() => _$Query$QToJson(this);
   int get hashCode {
     final l$docsWithTypename = docsWithTypename;
     final l$docsWihtoutTypename = docsWihtoutTypename;
@@ -117,7 +118,7 @@ class QueryQ {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    if (!(other is Query$Q) || runtimeType != other.runtimeType) return false;
     final l$docsWithTypename = docsWithTypename;
     final lOther$docsWithTypename = other.docsWithTypename;
     if (l$docsWithTypename != null && lOther$docsWithTypename != null) {
@@ -187,15 +188,15 @@ class QueryQ {
   }
 }
 
-extension UtilityExtensionQueryQ on QueryQ {
-  QueryQ copyWith(
-          {List<QueryQ$docsWithTypename?>? Function()? docsWithTypename,
-          List<QueryQ$docsWihtoutTypename?>? Function()? docsWihtoutTypename,
-          List<QueryQ$docsWithAliasedTypename?>? Function()?
+extension UtilityExtension$Query$Q on Query$Q {
+  Query$Q copyWith(
+          {List<Query$Q$docsWithTypename?>? Function()? docsWithTypename,
+          List<Query$Q$docsWihtoutTypename?>? Function()? docsWihtoutTypename,
+          List<Query$Q$docsWithAliasedTypename?>? Function()?
               docsWithAliasedTypename,
-          List<QueryQ$docsWithFragment?>? Function()? docsWithFragment,
+          List<Query$Q$docsWithFragment?>? Function()? docsWithFragment,
           String? $__typename}) =>
-      QueryQ(
+      Query$Q(
           docsWithTypename: docsWithTypename == null
               ? this.docsWithTypename
               : docsWithTypename(),
@@ -211,7 +212,7 @@ extension UtilityExtensionQueryQ on QueryQ {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const QUERY_Q = const DocumentNode(definitions: [
+const queryDocumentQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),
@@ -304,21 +305,21 @@ const QUERY_Q = const DocumentNode(definitions: [
             directives: [],
             selectionSet: null)
       ])),
-  FRAGMENT_DEFINITION_FRAGMENT_F_REPORT,
+  fragmentDefinitionFReport,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$docsWithTypename {
-  QueryQ$docsWithTypename({required this.$__typename});
+class Query$Q$docsWithTypename {
+  Query$Q$docsWithTypename({required this.$__typename});
 
   @override
-  factory QueryQ$docsWithTypename.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$docsWithTypenameFromJson(json);
+  factory Query$Q$docsWithTypename.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q$docsWithTypenameFromJson(json);
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQ$docsWithTypenameToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$docsWithTypenameToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -327,8 +328,8 @@ class QueryQ$docsWithTypename {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$docsWithTypename) || runtimeType != other.runtimeType)
-      return false;
+    if (!(other is Query$Q$docsWithTypename) ||
+        runtimeType != other.runtimeType) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -336,26 +337,27 @@ class QueryQ$docsWithTypename {
   }
 }
 
-extension UtilityExtensionQueryQ$docsWithTypename on QueryQ$docsWithTypename {
-  QueryQ$docsWithTypename copyWith({String? $__typename}) =>
-      QueryQ$docsWithTypename(
+extension UtilityExtension$Query$Q$docsWithTypename
+    on Query$Q$docsWithTypename {
+  Query$Q$docsWithTypename copyWith({String? $__typename}) =>
+      Query$Q$docsWithTypename(
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$docsWihtoutTypename {
-  QueryQ$docsWihtoutTypename({this.title, required this.$__typename});
+class Query$Q$docsWihtoutTypename {
+  Query$Q$docsWihtoutTypename({this.title, required this.$__typename});
 
   @override
-  factory QueryQ$docsWihtoutTypename.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$docsWihtoutTypenameFromJson(json);
+  factory Query$Q$docsWihtoutTypename.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q$docsWihtoutTypenameFromJson(json);
 
   final String? title;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQ$docsWihtoutTypenameToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$docsWihtoutTypenameToJson(this);
   int get hashCode {
     final l$title = title;
     final l$$__typename = $__typename;
@@ -365,7 +367,7 @@ class QueryQ$docsWihtoutTypename {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$docsWihtoutTypename) ||
+    if (!(other is Query$Q$docsWihtoutTypename) ||
         runtimeType != other.runtimeType) return false;
     final l$title = title;
     final lOther$title = other.title;
@@ -377,27 +379,28 @@ class QueryQ$docsWihtoutTypename {
   }
 }
 
-extension UtilityExtensionQueryQ$docsWihtoutTypename
-    on QueryQ$docsWihtoutTypename {
-  QueryQ$docsWihtoutTypename copyWith(
+extension UtilityExtension$Query$Q$docsWihtoutTypename
+    on Query$Q$docsWihtoutTypename {
+  Query$Q$docsWihtoutTypename copyWith(
           {String? Function()? title, String? $__typename}) =>
-      QueryQ$docsWihtoutTypename(
+      Query$Q$docsWihtoutTypename(
           title: title == null ? this.title : title(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$docsWithAliasedTypename {
-  QueryQ$docsWithAliasedTypename({this.$__typename});
+class Query$Q$docsWithAliasedTypename {
+  Query$Q$docsWithAliasedTypename({this.$__typename});
 
   @override
-  factory QueryQ$docsWithAliasedTypename.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$docsWithAliasedTypenameFromJson(json);
+  factory Query$Q$docsWithAliasedTypename.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q$docsWithAliasedTypenameFromJson(json);
 
   @JsonKey(name: '__typename')
   final String? $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQ$docsWithAliasedTypenameToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$Query$Q$docsWithAliasedTypenameToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -406,7 +409,7 @@ class QueryQ$docsWithAliasedTypename {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$docsWithAliasedTypename) ||
+    if (!(other is Query$Q$docsWithAliasedTypename) ||
         runtimeType != other.runtimeType) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -415,33 +418,33 @@ class QueryQ$docsWithAliasedTypename {
   }
 }
 
-extension UtilityExtensionQueryQ$docsWithAliasedTypename
-    on QueryQ$docsWithAliasedTypename {
-  QueryQ$docsWithAliasedTypename copyWith({String? Function()? $__typename}) =>
-      QueryQ$docsWithAliasedTypename(
+extension UtilityExtension$Query$Q$docsWithAliasedTypename
+    on Query$Q$docsWithAliasedTypename {
+  Query$Q$docsWithAliasedTypename copyWith({String? Function()? $__typename}) =>
+      Query$Q$docsWithAliasedTypename(
           $__typename: $__typename == null ? this.$__typename : $__typename());
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$docsWithFragment {
-  QueryQ$docsWithFragment({required this.$__typename});
+class Query$Q$docsWithFragment {
+  Query$Q$docsWithFragment({required this.$__typename});
 
   @override
-  factory QueryQ$docsWithFragment.fromJson(Map<String, dynamic> json) {
+  factory Query$Q$docsWithFragment.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "Contract":
-        return QueryQ$docsWithFragment$Contract.fromJson(json);
+        return Query$Q$docsWithFragment$$Contract.fromJson(json);
       case "Report":
-        return QueryQ$docsWithFragment$Report.fromJson(json);
+        return Query$Q$docsWithFragment$$Report.fromJson(json);
       default:
-        return _$QueryQ$docsWithFragmentFromJson(json);
+        return _$Query$Q$docsWithFragmentFromJson(json);
     }
   }
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$QueryQ$docsWithFragmentToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$docsWithFragmentToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -450,8 +453,8 @@ class QueryQ$docsWithFragment {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$docsWithFragment) || runtimeType != other.runtimeType)
-      return false;
+    if (!(other is Query$Q$docsWithFragment) ||
+        runtimeType != other.runtimeType) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -459,20 +462,21 @@ class QueryQ$docsWithFragment {
   }
 }
 
-extension UtilityExtensionQueryQ$docsWithFragment on QueryQ$docsWithFragment {
-  QueryQ$docsWithFragment copyWith({String? $__typename}) =>
-      QueryQ$docsWithFragment(
+extension UtilityExtension$Query$Q$docsWithFragment
+    on Query$Q$docsWithFragment {
+  Query$Q$docsWithFragment copyWith({String? $__typename}) =>
+      Query$Q$docsWithFragment(
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$docsWithFragment$Contract implements QueryQ$docsWithFragment {
-  QueryQ$docsWithFragment$Contract({required this.$__typename, this.title});
+class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
+  Query$Q$docsWithFragment$$Contract({required this.$__typename, this.title});
 
   @override
-  factory QueryQ$docsWithFragment$Contract.fromJson(
+  factory Query$Q$docsWithFragment$$Contract.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryQ$docsWithFragment$ContractFromJson(json);
+      _$Query$Q$docsWithFragment$$ContractFromJson(json);
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -480,7 +484,7 @@ class QueryQ$docsWithFragment$Contract implements QueryQ$docsWithFragment {
   final String? title;
 
   Map<String, dynamic> toJson() =>
-      _$QueryQ$docsWithFragment$ContractToJson(this);
+      _$Query$Q$docsWithFragment$$ContractToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     final l$title = title;
@@ -490,7 +494,7 @@ class QueryQ$docsWithFragment$Contract implements QueryQ$docsWithFragment {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$docsWithFragment$Contract) ||
+    if (!(other is Query$Q$docsWithFragment$$Contract) ||
         runtimeType != other.runtimeType) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -502,30 +506,32 @@ class QueryQ$docsWithFragment$Contract implements QueryQ$docsWithFragment {
   }
 }
 
-extension UtilityExtensionQueryQ$docsWithFragment$Contract
-    on QueryQ$docsWithFragment$Contract {
-  QueryQ$docsWithFragment$Contract copyWith(
+extension UtilityExtension$Query$Q$docsWithFragment$$Contract
+    on Query$Q$docsWithFragment$$Contract {
+  Query$Q$docsWithFragment$$Contract copyWith(
           {String? $__typename, String? Function()? title}) =>
-      QueryQ$docsWithFragment$Contract(
+      Query$Q$docsWithFragment$$Contract(
           $__typename: $__typename == null ? this.$__typename : $__typename,
           title: title == null ? this.title : title());
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$docsWithFragment$Report
-    implements FragmentFReport, QueryQ$docsWithFragment {
-  QueryQ$docsWithFragment$Report({required this.$__typename, this.title});
+class Query$Q$docsWithFragment$$Report
+    implements Fragment$FReport, Query$Q$docsWithFragment {
+  Query$Q$docsWithFragment$$Report({required this.$__typename, this.title});
 
   @override
-  factory QueryQ$docsWithFragment$Report.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$docsWithFragment$ReportFromJson(json);
+  factory Query$Q$docsWithFragment$$Report.fromJson(
+          Map<String, dynamic> json) =>
+      _$Query$Q$docsWithFragment$$ReportFromJson(json);
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? title;
 
-  Map<String, dynamic> toJson() => _$QueryQ$docsWithFragment$ReportToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$Query$Q$docsWithFragment$$ReportToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     final l$title = title;
@@ -535,7 +541,7 @@ class QueryQ$docsWithFragment$Report
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$docsWithFragment$Report) ||
+    if (!(other is Query$Q$docsWithFragment$$Report) ||
         runtimeType != other.runtimeType) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -547,15 +553,15 @@ class QueryQ$docsWithFragment$Report
   }
 }
 
-extension UtilityExtensionQueryQ$docsWithFragment$Report
-    on QueryQ$docsWithFragment$Report {
-  QueryQ$docsWithFragment$Report copyWith(
+extension UtilityExtension$Query$Q$docsWithFragment$$Report
+    on Query$Q$docsWithFragment$$Report {
+  Query$Q$docsWithFragment$$Report copyWith(
           {String? $__typename, String? Function()? title}) =>
-      QueryQ$docsWithFragment$Report(
+      Query$Q$docsWithFragment$$Report(
           $__typename: $__typename == null ? this.$__typename : $__typename,
           title: title == null ? this.title : title());
 }
 
-const POSSIBLE_TYPES_MAP = const {
+const possibleTypesMap = {
   'Document': {'Contract', 'Report'}
 };

@@ -6,180 +6,183 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FragmentNoVariables _$FragmentNoVariablesFromJson(Map<String, dynamic> json) =>
-    FragmentNoVariables(
+Fragment$NoVariables _$Fragment$NoVariablesFromJson(
+        Map<String, dynamic> json) =>
+    Fragment$NoVariables(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$FragmentNoVariablesToJson(
-        FragmentNoVariables instance) =>
+Map<String, dynamic> _$Fragment$NoVariablesToJson(
+        Fragment$NoVariables instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-VariablesFragmentWithOptionalVariables
-    _$VariablesFragmentWithOptionalVariablesFromJson(
+Variables$Fragment$WithOptionalVariables
+    _$Variables$Fragment$WithOptionalVariablesFromJson(
             Map<String, dynamic> json) =>
-        VariablesFragmentWithOptionalVariables(
+        Variables$Fragment$WithOptionalVariables(
           name: json['name'] as String?,
         );
 
-Map<String, dynamic> _$VariablesFragmentWithOptionalVariablesToJson(
-        VariablesFragmentWithOptionalVariables instance) =>
+Map<String, dynamic> _$Variables$Fragment$WithOptionalVariablesToJson(
+        Variables$Fragment$WithOptionalVariables instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-FragmentWithOptionalVariables _$FragmentWithOptionalVariablesFromJson(
+Fragment$WithOptionalVariables _$Fragment$WithOptionalVariablesFromJson(
         Map<String, dynamic> json) =>
-    FragmentWithOptionalVariables(
+    Fragment$WithOptionalVariables(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$FragmentWithOptionalVariablesToJson(
-        FragmentWithOptionalVariables instance) =>
+Map<String, dynamic> _$Fragment$WithOptionalVariablesToJson(
+        Fragment$WithOptionalVariables instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-VariablesFragmentWithVariables _$VariablesFragmentWithVariablesFromJson(
+Variables$Fragment$WithVariables _$Variables$Fragment$WithVariablesFromJson(
         Map<String, dynamic> json) =>
-    VariablesFragmentWithVariables(
+    Variables$Fragment$WithVariables(
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$VariablesFragmentWithVariablesToJson(
-        VariablesFragmentWithVariables instance) =>
+Map<String, dynamic> _$Variables$Fragment$WithVariablesToJson(
+        Variables$Fragment$WithVariables instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-FragmentWithVariables _$FragmentWithVariablesFromJson(
+Fragment$WithVariables _$Fragment$WithVariablesFromJson(
         Map<String, dynamic> json) =>
-    FragmentWithVariables(
+    Fragment$WithVariables(
       s2: json['s2'] as String?,
     );
 
-Map<String, dynamic> _$FragmentWithVariablesToJson(
-        FragmentWithVariables instance) =>
+Map<String, dynamic> _$Fragment$WithVariablesToJson(
+        Fragment$WithVariables instance) =>
     <String, dynamic>{
       's2': instance.s2,
     };
 
-VariablesQueryFetchSOptional _$VariablesQueryFetchSOptionalFromJson(
+Variables$Query$FetchSOptional _$Variables$Query$FetchSOptionalFromJson(
         Map<String, dynamic> json) =>
-    VariablesQueryFetchSOptional(
+    Variables$Query$FetchSOptional(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$VariablesQueryFetchSOptionalToJson(
-        VariablesQueryFetchSOptional instance) =>
+Map<String, dynamic> _$Variables$Query$FetchSOptionalToJson(
+        Variables$Query$FetchSOptional instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryFetchSOptional _$QueryFetchSOptionalFromJson(Map<String, dynamic> json) =>
-    QueryFetchSOptional(
+Query$FetchSOptional _$Query$FetchSOptionalFromJson(
+        Map<String, dynamic> json) =>
+    Query$FetchSOptional(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$QueryFetchSOptionalToJson(
-        QueryFetchSOptional instance) =>
+Map<String, dynamic> _$Query$FetchSOptionalToJson(
+        Query$FetchSOptional instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-VariablesQueryFetchSRequired _$VariablesQueryFetchSRequiredFromJson(
+Variables$Query$FetchSRequired _$Variables$Query$FetchSRequiredFromJson(
         Map<String, dynamic> json) =>
-    VariablesQueryFetchSRequired(
+    Variables$Query$FetchSRequired(
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$VariablesQueryFetchSRequiredToJson(
-        VariablesQueryFetchSRequired instance) =>
+Map<String, dynamic> _$Variables$Query$FetchSRequiredToJson(
+        Variables$Query$FetchSRequired instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryFetchSRequired _$QueryFetchSRequiredFromJson(Map<String, dynamic> json) =>
-    QueryFetchSRequired(
+Query$FetchSRequired _$Query$FetchSRequiredFromJson(
+        Map<String, dynamic> json) =>
+    Query$FetchSRequired(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$QueryFetchSRequiredToJson(
-        QueryFetchSRequired instance) =>
+Map<String, dynamic> _$Query$FetchSRequiredToJson(
+        Query$FetchSRequired instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-QueryFetchSNoVariables _$QueryFetchSNoVariablesFromJson(
+Query$FetchSNoVariables _$Query$FetchSNoVariablesFromJson(
         Map<String, dynamic> json) =>
-    QueryFetchSNoVariables(
+    Query$FetchSNoVariables(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$QueryFetchSNoVariablesToJson(
-        QueryFetchSNoVariables instance) =>
+Map<String, dynamic> _$Query$FetchSNoVariablesToJson(
+        Query$FetchSNoVariables instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-VariablesMutationUpdateSOptional _$VariablesMutationUpdateSOptionalFromJson(
+Variables$Mutation$UpdateSOptional _$Variables$Mutation$UpdateSOptionalFromJson(
         Map<String, dynamic> json) =>
-    VariablesMutationUpdateSOptional(
+    Variables$Mutation$UpdateSOptional(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$VariablesMutationUpdateSOptionalToJson(
-        VariablesMutationUpdateSOptional instance) =>
+Map<String, dynamic> _$Variables$Mutation$UpdateSOptionalToJson(
+        Variables$Mutation$UpdateSOptional instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-MutationUpdateSOptional _$MutationUpdateSOptionalFromJson(
+Mutation$UpdateSOptional _$Mutation$UpdateSOptionalFromJson(
         Map<String, dynamic> json) =>
-    MutationUpdateSOptional(
+    Mutation$UpdateSOptional(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$MutationUpdateSOptionalToJson(
-        MutationUpdateSOptional instance) =>
+Map<String, dynamic> _$Mutation$UpdateSOptionalToJson(
+        Mutation$UpdateSOptional instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-VariablesMutationUpdateSRequired _$VariablesMutationUpdateSRequiredFromJson(
+Variables$Mutation$UpdateSRequired _$Variables$Mutation$UpdateSRequiredFromJson(
         Map<String, dynamic> json) =>
-    VariablesMutationUpdateSRequired(
+    Variables$Mutation$UpdateSRequired(
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$VariablesMutationUpdateSRequiredToJson(
-        VariablesMutationUpdateSRequired instance) =>
+Map<String, dynamic> _$Variables$Mutation$UpdateSRequiredToJson(
+        Variables$Mutation$UpdateSRequired instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-MutationUpdateSRequired _$MutationUpdateSRequiredFromJson(
+Mutation$UpdateSRequired _$Mutation$UpdateSRequiredFromJson(
         Map<String, dynamic> json) =>
-    MutationUpdateSRequired(
+    Mutation$UpdateSRequired(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$MutationUpdateSRequiredToJson(
-        MutationUpdateSRequired instance) =>
+Map<String, dynamic> _$Mutation$UpdateSRequiredToJson(
+        Mutation$UpdateSRequired instance) =>
     <String, dynamic>{
       's': instance.s,
     };
 
-MutationUpdateSNoVariables _$MutationUpdateSNoVariablesFromJson(
+Mutation$UpdateSNoVariables _$Mutation$UpdateSNoVariablesFromJson(
         Map<String, dynamic> json) =>
-    MutationUpdateSNoVariables(
+    Mutation$UpdateSNoVariables(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$MutationUpdateSNoVariablesToJson(
-        MutationUpdateSNoVariables instance) =>
+Map<String, dynamic> _$Mutation$UpdateSNoVariablesToJson(
+        Mutation$UpdateSNoVariables instance) =>
     <String, dynamic>{
       's': instance.s,
     };

@@ -6,26 +6,26 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VariablesMutationUpdateSOptional _$VariablesMutationUpdateSOptionalFromJson(
+Variables$Mutation$UpdateSOptional _$Variables$Mutation$UpdateSOptionalFromJson(
         Map<String, dynamic> json) =>
-    VariablesMutationUpdateSOptional(
+    Variables$Mutation$UpdateSOptional(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$VariablesMutationUpdateSOptionalToJson(
-        VariablesMutationUpdateSOptional instance) =>
+Map<String, dynamic> _$Variables$Mutation$UpdateSOptionalToJson(
+        Variables$Mutation$UpdateSOptional instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-MutationUpdateSOptional _$MutationUpdateSOptionalFromJson(
+Mutation$UpdateSOptional _$Mutation$UpdateSOptionalFromJson(
         Map<String, dynamic> json) =>
-    MutationUpdateSOptional(
+    Mutation$UpdateSOptional(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$MutationUpdateSOptionalToJson(
-        MutationUpdateSOptional instance) =>
+Map<String, dynamic> _$Mutation$UpdateSOptionalToJson(
+        Mutation$UpdateSOptional instance) =>
     <String, dynamic>{
       's': instance.s,
     };

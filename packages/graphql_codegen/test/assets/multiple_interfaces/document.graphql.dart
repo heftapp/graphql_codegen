@@ -3,16 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'document.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF0 {
-  FragmentF0({this.name01});
+class Fragment$F0 {
+  Fragment$F0({this.name01});
 
   @override
-  factory FragmentF0.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF0FromJson(json);
+  factory Fragment$F0.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F0FromJson(json);
 
   final String? name01;
 
-  Map<String, dynamic> toJson() => _$FragmentF0ToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F0ToJson(this);
   int get hashCode {
     final l$name01 = name01;
     return Object.hashAll([l$name01]);
@@ -21,7 +21,7 @@ class FragmentF0 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF0) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F0) || runtimeType != other.runtimeType)
       return false;
     final l$name01 = name01;
     final lOther$name01 = other.name01;
@@ -30,12 +30,12 @@ class FragmentF0 {
   }
 }
 
-extension UtilityExtensionFragmentF0 on FragmentF0 {
-  FragmentF0 copyWith({String? Function()? name01}) =>
-      FragmentF0(name01: name01 == null ? this.name01 : name01());
+extension UtilityExtension$Fragment$F0 on Fragment$F0 {
+  Fragment$F0 copyWith({String? Function()? name01}) =>
+      Fragment$F0(name01: name01 == null ? this.name01 : name01());
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F0 = const FragmentDefinitionNode(
+const fragmentDefinitionF0 = FragmentDefinitionNode(
     name: NameNode(value: 'F0'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'I1'), isNonNull: false)),
@@ -48,21 +48,21 @@ const FRAGMENT_DEFINITION_FRAGMENT_F0 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F0 = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F0,
+const queryDocumentF0 = DocumentNode(definitions: [
+  fragmentDefinitionF0,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF1 {
-  FragmentF1({this.size2});
+class Fragment$F1 {
+  Fragment$F1({this.size2});
 
   @override
-  factory FragmentF1.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF1FromJson(json);
+  factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F1FromJson(json);
 
   final int? size2;
 
-  Map<String, dynamic> toJson() => _$FragmentF1ToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
   int get hashCode {
     final l$size2 = size2;
     return Object.hashAll([l$size2]);
@@ -71,7 +71,7 @@ class FragmentF1 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF1) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F1) || runtimeType != other.runtimeType)
       return false;
     final l$size2 = size2;
     final lOther$size2 = other.size2;
@@ -80,12 +80,12 @@ class FragmentF1 {
   }
 }
 
-extension UtilityExtensionFragmentF1 on FragmentF1 {
-  FragmentF1 copyWith({int? Function()? size2}) =>
-      FragmentF1(size2: size2 == null ? this.size2 : size2());
+extension UtilityExtension$Fragment$F1 on Fragment$F1 {
+  Fragment$F1 copyWith({int? Function()? size2}) =>
+      Fragment$F1(size2: size2 == null ? this.size2 : size2());
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
+const fragmentDefinitionF1 = FragmentDefinitionNode(
     name: NameNode(value: 'F1'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'I2'), isNonNull: false)),
@@ -98,21 +98,21 @@ const FRAGMENT_DEFINITION_FRAGMENT_F1 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F1 = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F1,
+const queryDocumentF1 = DocumentNode(definitions: [
+  fragmentDefinitionF1,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF2 {
-  FragmentF2({this.name2});
+class Fragment$F2 {
+  Fragment$F2({this.name2});
 
   @override
-  factory FragmentF2.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF2FromJson(json);
+  factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F2FromJson(json);
 
   final String? name2;
 
-  Map<String, dynamic> toJson() => _$FragmentF2ToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
   int get hashCode {
     final l$name2 = name2;
     return Object.hashAll([l$name2]);
@@ -121,7 +121,7 @@ class FragmentF2 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF2) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F2) || runtimeType != other.runtimeType)
       return false;
     final l$name2 = name2;
     final lOther$name2 = other.name2;
@@ -130,12 +130,12 @@ class FragmentF2 {
   }
 }
 
-extension UtilityExtensionFragmentF2 on FragmentF2 {
-  FragmentF2 copyWith({String? Function()? name2}) =>
-      FragmentF2(name2: name2 == null ? this.name2 : name2());
+extension UtilityExtension$Fragment$F2 on Fragment$F2 {
+  Fragment$F2 copyWith({String? Function()? name2}) =>
+      Fragment$F2(name2: name2 == null ? this.name2 : name2());
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
+const fragmentDefinitionF2 = FragmentDefinitionNode(
     name: NameNode(value: 'F2'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'T1'), isNonNull: false)),
@@ -148,21 +148,21 @@ const FRAGMENT_DEFINITION_FRAGMENT_F2 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F2 = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F2,
+const queryDocumentF2 = DocumentNode(definitions: [
+  fragmentDefinitionF2,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class FragmentF3 {
-  FragmentF3({this.value});
+class Fragment$F3 {
+  Fragment$F3({this.value});
 
   @override
-  factory FragmentF3.fromJson(Map<String, dynamic> json) =>
-      _$FragmentF3FromJson(json);
+  factory Fragment$F3.fromJson(Map<String, dynamic> json) =>
+      _$Fragment$F3FromJson(json);
 
   final double? value;
 
-  Map<String, dynamic> toJson() => _$FragmentF3ToJson(this);
+  Map<String, dynamic> toJson() => _$Fragment$F3ToJson(this);
   int get hashCode {
     final l$value = value;
     return Object.hashAll([l$value]);
@@ -171,7 +171,7 @@ class FragmentF3 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is FragmentF3) || runtimeType != other.runtimeType)
+    if (!(other is Fragment$F3) || runtimeType != other.runtimeType)
       return false;
     final l$value = value;
     final lOther$value = other.value;
@@ -180,12 +180,12 @@ class FragmentF3 {
   }
 }
 
-extension UtilityExtensionFragmentF3 on FragmentF3 {
-  FragmentF3 copyWith({double? Function()? value}) =>
-      FragmentF3(value: value == null ? this.value : value());
+extension UtilityExtension$Fragment$F3 on Fragment$F3 {
+  Fragment$F3 copyWith({double? Function()? value}) =>
+      Fragment$F3(value: value == null ? this.value : value());
 }
 
-const FRAGMENT_DEFINITION_FRAGMENT_F3 = const FragmentDefinitionNode(
+const fragmentDefinitionF3 = FragmentDefinitionNode(
     name: NameNode(value: 'F3'),
     typeCondition: TypeConditionNode(
         on: NamedTypeNode(name: NameNode(value: 'I3'), isNonNull: false)),
@@ -198,20 +198,21 @@ const FRAGMENT_DEFINITION_FRAGMENT_F3 = const FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const FRAGMENT_F3 = const DocumentNode(definitions: [
-  FRAGMENT_DEFINITION_FRAGMENT_F3,
+const queryDocumentF3 = DocumentNode(definitions: [
+  fragmentDefinitionF3,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ {
-  QueryQ({this.field});
+class Query$Q {
+  Query$Q({this.field});
 
   @override
-  factory QueryQ.fromJson(Map<String, dynamic> json) => _$QueryQFromJson(json);
+  factory Query$Q.fromJson(Map<String, dynamic> json) =>
+      _$Query$QFromJson(json);
 
-  final QueryQ$field? field;
+  final Query$Q$field? field;
 
-  Map<String, dynamic> toJson() => _$QueryQToJson(this);
+  Map<String, dynamic> toJson() => _$Query$QToJson(this);
   int get hashCode {
     final l$field = field;
     return Object.hashAll([l$field]);
@@ -220,7 +221,7 @@ class QueryQ {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ) || runtimeType != other.runtimeType) return false;
+    if (!(other is Query$Q) || runtimeType != other.runtimeType) return false;
     final l$field = field;
     final lOther$field = other.field;
     if (l$field != lOther$field) return false;
@@ -228,12 +229,12 @@ class QueryQ {
   }
 }
 
-extension UtilityExtensionQueryQ on QueryQ {
-  QueryQ copyWith({QueryQ$field? Function()? field}) =>
-      QueryQ(field: field == null ? this.field : field());
+extension UtilityExtension$Query$Q on Query$Q {
+  Query$Q copyWith({Query$Q$field? Function()? field}) =>
+      Query$Q(field: field == null ? this.field : field());
 }
 
-const QUERY_Q = const DocumentNode(definitions: [
+const queryDocumentQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),
@@ -310,23 +311,23 @@ const QUERY_Q = const DocumentNode(definitions: [
               FragmentSpreadNode(name: NameNode(value: 'F3'), directives: [])
             ]))
       ])),
-  FRAGMENT_DEFINITION_FRAGMENT_F0,
-  FRAGMENT_DEFINITION_FRAGMENT_F1,
-  FRAGMENT_DEFINITION_FRAGMENT_F2,
-  FRAGMENT_DEFINITION_FRAGMENT_F3,
+  fragmentDefinitionF0,
+  fragmentDefinitionF1,
+  fragmentDefinitionF2,
+  fragmentDefinitionF3,
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$field implements FragmentF0 {
-  QueryQ$field({required this.$__typename, this.name0, this.name01});
+class Query$Q$field implements Fragment$F0 {
+  Query$Q$field({required this.$__typename, this.name0, this.name01});
 
   @override
-  factory QueryQ$field.fromJson(Map<String, dynamic> json) {
+  factory Query$Q$field.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "T1":
-        return QueryQ$field$T1.fromJson(json);
+        return Query$Q$field$$T1.fromJson(json);
       default:
-        return _$QueryQ$fieldFromJson(json);
+        return _$Query$Q$fieldFromJson(json);
     }
   }
 
@@ -337,7 +338,7 @@ class QueryQ$field implements FragmentF0 {
 
   final String? name01;
 
-  Map<String, dynamic> toJson() => _$QueryQ$fieldToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$fieldToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name0 = name0;
@@ -348,7 +349,7 @@ class QueryQ$field implements FragmentF0 {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$field) || runtimeType != other.runtimeType)
+    if (!(other is Query$Q$field) || runtimeType != other.runtimeType)
       return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -363,20 +364,20 @@ class QueryQ$field implements FragmentF0 {
   }
 }
 
-extension UtilityExtensionQueryQ$field on QueryQ$field {
-  QueryQ$field copyWith(
+extension UtilityExtension$Query$Q$field on Query$Q$field {
+  Query$Q$field copyWith(
           {String? $__typename,
           String? Function()? name0,
           String? Function()? name01}) =>
-      QueryQ$field(
+      Query$Q$field(
           $__typename: $__typename == null ? this.$__typename : $__typename,
           name0: name0 == null ? this.name0 : name0(),
           name01: name01 == null ? this.name01 : name01());
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryQ$field$T1 implements FragmentF1, FragmentF2, QueryQ$field {
-  QueryQ$field$T1(
+class Query$Q$field$$T1 implements Fragment$F1, Fragment$F2, Query$Q$field {
+  Query$Q$field$$T1(
       {required this.$__typename,
       this.name0,
       this.name01,
@@ -386,8 +387,8 @@ class QueryQ$field$T1 implements FragmentF1, FragmentF2, QueryQ$field {
       this.name2});
 
   @override
-  factory QueryQ$field$T1.fromJson(Map<String, dynamic> json) =>
-      _$QueryQ$field$T1FromJson(json);
+  factory Query$Q$field$$T1.fromJson(Map<String, dynamic> json) =>
+      _$Query$Q$field$$T1FromJson(json);
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -404,7 +405,7 @@ class QueryQ$field$T1 implements FragmentF1, FragmentF2, QueryQ$field {
 
   final String? name2;
 
-  Map<String, dynamic> toJson() => _$QueryQ$field$T1ToJson(this);
+  Map<String, dynamic> toJson() => _$Query$Q$field$$T1ToJson(this);
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name0 = name0;
@@ -420,7 +421,7 @@ class QueryQ$field$T1 implements FragmentF1, FragmentF2, QueryQ$field {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryQ$field$T1) || runtimeType != other.runtimeType)
+    if (!(other is Query$Q$field$$T1) || runtimeType != other.runtimeType)
       return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -447,8 +448,8 @@ class QueryQ$field$T1 implements FragmentF1, FragmentF2, QueryQ$field {
   }
 }
 
-extension UtilityExtensionQueryQ$field$T1 on QueryQ$field$T1 {
-  QueryQ$field$T1 copyWith(
+extension UtilityExtension$Query$Q$field$$T1 on Query$Q$field$$T1 {
+  Query$Q$field$$T1 copyWith(
           {String? $__typename,
           String? Function()? name0,
           String? Function()? name01,
@@ -456,7 +457,7 @@ extension UtilityExtensionQueryQ$field$T1 on QueryQ$field$T1 {
           String? Function()? name,
           int? Function()? size2,
           String? Function()? name2}) =>
-      QueryQ$field$T1(
+      Query$Q$field$$T1(
           $__typename: $__typename == null ? this.$__typename : $__typename,
           name0: name0 == null ? this.name0 : name0(),
           name01: name01 == null ? this.name01 : name01(),
@@ -466,7 +467,7 @@ extension UtilityExtensionQueryQ$field$T1 on QueryQ$field$T1 {
           name2: name2 == null ? this.name2 : name2());
 }
 
-const POSSIBLE_TYPES_MAP = const {
+const possibleTypesMap = {
   'I1': {'T1'},
   'I2': {'T1'}
 };

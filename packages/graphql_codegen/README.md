@@ -127,7 +127,7 @@ printPerson(FragmentPersonSummary person) {
 
 main () {
     final data = fetchDataFromTheVoid();
-    final parsedData = QueryFetchParentsAndChildren.fromJson(data);
+    final parsedData = Query$FetchParentsAndChildren.fromJson(data);
     for (final parent in parsedData?.fetchPerson.parents ?? []) {
         printPerson(parent);
         print(parent.dob);
@@ -285,8 +285,8 @@ import 'person.graphql.dart';
 main () async {
   final client = GraphQLClient();
   final result = await client.queryFetchPerson(
-    OptionsQueryFetchPerson(
-      variables: VariablesQueryFetchPerson(id: "1"),
+    OptionsQuery$FetchPerson(
+      variables: VariablesQuery$FetchPerson(id: "1"),
     ),
   );
   final parsedData = result.parsedData;

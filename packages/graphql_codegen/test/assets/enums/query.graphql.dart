@@ -4,20 +4,20 @@ import 'schema.graphql.dart';
 part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class QueryFoobar {
-  QueryFoobar({this.field, this.fields});
+class Query$Foobar {
+  Query$Foobar({this.field, this.fields});
 
   @override
-  factory QueryFoobar.fromJson(Map<String, dynamic> json) =>
-      _$QueryFoobarFromJson(json);
+  factory Query$Foobar.fromJson(Map<String, dynamic> json) =>
+      _$Query$FoobarFromJson(json);
 
-  @JsonKey(unknownEnumValue: EnumEnum.$unknown)
-  final EnumEnum? field;
+  @JsonKey(unknownEnumValue: Enum$Enum.$unknown)
+  final Enum$Enum? field;
 
-  @JsonKey(unknownEnumValue: EnumEnum.$unknown)
-  final List<EnumEnum>? fields;
+  @JsonKey(unknownEnumValue: Enum$Enum.$unknown)
+  final List<Enum$Enum>? fields;
 
-  Map<String, dynamic> toJson() => _$QueryFoobarToJson(this);
+  Map<String, dynamic> toJson() => _$Query$FoobarToJson(this);
   int get hashCode {
     final l$field = field;
     final l$fields = fields;
@@ -30,7 +30,7 @@ class QueryFoobar {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryFoobar) || runtimeType != other.runtimeType)
+    if (!(other is Query$Foobar) || runtimeType != other.runtimeType)
       return false;
     final l$field = field;
     final lOther$field = other.field;
@@ -52,15 +52,16 @@ class QueryFoobar {
   }
 }
 
-extension UtilityExtensionQueryFoobar on QueryFoobar {
-  QueryFoobar copyWith(
-          {EnumEnum? Function()? field, List<EnumEnum>? Function()? fields}) =>
-      QueryFoobar(
+extension UtilityExtension$Query$Foobar on Query$Foobar {
+  Query$Foobar copyWith(
+          {Enum$Enum? Function()? field,
+          List<Enum$Enum>? Function()? fields}) =>
+      Query$Foobar(
           field: field == null ? this.field : field(),
           fields: fields == null ? this.fields : fields());
 }
 
-const QUERY_FOOBAR = const DocumentNode(definitions: [
+const queryDocumentFoobar = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Foobar'),

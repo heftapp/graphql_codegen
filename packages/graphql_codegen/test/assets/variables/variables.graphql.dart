@@ -4,16 +4,16 @@ import 'schema.graphql.dart';
 part 'variables.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class VariablesQueryHiBob {
-  VariablesQueryHiBob({required this.i});
+class Variables$Query$HiBob {
+  Variables$Query$HiBob({required this.i});
 
   @override
-  factory VariablesQueryHiBob.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryHiBobFromJson(json);
+  factory Variables$Query$HiBob.fromJson(Map<String, dynamic> json) =>
+      _$Variables$Query$HiBobFromJson(json);
 
-  final InputI1 i;
+  final Input$I1 i;
 
-  Map<String, dynamic> toJson() => _$VariablesQueryHiBobToJson(this);
+  Map<String, dynamic> toJson() => _$Variables$Query$HiBobToJson(this);
   int get hashCode {
     final l$i = i;
     return Object.hashAll([l$i]);
@@ -22,7 +22,7 @@ class VariablesQueryHiBob {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is VariablesQueryHiBob) || runtimeType != other.runtimeType)
+    if (!(other is Variables$Query$HiBob) || runtimeType != other.runtimeType)
       return false;
     final l$i = i;
     final lOther$i = other.i;
@@ -32,16 +32,16 @@ class VariablesQueryHiBob {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueryHiBob {
-  QueryHiBob({this.field});
+class Query$HiBob {
+  Query$HiBob({this.field});
 
   @override
-  factory QueryHiBob.fromJson(Map<String, dynamic> json) =>
-      _$QueryHiBobFromJson(json);
+  factory Query$HiBob.fromJson(Map<String, dynamic> json) =>
+      _$Query$HiBobFromJson(json);
 
-  final QueryHiBob$field? field;
+  final Query$HiBob$field? field;
 
-  Map<String, dynamic> toJson() => _$QueryHiBobToJson(this);
+  Map<String, dynamic> toJson() => _$Query$HiBobToJson(this);
   int get hashCode {
     final l$field = field;
     return Object.hashAll([l$field]);
@@ -50,7 +50,7 @@ class QueryHiBob {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryHiBob) || runtimeType != other.runtimeType)
+    if (!(other is Query$HiBob) || runtimeType != other.runtimeType)
       return false;
     final l$field = field;
     final lOther$field = other.field;
@@ -59,12 +59,12 @@ class QueryHiBob {
   }
 }
 
-extension UtilityExtensionQueryHiBob on QueryHiBob {
-  QueryHiBob copyWith({QueryHiBob$field? Function()? field}) =>
-      QueryHiBob(field: field == null ? this.field : field());
+extension UtilityExtension$Query$HiBob on Query$HiBob {
+  Query$HiBob copyWith({Query$HiBob$field? Function()? field}) =>
+      Query$HiBob(field: field == null ? this.field : field());
 }
 
-const QUERY_HI_BOB = const DocumentNode(definitions: [
+const queryDocumentHiBob = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'HiBob'),
@@ -101,16 +101,16 @@ const QUERY_HI_BOB = const DocumentNode(definitions: [
 ]);
 
 @JsonSerializable(explicitToJson: true)
-class QueryHiBob$field {
-  QueryHiBob$field({required this.value});
+class Query$HiBob$field {
+  Query$HiBob$field({required this.value});
 
   @override
-  factory QueryHiBob$field.fromJson(Map<String, dynamic> json) =>
-      _$QueryHiBob$fieldFromJson(json);
+  factory Query$HiBob$field.fromJson(Map<String, dynamic> json) =>
+      _$Query$HiBob$fieldFromJson(json);
 
   final String value;
 
-  Map<String, dynamic> toJson() => _$QueryHiBob$fieldToJson(this);
+  Map<String, dynamic> toJson() => _$Query$HiBob$fieldToJson(this);
   int get hashCode {
     final l$value = value;
     return Object.hashAll([l$value]);
@@ -119,7 +119,7 @@ class QueryHiBob$field {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (!(other is QueryHiBob$field) || runtimeType != other.runtimeType)
+    if (!(other is Query$HiBob$field) || runtimeType != other.runtimeType)
       return false;
     final l$value = value;
     final lOther$value = other.value;
@@ -128,7 +128,7 @@ class QueryHiBob$field {
   }
 }
 
-extension UtilityExtensionQueryHiBob$field on QueryHiBob$field {
-  QueryHiBob$field copyWith({String? value}) =>
-      QueryHiBob$field(value: value == null ? this.value : value);
+extension UtilityExtension$Query$HiBob$field on Query$HiBob$field {
+  Query$HiBob$field copyWith({String? value}) =>
+      Query$HiBob$field(value: value == null ? this.value : value);
 }

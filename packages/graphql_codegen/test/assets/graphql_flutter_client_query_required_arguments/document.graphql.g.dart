@@ -6,25 +6,26 @@ part of 'document.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VariablesQueryFetchSRequired _$VariablesQueryFetchSRequiredFromJson(
+Variables$Query$FetchSRequired _$Variables$Query$FetchSRequiredFromJson(
         Map<String, dynamic> json) =>
-    VariablesQueryFetchSRequired(
+    Variables$Query$FetchSRequired(
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$VariablesQueryFetchSRequiredToJson(
-        VariablesQueryFetchSRequired instance) =>
+Map<String, dynamic> _$Variables$Query$FetchSRequiredToJson(
+        Variables$Query$FetchSRequired instance) =>
     <String, dynamic>{
       'name': instance.name,
     };
 
-QueryFetchSRequired _$QueryFetchSRequiredFromJson(Map<String, dynamic> json) =>
-    QueryFetchSRequired(
+Query$FetchSRequired _$Query$FetchSRequiredFromJson(
+        Map<String, dynamic> json) =>
+    Query$FetchSRequired(
       s: json['s'] as String?,
     );
 
-Map<String, dynamic> _$QueryFetchSRequiredToJson(
-        QueryFetchSRequired instance) =>
+Map<String, dynamic> _$Query$FetchSRequiredToJson(
+        Query$FetchSRequired instance) =>
     <String, dynamic>{
       's': instance.s,
     };
