@@ -284,9 +284,9 @@ import 'person.graphql.dart';
 
 main () async {
   final client = GraphQLClient();
-  final result = await client.queryFetchPerson(
-    OptionsQuery$FetchPerson(
-      variables: VariablesQuery$FetchPerson(id: "1"),
+  final result = await client.query$FetchPerson(
+    Options$Query$FetchPerson(
+      variables: Variables$Query$FetchPerson(id: "1"),
     ),
   );
   final parsedData = result.parsedData;
@@ -313,11 +313,11 @@ you can update the fragment with
 
 main () {
   // ...
-  final person = client.readFragmentPersonSummary(
+  final person = client.readFragment$PersonSummary(
     idFields: {'__typename': 'Person', 'id': '1'},
   );
   assert(person != null);
-  client.writeFragmentPersonSummary(
+  client.writeFragment$PersonSummary(
     idFields: {'__typename': 'Person', 'id': '1'},
     data: person.copyWith(name: 'Kurt'),
   );
@@ -354,9 +354,9 @@ class PersonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QueryFetchPerson(
-      options: OptionsQueryFetchPerson(
-        variables: VariablesQueryFetchPerson(id: 'id'),
+    return Query$FetchPerson(
+      options: Options$Query$FetchPerson(
+        variables: Variables$Query$FetchPerson(id: 'id'),
       ),
       builder: (result, {fetchMore, refetch}) {
         return Text(
@@ -380,9 +380,9 @@ class PersonWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final result = useQueryFetchPerson(
-      OptionsQueryFetchPerson(
-        variables: VariablesQueryFetchPerson(id: 'id'),
+    final result = useQuery$FetchPerson(
+      Options$Query$FetchPerson(
+        variables: Variables$Query$FetchPerson(id: 'id'),
       ),
     );
     return Text(result.parsedData?.fetchPerson?.name ?? '...loading');
