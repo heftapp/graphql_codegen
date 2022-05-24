@@ -1,0 +1,18 @@
+type Query {
+  node: Node
+}
+
+type Node {
+  node: Node
+  name(setting: String!): String
+}
+
+fragment NameNode on Node {
+  name(setting: $setting)
+}
+
+query Q($setting: String!) {
+  node {
+    ...NameNode
+  }
+}
