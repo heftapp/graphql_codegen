@@ -1,0 +1,32 @@
+enum Locale {
+    da_DK
+    nb_NO
+}
+
+input I {
+    s: String
+}
+
+type Node {
+    name(locale: Locale!): String
+    test(i: I!): String
+}
+
+fragment F1 on Node {
+    ...F2
+    n1: name(locale: $locale)
+}
+
+fragment F2 on Node {
+    n2: name(locale: $locale)
+}
+
+fragment F3 on Node {
+    test(i: $i)
+}
+
+
+fragment F4 on Node {
+    n1: name(locale: $locale)
+    n2: name(locale: $locale)
+}

@@ -18,26 +18,19 @@ class ContextVisitor extends RecursiveVisitor {
         "Failed to find type-definition for variable ${node.variable.name.value}",
       );
     }
-
+    Name? path = null;
     if (fieldType is InputObjectTypeDefinitionNode) {
-      context.addVariable(
-        ContextProperty.fromVariableDefinitionNode(
-          node,
-          path: Name.fromSegment(InputNameSegment(fieldType)),
-        ),
-      );
-    } else if (fieldType is EnumTypeDefinitionNode) {
-      context.addVariable(
-        ContextProperty.fromVariableDefinitionNode(
-          node,
-          path: Name.fromSegment(EnumNameSegment(fieldType)),
-        ),
-      );
-    } else {
-      context.addVariable(
-        ContextProperty.fromVariableDefinitionNode(node),
-      );
+      path = Name.fromSegment(InputNameSegment(fieldType));
     }
+    if (fieldType is EnumTypeDefinitionNode) {
+      path = Name.fromSegment(EnumNameSegment(fieldType));
+    }
+    context.addVariable(
+      ContextProperty.fromVariableDefinitionNode(
+        node,
+        path: path,
+      ),
+    );
   }
 
   @override

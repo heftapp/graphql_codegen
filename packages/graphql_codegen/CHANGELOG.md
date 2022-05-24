@@ -1,3 +1,7 @@
+# 0.8.1
+
+* Fix errors when fragment variables are enums
+
 # 0.8.0
 
 * Update docs
