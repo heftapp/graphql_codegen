@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/graphql_codegen.dart';
 import 'package:graphql_codegen_config/config.dart';
 
 class ContextFragment<TKey extends Object>
@@ -74,10 +75,32 @@ class ContextFragment<TKey extends Object>
   Iterable<ContextProperty> get variables =>
       fragment == null ? [] : _variables.values;
 
+  void _addArgumentVariable(VariableNode argument, TypeNode type) {
+    final fieldType = schema.lookupTypeDefinitionFromTypeNode(type);
+    Name? path = null;
+    if (fieldType == null) {
+      throw InvalidGraphQLDocumentError(
+        "Failed to find type-definition for variable ${argument.name.value}",
+      );
+    }
+    if (fieldType is InputObjectTypeDefinitionNode) {
+      path = Name.fromSegment(InputNameSegment(fieldType));
+    } else if (fieldType is EnumTypeDefinitionNode) {
+      path = Name.fromSegment(EnumNameSegment(fieldType));
+    }
+    addVariable(
+      ContextProperty(
+        type: type,
+        name: argument.name,
+        path: path,
+      ),
+    );
+  }
+
   @override
   void addArgument(ValueNode argument, TypeNode type) {
     if (argument is VariableNode) {
-      addVariable(ContextProperty(type: type, name: argument.name));
+      _addArgumentVariable(argument, type);
       return;
     }
     if (argument is ListValueNode && type is ListTypeNode) {
@@ -349,6 +372,7 @@ class ContextProperty {
   ContextProperty merge(ContextProperty other) => ContextProperty(
         type: _mergeTypes(type, other.type),
         name: name,
+        path: path,
       );
 
   String get _key => name.value;
