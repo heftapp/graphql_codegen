@@ -29,6 +29,10 @@ class Variables$Fragment$NameNode {
     if (l$setting != lOther$setting) return false;
     return true;
   }
+
+  Variables$Fragment$NameNode copyWith({String? setting}) =>
+      Variables$Fragment$NameNode(
+          setting: setting == null ? this.setting : setting);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -155,6 +159,9 @@ class Variables$Query$Q {
     if (l$setting != lOther$setting) return false;
     return true;
   }
+
+  Variables$Query$Q copyWith({String? setting}) =>
+      Variables$Query$Q(setting: setting == null ? this.setting : setting);
 }
 
 @JsonSerializable(explicitToJson: true)

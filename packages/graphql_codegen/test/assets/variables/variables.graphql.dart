@@ -29,6 +29,9 @@ class Variables$Query$HiBob {
     if (l$i != lOther$i) return false;
     return true;
   }
+
+  Variables$Query$HiBob copyWith({Input$I1? i}) =>
+      Variables$Query$HiBob(i: i == null ? this.i : i);
 }
 
 @JsonSerializable(explicitToJson: true)

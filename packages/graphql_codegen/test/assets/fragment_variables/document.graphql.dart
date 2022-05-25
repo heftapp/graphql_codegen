@@ -28,6 +28,9 @@ class Input$Input {
     if (l$inputField != lOther$inputField) return false;
     return true;
   }
+
+  Input$Input copyWith({bool? Function()? inputField}) => Input$Input(
+      inputField: inputField == null ? this.inputField : inputField());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -62,6 +65,10 @@ class Variables$Fragment$F1 {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Fragment$F1 copyWith({bool? Function()? i, String? name}) =>
+      Variables$Fragment$F1(
+          i: i == null ? this.i : i(), name: name == null ? this.name : name);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -353,6 +360,11 @@ class Variables$Fragment$F2 {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Fragment$F2 copyWith(
+          {bool? Function()? i, String? Function()? name}) =>
+      Variables$Fragment$F2(
+          i: i == null ? this.i : i(), name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -595,6 +607,9 @@ class Variables$Fragment$F21 {
     if (l$i != lOther$i) return false;
     return true;
   }
+
+  Variables$Fragment$F21 copyWith({bool? Function()? i}) =>
+      Variables$Fragment$F21(i: i == null ? this.i : i());
 }
 
 @JsonSerializable(explicitToJson: true)

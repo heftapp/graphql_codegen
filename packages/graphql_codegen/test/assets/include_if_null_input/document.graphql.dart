@@ -34,6 +34,11 @@ class Input$Input {
     if (l$flag != lOther$flag) return false;
     return true;
   }
+
+  Input$Input copyWith({String? Function()? field, bool? Function()? flag}) =>
+      Input$Input(
+          field: field == null ? this.field : field(),
+          flag: flag == null ? this.flag : flag());
 }
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
@@ -62,6 +67,9 @@ class Variables$Query$Q1 {
     if (l$input != lOther$input) return false;
     return true;
   }
+
+  Variables$Query$Q1 copyWith({Input$Input? Function()? input}) =>
+      Variables$Query$Q1(input: input == null ? this.input : input());
 }
 
 @JsonSerializable(explicitToJson: true)

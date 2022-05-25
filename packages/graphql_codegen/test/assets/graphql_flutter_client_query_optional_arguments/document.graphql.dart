@@ -31,6 +31,9 @@ class Variables$Query$FetchSOptional {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Query$FetchSOptional copyWith({String? Function()? name}) =>
+      Variables$Query$FetchSOptional(name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)

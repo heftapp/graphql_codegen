@@ -31,6 +31,9 @@ class Variables$Query$FetchSRequired {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Query$FetchSRequired copyWith({String? name}) =>
+      Variables$Query$FetchSRequired(name: name == null ? this.name : name);
 }
 
 @JsonSerializable(explicitToJson: true)

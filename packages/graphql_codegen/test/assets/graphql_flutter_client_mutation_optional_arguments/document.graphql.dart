@@ -34,6 +34,10 @@ class Variables$Mutation$UpdateSOptional {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Mutation$UpdateSOptional copyWith({String? Function()? name}) =>
+      Variables$Mutation$UpdateSOptional(
+          name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)

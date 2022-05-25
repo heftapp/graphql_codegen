@@ -87,15 +87,20 @@ Spec _printInputClass(
         printToJsonMethod(name),
         printHashCodeMethod(properties),
         printEqualityOperator(name, properties),
+        printCopyWithMethod(
+          refer(name),
+          context,
+          properties,
+        ),
       ]),
   );
 }
 
 Method printCopyWithMethod(
+  Reference name,
   PrintContext context,
   Iterable<ContextProperty> properties,
 ) {
-  final name = refer(printClassName(context.path));
   return Method(
     (b) => b
       ..returns = name
@@ -463,7 +468,11 @@ Extension printContextExtension(PrintContext c) {
       ..name = printClassExtensionName(context.path)
       ..on = refer(printClassName(context.path))
       ..methods = ListBuilder([
-        printCopyWithMethod(c, properties),
+        printCopyWithMethod(
+          refer(printClassName(context.path)),
+          c,
+          properties,
+        ),
       ]),
   );
 }

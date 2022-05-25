@@ -27,6 +27,9 @@ class Input$I {
     if (l$s != lOther$s) return false;
     return true;
   }
+
+  Input$I copyWith({String? Function()? s}) =>
+      Input$I(s: s == null ? this.s : s());
 }
 
 enum Enum$Locale {
@@ -64,6 +67,9 @@ class Variables$Fragment$F1 {
     if (l$locale != lOther$locale) return false;
     return true;
   }
+
+  Variables$Fragment$F1 copyWith({Enum$Locale? locale}) =>
+      Variables$Fragment$F1(locale: locale == null ? this.locale : locale);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -174,6 +180,9 @@ class Variables$Fragment$F2 {
     if (l$locale != lOther$locale) return false;
     return true;
   }
+
+  Variables$Fragment$F2 copyWith({Enum$Locale? locale}) =>
+      Variables$Fragment$F2(locale: locale == null ? this.locale : locale);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -271,6 +280,9 @@ class Variables$Fragment$F3 {
     if (l$i != lOther$i) return false;
     return true;
   }
+
+  Variables$Fragment$F3 copyWith({Input$I? i}) =>
+      Variables$Fragment$F3(i: i == null ? this.i : i);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -369,6 +381,9 @@ class Variables$Fragment$F4 {
     if (l$locale != lOther$locale) return false;
     return true;
   }
+
+  Variables$Fragment$F4 copyWith({Enum$Locale? locale}) =>
+      Variables$Fragment$F4(locale: locale == null ? this.locale : locale);
 }
 
 @JsonSerializable(explicitToJson: true)

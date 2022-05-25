@@ -26,6 +26,9 @@ class Input$I {
     if (l$title != lOther$title) return false;
     return true;
   }
+
+  Input$I copyWith({String? Function()? title}) =>
+      Input$I(title: title == null ? this.title : title());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -53,6 +56,9 @@ class Input$I_ {
     if (l$value != lOther$value) return false;
     return true;
   }
+
+  Input$I_ copyWith({double? Function()? value}) =>
+      Input$I_(value: value == null ? this.value : value());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -80,4 +86,7 @@ class Input$i {
     if (l$enabled != lOther$enabled) return false;
     return true;
   }
+
+  Input$i copyWith({bool? Function()? enabled}) =>
+      Input$i(enabled: enabled == null ? this.enabled : enabled());
 }
