@@ -32,6 +32,10 @@ class Input$I1 {
     if (l$nested != lOther$nested) return false;
     return true;
   }
+
+  Input$I1 copyWith({String? s, Input$I1? Function()? nested}) => Input$I1(
+      s: s == null ? this.s : s,
+      nested: nested == null ? this.nested : nested());
 }
 
 const possibleTypesMap = {};

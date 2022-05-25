@@ -1,3 +1,7 @@
+# 0.8.2-beta.1
+
+* Add `copyWith` to input classes
+
 # 0.8.1
 
 * Fix errors when fragment variables are enums

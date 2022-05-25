@@ -112,6 +112,11 @@ class Variables$Fragment$WithOptionalVariables {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Fragment$WithOptionalVariables copyWith(
+          {String? Function()? name}) =>
+      Variables$Fragment$WithOptionalVariables(
+          name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -231,6 +236,9 @@ class Variables$Fragment$WithVariables {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Fragment$WithVariables copyWith({String? name}) =>
+      Variables$Fragment$WithVariables(name: name == null ? this.name : name);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -344,6 +352,9 @@ class Variables$Query$FetchSOptional {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Query$FetchSOptional copyWith({String? Function()? name}) =>
+      Variables$Query$FetchSOptional(name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -528,6 +539,9 @@ class Variables$Query$FetchSRequired {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Query$FetchSRequired copyWith({String? name}) =>
+      Variables$Query$FetchSRequired(name: name == null ? this.name : name);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -855,6 +869,10 @@ class Variables$Mutation$UpdateSOptional {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Mutation$UpdateSOptional copyWith({String? Function()? name}) =>
+      Variables$Mutation$UpdateSOptional(
+          name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1036,6 +1054,9 @@ class Variables$Mutation$UpdateSRequired {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Mutation$UpdateSRequired copyWith({String? name}) =>
+      Variables$Mutation$UpdateSRequired(name: name == null ? this.name : name);
 }
 
 @JsonSerializable(explicitToJson: true)

@@ -34,6 +34,9 @@ class Variables$Query$FetchPerson {
     if (l$id != lOther$id) return false;
     return true;
   }
+
+  Variables$Query$FetchPerson copyWith({String? id}) =>
+      Variables$Query$FetchPerson(id: id == null ? this.id : id);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -883,6 +886,9 @@ class Variables$Mutation$UpdatePerson {
     if (l$id != lOther$id) return false;
     return true;
   }
+
+  Variables$Mutation$UpdatePerson copyWith({String? id}) =>
+      Variables$Mutation$UpdatePerson(id: id == null ? this.id : id);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1229,6 +1235,9 @@ class Variables$Subscription$WatchPerson {
     if (l$id != lOther$id) return false;
     return true;
   }
+
+  Variables$Subscription$WatchPerson copyWith({String? Function()? id}) =>
+      Variables$Subscription$WatchPerson(id: id == null ? this.id : id());
 }
 
 @JsonSerializable(explicitToJson: true)

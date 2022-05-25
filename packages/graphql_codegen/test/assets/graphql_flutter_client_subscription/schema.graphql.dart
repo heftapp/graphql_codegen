@@ -246,6 +246,9 @@ class Variables$Subscription$RequiredArg {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Subscription$RequiredArg copyWith({String? name}) =>
+      Variables$Subscription$RequiredArg(name: name == null ? this.name : name);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -513,6 +516,10 @@ class Variables$Subscription$OptionalArg {
     if (l$name != lOther$name) return false;
     return true;
   }
+
+  Variables$Subscription$OptionalArg copyWith({String? Function()? name}) =>
+      Variables$Subscription$OptionalArg(
+          name: name == null ? this.name : name());
 }
 
 @JsonSerializable(explicitToJson: true)

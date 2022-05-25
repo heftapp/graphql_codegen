@@ -39,4 +39,14 @@ class Input$I1 {
     if (l$$_min != lOther$$_min) return false;
     return true;
   }
+
+  Input$I1 copyWith(
+          {String? s,
+          Input$I1? Function()? nested_input,
+          int? Function()? $_min}) =>
+      Input$I1(
+          s: s == null ? this.s : s,
+          nested_input:
+              nested_input == null ? this.nested_input : nested_input(),
+          $_min: $_min == null ? this.$_min : $_min());
 }
