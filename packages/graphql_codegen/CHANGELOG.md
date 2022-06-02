@@ -1,3 +1,7 @@
+# 0.8.2-beta.2
+
+* Introduce naming separator configuration
+
 # 0.8.2-beta.1
 
 * Add `copyWith` to input classes

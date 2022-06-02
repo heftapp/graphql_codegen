@@ -1,4 +1,5 @@
 import 'package:code_builder/code_builder.dart';
+import 'package:graphql_codegen/src/printer/utils.dart';
 import 'package:path/path.dart' as path;
 import '../context.dart';
 
@@ -30,6 +31,7 @@ class PrintContext<TContext extends Context> {
   final Set<_Package> _packages;
   final Set<String> _badScalars;
   final Map<String, Spec> _converters;
+  final NamePrinter namePrinter;
 
   Iterable<Spec> get converters => _converters.values;
 
@@ -70,7 +72,8 @@ class PrintContext<TContext extends Context> {
         this._dependencies = dependencies,
         this._packages = packages,
         this._badScalars = badScalars,
-        this._converters = converters;
+        this._converters = converters,
+        this.namePrinter = NamePrinter(context.config);
 
   PrintContext<TNewContext> withContext<TNewContext extends Context>(
     TNewContext context,

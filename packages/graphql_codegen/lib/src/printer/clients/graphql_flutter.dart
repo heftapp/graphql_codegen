@@ -6,7 +6,6 @@ import 'package:graphql_codegen/src/context.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 
 import '../context.dart';
-import '../utils.dart';
 
 Spec printRunMutationTypeDef(PrintContext c) {
   final context = c.context;
@@ -14,18 +13,18 @@ Spec printRunMutationTypeDef(PrintContext c) {
   final areVariablesRequired = context.isVariablesRequired;
   return FunctionType(
     (b) => b
-      ..returnType =
-          generic('graphql.MultiSourceResult', refer(printClassName(c.path)))
+      ..returnType = generic('graphql.MultiSourceResult',
+          refer(c.namePrinter.printClassName(c.path)))
       ..requiredParameters = ListBuilder([
         if (hasVariables && areVariablesRequired)
-          refer(printVariableClassName(context.path)),
+          refer(c.namePrinter.printVariableClassName(context.path)),
       ])
       ..namedParameters = MapBuilder(
         <String, Reference>{
           if (hasVariables && !areVariablesRequired)
             'variables': TypeReference(
               (b) => b
-                ..symbol = printVariableClassName(context.path)
+                ..symbol = c.namePrinter.printVariableClassName(context.path)
                 ..isNullable = true,
             ),
           'optimisticResult': TypeReference(
@@ -35,7 +34,8 @@ Spec printRunMutationTypeDef(PrintContext c) {
           )
         },
       ),
-  ).toTypeDef(printGraphQLFlutterClientRunMutationName(context.path));
+  ).toTypeDef(
+      c.namePrinter.printGraphQLFlutterClientRunMutationName(context.path));
 }
 
 Spec printBuilderMutationTypeDef(PrintContext context) {
@@ -44,15 +44,17 @@ Spec printBuilderMutationTypeDef(PrintContext context) {
       ..returnType = refer('widgets.Widget')
       ..requiredParameters = ListBuilder(
         [
-          refer(printGraphQLFlutterClientRunMutationName(context.path)),
+          refer(context.namePrinter
+              .printGraphQLFlutterClientRunMutationName(context.path)),
           generic(
             'graphql.QueryResult',
-            refer(printClassName(context.path)),
+            refer(context.namePrinter.printClassName(context.path)),
             isNullable: true,
           ),
         ],
       ),
-  ).toTypeDef(printGraphQLFlutterClientBuilderName(context.path));
+  ).toTypeDef(
+      context.namePrinter.printGraphQLFlutterClientBuilderName(context.path));
 }
 
 Spec printMutation(PrintContext c) {
@@ -61,10 +63,11 @@ Spec printMutation(PrintContext c) {
   final areVariablesRequired = context.isVariablesRequired;
   return Class(
     (b) => b
-      ..name = printGraphQLFlutterClientOperationName(context.path)
+      ..name =
+          c.namePrinter.printGraphQLFlutterClientOperationName(context.path)
       ..extend = TypeReference((b) => b
         ..symbol = 'graphql_flutter.Mutation'
-        ..types = ListBuilder([refer(printClassName(c.path))]))
+        ..types = ListBuilder([refer(c.namePrinter.printClassName(c.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -85,7 +88,8 @@ Spec printMutation(PrintContext c) {
                   ..name = 'options'
                   ..type = TypeReference(
                     (b) => b
-                      ..symbol = printGraphQLFlutterClientOptionsName(
+                      ..symbol =
+                          c.namePrinter.printGraphQLFlutterClientOptionsName(
                         context.path,
                       )
                       ..isNullable = true,
@@ -98,7 +102,8 @@ Spec printMutation(PrintContext c) {
                   ..required = true
                   ..type = TypeReference(
                     (b) => b
-                      ..symbol = printGraphQLFlutterClientBuilderName(
+                      ..symbol =
+                          c.namePrinter.printGraphQLFlutterClientBuilderName(
                         context.path,
                       ),
                   ),
@@ -108,7 +113,8 @@ Spec printMutation(PrintContext c) {
               refer('super').call([], {
                 'key': refer('key'),
                 'options': refer('options').ifNullThen(
-                  refer(printGraphQLFlutterClientOptionsName(context.path))
+                  refer(c.namePrinter
+                          .printGraphQLFlutterClientOptionsName(context.path))
                       .newInstance([]),
                 ),
                 'builder': Method(
@@ -170,7 +176,8 @@ Iterable<Spec> printMutationSpecs(PrintContext<ContextOperation> context) {
     printMutationOptions(
       context,
       disableVariables: true,
-      name: printGraphQLFlutterClientOptionsName(context.path),
+      name: context.namePrinter
+          .printGraphQLFlutterClientOptionsName(context.path),
     ),
     printRunMutationTypeDef(context),
     printBuilderMutationTypeDef(context),
@@ -182,10 +189,12 @@ Spec printQuerySpec(PrintContext c) {
   final context = c.context;
   return Class(
     (b) => b
-      ..name = printGraphQLFlutterClientOperationName(context.path)
+      ..name =
+          c.namePrinter.printGraphQLFlutterClientOperationName(context.path)
       ..extend = TypeReference((b) => b
         ..symbol = 'graphql_flutter.Query'
-        ..types = ListBuilder([refer(printClassName(context.path))]))
+        ..types =
+            ListBuilder([refer(c.namePrinter.printClassName(context.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -207,7 +216,8 @@ Spec printQuerySpec(PrintContext c) {
                   ..required = context.isVariablesRequired
                   ..type = TypeReference(
                     (b) => b
-                      ..symbol = printGraphQLClientOptionsName(context.path)
+                      ..symbol = c.namePrinter
+                          .printGraphQLClientOptionsName(context.path)
                       ..isNullable = !context.isVariablesRequired,
                   ),
               ),
@@ -219,8 +229,8 @@ Spec printQuerySpec(PrintContext c) {
                   ..type = TypeReference(
                     (b) => b
                       ..symbol = "graphql_flutter.QueryBuilder"
-                      ..types =
-                          ListBuilder([refer(printClassName(context.path))]),
+                      ..types = ListBuilder(
+                          [refer(c.namePrinter.printClassName(context.path))]),
                   ),
               ),
             ])
@@ -230,7 +240,8 @@ Spec printQuerySpec(PrintContext c) {
                 'options': context.isVariablesRequired
                     ? refer('options')
                     : refer('options').ifNullThen(
-                        refer(printGraphQLClientOptionsName(context.path))
+                        refer(c.namePrinter
+                                .printGraphQLClientOptionsName(context.path))
                             .newInstance([]),
                       ),
                 'builder': refer('builder'),
@@ -253,7 +264,8 @@ Iterable<Spec> printQuerySpecs(PrintContext<Context> context) {
 Spec printMutationHookResult(PrintContext context) {
   return Class(
     (b) => b
-      ..name = printGraphQLFlutterClientMutationHookResultName(
+      ..name =
+          context.namePrinter.printGraphQLFlutterClientMutationHookResultName(
         context.path,
       )
       ..constructors = ListBuilder([
@@ -279,7 +291,8 @@ Spec printMutationHookResult(PrintContext context) {
             ..name = 'runMutation'
             ..modifier = FieldModifier.final$
             ..type = refer(
-              printGraphQLFlutterClientRunMutationName(context.path),
+              context.namePrinter
+                  .printGraphQLFlutterClientRunMutationName(context.path),
             ),
         ),
         Field(
@@ -290,7 +303,7 @@ Spec printMutationHookResult(PrintContext context) {
               (b) => b
                 ..symbol = 'graphql.QueryResult'
                 ..types = ListBuilder([
-                  refer(printClassName(context.path)),
+                  refer(context.namePrinter.printClassName(context.path)),
                 ]),
             ),
         ),
@@ -311,19 +324,22 @@ Spec printMutationHook(PrintContext context) {
           (b) => b
             ..type = TypeReference(
               (b) => b
-                ..symbol = printGraphQLFlutterClientOptionsName(context.path)
+                ..symbol = context.namePrinter
+                    .printGraphQLFlutterClientOptionsName(context.path)
                 ..isNullable = true,
             )
             ..name = 'options',
         )
       ])
-      ..returns = refer(printGraphQLFlutterClientMutationHookResultName(
+      ..returns = refer(
+          context.namePrinter.printGraphQLFlutterClientMutationHookResultName(
         context.path,
       ))
-      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..name = context.namePrinter
+          .printGraphQLFlutterClientMutationHookName(context.path)
       ..body = Code("""
-      final result = graphql_flutter.useMutation(options ?? ${printGraphQLFlutterClientOptionsName(context.path)}());
-      return ${printGraphQLFlutterClientMutationHookResultName(context.path)}(
+      final result = graphql_flutter.useMutation(options ?? ${context.namePrinter.printGraphQLFlutterClientOptionsName(context.path)}());
+      return ${context.namePrinter.printGraphQLFlutterClientMutationHookResultName(context.path)}(
         ${runMutation},
         result.result,
       );
@@ -337,7 +353,8 @@ Spec printWatchHook(PrintContext context, String libraryHookName) {
     (b) => b
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..symbol = context.namePrinter
+              .printGraphQLClientWatchOptionsName(context.path)
           ..isNullable = !isOptionsRequried,
       )
       ..name = 'options',
@@ -353,15 +370,17 @@ Spec printWatchHook(PrintContext context, String libraryHookName) {
       ..returns = TypeReference(
         (b) => b
           ..symbol = 'graphql.ObservableQuery'
-          ..types = ListBuilder([refer(printClassName(context.path))]),
+          ..types = ListBuilder(
+              [refer(context.namePrinter.printClassName(context.path))]),
       )
-      ..name = printGraphQLFlutterClientWatchHookName(context.path)
+      ..name = context.namePrinter
+          .printGraphQLFlutterClientWatchHookName(context.path)
       ..body = refer('graphql_flutter').property(libraryHookName).call([
         isOptionsRequried
             ? refer('options')
-            : refer('options').ifNullThen(
-                refer(printGraphQLClientWatchOptionsName(context.path))
-                    .newInstance([]))
+            : refer('options').ifNullThen(refer(context.namePrinter
+                    .printGraphQLClientWatchOptionsName(context.path))
+                .newInstance([]))
       ]).code,
   );
 }
@@ -376,7 +395,7 @@ Spec printQueryHook(PrintContext c) {
     (b) => b
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientOptionsName(context.path)
+          ..symbol = c.namePrinter.printGraphQLClientOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       )
       ..name = 'options',
@@ -392,14 +411,16 @@ Spec printQueryHook(PrintContext c) {
       ..returns = TypeReference(
         (b) => b
           ..symbol = 'graphql_flutter.QueryHookResult'
-          ..types = ListBuilder([refer(printClassName(context.path))]),
+          ..types =
+              ListBuilder([refer(c.namePrinter.printClassName(context.path))]),
       )
-      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..name =
+          c.namePrinter.printGraphQLFlutterClientMutationHookName(context.path)
       ..body = refer('graphql_flutter').property('useQuery').call([
         isOptionsRequired
             ? refer('options')
             : refer('options').ifNullThen(
-                refer(printGraphQLClientOptionsName(context.path))
+                refer(c.namePrinter.printGraphQLClientOptionsName(context.path))
                     .newInstance([]),
               ),
       ]).code,
@@ -415,16 +436,19 @@ Spec printSubscriptionHook(PrintContext context) {
       ..requiredParameters = ListBuilder([
         Parameter(
           (b) => b
-            ..type = refer(printGraphQLClientOptionsName(context.path))
+            ..type = refer(
+                context.namePrinter.printGraphQLClientOptionsName(context.path))
             ..name = 'options',
         )
       ])
       ..returns = TypeReference(
         (b) => b
           ..symbol = 'graphql.QueryResult'
-          ..types = ListBuilder([refer(printClassName(context.path))]),
+          ..types = ListBuilder(
+              [refer(context.namePrinter.printClassName(context.path))]),
       )
-      ..name = printGraphQLFlutterClientMutationHookName(context.path)
+      ..name = context.namePrinter
+          .printGraphQLFlutterClientMutationHookName(context.path)
       ..body = refer('graphql_flutter').property('useSubscription').call([
         refer('options'),
       ]).code,
@@ -435,10 +459,12 @@ Spec printSubscriptionSpec(PrintContext c) {
   final context = c.context;
   return Class(
     (b) => b
-      ..name = printGraphQLFlutterClientOperationName(context.path)
+      ..name =
+          c.namePrinter.printGraphQLFlutterClientOperationName(context.path)
       ..extend = TypeReference((b) => b
         ..symbol = 'graphql_flutter.Subscription'
-        ..types = ListBuilder([refer(printClassName(context.path))]))
+        ..types =
+            ListBuilder([refer(c.namePrinter.printClassName(context.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -460,7 +486,8 @@ Spec printSubscriptionSpec(PrintContext c) {
                   ..required = context.isVariablesRequired
                   ..type = TypeReference(
                     (b) => b
-                      ..symbol = printGraphQLClientOptionsName(context.path)
+                      ..symbol = c.namePrinter
+                          .printGraphQLClientOptionsName(context.path)
                       ..isNullable = !context.isVariablesRequired,
                   ),
               ),
@@ -470,7 +497,7 @@ Spec printSubscriptionSpec(PrintContext c) {
                   ..name = 'builder'
                   ..required = true
                   ..type = generic('graphql_flutter.SubscriptionBuilder',
-                      refer(printClassName(context.path))),
+                      refer(c.namePrinter.printClassName(context.path))),
               ),
               Parameter(
                 (b) => b
@@ -478,7 +505,7 @@ Spec printSubscriptionSpec(PrintContext c) {
                   ..name = 'onSubscriptionResult'
                   ..required = false
                   ..type = generic('graphql_flutter.OnSubscriptionResult',
-                      refer(printClassName(context.path)),
+                      refer(c.namePrinter.printClassName(context.path)),
                       isNullable: true),
               ),
             ])
@@ -488,7 +515,8 @@ Spec printSubscriptionSpec(PrintContext c) {
                 'options': context.isVariablesRequired
                     ? refer('options')
                     : refer('options').ifNullThen(
-                        refer(printGraphQLClientOptionsName(context.path))
+                        refer(c.namePrinter
+                                .printGraphQLClientOptionsName(context.path))
                             .newInstance([]),
                       ),
                 'builder': refer('builder'),

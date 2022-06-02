@@ -7,7 +7,7 @@ The framework makes no assumption on how you structure your fragments or queries
 for each `operation.graphql` the framework will generate a `operation.graphq.dart` file
 containing dart classes.
 
-Read more about the tool and motiation at the [GraphQL Codegen deep-dive](https://budde377.medium.com/graphql-codegen-deep-dive-37eee522e4e5)
+Read more about the tool and motivation at the [GraphQL Codegen deep-dive](https://budde377.medium.com/graphql-codegen-deep-dive-37eee522e4e5)
 and on how you can structure your flutter apps with the tool on [Structure your Flutter GraphQL apps](https://budde377.medium.com/structure-your-flutter-graphql-apps-717ab9e46a5d).
 
 
@@ -91,7 +91,7 @@ main () {
 ## Using fragments
 
 Fragments are a great tool to re-use queries throughout your app. These are used to create "interfaces"
-which'll allow you to easily parse your data around. Given the schema above and the query
+which allow you to easily parse your data around. Given the schema above and the query
 
 ```graphql
 # parents_and_children.graphql
@@ -138,7 +138,7 @@ main () {
 }
 ```
 
-The `FragmentPersonSummary` is an class on the shape of
+The `FragmentPersonSummary` is a class on the shape of
 
 ```dart
 ...
@@ -153,7 +153,7 @@ containing the fragment.
 
 ## Custom scalars
 
-Out of the box, the standard fragmens are supported and mapped to relevant dart types. You can add
+Out of the box, the standard fragments are supported and mapped to relevant dart types. You can add
 new mappings for your custom scalars or overwrite existing configurations.
 
 In the schema above, you can see that we have defined the `ISODateTime` scalar. In this example, it contains
@@ -175,7 +175,7 @@ targets:
               type: Map<String, dynamic>
 ```
 
-since `json_serializable` supports parsing `DateTime` from strings this is all we need to do.
+since `json_serializable` supports parsing `DateTime` from strings, this is all we need to do.
 
 Assume we want to use a custom date-time class instead (e.g. `CustomDateTime`) we can add
 
@@ -221,7 +221,7 @@ and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
 
 ## Multiple schemas
 
-To support multiple schemas, the codegenerator has a concept of scopes. Consider the following configuration:
+To support multiple schemas, the code generator has a concept of scopes. Consider the following configuration:
 
 ```yaml
 targets:
@@ -235,11 +235,11 @@ targets:
 ```
 
 here the generator will perform independent analysis for the GraphQL files matching the relevant scope. E.g., any GraphQL file in
-the `lib/schema1` folder will be build relative to the schema in this folder, ignoring all other files completely.
+the `lib/schema1` folder will be built relative to the schema in this folder, ignoring all other files completely.
 
 ## Clients
 
-Parsing data is all fine and well, but practically not extremly usable. Therefor, we can generate
+Parsing data is all fine and well, but practically not extremely useful. Therefore, we can generate
 clients to call your API.
 
 Clients can be enabled in the `build.yaml` file with:
@@ -261,7 +261,7 @@ Currently, we support two clients:
 
 ### Client `graphql`
 
-Once you've setup your `graphql` client (see [pub.dev/packages/graphql](https://pub.dev/packages/graphql)), you can use
+Once you've set up your `graphql`` client (see [pub.dev/packages/graphql](https://pub.dev/packages/graphql)), you can use
 GraphQL Codegen to generate new queries or mutators on the client.
 
 With the query from above:
@@ -329,7 +329,7 @@ the query methods work similarly.
 
 ### Client `graphql_flutter`
 
-Once you've setup your `graphql_flutter` client (see [pub.dev/packages/graphql_flutter](https://pub.dev/packages/graphql_flutter)),
+Once you've set up your `graphql_flutter`` client (see [pub.dev/packages/graphql_flutter](https://pub.dev/packages/graphql_flutter)),
 you can use GraphQL Codegen to generate new `Query` or `Mutation` widgets.
 
 With the query from above:
@@ -391,8 +391,7 @@ class PersonWidget extends HookWidget {
 ```
 
 ## Add typename
-
-Per default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
+By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
 
 ```graphql 
 query Foo {
@@ -415,7 +414,7 @@ query Foo {
 }
 ```
 
-This ensures best conditions for caching. 
+This ensures the best conditions for caching. 
 
 
 ### Excluding some selections from adding typename.
@@ -504,3 +503,42 @@ You can strip null values for all input serializers (variables and inputs) with 
 includeIfNullOnInput: false
 ```
 
+## Change naming separator
+
+The library will generate a lot of serializers and other classes. The class names are a combination of operation, field, and 
+type names. To avoid name collisions, the library will separate each of these names with `$`. 
+
+E.g.,
+
+```graphql
+query Q {
+  name
+}
+```
+
+might yield the class
+
+```dart
+class Query$Q$name { ... }
+```
+
+This should work for most, but some other libraries might not support `$`. Therefore, you can configure the naming separator with the `namingSeparator` option. E.g., the configuration:
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          namingSeparator: '___'
+
+```
+
+will change the above-yielded code to
+
+```dart
+
+class Query___Q___name { ... }
+```

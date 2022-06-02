@@ -19,11 +19,11 @@ Spec printEnum(PrintContext<ContextEnum> context) {
   context.addPackage('package:json_annotation/json_annotation.dart');
   return Enum(
     (b) => b
-      ..name = printClassName(context.context.path)
+      ..name = context.namePrinter.printClassName(context.context.path)
       ..values = ListBuilder(
         [
           ...context.context.currentType.values
-              .map((e) => printEnumValue(e.name)),
+              .map((e) => printEnumValue(context, e.name)),
           EnumValue((b) => b..name = _UNKNOWN_ENUM_VALUE)
         ],
       ),
@@ -32,7 +32,7 @@ Spec printEnum(PrintContext<ContextEnum> context) {
 
 Spec printInput(PrintContext<ContextInput> context) => _printInputClass(
       context,
-      printClassName(context.context.path),
+      context.namePrinter.printClassName(context.context.path),
       context.context.properties,
     );
 
@@ -70,12 +70,13 @@ Spec _printInputClass(
                     ..named = true
                     ..toThis = true
                     ..required = property.isRequired
-                    ..name = printPropertyName(property.name),
+                    ..name =
+                        context.namePrinter.printPropertyName(property.name),
                 ),
               ),
             ),
         ),
-        printFromJson(name),
+        printFromJson(context, name),
       ])
       ..fields = ListBuilder(
         properties.map((property) => printClassProperty(
@@ -84,9 +85,9 @@ Spec _printInputClass(
             )),
       )
       ..methods = ListBuilder([
-        printToJsonMethod(name),
-        printHashCodeMethod(properties),
-        printEqualityOperator(name, properties),
+        printToJsonMethod(context, name),
+        printHashCodeMethod(context, properties),
+        printEqualityOperator(context, name, properties),
         printCopyWithMethod(
           refer(name),
           context,
@@ -111,7 +112,7 @@ Method printCopyWithMethod(
               printClassPropertyType(context, property).reference;
           return Parameter(
             (b) => b
-              ..name = printPropertyName(property.name)
+              ..name = context.namePrinter.printPropertyName(property.name)
               ..named = true
               ..type = property.type.isNonNull
                   ? TypeReference(
@@ -132,7 +133,8 @@ Method printCopyWithMethod(
       ..body = name.call(
         [],
         Map.fromEntries(properties.map((property) {
-          final propertyName = printPropertyName(property.name);
+          final propertyName =
+              context.namePrinter.printPropertyName(property.name);
           return MapEntry(
             propertyName,
             refer(propertyName).equalTo(literalNull).conditional(
@@ -147,10 +149,9 @@ Method printCopyWithMethod(
   );
 }
 
-String printLocalPropertyName(NameNode name, [String prefix = "l"]) =>
-    "${prefix}\$" + printPropertyName(name);
-
-Method printHashCodeMethod(Iterable<ContextProperty> properties) => Method(
+Method printHashCodeMethod(
+        PrintContext context, Iterable<ContextProperty> properties) =>
+    Method(
       (b) => b
         ..name = "hashCode"
         ..returns = refer("int")
@@ -158,8 +159,9 @@ Method printHashCodeMethod(Iterable<ContextProperty> properties) => Method(
         ..lambda = false
         ..body = Block((b) => b.statements = ListBuilder([
               ...properties.map(
-                (e) => refer(printPropertyName(e.name))
-                    .assignFinal(printLocalPropertyName(e.name))
+                (e) => refer(context.namePrinter.printPropertyName(e.name))
+                    .assignFinal(
+                        context.namePrinter.printLocalPropertyName(e.name))
                     .statement,
               ),
               refer("Object")
@@ -168,7 +170,8 @@ Method printHashCodeMethod(Iterable<ContextProperty> properties) => Method(
                     literalList(
                       properties.map((e) => printPropertyHash(
                             e.type,
-                            refer(printLocalPropertyName(e.name)),
+                            refer(context.namePrinter
+                                .printLocalPropertyName(e.name)),
                           )),
                     ),
                   ])
@@ -203,13 +206,13 @@ Expression printPropertyHash(TypeNode type, Expression name) {
 
 Spec printVariables(PrintContext context) => _printInputClass(
       context,
-      printVariableClassName(context.context.path),
+      context.namePrinter.printVariableClassName(context.context.path),
       context.context.variables,
     );
 
-EnumValue printEnumValue(NameNode name) => EnumValue(
+EnumValue printEnumValue(PrintContext context, NameNode name) => EnumValue(
       (b) => b
-        ..name = printEnumValueName(name)
+        ..name = context.namePrinter.printEnumValueName(name)
         ..annotations = ListBuilder([
           refer('JsonValue').call([literal(name.value)]),
         ]),
@@ -229,12 +232,12 @@ Spec printDocument(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printDocumentDefinitionNodeName(context.context.path)} = DocumentNode(definitions: [",
+        "const ${context.namePrinter.printDocumentDefinitionNodeName(context.context.path)} = DocumentNode(definitions: [",
       ),
       mainDefinition ?? gql_builder.fromNode(operation).code,
       Code(","),
       ...fragmentNames.expand((n) => [
-            refer(printFragmentDefinitionNodeName(n)).code,
+            refer(context.namePrinter.printFragmentDefinitionNodeName(n)).code,
             Code(","),
           ]),
       Code("]);")
@@ -250,7 +253,7 @@ Spec printFragmentDefinition(
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printFragmentDefinitionNodeName(context.context.path)} = ",
+        "const ${context.namePrinter.printFragmentDefinitionNodeName(context.context.path)} = ",
       ),
       gql_builder.fromNode(node).code,
       Code(";")
@@ -282,7 +285,9 @@ Library printRootContext<TKey extends Object>(
           printDocument(
             elementContext,
             fragmentNode,
-            refer(printFragmentDefinitionNodeName(elementContext.path)).code,
+            refer(c.namePrinter
+                    .printFragmentDefinitionNodeName(elementContext.path))
+                .code,
           ),
         ],
         if (clients.contains(GraphQLCodegenConfigClient.graphql))
@@ -324,7 +329,7 @@ Spec printPossibleTypesMap(PrintContext<ContextRoot> context) {
   return Block(
     (b) => b.statements.addAll([
       Code(
-        "const ${printPossibleTypesMapName()} = ",
+        "const ${context.namePrinter.printPossibleTypesMapName()} = ",
       ),
       literal(context.context.possibleTypesMap).code,
       Code(";")
@@ -333,11 +338,13 @@ Spec printPossibleTypesMap(PrintContext<ContextRoot> context) {
 }
 
 Constructor printFromJson(
+  PrintContext context,
   String name, [
   ContextProperty? typenameProperty,
   Iterable<TypedName> possibleTypes = const [],
 ]) {
-  final fromJsonFactoryName = printFromJsonFactoryName(name);
+  final fromJsonFactoryName =
+      context.namePrinter.printFromJsonFactoryName(name);
   Code body;
   if (typenameProperty == null || possibleTypes.isEmpty) {
     body = refer(fromJsonFactoryName).call([refer("json")]).code;
@@ -345,7 +352,7 @@ Constructor printFromJson(
     final cases = possibleTypes
         .map(
           (t) =>
-              """case "${t.type.value}": return ${printClassName(t.name)}.fromJson(json);""",
+              """case "${t.type.value}": return ${context.namePrinter.printClassName(t.name)}.fromJson(json);""",
         )
         .join("");
     body = Block(
@@ -392,7 +399,7 @@ Constructor printConstructor(
                 ..required = p.isRequired
                 ..named = true
                 ..toThis = true
-                ..name = printPropertyName(p.name),
+                ..name = c.namePrinter.printPropertyName(p.name),
             ),
           ),
         ],
@@ -402,11 +409,12 @@ Constructor printConstructor(
 }
 
 Iterable<ContextProperty> _mergeProperties(
+  PrintContext c,
   Iterable<ContextProperty> ps1,
   Iterable<ContextProperty> ps2,
 ) {
   return {
-    for (final v in [...ps1, ...ps2]) printPropertyName(v.name): v
+    for (final v in [...ps1, ...ps2]) c.namePrinter.printPropertyName(v.name): v
   }.values;
 }
 
@@ -422,22 +430,27 @@ Class printContext(PrintContext c) {
     c.addDependency(extendContext.path);
   }
   final properties = _mergeProperties(
+    c,
     extendContext?.properties ?? [],
     c.context.properties,
   );
 
   return Class(
     (b) => b
-      ..name = printClassName(context.path)
+      ..name = c.namePrinter.printClassName(context.path)
       ..implements = ListBuilder([
-        ...context.fragments.map((e) => printClassName(e)).map(refer),
-        if (extendContext != null) refer(printClassName(extendContext.path)),
+        ...context.fragments
+            .map((e) => c.namePrinter.printClassName(e))
+            .map(refer),
+        if (extendContext != null)
+          refer(c.namePrinter.printClassName(extendContext.path)),
       ])
       ..annotations = ListBuilder([printJsonSerializableAnnotation()])
       ..constructors = ListBuilder([
         printConstructor(c, properties),
         printFromJson(
-          printClassName(context.path),
+          c,
+          c.namePrinter.printClassName(context.path),
           context.typenameProperty,
           context.possibleTypes,
         ),
@@ -445,11 +458,13 @@ Class printContext(PrintContext c) {
       ..fields = ListBuilder(properties.map((p) => printClassProperty(c, p)))
       ..methods = ListBuilder([
         printToJsonMethod(
-          printClassName(context.path),
+          c,
+          c.namePrinter.printClassName(context.path),
         ),
-        printHashCodeMethod(properties),
+        printHashCodeMethod(c, properties),
         printEqualityOperator(
-          printClassName(context.path),
+          c,
+          c.namePrinter.printClassName(context.path),
           properties,
         ),
       ]),
@@ -460,16 +475,17 @@ Extension printContextExtension(PrintContext c) {
   final context = c.context;
   final extendContext = context.extendsContext;
   final properties = _mergeProperties(
+    c,
     extendContext?.properties ?? [],
     c.context.properties,
   );
   return Extension(
     (b) => b
-      ..name = printClassExtensionName(context.path)
-      ..on = refer(printClassName(context.path))
+      ..name = c.namePrinter.printClassExtensionName(context.path)
+      ..on = refer(c.namePrinter.printClassName(context.path))
       ..methods = ListBuilder([
         printCopyWithMethod(
-          refer(printClassName(context.path)),
+          refer(c.namePrinter.printClassName(context.path)),
           c,
           properties,
         ),
@@ -478,6 +494,7 @@ Extension printContextExtension(PrintContext c) {
 }
 
 Method printEqualityOperator(
+  PrintContext c,
   String name,
   Iterable<ContextProperty> properties,
 ) =>
@@ -500,17 +517,18 @@ Method printEqualityOperator(
               "if (!(other is ${name}) || runtimeType != other.runtimeType) return false;"),
           ...properties.expand(
             (e) => [
-              refer(printPropertyName(e.name))
-                  .assignFinal(printLocalPropertyName(e.name))
+              refer(c.namePrinter.printPropertyName(e.name))
+                  .assignFinal(c.namePrinter.printLocalPropertyName(e.name))
                   .statement,
               refer("other")
-                  .property(printPropertyName(e.name))
-                  .assignFinal(printLocalPropertyName(e.name, "lOther"))
+                  .property(c.namePrinter.printPropertyName(e.name))
+                  .assignFinal(
+                      c.namePrinter.printLocalPropertyName(e.name, "lOther"))
                   .statement,
               printPropertyEqualityCheck(
                 e.type,
-                printLocalPropertyName(e.name),
-                printLocalPropertyName(e.name, "lOther"),
+                c.namePrinter.printLocalPropertyName(e.name),
+                c.namePrinter.printLocalPropertyName(e.name, "lOther"),
               )
             ],
           ),
@@ -559,12 +577,13 @@ Code printPropertyEqualityCheck(
   throw new StateError("Unsupported type node");
 }
 
-Method printToJsonMethod(String name) => Method(
+Method printToJsonMethod(PrintContext c, String name) => Method(
       (b) => b
         ..returns = dynamicMap
         ..name = "toJson"
         ..lambda = true
-        ..body = refer(printToJsonFactoryName(name)).call([refer("this")]).code,
+        ..body = refer(c.namePrinter.printToJsonFactoryName(name))
+            .call([refer("this")]).code,
     );
 
 Field printClassProperty(
@@ -573,7 +592,8 @@ Field printClassProperty(
 ) {
   final jsonKeyAnnotations = <String, Expression>{};
 
-  if (printPropertyName(property.name) != property.name.value) {
+  if (context.namePrinter.printPropertyName(property.name) !=
+      property.name.value) {
     jsonKeyAnnotations['name'] = literal(property.name.value);
   }
   final classPropertyTypeT = printClassPropertyType(
@@ -592,7 +612,7 @@ Field printClassProperty(
           )
       ])
       ..modifier = FieldModifier.final$
-      ..name = printPropertyName(property.name)
+      ..name = context.namePrinter.printPropertyName(property.name)
       ..type = classPropertyTypeT.reference,
   );
 }
@@ -811,7 +831,8 @@ PrintPropertyResult printNamedTypeNode(
       propertyContext != null) {
     reference = printEnumType(context, propertyContext);
   } else if (propertyContext != null) {
-    reference = PrintPropertyResult(refer(printClassName(propertyContext)));
+    reference = PrintPropertyResult(
+        refer(context.namePrinter.printClassName(propertyContext)));
   } else {
     throw StateError("Failed to generate type.");
   }
@@ -825,7 +846,7 @@ PrintPropertyResult printEnumType(
   PrintContext context,
   Name name,
 ) {
-  final typeName = printClassName(name);
+  final typeName = context.namePrinter.printClassName(name);
   return PrintPropertyResult.withAnnotations(
     refer(typeName),
     {'unknownEnumValue': refer(typeName).property(_UNKNOWN_ENUM_VALUE)},
