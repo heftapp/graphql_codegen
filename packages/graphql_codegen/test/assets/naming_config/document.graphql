@@ -1,0 +1,15 @@
+enum Status {
+    Pending
+    Successful
+    Failure
+    InProgress
+}
+
+type Query {
+    status: Status
+}
+
+
+query Q {
+    status
+}

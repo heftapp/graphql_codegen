@@ -13,7 +13,7 @@ Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
           refer('dynamic'),
           TypeReference(
             (b) => b
-              ..symbol = printClassName(context.path)
+              ..symbol = context.namePrinter.printClassName(context.path)
               ..isNullable = true,
           )
         ])
@@ -22,16 +22,18 @@ Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
             ..symbol = 'FutureOr'
             ..types = ListBuilder([refer("void")]),
         ),
-    ).toTypeDef(printGraphQLClientOnMutationCompleteName(context.path));
+    ).toTypeDef(context.namePrinter
+        .printGraphQLClientOnMutationCompleteName(context.path));
 
 Spec printQueryOptions(PrintContext<ContextOperation> c) {
   final context = c.context;
   return Class(
     (b) => b
-      ..name = printGraphQLClientOptionsName(context.path)
+      ..name = c.namePrinter.printGraphQLClientOptionsName(context.path)
       ..extend = TypeReference((b) => b
         ..symbol = "graphql.QueryOptions"
-        ..types = ListBuilder([refer(printClassName(context.path))]))
+        ..types =
+            ListBuilder([refer(c.namePrinter.printClassName(context.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -44,7 +46,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 if (context.hasVariables)
                   printOptionsParameter(
                     'variables',
-                    printVariableClassName(context.path),
+                    c.namePrinter.printVariableClassName(context.path),
                     isRequired: context.isVariablesRequired,
                   ),
                 printOptionsParameter(
@@ -88,9 +90,9 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'optimisticResult': refer('optimisticResult'),
                 'pollInterval': refer('pollInterval'),
                 'context': refer('context'),
-                'document':
-                    refer(printDocumentDefinitionNodeName(context.path)),
-                'parserFn': printParserFnRef(context),
+                'document': refer(c.namePrinter
+                    .printDocumentDefinitionNodeName(context.path)),
+                'parserFn': printParserFnRef(c),
               }).code,
             ]),
         ),
@@ -102,10 +104,10 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
   final context = c.context;
   return Class(
     (b) => b
-      ..name = printGraphQLClientOptionsName(context.path)
+      ..name = c.namePrinter.printGraphQLClientOptionsName(context.path)
       ..extend = generic(
         "graphql.SubscriptionOptions",
-        refer(printClassName(context.path)),
+        refer(c.namePrinter.printClassName(context.path)),
       )
       ..constructors = ListBuilder([
         Constructor(
@@ -119,7 +121,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 if (context.hasVariables)
                   printOptionsParameter(
                     'variables',
-                    printVariableClassName(context.path),
+                    c.namePrinter.printVariableClassName(context.path),
                     isRequired: context.isVariablesRequired,
                   ),
                 printOptionsParameter(
@@ -158,9 +160,9 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
                 'optimisticResult': refer('optimisticResult'),
                 'context': refer('context'),
-                'document':
-                    refer(printDocumentDefinitionNodeName(context.path)),
-                'parserFn': printParserFnRef(context),
+                'document': refer(c.namePrinter
+                    .printDocumentDefinitionNodeName(context.path)),
+                'parserFn': printParserFnRef(c),
               }).code,
             ]),
         ),
@@ -170,8 +172,8 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
 
 Spec printParserFn(PrintContext context) => Method(
       (b) => b
-        ..name = printParserFnName(context.path)
-        ..returns = refer(printClassName(context.path))
+        ..name = context.namePrinter.printParserFnName(context.path)
+        ..returns = refer(context.namePrinter.printClassName(context.path))
         ..requiredParameters = ListBuilder([
           Parameter(
             (b) => b
@@ -179,18 +181,18 @@ Spec printParserFn(PrintContext context) => Method(
               ..type = dynamicMap,
           ),
         ])
-        ..body = refer(printClassName(context.path))
+        ..body = refer(context.namePrinter.printClassName(context.path))
             .property('fromJson')
             .call([refer('data')]).code,
     );
 
-Expression printParserFnRef(ContextOperation context) =>
-    refer(printParserFnName(context.path));
+Expression printParserFnRef(PrintContext<ContextOperation> context) =>
+    refer(context.namePrinter.printParserFnName(context.path));
 
-Expression printOnCompletedFn(ContextOperation context) => Method(
+Expression printOnCompletedFn(PrintContext<ContextOperation> context) => Method(
       (b) => b
         ..lambda = true
-        ..returns = refer(printClassName(context.path))
+        ..returns = refer(context.namePrinter.printClassName(context.path))
         ..requiredParameters = ListBuilder([
           Parameter((b) => b..name = 'data'),
         ])
@@ -198,7 +200,7 @@ Expression printOnCompletedFn(ContextOperation context) => Method(
           refer('data'),
           printNullCheck(
             refer('data'),
-            refer(printParserFnName(context.path)).call(
+            refer(context.namePrinter.printParserFnName(context.path)).call(
               [refer('data')],
             ),
           )
@@ -210,7 +212,8 @@ Spec printFetchMoreOptions(PrintContext context) {
   final areVariablesRequired = context.context.isVariablesRequired;
   return Class(
     (b) => b
-      ..name = printGraphQLClientFetchMoreOptionsName(context.path)
+      ..name = context.namePrinter
+          .printGraphQLClientFetchMoreOptionsName(context.path)
       ..extend = refer("graphql.FetchMoreOptions")
       ..constructors = ListBuilder([
         Constructor(
@@ -232,7 +235,8 @@ Spec printFetchMoreOptions(PrintContext context) {
                     ..name = 'variables'
                     ..type = TypeReference(
                       (b) => b
-                        ..symbol = printVariableClassName(context.path)
+                        ..symbol = context.namePrinter
+                            .printVariableClassName(context.path)
                         ..isNullable = !areVariablesRequired,
                     ),
                 ),
@@ -248,8 +252,8 @@ Spec printFetchMoreOptions(PrintContext context) {
                         : refer('variables')
                             .nullSafeProperty('toJson')
                             .call([]).ifNullThen(literal({})),
-                  'document':
-                      refer(printDocumentDefinitionNodeName(context.path)),
+                  'document': refer(context.namePrinter
+                      .printDocumentDefinitionNodeName(context.path)),
                 },
               ).code
             ]),
@@ -288,11 +292,12 @@ Spec printMutationOptions(
   final hasVariables = !disableVariables && context.hasVariables;
   return Class(
     (b) => b
-      ..name = name ?? printGraphQLClientOptionsName(context.path)
+      ..name = name ?? c.namePrinter.printGraphQLClientOptionsName(context.path)
       ..extend = TypeReference(
         (b) => b
           ..symbol = "graphql.MutationOptions"
-          ..types = ListBuilder([refer(printClassName(context.path))]),
+          ..types =
+              ListBuilder([refer(c.namePrinter.printClassName(context.path))]),
       )
       ..fields = ListBuilder([
         Field(
@@ -300,8 +305,8 @@ Spec printMutationOptions(
             ..name = 'onCompletedWithParsed'
             ..type = TypeReference(
               (b) => b
-                ..symbol =
-                    printGraphQLClientOnMutationCompleteName(context.path)
+                ..symbol = c.namePrinter
+                    .printGraphQLClientOnMutationCompleteName(context.path)
                 ..isNullable = true,
             )
             ..modifier = FieldModifier.final$,
@@ -359,7 +364,7 @@ Spec printMutationOptions(
                   if (hasVariables)
                     printOptionsParameter(
                       'variables',
-                      printVariableClassName(context.path),
+                      c.namePrinter.printVariableClassName(context.path),
                       isRequired: context.isVariablesRequired,
                     ),
                   printOptionsParameter(
@@ -384,12 +389,13 @@ Spec printMutationOptions(
                   ),
                   printOptionsParameter(
                     'onCompleted',
-                    printGraphQLClientOnMutationCompleteName(context.path),
+                    c.namePrinter
+                        .printGraphQLClientOnMutationCompleteName(context.path),
                   ),
                   printOptionsParameter(
                     'update',
                     'graphql.OnMutationUpdate',
-                    types: [refer(printClassName(context.path))],
+                    types: [refer(c.namePrinter.printClassName(context.path))],
                   ),
                   printOptionsParameter(
                     'onError',
@@ -416,13 +422,13 @@ Spec printMutationOptions(
                   'context': refer('context'),
                   'onCompleted': printNullCheck(
                     refer('onCompleted'),
-                    printOnCompletedFn(context),
+                    printOnCompletedFn(c),
                   ),
                   'update': refer('update'),
                   'onError': refer('onError'),
-                  'document':
-                      refer(printDocumentDefinitionNodeName(context.path)),
-                  'parserFn': printParserFnRef(context),
+                  'document': refer(c.namePrinter
+                      .printDocumentDefinitionNodeName(context.path)),
+                  'parserFn': printParserFnRef(c),
                 }).code,
               ]),
           ),
@@ -440,10 +446,11 @@ Spec printWatchOptions(
   final hasVariables = !disableVariables && context.hasVariables;
   return Class(
     (b) => b
-      ..name = name ?? printGraphQLClientWatchOptionsName(context.path)
+      ..name =
+          name ?? c.namePrinter.printGraphQLClientWatchOptionsName(context.path)
       ..extend = TypeReference((b) => b
         ..symbol = "graphql.WatchQueryOptions"
-        ..types = ListBuilder([refer(printClassName(c.path))]))
+        ..types = ListBuilder([refer(c.namePrinter.printClassName(c.path))]))
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -453,7 +460,7 @@ Spec printWatchOptions(
                 if (hasVariables)
                   printOptionsParameter(
                     'variables',
-                    printVariableClassName(context.path),
+                    c.namePrinter.printVariableClassName(context.path),
                     isRequired: context.isVariablesRequired,
                   ),
                 printOptionsParameter(
@@ -510,15 +517,15 @@ Spec printWatchOptions(
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
                 'optimisticResult': refer('optimisticResult'),
                 'context': refer('context'),
-                'document':
-                    refer(printDocumentDefinitionNodeName(context.path)),
+                'document': refer(c.namePrinter
+                    .printDocumentDefinitionNodeName(context.path)),
                 'pollInterval': refer('pollInterval'),
                 'eagerlyFetchResults': refer('eagerlyFetchResults'),
                 'carryForwardDataOnException': refer(
                   'carryForwardDataOnException',
                 ),
                 'fetchResults': refer('fetchResults'),
-                'parserFn': printParserFnRef(context),
+                'parserFn': printParserFnRef(c),
               }).code,
             ]),
         ),
@@ -533,7 +540,8 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
       ..name = "options"
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientOptionsName(context.path)
+          ..symbol =
+              context.namePrinter.printGraphQLClientOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
@@ -542,19 +550,21 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
       ..name = "options"
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..symbol = context.namePrinter
+              .printGraphQLClientWatchOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
   return Extension(
     (b) => b
-      ..name = printGraphQLClientExtensionName(context.path)
+      ..name = context.namePrinter.printGraphQLClientExtensionName(context.path)
       ..on = refer('graphql.GraphQLClient')
       ..methods = ListBuilder([
         Method(
           (b) => b
             ..modifier = MethodModifier.async
-            ..name = printGraphQLClientExtensionMethodName(context.path)
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionMethodName(context.path)
             ..lambda = true
             ..requiredParameters = ListBuilder([
               if (isOptionsRequired) optionsParameter,
@@ -569,7 +579,8 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
                     refer("options")
                   else
                     refer("options").ifNullThen(
-                      refer(printGraphQLClientOptionsName(context.path))
+                      refer(context.namePrinter
+                              .printGraphQLClientOptionsName(context.path))
                           .call([]),
                     )
                 ])
@@ -581,14 +592,16 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
                 ..types = ListBuilder([
                   TypeReference((b) => b
                     ..symbol = 'graphql.QueryResult'
-                    ..types =
-                        ListBuilder([refer(printClassName(context.path))]))
+                    ..types = ListBuilder([
+                      refer(context.namePrinter.printClassName(context.path))
+                    ]))
                 ]),
             ),
         ),
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionWatchMethodName(context.path)
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionWatchMethodName(context.path)
             ..lambda = true
             ..requiredParameters = ListBuilder([
               if (isOptionsRequired) watchOptionsParameter,
@@ -601,13 +614,15 @@ Spec printMutationExtension(PrintContext<ContextOperation> context) {
                 refer("options")
               else
                 refer("options").ifNullThen(
-                  refer(printGraphQLClientWatchOptionsName(context.path))
+                  refer(context.namePrinter
+                          .printGraphQLClientWatchOptionsName(context.path))
                       .call([]),
                 )
             ]).code
             ..returns = TypeReference((b) => b
               ..symbol = 'graphql.ObservableQuery'
-              ..types = ListBuilder([refer(printClassName(context.path))])),
+              ..types = ListBuilder(
+                  [refer(context.namePrinter.printClassName(context.path))])),
         ),
       ]),
   );
@@ -620,7 +635,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
       ..name = "options"
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientOptionsName(context.path)
+          ..symbol =
+              context.namePrinter.printGraphQLClientOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
@@ -629,7 +645,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
       ..name = "options"
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..symbol = context.namePrinter
+              .printGraphQLClientWatchOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
@@ -638,7 +655,10 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
     {
       'operation': refer('graphql.Operation').call(
         [],
-        {'document': refer(printDocumentDefinitionNodeName(context.path))},
+        {
+          'document': refer(
+              context.namePrinter.printDocumentDefinitionNodeName(context.path))
+        },
       ),
       if (context.context.hasVariables)
         'variables': context.context.isVariablesRequired
@@ -650,13 +670,14 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
   );
   return Extension(
     (b) => b
-      ..name = printGraphQLClientExtensionName(context.path)
+      ..name = context.namePrinter.printGraphQLClientExtensionName(context.path)
       ..on = refer('graphql.GraphQLClient')
       ..methods = ListBuilder([
         Method(
           (b) => b
             ..modifier = MethodModifier.async
-            ..name = printGraphQLClientExtensionMethodName(context.path)
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionMethodName(context.path)
             ..lambda = true
             ..requiredParameters = ListBuilder([
               if (isOptionsRequired) optionsParameter,
@@ -671,7 +692,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                     refer("options")
                   else
                     refer("options").ifNullThen(
-                      refer(printGraphQLClientOptionsName(context.path))
+                      refer(context.namePrinter
+                              .printGraphQLClientOptionsName(context.path))
                           .call([]),
                     )
                 ])
@@ -683,14 +705,16 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                 ..types = ListBuilder([
                   TypeReference((b) => b
                     ..symbol = 'graphql.QueryResult'
-                    ..types =
-                        ListBuilder([refer(printClassName(context.path))]))
+                    ..types = ListBuilder([
+                      refer(context.namePrinter.printClassName(context.path))
+                    ]))
                 ]),
             ),
         ),
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionWatchMethodName(context.path)
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionWatchMethodName(context.path)
             ..lambda = true
             ..requiredParameters = ListBuilder([
               if (isOptionsRequired) watchOptionsParameter,
@@ -703,17 +727,20 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                 refer("options")
               else
                 refer("options").ifNullThen(
-                  refer(printGraphQLClientWatchOptionsName(context.path))
+                  refer(context.namePrinter
+                          .printGraphQLClientWatchOptionsName(context.path))
                       .call([]),
                 )
             ]).code
             ..returns = TypeReference((b) => b
               ..symbol = 'graphql.ObservableQuery'
-              ..types = ListBuilder([refer(printClassName(context.path))])),
+              ..types = ListBuilder(
+                  [refer(context.namePrinter.printClassName(context.path))])),
         ),
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionWriteQueryMethodName(
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionWriteQueryMethodName(
               context.path,
             )
             ..lambda = true
@@ -723,7 +750,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                   ..required = true
                   ..named = true
                   ..name = 'data'
-                  ..type = refer(printClassName(context.path)),
+                  ..type =
+                      refer(context.namePrinter.printClassName(context.path)),
               ),
               if (context.context.hasVariables)
                 Parameter(
@@ -733,7 +761,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                     ..name = 'variables'
                     ..type = TypeReference(
                       (b) => b
-                        ..symbol = printVariableClassName(context.path)
+                        ..symbol = context.namePrinter
+                            .printVariableClassName(context.path)
                         ..isNullable = !context.context.isVariablesRequired,
                     ),
                 ),
@@ -757,7 +786,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
         ),
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionReadQueryMethodName(
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionReadQueryMethodName(
               context.path,
             )
             ..lambda = false
@@ -770,7 +800,8 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                     ..name = 'variables'
                     ..type = TypeReference(
                       (b) => b
-                        ..symbol = printVariableClassName(context.path)
+                        ..symbol = context.namePrinter
+                            .printVariableClassName(context.path)
                         ..isNullable = !context.context.isVariablesRequired,
                     ),
                 ),
@@ -796,7 +827,7 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
                   .equalTo(literalNull)
                   .conditional(
                       literalNull,
-                      refer(printClassName(context.path))
+                      refer(context.namePrinter.printClassName(context.path))
                           .property('fromJson')
                           .call([refer('result')]))
                   .returned
@@ -804,7 +835,7 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
             ])
             ..returns = TypeReference(
               (b) => b
-                ..symbol = printClassName(context.path)
+                ..symbol = context.namePrinter.printClassName(context.path)
                 ..isNullable = true,
             ),
         ),
@@ -829,7 +860,8 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
           ..name = 'variables'
           ..type = TypeReference(
             (b) => b
-              ..symbol = printVariableClassName(context.path)
+              ..symbol =
+                  context.namePrinter.printVariableClassName(context.path)
               ..isNullable = !context.context.isVariablesRequired,
           ),
       ),
@@ -843,7 +875,8 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
         [],
         {
           if (fragmentName != null) 'fragmentName': literalString(fragmentName),
-          'document': refer(printDocumentDefinitionNodeName(context.path)),
+          'document': refer(context.namePrinter
+              .printDocumentDefinitionNodeName(context.path)),
         },
       ),
       if (context.context.hasVariables)
@@ -856,12 +889,13 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
   );
   return Extension(
     (b) => b
-      ..name = printGraphQLClientExtensionName(context.path)
+      ..name = context.namePrinter.printGraphQLClientExtensionName(context.path)
       ..on = refer('graphql.GraphQLClient')
       ..methods = ListBuilder([
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionWriteQueryMethodName(
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionWriteQueryMethodName(
               context.path,
             )
             ..lambda = true
@@ -871,7 +905,8 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
                   ..required = true
                   ..named = true
                   ..name = 'data'
-                  ..type = refer(printClassName(context.path)),
+                  ..type =
+                      refer(context.namePrinter.printClassName(context.path)),
               ),
               ...sharedParameters,
               Parameter(
@@ -894,7 +929,8 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
         ),
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionReadQueryMethodName(
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionReadQueryMethodName(
               context.path,
             )
             ..lambda = false
@@ -922,7 +958,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
                   .equalTo(literalNull)
                   .conditional(
                       literalNull,
-                      refer(printClassName(context.path))
+                      refer(context.namePrinter.printClassName(context.path))
                           .property('fromJson')
                           .call([refer('result')]))
                   .returned
@@ -930,7 +966,7 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
             ])
             ..returns = TypeReference(
               (b) => b
-                ..symbol = printClassName(context.path)
+                ..symbol = context.namePrinter.printClassName(context.path)
                 ..isNullable = true,
             ),
         ),
@@ -945,7 +981,8 @@ Spec printSubscriptionExtension(PrintContext<ContextOperation> context) {
       ..name = "options"
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientOptionsName(context.path)
+          ..symbol =
+              context.namePrinter.printGraphQLClientOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
@@ -954,18 +991,20 @@ Spec printSubscriptionExtension(PrintContext<ContextOperation> context) {
       ..name = "options"
       ..type = TypeReference(
         (b) => b
-          ..symbol = printGraphQLClientWatchOptionsName(context.path)
+          ..symbol = context.namePrinter
+              .printGraphQLClientWatchOptionsName(context.path)
           ..isNullable = !isOptionsRequired,
       ),
   );
   return Extension(
     (b) => b
-      ..name = printGraphQLClientExtensionName(context.path)
+      ..name = context.namePrinter.printGraphQLClientExtensionName(context.path)
       ..on = refer('graphql.GraphQLClient')
       ..methods = ListBuilder([
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionMethodName(context.path)
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionMethodName(context.path)
             ..lambda = true
             ..requiredParameters = ListBuilder([
               if (isOptionsRequired) optionsParameter,
@@ -978,20 +1017,23 @@ Spec printSubscriptionExtension(PrintContext<ContextOperation> context) {
                 refer("options")
               else
                 refer("options").ifNullThen(
-                  refer(printGraphQLClientOptionsName(context.path)).call([]),
+                  refer(context.namePrinter
+                          .printGraphQLClientOptionsName(context.path))
+                      .call([]),
                 )
             ]).code
             ..returns = generic(
               'Stream',
               generic(
                 'graphql.QueryResult',
-                refer(printClassName(context.path)),
+                refer(context.namePrinter.printClassName(context.path)),
               ),
             ),
         ),
         Method(
           (b) => b
-            ..name = printGraphQLClientExtensionWatchMethodName(context.path)
+            ..name = context.namePrinter
+                .printGraphQLClientExtensionWatchMethodName(context.path)
             ..lambda = true
             ..requiredParameters = ListBuilder([
               if (isOptionsRequired) watchOptionsParameter,
@@ -1004,13 +1046,15 @@ Spec printSubscriptionExtension(PrintContext<ContextOperation> context) {
                 refer("options")
               else
                 refer("options").ifNullThen(
-                  refer(printGraphQLClientWatchOptionsName(context.path))
+                  refer(context.namePrinter
+                          .printGraphQLClientWatchOptionsName(context.path))
                       .call([]),
                 )
             ]).code
             ..returns = TypeReference((b) => b
               ..symbol = 'graphql.ObservableQuery'
-              ..types = ListBuilder([refer(printClassName(context.path))])),
+              ..types = ListBuilder(
+                  [refer(context.namePrinter.printClassName(context.path))])),
         ),
       ]),
   );
