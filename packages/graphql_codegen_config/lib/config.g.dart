@@ -49,6 +49,7 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
               [],
       generatedFileHeader: json['generatedFileHeader'] as String? ?? '',
       includeIfNullOnInput: json['includeIfNullOnInput'] as bool? ?? true,
+      namingSeparator: json['namingSeparator'] as String? ?? r'$',
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -64,6 +65,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'addTypenameExcludedPaths': instance.addTypenameExcludedPaths,
       'generatedFileHeader': instance.generatedFileHeader,
       'includeIfNullOnInput': instance.includeIfNullOnInput,
+      'namingSeparator': instance.namingSeparator,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {

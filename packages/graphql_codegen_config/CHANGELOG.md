@@ -1,3 +1,7 @@
+# 0.2.4
+
+* Add `namingSeparator` option
+
 # 0.2.3
 
 * Add `includeIfNullOnInput` flag

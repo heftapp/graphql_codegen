@@ -53,6 +53,9 @@ class GraphQLCodegenConfig extends JsonSerializable {
   @JsonKey(defaultValue: true)
   final bool includeIfNullOnInput;
 
+  @JsonKey(defaultValue: r"$")
+  final String namingSeparator;
+
   GraphQLCodegenConfig({
     this.clients = const {},
     this.scalars = const {},
@@ -62,6 +65,7 @@ class GraphQLCodegenConfig extends JsonSerializable {
     this.addTypenameExcludedPaths = const [],
     this.generatedFileHeader = "",
     this.includeIfNullOnInput = true,
+    this.namingSeparator = r"$",
   });
 
   @override
