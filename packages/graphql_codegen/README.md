@@ -82,7 +82,7 @@ import 'person.graphql.dart';
 
 main () {
     final data = fetchDataFromSomewhereMaybeOuterSpace();
-    final parsedData = QueryFetchPerson.fromJson(data);
+    final parsedData = Query$FetchPerson.fromJson(data);
     final name = parsedData.fetchPerson?.name;
     print(name);
 }
@@ -354,7 +354,7 @@ class PersonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Query$FetchPerson(
+    return Query$FetchPerson$Widget(
       options: Options$Query$FetchPerson(
         variables: Variables$Query$FetchPerson(id: 'id'),
       ),
