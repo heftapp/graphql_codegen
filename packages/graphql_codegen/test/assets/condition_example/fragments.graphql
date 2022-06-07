@@ -1,0 +1,30 @@
+
+fragment Condition on Condition {
+    name
+}
+
+fragment AndCondition on AndCondition {
+    left {
+        ...NonCompositeCondition
+    }
+    right {
+        ...NonCompositeCondition
+    }
+    ...Condition
+}
+
+fragment CompositeCondition on Condition {
+    ...TimeCondition
+    ...AndCondition
+    ...Condition
+}
+
+fragment NonCompositeCondition on Condition {
+    ...Condition
+    ...TimeCondition
+}
+
+fragment TimeCondition on TimeCondition {
+    ...Condition
+    before
+}

@@ -1,0 +1,18 @@
+interface Condition {
+    name: String!
+}
+
+type AndCondition implements Condition {
+    name: String!
+    left: Condition!
+    right: Condition!
+}
+
+type TimeCondition implements Condition {
+    name: String!
+    before: String!
+}
+
+type Query {
+    shouldRender: Condition!
+}
