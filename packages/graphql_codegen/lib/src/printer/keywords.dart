@@ -1,4 +1,4 @@
-const KEYWORDS = {
+const staticKeywords = {
   "abstract",
   "else",
   "import",
@@ -59,5 +59,5 @@ const KEYWORDS = {
   "show",
   "dynamic",
   "implements",
-  "static",
+  "static"
 };

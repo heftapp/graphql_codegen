@@ -9,10 +9,12 @@ import '../context.dart';
 
 class NamePrinter {
   final GraphQLCodegenConfig config;
+  final Set<String> _keywords;
 
   String get separator => config.namingSeparator;
 
-  NamePrinter(this.config);
+  NamePrinter(this.config)
+      : _keywords = {...staticKeywords, ...config.extraKeywords};
 
   String _printName(
     Name name, {
@@ -160,7 +162,7 @@ class NamePrinter {
   String printToJsonFactoryName(String name) => "_\$${name}ToJson";
 
   String printKeywordSafe(String name) =>
-      KEYWORDS.contains(name) ? "\$${name}" : name;
+      _keywords.contains(name) ? "\$${name}" : name;
 
   String printEnumValueName(NameNode name) => printKeywordSafe(name.value);
 
