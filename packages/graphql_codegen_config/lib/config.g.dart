@@ -50,6 +50,10 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
       generatedFileHeader: json['generatedFileHeader'] as String? ?? '',
       includeIfNullOnInput: json['includeIfNullOnInput'] as bool? ?? true,
       namingSeparator: json['namingSeparator'] as String? ?? r'$',
+      extraKeywords: (json['extraKeywords'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -66,6 +70,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'generatedFileHeader': instance.generatedFileHeader,
       'includeIfNullOnInput': instance.includeIfNullOnInput,
       'namingSeparator': instance.namingSeparator,
+      'extraKeywords': instance.extraKeywords,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {

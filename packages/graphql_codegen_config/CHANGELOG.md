@@ -1,3 +1,7 @@
+# 0.2.5
+
+* Add `extraKeywords` option.
+
 # 0.2.4
 
 * Add `namingSeparator` option
