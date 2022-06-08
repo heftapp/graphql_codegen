@@ -56,6 +56,9 @@ class GraphQLCodegenConfig extends JsonSerializable {
   @JsonKey(defaultValue: r"$")
   final String namingSeparator;
 
+  @JsonKey(defaultValue: const [])
+  final List<String> extraKeywords;
+
   GraphQLCodegenConfig({
     this.clients = const {},
     this.scalars = const {},
@@ -66,6 +69,7 @@ class GraphQLCodegenConfig extends JsonSerializable {
     this.generatedFileHeader = "",
     this.includeIfNullOnInput = true,
     this.namingSeparator = r"$",
+    this.extraKeywords = const [],
   });
 
   @override
