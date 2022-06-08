@@ -138,11 +138,11 @@ main () {
 }
 ```
 
-The `FragmentPersonSummary` is a class on the shape of
+The `Fragment$PersonSummary` is a class on the shape of
 
 ```dart
 ...
-class FragmentPersonSummary {
+class Fragment$PersonSummary {
     String get fullName;
 }
 ...
@@ -150,6 +150,92 @@ class FragmentPersonSummary {
 
 and will be available in the generated `.graphql.dart` file for the `.graphql` file
 containing the fragment.
+
+
+
+### Inline fragments
+
+Inline fragment spreads work just like fragment spreads with the exception that they don't generate any explicit `Fragment$YourFragment` classes.
+
+So let's have the schema
+
+```graphql
+
+type Query {
+  account: Account!
+}
+
+union Account = 
+  | PersonalAccount
+  | BusinessAccount
+
+
+type PersonalAccount {
+  personName: String!
+}
+
+type BusinessAccount {
+  businessName: String!
+}
+```
+
+and the query 
+
+```graphql
+
+query FetchAccount {
+  account {
+    ... on PersonalAccount { personName }
+    ... on BusinessAccount { businessName }
+  } 
+}
+```
+
+the generated classes will allow you to handle the data appropriately with code along the lines of
+
+
+```dart
+
+void printAccount(Query$FetchAccount$account account) {
+  if (account is Query$FetchAccount$account$$PersonalAccount) print(account.personName);
+  if (account is Query$FetchAccount$account$$BusinessAccount) print(account.businessName);
+}
+
+void printQuery(Query$FetchAccount query) {
+  printAccount(query.account);  
+}
+```
+
+
+This works but is a long class name! In these cases I usually opt to using named fragments
+
+```graphql
+
+fragment PersonalAccount on PersonalAccount { personName }
+
+fragment BusinessAccount on BusinessAccount { businessName }
+
+query FetchAccount { 
+  account {
+    ...BusinessAccount
+    ...PersonalAccount
+  }
+}
+```
+
+which allows you to do the following
+
+```dart
+
+void printAccount(Query$FetchAccount$account account) {
+  if (account is Fragment$PersonalAccount) print(account.personName);
+  if (account is Fragment$BusinessAccount) print(account.businessName);
+}
+
+void printQuery(Query$FetchAccount query) {
+  printAccount(query.account);  
+}
+```
 
 ## Custom scalars
 
