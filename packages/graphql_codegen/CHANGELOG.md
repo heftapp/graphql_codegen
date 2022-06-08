@@ -1,3 +1,8 @@
+# 0.8.2-beta.3
+
+* Introduce ability to specify custom `extraKeywords`.
+
+
 # 0.8.2-beta.2
 
 * Introduce naming separator configuration

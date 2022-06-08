@@ -1,0 +1,5 @@
+
+input I {
+    String: String
+    OtherReservedKeyword: Int
+}

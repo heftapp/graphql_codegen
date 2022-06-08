@@ -542,3 +542,24 @@ will change the above-yielded code to
 
 class Query___Q___name { ... }
 ```
+
+
+## Extra keywords
+
+Some APIs will generate fields that are in some way keywords and will break code generation. These might be fields
+with type names.
+
+You may specify extra keywords with the option
+
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          extraKeywords:
+            - String
+```
