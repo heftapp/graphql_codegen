@@ -109,7 +109,7 @@ extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
           c3s: c3s == null ? this.c3s : c3s());
 }
 
-const queryDocumentFetchScalars = DocumentNode(definitions: [
+const documentNodeQueryFetchScalars = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchScalars'),

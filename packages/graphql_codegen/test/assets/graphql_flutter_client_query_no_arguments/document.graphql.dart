@@ -38,7 +38,7 @@ extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
       Query$FetchSNoVariables(s: s == null ? this.s : s());
 }
 
-const queryDocumentFetchSNoVariables = DocumentNode(definitions: [
+const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSNoVariables'),
@@ -79,7 +79,7 @@ class Options$Query$FetchSNoVariables
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchSNoVariables,
+            document: documentNodeQueryFetchSNoVariables,
             parserFn: _parserFn$Query$FetchSNoVariables);
 }
 
@@ -103,7 +103,7 @@ class WatchOptions$Query$FetchSNoVariables
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchSNoVariables,
+            document: documentNodeQueryFetchSNoVariables,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -116,7 +116,8 @@ class FetchMoreOptions$Query$FetchSNoVariables
   FetchMoreOptions$Query$FetchSNoVariables(
       {required graphql.UpdateQuery updateQuery})
       : super(
-            updateQuery: updateQuery, document: queryDocumentFetchSNoVariables);
+            updateQuery: updateQuery,
+            document: documentNodeQueryFetchSNoVariables);
 }
 
 extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
@@ -130,16 +131,16 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
           {required Query$FetchSNoVariables data, bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
-              operation:
-                  graphql.Operation(document: queryDocumentFetchSNoVariables)),
+              operation: graphql.Operation(
+                  document: documentNodeQueryFetchSNoVariables)),
           data: data.toJson(),
           broadcast: broadcast);
   Query$FetchSNoVariables? readQuery$FetchSNoVariables(
       {bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation:
-                graphql.Operation(document: queryDocumentFetchSNoVariables)),
+            operation: graphql.Operation(
+                document: documentNodeQueryFetchSNoVariables)),
         optimistic: optimistic);
     return result == null ? null : Query$FetchSNoVariables.fromJson(result);
   }

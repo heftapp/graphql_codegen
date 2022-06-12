@@ -48,6 +48,6 @@ const fragmentDefinitionF2 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF2 = DocumentNode(definitions: [
+const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);

@@ -69,7 +69,7 @@ extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
       Query$FetchSRequired(s: s == null ? this.s : s());
 }
 
-const queryDocumentFetchSRequired = DocumentNode(definitions: [
+const documentNodeQueryFetchSRequired = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSRequired'),
@@ -119,7 +119,7 @@ class Options$Query$FetchSRequired
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchSRequired,
+            document: documentNodeQueryFetchSRequired,
             parserFn: _parserFn$Query$FetchSRequired);
 }
 
@@ -145,7 +145,7 @@ class WatchOptions$Query$FetchSRequired
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchSRequired,
+            document: documentNodeQueryFetchSRequired,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -160,7 +160,7 @@ class FetchMoreOptions$Query$FetchSRequired extends graphql.FetchMoreOptions {
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: queryDocumentFetchSRequired);
+            document: documentNodeQueryFetchSRequired);
 }
 
 extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
@@ -177,7 +177,7 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
       this.writeQuery(
           graphql.Request(
               operation:
-                  graphql.Operation(document: queryDocumentFetchSRequired),
+                  graphql.Operation(document: documentNodeQueryFetchSRequired),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -186,7 +186,8 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
       bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: queryDocumentFetchSRequired),
+            operation:
+                graphql.Operation(document: documentNodeQueryFetchSRequired),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : Query$FetchSRequired.fromJson(result);

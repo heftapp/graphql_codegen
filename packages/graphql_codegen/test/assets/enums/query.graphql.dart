@@ -61,7 +61,7 @@ extension UtilityExtension$Query$Foobar on Query$Foobar {
           fields: fields == null ? this.fields : fields());
 }
 
-const queryDocumentFoobar = DocumentNode(definitions: [
+const documentNodeQueryFoobar = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Foobar'),

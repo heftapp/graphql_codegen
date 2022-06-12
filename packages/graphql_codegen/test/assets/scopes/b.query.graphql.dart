@@ -47,7 +47,7 @@ extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentFetchPerson = DocumentNode(definitions: [
+const documentNodeQueryFetchPerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchPerson'),

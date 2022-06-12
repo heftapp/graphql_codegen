@@ -69,7 +69,7 @@ extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
       Query$FetchSOptional(s: s == null ? this.s : s());
 }
 
-const queryDocumentFetchSOptional = DocumentNode(definitions: [
+const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSOptional'),
@@ -119,7 +119,7 @@ class Options$Query$FetchSOptional
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchSOptional,
+            document: documentNodeQueryFetchSOptional,
             parserFn: _parserFn$Query$FetchSOptional);
 }
 
@@ -145,7 +145,7 @@ class WatchOptions$Query$FetchSOptional
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchSOptional,
+            document: documentNodeQueryFetchSOptional,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -160,7 +160,7 @@ class FetchMoreOptions$Query$FetchSOptional extends graphql.FetchMoreOptions {
       : super(
             updateQuery: updateQuery,
             variables: variables?.toJson() ?? {},
-            document: queryDocumentFetchSOptional);
+            document: documentNodeQueryFetchSOptional);
 }
 
 extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
@@ -177,7 +177,7 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
       this.writeQuery(
           graphql.Request(
               operation:
-                  graphql.Operation(document: queryDocumentFetchSOptional),
+                  graphql.Operation(document: documentNodeQueryFetchSOptional),
               variables: variables?.toJson() ?? const {}),
           data: data.toJson(),
           broadcast: broadcast);
@@ -185,7 +185,8 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
       {Variables$Query$FetchSOptional? variables, bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: queryDocumentFetchSOptional),
+            operation:
+                graphql.Operation(document: documentNodeQueryFetchSOptional),
             variables: variables?.toJson() ?? const {}),
         optimistic: optimistic);
     return result == null ? null : Query$FetchSOptional.fromJson(result);

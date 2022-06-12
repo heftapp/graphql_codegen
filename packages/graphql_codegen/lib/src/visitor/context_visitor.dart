@@ -113,9 +113,17 @@ class ContextVisitor extends RecursiveVisitor {
       );
     }
 
+    // Mark the context dependent on this fragment.
+    context.addFragmentDependency(fragmentDef);
+
     final fragmentName = Name.fromSegment(FragmentNameSegment(fragmentDef));
 
+    // If the fragment type condition exactly matches the current type,
+    // inline the fragment directly.
     if (fragmentDef.typeCondition.on.name == context.currentType.name) {
+      // Visiting "in-fragment" means that we'll expand the selection
+      // set of the fragment while marking the current fragment name.
+      // This'll help us derive the right interfaces.
       context.visitInFragment(fragmentName, () {
         fragmentDef.visitChildren(this);
       });
@@ -123,23 +131,32 @@ class ContextVisitor extends RecursiveVisitor {
       return;
     }
 
+    // Current type condition
     final typeCondition = fragmentDef.typeCondition;
+
+    // Find concrete types of the type conditions.
     final typeConditionConcreteTypes = context.schema
-        .lookupConcreateTypes(typeCondition.on.name)
-        .map((e) => e.name)
-        .toSet();
-    final currentTypeConcreteTypes = context.schema
-        .lookupConcreateTypes(context.currentType.name)
+        .lookupConcreteTypes(typeCondition.on.name)
         .map((e) => e.name)
         .toSet();
 
+    // Find concrete types of the current type.
+    final currentTypeConcreteTypes = context.schema
+        .lookupConcreteTypes(context.currentType.name)
+        .map((e) => e.name)
+        .toSet();
+
+    // Look-up the intersection of concrete types.
     final concreteIntersection =
         typeConditionConcreteTypes.intersection(currentTypeConcreteTypes);
 
+    // If there's no intersection, return.
     if (concreteIntersection.isEmpty) {
       return;
     }
 
+    // Lookup the `ContextFragment` of the current fragment.
+    // If it doesn't exists, create it!
     Context tempFragmentContext;
     if (context.hasContextFragment(fragmentName)) {
       tempFragmentContext = context;
@@ -149,10 +166,18 @@ class ContextVisitor extends RecursiveVisitor {
           .visitFragmentDefinitionNode(fragmentDef);
     }
 
+    // At this point, if the current type is an object, the intersection
+    // will be exactly one.
     if (context.currentType is ObjectTypeDefinitionNode) {
       final typedFragmentName = fragmentName.withSegment(
         TypeNameSegment(context.currentType.name),
       );
+      // If a fragment context with the current type as type condition
+      // exists, we'll visit the fragment of this instead of the
+      // general fragment.
+      //
+      // This happens when a fragment is on an abstract type but has
+      // itself a fragment spread on the relevant concrete type.
       final existingFragmentName =
           tempFragmentContext.contextFragmentNameOrFallback(
         typedFragmentName,
@@ -168,6 +193,8 @@ class ContextVisitor extends RecursiveVisitor {
       return;
     }
 
+    // We'll now go through each concrete type in the type intersection and
+    // create a typed context.
     for (final typeName in concreteIntersection) {
       final typeNode = context.schema.lookupType(typeName);
       if (typeNode == null) {
@@ -177,6 +204,7 @@ class ContextVisitor extends RecursiveVisitor {
       final typedFragmentName = fragmentName.withSegment(
         TypeNameSegment(typeName),
       );
+
       final existingFragmentName =
           tempFragmentContext.contextFragmentNameOrFallback(
         typedFragmentName,
@@ -214,11 +242,11 @@ class ContextVisitor extends RecursiveVisitor {
     }
 
     final typeConditionConcreteTypes = context.schema
-        .lookupConcreateTypes(typeCondition.on.name)
+        .lookupConcreteTypes(typeCondition.on.name)
         .map((e) => e.name)
         .toSet();
     final currentTypeConcreteTypes = context.schema
-        .lookupConcreateTypes(context.currentType.name)
+        .lookupConcreteTypes(context.currentType.name)
         .map((e) => e.name)
         .toSet();
 

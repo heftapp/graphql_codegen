@@ -34,7 +34,7 @@ extension UtilityExtension$Query$Q on Query$Q {
       Query$Q(u: u == null ? this.u : u());
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),

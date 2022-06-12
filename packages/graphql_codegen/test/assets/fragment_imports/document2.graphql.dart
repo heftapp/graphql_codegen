@@ -49,7 +49,7 @@ const fragmentDefinitionF1 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF1 = DocumentNode(definitions: [
+const documentNodeFragmentF1 = DocumentNode(definitions: [
   fragmentDefinitionF1,
 ]);
 
@@ -85,7 +85,7 @@ extension UtilityExtension$Query$Q on Query$Q {
       Query$Q(t: t == null ? this.t : t());
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),

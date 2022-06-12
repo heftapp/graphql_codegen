@@ -216,7 +216,7 @@ const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentPersonSummary = DocumentNode(definitions: [
+const documentNodeFragmentPersonSummary = DocumentNode(definitions: [
   fragmentDefinitionPersonSummary,
   fragmentDefinitionPersonParent,
 ]);
@@ -231,7 +231,7 @@ extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'PersonSummary',
-                  document: queryDocumentPersonSummary)),
+                  document: documentNodeFragmentPersonSummary)),
           data: data.toJson(),
           broadcast: broadcast);
   Fragment$PersonSummary? readFragment$PersonSummary(
@@ -241,7 +241,7 @@ extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'PersonSummary',
-                document: queryDocumentPersonSummary)),
+                document: documentNodeFragmentPersonSummary)),
         optimistic: optimistic);
     return result == null ? null : Fragment$PersonSummary.fromJson(result);
   }
@@ -353,7 +353,7 @@ const fragmentDefinitionPersonParent = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentPersonParent = DocumentNode(definitions: [
+const documentNodeFragmentPersonParent = DocumentNode(definitions: [
   fragmentDefinitionPersonParent,
 ]);
 
@@ -367,7 +367,7 @@ extension ClientExtension$Fragment$PersonParent on graphql.GraphQLClient {
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'PersonParent',
-                  document: queryDocumentPersonParent)),
+                  document: documentNodeFragmentPersonParent)),
           data: data.toJson(),
           broadcast: broadcast);
   Fragment$PersonParent? readFragment$PersonParent(
@@ -377,7 +377,7 @@ extension ClientExtension$Fragment$PersonParent on graphql.GraphQLClient {
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'PersonParent',
-                document: queryDocumentPersonParent)),
+                document: documentNodeFragmentPersonParent)),
         optimistic: optimistic);
     return result == null ? null : Fragment$PersonParent.fromJson(result);
   }

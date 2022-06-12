@@ -36,7 +36,7 @@ extension UtilityExtension$Query$FetchName on Query$FetchName {
       Query$FetchName(name: name == null ? this.name : name());
 }
 
-const queryDocumentFetchName = DocumentNode(definitions: [
+const documentNodeQueryFetchName = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchName'),

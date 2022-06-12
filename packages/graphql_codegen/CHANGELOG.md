@@ -1,3 +1,8 @@
+# 0.9.0-beta.1
+
+* Fix bad name of generated `documentNode`.
+* Refactor fragment dependency resolution.
+
 # 0.8.2-beta.3
 
 * Introduce ability to specify custom `extraKeywords`.

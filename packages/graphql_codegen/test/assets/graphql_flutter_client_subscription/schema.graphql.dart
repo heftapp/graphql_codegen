@@ -52,7 +52,7 @@ extension UtilityExtension$Subscription$NoArgs on Subscription$NoArgs {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentNoArgs = DocumentNode(definitions: [
+const documentNodeSubscriptionNoArgs = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'NoArgs'),
@@ -105,7 +105,7 @@ class Options$Subscription$NoArgs
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentNoArgs,
+            document: documentNodeSubscriptionNoArgs,
             parserFn: _parserFn$Subscription$NoArgs);
 }
 
@@ -129,7 +129,7 @@ class WatchOptions$Subscription$NoArgs
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentNoArgs,
+            document: documentNodeSubscriptionNoArgs,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -140,7 +140,8 @@ class WatchOptions$Subscription$NoArgs
 class FetchMoreOptions$Subscription$NoArgs extends graphql.FetchMoreOptions {
   FetchMoreOptions$Subscription$NoArgs(
       {required graphql.UpdateQuery updateQuery})
-      : super(updateQuery: updateQuery, document: queryDocumentNoArgs);
+      : super(
+            updateQuery: updateQuery, document: documentNodeSubscriptionNoArgs);
 }
 
 extension ClientExtension$Subscription$NoArgs on graphql.GraphQLClient {
@@ -299,7 +300,7 @@ extension UtilityExtension$Subscription$RequiredArg
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentRequiredArg = DocumentNode(definitions: [
+const documentNodeSubscriptionRequiredArg = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'RequiredArg'),
@@ -366,7 +367,7 @@ class Options$Subscription$RequiredArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentRequiredArg,
+            document: documentNodeSubscriptionRequiredArg,
             parserFn: _parserFn$Subscription$RequiredArg);
 }
 
@@ -392,7 +393,7 @@ class WatchOptions$Subscription$RequiredArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentRequiredArg,
+            document: documentNodeSubscriptionRequiredArg,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -408,7 +409,7 @@ class FetchMoreOptions$Subscription$RequiredArg
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: queryDocumentRequiredArg);
+            document: documentNodeSubscriptionRequiredArg);
 }
 
 extension ClientExtension$Subscription$RequiredArg on graphql.GraphQLClient {
@@ -570,7 +571,7 @@ extension UtilityExtension$Subscription$OptionalArg
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentOptionalArg = DocumentNode(definitions: [
+const documentNodeSubscriptionOptionalArg = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'OptionalArg'),
@@ -637,7 +638,7 @@ class Options$Subscription$OptionalArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentOptionalArg,
+            document: documentNodeSubscriptionOptionalArg,
             parserFn: _parserFn$Subscription$OptionalArg);
 }
 
@@ -663,7 +664,7 @@ class WatchOptions$Subscription$OptionalArg
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentOptionalArg,
+            document: documentNodeSubscriptionOptionalArg,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -679,7 +680,7 @@ class FetchMoreOptions$Subscription$OptionalArg
       : super(
             updateQuery: updateQuery,
             variables: variables?.toJson() ?? {},
-            document: queryDocumentOptionalArg);
+            document: documentNodeSubscriptionOptionalArg);
 }
 
 extension ClientExtension$Subscription$OptionalArg on graphql.GraphQLClient {

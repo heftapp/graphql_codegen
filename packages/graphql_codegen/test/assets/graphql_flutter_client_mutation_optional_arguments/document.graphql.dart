@@ -74,7 +74,7 @@ extension UtilityExtension$Mutation$UpdateSOptional
       Mutation$UpdateSOptional(s: s == null ? this.s : s());
 }
 
-const queryDocumentUpdateSOptional = DocumentNode(definitions: [
+const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSOptional'),
@@ -137,7 +137,7 @@ class Options$Mutation$UpdateSOptional
                         : _parserFn$Mutation$UpdateSOptional(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSOptional,
+            document: documentNodeMutationUpdateSOptional,
             parserFn: _parserFn$Mutation$UpdateSOptional);
 
   final OnMutationCompleted$Mutation$UpdateSOptional? onCompletedWithParsed;
@@ -173,7 +173,7 @@ class WatchOptions$Mutation$UpdateSOptional
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdateSOptional,
+            document: documentNodeMutationUpdateSOptional,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -247,7 +247,7 @@ class WidgetOptions$Mutation$UpdateSOptional
                         : _parserFn$Mutation$UpdateSOptional(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSOptional,
+            document: documentNodeMutationUpdateSOptional,
             parserFn: _parserFn$Mutation$UpdateSOptional);
 
   final OnMutationCompleted$Mutation$UpdateSOptional? onCompletedWithParsed;

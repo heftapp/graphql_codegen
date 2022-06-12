@@ -73,7 +73,7 @@ extension UtilityExtension$Mutation$UpdateSRequired
       Mutation$UpdateSRequired(s: s == null ? this.s : s());
 }
 
-const queryDocumentUpdateSRequired = DocumentNode(definitions: [
+const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSRequired'),
@@ -136,7 +136,7 @@ class Options$Mutation$UpdateSRequired
                         : _parserFn$Mutation$UpdateSRequired(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSRequired,
+            document: documentNodeMutationUpdateSRequired,
             parserFn: _parserFn$Mutation$UpdateSRequired);
 
   final OnMutationCompleted$Mutation$UpdateSRequired? onCompletedWithParsed;
@@ -172,7 +172,7 @@ class WatchOptions$Mutation$UpdateSRequired
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdateSRequired,
+            document: documentNodeMutationUpdateSRequired,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -245,7 +245,7 @@ class WidgetOptions$Mutation$UpdateSRequired
                         : _parserFn$Mutation$UpdateSRequired(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSRequired,
+            document: documentNodeMutationUpdateSRequired,
             parserFn: _parserFn$Mutation$UpdateSRequired);
 
   final OnMutationCompleted$Mutation$UpdateSRequired? onCompletedWithParsed;

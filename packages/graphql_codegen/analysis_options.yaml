@@ -5,3 +5,4 @@ analyzer:
     strict-raw-types: true
   exclude:
     - test/assets/graphql_flutter*/**
+    - example

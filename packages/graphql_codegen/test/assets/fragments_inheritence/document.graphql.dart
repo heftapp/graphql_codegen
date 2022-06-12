@@ -63,7 +63,7 @@ const fragmentDefinitionF = FragmentDefinitionNode(
                 ]))
           ]))
     ]));
-const queryDocumentF = DocumentNode(definitions: [
+const documentNodeFragmentF = DocumentNode(definitions: [
   fragmentDefinitionF,
   fragmentDefinitionF2,
 ]);
@@ -229,7 +229,7 @@ const fragmentDefinitionF2 = FragmentDefinitionNode(
                 selectionSet: null)
           ]))
     ]));
-const queryDocumentF2 = DocumentNode(definitions: [
+const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);
 
@@ -299,7 +299,7 @@ extension UtilityExtension$Query$Fetch on Query$Fetch {
       Query$Fetch(t: t == null ? this.t : t());
 }
 
-const queryDocumentFetch = DocumentNode(definitions: [
+const documentNodeQueryFetch = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Fetch'),

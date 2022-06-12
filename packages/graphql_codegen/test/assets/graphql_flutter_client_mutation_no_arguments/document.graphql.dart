@@ -39,7 +39,7 @@ extension UtilityExtension$Mutation$UpdateSNo on Mutation$UpdateSNo {
       Mutation$UpdateSNo(s: s == null ? this.s : s());
 }
 
-const queryDocumentUpdateSNo = DocumentNode(definitions: [
+const documentNodeMutationUpdateSNo = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSNo'),
@@ -89,7 +89,7 @@ class Options$Mutation$UpdateSNo
                     data == null ? null : _parserFn$Mutation$UpdateSNo(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSNo,
+            document: documentNodeMutationUpdateSNo,
             parserFn: _parserFn$Mutation$UpdateSNo);
 
   final OnMutationCompleted$Mutation$UpdateSNo? onCompletedWithParsed;
@@ -123,7 +123,7 @@ class WatchOptions$Mutation$UpdateSNo
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdateSNo,
+            document: documentNodeMutationUpdateSNo,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -192,7 +192,7 @@ class WidgetOptions$Mutation$UpdateSNo
                     data == null ? null : _parserFn$Mutation$UpdateSNo(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSNo,
+            document: documentNodeMutationUpdateSNo,
             parserFn: _parserFn$Mutation$UpdateSNo);
 
   final OnMutationCompleted$Mutation$UpdateSNo? onCompletedWithParsed;

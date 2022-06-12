@@ -122,8 +122,7 @@ Method printCopyWithMethod(
                     )
                   : FunctionType(
                       (b) => b
-                        ..returnType =
-                            printClassPropertyType(context, property).reference
+                        ..returnType = parameterType
                         ..isNullable = true,
                     ),
           );
@@ -223,7 +222,7 @@ Spec printDocument(
   ExecutableDefinitionNode operation, [
   Code? mainDefinition,
 ]) {
-  final fragments = findFragments(context.context.schema, operation);
+  final fragments = context.context.fragmentDependencies;
   final fragmentNames = fragments.map(
     (e) => Name.fromSegment(FragmentNameSegment(e)),
   );

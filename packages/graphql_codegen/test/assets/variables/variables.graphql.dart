@@ -67,7 +67,7 @@ extension UtilityExtension$Query$HiBob on Query$HiBob {
       Query$HiBob(field: field == null ? this.field : field());
 }
 
-const queryDocumentHiBob = DocumentNode(definitions: [
+const documentNodeQueryHiBob = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'HiBob'),
