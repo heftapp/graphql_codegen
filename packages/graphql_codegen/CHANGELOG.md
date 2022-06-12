@@ -1,3 +1,12 @@
+# 0.9.0
+
+* BREAKING: Fix bad name of generated `documentNode`.
+* Refactor fragment dependency resolution.
+* Introduce ability to specify custom `extraKeywords`.
+* Introduce naming separator configuration
+* Add `copyWith` to input classes
+
+
 # 0.9.0-beta.1
 
 * Fix bad name of generated `documentNode`.

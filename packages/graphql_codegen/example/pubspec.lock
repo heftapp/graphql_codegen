@@ -325,7 +325,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.9.0-beta.1"
+    version: "0.9.0"
   graphql_codegen_config:
     dependency: "direct overridden"
     description:
