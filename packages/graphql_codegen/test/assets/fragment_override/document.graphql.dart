@@ -55,7 +55,7 @@ const fragmentDefinitionT1 = FragmentDefinitionNode(
                 selectionSet: null)
           ]))
     ]));
-const queryDocumentT1 = DocumentNode(definitions: [
+const documentNodeFragmentT1 = DocumentNode(definitions: [
   fragmentDefinitionT1,
 ]);
 
@@ -159,7 +159,7 @@ const fragmentDefinitionT2 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentT2 = DocumentNode(definitions: [
+const documentNodeFragmentT2 = DocumentNode(definitions: [
   fragmentDefinitionT2,
 ]);
 
@@ -246,7 +246,7 @@ const fragmentDefinitionTC = FragmentDefinitionNode(
       FragmentSpreadNode(name: NameNode(value: 'T1'), directives: []),
       FragmentSpreadNode(name: NameNode(value: 'T2'), directives: [])
     ]));
-const queryDocumentTC = DocumentNode(definitions: [
+const documentNodeFragmentTC = DocumentNode(definitions: [
   fragmentDefinitionTC,
   fragmentDefinitionT1,
   fragmentDefinitionT2,
@@ -317,7 +317,7 @@ extension UtilityExtension$Query$Q on Query$Q {
       Query$Q(t: t == null ? this.t : t());
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),

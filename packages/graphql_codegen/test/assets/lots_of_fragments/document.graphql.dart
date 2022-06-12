@@ -74,7 +74,7 @@ const fragmentDefinitionFragmentA = FragmentDefinitionNode(
           selectionSet: null),
       FragmentSpreadNode(name: NameNode(value: 'FragmentI'), directives: [])
     ]));
-const queryDocumentFragmentA = DocumentNode(definitions: [
+const documentNodeFragmentFragmentA = DocumentNode(definitions: [
   fragmentDefinitionFragmentA,
   fragmentDefinitionFragmentI,
 ]);
@@ -141,7 +141,7 @@ const fragmentDefinitionFragmentI = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentFragmentI = DocumentNode(definitions: [
+const documentNodeFragmentFragmentI = DocumentNode(definitions: [
   fragmentDefinitionFragmentI,
 ]);
 
@@ -188,7 +188,7 @@ extension UtilityExtension$Query$FetchStuff on Query$FetchStuff {
           field: field == null ? this.field : field());
 }
 
-const queryDocumentFetchStuff = DocumentNode(definitions: [
+const documentNodeQueryFetchStuff = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchStuff'),

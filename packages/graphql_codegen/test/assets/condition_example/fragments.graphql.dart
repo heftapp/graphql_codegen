@@ -64,7 +64,7 @@ const fragmentDefinitionCondition = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentCondition = DocumentNode(definitions: [
+const documentNodeFragmentCondition = DocumentNode(definitions: [
   fragmentDefinitionCondition,
 ]);
 
@@ -177,7 +177,7 @@ const fragmentDefinitionAndCondition = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentAndCondition = DocumentNode(definitions: [
+const documentNodeFragmentAndCondition = DocumentNode(definitions: [
   fragmentDefinitionAndCondition,
   fragmentDefinitionNonCompositeCondition,
   fragmentDefinitionCondition,
@@ -471,7 +471,7 @@ const fragmentDefinitionCompositeCondition = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentCompositeCondition = DocumentNode(definitions: [
+const documentNodeFragmentCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionCompositeCondition,
   fragmentDefinitionTimeCondition,
   fragmentDefinitionCondition,
@@ -918,7 +918,7 @@ const fragmentDefinitionNonCompositeCondition = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentNonCompositeCondition = DocumentNode(definitions: [
+const documentNodeFragmentNonCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionNonCompositeCondition,
   fragmentDefinitionCondition,
   fragmentDefinitionTimeCondition,
@@ -1054,7 +1054,7 @@ const fragmentDefinitionTimeCondition = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentTimeCondition = DocumentNode(definitions: [
+const documentNodeFragmentTimeCondition = DocumentNode(definitions: [
   fragmentDefinitionTimeCondition,
   fragmentDefinitionCondition,
 ]);

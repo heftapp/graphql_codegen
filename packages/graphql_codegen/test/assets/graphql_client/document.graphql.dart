@@ -54,7 +54,7 @@ const fragmentDefinitionNoVariables = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentNoVariables = DocumentNode(definitions: [
+const documentNodeFragmentNoVariables = DocumentNode(definitions: [
   fragmentDefinitionNoVariables,
 ]);
 
@@ -68,7 +68,7 @@ extension ClientExtension$Fragment$NoVariables on graphql.GraphQLClient {
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'NoVariables',
-                  document: queryDocumentNoVariables)),
+                  document: documentNodeFragmentNoVariables)),
           data: data.toJson(),
           broadcast: broadcast);
   Fragment$NoVariables? readFragment$NoVariables(
@@ -78,7 +78,7 @@ extension ClientExtension$Fragment$NoVariables on graphql.GraphQLClient {
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'NoVariables',
-                document: queryDocumentNoVariables)),
+                document: documentNodeFragmentNoVariables)),
         optimistic: optimistic);
     return result == null ? null : Fragment$NoVariables.fromJson(result);
   }
@@ -170,7 +170,7 @@ const fragmentDefinitionWithOptionalVariables = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentWithOptionalVariables = DocumentNode(definitions: [
+const documentNodeFragmentWithOptionalVariables = DocumentNode(definitions: [
   fragmentDefinitionWithOptionalVariables,
 ]);
 
@@ -186,7 +186,7 @@ extension ClientExtension$Fragment$WithOptionalVariables
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'WithOptionalVariables',
-                  document: queryDocumentWithOptionalVariables),
+                  document: documentNodeFragmentWithOptionalVariables),
               variables: variables?.toJson() ?? const {}),
           data: data.toJson(),
           broadcast: broadcast);
@@ -199,7 +199,7 @@ extension ClientExtension$Fragment$WithOptionalVariables
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'WithOptionalVariables',
-                document: queryDocumentWithOptionalVariables),
+                document: documentNodeFragmentWithOptionalVariables),
             variables: variables?.toJson() ?? const {}),
         optimistic: optimistic);
     return result == null
@@ -291,7 +291,7 @@ const fragmentDefinitionWithVariables = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentWithVariables = DocumentNode(definitions: [
+const documentNodeFragmentWithVariables = DocumentNode(definitions: [
   fragmentDefinitionWithVariables,
 ]);
 
@@ -306,7 +306,7 @@ extension ClientExtension$Fragment$WithVariables on graphql.GraphQLClient {
               idFields: idFields,
               fragment: const graphql.Fragment(
                   fragmentName: 'WithVariables',
-                  document: queryDocumentWithVariables),
+                  document: documentNodeFragmentWithVariables),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -319,7 +319,7 @@ extension ClientExtension$Fragment$WithVariables on graphql.GraphQLClient {
             idFields: idFields,
             fragment: const graphql.Fragment(
                 fragmentName: 'WithVariables',
-                document: queryDocumentWithVariables),
+                document: documentNodeFragmentWithVariables),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : Fragment$WithVariables.fromJson(result);
@@ -390,7 +390,7 @@ extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
       Query$FetchSOptional(s: s == null ? this.s : s());
 }
 
-const queryDocumentFetchSOptional = DocumentNode(definitions: [
+const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSOptional'),
@@ -440,7 +440,7 @@ class Options$Query$FetchSOptional
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchSOptional,
+            document: documentNodeQueryFetchSOptional,
             parserFn: _parserFn$Query$FetchSOptional);
 }
 
@@ -466,7 +466,7 @@ class WatchOptions$Query$FetchSOptional
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchSOptional,
+            document: documentNodeQueryFetchSOptional,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -481,7 +481,7 @@ class FetchMoreOptions$Query$FetchSOptional extends graphql.FetchMoreOptions {
       : super(
             updateQuery: updateQuery,
             variables: variables?.toJson() ?? {},
-            document: queryDocumentFetchSOptional);
+            document: documentNodeQueryFetchSOptional);
 }
 
 extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
@@ -498,7 +498,7 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
       this.writeQuery(
           graphql.Request(
               operation:
-                  graphql.Operation(document: queryDocumentFetchSOptional),
+                  graphql.Operation(document: documentNodeQueryFetchSOptional),
               variables: variables?.toJson() ?? const {}),
           data: data.toJson(),
           broadcast: broadcast);
@@ -506,7 +506,8 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
       {Variables$Query$FetchSOptional? variables, bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: queryDocumentFetchSOptional),
+            operation:
+                graphql.Operation(document: documentNodeQueryFetchSOptional),
             variables: variables?.toJson() ?? const {}),
         optimistic: optimistic);
     return result == null ? null : Query$FetchSOptional.fromJson(result);
@@ -577,7 +578,7 @@ extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
       Query$FetchSRequired(s: s == null ? this.s : s());
 }
 
-const queryDocumentFetchSRequired = DocumentNode(definitions: [
+const documentNodeQueryFetchSRequired = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSRequired'),
@@ -627,7 +628,7 @@ class Options$Query$FetchSRequired
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchSRequired,
+            document: documentNodeQueryFetchSRequired,
             parserFn: _parserFn$Query$FetchSRequired);
 }
 
@@ -653,7 +654,7 @@ class WatchOptions$Query$FetchSRequired
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchSRequired,
+            document: documentNodeQueryFetchSRequired,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -668,7 +669,7 @@ class FetchMoreOptions$Query$FetchSRequired extends graphql.FetchMoreOptions {
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: queryDocumentFetchSRequired);
+            document: documentNodeQueryFetchSRequired);
 }
 
 extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
@@ -685,7 +686,7 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
       this.writeQuery(
           graphql.Request(
               operation:
-                  graphql.Operation(document: queryDocumentFetchSRequired),
+                  graphql.Operation(document: documentNodeQueryFetchSRequired),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -694,7 +695,8 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
       bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: queryDocumentFetchSRequired),
+            operation:
+                graphql.Operation(document: documentNodeQueryFetchSRequired),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : Query$FetchSRequired.fromJson(result);
@@ -734,7 +736,7 @@ extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
       Query$FetchSNoVariables(s: s == null ? this.s : s());
 }
 
-const queryDocumentFetchSNoVariables = DocumentNode(definitions: [
+const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchSNoVariables'),
@@ -775,7 +777,7 @@ class Options$Query$FetchSNoVariables
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchSNoVariables,
+            document: documentNodeQueryFetchSNoVariables,
             parserFn: _parserFn$Query$FetchSNoVariables);
 }
 
@@ -799,7 +801,7 @@ class WatchOptions$Query$FetchSNoVariables
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchSNoVariables,
+            document: documentNodeQueryFetchSNoVariables,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -812,7 +814,8 @@ class FetchMoreOptions$Query$FetchSNoVariables
   FetchMoreOptions$Query$FetchSNoVariables(
       {required graphql.UpdateQuery updateQuery})
       : super(
-            updateQuery: updateQuery, document: queryDocumentFetchSNoVariables);
+            updateQuery: updateQuery,
+            document: documentNodeQueryFetchSNoVariables);
 }
 
 extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
@@ -826,16 +829,16 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
           {required Query$FetchSNoVariables data, bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
-              operation:
-                  graphql.Operation(document: queryDocumentFetchSNoVariables)),
+              operation: graphql.Operation(
+                  document: documentNodeQueryFetchSNoVariables)),
           data: data.toJson(),
           broadcast: broadcast);
   Query$FetchSNoVariables? readQuery$FetchSNoVariables(
       {bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation:
-                graphql.Operation(document: queryDocumentFetchSNoVariables)),
+            operation: graphql.Operation(
+                document: documentNodeQueryFetchSNoVariables)),
         optimistic: optimistic);
     return result == null ? null : Query$FetchSNoVariables.fromJson(result);
   }
@@ -909,7 +912,7 @@ extension UtilityExtension$Mutation$UpdateSOptional
       Mutation$UpdateSOptional(s: s == null ? this.s : s());
 }
 
-const queryDocumentUpdateSOptional = DocumentNode(definitions: [
+const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSOptional'),
@@ -972,7 +975,7 @@ class Options$Mutation$UpdateSOptional
                         : _parserFn$Mutation$UpdateSOptional(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSOptional,
+            document: documentNodeMutationUpdateSOptional,
             parserFn: _parserFn$Mutation$UpdateSOptional);
 
   final OnMutationCompleted$Mutation$UpdateSOptional? onCompletedWithParsed;
@@ -1008,7 +1011,7 @@ class WatchOptions$Mutation$UpdateSOptional
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdateSOptional,
+            document: documentNodeMutationUpdateSOptional,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -1093,7 +1096,7 @@ extension UtilityExtension$Mutation$UpdateSRequired
       Mutation$UpdateSRequired(s: s == null ? this.s : s());
 }
 
-const queryDocumentUpdateSRequired = DocumentNode(definitions: [
+const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSRequired'),
@@ -1156,7 +1159,7 @@ class Options$Mutation$UpdateSRequired
                         : _parserFn$Mutation$UpdateSRequired(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSRequired,
+            document: documentNodeMutationUpdateSRequired,
             parserFn: _parserFn$Mutation$UpdateSRequired);
 
   final OnMutationCompleted$Mutation$UpdateSRequired? onCompletedWithParsed;
@@ -1192,7 +1195,7 @@ class WatchOptions$Mutation$UpdateSRequired
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdateSRequired,
+            document: documentNodeMutationUpdateSRequired,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -1244,7 +1247,7 @@ extension UtilityExtension$Mutation$UpdateSNoVariables
       Mutation$UpdateSNoVariables(s: s == null ? this.s : s());
 }
 
-const queryDocumentUpdateSNoVariables = DocumentNode(definitions: [
+const documentNodeMutationUpdateSNoVariables = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdateSNoVariables'),
@@ -1298,7 +1301,7 @@ class Options$Mutation$UpdateSNoVariables
                         : _parserFn$Mutation$UpdateSNoVariables(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdateSNoVariables,
+            document: documentNodeMutationUpdateSNoVariables,
             parserFn: _parserFn$Mutation$UpdateSNoVariables);
 
   final OnMutationCompleted$Mutation$UpdateSNoVariables? onCompletedWithParsed;
@@ -1332,7 +1335,7 @@ class WatchOptions$Mutation$UpdateSNoVariables
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdateSNoVariables,
+            document: documentNodeMutationUpdateSNoVariables,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,

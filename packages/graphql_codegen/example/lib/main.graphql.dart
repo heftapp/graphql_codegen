@@ -83,7 +83,7 @@ extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentFetchPerson = DocumentNode(definitions: [
+const documentNodeQueryFetchPerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchPerson'),
@@ -178,7 +178,7 @@ class Options$Query$FetchPerson
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentFetchPerson,
+            document: documentNodeQueryFetchPerson,
             parserFn: _parserFn$Query$FetchPerson);
 }
 
@@ -204,7 +204,7 @@ class WatchOptions$Query$FetchPerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentFetchPerson,
+            document: documentNodeQueryFetchPerson,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -219,7 +219,7 @@ class FetchMoreOptions$Query$FetchPerson extends graphql.FetchMoreOptions {
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: queryDocumentFetchPerson);
+            document: documentNodeQueryFetchPerson);
 }
 
 extension ClientExtension$Query$FetchPerson on graphql.GraphQLClient {
@@ -235,7 +235,8 @@ extension ClientExtension$Query$FetchPerson on graphql.GraphQLClient {
           bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
-              operation: graphql.Operation(document: queryDocumentFetchPerson),
+              operation:
+                  graphql.Operation(document: documentNodeQueryFetchPerson),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -244,7 +245,8 @@ extension ClientExtension$Query$FetchPerson on graphql.GraphQLClient {
       bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: queryDocumentFetchPerson),
+            operation:
+                graphql.Operation(document: documentNodeQueryFetchPerson),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : Query$FetchPerson.fromJson(result);
@@ -936,7 +938,7 @@ extension UtilityExtension$Mutation$UpdatePerson on Mutation$UpdatePerson {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentUpdatePerson = DocumentNode(definitions: [
+const documentNodeMutationUpdatePerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.mutation,
       name: NameNode(value: 'UpdatePerson'),
@@ -1017,7 +1019,7 @@ class Options$Mutation$UpdatePerson
                         : _parserFn$Mutation$UpdatePerson(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdatePerson,
+            document: documentNodeMutationUpdatePerson,
             parserFn: _parserFn$Mutation$UpdatePerson);
 
   final OnMutationCompleted$Mutation$UpdatePerson? onCompletedWithParsed;
@@ -1053,7 +1055,7 @@ class WatchOptions$Mutation$UpdatePerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentUpdatePerson,
+            document: documentNodeMutationUpdatePerson,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -1124,7 +1126,7 @@ class WidgetOptions$Mutation$UpdatePerson
                         : _parserFn$Mutation$UpdatePerson(data)),
             update: update,
             onError: onError,
-            document: queryDocumentUpdatePerson,
+            document: documentNodeMutationUpdatePerson,
             parserFn: _parserFn$Mutation$UpdatePerson);
 
   final OnMutationCompleted$Mutation$UpdatePerson? onCompletedWithParsed;
@@ -1285,7 +1287,7 @@ extension UtilityExtension$Subscription$WatchPerson
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentWatchPerson = DocumentNode(definitions: [
+const documentNodeSubscriptionWatchPerson = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.subscription,
       name: NameNode(value: 'WatchPerson'),
@@ -1351,7 +1353,7 @@ class Options$Subscription$WatchPerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentWatchPerson,
+            document: documentNodeSubscriptionWatchPerson,
             parserFn: _parserFn$Subscription$WatchPerson);
 }
 
@@ -1377,7 +1379,7 @@ class WatchOptions$Subscription$WatchPerson
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentWatchPerson,
+            document: documentNodeSubscriptionWatchPerson,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -1393,7 +1395,7 @@ class FetchMoreOptions$Subscription$WatchPerson
       : super(
             updateQuery: updateQuery,
             variables: variables?.toJson() ?? {},
-            document: queryDocumentWatchPerson);
+            document: documentNodeSubscriptionWatchPerson);
 }
 
 extension ClientExtension$Subscription$WatchPerson on graphql.GraphQLClient {

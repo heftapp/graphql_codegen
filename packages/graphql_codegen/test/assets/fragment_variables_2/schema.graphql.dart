@@ -100,7 +100,7 @@ const fragmentDefinitionNameNode = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentNameNode = DocumentNode(definitions: [
+const documentNodeFragmentNameNode = DocumentNode(definitions: [
   fragmentDefinitionNameNode,
 ]);
 
@@ -114,7 +114,8 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
           graphql.FragmentRequest(
               idFields: idFields,
               fragment: const graphql.Fragment(
-                  fragmentName: 'NameNode', document: queryDocumentNameNode),
+                  fragmentName: 'NameNode',
+                  document: documentNodeFragmentNameNode),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -126,7 +127,8 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: const graphql.Fragment(
-                fragmentName: 'NameNode', document: queryDocumentNameNode),
+                fragmentName: 'NameNode',
+                document: documentNodeFragmentNameNode),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : Fragment$NameNode.fromJson(result);
@@ -205,7 +207,7 @@ extension UtilityExtension$Query$Q on Query$Q {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),
@@ -264,7 +266,7 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: queryDocumentQ,
+            document: documentNodeQueryQ,
             parserFn: _parserFn$Query$Q);
 }
 
@@ -289,7 +291,7 @@ class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: queryDocumentQ,
+            document: documentNodeQueryQ,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
@@ -304,7 +306,7 @@ class FetchMoreOptions$Query$Q extends graphql.FetchMoreOptions {
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: queryDocumentQ);
+            document: documentNodeQueryQ);
 }
 
 extension ClientExtension$Query$Q on graphql.GraphQLClient {
@@ -318,7 +320,7 @@ extension ClientExtension$Query$Q on graphql.GraphQLClient {
           bool broadcast = true}) =>
       this.writeQuery(
           graphql.Request(
-              operation: graphql.Operation(document: queryDocumentQ),
+              operation: graphql.Operation(document: documentNodeQueryQ),
               variables: variables.toJson()),
           data: data.toJson(),
           broadcast: broadcast);
@@ -326,7 +328,7 @@ extension ClientExtension$Query$Q on graphql.GraphQLClient {
       {required Variables$Query$Q variables, bool optimistic = true}) {
     final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(document: queryDocumentQ),
+            operation: graphql.Operation(document: documentNodeQueryQ),
             variables: variables.toJson()),
         optimistic: optimistic);
     return result == null ? null : Query$Q.fromJson(result);

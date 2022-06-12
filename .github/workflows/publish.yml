@@ -17,8 +17,6 @@ jobs:
       - name: Login pub
         run: |
           echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > "$PUB_CACHE/credentials.json"
-      - name: Bootstrap melos
-        run: melos bs
       - name: Validate publish
         run: melos publish --dry-run --yes
       - name: Publish

@@ -50,7 +50,7 @@ const fragmentDefinitionF = FragmentDefinitionNode(
             FragmentSpreadNode(name: NameNode(value: 'F2'), directives: [])
           ]))
     ]));
-const queryDocumentF = DocumentNode(definitions: [
+const documentNodeFragmentF = DocumentNode(definitions: [
   fragmentDefinitionF,
   fragmentDefinitionF2,
   fragmentDefinitionF3,
@@ -207,7 +207,7 @@ const fragmentDefinitionF2 = FragmentDefinitionNode(
             FragmentSpreadNode(name: NameNode(value: 'F3'), directives: [])
           ]))
     ]));
-const queryDocumentF2 = DocumentNode(definitions: [
+const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
   fragmentDefinitionF3,
   fragmentDefinitionF4,
@@ -327,7 +327,7 @@ const fragmentDefinitionF3 = FragmentDefinitionNode(
             FragmentSpreadNode(name: NameNode(value: 'F4'), directives: [])
           ]))
     ]));
-const queryDocumentF3 = DocumentNode(definitions: [
+const documentNodeFragmentF3 = DocumentNode(definitions: [
   fragmentDefinitionF3,
   fragmentDefinitionF4,
 ]);
@@ -411,7 +411,7 @@ const fragmentDefinitionF4 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF4 = DocumentNode(definitions: [
+const documentNodeFragmentF4 = DocumentNode(definitions: [
   fragmentDefinitionF4,
 ]);
 
@@ -448,7 +448,7 @@ extension UtilityExtension$Query$Fetch on Query$Fetch {
       Query$Fetch(t: t == null ? this.t : t());
 }
 
-const queryDocumentFetch = DocumentNode(definitions: [
+const documentNodeQueryFetch = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Fetch'),

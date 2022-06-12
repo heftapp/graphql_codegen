@@ -62,7 +62,7 @@ const fragmentDefinitionF = FragmentDefinitionNode(
                 ]))
           ]))
     ]));
-const queryDocumentF = DocumentNode(definitions: [
+const documentNodeFragmentF = DocumentNode(definitions: [
   fragmentDefinitionF,
 ]);
 
@@ -165,7 +165,7 @@ extension UtilityExtension$Query$Q on Query$Q {
       Query$Q(t: t == null ? this.t : t());
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),
@@ -387,7 +387,7 @@ extension UtilityExtension$Query$Q2 on Query$Q2 {
       Query$Q2(t: t == null ? this.t : t());
 }
 
-const queryDocumentQ2 = DocumentNode(definitions: [
+const documentNodeQueryQ2 = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q2'),

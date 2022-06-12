@@ -113,7 +113,7 @@ extension UtilityExtension$Query$Q1 on Query$Q1 {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentQ1 = DocumentNode(definitions: [
+const documentNodeQueryQ1 = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q1'),

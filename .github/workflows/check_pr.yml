@@ -29,10 +29,20 @@ jobs:
           channel: stable
       - name: Activate melos
         run: dart pub global activate melos
-      - name: Bootstrap melos
-        run: melos bs
       - name: Validate publish
-        run: melos publish --dry-run --yes
+        run: melos publish --dry-run --yes | tee ./out
+      - name: Test if changed
+        run: |
+          if grep -q "The following packages will be validated only" out; then 
+              PACKAGES=$(cat out | grep -E "Publishing [a-z]" | sed   -E 's/Publishing ([a-z_]+).+/\1/g')
+              for package in $PACKAGES; do
+                  melos exec --scope="$package" -- "dart pub get"
+                  melos exec --scope="$package" -- "dart analyze --fatal-infos ."
+                  melos exec --scope="$package" --dir-exists=test -- "dart test"
+              done
+          else
+              echo "Packages will not be published. Skipping tests."
+          fi
   analyze:
     runs-on: ubuntu-latest
     strategy:

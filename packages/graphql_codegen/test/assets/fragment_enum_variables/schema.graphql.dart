@@ -148,7 +148,7 @@ const fragmentDefinitionF1 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF1 = DocumentNode(definitions: [
+const documentNodeFragmentF1 = DocumentNode(definitions: [
   fragmentDefinitionF1,
   fragmentDefinitionF2,
 ]);
@@ -250,7 +250,7 @@ const fragmentDefinitionF2 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF2 = DocumentNode(definitions: [
+const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);
 
@@ -350,7 +350,7 @@ const fragmentDefinitionF3 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF3 = DocumentNode(definitions: [
+const documentNodeFragmentF3 = DocumentNode(definitions: [
   fragmentDefinitionF3,
 ]);
 
@@ -471,6 +471,6 @@ const fragmentDefinitionF4 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF4 = DocumentNode(definitions: [
+const documentNodeFragmentF4 = DocumentNode(definitions: [
   fragmentDefinitionF4,
 ]);

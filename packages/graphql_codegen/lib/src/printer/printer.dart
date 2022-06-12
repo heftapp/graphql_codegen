@@ -122,8 +122,7 @@ Method printCopyWithMethod(
                     )
                   : FunctionType(
                       (b) => b
-                        ..returnType =
-                            printClassPropertyType(context, property).reference
+                        ..returnType = parameterType
                         ..isNullable = true,
                     ),
           );

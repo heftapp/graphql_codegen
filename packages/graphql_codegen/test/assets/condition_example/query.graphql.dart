@@ -48,7 +48,7 @@ extension UtilityExtension$Query$FetchShouldRender on Query$FetchShouldRender {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentFetchShouldRender = DocumentNode(definitions: [
+const documentNodeQueryFetchShouldRender = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'FetchShouldRender'),

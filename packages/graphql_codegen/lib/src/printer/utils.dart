@@ -70,7 +70,7 @@ class NamePrinter {
   }
 
   String printDocumentDefinitionNodeName(Name name) =>
-      _printName(name, separator: '', prefix: 'queryDocument');
+      "documentNode" + _printName(name, separator: '');
 
   String printFragmentDefinitionNodeName(Name name) => _printName(
         name,

@@ -94,7 +94,7 @@ const fragmentDefinitionF = FragmentDefinitionNode(
                 ]))
           ]))
     ]));
-const queryDocumentF = DocumentNode(definitions: [
+const documentNodeFragmentF = DocumentNode(definitions: [
   fragmentDefinitionF,
 ]);
 
@@ -215,7 +215,7 @@ extension UtilityExtension$Query$Q on Query$Q {
       Query$Q(t: t == null ? this.t : t());
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),

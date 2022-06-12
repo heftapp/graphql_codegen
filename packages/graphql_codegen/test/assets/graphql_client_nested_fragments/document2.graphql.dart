@@ -64,7 +64,7 @@ const fragmentDefinitionF2 = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentF2 = DocumentNode(definitions: [
+const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);
 
@@ -77,7 +77,7 @@ extension ClientExtension$Fragment$F2 on graphql.GraphQLClient {
           graphql.FragmentRequest(
               idFields: idFields,
               fragment: const graphql.Fragment(
-                  fragmentName: 'F2', document: queryDocumentF2)),
+                  fragmentName: 'F2', document: documentNodeFragmentF2)),
           data: data.toJson(),
           broadcast: broadcast);
   Fragment$F2? readFragment$F2(
@@ -86,7 +86,7 @@ extension ClientExtension$Fragment$F2 on graphql.GraphQLClient {
         graphql.FragmentRequest(
             idFields: idFields,
             fragment: const graphql.Fragment(
-                fragmentName: 'F2', document: queryDocumentF2)),
+                fragmentName: 'F2', document: documentNodeFragmentF2)),
         optimistic: optimistic);
     return result == null ? null : Fragment$F2.fromJson(result);
   }

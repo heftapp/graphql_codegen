@@ -63,7 +63,7 @@ const fragmentDefinitionFReport = FragmentDefinitionNode(
           directives: [],
           selectionSet: null)
     ]));
-const queryDocumentFReport = DocumentNode(definitions: [
+const documentNodeFragmentFReport = DocumentNode(definitions: [
   fragmentDefinitionFReport,
 ]);
 
@@ -212,7 +212,7 @@ extension UtilityExtension$Query$Q on Query$Q {
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
-const queryDocumentQ = DocumentNode(definitions: [
+const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'Q'),
