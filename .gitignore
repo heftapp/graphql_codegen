@@ -21,3 +21,5 @@ doc/api/
 *.js.map
 /.dart_tool
 .idea
+
+pubspec_overrides.yaml

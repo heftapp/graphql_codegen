@@ -79,8 +79,8 @@ const queryDocumentFetchShouldRender = DocumentNode(definitions: [
       ])),
   fragmentDefinitionCompositeCondition,
   fragmentDefinitionTimeCondition,
-  fragmentDefinitionAndCondition,
   fragmentDefinitionCondition,
+  fragmentDefinitionAndCondition,
   fragmentDefinitionNonCompositeCondition,
 ]);
 

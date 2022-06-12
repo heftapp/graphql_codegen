@@ -1,3 +1,5 @@
+* Refactor fragment dependency resolution.
+
 # 0.8.2-beta.3
 
 * Introduce ability to specify custom `extraKeywords`.

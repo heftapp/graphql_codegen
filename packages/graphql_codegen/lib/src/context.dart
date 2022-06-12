@@ -18,6 +18,7 @@ class ContextFragment<TKey extends Object>
     required TypeDefinitionNode currentType,
     required Map<String, Context> contexts,
     required Map<String, ContextProperty> variables,
+    required Set<FragmentDefinitionNode> fragmentDependencies,
     FragmentDefinitionNode? fragment,
     Queue<Name>? inFragments,
     Name? extendsName,
@@ -32,6 +33,7 @@ class ContextFragment<TKey extends Object>
           inFragment: inFragments,
           extendsName: extendsName,
           variables: variables,
+          fragmentDependencies: fragmentDependencies,
         );
 
   @override
@@ -66,6 +68,7 @@ class ContextFragment<TKey extends Object>
       inFragments: newInFragment,
       extendsName: extendsName,
       variables: _variables,
+      fragmentDependencies: _fragmentDependencies,
     );
     _addContext(c);
     return c;
@@ -226,13 +229,13 @@ class Schema<TKey extends Object> {
     return def;
   }
 
-  Iterable<ObjectTypeDefinitionNode> lookupConcreateTypes(NameNode name) {
+  Iterable<ObjectTypeDefinitionNode> lookupConcreteTypes(NameNode name) {
     final typeDefinition = lookupType(name);
     if (typeDefinition is ObjectTypeDefinitionNode) {
       return [typeDefinition];
     }
     if (typeDefinition is UnionTypeDefinitionNode) {
-      return typeDefinition.types.expand((e) => lookupConcreateTypes(e.name));
+      return typeDefinition.types.expand((e) => lookupConcreteTypes(e.name));
     }
 
     if (typeDefinition is InterfaceTypeDefinitionNode) {
@@ -423,10 +426,12 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     this.extendsName,
     Map<String, ContextProperty>? variables,
     Queue<Name>? inFragment,
+    Set<FragmentDefinitionNode>? fragmentDependencies,
   })  : _currentType = currentType,
         _contexts = contexts ?? {},
         _variables = variables ?? {},
-        _inFragment = inFragment ?? ListQueue();
+        _inFragment = inFragment ?? ListQueue(),
+        _fragmentDependencies = fragmentDependencies ?? {};
   final TKey key;
   final GraphQLCodegenConfig config;
   final Schema<TKey> schema;
@@ -439,10 +444,11 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   Queue<Name> _inFragment;
 
-  final Map<String, Name> _fragments = {};
+  final Set<Name> _fragments = {};
   final Map<String, TypedName> _possibleTypeNames = {};
   final Map<String, ContextProperty> _properties = {};
   final Map<String, ContextProperty> _variables;
+  final Set<FragmentDefinitionNode> _fragmentDependencies;
 
   TType get currentType {
     final lt = _currentType;
@@ -454,7 +460,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   String get filePath => schema.lookupPath(key);
 
-  Iterable<Name> get fragments => _fragments.values;
+  Iterable<Name> get fragments => [..._fragments];
 
   ContextOperation<TKey>? get extendsContextOperation {
     final pt = extendsName;
@@ -497,6 +503,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
       contexts: _contexts,
       fragment: node,
       variables: {},
+      fragmentDependencies: {},
     );
     _addContext(c);
     return c;
@@ -535,6 +542,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
       currentType: type,
       schema: schema,
       contexts: _contexts,
+      fragmentDependencies: {},
     );
     _addContext(c);
     return c;
@@ -553,7 +561,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   }
 
   void addFragment(Name fragment) {
-    _fragments[fragment._key] = fragment;
+    _fragments.add(fragment);
   }
 
   void addPossibleTypeName(Context c) {
@@ -584,7 +592,11 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   }
 
   void addFragmentsFromInFragment() {
-    _fragments.addEntries(_inFragment.map((e) => MapEntry(e._key, e)));
+    _fragments.addAll(_inFragment);
+  }
+
+  void addFragmentDependency(FragmentDefinitionNode fragmentDefinitionNode) {
+    _fragmentDependencies.add(fragmentDefinitionNode);
   }
 
   Iterable<ContextProperty> get properties => _properties.values;
@@ -618,6 +630,9 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
           );
 
   Iterable<TypedName> get possibleTypes => _possibleTypeNames.values;
+
+  Iterable<FragmentDefinitionNode> get fragmentDependencies =>
+      [..._fragmentDependencies];
 }
 
 class ContextRoot<TKey extends Object>
@@ -676,7 +691,7 @@ class ContextRoot<TKey extends Object>
     return possibleTypes.map((key, value) => MapEntry<String, Set<String>>(
         key,
         value
-            .expand<ObjectTypeDefinitionNode>(schema.lookupConcreateTypes)
+            .expand<ObjectTypeDefinitionNode>(schema.lookupConcreteTypes)
             .map((e) => e.name.value)
             .toSet()));
   }
@@ -727,6 +742,7 @@ class ContextOperation<TKey extends Object>
     required Schema<TKey> schema,
     required Map<String, Context> contexts,
     required TypeDefinitionNode currentType,
+    required Set<FragmentDefinitionNode> fragmentDependencies,
     Name? extendsName,
   })  : this.path = path,
         super(
@@ -737,6 +753,7 @@ class ContextOperation<TKey extends Object>
           currentType: currentType,
           extendsName: extendsName,
           inFragment: inFragment,
+          fragmentDependencies: fragmentDependencies,
         );
 
   ContextOperation withNameAndType(
@@ -769,6 +786,7 @@ class ContextOperation<TKey extends Object>
       currentType: currentType,
       extendsName: extendsName,
       inFragment: newInFragment,
+      fragmentDependencies: _fragmentDependencies,
     );
     _addContext(c);
     return c;

@@ -11,3 +11,7 @@ scripts:
   build_flutter: melos  exec --scope=*example* -- "flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs"
   format: melos exec -- "dart format"
   check: git diff --exit-code
+
+command:
+  bootstrap:
+    usePubspecOverrides: true

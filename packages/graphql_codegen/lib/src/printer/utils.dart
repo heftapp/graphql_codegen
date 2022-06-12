@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/keywords.dart';
@@ -177,35 +175,3 @@ class NamePrinter {
 
 Expression printNullCheck(Reference variable, Expression whenNotNull) =>
     variable.equalTo(literalNull).conditional(literalNull, whenNotNull);
-
-Iterable<FragmentDefinitionNode> findFragments(
-  Schema schema,
-  ExecutableDefinitionNode node,
-) {
-  final queue = ListQueue<ExecutableDefinitionNode>.of([node]);
-  final fragments = <FragmentDefinitionNode>{};
-  while (queue.isNotEmpty) {
-    final definition = queue.removeFirst();
-    final visitor = AccumulatingVisitor<NameNode>(visitors: [
-      _FragmentsVisisitor(),
-    ]);
-    if (definition is OperationDefinitionNode) {
-      visitor.visitOperationDefinitionNode(definition);
-    } else if (definition is FragmentDefinitionNode) {
-      visitor.visitFragmentDefinitionNode(definition);
-    }
-    final definitions = visitor.accumulator
-        .map(schema.lookupFragment)
-        .whereType<FragmentDefinitionNode>();
-    queue.addAll(definitions);
-    fragments.addAll(definitions);
-  }
-  return fragments;
-}
-
-class _FragmentsVisisitor extends SimpleVisitor<List<NameNode>> {
-  @override
-  visitFragmentSpreadNode(FragmentSpreadNode node) {
-    return [node.name];
-  }
-}

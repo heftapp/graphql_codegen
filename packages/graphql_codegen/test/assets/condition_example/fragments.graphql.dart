@@ -474,8 +474,8 @@ const fragmentDefinitionCompositeCondition = FragmentDefinitionNode(
 const queryDocumentCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionCompositeCondition,
   fragmentDefinitionTimeCondition,
-  fragmentDefinitionAndCondition,
   fragmentDefinitionCondition,
+  fragmentDefinitionAndCondition,
   fragmentDefinitionNonCompositeCondition,
 ]);
 
