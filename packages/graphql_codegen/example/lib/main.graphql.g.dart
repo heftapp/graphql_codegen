@@ -49,8 +49,8 @@ Query$FetchPerson$fetchPerson _$Query$FetchPerson$fetchPersonFromJson(
           .toList(),
       $__typename: json['__typename'] as String,
       children: (json['children'] as List<dynamic>?)
-          ?.map((e) => Query$FetchPerson$fetchPerson$children.fromJson(
-              e as Map<String, dynamic>))
+          ?.map(
+              (e) => Fragment$PersonSummary.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -83,8 +83,7 @@ Query$FetchPerson$fetchPerson$parents
                   json['eventsOfEvents']),
           parents: (json['parents'] as List<dynamic>?)
               ?.map((e) =>
-                  Query$FetchPerson$fetchPerson$parents$parents.fromJson(
-                      e as Map<String, dynamic>))
+                  Fragment$PersonParent.fromJson(e as Map<String, dynamic>))
               .toList(),
         );
 
@@ -100,69 +99,6 @@ Map<String, dynamic> _$Query$FetchPerson$fetchPerson$parentsToJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
               instance.eventsOfEvents),
       'parents': instance.parents?.map((e) => e.toJson()).toList(),
-    };
-
-Query$FetchPerson$fetchPerson$parents$parents
-    _$Query$FetchPerson$fetchPerson$parents$parentsFromJson(
-            Map<String, dynamic> json) =>
-        Query$FetchPerson$fetchPerson$parents$parents(
-          name: json['name'] as String,
-          $__typename: json['__typename'] as String,
-        );
-
-Map<String, dynamic> _$Query$FetchPerson$fetchPerson$parents$parentsToJson(
-        Query$FetchPerson$fetchPerson$parents$parents instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      '__typename': instance.$__typename,
-    };
-
-Query$FetchPerson$fetchPerson$children
-    _$Query$FetchPerson$fetchPerson$childrenFromJson(
-            Map<String, dynamic> json) =>
-        Query$FetchPerson$fetchPerson$children(
-          nickname: json['nickname'] as String?,
-          name: json['name'] as String,
-          dob: _nullable$dateTimeFromJson(json['dob']),
-          events: _nullable$_list$_nullable$dateTimeFromJson(json['events']),
-          eventsOfEvents:
-              _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(
-                  json['eventsOfEvents']),
-          parents: (json['parents'] as List<dynamic>?)
-              ?.map((e) =>
-                  Query$FetchPerson$fetchPerson$children$parents.fromJson(
-                      e as Map<String, dynamic>))
-              .toList(),
-          $__typename: json['__typename'] as String,
-        );
-
-Map<String, dynamic> _$Query$FetchPerson$fetchPerson$childrenToJson(
-        Query$FetchPerson$fetchPerson$children instance) =>
-    <String, dynamic>{
-      'nickname': instance.nickname,
-      'name': instance.name,
-      'dob': _nullable$dateTimeToJson(instance.dob),
-      'events': _nullable$_list$_nullable$dateTimeToJson(instance.events),
-      'eventsOfEvents':
-          _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
-              instance.eventsOfEvents),
-      'parents': instance.parents?.map((e) => e.toJson()).toList(),
-      '__typename': instance.$__typename,
-    };
-
-Query$FetchPerson$fetchPerson$children$parents
-    _$Query$FetchPerson$fetchPerson$children$parentsFromJson(
-            Map<String, dynamic> json) =>
-        Query$FetchPerson$fetchPerson$children$parents(
-          name: json['name'] as String,
-          $__typename: json['__typename'] as String,
-        );
-
-Map<String, dynamic> _$Query$FetchPerson$fetchPerson$children$parentsToJson(
-        Query$FetchPerson$fetchPerson$children$parents instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      '__typename': instance.$__typename,
     };
 
 Variables$Mutation$UpdatePerson _$Variables$Mutation$UpdatePersonFromJson(

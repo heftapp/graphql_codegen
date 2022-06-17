@@ -37,7 +37,7 @@ class Fragment$PersonSummary {
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  final List<Fragment$PersonSummary$parents>? parents;
+  final List<Fragment$PersonParent>? parents;
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -145,7 +145,7 @@ extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
           DateTime? Function()? dob,
           List<DateTime?>? Function()? events,
           List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Fragment$PersonSummary$parents>? Function()? parents,
+          List<Fragment$PersonParent>? Function()? parents,
           String? $__typename}) =>
       Fragment$PersonSummary(
           nickname: nickname == null ? this.nickname : nickname(),
@@ -245,51 +245,6 @@ extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
         optimistic: optimistic);
     return result == null ? null : Fragment$PersonSummary.fromJson(result);
   }
-}
-
-@JsonSerializable(explicitToJson: true)
-class Fragment$PersonSummary$parents implements Fragment$PersonParent {
-  Fragment$PersonSummary$parents(
-      {required this.name, required this.$__typename});
-
-  @override
-  factory Fragment$PersonSummary$parents.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$PersonSummary$parentsFromJson(json);
-
-  final String name;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() => _$Fragment$PersonSummary$parentsToJson(this);
-  int get hashCode {
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$PersonSummary$parents) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$PersonSummary$parents
-    on Fragment$PersonSummary$parents {
-  Fragment$PersonSummary$parents copyWith(
-          {String? name, String? $__typename}) =>
-      Fragment$PersonSummary$parents(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)

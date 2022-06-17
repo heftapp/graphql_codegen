@@ -293,7 +293,7 @@ class Query$Q {
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
-  final Query$Q$t? t;
+  final Fragment$TC? t;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
   int get hashCode {
@@ -313,7 +313,7 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  Query$Q copyWith({Query$Q$t? Function()? t}) =>
+  Query$Q copyWith({Fragment$TC? Function()? t}) =>
       Query$Q(t: t == null ? this.t : t());
 }
 
@@ -337,77 +337,4 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionT1,
   fragmentDefinitionT2,
 ]);
-
-@JsonSerializable(explicitToJson: true)
-class Query$Q$t implements Fragment$TC, Fragment$T1, Fragment$T2 {
-  Query$Q$t({this.t, this.name});
-
-  @override
-  factory Query$Q$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$tFromJson(json);
-
-  final Query$Q$t$t? t;
-
-  final String? name;
-
-  Map<String, dynamic> toJson() => _$Query$Q$tToJson(this);
-  int get hashCode {
-    final l$t = t;
-    final l$name = name;
-    return Object.hashAll([l$t, l$name]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$t) || runtimeType != other.runtimeType) return false;
-    final l$t = t;
-    final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Q$t on Query$Q$t {
-  Query$Q$t copyWith({Query$Q$t$t? Function()? t, String? Function()? name}) =>
-      Query$Q$t(
-          t: t == null ? this.t : t(), name: name == null ? this.name : name());
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$Q$t$t implements Fragment$TC$t, Fragment$T1$t, Fragment$T2$t {
-  Query$Q$t$t({this.name});
-
-  @override
-  factory Query$Q$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$t$tFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() => _$Query$Q$t$tToJson(this);
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$t$t) || runtimeType != other.runtimeType)
-      return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Q$t$t on Query$Q$t$t {
-  Query$Q$t$t copyWith({String? Function()? name}) =>
-      Query$Q$t$t(name: name == null ? this.name : name());
-}
-
 const possibleTypesMap = {};

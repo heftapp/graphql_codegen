@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/graphql_codegen.dart';
+import 'package:graphql_codegen/src/transform/add_typename_transforming_visitor.dart';
 import 'package:graphql_codegen_config/config.dart';
 
 class ContextFragment<TKey extends Object>
@@ -15,8 +16,10 @@ class ContextFragment<TKey extends Object>
     required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
     required Name path,
+    required Context<TKey, TypeDefinitionNode> parent,
     required TypeDefinitionNode currentType,
-    required Map<String, Context> contexts,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> contexts,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> allContexts,
     required Map<String, ContextProperty> variables,
     required Set<FragmentDefinitionNode> fragmentDependencies,
     FragmentDefinitionNode? fragment,
@@ -32,8 +35,10 @@ class ContextFragment<TKey extends Object>
           contexts: contexts,
           inFragment: inFragments,
           extendsName: extendsName,
+          allContexts: allContexts,
           variables: variables,
           fragmentDependencies: fragmentDependencies,
+          parent: parent,
         );
 
   @override
@@ -58,12 +63,14 @@ class ContextFragment<TKey extends Object>
         if (inFragment != null) inFragment,
       ],
     );
-    final c = ContextFragment(
+    final c = ContextFragment<TKey>(
+      parent: this,
       key: key,
       config: config,
       schema: schema,
       path: path,
       currentType: currentType,
+      allContexts: _allContexts,
       contexts: _contexts,
       inFragments: newInFragment,
       extendsName: extendsName,
@@ -133,6 +140,9 @@ class ContextFragment<TKey extends Object>
       }
     }
   }
+
+  @override
+  NameNode get currentTypeName => currentType.name;
 }
 
 const _BUILT_IN_SCALARS = const DocumentNode(definitions: [
@@ -180,6 +190,16 @@ class Schema<TKey extends Object> {
           (element) => element != null && element.name.value == name.value,
           orElse: () => null,
         );
+  }
+
+  FragmentDefinitionNode lookupFragmentEnforced(NameNode name) {
+    final fragmentDef = lookupFragment(name);
+    if (fragmentDef == null) {
+      throw InvalidGraphQLDocumentError(
+        "Failed to find fragment definition for ${name.value}",
+      );
+    }
+    return fragmentDef;
   }
 
   OperationDefinitionNode? lookupOperationDefinition(NameNode name) {
@@ -407,21 +427,14 @@ class ContextProperty {
   }
 }
 
-class TypedName {
-  final Name name;
-  final NameNode type;
-
-  String get key => name._key;
-
-  TypedName(this.name, this.type);
-}
-
 abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   Context({
     required this.key,
     required this.config,
     required this.schema,
-    Map<String, Context>? contexts,
+    this.parent,
+    Map<Name, Context<TKey, TypeDefinitionNode>>? contexts,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> allContexts,
     TType? currentType,
     this.extendsName,
     Map<String, ContextProperty>? variables,
@@ -429,14 +442,17 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     Set<FragmentDefinitionNode>? fragmentDependencies,
   })  : _currentType = currentType,
         _contexts = contexts ?? {},
+        _allContexts = allContexts,
         _variables = variables ?? {},
         _inFragment = inFragment ?? ListQueue(),
         _fragmentDependencies = fragmentDependencies ?? {};
   final TKey key;
   final GraphQLCodegenConfig config;
   final Schema<TKey> schema;
-  final Map<String, Context> _contexts;
-  final Map<String, Context> _childContexts = {};
+  final Map<Name, Context<TKey, TypeDefinitionNode>> _contexts;
+  final Map<Name, Context<TKey, TypeDefinitionNode>> _allContexts;
+  final Map<Name, Context<TKey, TypeDefinitionNode>> _childContexts = {};
+  final Context<TKey, TypeDefinitionNode>? parent;
 
   final TType? _currentType;
 
@@ -445,10 +461,11 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   Queue<Name> _inFragment;
 
   final Set<Name> _fragments = {};
-  final Map<String, TypedName> _possibleTypeNames = {};
+  final Set<Context<TKey, TypeDefinitionNode>> _possibleTypes = {};
   final Map<String, ContextProperty> _properties = {};
   final Map<String, ContextProperty> _variables;
   final Set<FragmentDefinitionNode> _fragmentDependencies;
+  final Set<SelectionNode> _selections = {};
 
   TType get currentType {
     final lt = _currentType;
@@ -458,9 +475,15 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     throw StateError("Missing current type");
   }
 
+  NameNode get currentTypeName;
+
   String get filePath => schema.lookupPath(key);
 
-  Iterable<Name> get fragments => [..._fragments];
+  Iterable<ContextFragment<TKey>> get fragments {
+    return _fragments
+        .map((e) => _allContexts[e]!)
+        .whereType<ContextFragment<TKey>>();
+  }
 
   ContextOperation<TKey>? get extendsContextOperation {
     final pt = extendsName;
@@ -473,12 +496,13 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   }
 
   Context<TKey, TypeDefinitionNode>? get extendsContext {
-    return extendsContextOperation ?? extendsContextFragment;
+    return (extendsContextOperation ?? extendsContextFragment)?.resolvedContext;
   }
 
-  void _addContext(Context c) {
-    _contexts[c.path._key] = c;
-    _childContexts[c.path._key] = c;
+  void _addContext(Context<TKey, TypeDefinitionNode> c) {
+    _contexts[c.path] = c;
+    _allContexts[c.path] = c;
+    _childContexts[c.path] = c;
   }
 
   bool hasContextFragment(Name name) => _lookupContextFragment(name) != null;
@@ -486,8 +510,12 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   Name contextFragmentNameOrFallback(Name name, Name fallback) =>
       hasContextFragment(name) ? name : fallback;
 
-  ContextRoot rootContext() =>
-      ContextRoot(key: key, config: config, schema: schema);
+  ContextRoot<TKey> rootContext() => ContextRoot<TKey>(
+        key: key,
+        config: config,
+        schema: schema,
+        allContexts: _allContexts,
+      );
 
   ContextFragment withFragmentAndType(
     FragmentDefinitionNode node,
@@ -495,12 +523,14 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   ) {
     final path = Name.fromSegment(FragmentNameSegment(node));
     final c = ContextFragment(
+      parent: this,
       key: key,
       schema: schema,
       config: config,
       path: path,
       currentType: type,
       contexts: _contexts,
+      allContexts: _allContexts,
       fragment: node,
       variables: {},
       fragmentDependencies: {},
@@ -511,6 +541,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   ContextEnum<TKey> withEnum(EnumTypeDefinitionNode type) {
     final c = ContextEnum(
+      parent: this,
       key: key,
       config: config,
       schema: schema,
@@ -522,6 +553,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   ContextInput<TKey> withInput(InputObjectTypeDefinitionNode input) {
     final c = ContextInput(
+      parent: this,
       key: key,
       config: config,
       schema: schema,
@@ -536,10 +568,12 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     TypeDefinitionNode type,
   ) {
     final c = ContextOperation(
+      parent: this,
       key: key,
       config: config,
       path: Name.fromSegment(OperationNameSegment(node)),
       currentType: type,
+      allContexts: _allContexts,
       schema: schema,
       contexts: _contexts,
       fragmentDependencies: {},
@@ -549,23 +583,37 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   }
 
   ContextOperation<TKey>? _lookupContextOperation(Name path) {
-    final c = _contexts[path._key];
+    final c = _contexts[path];
     if (c == null) return null;
     return c is ContextOperation<TKey> ? c : null;
   }
 
   ContextFragment<TKey>? _lookupContextFragment(Name path) {
-    final c = _contexts[path._key];
+    final c = _contexts[path];
     if (c == null) return null;
     return c is ContextFragment<TKey> ? c : null;
+  }
+
+  ContextFragment<TKey>? _lookupAllContextFragment(Name path) {
+    final c = _allContexts[path];
+    if (c == null) return null;
+    return c is ContextFragment<TKey> ? c : null;
+  }
+
+  Context<TKey, TypeDefinitionNode>? _lookupAllContext(Name path) {
+    return _allContexts[path];
+  }
+
+  Context<TKey, TypeDefinitionNode>? lookupContext(Name path) {
+    return _contexts[path];
   }
 
   void addFragment(Name fragment) {
     _fragments.add(fragment);
   }
 
-  void addPossibleTypeName(Context c) {
-    _possibleTypeNames[c.path._key] = TypedName(c.path, c.currentType.name);
+  void addPossibleTypeName(Context<TKey, TypeDefinitionNode> c) {
+    _possibleTypes.add(c);
   }
 
   void addProperty(ContextProperty property) {
@@ -629,10 +677,53 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
             orElse: () => null,
           );
 
-  Iterable<TypedName> get possibleTypes => _possibleTypeNames.values;
+  Iterable<Context> get possibleTypes => _possibleTypes;
 
   Iterable<FragmentDefinitionNode> get fragmentDependencies =>
       [..._fragmentDependencies];
+
+  void addSelectionSet(SelectionSetNode node) {
+    _selections.addAll(node.selections);
+  }
+
+  Context<TKey, TypeDefinitionNode> get resolvedContext =>
+      replacementContext ?? this;
+
+  Context<TKey, TypeDefinitionNode>? get replacementContext {
+    final parentReplace = parent?.replacementContext;
+    if (parentReplace != null) {
+      final newName = parentReplace.path.withSegment(path.segments.last);
+      final replacement = _lookupAllContext(newName);
+      return replacement?.resolvedContext;
+    }
+    if (extendsContext != null) return null;
+    if (_selections.whereType<InlineFragmentNode>().isNotEmpty) {
+      return null;
+    }
+    final spreadNodes = _selections.whereType<FragmentSpreadNode>();
+    Set<String> spreads = _selections
+        .whereType<FragmentSpreadNode>()
+        .map((e) => e.name.value)
+        .toSet();
+    if (spreads.length != 1) return null;
+    Set<String> fields = _selections
+        .whereType<FieldNode>()
+        .map((e) => e.alias?.value ?? e.name.value)
+        .toSet();
+    if (fields.length > 1) return null;
+    if (fields.length == 1 &&
+        (!config.addTypename || fields.first != typenameFieldName)) {
+      return null;
+    }
+    final fragmentDef = schema.lookupFragmentEnforced(spreadNodes.first.name);
+    if (fragmentDef.typeCondition.on.name.value != currentTypeName.value) {
+      return null;
+    }
+    final replacement = _lookupAllContextFragment(
+      Name.fromSegment(FragmentNameSegment(fragmentDef)),
+    );
+    return replacement?.resolvedContext;
+  }
 }
 
 class ContextRoot<TKey extends Object>
@@ -641,12 +732,15 @@ class ContextRoot<TKey extends Object>
     required TKey key,
     required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
+    Map<Name, Context<TKey, TypeDefinitionNode>>? allContexts,
   }) : super(
           key: key,
           config: config,
           schema: schema,
           contexts: {},
+          allContexts: allContexts ?? {},
         );
+
   Iterable<ContextOperation> get contextOperations =>
       _contexts.values.whereType<ContextOperation>();
 
@@ -695,12 +789,16 @@ class ContextRoot<TKey extends Object>
             .map((e) => e.name.value)
             .toSet()));
   }
+
+  @override
+  NameNode get currentTypeName => currentType.name;
 }
 
 class ContextEnum<TKey extends Object>
     extends Context<TKey, EnumTypeDefinitionNode> {
   final Name path;
   ContextEnum({
+    required Context<TKey, TypeDefinitionNode> parent,
     required TKey key,
     required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
@@ -711,13 +809,19 @@ class ContextEnum<TKey extends Object>
           config: config,
           schema: schema,
           currentType: en,
+          allContexts: {},
+          parent: parent,
         );
+
+  @override
+  NameNode get currentTypeName => currentType.name;
 }
 
 class ContextInput<TKey extends Object>
     extends Context<TKey, InputObjectTypeDefinitionNode> {
   final Name path;
   ContextInput({
+    required Context<TKey, TypeDefinitionNode> parent,
     required TKey key,
     required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
@@ -727,20 +831,26 @@ class ContextInput<TKey extends Object>
           key: key,
           config: config,
           schema: schema,
+          allContexts: {},
           currentType: type,
+          parent: parent,
         );
+  @override
+  NameNode get currentTypeName => currentType.name;
 }
 
 class ContextOperation<TKey extends Object>
     extends Context<TKey, TypeDefinitionNode> {
   final Name path;
   ContextOperation({
+    required Context<TKey, TypeDefinitionNode> parent,
     required TKey key,
     required GraphQLCodegenConfig config,
     Queue<Name>? inFragment,
     required Name path,
     required Schema<TKey> schema,
-    required Map<String, Context> contexts,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> contexts,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> allContexts,
     required TypeDefinitionNode currentType,
     required Set<FragmentDefinitionNode> fragmentDependencies,
     Name? extendsName,
@@ -749,14 +859,16 @@ class ContextOperation<TKey extends Object>
           key: key,
           config: config,
           schema: schema,
+          parent: parent,
           contexts: contexts,
+          allContexts: allContexts,
           currentType: currentType,
           extendsName: extendsName,
           inFragment: inFragment,
           fragmentDependencies: fragmentDependencies,
         );
 
-  ContextOperation withNameAndType(
+  ContextOperation<TKey> withNameAndType(
     NameSegment name,
     TypeDefinitionNode currentType, {
     Name? inFragment,
@@ -777,12 +889,14 @@ class ContextOperation<TKey extends Object>
         if (inFragment != null) inFragment,
       ],
     );
-    final c = ContextOperation(
+    final c = ContextOperation<TKey>(
+      parent: this,
       key: key,
       config: config,
       path: path,
       schema: schema,
       contexts: _contexts,
+      allContexts: _allContexts,
       currentType: currentType,
       extendsName: extendsName,
       inFragment: newInFragment,
@@ -795,6 +909,9 @@ class ContextOperation<TKey extends Object>
   OperationDefinitionNode? get operation => path.segments.length == 1
       ? schema.lookupOperationDefinition(path.baseNameSegment.name)
       : null;
+
+  @override
+  NameNode get currentTypeName => currentType.name;
 }
 
 class Name {

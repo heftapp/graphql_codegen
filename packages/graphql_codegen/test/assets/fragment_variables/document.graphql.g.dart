@@ -105,59 +105,13 @@ Map<String, dynamic> _$Variables$Fragment$F2ToJson(
 Fragment$F2 _$Fragment$F2FromJson(Map<String, dynamic> json) => Fragment$F2(
       level1: json['level1'] == null
           ? null
-          : Fragment$F2$level1.fromJson(json['level1'] as Map<String, dynamic>),
+          : Fragment$F21.fromJson(json['level1'] as Map<String, dynamic>),
       $__typename: json['__typename'] as String,
     );
 
 Map<String, dynamic> _$Fragment$F2ToJson(Fragment$F2 instance) =>
     <String, dynamic>{
       'level1': instance.level1?.toJson(),
-      '__typename': instance.$__typename,
-    };
-
-Fragment$F2$level1 _$Fragment$F2$level1FromJson(Map<String, dynamic> json) =>
-    Fragment$F2$level1(
-      level2: json['level2'] == null
-          ? null
-          : Fragment$F2$level1$level2.fromJson(
-              json['level2'] as Map<String, dynamic>),
-      $__typename: json['__typename'] as String,
-    );
-
-Map<String, dynamic> _$Fragment$F2$level1ToJson(Fragment$F2$level1 instance) =>
-    <String, dynamic>{
-      'level2': instance.level2?.toJson(),
-      '__typename': instance.$__typename,
-    };
-
-Fragment$F2$level1$level2 _$Fragment$F2$level1$level2FromJson(
-        Map<String, dynamic> json) =>
-    Fragment$F2$level1$level2(
-      level3: json['level3'] == null
-          ? null
-          : Fragment$F2$level1$level2$level3.fromJson(
-              json['level3'] as Map<String, dynamic>),
-      $__typename: json['__typename'] as String,
-    );
-
-Map<String, dynamic> _$Fragment$F2$level1$level2ToJson(
-        Fragment$F2$level1$level2 instance) =>
-    <String, dynamic>{
-      'level3': instance.level3?.toJson(),
-      '__typename': instance.$__typename,
-    };
-
-Fragment$F2$level1$level2$level3 _$Fragment$F2$level1$level2$level3FromJson(
-        Map<String, dynamic> json) =>
-    Fragment$F2$level1$level2$level3(
-      level4: json['level4'] as int?,
-      $__typename: json['__typename'] as String,
-    );
-
-Map<String, dynamic> _$Fragment$F2$level1$level2$level3ToJson(
-        Fragment$F2$level1$level2$level3 instance) =>
-    <String, dynamic>{
-      'level4': instance.level4,
       '__typename': instance.$__typename,
     };
 

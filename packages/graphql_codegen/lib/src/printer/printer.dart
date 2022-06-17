@@ -269,7 +269,9 @@ Library printRootContext<TKey extends Object>(
       (context) => printInput(c.withContext(context)),
     ),
     ...context.contextEnums.map((context) => printEnum(c.withContext(context))),
-    ...context.contextFragments.expand((context) {
+    ...context.contextFragments
+        .where((element) => element.replacementContext == null)
+        .expand((context) {
       final fragmentNode = context.fragment;
       final elementContext = c.withContext(context);
       return [
@@ -293,7 +295,9 @@ Library printRootContext<TKey extends Object>(
           ...printGraphQLClientFragmentSpecs(c.withContext(context))
       ];
     }),
-    ...context.contextOperations.expand((element) {
+    ...context.contextOperations
+        .where((element) => element.replacementContext == null)
+        .expand((element) {
       final operation = element.operation;
       final elementContext = c.withContext(element);
       return [
@@ -340,7 +344,7 @@ Constructor printFromJson(
   PrintContext context,
   String name, [
   ContextProperty? typenameProperty,
-  Iterable<TypedName> possibleTypes = const [],
+  Iterable<Context> possibleTypes = const [],
 ]) {
   final fromJsonFactoryName =
       context.namePrinter.printFromJsonFactoryName(name);
@@ -351,7 +355,7 @@ Constructor printFromJson(
     final cases = possibleTypes
         .map(
           (t) =>
-              """case "${t.type.value}": return ${context.namePrinter.printClassName(t.name)}.fromJson(json);""",
+              """case "${t.currentType.name.value}": return ${context.namePrinter.printClassName((t.replacementContext ?? t).path)}.fromJson(json);""",
         )
         .join("");
     body = Block(
@@ -421,8 +425,9 @@ Class printContext(PrintContext c) {
   c.addPackage('package:json_annotation/json_annotation.dart');
   c.markAsJsonSerializable();
   final context = c.context;
-  c.addDependencies(context.fragments);
-  c.addDependencies(context.possibleTypes.map((e) => e.name));
+  final fragments = context.fragments.map((e) => e.replacementContext ?? e);
+  c.addDependencies(fragments.map((e) => e.path));
+  c.addDependencies(context.possibleTypes.map((e) => e.path));
 
   final extendContext = context.extendsContext;
   if (extendContext != null) {
@@ -438,8 +443,9 @@ Class printContext(PrintContext c) {
     (b) => b
       ..name = c.namePrinter.printClassName(context.path)
       ..implements = ListBuilder([
-        ...context.fragments
-            .map((e) => c.namePrinter.printClassName(e))
+        ...fragments
+            .map((e) => c.namePrinter.printClassName(e.path))
+            .toSet()
             .map(refer),
         if (extendContext != null)
           refer(c.namePrinter.printClassName(extendContext.path)),
@@ -820,18 +826,26 @@ PrintPropertyResult printNamedTypeNode(
       "Failed to find type definition for type ${typeNode.name.value}",
     );
   }
-  if (propertyContext != null) {
-    context.addDependency(propertyContext);
+  final replacementContext = propertyContext != null
+      ? context.context
+              .lookupContext(propertyContext)
+              ?.replacementContext
+              ?.path ??
+          propertyContext
+      : null;
+  if (replacementContext != null) {
+    context.addDependency(replacementContext);
   }
+
   PrintPropertyResult reference;
   if (typeDefinition is ScalarTypeDefinitionNode) {
     reference = printScalarType(context, typeDefinition);
   } else if (typeDefinition is EnumTypeDefinitionNode &&
       propertyContext != null) {
     reference = printEnumType(context, propertyContext);
-  } else if (propertyContext != null) {
+  } else if (replacementContext != null) {
     reference = PrintPropertyResult(
-        refer(context.namePrinter.printClassName(propertyContext)));
+        refer(context.namePrinter.printClassName(replacementContext)));
   } else {
     throw StateError("Failed to generate type.");
   }
