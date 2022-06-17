@@ -39,12 +39,38 @@ class Query$FetchPerson {
 }
 
 extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
-  Query$FetchPerson copyWith(
-          {Query$FetchPerson$fetchPerson? Function()? fetchPerson,
-          String? $__typename}) =>
-      Query$FetchPerson(
-          fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query$FetchPerson<Query$FetchPerson> get copyWith =>
+      CopyWith$Query$FetchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchPerson<TRes> {
+  factory CopyWith$Query$FetchPerson(
+          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson;
+
+  TRes call({Query$FetchPerson$fetchPerson? fetchPerson, String? $__typename});
+}
+
+class _CopyWithImpl$Query$FetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson<TRes> {
+  _CopyWithImpl$Query$FetchPerson(this._instance, this._then);
+
+  final Query$FetchPerson _instance;
+
+  final TRes Function(Query$FetchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? fetchPerson = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Query$FetchPerson(
+          fetchPerson: fetchPerson == _undefined
+              ? _instance.fetchPerson
+              : (fetchPerson as Query$FetchPerson$fetchPerson?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const documentNodeQueryFetchPerson = DocumentNode(definitions: [
@@ -145,14 +171,41 @@ class Query$FetchPerson$fetchPerson {
 
 extension UtilityExtension$Query$FetchPerson$fetchPerson
     on Query$FetchPerson$fetchPerson {
-  Query$FetchPerson$fetchPerson copyWith(
-          {int? Function()? age,
-          String? Function()? name,
-          Enum$Status? Function()? status,
-          String? $__typename}) =>
-      Query$FetchPerson$fetchPerson(
-          age: age == null ? this.age : age(),
-          name: name == null ? this.name : name(),
-          status: status == null ? this.status : status(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query$FetchPerson$fetchPerson<Query$FetchPerson$fetchPerson>
+      get copyWith => CopyWith$Query$FetchPerson$fetchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
+  factory CopyWith$Query$FetchPerson$fetchPerson(
+          Query$FetchPerson$fetchPerson instance,
+          TRes Function(Query$FetchPerson$fetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson$fetchPerson;
+
+  TRes call({int? age, String? name, Enum$Status? status, String? $__typename});
+}
+
+class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson$fetchPerson<TRes> {
+  _CopyWithImpl$Query$FetchPerson$fetchPerson(this._instance, this._then);
+
+  final Query$FetchPerson$fetchPerson _instance;
+
+  final TRes Function(Query$FetchPerson$fetchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? age = _undefined,
+          Object? name = _undefined,
+          Object? status = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Query$FetchPerson$fetchPerson(
+          age: age == _undefined ? _instance.age : (age as int?),
+          name: name == _undefined ? _instance.name : (name as String?),
+          status: status == _undefined
+              ? _instance.status
+              : (status as Enum$Status?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }

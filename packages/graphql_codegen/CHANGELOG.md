@@ -1,3 +1,7 @@
+# 0.10.0-beta.2
+
+* BREAKING: Improve `.copyWith` by removing functions.
+
 # 0.10.0-beta.1
 
 * BREAKING: Inline fragments; We're now inligning fragments to reduce the number of boilerplate classes generated.

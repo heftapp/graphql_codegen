@@ -27,8 +27,27 @@ class Input$I {
     return true;
   }
 
-  Input$I copyWith({String? Function()? title}) =>
-      Input$I(title: title == null ? this.title : title());
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+}
+
+abstract class CopyWith$Input$I<TRes> {
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
+      _CopyWithImpl$Input$I;
+
+  TRes call({String? title});
+}
+
+class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
+  _CopyWithImpl$Input$I(this._instance, this._then);
+
+  final Input$I _instance;
+
+  final TRes Function(Input$I) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? title = _undefined}) => _then(Input$I(
+      title: title == _undefined ? _instance.title : (title as String?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -57,8 +76,27 @@ class Input$I_ {
     return true;
   }
 
-  Input$I_ copyWith({double? Function()? value}) =>
-      Input$I_(value: value == null ? this.value : value());
+  CopyWith$Input$I_<Input$I_> get copyWith => CopyWith$Input$I_(this, (i) => i);
+}
+
+abstract class CopyWith$Input$I_<TRes> {
+  factory CopyWith$Input$I_(Input$I_ instance, TRes Function(Input$I_) then) =
+      _CopyWithImpl$Input$I_;
+
+  TRes call({double? value});
+}
+
+class _CopyWithImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
+  _CopyWithImpl$Input$I_(this._instance, this._then);
+
+  final Input$I_ _instance;
+
+  final TRes Function(Input$I_) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? value = _undefined}) => _then(Input$I_(
+      value: value == _undefined ? _instance.value : (value as double?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -87,6 +125,25 @@ class Input$i {
     return true;
   }
 
-  Input$i copyWith({bool? Function()? enabled}) =>
-      Input$i(enabled: enabled == null ? this.enabled : enabled());
+  CopyWith$Input$i<Input$i> get copyWith => CopyWith$Input$i(this, (i) => i);
+}
+
+abstract class CopyWith$Input$i<TRes> {
+  factory CopyWith$Input$i(Input$i instance, TRes Function(Input$i) then) =
+      _CopyWithImpl$Input$i;
+
+  TRes call({bool? enabled});
+}
+
+class _CopyWithImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
+  _CopyWithImpl$Input$i(this._instance, this._then);
+
+  final Input$i _instance;
+
+  final TRes Function(Input$i) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? enabled = _undefined}) => _then(Input$i(
+      enabled: enabled == _undefined ? _instance.enabled : (enabled as bool?)));
 }

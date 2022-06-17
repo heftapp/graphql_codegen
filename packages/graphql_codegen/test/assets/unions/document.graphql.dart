@@ -30,8 +30,27 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  Query$Q copyWith({Query$Q$u? Function()? u}) =>
-      Query$Q(u: u == null ? this.u : u());
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q<TRes> {
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
+
+  TRes call({Query$Q$u? u});
+}
+
+class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithImpl$Query$Q(this._instance, this._then);
+
+  final Query$Q _instance;
+
+  final TRes Function(Query$Q) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? u = _undefined}) =>
+      _then(Query$Q(u: u == _undefined ? _instance.u : (u as Query$Q$u?)));
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
@@ -120,8 +139,31 @@ class Query$Q$u {
 }
 
 extension UtilityExtension$Query$Q$u on Query$Q$u {
-  Query$Q$u copyWith({String? $__typename}) => Query$Q$u(
-      $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query$Q$u<Query$Q$u> get copyWith =>
+      CopyWith$Query$Q$u(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q$u<TRes> {
+  factory CopyWith$Query$Q$u(
+          Query$Q$u instance, TRes Function(Query$Q$u) then) =
+      _CopyWithImpl$Query$Q$u;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
+  _CopyWithImpl$Query$Q$u(this._instance, this._then);
+
+  final Query$Q$u _instance;
+
+  final TRes Function(Query$Q$u) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? $__typename = _undefined}) => _then(Query$Q$u(
+      $__typename: $__typename == _undefined
+          ? _instance.$__typename
+          : ($__typename as String)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -160,10 +202,34 @@ class Query$Q$u$$TA implements Query$Q$u {
 }
 
 extension UtilityExtension$Query$Q$u$$TA on Query$Q$u$$TA {
-  Query$Q$u$$TA copyWith({String? $__typename, String? Function()? name}) =>
-      Query$Q$u$$TA(
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          name: name == null ? this.name : name());
+  CopyWith$Query$Q$u$$TA<Query$Q$u$$TA> get copyWith =>
+      CopyWith$Query$Q$u$$TA(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q$u$$TA<TRes> {
+  factory CopyWith$Query$Q$u$$TA(
+          Query$Q$u$$TA instance, TRes Function(Query$Q$u$$TA) then) =
+      _CopyWithImpl$Query$Q$u$$TA;
+
+  TRes call({String? $__typename, String? name});
+}
+
+class _CopyWithImpl$Query$Q$u$$TA<TRes>
+    implements CopyWith$Query$Q$u$$TA<TRes> {
+  _CopyWithImpl$Query$Q$u$$TA(this._instance, this._then);
+
+  final Query$Q$u$$TA _instance;
+
+  final TRes Function(Query$Q$u$$TA) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? $__typename = _undefined, Object? name = _undefined}) =>
+      _then(Query$Q$u$$TA(
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String),
+          name: name == _undefined ? _instance.name : (name as String?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -202,10 +268,37 @@ class Query$Q$u$$TB implements Query$Q$u {
 }
 
 extension UtilityExtension$Query$Q$u$$TB on Query$Q$u$$TB {
-  Query$Q$u$$TB copyWith({String? $__typename, int? Function()? velocity}) =>
-      Query$Q$u$$TB(
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          velocity: velocity == null ? this.velocity : velocity());
+  CopyWith$Query$Q$u$$TB<Query$Q$u$$TB> get copyWith =>
+      CopyWith$Query$Q$u$$TB(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q$u$$TB<TRes> {
+  factory CopyWith$Query$Q$u$$TB(
+          Query$Q$u$$TB instance, TRes Function(Query$Q$u$$TB) then) =
+      _CopyWithImpl$Query$Q$u$$TB;
+
+  TRes call({String? $__typename, int? velocity});
+}
+
+class _CopyWithImpl$Query$Q$u$$TB<TRes>
+    implements CopyWith$Query$Q$u$$TB<TRes> {
+  _CopyWithImpl$Query$Q$u$$TB(this._instance, this._then);
+
+  final Query$Q$u$$TB _instance;
+
+  final TRes Function(Query$Q$u$$TB) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? $__typename = _undefined, Object? velocity = _undefined}) =>
+      _then(Query$Q$u$$TB(
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String),
+          velocity: velocity == _undefined
+              ? _instance.velocity
+              : (velocity as int?)));
 }
 
 const possibleTypesMap = {

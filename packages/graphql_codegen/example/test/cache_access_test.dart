@@ -50,9 +50,9 @@ void main() {
         ],
       );
       expect(
-          fragment.copyWith(name: "Kurt").toJson(),
+          fragment.copyWith(name: "Kurt").copyWith(nickname: "Bob").toJson(),
           equals({
-            'nickname': null,
+            'nickname': "Bob",
             'name': 'Kurt',
             'dob': null,
             'events': null,

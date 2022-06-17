@@ -32,8 +32,30 @@ class Query$FetchName {
 }
 
 extension UtilityExtension$Query$FetchName on Query$FetchName {
-  Query$FetchName copyWith({Fragment$F? Function()? name}) =>
-      Query$FetchName(name: name == null ? this.name : name());
+  CopyWith$Query$FetchName<Query$FetchName> get copyWith =>
+      CopyWith$Query$FetchName(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchName<TRes> {
+  factory CopyWith$Query$FetchName(
+          Query$FetchName instance, TRes Function(Query$FetchName) then) =
+      _CopyWithImpl$Query$FetchName;
+
+  TRes call({Fragment$F? name});
+}
+
+class _CopyWithImpl$Query$FetchName<TRes>
+    implements CopyWith$Query$FetchName<TRes> {
+  _CopyWithImpl$Query$FetchName(this._instance, this._then);
+
+  final Query$FetchName _instance;
+
+  final TRes Function(Query$FetchName) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Query$FetchName(
+      name: name == _undefined ? _instance.name : (name as Fragment$F?)));
 }
 
 const documentNodeQueryFetchName = DocumentNode(definitions: [

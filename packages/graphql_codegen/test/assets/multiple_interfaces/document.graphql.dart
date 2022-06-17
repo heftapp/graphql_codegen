@@ -31,8 +31,29 @@ class Fragment$F0 {
 }
 
 extension UtilityExtension$Fragment$F0 on Fragment$F0 {
-  Fragment$F0 copyWith({String? Function()? name01}) =>
-      Fragment$F0(name01: name01 == null ? this.name01 : name01());
+  CopyWith$Fragment$F0<Fragment$F0> get copyWith =>
+      CopyWith$Fragment$F0(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F0<TRes> {
+  factory CopyWith$Fragment$F0(
+          Fragment$F0 instance, TRes Function(Fragment$F0) then) =
+      _CopyWithImpl$Fragment$F0;
+
+  TRes call({String? name01});
+}
+
+class _CopyWithImpl$Fragment$F0<TRes> implements CopyWith$Fragment$F0<TRes> {
+  _CopyWithImpl$Fragment$F0(this._instance, this._then);
+
+  final Fragment$F0 _instance;
+
+  final TRes Function(Fragment$F0) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name01 = _undefined}) => _then(Fragment$F0(
+      name01: name01 == _undefined ? _instance.name01 : (name01 as String?)));
 }
 
 const fragmentDefinitionF0 = FragmentDefinitionNode(
@@ -81,8 +102,29 @@ class Fragment$F1 {
 }
 
 extension UtilityExtension$Fragment$F1 on Fragment$F1 {
-  Fragment$F1 copyWith({int? Function()? size2}) =>
-      Fragment$F1(size2: size2 == null ? this.size2 : size2());
+  CopyWith$Fragment$F1<Fragment$F1> get copyWith =>
+      CopyWith$Fragment$F1(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F1<TRes> {
+  factory CopyWith$Fragment$F1(
+          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
+      _CopyWithImpl$Fragment$F1;
+
+  TRes call({int? size2});
+}
+
+class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
+  _CopyWithImpl$Fragment$F1(this._instance, this._then);
+
+  final Fragment$F1 _instance;
+
+  final TRes Function(Fragment$F1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? size2 = _undefined}) => _then(Fragment$F1(
+      size2: size2 == _undefined ? _instance.size2 : (size2 as int?)));
 }
 
 const fragmentDefinitionF1 = FragmentDefinitionNode(
@@ -131,8 +173,29 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  Fragment$F2 copyWith({String? Function()? name2}) =>
-      Fragment$F2(name2: name2 == null ? this.name2 : name2());
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
+      CopyWith$Fragment$F2(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F2<TRes> {
+  factory CopyWith$Fragment$F2(
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
+      _CopyWithImpl$Fragment$F2;
+
+  TRes call({String? name2});
+}
+
+class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
+  _CopyWithImpl$Fragment$F2(this._instance, this._then);
+
+  final Fragment$F2 _instance;
+
+  final TRes Function(Fragment$F2) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name2 = _undefined}) => _then(Fragment$F2(
+      name2: name2 == _undefined ? _instance.name2 : (name2 as String?)));
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(
@@ -181,8 +244,29 @@ class Fragment$F3 {
 }
 
 extension UtilityExtension$Fragment$F3 on Fragment$F3 {
-  Fragment$F3 copyWith({double? Function()? value}) =>
-      Fragment$F3(value: value == null ? this.value : value());
+  CopyWith$Fragment$F3<Fragment$F3> get copyWith =>
+      CopyWith$Fragment$F3(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F3<TRes> {
+  factory CopyWith$Fragment$F3(
+          Fragment$F3 instance, TRes Function(Fragment$F3) then) =
+      _CopyWithImpl$Fragment$F3;
+
+  TRes call({double? value});
+}
+
+class _CopyWithImpl$Fragment$F3<TRes> implements CopyWith$Fragment$F3<TRes> {
+  _CopyWithImpl$Fragment$F3(this._instance, this._then);
+
+  final Fragment$F3 _instance;
+
+  final TRes Function(Fragment$F3) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? value = _undefined}) => _then(Fragment$F3(
+      value: value == _undefined ? _instance.value : (value as double?)));
 }
 
 const fragmentDefinitionF3 = FragmentDefinitionNode(
@@ -230,8 +314,28 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  Query$Q copyWith({Query$Q$field? Function()? field}) =>
-      Query$Q(field: field == null ? this.field : field());
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q<TRes> {
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
+
+  TRes call({Query$Q$field? field});
+}
+
+class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithImpl$Query$Q(this._instance, this._then);
+
+  final Query$Q _instance;
+
+  final TRes Function(Query$Q) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? field = _undefined}) => _then(Query$Q(
+      field:
+          field == _undefined ? _instance.field : (field as Query$Q$field?)));
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
@@ -365,14 +469,39 @@ class Query$Q$field implements Fragment$F0 {
 }
 
 extension UtilityExtension$Query$Q$field on Query$Q$field {
-  Query$Q$field copyWith(
-          {String? $__typename,
-          String? Function()? name0,
-          String? Function()? name01}) =>
-      Query$Q$field(
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          name0: name0 == null ? this.name0 : name0(),
-          name01: name01 == null ? this.name01 : name01());
+  CopyWith$Query$Q$field<Query$Q$field> get copyWith =>
+      CopyWith$Query$Q$field(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q$field<TRes> {
+  factory CopyWith$Query$Q$field(
+          Query$Q$field instance, TRes Function(Query$Q$field) then) =
+      _CopyWithImpl$Query$Q$field;
+
+  TRes call({String? $__typename, String? name0, String? name01});
+}
+
+class _CopyWithImpl$Query$Q$field<TRes>
+    implements CopyWith$Query$Q$field<TRes> {
+  _CopyWithImpl$Query$Q$field(this._instance, this._then);
+
+  final Query$Q$field _instance;
+
+  final TRes Function(Query$Q$field) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? $__typename = _undefined,
+          Object? name0 = _undefined,
+          Object? name01 = _undefined}) =>
+      _then(Query$Q$field(
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String),
+          name0: name0 == _undefined ? _instance.name0 : (name0 as String?),
+          name01:
+              name01 == _undefined ? _instance.name01 : (name01 as String?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -449,22 +578,53 @@ class Query$Q$field$$T1 implements Fragment$F1, Fragment$F2, Query$Q$field {
 }
 
 extension UtilityExtension$Query$Q$field$$T1 on Query$Q$field$$T1 {
-  Query$Q$field$$T1 copyWith(
-          {String? $__typename,
-          String? Function()? name0,
-          String? Function()? name01,
-          int? Function()? size,
-          String? Function()? name,
-          int? Function()? size2,
-          String? Function()? name2}) =>
-      Query$Q$field$$T1(
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          name0: name0 == null ? this.name0 : name0(),
-          name01: name01 == null ? this.name01 : name01(),
-          size: size == null ? this.size : size(),
-          name: name == null ? this.name : name(),
-          size2: size2 == null ? this.size2 : size2(),
-          name2: name2 == null ? this.name2 : name2());
+  CopyWith$Query$Q$field$$T1<Query$Q$field$$T1> get copyWith =>
+      CopyWith$Query$Q$field$$T1(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q$field$$T1<TRes> {
+  factory CopyWith$Query$Q$field$$T1(
+          Query$Q$field$$T1 instance, TRes Function(Query$Q$field$$T1) then) =
+      _CopyWithImpl$Query$Q$field$$T1;
+
+  TRes call(
+      {String? $__typename,
+      String? name0,
+      String? name01,
+      int? size,
+      String? name,
+      int? size2,
+      String? name2});
+}
+
+class _CopyWithImpl$Query$Q$field$$T1<TRes>
+    implements CopyWith$Query$Q$field$$T1<TRes> {
+  _CopyWithImpl$Query$Q$field$$T1(this._instance, this._then);
+
+  final Query$Q$field$$T1 _instance;
+
+  final TRes Function(Query$Q$field$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? $__typename = _undefined,
+          Object? name0 = _undefined,
+          Object? name01 = _undefined,
+          Object? size = _undefined,
+          Object? name = _undefined,
+          Object? size2 = _undefined,
+          Object? name2 = _undefined}) =>
+      _then(Query$Q$field$$T1(
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String),
+          name0: name0 == _undefined ? _instance.name0 : (name0 as String?),
+          name01: name01 == _undefined ? _instance.name01 : (name01 as String?),
+          size: size == _undefined ? _instance.size : (size as int?),
+          name: name == _undefined ? _instance.name : (name as String?),
+          size2: size2 == _undefined ? _instance.size2 : (size2 as int?),
+          name2: name2 == _undefined ? _instance.name2 : (name2 as String?)));
 }
 
 const possibleTypesMap = {

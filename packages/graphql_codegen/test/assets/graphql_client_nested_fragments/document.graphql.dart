@@ -46,14 +46,38 @@ class Fragment$F1 {
 }
 
 extension UtilityExtension$Fragment$F1 on Fragment$F1 {
-  Fragment$F1 copyWith(
-          {String? Function()? name,
-          Fragment$F2? Function()? field,
-          String? $__typename}) =>
-      Fragment$F1(
-          name: name == null ? this.name : name(),
-          field: field == null ? this.field : field(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$F1<Fragment$F1> get copyWith =>
+      CopyWith$Fragment$F1(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F1<TRes> {
+  factory CopyWith$Fragment$F1(
+          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
+      _CopyWithImpl$Fragment$F1;
+
+  TRes call({String? name, Fragment$F2? field, String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
+  _CopyWithImpl$Fragment$F1(this._instance, this._then);
+
+  final Fragment$F1 _instance;
+
+  final TRes Function(Fragment$F1) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? name = _undefined,
+          Object? field = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Fragment$F1(
+          name: name == _undefined ? _instance.name : (name as String?),
+          field:
+              field == _undefined ? _instance.field : (field as Fragment$F2?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const fragmentDefinitionF1 = FragmentDefinitionNode(

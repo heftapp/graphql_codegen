@@ -53,12 +53,33 @@ class Query$Foobar {
 }
 
 extension UtilityExtension$Query$Foobar on Query$Foobar {
-  Query$Foobar copyWith(
-          {Enum$Enum? Function()? field,
-          List<Enum$Enum>? Function()? fields}) =>
-      Query$Foobar(
-          field: field == null ? this.field : field(),
-          fields: fields == null ? this.fields : fields());
+  CopyWith$Query$Foobar<Query$Foobar> get copyWith =>
+      CopyWith$Query$Foobar(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Foobar<TRes> {
+  factory CopyWith$Query$Foobar(
+          Query$Foobar instance, TRes Function(Query$Foobar) then) =
+      _CopyWithImpl$Query$Foobar;
+
+  TRes call({Enum$Enum? field, List<Enum$Enum>? fields});
+}
+
+class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
+  _CopyWithImpl$Query$Foobar(this._instance, this._then);
+
+  final Query$Foobar _instance;
+
+  final TRes Function(Query$Foobar) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? field = _undefined, Object? fields = _undefined}) =>
+      _then(Query$Foobar(
+          field: field == _undefined ? _instance.field : (field as Enum$Enum?),
+          fields: fields == _undefined
+              ? _instance.fields
+              : (fields as List<Enum$Enum>?)));
 }
 
 const documentNodeQueryFoobar = DocumentNode(definitions: [

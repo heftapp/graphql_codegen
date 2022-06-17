@@ -139,23 +139,61 @@ class Fragment$PersonSummary {
 }
 
 extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
-  Fragment$PersonSummary copyWith(
-          {String? Function()? nickname,
-          String? name,
-          DateTime? Function()? dob,
-          List<DateTime?>? Function()? events,
-          List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Fragment$PersonParent>? Function()? parents,
-          String? $__typename}) =>
-      Fragment$PersonSummary(
-          nickname: nickname == null ? this.nickname : nickname(),
-          name: name == null ? this.name : name,
-          dob: dob == null ? this.dob : dob(),
-          events: events == null ? this.events : events(),
-          eventsOfEvents:
-              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
-          parents: parents == null ? this.parents : parents(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$PersonSummary<Fragment$PersonSummary> get copyWith =>
+      CopyWith$Fragment$PersonSummary(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$PersonSummary<TRes> {
+  factory CopyWith$Fragment$PersonSummary(Fragment$PersonSummary instance,
+          TRes Function(Fragment$PersonSummary) then) =
+      _CopyWithImpl$Fragment$PersonSummary;
+
+  TRes call(
+      {String? nickname,
+      String? name,
+      DateTime? dob,
+      List<DateTime?>? events,
+      List<List<DateTime?>?>? eventsOfEvents,
+      List<Fragment$PersonParent>? parents,
+      String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$PersonSummary<TRes>
+    implements CopyWith$Fragment$PersonSummary<TRes> {
+  _CopyWithImpl$Fragment$PersonSummary(this._instance, this._then);
+
+  final Fragment$PersonSummary _instance;
+
+  final TRes Function(Fragment$PersonSummary) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? nickname = _undefined,
+          Object? name = _undefined,
+          Object? dob = _undefined,
+          Object? events = _undefined,
+          Object? eventsOfEvents = _undefined,
+          Object? parents = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Fragment$PersonSummary(
+          nickname: nickname == _undefined
+              ? _instance.nickname
+              : (nickname as String?),
+          name: name == _undefined ? _instance.name : (name as String),
+          dob: dob == _undefined ? _instance.dob : (dob as DateTime?),
+          events: events == _undefined
+              ? _instance.events
+              : (events as List<DateTime?>?),
+          eventsOfEvents: eventsOfEvents == _undefined
+              ? _instance.eventsOfEvents
+              : (eventsOfEvents as List<List<DateTime?>?>?),
+          parents: parents == _undefined
+              ? _instance.parents
+              : (parents as List<Fragment$PersonParent>?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
@@ -283,10 +321,34 @@ class Fragment$PersonParent {
 }
 
 extension UtilityExtension$Fragment$PersonParent on Fragment$PersonParent {
-  Fragment$PersonParent copyWith({String? name, String? $__typename}) =>
-      Fragment$PersonParent(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$PersonParent<Fragment$PersonParent> get copyWith =>
+      CopyWith$Fragment$PersonParent(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$PersonParent<TRes> {
+  factory CopyWith$Fragment$PersonParent(Fragment$PersonParent instance,
+          TRes Function(Fragment$PersonParent) then) =
+      _CopyWithImpl$Fragment$PersonParent;
+
+  TRes call({String? name, String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$PersonParent<TRes>
+    implements CopyWith$Fragment$PersonParent<TRes> {
+  _CopyWithImpl$Fragment$PersonParent(this._instance, this._then);
+
+  final Fragment$PersonParent _instance;
+
+  final TRes Function(Fragment$PersonParent) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Fragment$PersonParent(
+          name: name == _undefined ? _instance.name : (name as String),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const fragmentDefinitionPersonParent = FragmentDefinitionNode(

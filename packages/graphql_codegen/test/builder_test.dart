@@ -67,7 +67,7 @@ void main() {
             final file = basename(entry.key.path);
             if (utf8.decode(entry.value) != files[file])
               await File(
-                "${testSet.absolute.path}/${file}.expected",
+                "${testSet.absolute.path}/${file}",
               ).writeAsBytes(entry.value);
           }
           rethrow;

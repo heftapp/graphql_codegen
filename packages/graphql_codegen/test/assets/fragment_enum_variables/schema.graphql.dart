@@ -28,8 +28,27 @@ class Input$I {
     return true;
   }
 
-  Input$I copyWith({String? Function()? s}) =>
-      Input$I(s: s == null ? this.s : s());
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+}
+
+abstract class CopyWith$Input$I<TRes> {
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
+      _CopyWithImpl$Input$I;
+
+  TRes call({String? s});
+}
+
+class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
+  _CopyWithImpl$Input$I(this._instance, this._then);
+
+  final Input$I _instance;
+
+  final TRes Function(Input$I) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined}) =>
+      _then(Input$I(s: s == _undefined ? _instance.s : (s as String?)));
 }
 
 enum Enum$Locale {
@@ -68,8 +87,31 @@ class Variables$Fragment$F1 {
     return true;
   }
 
-  Variables$Fragment$F1 copyWith({Enum$Locale? locale}) =>
-      Variables$Fragment$F1(locale: locale == null ? this.locale : locale);
+  CopyWith$Variables$Fragment$F1<Variables$Fragment$F1> get copyWith =>
+      CopyWith$Variables$Fragment$F1(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Fragment$F1<TRes> {
+  factory CopyWith$Variables$Fragment$F1(Variables$Fragment$F1 instance,
+          TRes Function(Variables$Fragment$F1) then) =
+      _CopyWithImpl$Variables$Fragment$F1;
+
+  TRes call({Enum$Locale? locale});
+}
+
+class _CopyWithImpl$Variables$Fragment$F1<TRes>
+    implements CopyWith$Variables$Fragment$F1<TRes> {
+  _CopyWithImpl$Variables$Fragment$F1(this._instance, this._then);
+
+  final Variables$Fragment$F1 _instance;
+
+  final TRes Function(Variables$Fragment$F1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F1(
+      locale:
+          locale == _undefined ? _instance.locale : (locale as Enum$Locale)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -114,14 +156,37 @@ class Fragment$F1 implements Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F1 on Fragment$F1 {
-  Fragment$F1 copyWith(
-          {String? Function()? n2,
-          String? $__typename,
-          String? Function()? n1}) =>
-      Fragment$F1(
-          n2: n2 == null ? this.n2 : n2(),
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          n1: n1 == null ? this.n1 : n1());
+  CopyWith$Fragment$F1<Fragment$F1> get copyWith =>
+      CopyWith$Fragment$F1(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F1<TRes> {
+  factory CopyWith$Fragment$F1(
+          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
+      _CopyWithImpl$Fragment$F1;
+
+  TRes call({String? n2, String? $__typename, String? n1});
+}
+
+class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
+  _CopyWithImpl$Fragment$F1(this._instance, this._then);
+
+  final Fragment$F1 _instance;
+
+  final TRes Function(Fragment$F1) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? n2 = _undefined,
+          Object? $__typename = _undefined,
+          Object? n1 = _undefined}) =>
+      _then(Fragment$F1(
+          n2: n2 == _undefined ? _instance.n2 : (n2 as String?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String),
+          n1: n1 == _undefined ? _instance.n1 : (n1 as String?)));
 }
 
 const fragmentDefinitionF1 = FragmentDefinitionNode(
@@ -181,8 +246,31 @@ class Variables$Fragment$F2 {
     return true;
   }
 
-  Variables$Fragment$F2 copyWith({Enum$Locale? locale}) =>
-      Variables$Fragment$F2(locale: locale == null ? this.locale : locale);
+  CopyWith$Variables$Fragment$F2<Variables$Fragment$F2> get copyWith =>
+      CopyWith$Variables$Fragment$F2(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Fragment$F2<TRes> {
+  factory CopyWith$Variables$Fragment$F2(Variables$Fragment$F2 instance,
+          TRes Function(Variables$Fragment$F2) then) =
+      _CopyWithImpl$Variables$Fragment$F2;
+
+  TRes call({Enum$Locale? locale});
+}
+
+class _CopyWithImpl$Variables$Fragment$F2<TRes>
+    implements CopyWith$Variables$Fragment$F2<TRes> {
+  _CopyWithImpl$Variables$Fragment$F2(this._instance, this._then);
+
+  final Variables$Fragment$F2 _instance;
+
+  final TRes Function(Variables$Fragment$F2) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F2(
+      locale:
+          locale == _undefined ? _instance.locale : (locale as Enum$Locale)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -221,10 +309,33 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  Fragment$F2 copyWith({String? Function()? n2, String? $__typename}) =>
-      Fragment$F2(
-          n2: n2 == null ? this.n2 : n2(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
+      CopyWith$Fragment$F2(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F2<TRes> {
+  factory CopyWith$Fragment$F2(
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
+      _CopyWithImpl$Fragment$F2;
+
+  TRes call({String? n2, String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
+  _CopyWithImpl$Fragment$F2(this._instance, this._then);
+
+  final Fragment$F2 _instance;
+
+  final TRes Function(Fragment$F2) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? n2 = _undefined, Object? $__typename = _undefined}) =>
+      _then(Fragment$F2(
+          n2: n2 == _undefined ? _instance.n2 : (n2 as String?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(
@@ -281,8 +392,30 @@ class Variables$Fragment$F3 {
     return true;
   }
 
-  Variables$Fragment$F3 copyWith({Input$I? i}) =>
-      Variables$Fragment$F3(i: i == null ? this.i : i);
+  CopyWith$Variables$Fragment$F3<Variables$Fragment$F3> get copyWith =>
+      CopyWith$Variables$Fragment$F3(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Fragment$F3<TRes> {
+  factory CopyWith$Variables$Fragment$F3(Variables$Fragment$F3 instance,
+          TRes Function(Variables$Fragment$F3) then) =
+      _CopyWithImpl$Variables$Fragment$F3;
+
+  TRes call({Input$I? i});
+}
+
+class _CopyWithImpl$Variables$Fragment$F3<TRes>
+    implements CopyWith$Variables$Fragment$F3<TRes> {
+  _CopyWithImpl$Variables$Fragment$F3(this._instance, this._then);
+
+  final Variables$Fragment$F3 _instance;
+
+  final TRes Function(Variables$Fragment$F3) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? i = _undefined}) => _then(
+      Variables$Fragment$F3(i: i == _undefined ? _instance.i : (i as Input$I)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -321,10 +454,33 @@ class Fragment$F3 {
 }
 
 extension UtilityExtension$Fragment$F3 on Fragment$F3 {
-  Fragment$F3 copyWith({String? Function()? test, String? $__typename}) =>
-      Fragment$F3(
-          test: test == null ? this.test : test(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$F3<Fragment$F3> get copyWith =>
+      CopyWith$Fragment$F3(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F3<TRes> {
+  factory CopyWith$Fragment$F3(
+          Fragment$F3 instance, TRes Function(Fragment$F3) then) =
+      _CopyWithImpl$Fragment$F3;
+
+  TRes call({String? test, String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$F3<TRes> implements CopyWith$Fragment$F3<TRes> {
+  _CopyWithImpl$Fragment$F3(this._instance, this._then);
+
+  final Fragment$F3 _instance;
+
+  final TRes Function(Fragment$F3) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? test = _undefined, Object? $__typename = _undefined}) =>
+      _then(Fragment$F3(
+          test: test == _undefined ? _instance.test : (test as String?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const fragmentDefinitionF3 = FragmentDefinitionNode(
@@ -382,8 +538,31 @@ class Variables$Fragment$F4 {
     return true;
   }
 
-  Variables$Fragment$F4 copyWith({Enum$Locale? locale}) =>
-      Variables$Fragment$F4(locale: locale == null ? this.locale : locale);
+  CopyWith$Variables$Fragment$F4<Variables$Fragment$F4> get copyWith =>
+      CopyWith$Variables$Fragment$F4(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Fragment$F4<TRes> {
+  factory CopyWith$Variables$Fragment$F4(Variables$Fragment$F4 instance,
+          TRes Function(Variables$Fragment$F4) then) =
+      _CopyWithImpl$Variables$Fragment$F4;
+
+  TRes call({Enum$Locale? locale});
+}
+
+class _CopyWithImpl$Variables$Fragment$F4<TRes>
+    implements CopyWith$Variables$Fragment$F4<TRes> {
+  _CopyWithImpl$Variables$Fragment$F4(this._instance, this._then);
+
+  final Variables$Fragment$F4 _instance;
+
+  final TRes Function(Variables$Fragment$F4) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F4(
+      locale:
+          locale == _undefined ? _instance.locale : (locale as Enum$Locale)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -428,14 +607,37 @@ class Fragment$F4 {
 }
 
 extension UtilityExtension$Fragment$F4 on Fragment$F4 {
-  Fragment$F4 copyWith(
-          {String? Function()? n1,
-          String? Function()? n2,
-          String? $__typename}) =>
-      Fragment$F4(
-          n1: n1 == null ? this.n1 : n1(),
-          n2: n2 == null ? this.n2 : n2(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$F4<Fragment$F4> get copyWith =>
+      CopyWith$Fragment$F4(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F4<TRes> {
+  factory CopyWith$Fragment$F4(
+          Fragment$F4 instance, TRes Function(Fragment$F4) then) =
+      _CopyWithImpl$Fragment$F4;
+
+  TRes call({String? n1, String? n2, String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$F4<TRes> implements CopyWith$Fragment$F4<TRes> {
+  _CopyWithImpl$Fragment$F4(this._instance, this._then);
+
+  final Fragment$F4 _instance;
+
+  final TRes Function(Fragment$F4) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? n1 = _undefined,
+          Object? n2 = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Fragment$F4(
+          n1: n1 == _undefined ? _instance.n1 : (n1 as String?),
+          n2: n2 == _undefined ? _instance.n2 : (n2 as String?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const fragmentDefinitionF4 = FragmentDefinitionNode(

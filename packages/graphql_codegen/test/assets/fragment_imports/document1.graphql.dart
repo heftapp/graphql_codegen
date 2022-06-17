@@ -31,8 +31,29 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  Fragment$F2 copyWith({int? Function()? value}) =>
-      Fragment$F2(value: value == null ? this.value : value());
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
+      CopyWith$Fragment$F2(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$F2<TRes> {
+  factory CopyWith$Fragment$F2(
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
+      _CopyWithImpl$Fragment$F2;
+
+  TRes call({int? value});
+}
+
+class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
+  _CopyWithImpl$Fragment$F2(this._instance, this._then);
+
+  final Fragment$F2 _instance;
+
+  final TRes Function(Fragment$F2) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? value = _undefined}) => _then(Fragment$F2(
+      value: value == _undefined ? _instance.value : (value as int?)));
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(

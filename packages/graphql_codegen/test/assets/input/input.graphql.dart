@@ -40,13 +40,33 @@ class Input$I1 {
     return true;
   }
 
-  Input$I1 copyWith(
-          {String? s,
-          Input$I1? Function()? nested_input,
-          int? Function()? $_min}) =>
-      Input$I1(
-          s: s == null ? this.s : s,
-          nested_input:
-              nested_input == null ? this.nested_input : nested_input(),
-          $_min: $_min == null ? this.$_min : $_min());
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
+}
+
+abstract class CopyWith$Input$I1<TRes> {
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
+
+  TRes call({String? s, Input$I1? nested_input, int? $_min});
+}
+
+class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
+  _CopyWithImpl$Input$I1(this._instance, this._then);
+
+  final Input$I1 _instance;
+
+  final TRes Function(Input$I1) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? s = _undefined,
+          Object? nested_input = _undefined,
+          Object? $_min = _undefined}) =>
+      _then(Input$I1(
+          s: s == _undefined ? _instance.s : (s as String),
+          nested_input: nested_input == _undefined
+              ? _instance.nested_input
+              : (nested_input as Input$I1?),
+          $_min: $_min == _undefined ? _instance.$_min : ($_min as int?)));
 }

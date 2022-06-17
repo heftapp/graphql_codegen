@@ -32,8 +32,32 @@ class Variables$Query$FetchSOptional {
     return true;
   }
 
-  Variables$Query$FetchSOptional copyWith({String? Function()? name}) =>
-      Variables$Query$FetchSOptional(name: name == null ? this.name : name());
+  CopyWith$Variables$Query$FetchSOptional<Variables$Query$FetchSOptional>
+      get copyWith => CopyWith$Variables$Query$FetchSOptional(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
+  factory CopyWith$Variables$Query$FetchSOptional(
+          Variables$Query$FetchSOptional instance,
+          TRes Function(Variables$Query$FetchSOptional) then) =
+      _CopyWithImpl$Variables$Query$FetchSOptional;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
+    implements CopyWith$Variables$Query$FetchSOptional<TRes> {
+  _CopyWithImpl$Variables$Query$FetchSOptional(this._instance, this._then);
+
+  final Variables$Query$FetchSOptional _instance;
+
+  final TRes Function(Variables$Query$FetchSOptional) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Variables$Query$FetchSOptional(
+          name: name == _undefined ? _instance.name : (name as String?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -65,8 +89,30 @@ class Query$FetchSOptional {
 }
 
 extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
-  Query$FetchSOptional copyWith({String? Function()? s}) =>
-      Query$FetchSOptional(s: s == null ? this.s : s());
+  CopyWith$Query$FetchSOptional<Query$FetchSOptional> get copyWith =>
+      CopyWith$Query$FetchSOptional(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchSOptional<TRes> {
+  factory CopyWith$Query$FetchSOptional(Query$FetchSOptional instance,
+          TRes Function(Query$FetchSOptional) then) =
+      _CopyWithImpl$Query$FetchSOptional;
+
+  TRes call({String? s});
+}
+
+class _CopyWithImpl$Query$FetchSOptional<TRes>
+    implements CopyWith$Query$FetchSOptional<TRes> {
+  _CopyWithImpl$Query$FetchSOptional(this._instance, this._then);
+
+  final Query$FetchSOptional _instance;
+
+  final TRes Function(Query$FetchSOptional) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined}) => _then(
+      Query$FetchSOptional(s: s == _undefined ? _instance.s : (s as String?)));
 }
 
 const documentNodeQueryFetchSOptional = DocumentNode(definitions: [

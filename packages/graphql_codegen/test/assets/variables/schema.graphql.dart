@@ -33,9 +33,30 @@ class Input$I1 {
     return true;
   }
 
-  Input$I1 copyWith({String? s, Input$I1? Function()? nested}) => Input$I1(
-      s: s == null ? this.s : s,
-      nested: nested == null ? this.nested : nested());
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
+}
+
+abstract class CopyWith$Input$I1<TRes> {
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
+
+  TRes call({String? s, Input$I1? nested});
+}
+
+class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
+  _CopyWithImpl$Input$I1(this._instance, this._then);
+
+  final Input$I1 _instance;
+
+  final TRes Function(Input$I1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined, Object? nested = _undefined}) =>
+      _then(Input$I1(
+          s: s == _undefined ? _instance.s : (s as String),
+          nested:
+              nested == _undefined ? _instance.nested : (nested as Input$I1?)));
 }
 
 const possibleTypesMap = {};

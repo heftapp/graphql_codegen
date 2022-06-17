@@ -35,8 +35,34 @@ class Variables$Mutation$UpdateSRequired {
     return true;
   }
 
-  Variables$Mutation$UpdateSRequired copyWith({String? name}) =>
-      Variables$Mutation$UpdateSRequired(name: name == null ? this.name : name);
+  CopyWith$Variables$Mutation$UpdateSRequired<
+          Variables$Mutation$UpdateSRequired>
+      get copyWith =>
+          CopyWith$Variables$Mutation$UpdateSRequired(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
+  factory CopyWith$Variables$Mutation$UpdateSRequired(
+          Variables$Mutation$UpdateSRequired instance,
+          TRes Function(Variables$Mutation$UpdateSRequired) then) =
+      _CopyWithImpl$Variables$Mutation$UpdateSRequired;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
+    implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
+  _CopyWithImpl$Variables$Mutation$UpdateSRequired(this._instance, this._then);
+
+  final Variables$Mutation$UpdateSRequired _instance;
+
+  final TRes Function(Variables$Mutation$UpdateSRequired) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Variables$Mutation$UpdateSRequired(
+          name: name == _undefined ? _instance.name : (name as String)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -69,8 +95,30 @@ class Mutation$UpdateSRequired {
 
 extension UtilityExtension$Mutation$UpdateSRequired
     on Mutation$UpdateSRequired {
-  Mutation$UpdateSRequired copyWith({String? Function()? s}) =>
-      Mutation$UpdateSRequired(s: s == null ? this.s : s());
+  CopyWith$Mutation$UpdateSRequired<Mutation$UpdateSRequired> get copyWith =>
+      CopyWith$Mutation$UpdateSRequired(this, (i) => i);
+}
+
+abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
+  factory CopyWith$Mutation$UpdateSRequired(Mutation$UpdateSRequired instance,
+          TRes Function(Mutation$UpdateSRequired) then) =
+      _CopyWithImpl$Mutation$UpdateSRequired;
+
+  TRes call({String? s});
+}
+
+class _CopyWithImpl$Mutation$UpdateSRequired<TRes>
+    implements CopyWith$Mutation$UpdateSRequired<TRes> {
+  _CopyWithImpl$Mutation$UpdateSRequired(this._instance, this._then);
+
+  final Mutation$UpdateSRequired _instance;
+
+  final TRes Function(Mutation$UpdateSRequired) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSRequired(
+      s: s == _undefined ? _instance.s : (s as String?)));
 }
 
 const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [

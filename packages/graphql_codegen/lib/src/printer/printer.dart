@@ -12,6 +12,36 @@ import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 import 'context.dart';
 import 'utils.dart';
 
+// extension UtilityExtension$Query$Foobar on Query$Foobar {
+//   CopyWith$Query$Foobar<Query$Foobar> get copyWith =>
+//       CopyWith$Query$Foobar(this, (p) => p);
+// }
+
+// abstract class CopyWith$Query$Foobar<TRes> {
+//   factory CopyWith$Query$Foobar(
+//           Query$Foobar instance, TRes Function(Query$Foobar) then) =
+//       _CopyWithImpl$Query$Foobar;
+
+//   TRes call({Enum$Enum field, List<Enum$Enum> fields});
+// }
+
+// class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
+//   Query$Foobar _instance;
+//   TRes Function(Query$Foobar) then;
+//   _CopyWithImpl$Query$Foobar(this._instance, this.then);
+
+//   static const _undefined = {};
+
+//   TRes call({Object? field = _undefined, Object? fields = _undefined}) => then(
+//         Query$Foobar(
+//           field: field == _undefined ? _instance.field : field as Enum$Enum,
+//           fields: fields == _undefined
+//               ? _instance.fields
+//               : fields as List<Enum$Enum>,
+//         ),
+//       );
+// }
+
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
 const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
 
@@ -30,7 +60,8 @@ Spec printEnum(PrintContext<ContextEnum> context) {
   );
 }
 
-Spec printInput(PrintContext<ContextInput> context) => _printInputClass(
+List<Spec> printInputClasses(PrintContext<ContextInput> context) =>
+    _printInputClasses(
       context,
       context.namePrinter.printClassName(context.context.path),
       context.context.properties,
@@ -45,108 +76,87 @@ Expression printJsonSerializableAnnotation([bool skipNulls = false]) =>
       },
     );
 
-Spec _printInputClass(
+List<Spec> _printInputClasses(
   PrintContext context,
   String name,
   Iterable<ContextProperty> properties,
 ) {
   context.addPackage('package:json_annotation/json_annotation.dart');
   context.markAsJsonSerializable();
-  return Class(
-    (b) => b
-      ..annotations = ListBuilder([
-        printJsonSerializableAnnotation(
-          !context.context.config.includeIfNullOnInput,
-        )
-      ])
-      ..name = name
-      ..constructors = ListBuilder([
-        Constructor(
-          (b) => b
-            ..optionalParameters = ListBuilder(
-              properties.map(
-                (property) => Parameter(
-                  (b) => b
-                    ..named = true
-                    ..toThis = true
-                    ..required = property.isRequired
-                    ..name =
-                        context.namePrinter.printPropertyName(property.name),
+  return [
+    Class(
+      (b) => b
+        ..annotations = ListBuilder([
+          printJsonSerializableAnnotation(
+            !context.context.config.includeIfNullOnInput,
+          )
+        ])
+        ..name = name
+        ..constructors = ListBuilder([
+          Constructor(
+            (b) => b
+              ..optionalParameters = ListBuilder(
+                properties.map(
+                  (property) => Parameter(
+                    (b) => b
+                      ..named = true
+                      ..toThis = true
+                      ..required = property.isRequired
+                      ..name =
+                          context.namePrinter.printPropertyName(property.name),
+                  ),
                 ),
               ),
-            ),
-        ),
-        printFromJson(context, name),
-      ])
-      ..fields = ListBuilder(
-        properties.map((property) => printClassProperty(
-              context,
-              property,
-            )),
-      )
-      ..methods = ListBuilder([
-        printToJsonMethod(context, name),
-        printHashCodeMethod(context, properties),
-        printEqualityOperator(context, name, properties),
-        printCopyWithMethod(
-          refer(name),
-          context,
-          properties,
-        ),
-      ]),
-  );
+          ),
+          printFromJson(context, name),
+        ])
+        ..fields = ListBuilder(
+          properties.map((property) => printClassProperty(
+                context,
+                property,
+              )),
+        )
+        ..methods = ListBuilder([
+          printToJsonMethod(context, name),
+          printHashCodeMethod(context, properties),
+          printEqualityOperator(context, name, properties),
+          printCopyWithMethod(
+            name,
+            context,
+          ),
+        ]),
+    ),
+    ...printCopyWithClasses(context, name, properties),
+  ];
 }
 
 Method printCopyWithMethod(
-  Reference name,
+  String name,
   PrintContext context,
-  Iterable<ContextProperty> properties,
 ) {
-  return Method(
-    (b) => b
-      ..returns = name
-      ..name = 'copyWith'
-      ..optionalParameters = ListBuilder(properties.map(
-        (property) {
-          final parameterType =
-              printClassPropertyType(context, property).reference;
-          return Parameter(
-            (b) => b
-              ..name = context.namePrinter.printPropertyName(property.name)
-              ..named = true
-              ..type = property.type.isNonNull
-                  ? TypeReference(
-                      (b) => b
-                        ..isNullable = true
-                        ..symbol = parameterType.symbol,
-                    )
-                  : FunctionType(
-                      (b) => b
-                        ..returnType = parameterType
-                        ..isNullable = true,
-                    ),
-          );
-        },
-      ))
-      ..lambda = true
-      ..body = name.call(
-        [],
-        Map.fromEntries(properties.map((property) {
-          final propertyName =
-              context.namePrinter.printPropertyName(property.name);
-          return MapEntry(
-            propertyName,
-            refer(propertyName).equalTo(literalNull).conditional(
-                  refer('this').property(propertyName),
-                  property.type.isNonNull
-                      ? refer(propertyName)
-                      : refer(propertyName).call([]),
-                ),
-          );
-        })),
-      ).code,
-  );
+  return Method((b) => b
+    ..returns = TypeReference(
+      (b) => b
+        ..symbol = context.namePrinter.printCopyWithClassName(name)
+        ..types = ListBuilder(<Reference>[refer(name)]),
+    )
+    ..name = 'copyWith'
+    ..type = MethodType.getter
+    ..lambda = true
+    ..body = refer(context.namePrinter.printCopyWithClassName(name)).call(
+      [
+        refer('this'),
+        printIdentityFunction().closure,
+      ],
+    ).code);
 }
+
+Method printIdentityFunction() => Method(
+      (b) => b
+        ..lambda = true
+        ..requiredParameters = ListBuilder([Parameter((b) => b..name = 'i')])
+        ..body = refer('i').code,
+    );
 
 Method printHashCodeMethod(
         PrintContext context, Iterable<ContextProperty> properties) =>
@@ -203,7 +213,7 @@ Expression printPropertyHash(TypeNode type, Expression name) {
   throw StateError("Unsupported type node");
 }
 
-Spec printVariables(PrintContext context) => _printInputClass(
+List<Spec> printVariableClasses(PrintContext context) => _printInputClasses(
       context,
       context.namePrinter.printVariableClassName(context.context.path),
       context.context.variables,
@@ -264,9 +274,9 @@ Library printRootContext<TKey extends Object>(
     PrintContext<ContextRoot<TKey>> c) {
   final context = c.context;
   final clients = context.config.clients;
-  final body = ListBuilder<Spec>([
-    ...context.contextInputs.map(
-      (context) => printInput(c.withContext(context)),
+  final body = ListBuilder<Spec>(<Spec>[
+    ...context.contextInputs.expand(
+      (context) => printInputClasses(c.withContext(context)),
     ),
     ...context.contextEnums.map((context) => printEnum(c.withContext(context))),
     ...context.contextFragments
@@ -275,9 +285,9 @@ Library printRootContext<TKey extends Object>(
       final fragmentNode = context.fragment;
       final elementContext = c.withContext(context);
       return [
-        if (context.hasVariables) printVariables(elementContext),
+        if (context.hasVariables) ...printVariableClasses(elementContext),
         printContext(elementContext),
-        printContextExtension(elementContext),
+        ...printContextExtension(elementContext),
         if (fragmentNode != null) ...[
           printFragmentDefinition(
             elementContext,
@@ -301,9 +311,9 @@ Library printRootContext<TKey extends Object>(
       final operation = element.operation;
       final elementContext = c.withContext(element);
       return [
-        if (element.hasVariables) printVariables(elementContext),
+        if (element.hasVariables) ...printVariableClasses(elementContext),
         printContext(elementContext),
-        printContextExtension(elementContext),
+        ...printContextExtension(elementContext),
         if (operation != null)
           printDocument(
             elementContext,
@@ -476,7 +486,7 @@ Class printContext(PrintContext c) {
   );
 }
 
-Extension printContextExtension(PrintContext c) {
+List<Spec> printContextExtension(PrintContext c) {
   final context = c.context;
   final extendContext = context.extendsContext;
   final properties = _mergeProperties(
@@ -484,18 +494,166 @@ Extension printContextExtension(PrintContext c) {
     extendContext?.properties ?? [],
     c.context.properties,
   );
-  return Extension(
-    (b) => b
-      ..name = c.namePrinter.printClassExtensionName(context.path)
-      ..on = refer(c.namePrinter.printClassName(context.path))
-      ..methods = ListBuilder([
-        printCopyWithMethod(
-          refer(c.namePrinter.printClassName(context.path)),
-          c,
-          properties,
-        ),
-      ]),
-  );
+  return [
+    Extension(
+      (b) => b
+        ..name = c.namePrinter.printClassExtensionName(context.path)
+        ..on = refer(c.namePrinter.printClassName(context.path))
+        ..methods = ListBuilder([
+          printCopyWithMethod(
+            c.namePrinter.printClassName(context.path),
+            c,
+          ),
+        ]),
+    ),
+    ...printCopyWithClasses(
+      c,
+      c.namePrinter.printClassName(context.path),
+      properties,
+    ),
+  ];
+}
+
+const _undefined = '_undefined';
+
+List<Spec> printCopyWithClasses(
+  PrintContext c,
+  String name,
+  Iterable<ContextProperty> properties,
+) {
+  return [
+    Class(
+      (b) => b
+        ..types = ListBuilder([refer('TRes')])
+        ..name = c.namePrinter.printCopyWithClassName(name)
+        ..abstract = true
+        ..constructors = ListBuilder(<Constructor>[
+          Constructor(
+            (b) => b
+              ..initializers
+              ..factory = true
+              ..requiredParameters = ListBuilder(<Parameter>[
+                Parameter((b) => b
+                  ..name = 'instance'
+                  ..type = refer(name)),
+                Parameter((b) => b
+                  ..name = 'then'
+                  ..type = FunctionType(
+                    (b) => b
+                      ..returnType = refer('TRes')
+                      ..requiredParameters =
+                          ListBuilder(<Reference>[refer(name)]),
+                  )),
+              ])
+              ..redirect =
+                  refer(c.namePrinter.printCopyWithImplClassName(name)),
+          )
+        ])
+        ..methods = ListBuilder([
+          Method((b) => b
+            ..name = 'call'
+            ..returns = refer('TRes')
+            ..optionalParameters = ListBuilder(
+              properties.map((property) {
+                final propertyType =
+                    printClassPropertyType(c, property).reference;
+                return Parameter(
+                  (b) => b
+                    ..name = c.namePrinter.printPropertyName(property.name)
+                    ..named = true
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = propertyType.symbol
+                        ..isNullable = property.isRequired,
+                    ),
+                );
+              }),
+            )),
+        ]),
+    ),
+    Class(
+      (b) => b
+        ..types = ListBuilder([refer('TRes')])
+        ..name = c.namePrinter.printCopyWithImplClassName(name)
+        ..implements = ListBuilder([
+          generic(c.namePrinter.printCopyWithClassName(name), refer('TRes')),
+        ])
+        ..constructors = ListBuilder([
+          Constructor((b) => b
+            ..requiredParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..toThis = true
+                  ..name = '_instance',
+              ),
+              Parameter(
+                (b) => b
+                  ..toThis = true
+                  ..name = '_then',
+              ),
+            ]))
+        ])
+        ..fields = ListBuilder([
+          Field(
+            (b) => b
+              ..name = '_instance'
+              ..type = refer(name)
+              ..modifier = FieldModifier.final$,
+          ),
+          Field(
+            (b) => b
+              ..name = '_then'
+              ..type = FunctionType(
+                (b) => b
+                  ..requiredParameters = ListBuilder(<Reference>[refer(name)])
+                  ..returnType = refer('TRes'),
+              )
+              ..modifier = FieldModifier.final$,
+          ),
+          Field(
+            (b) => b
+              ..name = _undefined
+              ..static = true
+              ..modifier = FieldModifier.constant
+              ..assignment = literalMap({}).code,
+          )
+        ])
+        ..methods = ListBuilder([
+          Method(
+            (b) => b
+              ..name = 'call'
+              ..returns = refer('TRes')
+              ..optionalParameters = ListBuilder(
+                properties.map((property) {
+                  return Parameter(
+                    (b) => b
+                      ..name = c.namePrinter.printPropertyName(property.name)
+                      ..named = true
+                      ..defaultTo = refer(_undefined).code
+                      ..type = refer('Object?'),
+                  );
+                }),
+              )
+              ..lambda = true
+              ..body = refer('_then').call([
+                refer(name).call([], Map.fromEntries(properties.map((property) {
+                  final parameterName =
+                      c.namePrinter.printPropertyName(property.name);
+                  final propertyType =
+                      printClassPropertyType(c, property).reference;
+                  return MapEntry(
+                      parameterName,
+                      refer(parameterName)
+                          .equalTo(refer(_undefined))
+                          .conditional(
+                              refer('_instance').property(parameterName),
+                              refer(parameterName).asA(propertyType)));
+                }))),
+              ]).code,
+          ),
+        ]),
+    )
+  ];
 }
 
 Method printEqualityOperator(

@@ -42,14 +42,40 @@ class Subscription$NoArgs {
 }
 
 extension UtilityExtension$Subscription$NoArgs on Subscription$NoArgs {
-  Subscription$NoArgs copyWith(
-          {Subscription$NoArgs$listenForChange? Function()? listenForChange,
-          String? $__typename}) =>
-      Subscription$NoArgs(
-          listenForChange: listenForChange == null
-              ? this.listenForChange
-              : listenForChange(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$NoArgs<Subscription$NoArgs> get copyWith =>
+      CopyWith$Subscription$NoArgs(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$NoArgs<TRes> {
+  factory CopyWith$Subscription$NoArgs(Subscription$NoArgs instance,
+          TRes Function(Subscription$NoArgs) then) =
+      _CopyWithImpl$Subscription$NoArgs;
+
+  TRes call(
+      {Subscription$NoArgs$listenForChange? listenForChange,
+      String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$NoArgs<TRes>
+    implements CopyWith$Subscription$NoArgs<TRes> {
+  _CopyWithImpl$Subscription$NoArgs(this._instance, this._then);
+
+  final Subscription$NoArgs _instance;
+
+  final TRes Function(Subscription$NoArgs) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? listenForChange = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Subscription$NoArgs(
+          listenForChange: listenForChange == _undefined
+              ? _instance.listenForChange
+              : (listenForChange as Subscription$NoArgs$listenForChange?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const documentNodeSubscriptionNoArgs = DocumentNode(definitions: [
@@ -212,11 +238,37 @@ class Subscription$NoArgs$listenForChange {
 
 extension UtilityExtension$Subscription$NoArgs$listenForChange
     on Subscription$NoArgs$listenForChange {
-  Subscription$NoArgs$listenForChange copyWith(
-          {String? name, String? $__typename}) =>
-      Subscription$NoArgs$listenForChange(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$NoArgs$listenForChange<
+          Subscription$NoArgs$listenForChange>
+      get copyWith =>
+          CopyWith$Subscription$NoArgs$listenForChange(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$NoArgs$listenForChange<TRes> {
+  factory CopyWith$Subscription$NoArgs$listenForChange(
+          Subscription$NoArgs$listenForChange instance,
+          TRes Function(Subscription$NoArgs$listenForChange) then) =
+      _CopyWithImpl$Subscription$NoArgs$listenForChange;
+
+  TRes call({String? name, String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$NoArgs$listenForChange<TRes>
+    implements CopyWith$Subscription$NoArgs$listenForChange<TRes> {
+  _CopyWithImpl$Subscription$NoArgs$listenForChange(this._instance, this._then);
+
+  final Subscription$NoArgs$listenForChange _instance;
+
+  final TRes Function(Subscription$NoArgs$listenForChange) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Subscription$NoArgs$listenForChange(
+          name: name == _undefined ? _instance.name : (name as String),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -248,8 +300,34 @@ class Variables$Subscription$RequiredArg {
     return true;
   }
 
-  Variables$Subscription$RequiredArg copyWith({String? name}) =>
-      Variables$Subscription$RequiredArg(name: name == null ? this.name : name);
+  CopyWith$Variables$Subscription$RequiredArg<
+          Variables$Subscription$RequiredArg>
+      get copyWith =>
+          CopyWith$Variables$Subscription$RequiredArg(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Subscription$RequiredArg<TRes> {
+  factory CopyWith$Variables$Subscription$RequiredArg(
+          Variables$Subscription$RequiredArg instance,
+          TRes Function(Variables$Subscription$RequiredArg) then) =
+      _CopyWithImpl$Variables$Subscription$RequiredArg;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Variables$Subscription$RequiredArg<TRes>
+    implements CopyWith$Variables$Subscription$RequiredArg<TRes> {
+  _CopyWithImpl$Variables$Subscription$RequiredArg(this._instance, this._then);
+
+  final Variables$Subscription$RequiredArg _instance;
+
+  final TRes Function(Variables$Subscription$RequiredArg) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Variables$Subscription$RequiredArg(
+          name: name == _undefined ? _instance.name : (name as String)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -289,15 +367,40 @@ class Subscription$RequiredArg {
 
 extension UtilityExtension$Subscription$RequiredArg
     on Subscription$RequiredArg {
-  Subscription$RequiredArg copyWith(
-          {Subscription$RequiredArg$listenForChange? Function()?
-              listenForChange,
-          String? $__typename}) =>
-      Subscription$RequiredArg(
-          listenForChange: listenForChange == null
-              ? this.listenForChange
-              : listenForChange(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$RequiredArg<Subscription$RequiredArg> get copyWith =>
+      CopyWith$Subscription$RequiredArg(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$RequiredArg<TRes> {
+  factory CopyWith$Subscription$RequiredArg(Subscription$RequiredArg instance,
+          TRes Function(Subscription$RequiredArg) then) =
+      _CopyWithImpl$Subscription$RequiredArg;
+
+  TRes call(
+      {Subscription$RequiredArg$listenForChange? listenForChange,
+      String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$RequiredArg<TRes>
+    implements CopyWith$Subscription$RequiredArg<TRes> {
+  _CopyWithImpl$Subscription$RequiredArg(this._instance, this._then);
+
+  final Subscription$RequiredArg _instance;
+
+  final TRes Function(Subscription$RequiredArg) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? listenForChange = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Subscription$RequiredArg(
+          listenForChange: listenForChange == _undefined
+              ? _instance.listenForChange
+              : (listenForChange as Subscription$RequiredArg$listenForChange?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const documentNodeSubscriptionRequiredArg = DocumentNode(definitions: [
@@ -482,11 +585,38 @@ class Subscription$RequiredArg$listenForChange {
 
 extension UtilityExtension$Subscription$RequiredArg$listenForChange
     on Subscription$RequiredArg$listenForChange {
-  Subscription$RequiredArg$listenForChange copyWith(
-          {String? name, String? $__typename}) =>
-      Subscription$RequiredArg$listenForChange(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$RequiredArg$listenForChange<
+          Subscription$RequiredArg$listenForChange>
+      get copyWith =>
+          CopyWith$Subscription$RequiredArg$listenForChange(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$RequiredArg$listenForChange<TRes> {
+  factory CopyWith$Subscription$RequiredArg$listenForChange(
+          Subscription$RequiredArg$listenForChange instance,
+          TRes Function(Subscription$RequiredArg$listenForChange) then) =
+      _CopyWithImpl$Subscription$RequiredArg$listenForChange;
+
+  TRes call({String? name, String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$RequiredArg$listenForChange<TRes>
+    implements CopyWith$Subscription$RequiredArg$listenForChange<TRes> {
+  _CopyWithImpl$Subscription$RequiredArg$listenForChange(
+      this._instance, this._then);
+
+  final Subscription$RequiredArg$listenForChange _instance;
+
+  final TRes Function(Subscription$RequiredArg$listenForChange) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Subscription$RequiredArg$listenForChange(
+          name: name == _undefined ? _instance.name : (name as String),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -518,9 +648,34 @@ class Variables$Subscription$OptionalArg {
     return true;
   }
 
-  Variables$Subscription$OptionalArg copyWith({String? Function()? name}) =>
-      Variables$Subscription$OptionalArg(
-          name: name == null ? this.name : name());
+  CopyWith$Variables$Subscription$OptionalArg<
+          Variables$Subscription$OptionalArg>
+      get copyWith =>
+          CopyWith$Variables$Subscription$OptionalArg(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Subscription$OptionalArg<TRes> {
+  factory CopyWith$Variables$Subscription$OptionalArg(
+          Variables$Subscription$OptionalArg instance,
+          TRes Function(Variables$Subscription$OptionalArg) then) =
+      _CopyWithImpl$Variables$Subscription$OptionalArg;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Variables$Subscription$OptionalArg<TRes>
+    implements CopyWith$Variables$Subscription$OptionalArg<TRes> {
+  _CopyWithImpl$Variables$Subscription$OptionalArg(this._instance, this._then);
+
+  final Variables$Subscription$OptionalArg _instance;
+
+  final TRes Function(Variables$Subscription$OptionalArg) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Variables$Subscription$OptionalArg(
+          name: name == _undefined ? _instance.name : (name as String?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -560,15 +715,40 @@ class Subscription$OptionalArg {
 
 extension UtilityExtension$Subscription$OptionalArg
     on Subscription$OptionalArg {
-  Subscription$OptionalArg copyWith(
-          {Subscription$OptionalArg$listenForChange? Function()?
-              listenForChange,
-          String? $__typename}) =>
-      Subscription$OptionalArg(
-          listenForChange: listenForChange == null
-              ? this.listenForChange
-              : listenForChange(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$OptionalArg<Subscription$OptionalArg> get copyWith =>
+      CopyWith$Subscription$OptionalArg(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$OptionalArg<TRes> {
+  factory CopyWith$Subscription$OptionalArg(Subscription$OptionalArg instance,
+          TRes Function(Subscription$OptionalArg) then) =
+      _CopyWithImpl$Subscription$OptionalArg;
+
+  TRes call(
+      {Subscription$OptionalArg$listenForChange? listenForChange,
+      String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$OptionalArg<TRes>
+    implements CopyWith$Subscription$OptionalArg<TRes> {
+  _CopyWithImpl$Subscription$OptionalArg(this._instance, this._then);
+
+  final Subscription$OptionalArg _instance;
+
+  final TRes Function(Subscription$OptionalArg) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? listenForChange = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Subscription$OptionalArg(
+          listenForChange: listenForChange == _undefined
+              ? _instance.listenForChange
+              : (listenForChange as Subscription$OptionalArg$listenForChange?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const documentNodeSubscriptionOptionalArg = DocumentNode(definitions: [
@@ -753,11 +933,38 @@ class Subscription$OptionalArg$listenForChange {
 
 extension UtilityExtension$Subscription$OptionalArg$listenForChange
     on Subscription$OptionalArg$listenForChange {
-  Subscription$OptionalArg$listenForChange copyWith(
-          {String? name, String? $__typename}) =>
-      Subscription$OptionalArg$listenForChange(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$OptionalArg$listenForChange<
+          Subscription$OptionalArg$listenForChange>
+      get copyWith =>
+          CopyWith$Subscription$OptionalArg$listenForChange(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$OptionalArg$listenForChange<TRes> {
+  factory CopyWith$Subscription$OptionalArg$listenForChange(
+          Subscription$OptionalArg$listenForChange instance,
+          TRes Function(Subscription$OptionalArg$listenForChange) then) =
+      _CopyWithImpl$Subscription$OptionalArg$listenForChange;
+
+  TRes call({String? name, String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$OptionalArg$listenForChange<TRes>
+    implements CopyWith$Subscription$OptionalArg$listenForChange<TRes> {
+  _CopyWithImpl$Subscription$OptionalArg$listenForChange(
+      this._instance, this._then);
+
+  final Subscription$OptionalArg$listenForChange _instance;
+
+  final TRes Function(Subscription$OptionalArg$listenForChange) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Subscription$OptionalArg$listenForChange(
+          name: name == _undefined ? _instance.name : (name as String),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const possibleTypesMap = {};

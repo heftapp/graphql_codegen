@@ -91,22 +91,51 @@ class Query$FetchScalars {
 }
 
 extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
-  Query$FetchScalars copyWith(
-          {int? Function()? i,
-          int? Function()? id,
-          String? Function()? s,
-          String? Function()? c1,
-          DateTime? Function()? c2,
-          Fobbob? Function()? c3,
-          List<Fobbob?>? Function()? c3s}) =>
-      Query$FetchScalars(
-          i: i == null ? this.i : i(),
-          id: id == null ? this.id : id(),
-          s: s == null ? this.s : s(),
-          c1: c1 == null ? this.c1 : c1(),
-          c2: c2 == null ? this.c2 : c2(),
-          c3: c3 == null ? this.c3 : c3(),
-          c3s: c3s == null ? this.c3s : c3s());
+  CopyWith$Query$FetchScalars<Query$FetchScalars> get copyWith =>
+      CopyWith$Query$FetchScalars(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchScalars<TRes> {
+  factory CopyWith$Query$FetchScalars(
+          Query$FetchScalars instance, TRes Function(Query$FetchScalars) then) =
+      _CopyWithImpl$Query$FetchScalars;
+
+  TRes call(
+      {int? i,
+      int? id,
+      String? s,
+      String? c1,
+      DateTime? c2,
+      Fobbob? c3,
+      List<Fobbob?>? c3s});
+}
+
+class _CopyWithImpl$Query$FetchScalars<TRes>
+    implements CopyWith$Query$FetchScalars<TRes> {
+  _CopyWithImpl$Query$FetchScalars(this._instance, this._then);
+
+  final Query$FetchScalars _instance;
+
+  final TRes Function(Query$FetchScalars) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? i = _undefined,
+          Object? id = _undefined,
+          Object? s = _undefined,
+          Object? c1 = _undefined,
+          Object? c2 = _undefined,
+          Object? c3 = _undefined,
+          Object? c3s = _undefined}) =>
+      _then(Query$FetchScalars(
+          i: i == _undefined ? _instance.i : (i as int?),
+          id: id == _undefined ? _instance.id : (id as int?),
+          s: s == _undefined ? _instance.s : (s as String?),
+          c1: c1 == _undefined ? _instance.c1 : (c1 as String?),
+          c2: c2 == _undefined ? _instance.c2 : (c2 as DateTime?),
+          c3: c3 == _undefined ? _instance.c3 : (c3 as Fobbob?),
+          c3s: c3s == _undefined ? _instance.c3s : (c3s as List<Fobbob?>?)));
 }
 
 const documentNodeQueryFetchScalars = DocumentNode(definitions: [

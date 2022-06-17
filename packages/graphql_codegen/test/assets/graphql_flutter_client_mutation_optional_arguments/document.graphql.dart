@@ -35,9 +35,34 @@ class Variables$Mutation$UpdateSOptional {
     return true;
   }
 
-  Variables$Mutation$UpdateSOptional copyWith({String? Function()? name}) =>
-      Variables$Mutation$UpdateSOptional(
-          name: name == null ? this.name : name());
+  CopyWith$Variables$Mutation$UpdateSOptional<
+          Variables$Mutation$UpdateSOptional>
+      get copyWith =>
+          CopyWith$Variables$Mutation$UpdateSOptional(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
+  factory CopyWith$Variables$Mutation$UpdateSOptional(
+          Variables$Mutation$UpdateSOptional instance,
+          TRes Function(Variables$Mutation$UpdateSOptional) then) =
+      _CopyWithImpl$Variables$Mutation$UpdateSOptional;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
+    implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
+  _CopyWithImpl$Variables$Mutation$UpdateSOptional(this._instance, this._then);
+
+  final Variables$Mutation$UpdateSOptional _instance;
+
+  final TRes Function(Variables$Mutation$UpdateSOptional) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Variables$Mutation$UpdateSOptional(
+          name: name == _undefined ? _instance.name : (name as String?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -70,8 +95,30 @@ class Mutation$UpdateSOptional {
 
 extension UtilityExtension$Mutation$UpdateSOptional
     on Mutation$UpdateSOptional {
-  Mutation$UpdateSOptional copyWith({String? Function()? s}) =>
-      Mutation$UpdateSOptional(s: s == null ? this.s : s());
+  CopyWith$Mutation$UpdateSOptional<Mutation$UpdateSOptional> get copyWith =>
+      CopyWith$Mutation$UpdateSOptional(this, (i) => i);
+}
+
+abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
+  factory CopyWith$Mutation$UpdateSOptional(Mutation$UpdateSOptional instance,
+          TRes Function(Mutation$UpdateSOptional) then) =
+      _CopyWithImpl$Mutation$UpdateSOptional;
+
+  TRes call({String? s});
+}
+
+class _CopyWithImpl$Mutation$UpdateSOptional<TRes>
+    implements CopyWith$Mutation$UpdateSOptional<TRes> {
+  _CopyWithImpl$Mutation$UpdateSOptional(this._instance, this._then);
+
+  final Mutation$UpdateSOptional _instance;
+
+  final TRes Function(Mutation$UpdateSOptional) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSOptional(
+      s: s == _undefined ? _instance.s : (s as String?)));
 }
 
 const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [

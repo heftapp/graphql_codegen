@@ -35,10 +35,31 @@ class Input$Input {
     return true;
   }
 
-  Input$Input copyWith({String? Function()? field, bool? Function()? flag}) =>
-      Input$Input(
-          field: field == null ? this.field : field(),
-          flag: flag == null ? this.flag : flag());
+  CopyWith$Input$Input<Input$Input> get copyWith =>
+      CopyWith$Input$Input(this, (i) => i);
+}
+
+abstract class CopyWith$Input$Input<TRes> {
+  factory CopyWith$Input$Input(
+          Input$Input instance, TRes Function(Input$Input) then) =
+      _CopyWithImpl$Input$Input;
+
+  TRes call({String? field, bool? flag});
+}
+
+class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
+  _CopyWithImpl$Input$Input(this._instance, this._then);
+
+  final Input$Input _instance;
+
+  final TRes Function(Input$Input) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? field = _undefined, Object? flag = _undefined}) =>
+      _then(Input$Input(
+          field: field == _undefined ? _instance.field : (field as String?),
+          flag: flag == _undefined ? _instance.flag : (flag as bool?)));
 }
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
@@ -68,8 +89,30 @@ class Variables$Query$Q1 {
     return true;
   }
 
-  Variables$Query$Q1 copyWith({Input$Input? Function()? input}) =>
-      Variables$Query$Q1(input: input == null ? this.input : input());
+  CopyWith$Variables$Query$Q1<Variables$Query$Q1> get copyWith =>
+      CopyWith$Variables$Query$Q1(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Query$Q1<TRes> {
+  factory CopyWith$Variables$Query$Q1(
+          Variables$Query$Q1 instance, TRes Function(Variables$Query$Q1) then) =
+      _CopyWithImpl$Variables$Query$Q1;
+
+  TRes call({Input$Input? input});
+}
+
+class _CopyWithImpl$Variables$Query$Q1<TRes>
+    implements CopyWith$Variables$Query$Q1<TRes> {
+  _CopyWithImpl$Variables$Query$Q1(this._instance, this._then);
+
+  final Variables$Query$Q1 _instance;
+
+  final TRes Function(Variables$Query$Q1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? input = _undefined}) => _then(Variables$Query$Q1(
+      input: input == _undefined ? _instance.input : (input as Input$Input?)));
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -107,10 +150,31 @@ class Query$Q1 {
 }
 
 extension UtilityExtension$Query$Q1 on Query$Q1 {
-  Query$Q1 copyWith({String? Function()? field, String? $__typename}) =>
-      Query$Q1(
-          field: field == null ? this.field : field(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query$Q1<Query$Q1> get copyWith => CopyWith$Query$Q1(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q1<TRes> {
+  factory CopyWith$Query$Q1(Query$Q1 instance, TRes Function(Query$Q1) then) =
+      _CopyWithImpl$Query$Q1;
+
+  TRes call({String? field, String? $__typename});
+}
+
+class _CopyWithImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
+  _CopyWithImpl$Query$Q1(this._instance, this._then);
+
+  final Query$Q1 _instance;
+
+  final TRes Function(Query$Q1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? field = _undefined, Object? $__typename = _undefined}) =>
+      _then(Query$Q1(
+          field: field == _undefined ? _instance.field : (field as String?),
+          $__typename: $__typename == _undefined
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 const documentNodeQueryQ1 = DocumentNode(definitions: [

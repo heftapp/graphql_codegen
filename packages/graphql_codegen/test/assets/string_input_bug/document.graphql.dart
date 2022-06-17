@@ -35,12 +35,32 @@ class Input$I {
     return true;
   }
 
-  Input$I copyWith(
-          {String? Function()? $String,
-          int? Function()? $OtherReservedKeyword}) =>
-      Input$I(
-          $String: $String == null ? this.$String : $String(),
-          $OtherReservedKeyword: $OtherReservedKeyword == null
-              ? this.$OtherReservedKeyword
-              : $OtherReservedKeyword());
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+}
+
+abstract class CopyWith$Input$I<TRes> {
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
+      _CopyWithImpl$Input$I;
+
+  TRes call({String? $String, int? $OtherReservedKeyword});
+}
+
+class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
+  _CopyWithImpl$Input$I(this._instance, this._then);
+
+  final Input$I _instance;
+
+  final TRes Function(Input$I) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? $String = _undefined,
+          Object? $OtherReservedKeyword = _undefined}) =>
+      _then(Input$I(
+          $String:
+              $String == _undefined ? _instance.$String : ($String as String?),
+          $OtherReservedKeyword: $OtherReservedKeyword == _undefined
+              ? _instance.$OtherReservedKeyword
+              : ($OtherReservedKeyword as int?)));
 }
