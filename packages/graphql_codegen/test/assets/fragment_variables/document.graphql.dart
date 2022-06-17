@@ -375,7 +375,7 @@ class Fragment$F2 {
   factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2FromJson(json);
 
-  final Fragment$F2$level1? level1;
+  final Fragment$F21? level1;
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -404,7 +404,7 @@ class Fragment$F2 {
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
   Fragment$F2 copyWith(
-          {Fragment$F2$level1? Function()? level1, String? $__typename}) =>
+          {Fragment$F21? Function()? level1, String? $__typename}) =>
       Fragment$F2(
           level1: level1 == null ? this.level1 : level1(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
@@ -445,141 +445,6 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
   fragmentDefinitionF21,
 ]);
-
-@JsonSerializable(explicitToJson: true)
-class Fragment$F2$level1 implements Fragment$F21 {
-  Fragment$F2$level1({this.level2, required this.$__typename});
-
-  @override
-  factory Fragment$F2$level1.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$F2$level1FromJson(json);
-
-  final Fragment$F2$level1$level2? level2;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() => _$Fragment$F2$level1ToJson(this);
-  int get hashCode {
-    final l$level2 = level2;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$level2, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F2$level1) || runtimeType != other.runtimeType)
-      return false;
-    final l$level2 = level2;
-    final lOther$level2 = other.level2;
-    if (l$level2 != lOther$level2) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$F2$level1 on Fragment$F2$level1 {
-  Fragment$F2$level1 copyWith(
-          {Fragment$F2$level1$level2? Function()? level2,
-          String? $__typename}) =>
-      Fragment$F2$level1(
-          level2: level2 == null ? this.level2 : level2(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Fragment$F2$level1$level2 implements Fragment$F21$level2 {
-  Fragment$F2$level1$level2({this.level3, required this.$__typename});
-
-  @override
-  factory Fragment$F2$level1$level2.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$F2$level1$level2FromJson(json);
-
-  final Fragment$F2$level1$level2$level3? level3;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() => _$Fragment$F2$level1$level2ToJson(this);
-  int get hashCode {
-    final l$level3 = level3;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$level3, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F2$level1$level2) ||
-        runtimeType != other.runtimeType) return false;
-    final l$level3 = level3;
-    final lOther$level3 = other.level3;
-    if (l$level3 != lOther$level3) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$F2$level1$level2
-    on Fragment$F2$level1$level2 {
-  Fragment$F2$level1$level2 copyWith(
-          {Fragment$F2$level1$level2$level3? Function()? level3,
-          String? $__typename}) =>
-      Fragment$F2$level1$level2(
-          level3: level3 == null ? this.level3 : level3(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Fragment$F2$level1$level2$level3 implements Fragment$F21$level2$level3 {
-  Fragment$F2$level1$level2$level3({this.level4, required this.$__typename});
-
-  @override
-  factory Fragment$F2$level1$level2$level3.fromJson(
-          Map<String, dynamic> json) =>
-      _$Fragment$F2$level1$level2$level3FromJson(json);
-
-  final int? level4;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() =>
-      _$Fragment$F2$level1$level2$level3ToJson(this);
-  int get hashCode {
-    final l$level4 = level4;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$level4, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F2$level1$level2$level3) ||
-        runtimeType != other.runtimeType) return false;
-    final l$level4 = level4;
-    final lOther$level4 = other.level4;
-    if (l$level4 != lOther$level4) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$F2$level1$level2$level3
-    on Fragment$F2$level1$level2$level3 {
-  Fragment$F2$level1$level2$level3 copyWith(
-          {int? Function()? level4, String? $__typename}) =>
-      Fragment$F2$level1$level2$level3(
-          level4: level4 == null ? this.level4 : level4(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
-}
 
 @JsonSerializable(explicitToJson: true)
 class Variables$Fragment$F21 {

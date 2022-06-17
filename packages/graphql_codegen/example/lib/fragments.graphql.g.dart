@@ -17,8 +17,8 @@ Fragment$PersonSummary _$Fragment$PersonSummaryFromJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(
               json['eventsOfEvents']),
       parents: (json['parents'] as List<dynamic>?)
-          ?.map((e) => Fragment$PersonSummary$parents.fromJson(
-              e as Map<String, dynamic>))
+          ?.map(
+              (e) => Fragment$PersonParent.fromJson(e as Map<String, dynamic>))
           .toList(),
       $__typename: json['__typename'] as String,
     );
@@ -34,20 +34,6 @@ Map<String, dynamic> _$Fragment$PersonSummaryToJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
               instance.eventsOfEvents),
       'parents': instance.parents?.map((e) => e.toJson()).toList(),
-      '__typename': instance.$__typename,
-    };
-
-Fragment$PersonSummary$parents _$Fragment$PersonSummary$parentsFromJson(
-        Map<String, dynamic> json) =>
-    Fragment$PersonSummary$parents(
-      name: json['name'] as String,
-      $__typename: json['__typename'] as String,
-    );
-
-Map<String, dynamic> _$Fragment$PersonSummary$parentsToJson(
-        Fragment$PersonSummary$parents instance) =>
-    <String, dynamic>{
-      'name': instance.name,
       '__typename': instance.$__typename,
     };
 

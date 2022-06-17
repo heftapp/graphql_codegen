@@ -174,7 +174,7 @@ class Query$Q {
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
-  final Query$Q$node? node;
+  final Fragment$NameNode? node;
 
   @JsonKey(name: '__typename')
   final String $__typename;
@@ -201,7 +201,8 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  Query$Q copyWith({Query$Q$node? Function()? node, String? $__typename}) =>
+  Query$Q copyWith(
+          {Fragment$NameNode? Function()? node, String? $__typename}) =>
       Query$Q(
           node: node == null ? this.node : node(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
@@ -333,48 +334,6 @@ extension ClientExtension$Query$Q on graphql.GraphQLClient {
         optimistic: optimistic);
     return result == null ? null : Query$Q.fromJson(result);
   }
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$Q$node implements Fragment$NameNode {
-  Query$Q$node({this.name, required this.$__typename});
-
-  @override
-  factory Query$Q$node.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$nodeFromJson(json);
-
-  final String? name;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() => _$Query$Q$nodeToJson(this);
-  int get hashCode {
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$node) || runtimeType != other.runtimeType)
-      return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Q$node on Query$Q$node {
-  Query$Q$node copyWith({String? Function()? name, String? $__typename}) =>
-      Query$Q$node(
-          name: name == null ? this.name : name(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 const possibleTypesMap = {};

@@ -9,11 +9,11 @@ void main() {
         $__typename: "Person",
         name: "Lars",
         parents: [
-          Fragment$PersonSummary$parents(
+          Fragment$PersonParent(
             name: "Father",
             $__typename: "Person",
           ),
-          Fragment$PersonSummary$parents(
+          Fragment$PersonParent(
             name: "Mother",
             $__typename: "Person",
           ),
@@ -39,11 +39,11 @@ void main() {
         $__typename: "Person",
         name: "Lars",
         parents: [
-          Fragment$PersonSummary$parents(
+          Fragment$PersonParent(
             name: "Father",
             $__typename: "Person",
           ),
-          Fragment$PersonSummary$parents(
+          Fragment$PersonParent(
             name: "Mother",
             $__typename: "Person",
           ),

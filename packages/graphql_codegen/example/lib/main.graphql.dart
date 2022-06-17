@@ -308,7 +308,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
   @JsonKey(name: '__typename')
   final String $__typename;
 
-  final List<Query$FetchPerson$fetchPerson$children>? children;
+  final List<Fragment$PersonSummary>? children;
 
   Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
   int get hashCode {
@@ -431,8 +431,7 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson
           List<List<DateTime?>?>? Function()? eventsOfEvents,
           List<Query$FetchPerson$fetchPerson$parents>? Function()? parents,
           String? $__typename,
-          List<Query$FetchPerson$fetchPerson$children>? Function()?
-              children}) =>
+          List<Fragment$PersonSummary>? Function()? children}) =>
       Query$FetchPerson$fetchPerson(
           nickname: nickname == null ? this.nickname : nickname(),
           name: name == null ? this.name : name,
@@ -447,10 +446,7 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson
 
 @JsonSerializable(explicitToJson: true)
 class Query$FetchPerson$fetchPerson$parents
-    implements
-        Fragment$PersonSummary$parents,
-        Fragment$PersonParent,
-        Fragment$PersonSummary {
+    implements Fragment$PersonParent, Fragment$PersonSummary {
   Query$FetchPerson$fetchPerson$parents(
       {required this.name,
       required this.$__typename,
@@ -486,7 +482,7 @@ class Query$FetchPerson$fetchPerson$parents
       toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
-  final List<Query$FetchPerson$fetchPerson$parents$parents>? parents;
+  final List<Fragment$PersonParent>? parents;
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchPerson$fetchPerson$parentsToJson(this);
@@ -594,8 +590,7 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson$parents
           DateTime? Function()? dob,
           List<DateTime?>? Function()? events,
           List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Query$FetchPerson$fetchPerson$parents$parents>? Function()?
-              parents}) =>
+          List<Fragment$PersonParent>? Function()? parents}) =>
       Query$FetchPerson$fetchPerson$parents(
           name: name == null ? this.name : name,
           $__typename: $__typename == null ? this.$__typename : $__typename,
@@ -605,260 +600,6 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson$parents
           eventsOfEvents:
               eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
           parents: parents == null ? this.parents : parents());
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$FetchPerson$fetchPerson$parents$parents
-    implements Fragment$PersonSummary$parents, Fragment$PersonParent {
-  Query$FetchPerson$fetchPerson$parents$parents(
-      {required this.name, required this.$__typename});
-
-  @override
-  factory Query$FetchPerson$fetchPerson$parents$parents.fromJson(
-          Map<String, dynamic> json) =>
-      _$Query$FetchPerson$fetchPerson$parents$parentsFromJson(json);
-
-  final String name;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() =>
-      _$Query$FetchPerson$fetchPerson$parents$parentsToJson(this);
-  int get hashCode {
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchPerson$fetchPerson$parents$parents) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$FetchPerson$fetchPerson$parents$parents
-    on Query$FetchPerson$fetchPerson$parents$parents {
-  Query$FetchPerson$fetchPerson$parents$parents copyWith(
-          {String? name, String? $__typename}) =>
-      Query$FetchPerson$fetchPerson$parents$parents(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$FetchPerson$fetchPerson$children implements Fragment$PersonSummary {
-  Query$FetchPerson$fetchPerson$children(
-      {this.nickname,
-      required this.name,
-      this.dob,
-      this.events,
-      this.eventsOfEvents,
-      this.parents,
-      required this.$__typename});
-
-  @override
-  factory Query$FetchPerson$fetchPerson$children.fromJson(
-          Map<String, dynamic> json) =>
-      _$Query$FetchPerson$fetchPerson$childrenFromJson(json);
-
-  final String? nickname;
-
-  final String name;
-
-  @JsonKey(
-      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
-  final DateTime? dob;
-
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$dateTimeToJson)
-  final List<DateTime?>? events;
-
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
-  final List<List<DateTime?>?>? eventsOfEvents;
-
-  final List<Query$FetchPerson$fetchPerson$children$parents>? parents;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() =>
-      _$Query$FetchPerson$fetchPerson$childrenToJson(this);
-  int get hashCode {
-    final l$nickname = nickname;
-    final l$name = name;
-    final l$dob = dob;
-    final l$events = events;
-    final l$eventsOfEvents = eventsOfEvents;
-    final l$parents = parents;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$nickname,
-      l$name,
-      l$dob,
-      l$events == null ? null : Object.hashAll(l$events.map((v) => v)),
-      l$eventsOfEvents == null
-          ? null
-          : Object.hashAll(l$eventsOfEvents
-              .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
-      l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
-      l$$__typename
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchPerson$fetchPerson$children) ||
-        runtimeType != other.runtimeType) return false;
-    final l$nickname = nickname;
-    final lOther$nickname = other.nickname;
-    if (l$nickname != lOther$nickname) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    final l$dob = dob;
-    final lOther$dob = other.dob;
-    if (l$dob != lOther$dob) return false;
-    final l$events = events;
-    final lOther$events = other.events;
-    if (l$events != null && lOther$events != null) {
-      if (l$events.length != lOther$events.length) return false;
-      for (int i = 0; i < l$events.length; i++) {
-        final l$events$entry = l$events[i];
-        final lOther$events$entry = lOther$events[i];
-        if (l$events$entry != lOther$events$entry) return false;
-      }
-    } else if (l$events != lOther$events) {
-      return false;
-    }
-
-    final l$eventsOfEvents = eventsOfEvents;
-    final lOther$eventsOfEvents = other.eventsOfEvents;
-    if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
-      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
-      for (int i = 0; i < l$eventsOfEvents.length; i++) {
-        final l$eventsOfEvents$entry = l$eventsOfEvents[i];
-        final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
-        if (l$eventsOfEvents$entry != null &&
-            lOther$eventsOfEvents$entry != null) {
-          if (l$eventsOfEvents$entry.length !=
-              lOther$eventsOfEvents$entry.length) return false;
-          for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
-            final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
-            final lOther$eventsOfEvents$entry$entry =
-                lOther$eventsOfEvents$entry[i];
-            if (l$eventsOfEvents$entry$entry !=
-                lOther$eventsOfEvents$entry$entry) return false;
-          }
-        } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
-          return false;
-        }
-      }
-    } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
-      return false;
-    }
-
-    final l$parents = parents;
-    final lOther$parents = other.parents;
-    if (l$parents != null && lOther$parents != null) {
-      if (l$parents.length != lOther$parents.length) return false;
-      for (int i = 0; i < l$parents.length; i++) {
-        final l$parents$entry = l$parents[i];
-        final lOther$parents$entry = lOther$parents[i];
-        if (l$parents$entry != lOther$parents$entry) return false;
-      }
-    } else if (l$parents != lOther$parents) {
-      return false;
-    }
-
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$FetchPerson$fetchPerson$children
-    on Query$FetchPerson$fetchPerson$children {
-  Query$FetchPerson$fetchPerson$children copyWith(
-          {String? Function()? nickname,
-          String? name,
-          DateTime? Function()? dob,
-          List<DateTime?>? Function()? events,
-          List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Query$FetchPerson$fetchPerson$children$parents>? Function()?
-              parents,
-          String? $__typename}) =>
-      Query$FetchPerson$fetchPerson$children(
-          nickname: nickname == null ? this.nickname : nickname(),
-          name: name == null ? this.name : name,
-          dob: dob == null ? this.dob : dob(),
-          events: events == null ? this.events : events(),
-          eventsOfEvents:
-              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
-          parents: parents == null ? this.parents : parents(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$FetchPerson$fetchPerson$children$parents
-    implements Fragment$PersonSummary$parents, Fragment$PersonParent {
-  Query$FetchPerson$fetchPerson$children$parents(
-      {required this.name, required this.$__typename});
-
-  @override
-  factory Query$FetchPerson$fetchPerson$children$parents.fromJson(
-          Map<String, dynamic> json) =>
-      _$Query$FetchPerson$fetchPerson$children$parentsFromJson(json);
-
-  final String name;
-
-  @JsonKey(name: '__typename')
-  final String $__typename;
-
-  Map<String, dynamic> toJson() =>
-      _$Query$FetchPerson$fetchPerson$children$parentsToJson(this);
-  int get hashCode {
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchPerson$fetchPerson$children$parents) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$FetchPerson$fetchPerson$children$parents
-    on Query$FetchPerson$fetchPerson$children$parents {
-  Query$FetchPerson$fetchPerson$children$parents copyWith(
-          {String? name, String? $__typename}) =>
-      Query$FetchPerson$fetchPerson$children$parents(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)

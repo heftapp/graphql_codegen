@@ -104,19 +104,36 @@ class ContextVisitor extends RecursiveVisitor {
     );
   }
 
+  void _visitInFragment(FragmentDefinitionNode node, Name name) {
+    context.visitInFragment(
+      name,
+      () {
+        node.selectionSet.visitChildren(this);
+        context.addFragmentsFromInFragment();
+      },
+    );
+    context.addFragment(name);
+  }
+
   @override
   void visitFragmentSpreadNode(FragmentSpreadNode node) {
-    final fragmentDef = context.schema.lookupFragment(node.name);
-    if (fragmentDef == null) {
-      throw InvalidGraphQLDocumentError(
-        "Failed to find fragment definition for ${node.name.value}",
-      );
-    }
+    final fragmentDef = context.schema.lookupFragmentEnforced(node.name);
 
     // Mark the context dependent on this fragment.
     context.addFragmentDependency(fragmentDef);
 
     final fragmentName = Name.fromSegment(FragmentNameSegment(fragmentDef));
+
+    // Lookup the `ContextFragment` of the current fragment.
+    // If it doesn't exists, create it!
+    Context tempFragmentContext;
+    if (context.hasContextFragment(fragmentName)) {
+      tempFragmentContext = context;
+    } else {
+      tempFragmentContext = context.rootContext();
+      ContextVisitor(context: tempFragmentContext)
+          .visitFragmentDefinitionNode(fragmentDef);
+    }
 
     // If the fragment type condition exactly matches the current type,
     // inline the fragment directly.
@@ -124,10 +141,7 @@ class ContextVisitor extends RecursiveVisitor {
       // Visiting "in-fragment" means that we'll expand the selection
       // set of the fragment while marking the current fragment name.
       // This'll help us derive the right interfaces.
-      context.visitInFragment(fragmentName, () {
-        fragmentDef.visitChildren(this);
-      });
-      context.addFragment(fragmentName);
+      _visitInFragment(fragmentDef, fragmentName);
       return;
     }
 
@@ -155,17 +169,6 @@ class ContextVisitor extends RecursiveVisitor {
       return;
     }
 
-    // Lookup the `ContextFragment` of the current fragment.
-    // If it doesn't exists, create it!
-    Context tempFragmentContext;
-    if (context.hasContextFragment(fragmentName)) {
-      tempFragmentContext = context;
-    } else {
-      tempFragmentContext = context.rootContext();
-      ContextVisitor(context: tempFragmentContext)
-          .visitFragmentDefinitionNode(fragmentDef);
-    }
-
     // At this point, if the current type is an object, the intersection
     // will be exactly one.
     if (context.currentType is ObjectTypeDefinitionNode) {
@@ -183,13 +186,7 @@ class ContextVisitor extends RecursiveVisitor {
         typedFragmentName,
         fragmentName,
       );
-      context.visitInFragment(
-        existingFragmentName,
-        () {
-          fragmentDef.visitChildren(this);
-        },
-      );
-      context.addFragment(existingFragmentName);
+      _visitInFragment(fragmentDef, existingFragmentName);
       return;
     }
 
@@ -228,6 +225,7 @@ class ContextVisitor extends RecursiveVisitor {
   void visitSelectionSetNode(SelectionSetNode node) {
     node.visitChildren(this);
     context.addFragmentsFromInFragment();
+    context.addSelectionSet(node);
   }
 
   @override

@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/transform/transforming_visitor.dart';
 import 'package:graphql_codegen_config/config.dart';
 
-const _TYPENAME_FIELD = '__typename';
+const typenameFieldName = '__typename';
 
 const _MATCH_WILDCARD = '*';
 const _MATCH_DOUBLE_WILDCARD = '**';
@@ -101,13 +101,13 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
   @override
   SelectionSetNode visitSelectionSetNode(SelectionSetNode node) {
     final hasTypename = node.selections.whereType<FieldNode>().any((element) =>
-        element.alias?.value == _TYPENAME_FIELD ||
-        (element.alias == null && element.name.value == _TYPENAME_FIELD));
+        element.alias?.value == typenameFieldName ||
+        (element.alias == null && element.name.value == typenameFieldName));
 
     var selections = List.of(node.selections);
 
     if (!hasTypename && !_isExcluded) {
-      final newField = FieldNode(name: NameNode(value: _TYPENAME_FIELD));
+      final newField = FieldNode(name: NameNode(value: typenameFieldName));
       selections.add(newField);
     }
 

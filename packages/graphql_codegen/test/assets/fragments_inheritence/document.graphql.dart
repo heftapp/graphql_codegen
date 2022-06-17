@@ -274,7 +274,7 @@ class Query$Fetch {
   factory Query$Fetch.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchFromJson(json);
 
-  final Query$Fetch$t? t;
+  final Fragment$F? t;
 
   Map<String, dynamic> toJson() => _$Query$FetchToJson(this);
   int get hashCode {
@@ -295,7 +295,7 @@ class Query$Fetch {
 }
 
 extension UtilityExtension$Query$Fetch on Query$Fetch {
-  Query$Fetch copyWith({Query$Fetch$t? Function()? t}) =>
+  Query$Fetch copyWith({Fragment$F? Function()? t}) =>
       Query$Fetch(t: t == null ? this.t : t());
 }
 
@@ -318,153 +318,6 @@ const documentNodeQueryFetch = DocumentNode(definitions: [
   fragmentDefinitionF,
   fragmentDefinitionF2,
 ]);
-
-@JsonSerializable(explicitToJson: true)
-class Query$Fetch$t implements Fragment$F {
-  Query$Fetch$t({this.other});
-
-  @override
-  factory Query$Fetch$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Fetch$tFromJson(json);
-
-  final Query$Fetch$t$other? other;
-
-  Map<String, dynamic> toJson() => _$Query$Fetch$tToJson(this);
-  int get hashCode {
-    final l$other = other;
-    return Object.hashAll([l$other]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Fetch$t) || runtimeType != other.runtimeType)
-      return false;
-    final l$other = other;
-    final lOther$other = other.other;
-    if (l$other != lOther$other) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Fetch$t on Query$Fetch$t {
-  Query$Fetch$t copyWith({Query$Fetch$t$other? Function()? other}) =>
-      Query$Fetch$t(other: other == null ? this.other : other());
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$Fetch$t$other implements Fragment$F$other, Fragment$F2 {
-  Query$Fetch$t$other({this.other});
-
-  @override
-  factory Query$Fetch$t$other.fromJson(Map<String, dynamic> json) =>
-      _$Query$Fetch$t$otherFromJson(json);
-
-  final Query$Fetch$t$other$other? other;
-
-  Map<String, dynamic> toJson() => _$Query$Fetch$t$otherToJson(this);
-  int get hashCode {
-    final l$other = other;
-    return Object.hashAll([l$other]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Fetch$t$other) || runtimeType != other.runtimeType)
-      return false;
-    final l$other = other;
-    final lOther$other = other.other;
-    if (l$other != lOther$other) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Fetch$t$other on Query$Fetch$t$other {
-  Query$Fetch$t$other copyWith(
-          {Query$Fetch$t$other$other? Function()? other}) =>
-      Query$Fetch$t$other(other: other == null ? this.other : other());
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$Fetch$t$other$other
-    implements Fragment$F$other$other, Fragment$F2$other {
-  Query$Fetch$t$other$other({this.name});
-
-  @override
-  factory Query$Fetch$t$other$other.fromJson(Map<String, dynamic> json) =>
-      _$Query$Fetch$t$other$otherFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() => _$Query$Fetch$t$other$otherToJson(this);
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Fetch$t$other$other) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Fetch$t$other$other
-    on Query$Fetch$t$other$other {
-  Query$Fetch$t$other$other copyWith({String? Function()? name}) =>
-      Query$Fetch$t$other$other(name: name == null ? this.name : name());
-}
-
-@JsonSerializable(explicitToJson: true)
-class Query$Fetch$t$other$$T1
-    implements Fragment$F$other$$T1, Query$Fetch$t$other {
-  Query$Fetch$t$other$$T1({this.other, this.b});
-
-  @override
-  factory Query$Fetch$t$other$$T1.fromJson(Map<String, dynamic> json) =>
-      _$Query$Fetch$t$other$$T1FromJson(json);
-
-  final Query$Fetch$t$other$other? other;
-
-  final bool? b;
-
-  Map<String, dynamic> toJson() => _$Query$Fetch$t$other$$T1ToJson(this);
-  int get hashCode {
-    final l$other = other;
-    final l$b = b;
-    return Object.hashAll([l$other, l$b]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Fetch$t$other$$T1) || runtimeType != other.runtimeType)
-      return false;
-    final l$other = other;
-    final lOther$other = other.other;
-    if (l$other != lOther$other) return false;
-    final l$b = b;
-    final lOther$b = other.b;
-    if (l$b != lOther$b) return false;
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Fetch$t$other$$T1 on Query$Fetch$t$other$$T1 {
-  Query$Fetch$t$other$$T1 copyWith(
-          {Query$Fetch$t$other$other? Function()? other,
-          bool? Function()? b}) =>
-      Query$Fetch$t$other$$T1(
-          other: other == null ? this.other : other(),
-          b: b == null ? this.b : b());
-}
-
 const possibleTypesMap = {
   'Type': {'T1'}
 };

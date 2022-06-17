@@ -43,22 +43,11 @@ Map<String, dynamic> _$Variables$Query$QToJson(Variables$Query$Q instance) =>
 Query$Q _$Query$QFromJson(Map<String, dynamic> json) => Query$Q(
       node: json['node'] == null
           ? null
-          : Query$Q$node.fromJson(json['node'] as Map<String, dynamic>),
+          : Fragment$NameNode.fromJson(json['node'] as Map<String, dynamic>),
       $__typename: json['__typename'] as String,
     );
 
 Map<String, dynamic> _$Query$QToJson(Query$Q instance) => <String, dynamic>{
       'node': instance.node?.toJson(),
-      '__typename': instance.$__typename,
-    };
-
-Query$Q$node _$Query$Q$nodeFromJson(Map<String, dynamic> json) => Query$Q$node(
-      name: json['name'] as String?,
-      $__typename: json['__typename'] as String,
-    );
-
-Map<String, dynamic> _$Query$Q$nodeToJson(Query$Q$node instance) =>
-    <String, dynamic>{
-      'name': instance.name,
       '__typename': instance.$__typename,
     };
