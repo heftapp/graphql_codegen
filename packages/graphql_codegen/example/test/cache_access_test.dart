@@ -27,6 +27,7 @@ void main() {
             'dob': null,
             'events': null,
             'eventsOfEvents': null,
+            'favParent': null,
             'parents': [
               {'name': 'Father', '__typename': 'Person'},
               {'name': 'Mother', '__typename': 'Person'},
@@ -50,13 +51,14 @@ void main() {
         ],
       );
       expect(
-          fragment.copyWith(name: "Kurt").toJson(),
+          fragment.copyWith(name: "Kurt").copyWith(nickname: "Bob").toJson(),
           equals({
-            'nickname': null,
+            'nickname': "Bob",
             'name': 'Kurt',
             'dob': null,
             'events': null,
             'eventsOfEvents': null,
+            'favParent': null,
             'parents': [
               {'name': 'Father', '__typename': 'Person'},
               {'name': 'Mother', '__typename': 'Person'},

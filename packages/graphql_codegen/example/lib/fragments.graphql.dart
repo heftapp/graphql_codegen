@@ -13,6 +13,7 @@ class Fragment$PersonSummary {
       this.events,
       this.eventsOfEvents,
       this.parents,
+      this.favParent,
       required this.$__typename});
 
   @override
@@ -39,6 +40,8 @@ class Fragment$PersonSummary {
 
   final List<Fragment$PersonParent>? parents;
 
+  final Fragment$PersonParent? favParent;
+
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -50,6 +53,7 @@ class Fragment$PersonSummary {
     final l$events = events;
     final l$eventsOfEvents = eventsOfEvents;
     final l$parents = parents;
+    final l$favParent = favParent;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$nickname,
@@ -61,6 +65,7 @@ class Fragment$PersonSummary {
           : Object.hashAll(l$eventsOfEvents
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
       l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
+      l$favParent,
       l$$__typename
     ]);
   }
@@ -131,6 +136,9 @@ class Fragment$PersonSummary {
       return false;
     }
 
+    final l$favParent = favParent;
+    final lOther$favParent = other.favParent;
+    if (l$favParent != lOther$favParent) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -139,23 +147,113 @@ class Fragment$PersonSummary {
 }
 
 extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
-  Fragment$PersonSummary copyWith(
-          {String? Function()? nickname,
+  CopyWith$Fragment$PersonSummary<Fragment$PersonSummary> get copyWith =>
+      CopyWith$Fragment$PersonSummary(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$PersonSummary<TRes> {
+  factory CopyWith$Fragment$PersonSummary(Fragment$PersonSummary instance,
+          TRes Function(Fragment$PersonSummary) then) =
+      _CopyWithImpl$Fragment$PersonSummary;
+
+  factory CopyWith$Fragment$PersonSummary.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$PersonSummary;
+
+  TRes call(
+      {String? nickname,
+      String? name,
+      DateTime? dob,
+      List<DateTime?>? events,
+      List<List<DateTime?>?>? eventsOfEvents,
+      List<Fragment$PersonParent>? parents,
+      Fragment$PersonParent? favParent,
+      String? $__typename});
+  TRes parents(
+      Iterable<Fragment$PersonParent>? Function(
+              Iterable<CopyWith$Fragment$PersonParent<Fragment$PersonParent>>?)
+          _fn);
+  CopyWith$Fragment$PersonParent<TRes> get favParent;
+}
+
+class _CopyWithImpl$Fragment$PersonSummary<TRes>
+    implements CopyWith$Fragment$PersonSummary<TRes> {
+  _CopyWithImpl$Fragment$PersonSummary(this._instance, this._then);
+
+  final Fragment$PersonSummary _instance;
+
+  final TRes Function(Fragment$PersonSummary) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? nickname = _undefined,
+          Object? name = _undefined,
+          Object? dob = _undefined,
+          Object? events = _undefined,
+          Object? eventsOfEvents = _undefined,
+          Object? parents = _undefined,
+          Object? favParent = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Fragment$PersonSummary(
+          nickname: nickname == _undefined
+              ? _instance.nickname
+              : (nickname as String?),
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          dob: dob == _undefined ? _instance.dob : (dob as DateTime?),
+          events: events == _undefined
+              ? _instance.events
+              : (events as List<DateTime?>?),
+          eventsOfEvents: eventsOfEvents == _undefined
+              ? _instance.eventsOfEvents
+              : (eventsOfEvents as List<List<DateTime?>?>?),
+          parents: parents == _undefined
+              ? _instance.parents
+              : (parents as List<Fragment$PersonParent>?),
+          favParent: favParent == _undefined
+              ? _instance.favParent
+              : (favParent as Fragment$PersonParent?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+  TRes parents(
+          Iterable<Fragment$PersonParent>? Function(
+                  Iterable<
+                      CopyWith$Fragment$PersonParent<Fragment$PersonParent>>?)
+              _fn) =>
+      call(
+          parents: _fn(_instance.parents
+                  ?.map((e) => CopyWith$Fragment$PersonParent(e, (i) => i)))
+              ?.toList());
+  CopyWith$Fragment$PersonParent<TRes> get favParent {
+    final local$favParent = _instance.favParent;
+    return local$favParent == null
+        ? CopyWith$Fragment$PersonParent.stub(_then(_instance))
+        : CopyWith$Fragment$PersonParent(
+            local$favParent, (e) => call(favParent: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$PersonSummary<TRes>
+    implements CopyWith$Fragment$PersonSummary<TRes> {
+  _CopyWithStubImpl$Fragment$PersonSummary(this._res);
+
+  TRes _res;
+
+  call(
+          {String? nickname,
           String? name,
-          DateTime? Function()? dob,
-          List<DateTime?>? Function()? events,
-          List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Fragment$PersonParent>? Function()? parents,
+          DateTime? dob,
+          List<DateTime?>? events,
+          List<List<DateTime?>?>? eventsOfEvents,
+          List<Fragment$PersonParent>? parents,
+          Fragment$PersonParent? favParent,
           String? $__typename}) =>
-      Fragment$PersonSummary(
-          nickname: nickname == null ? this.nickname : nickname(),
-          name: name == null ? this.name : name,
-          dob: dob == null ? this.dob : dob(),
-          events: events == null ? this.events : events(),
-          eventsOfEvents:
-              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
-          parents: parents == null ? this.parents : parents(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+      _res;
+  parents(_fn) => _res;
+  CopyWith$Fragment$PersonParent<TRes> get favParent =>
+      CopyWith$Fragment$PersonParent.stub(_res);
 }
 
 const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
@@ -197,6 +295,21 @@ const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
       FieldNode(
           name: NameNode(value: 'parents'),
           alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FragmentSpreadNode(
+                name: NameNode(value: 'PersonParent'), directives: []),
+            FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ])),
+      FieldNode(
+          name: NameNode(value: 'favorite_parent'),
+          alias: NameNode(value: 'favParent'),
           arguments: [],
           directives: [],
           selectionSet: SelectionSetNode(selections: [
@@ -283,10 +396,48 @@ class Fragment$PersonParent {
 }
 
 extension UtilityExtension$Fragment$PersonParent on Fragment$PersonParent {
-  Fragment$PersonParent copyWith({String? name, String? $__typename}) =>
-      Fragment$PersonParent(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Fragment$PersonParent<Fragment$PersonParent> get copyWith =>
+      CopyWith$Fragment$PersonParent(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$PersonParent<TRes> {
+  factory CopyWith$Fragment$PersonParent(Fragment$PersonParent instance,
+          TRes Function(Fragment$PersonParent) then) =
+      _CopyWithImpl$Fragment$PersonParent;
+
+  factory CopyWith$Fragment$PersonParent.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$PersonParent;
+
+  TRes call({String? name, String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$PersonParent<TRes>
+    implements CopyWith$Fragment$PersonParent<TRes> {
+  _CopyWithImpl$Fragment$PersonParent(this._instance, this._then);
+
+  final Fragment$PersonParent _instance;
+
+  final TRes Function(Fragment$PersonParent) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Fragment$PersonParent(
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Fragment$PersonParent<TRes>
+    implements CopyWith$Fragment$PersonParent<TRes> {
+  _CopyWithStubImpl$Fragment$PersonParent(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionPersonParent = FragmentDefinitionNode(

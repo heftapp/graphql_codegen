@@ -7,13 +7,13 @@ type Person {
     nickname: String
     website: URL
     date_of_birth: ISODateTime
+    favorite_parent: Person
     parents: [Person!]
     siblings: [Person!]
     children: [Person!]
     dob: ISODateTime
     events: [ISODateTime]
     events_of_events: [[ISODateTime]]
-    parents: [Person!]
 }
 
 scalar ISODateTime

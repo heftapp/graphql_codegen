@@ -85,6 +85,13 @@ class NamePrinter {
   String printClassExtensionName(Name name) =>
       "UtilityExtension\$" + _printName(name);
 
+  String printCopyWithClassName(String name) => 'CopyWith\$' + name;
+
+  String printCopyWithImplClassName(String name) => '_CopyWithImpl\$' + name;
+
+  String printCopyWithStubImplClassName(String name) =>
+      '_CopyWithStubImpl\$' + name;
+
   String printParserFnName(Name name) => "_parserFn\$${_printName(name)}";
 
   String printVariableClassName(Name name) => "Variables\$${_printName(name)}";

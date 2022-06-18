@@ -40,11 +40,59 @@ class Query$FetchShouldRender {
 }
 
 extension UtilityExtension$Query$FetchShouldRender on Query$FetchShouldRender {
-  Query$FetchShouldRender copyWith(
-          {Fragment$CompositeCondition? shouldRender, String? $__typename}) =>
-      Query$FetchShouldRender(
-          shouldRender: shouldRender == null ? this.shouldRender : shouldRender,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query$FetchShouldRender<Query$FetchShouldRender> get copyWith =>
+      CopyWith$Query$FetchShouldRender(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchShouldRender<TRes> {
+  factory CopyWith$Query$FetchShouldRender(Query$FetchShouldRender instance,
+          TRes Function(Query$FetchShouldRender) then) =
+      _CopyWithImpl$Query$FetchShouldRender;
+
+  factory CopyWith$Query$FetchShouldRender.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchShouldRender;
+
+  TRes call({Fragment$CompositeCondition? shouldRender, String? $__typename});
+  CopyWith$Fragment$CompositeCondition<TRes> get shouldRender;
+}
+
+class _CopyWithImpl$Query$FetchShouldRender<TRes>
+    implements CopyWith$Query$FetchShouldRender<TRes> {
+  _CopyWithImpl$Query$FetchShouldRender(this._instance, this._then);
+
+  final Query$FetchShouldRender _instance;
+
+  final TRes Function(Query$FetchShouldRender) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? shouldRender = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Query$FetchShouldRender(
+          shouldRender: shouldRender == _undefined || shouldRender == null
+              ? _instance.shouldRender
+              : (shouldRender as Fragment$CompositeCondition),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+  CopyWith$Fragment$CompositeCondition<TRes> get shouldRender {
+    final local$shouldRender = _instance.shouldRender;
+    return CopyWith$Fragment$CompositeCondition(
+        local$shouldRender, (e) => call(shouldRender: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$FetchShouldRender<TRes>
+    implements CopyWith$Query$FetchShouldRender<TRes> {
+  _CopyWithStubImpl$Query$FetchShouldRender(this._res);
+
+  TRes _res;
+
+  call({Fragment$CompositeCondition? shouldRender, String? $__typename}) =>
+      _res;
+  CopyWith$Fragment$CompositeCondition<TRes> get shouldRender =>
+      CopyWith$Fragment$CompositeCondition.stub(_res);
 }
 
 const documentNodeQueryFetchShouldRender = DocumentNode(definitions: [

@@ -50,11 +50,45 @@ class Query___Q {
 }
 
 extension UtilityExtension$Query___Q on Query___Q {
-  Query___Q copyWith(
-          {Enum___Status? Function()? status, String? $__typename}) =>
-      Query___Q(
-          status: status == null ? this.status : status(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query___Q<Query___Q> get copyWith =>
+      CopyWith$Query___Q(this, (i) => i);
+}
+
+abstract class CopyWith$Query___Q<TRes> {
+  factory CopyWith$Query___Q(
+          Query___Q instance, TRes Function(Query___Q) then) =
+      _CopyWithImpl$Query___Q;
+
+  factory CopyWith$Query___Q.stub(TRes res) = _CopyWithStubImpl$Query___Q;
+
+  TRes call({Enum___Status? status, String? $__typename});
+}
+
+class _CopyWithImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
+  _CopyWithImpl$Query___Q(this._instance, this._then);
+
+  final Query___Q _instance;
+
+  final TRes Function(Query___Q) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? status = _undefined, Object? $__typename = _undefined}) =>
+      _then(Query___Q(
+          status: status == _undefined
+              ? _instance.status
+              : (status as Enum___Status?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
+  _CopyWithStubImpl$Query___Q(this._res);
+
+  TRes _res;
+
+  call({Enum___Status? status, String? $__typename}) => _res;
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [

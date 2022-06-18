@@ -32,8 +32,46 @@ class Variables$Query$FetchSRequired {
     return true;
   }
 
-  Variables$Query$FetchSRequired copyWith({String? name}) =>
-      Variables$Query$FetchSRequired(name: name == null ? this.name : name);
+  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
+      get copyWith => CopyWith$Variables$Query$FetchSRequired(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
+  factory CopyWith$Variables$Query$FetchSRequired(
+          Variables$Query$FetchSRequired instance,
+          TRes Function(Variables$Query$FetchSRequired) then) =
+      _CopyWithImpl$Variables$Query$FetchSRequired;
+
+  factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$FetchSRequired;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
+    implements CopyWith$Variables$Query$FetchSRequired<TRes> {
+  _CopyWithImpl$Variables$Query$FetchSRequired(this._instance, this._then);
+
+  final Variables$Query$FetchSRequired _instance;
+
+  final TRes Function(Variables$Query$FetchSRequired) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Variables$Query$FetchSRequired(
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String)));
+}
+
+class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
+    implements CopyWith$Variables$Query$FetchSRequired<TRes> {
+  _CopyWithStubImpl$Variables$Query$FetchSRequired(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -65,8 +103,42 @@ class Query$FetchSRequired {
 }
 
 extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
-  Query$FetchSRequired copyWith({String? Function()? s}) =>
-      Query$FetchSRequired(s: s == null ? this.s : s());
+  CopyWith$Query$FetchSRequired<Query$FetchSRequired> get copyWith =>
+      CopyWith$Query$FetchSRequired(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchSRequired<TRes> {
+  factory CopyWith$Query$FetchSRequired(Query$FetchSRequired instance,
+          TRes Function(Query$FetchSRequired) then) =
+      _CopyWithImpl$Query$FetchSRequired;
+
+  factory CopyWith$Query$FetchSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchSRequired;
+
+  TRes call({String? s});
+}
+
+class _CopyWithImpl$Query$FetchSRequired<TRes>
+    implements CopyWith$Query$FetchSRequired<TRes> {
+  _CopyWithImpl$Query$FetchSRequired(this._instance, this._then);
+
+  final Query$FetchSRequired _instance;
+
+  final TRes Function(Query$FetchSRequired) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined}) => _then(
+      Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Query$FetchSRequired<TRes>
+    implements CopyWith$Query$FetchSRequired<TRes> {
+  _CopyWithStubImpl$Query$FetchSRequired(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeQueryFetchSRequired = DocumentNode(definitions: [

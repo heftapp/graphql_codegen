@@ -31,8 +31,48 @@ class Fragment$T1 {
 }
 
 extension UtilityExtension$Fragment$T1 on Fragment$T1 {
-  Fragment$T1 copyWith({Fragment$T1$t? Function()? t}) =>
-      Fragment$T1(t: t == null ? this.t : t());
+  CopyWith$Fragment$T1<Fragment$T1> get copyWith =>
+      CopyWith$Fragment$T1(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$T1<TRes> {
+  factory CopyWith$Fragment$T1(
+          Fragment$T1 instance, TRes Function(Fragment$T1) then) =
+      _CopyWithImpl$Fragment$T1;
+
+  factory CopyWith$Fragment$T1.stub(TRes res) = _CopyWithStubImpl$Fragment$T1;
+
+  TRes call({Fragment$T1$t? t});
+  CopyWith$Fragment$T1$t<TRes> get t;
+}
+
+class _CopyWithImpl$Fragment$T1<TRes> implements CopyWith$Fragment$T1<TRes> {
+  _CopyWithImpl$Fragment$T1(this._instance, this._then);
+
+  final Fragment$T1 _instance;
+
+  final TRes Function(Fragment$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? t = _undefined}) => _then(
+      Fragment$T1(t: t == _undefined ? _instance.t : (t as Fragment$T1$t?)));
+  CopyWith$Fragment$T1$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$T1$t.stub(_then(_instance))
+        : CopyWith$Fragment$T1$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$T1<TRes>
+    implements CopyWith$Fragment$T1<TRes> {
+  _CopyWithStubImpl$Fragment$T1(this._res);
+
+  TRes _res;
+
+  call({Fragment$T1$t? t}) => _res;
+  CopyWith$Fragment$T1$t<TRes> get t => CopyWith$Fragment$T1$t.stub(_res);
 }
 
 const fragmentDefinitionT1 = FragmentDefinitionNode(
@@ -88,8 +128,42 @@ class Fragment$T1$t {
 }
 
 extension UtilityExtension$Fragment$T1$t on Fragment$T1$t {
-  Fragment$T1$t copyWith({String? Function()? name}) =>
-      Fragment$T1$t(name: name == null ? this.name : name());
+  CopyWith$Fragment$T1$t<Fragment$T1$t> get copyWith =>
+      CopyWith$Fragment$T1$t(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$T1$t<TRes> {
+  factory CopyWith$Fragment$T1$t(
+          Fragment$T1$t instance, TRes Function(Fragment$T1$t) then) =
+      _CopyWithImpl$Fragment$T1$t;
+
+  factory CopyWith$Fragment$T1$t.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$T1$t;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$T1$t<TRes>
+    implements CopyWith$Fragment$T1$t<TRes> {
+  _CopyWithImpl$Fragment$T1$t(this._instance, this._then);
+
+  final Fragment$T1$t _instance;
+
+  final TRes Function(Fragment$T1$t) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$T1$t(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$T1$t<TRes>
+    implements CopyWith$Fragment$T1$t<TRes> {
+  _CopyWithStubImpl$Fragment$T1$t(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -127,10 +201,50 @@ class Fragment$T2 {
 }
 
 extension UtilityExtension$Fragment$T2 on Fragment$T2 {
-  Fragment$T2 copyWith(
-          {Fragment$T2$t? Function()? t, String? Function()? name}) =>
-      Fragment$T2(
-          t: t == null ? this.t : t(), name: name == null ? this.name : name());
+  CopyWith$Fragment$T2<Fragment$T2> get copyWith =>
+      CopyWith$Fragment$T2(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$T2<TRes> {
+  factory CopyWith$Fragment$T2(
+          Fragment$T2 instance, TRes Function(Fragment$T2) then) =
+      _CopyWithImpl$Fragment$T2;
+
+  factory CopyWith$Fragment$T2.stub(TRes res) = _CopyWithStubImpl$Fragment$T2;
+
+  TRes call({Fragment$T2$t? t, String? name});
+  CopyWith$Fragment$T2$t<TRes> get t;
+}
+
+class _CopyWithImpl$Fragment$T2<TRes> implements CopyWith$Fragment$T2<TRes> {
+  _CopyWithImpl$Fragment$T2(this._instance, this._then);
+
+  final Fragment$T2 _instance;
+
+  final TRes Function(Fragment$T2) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? t = _undefined, Object? name = _undefined}) =>
+      _then(Fragment$T2(
+          t: t == _undefined ? _instance.t : (t as Fragment$T2$t?),
+          name: name == _undefined ? _instance.name : (name as String?)));
+  CopyWith$Fragment$T2$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$T2$t.stub(_then(_instance))
+        : CopyWith$Fragment$T2$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$T2<TRes>
+    implements CopyWith$Fragment$T2<TRes> {
+  _CopyWithStubImpl$Fragment$T2(this._res);
+
+  TRes _res;
+
+  call({Fragment$T2$t? t, String? name}) => _res;
+  CopyWith$Fragment$T2$t<TRes> get t => CopyWith$Fragment$T2$t.stub(_res);
 }
 
 const fragmentDefinitionT2 = FragmentDefinitionNode(
@@ -192,8 +306,42 @@ class Fragment$T2$t {
 }
 
 extension UtilityExtension$Fragment$T2$t on Fragment$T2$t {
-  Fragment$T2$t copyWith({String? Function()? name}) =>
-      Fragment$T2$t(name: name == null ? this.name : name());
+  CopyWith$Fragment$T2$t<Fragment$T2$t> get copyWith =>
+      CopyWith$Fragment$T2$t(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$T2$t<TRes> {
+  factory CopyWith$Fragment$T2$t(
+          Fragment$T2$t instance, TRes Function(Fragment$T2$t) then) =
+      _CopyWithImpl$Fragment$T2$t;
+
+  factory CopyWith$Fragment$T2$t.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$T2$t;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$T2$t<TRes>
+    implements CopyWith$Fragment$T2$t<TRes> {
+  _CopyWithImpl$Fragment$T2$t(this._instance, this._then);
+
+  final Fragment$T2$t _instance;
+
+  final TRes Function(Fragment$T2$t) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$T2$t(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$T2$t<TRes>
+    implements CopyWith$Fragment$T2$t<TRes> {
+  _CopyWithStubImpl$Fragment$T2$t(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -231,10 +379,50 @@ class Fragment$TC implements Fragment$T1, Fragment$T2 {
 }
 
 extension UtilityExtension$Fragment$TC on Fragment$TC {
-  Fragment$TC copyWith(
-          {Fragment$TC$t? Function()? t, String? Function()? name}) =>
-      Fragment$TC(
-          t: t == null ? this.t : t(), name: name == null ? this.name : name());
+  CopyWith$Fragment$TC<Fragment$TC> get copyWith =>
+      CopyWith$Fragment$TC(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$TC<TRes> {
+  factory CopyWith$Fragment$TC(
+          Fragment$TC instance, TRes Function(Fragment$TC) then) =
+      _CopyWithImpl$Fragment$TC;
+
+  factory CopyWith$Fragment$TC.stub(TRes res) = _CopyWithStubImpl$Fragment$TC;
+
+  TRes call({Fragment$TC$t? t, String? name});
+  CopyWith$Fragment$TC$t<TRes> get t;
+}
+
+class _CopyWithImpl$Fragment$TC<TRes> implements CopyWith$Fragment$TC<TRes> {
+  _CopyWithImpl$Fragment$TC(this._instance, this._then);
+
+  final Fragment$TC _instance;
+
+  final TRes Function(Fragment$TC) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? t = _undefined, Object? name = _undefined}) =>
+      _then(Fragment$TC(
+          t: t == _undefined ? _instance.t : (t as Fragment$TC$t?),
+          name: name == _undefined ? _instance.name : (name as String?)));
+  CopyWith$Fragment$TC$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$TC$t.stub(_then(_instance))
+        : CopyWith$Fragment$TC$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$TC<TRes>
+    implements CopyWith$Fragment$TC<TRes> {
+  _CopyWithStubImpl$Fragment$TC(this._res);
+
+  TRes _res;
+
+  call({Fragment$TC$t? t, String? name}) => _res;
+  CopyWith$Fragment$TC$t<TRes> get t => CopyWith$Fragment$TC$t.stub(_res);
 }
 
 const fragmentDefinitionTC = FragmentDefinitionNode(
@@ -281,8 +469,42 @@ class Fragment$TC$t implements Fragment$T1$t, Fragment$T2$t {
 }
 
 extension UtilityExtension$Fragment$TC$t on Fragment$TC$t {
-  Fragment$TC$t copyWith({String? Function()? name}) =>
-      Fragment$TC$t(name: name == null ? this.name : name());
+  CopyWith$Fragment$TC$t<Fragment$TC$t> get copyWith =>
+      CopyWith$Fragment$TC$t(this, (i) => i);
+}
+
+abstract class CopyWith$Fragment$TC$t<TRes> {
+  factory CopyWith$Fragment$TC$t(
+          Fragment$TC$t instance, TRes Function(Fragment$TC$t) then) =
+      _CopyWithImpl$Fragment$TC$t;
+
+  factory CopyWith$Fragment$TC$t.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$TC$t;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$TC$t<TRes>
+    implements CopyWith$Fragment$TC$t<TRes> {
+  _CopyWithImpl$Fragment$TC$t(this._instance, this._then);
+
+  final Fragment$TC$t _instance;
+
+  final TRes Function(Fragment$TC$t) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$TC$t(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$TC$t<TRes>
+    implements CopyWith$Fragment$TC$t<TRes> {
+  _CopyWithStubImpl$Fragment$TC$t(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -313,8 +535,45 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  Query$Q copyWith({Fragment$TC? Function()? t}) =>
-      Query$Q(t: t == null ? this.t : t());
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+}
+
+abstract class CopyWith$Query$Q<TRes> {
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
+
+  factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
+
+  TRes call({Fragment$TC? t});
+  CopyWith$Fragment$TC<TRes> get t;
+}
+
+class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithImpl$Query$Q(this._instance, this._then);
+
+  final Query$Q _instance;
+
+  final TRes Function(Query$Q) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? t = _undefined}) =>
+      _then(Query$Q(t: t == _undefined ? _instance.t : (t as Fragment$TC?)));
+  CopyWith$Fragment$TC<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$TC.stub(_then(_instance))
+        : CopyWith$Fragment$TC(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithStubImpl$Query$Q(this._res);
+
+  TRes _res;
+
+  call({Fragment$TC? t}) => _res;
+  CopyWith$Fragment$TC<TRes> get t => CopyWith$Fragment$TC.stub(_res);
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [

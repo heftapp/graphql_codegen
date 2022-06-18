@@ -34,8 +34,42 @@ class Query$FetchSNoVariables {
 }
 
 extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
-  Query$FetchSNoVariables copyWith({String? Function()? s}) =>
-      Query$FetchSNoVariables(s: s == null ? this.s : s());
+  CopyWith$Query$FetchSNoVariables<Query$FetchSNoVariables> get copyWith =>
+      CopyWith$Query$FetchSNoVariables(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchSNoVariables<TRes> {
+  factory CopyWith$Query$FetchSNoVariables(Query$FetchSNoVariables instance,
+          TRes Function(Query$FetchSNoVariables) then) =
+      _CopyWithImpl$Query$FetchSNoVariables;
+
+  factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchSNoVariables;
+
+  TRes call({String? s});
+}
+
+class _CopyWithImpl$Query$FetchSNoVariables<TRes>
+    implements CopyWith$Query$FetchSNoVariables<TRes> {
+  _CopyWithImpl$Query$FetchSNoVariables(this._instance, this._then);
+
+  final Query$FetchSNoVariables _instance;
+
+  final TRes Function(Query$FetchSNoVariables) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? s = _undefined}) => _then(Query$FetchSNoVariables(
+      s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Query$FetchSNoVariables<TRes>
+    implements CopyWith$Query$FetchSNoVariables<TRes> {
+  _CopyWithStubImpl$Query$FetchSNoVariables(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [

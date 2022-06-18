@@ -35,8 +35,43 @@ class Variables$Query$FetchPerson {
     return true;
   }
 
-  Variables$Query$FetchPerson copyWith({String? id}) =>
-      Variables$Query$FetchPerson(id: id == null ? this.id : id);
+  CopyWith$Variables$Query$FetchPerson<Variables$Query$FetchPerson>
+      get copyWith => CopyWith$Variables$Query$FetchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Query$FetchPerson<TRes> {
+  factory CopyWith$Variables$Query$FetchPerson(
+          Variables$Query$FetchPerson instance,
+          TRes Function(Variables$Query$FetchPerson) then) =
+      _CopyWithImpl$Variables$Query$FetchPerson;
+
+  factory CopyWith$Variables$Query$FetchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$FetchPerson;
+
+  TRes call({String? id});
+}
+
+class _CopyWithImpl$Variables$Query$FetchPerson<TRes>
+    implements CopyWith$Variables$Query$FetchPerson<TRes> {
+  _CopyWithImpl$Variables$Query$FetchPerson(this._instance, this._then);
+
+  final Variables$Query$FetchPerson _instance;
+
+  final TRes Function(Variables$Query$FetchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? id = _undefined}) => _then(Variables$Query$FetchPerson(
+      id: id == _undefined || id == null ? _instance.id : (id as String)));
+}
+
+class _CopyWithStubImpl$Variables$Query$FetchPerson<TRes>
+    implements CopyWith$Variables$Query$FetchPerson<TRes> {
+  _CopyWithStubImpl$Variables$Query$FetchPerson(this._res);
+
+  TRes _res;
+
+  call({String? id}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -75,12 +110,61 @@ class Query$FetchPerson {
 }
 
 extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
-  Query$FetchPerson copyWith(
-          {Query$FetchPerson$fetchPerson? Function()? fetchPerson,
-          String? $__typename}) =>
-      Query$FetchPerson(
-          fetchPerson: fetchPerson == null ? this.fetchPerson : fetchPerson(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Query$FetchPerson<Query$FetchPerson> get copyWith =>
+      CopyWith$Query$FetchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchPerson<TRes> {
+  factory CopyWith$Query$FetchPerson(
+          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson;
+
+  factory CopyWith$Query$FetchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchPerson;
+
+  TRes call({Query$FetchPerson$fetchPerson? fetchPerson, String? $__typename});
+  CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson;
+}
+
+class _CopyWithImpl$Query$FetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson<TRes> {
+  _CopyWithImpl$Query$FetchPerson(this._instance, this._then);
+
+  final Query$FetchPerson _instance;
+
+  final TRes Function(Query$FetchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? fetchPerson = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Query$FetchPerson(
+          fetchPerson: fetchPerson == _undefined
+              ? _instance.fetchPerson
+              : (fetchPerson as Query$FetchPerson$fetchPerson?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+  CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson {
+    final local$fetchPerson = _instance.fetchPerson;
+    return local$fetchPerson == null
+        ? CopyWith$Query$FetchPerson$fetchPerson.stub(_then(_instance))
+        : CopyWith$Query$FetchPerson$fetchPerson(
+            local$fetchPerson, (e) => call(fetchPerson: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$FetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson<TRes> {
+  _CopyWithStubImpl$Query$FetchPerson(this._res);
+
+  TRes _res;
+
+  call({Query$FetchPerson$fetchPerson? fetchPerson, String? $__typename}) =>
+      _res;
+  CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson =>
+      CopyWith$Query$FetchPerson$fetchPerson.stub(_res);
 }
 
 const documentNodeQueryFetchPerson = DocumentNode(definitions: [
@@ -278,6 +362,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
       this.events,
       this.eventsOfEvents,
       this.parents,
+      this.favParent,
       required this.$__typename,
       this.children});
 
@@ -305,6 +390,8 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
 
   final List<Query$FetchPerson$fetchPerson$parents>? parents;
 
+  final Fragment$PersonParent? favParent;
+
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -318,6 +405,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
     final l$events = events;
     final l$eventsOfEvents = eventsOfEvents;
     final l$parents = parents;
+    final l$favParent = favParent;
     final l$$__typename = $__typename;
     final l$children = children;
     return Object.hashAll([
@@ -330,6 +418,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
           : Object.hashAll(l$eventsOfEvents
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
       l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
+      l$favParent,
       l$$__typename,
       l$children == null ? null : Object.hashAll(l$children.map((v) => v))
     ]);
@@ -401,6 +490,9 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
       return false;
     }
 
+    final l$favParent = favParent;
+    final lOther$favParent = other.favParent;
+    if (l$favParent != lOther$favParent) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -423,25 +515,139 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
 
 extension UtilityExtension$Query$FetchPerson$fetchPerson
     on Query$FetchPerson$fetchPerson {
-  Query$FetchPerson$fetchPerson copyWith(
-          {String? Function()? nickname,
+  CopyWith$Query$FetchPerson$fetchPerson<Query$FetchPerson$fetchPerson>
+      get copyWith => CopyWith$Query$FetchPerson$fetchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
+  factory CopyWith$Query$FetchPerson$fetchPerson(
+          Query$FetchPerson$fetchPerson instance,
+          TRes Function(Query$FetchPerson$fetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson$fetchPerson;
+
+  factory CopyWith$Query$FetchPerson$fetchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchPerson$fetchPerson;
+
+  TRes call(
+      {String? nickname,
+      String? name,
+      DateTime? dob,
+      List<DateTime?>? events,
+      List<List<DateTime?>?>? eventsOfEvents,
+      List<Query$FetchPerson$fetchPerson$parents>? parents,
+      Fragment$PersonParent? favParent,
+      String? $__typename,
+      List<Fragment$PersonSummary>? children});
+  TRes parents(
+      Iterable<Query$FetchPerson$fetchPerson$parents>? Function(
+              Iterable<
+                  CopyWith$Query$FetchPerson$fetchPerson$parents<
+                      Query$FetchPerson$fetchPerson$parents>>?)
+          _fn);
+  CopyWith$Fragment$PersonParent<TRes> get favParent;
+  TRes children(
+      Iterable<Fragment$PersonSummary>? Function(
+              Iterable<
+                  CopyWith$Fragment$PersonSummary<Fragment$PersonSummary>>?)
+          _fn);
+}
+
+class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson$fetchPerson<TRes> {
+  _CopyWithImpl$Query$FetchPerson$fetchPerson(this._instance, this._then);
+
+  final Query$FetchPerson$fetchPerson _instance;
+
+  final TRes Function(Query$FetchPerson$fetchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? nickname = _undefined,
+          Object? name = _undefined,
+          Object? dob = _undefined,
+          Object? events = _undefined,
+          Object? eventsOfEvents = _undefined,
+          Object? parents = _undefined,
+          Object? favParent = _undefined,
+          Object? $__typename = _undefined,
+          Object? children = _undefined}) =>
+      _then(Query$FetchPerson$fetchPerson(
+          nickname: nickname == _undefined
+              ? _instance.nickname
+              : (nickname as String?),
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          dob: dob == _undefined ? _instance.dob : (dob as DateTime?),
+          events: events == _undefined
+              ? _instance.events
+              : (events as List<DateTime?>?),
+          eventsOfEvents: eventsOfEvents == _undefined
+              ? _instance.eventsOfEvents
+              : (eventsOfEvents as List<List<DateTime?>?>?),
+          parents: parents == _undefined
+              ? _instance.parents
+              : (parents as List<Query$FetchPerson$fetchPerson$parents>?),
+          favParent: favParent == _undefined
+              ? _instance.favParent
+              : (favParent as Fragment$PersonParent?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          children: children == _undefined
+              ? _instance.children
+              : (children as List<Fragment$PersonSummary>?)));
+  TRes parents(
+          Iterable<Query$FetchPerson$fetchPerson$parents>? Function(
+                  Iterable<
+                      CopyWith$Query$FetchPerson$fetchPerson$parents<
+                          Query$FetchPerson$fetchPerson$parents>>?)
+              _fn) =>
+      call(
+          parents: _fn(_instance.parents?.map((e) =>
+                  CopyWith$Query$FetchPerson$fetchPerson$parents(e, (i) => i)))
+              ?.toList());
+  CopyWith$Fragment$PersonParent<TRes> get favParent {
+    final local$favParent = _instance.favParent;
+    return local$favParent == null
+        ? CopyWith$Fragment$PersonParent.stub(_then(_instance))
+        : CopyWith$Fragment$PersonParent(
+            local$favParent, (e) => call(favParent: e));
+  }
+
+  TRes children(
+          Iterable<Fragment$PersonSummary>? Function(
+                  Iterable<
+                      CopyWith$Fragment$PersonSummary<Fragment$PersonSummary>>?)
+              _fn) =>
+      call(
+          children: _fn(_instance.children
+                  ?.map((e) => CopyWith$Fragment$PersonSummary(e, (i) => i)))
+              ?.toList());
+}
+
+class _CopyWithStubImpl$Query$FetchPerson$fetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson$fetchPerson<TRes> {
+  _CopyWithStubImpl$Query$FetchPerson$fetchPerson(this._res);
+
+  TRes _res;
+
+  call(
+          {String? nickname,
           String? name,
-          DateTime? Function()? dob,
-          List<DateTime?>? Function()? events,
-          List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Query$FetchPerson$fetchPerson$parents>? Function()? parents,
+          DateTime? dob,
+          List<DateTime?>? events,
+          List<List<DateTime?>?>? eventsOfEvents,
+          List<Query$FetchPerson$fetchPerson$parents>? parents,
+          Fragment$PersonParent? favParent,
           String? $__typename,
-          List<Fragment$PersonSummary>? Function()? children}) =>
-      Query$FetchPerson$fetchPerson(
-          nickname: nickname == null ? this.nickname : nickname(),
-          name: name == null ? this.name : name,
-          dob: dob == null ? this.dob : dob(),
-          events: events == null ? this.events : events(),
-          eventsOfEvents:
-              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
-          parents: parents == null ? this.parents : parents(),
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          children: children == null ? this.children : children());
+          List<Fragment$PersonSummary>? children}) =>
+      _res;
+  parents(_fn) => _res;
+  CopyWith$Fragment$PersonParent<TRes> get favParent =>
+      CopyWith$Fragment$PersonParent.stub(_res);
+  children(_fn) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -454,7 +660,8 @@ class Query$FetchPerson$fetchPerson$parents
       this.dob,
       this.events,
       this.eventsOfEvents,
-      this.parents});
+      this.parents,
+      this.favParent});
 
   @override
   factory Query$FetchPerson$fetchPerson$parents.fromJson(
@@ -484,6 +691,8 @@ class Query$FetchPerson$fetchPerson$parents
 
   final List<Fragment$PersonParent>? parents;
 
+  final Fragment$PersonParent? favParent;
+
   Map<String, dynamic> toJson() =>
       _$Query$FetchPerson$fetchPerson$parentsToJson(this);
   int get hashCode {
@@ -494,6 +703,7 @@ class Query$FetchPerson$fetchPerson$parents
     final l$events = events;
     final l$eventsOfEvents = eventsOfEvents;
     final l$parents = parents;
+    final l$favParent = favParent;
     return Object.hashAll([
       l$name,
       l$$__typename,
@@ -504,7 +714,8 @@ class Query$FetchPerson$fetchPerson$parents
           ? null
           : Object.hashAll(l$eventsOfEvents
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
-      l$parents == null ? null : Object.hashAll(l$parents.map((v) => v))
+      l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
+      l$favParent
     ]);
   }
 
@@ -577,29 +788,126 @@ class Query$FetchPerson$fetchPerson$parents
       return false;
     }
 
+    final l$favParent = favParent;
+    final lOther$favParent = other.favParent;
+    if (l$favParent != lOther$favParent) return false;
     return true;
   }
 }
 
 extension UtilityExtension$Query$FetchPerson$fetchPerson$parents
     on Query$FetchPerson$fetchPerson$parents {
-  Query$FetchPerson$fetchPerson$parents copyWith(
+  CopyWith$Query$FetchPerson$fetchPerson$parents<
+          Query$FetchPerson$fetchPerson$parents>
+      get copyWith =>
+          CopyWith$Query$FetchPerson$fetchPerson$parents(this, (i) => i);
+}
+
+abstract class CopyWith$Query$FetchPerson$fetchPerson$parents<TRes> {
+  factory CopyWith$Query$FetchPerson$fetchPerson$parents(
+          Query$FetchPerson$fetchPerson$parents instance,
+          TRes Function(Query$FetchPerson$fetchPerson$parents) then) =
+      _CopyWithImpl$Query$FetchPerson$fetchPerson$parents;
+
+  factory CopyWith$Query$FetchPerson$fetchPerson$parents.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents;
+
+  TRes call(
+      {String? name,
+      String? $__typename,
+      String? nickname,
+      DateTime? dob,
+      List<DateTime?>? events,
+      List<List<DateTime?>?>? eventsOfEvents,
+      List<Fragment$PersonParent>? parents,
+      Fragment$PersonParent? favParent});
+  TRes parents(
+      Iterable<Fragment$PersonParent>? Function(
+              Iterable<CopyWith$Fragment$PersonParent<Fragment$PersonParent>>?)
+          _fn);
+  CopyWith$Fragment$PersonParent<TRes> get favParent;
+}
+
+class _CopyWithImpl$Query$FetchPerson$fetchPerson$parents<TRes>
+    implements CopyWith$Query$FetchPerson$fetchPerson$parents<TRes> {
+  _CopyWithImpl$Query$FetchPerson$fetchPerson$parents(
+      this._instance, this._then);
+
+  final Query$FetchPerson$fetchPerson$parents _instance;
+
+  final TRes Function(Query$FetchPerson$fetchPerson$parents) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? name = _undefined,
+          Object? $__typename = _undefined,
+          Object? nickname = _undefined,
+          Object? dob = _undefined,
+          Object? events = _undefined,
+          Object? eventsOfEvents = _undefined,
+          Object? parents = _undefined,
+          Object? favParent = _undefined}) =>
+      _then(Query$FetchPerson$fetchPerson$parents(
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          nickname: nickname == _undefined
+              ? _instance.nickname
+              : (nickname as String?),
+          dob: dob == _undefined ? _instance.dob : (dob as DateTime?),
+          events: events == _undefined
+              ? _instance.events
+              : (events as List<DateTime?>?),
+          eventsOfEvents: eventsOfEvents == _undefined
+              ? _instance.eventsOfEvents
+              : (eventsOfEvents as List<List<DateTime?>?>?),
+          parents: parents == _undefined
+              ? _instance.parents
+              : (parents as List<Fragment$PersonParent>?),
+          favParent: favParent == _undefined
+              ? _instance.favParent
+              : (favParent as Fragment$PersonParent?)));
+  TRes parents(
+          Iterable<Fragment$PersonParent>? Function(
+                  Iterable<
+                      CopyWith$Fragment$PersonParent<Fragment$PersonParent>>?)
+              _fn) =>
+      call(
+          parents: _fn(_instance.parents
+                  ?.map((e) => CopyWith$Fragment$PersonParent(e, (i) => i)))
+              ?.toList());
+  CopyWith$Fragment$PersonParent<TRes> get favParent {
+    final local$favParent = _instance.favParent;
+    return local$favParent == null
+        ? CopyWith$Fragment$PersonParent.stub(_then(_instance))
+        : CopyWith$Fragment$PersonParent(
+            local$favParent, (e) => call(favParent: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents<TRes>
+    implements CopyWith$Query$FetchPerson$fetchPerson$parents<TRes> {
+  _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents(this._res);
+
+  TRes _res;
+
+  call(
           {String? name,
           String? $__typename,
-          String? Function()? nickname,
-          DateTime? Function()? dob,
-          List<DateTime?>? Function()? events,
-          List<List<DateTime?>?>? Function()? eventsOfEvents,
-          List<Fragment$PersonParent>? Function()? parents}) =>
-      Query$FetchPerson$fetchPerson$parents(
-          name: name == null ? this.name : name,
-          $__typename: $__typename == null ? this.$__typename : $__typename,
-          nickname: nickname == null ? this.nickname : nickname(),
-          dob: dob == null ? this.dob : dob(),
-          events: events == null ? this.events : events(),
-          eventsOfEvents:
-              eventsOfEvents == null ? this.eventsOfEvents : eventsOfEvents(),
-          parents: parents == null ? this.parents : parents());
+          String? nickname,
+          DateTime? dob,
+          List<DateTime?>? events,
+          List<List<DateTime?>?>? eventsOfEvents,
+          List<Fragment$PersonParent>? parents,
+          Fragment$PersonParent? favParent}) =>
+      _res;
+  parents(_fn) => _res;
+  CopyWith$Fragment$PersonParent<TRes> get favParent =>
+      CopyWith$Fragment$PersonParent.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -630,8 +938,43 @@ class Variables$Mutation$UpdatePerson {
     return true;
   }
 
-  Variables$Mutation$UpdatePerson copyWith({String? id}) =>
-      Variables$Mutation$UpdatePerson(id: id == null ? this.id : id);
+  CopyWith$Variables$Mutation$UpdatePerson<Variables$Mutation$UpdatePerson>
+      get copyWith => CopyWith$Variables$Mutation$UpdatePerson(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Mutation$UpdatePerson<TRes> {
+  factory CopyWith$Variables$Mutation$UpdatePerson(
+          Variables$Mutation$UpdatePerson instance,
+          TRes Function(Variables$Mutation$UpdatePerson) then) =
+      _CopyWithImpl$Variables$Mutation$UpdatePerson;
+
+  factory CopyWith$Variables$Mutation$UpdatePerson.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$UpdatePerson;
+
+  TRes call({String? id});
+}
+
+class _CopyWithImpl$Variables$Mutation$UpdatePerson<TRes>
+    implements CopyWith$Variables$Mutation$UpdatePerson<TRes> {
+  _CopyWithImpl$Variables$Mutation$UpdatePerson(this._instance, this._then);
+
+  final Variables$Mutation$UpdatePerson _instance;
+
+  final TRes Function(Variables$Mutation$UpdatePerson) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? id = _undefined}) => _then(Variables$Mutation$UpdatePerson(
+      id: id == _undefined || id == null ? _instance.id : (id as String)));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$UpdatePerson<TRes>
+    implements CopyWith$Variables$Mutation$UpdatePerson<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$UpdatePerson(this._res);
+
+  TRes _res;
+
+  call({String? id}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -670,13 +1013,64 @@ class Mutation$UpdatePerson {
 }
 
 extension UtilityExtension$Mutation$UpdatePerson on Mutation$UpdatePerson {
-  Mutation$UpdatePerson copyWith(
-          {Mutation$UpdatePerson$updatePerson? Function()? updatePerson,
+  CopyWith$Mutation$UpdatePerson<Mutation$UpdatePerson> get copyWith =>
+      CopyWith$Mutation$UpdatePerson(this, (i) => i);
+}
+
+abstract class CopyWith$Mutation$UpdatePerson<TRes> {
+  factory CopyWith$Mutation$UpdatePerson(Mutation$UpdatePerson instance,
+          TRes Function(Mutation$UpdatePerson) then) =
+      _CopyWithImpl$Mutation$UpdatePerson;
+
+  factory CopyWith$Mutation$UpdatePerson.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdatePerson;
+
+  TRes call(
+      {Mutation$UpdatePerson$updatePerson? updatePerson, String? $__typename});
+  CopyWith$Mutation$UpdatePerson$updatePerson<TRes> get updatePerson;
+}
+
+class _CopyWithImpl$Mutation$UpdatePerson<TRes>
+    implements CopyWith$Mutation$UpdatePerson<TRes> {
+  _CopyWithImpl$Mutation$UpdatePerson(this._instance, this._then);
+
+  final Mutation$UpdatePerson _instance;
+
+  final TRes Function(Mutation$UpdatePerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? updatePerson = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Mutation$UpdatePerson(
+          updatePerson: updatePerson == _undefined
+              ? _instance.updatePerson
+              : (updatePerson as Mutation$UpdatePerson$updatePerson?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+  CopyWith$Mutation$UpdatePerson$updatePerson<TRes> get updatePerson {
+    final local$updatePerson = _instance.updatePerson;
+    return local$updatePerson == null
+        ? CopyWith$Mutation$UpdatePerson$updatePerson.stub(_then(_instance))
+        : CopyWith$Mutation$UpdatePerson$updatePerson(
+            local$updatePerson, (e) => call(updatePerson: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$UpdatePerson<TRes>
+    implements CopyWith$Mutation$UpdatePerson<TRes> {
+  _CopyWithStubImpl$Mutation$UpdatePerson(this._res);
+
+  TRes _res;
+
+  call(
+          {Mutation$UpdatePerson$updatePerson? updatePerson,
           String? $__typename}) =>
-      Mutation$UpdatePerson(
-          updatePerson:
-              updatePerson == null ? this.updatePerson : updatePerson(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+      _res;
+  CopyWith$Mutation$UpdatePerson$updatePerson<TRes> get updatePerson =>
+      CopyWith$Mutation$UpdatePerson$updatePerson.stub(_res);
 }
 
 const documentNodeMutationUpdatePerson = DocumentNode(definitions: [
@@ -943,11 +1337,52 @@ class Mutation$UpdatePerson$updatePerson {
 
 extension UtilityExtension$Mutation$UpdatePerson$updatePerson
     on Mutation$UpdatePerson$updatePerson {
-  Mutation$UpdatePerson$updatePerson copyWith(
-          {String? full_name, String? $__typename}) =>
-      Mutation$UpdatePerson$updatePerson(
-          full_name: full_name == null ? this.full_name : full_name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Mutation$UpdatePerson$updatePerson<
+          Mutation$UpdatePerson$updatePerson>
+      get copyWith =>
+          CopyWith$Mutation$UpdatePerson$updatePerson(this, (i) => i);
+}
+
+abstract class CopyWith$Mutation$UpdatePerson$updatePerson<TRes> {
+  factory CopyWith$Mutation$UpdatePerson$updatePerson(
+          Mutation$UpdatePerson$updatePerson instance,
+          TRes Function(Mutation$UpdatePerson$updatePerson) then) =
+      _CopyWithImpl$Mutation$UpdatePerson$updatePerson;
+
+  factory CopyWith$Mutation$UpdatePerson$updatePerson.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson;
+
+  TRes call({String? full_name, String? $__typename});
+}
+
+class _CopyWithImpl$Mutation$UpdatePerson$updatePerson<TRes>
+    implements CopyWith$Mutation$UpdatePerson$updatePerson<TRes> {
+  _CopyWithImpl$Mutation$UpdatePerson$updatePerson(this._instance, this._then);
+
+  final Mutation$UpdatePerson$updatePerson _instance;
+
+  final TRes Function(Mutation$UpdatePerson$updatePerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? full_name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Mutation$UpdatePerson$updatePerson(
+          full_name: full_name == _undefined || full_name == null
+              ? _instance.full_name
+              : (full_name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson<TRes>
+    implements CopyWith$Mutation$UpdatePerson$updatePerson<TRes> {
+  _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson(this._res);
+
+  TRes _res;
+
+  call({String? full_name, String? $__typename}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -979,8 +1414,46 @@ class Variables$Subscription$WatchPerson {
     return true;
   }
 
-  Variables$Subscription$WatchPerson copyWith({String? Function()? id}) =>
-      Variables$Subscription$WatchPerson(id: id == null ? this.id : id());
+  CopyWith$Variables$Subscription$WatchPerson<
+          Variables$Subscription$WatchPerson>
+      get copyWith =>
+          CopyWith$Variables$Subscription$WatchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Variables$Subscription$WatchPerson<TRes> {
+  factory CopyWith$Variables$Subscription$WatchPerson(
+          Variables$Subscription$WatchPerson instance,
+          TRes Function(Variables$Subscription$WatchPerson) then) =
+      _CopyWithImpl$Variables$Subscription$WatchPerson;
+
+  factory CopyWith$Variables$Subscription$WatchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Subscription$WatchPerson;
+
+  TRes call({String? id});
+}
+
+class _CopyWithImpl$Variables$Subscription$WatchPerson<TRes>
+    implements CopyWith$Variables$Subscription$WatchPerson<TRes> {
+  _CopyWithImpl$Variables$Subscription$WatchPerson(this._instance, this._then);
+
+  final Variables$Subscription$WatchPerson _instance;
+
+  final TRes Function(Variables$Subscription$WatchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? id = _undefined}) =>
+      _then(Variables$Subscription$WatchPerson(
+          id: id == _undefined ? _instance.id : (id as String?)));
+}
+
+class _CopyWithStubImpl$Variables$Subscription$WatchPerson<TRes>
+    implements CopyWith$Variables$Subscription$WatchPerson<TRes> {
+  _CopyWithStubImpl$Variables$Subscription$WatchPerson(this._res);
+
+  TRes _res;
+
+  call({String? id}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1020,12 +1493,64 @@ class Subscription$WatchPerson {
 
 extension UtilityExtension$Subscription$WatchPerson
     on Subscription$WatchPerson {
-  Subscription$WatchPerson copyWith(
-          {Subscription$WatchPerson$watchPerson? Function()? watchPerson,
+  CopyWith$Subscription$WatchPerson<Subscription$WatchPerson> get copyWith =>
+      CopyWith$Subscription$WatchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$WatchPerson<TRes> {
+  factory CopyWith$Subscription$WatchPerson(Subscription$WatchPerson instance,
+          TRes Function(Subscription$WatchPerson) then) =
+      _CopyWithImpl$Subscription$WatchPerson;
+
+  factory CopyWith$Subscription$WatchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Subscription$WatchPerson;
+
+  TRes call(
+      {Subscription$WatchPerson$watchPerson? watchPerson, String? $__typename});
+  CopyWith$Subscription$WatchPerson$watchPerson<TRes> get watchPerson;
+}
+
+class _CopyWithImpl$Subscription$WatchPerson<TRes>
+    implements CopyWith$Subscription$WatchPerson<TRes> {
+  _CopyWithImpl$Subscription$WatchPerson(this._instance, this._then);
+
+  final Subscription$WatchPerson _instance;
+
+  final TRes Function(Subscription$WatchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? watchPerson = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Subscription$WatchPerson(
+          watchPerson: watchPerson == _undefined
+              ? _instance.watchPerson
+              : (watchPerson as Subscription$WatchPerson$watchPerson?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+  CopyWith$Subscription$WatchPerson$watchPerson<TRes> get watchPerson {
+    final local$watchPerson = _instance.watchPerson;
+    return local$watchPerson == null
+        ? CopyWith$Subscription$WatchPerson$watchPerson.stub(_then(_instance))
+        : CopyWith$Subscription$WatchPerson$watchPerson(
+            local$watchPerson, (e) => call(watchPerson: e));
+  }
+}
+
+class _CopyWithStubImpl$Subscription$WatchPerson<TRes>
+    implements CopyWith$Subscription$WatchPerson<TRes> {
+  _CopyWithStubImpl$Subscription$WatchPerson(this._res);
+
+  TRes _res;
+
+  call(
+          {Subscription$WatchPerson$watchPerson? watchPerson,
           String? $__typename}) =>
-      Subscription$WatchPerson(
-          watchPerson: watchPerson == null ? this.watchPerson : watchPerson(),
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+      _res;
+  CopyWith$Subscription$WatchPerson$watchPerson<TRes> get watchPerson =>
+      CopyWith$Subscription$WatchPerson$watchPerson.stub(_res);
 }
 
 const documentNodeSubscriptionWatchPerson = DocumentNode(definitions: [
@@ -1209,11 +1734,53 @@ class Subscription$WatchPerson$watchPerson {
 
 extension UtilityExtension$Subscription$WatchPerson$watchPerson
     on Subscription$WatchPerson$watchPerson {
-  Subscription$WatchPerson$watchPerson copyWith(
-          {String? full_name, String? $__typename}) =>
-      Subscription$WatchPerson$watchPerson(
-          full_name: full_name == null ? this.full_name : full_name,
-          $__typename: $__typename == null ? this.$__typename : $__typename);
+  CopyWith$Subscription$WatchPerson$watchPerson<
+          Subscription$WatchPerson$watchPerson>
+      get copyWith =>
+          CopyWith$Subscription$WatchPerson$watchPerson(this, (i) => i);
+}
+
+abstract class CopyWith$Subscription$WatchPerson$watchPerson<TRes> {
+  factory CopyWith$Subscription$WatchPerson$watchPerson(
+          Subscription$WatchPerson$watchPerson instance,
+          TRes Function(Subscription$WatchPerson$watchPerson) then) =
+      _CopyWithImpl$Subscription$WatchPerson$watchPerson;
+
+  factory CopyWith$Subscription$WatchPerson$watchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Subscription$WatchPerson$watchPerson;
+
+  TRes call({String? full_name, String? $__typename});
+}
+
+class _CopyWithImpl$Subscription$WatchPerson$watchPerson<TRes>
+    implements CopyWith$Subscription$WatchPerson$watchPerson<TRes> {
+  _CopyWithImpl$Subscription$WatchPerson$watchPerson(
+      this._instance, this._then);
+
+  final Subscription$WatchPerson$watchPerson _instance;
+
+  final TRes Function(Subscription$WatchPerson$watchPerson) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? full_name = _undefined, Object? $__typename = _undefined}) =>
+      _then(Subscription$WatchPerson$watchPerson(
+          full_name: full_name == _undefined || full_name == null
+              ? _instance.full_name
+              : (full_name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Subscription$WatchPerson$watchPerson<TRes>
+    implements CopyWith$Subscription$WatchPerson$watchPerson<TRes> {
+  _CopyWithStubImpl$Subscription$WatchPerson$watchPerson(this._res);
+
+  TRes _res;
+
+  call({String? full_name, String? $__typename}) => _res;
 }
 
 DateTime? _nullable$dateTimeFromJson(dynamic data) =>

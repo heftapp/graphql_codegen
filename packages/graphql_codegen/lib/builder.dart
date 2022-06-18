@@ -75,8 +75,9 @@ class GraphQLBuilder extends Builder {
   ) {
     final formatter = DartFormatter();
     final emitter = DartEmitter(useNullSafetySyntax: true);
+    final generatedCode = library.accept(emitter);
     final contents = formatter.format(
-      "${config.generatedFileHeader}${library.accept(emitter)}",
+      "${config.generatedFileHeader}${generatedCode}",
     );
     buildStep.writeAsString(targetAssetId, contents);
   }
