@@ -8,6 +8,9 @@ fragment PersonSummary on Person {
     parents {
         ...PersonParent
     }
+    favParent: favorite_parent {
+        ...PersonParent
+    }
 }
 
 

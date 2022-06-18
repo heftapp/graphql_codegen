@@ -42,6 +42,9 @@ abstract class CopyWith$Fragment$NoVariables<TRes> {
           TRes Function(Fragment$NoVariables) then) =
       _CopyWithImpl$Fragment$NoVariables;
 
+  factory CopyWith$Fragment$NoVariables.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$NoVariables;
+
   TRes call({String? s});
 }
 
@@ -57,6 +60,15 @@ class _CopyWithImpl$Fragment$NoVariables<TRes>
 
   TRes call({Object? s = _undefined}) => _then(
       Fragment$NoVariables(s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$NoVariables<TRes>
+    implements CopyWith$Fragment$NoVariables<TRes> {
+  _CopyWithStubImpl$Fragment$NoVariables(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const fragmentDefinitionNoVariables = FragmentDefinitionNode(
@@ -147,6 +159,9 @@ abstract class CopyWith$Variables$Fragment$WithOptionalVariables<TRes> {
           TRes Function(Variables$Fragment$WithOptionalVariables) then) =
       _CopyWithImpl$Variables$Fragment$WithOptionalVariables;
 
+  factory CopyWith$Variables$Fragment$WithOptionalVariables.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables;
+
   TRes call({String? name});
 }
 
@@ -164,6 +179,15 @@ class _CopyWithImpl$Variables$Fragment$WithOptionalVariables<TRes>
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Fragment$WithOptionalVariables(
           name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables<TRes>
+    implements CopyWith$Variables$Fragment$WithOptionalVariables<TRes> {
+  _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -206,6 +230,9 @@ abstract class CopyWith$Fragment$WithOptionalVariables<TRes> {
           TRes Function(Fragment$WithOptionalVariables) then) =
       _CopyWithImpl$Fragment$WithOptionalVariables;
 
+  factory CopyWith$Fragment$WithOptionalVariables.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$WithOptionalVariables;
+
   TRes call({String? s});
 }
 
@@ -221,6 +248,15 @@ class _CopyWithImpl$Fragment$WithOptionalVariables<TRes>
 
   TRes call({Object? s = _undefined}) => _then(Fragment$WithOptionalVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$WithOptionalVariables<TRes>
+    implements CopyWith$Fragment$WithOptionalVariables<TRes> {
+  _CopyWithStubImpl$Fragment$WithOptionalVariables(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const fragmentDefinitionWithOptionalVariables = FragmentDefinitionNode(
@@ -317,6 +353,9 @@ abstract class CopyWith$Variables$Fragment$WithVariables<TRes> {
           TRes Function(Variables$Fragment$WithVariables) then) =
       _CopyWithImpl$Variables$Fragment$WithVariables;
 
+  factory CopyWith$Variables$Fragment$WithVariables.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Fragment$WithVariables;
+
   TRes call({String? name});
 }
 
@@ -332,7 +371,18 @@ class _CopyWithImpl$Variables$Fragment$WithVariables<TRes>
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Fragment$WithVariables(
-          name: name == _undefined ? _instance.name : (name as String)));
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String)));
+}
+
+class _CopyWithStubImpl$Variables$Fragment$WithVariables<TRes>
+    implements CopyWith$Variables$Fragment$WithVariables<TRes> {
+  _CopyWithStubImpl$Variables$Fragment$WithVariables(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -373,6 +423,9 @@ abstract class CopyWith$Fragment$WithVariables<TRes> {
           TRes Function(Fragment$WithVariables) then) =
       _CopyWithImpl$Fragment$WithVariables;
 
+  factory CopyWith$Fragment$WithVariables.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$WithVariables;
+
   TRes call({String? s2});
 }
 
@@ -388,6 +441,15 @@ class _CopyWithImpl$Fragment$WithVariables<TRes>
 
   TRes call({Object? s2 = _undefined}) => _then(Fragment$WithVariables(
       s2: s2 == _undefined ? _instance.s2 : (s2 as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$WithVariables<TRes>
+    implements CopyWith$Fragment$WithVariables<TRes> {
+  _CopyWithStubImpl$Fragment$WithVariables(this._res);
+
+  TRes _res;
+
+  call({String? s2}) => _res;
 }
 
 const fragmentDefinitionWithVariables = FragmentDefinitionNode(
@@ -479,6 +541,9 @@ abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
           TRes Function(Variables$Query$FetchSOptional) then) =
       _CopyWithImpl$Variables$Query$FetchSOptional;
 
+  factory CopyWith$Variables$Query$FetchSOptional.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$FetchSOptional;
+
   TRes call({String? name});
 }
 
@@ -495,6 +560,15 @@ class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSOptional(
           name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Variables$Query$FetchSOptional<TRes>
+    implements CopyWith$Variables$Query$FetchSOptional<TRes> {
+  _CopyWithStubImpl$Variables$Query$FetchSOptional(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -535,6 +609,9 @@ abstract class CopyWith$Query$FetchSOptional<TRes> {
           TRes Function(Query$FetchSOptional) then) =
       _CopyWithImpl$Query$FetchSOptional;
 
+  factory CopyWith$Query$FetchSOptional.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchSOptional;
+
   TRes call({String? s});
 }
 
@@ -550,6 +627,15 @@ class _CopyWithImpl$Query$FetchSOptional<TRes>
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSOptional(s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Query$FetchSOptional<TRes>
+    implements CopyWith$Query$FetchSOptional<TRes> {
+  _CopyWithStubImpl$Query$FetchSOptional(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
@@ -713,6 +799,9 @@ abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
           TRes Function(Variables$Query$FetchSRequired) then) =
       _CopyWithImpl$Variables$Query$FetchSRequired;
 
+  factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$FetchSRequired;
+
   TRes call({String? name});
 }
 
@@ -728,7 +817,18 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSRequired(
-          name: name == _undefined ? _instance.name : (name as String)));
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String)));
+}
+
+class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
+    implements CopyWith$Variables$Query$FetchSRequired<TRes> {
+  _CopyWithStubImpl$Variables$Query$FetchSRequired(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -769,6 +869,9 @@ abstract class CopyWith$Query$FetchSRequired<TRes> {
           TRes Function(Query$FetchSRequired) then) =
       _CopyWithImpl$Query$FetchSRequired;
 
+  factory CopyWith$Query$FetchSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchSRequired;
+
   TRes call({String? s});
 }
 
@@ -784,6 +887,15 @@ class _CopyWithImpl$Query$FetchSRequired<TRes>
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Query$FetchSRequired<TRes>
+    implements CopyWith$Query$FetchSRequired<TRes> {
+  _CopyWithStubImpl$Query$FetchSRequired(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeQueryFetchSRequired = DocumentNode(definitions: [
@@ -949,6 +1061,9 @@ abstract class CopyWith$Query$FetchSNoVariables<TRes> {
           TRes Function(Query$FetchSNoVariables) then) =
       _CopyWithImpl$Query$FetchSNoVariables;
 
+  factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchSNoVariables;
+
   TRes call({String? s});
 }
 
@@ -964,6 +1079,15 @@ class _CopyWithImpl$Query$FetchSNoVariables<TRes>
 
   TRes call({Object? s = _undefined}) => _then(Query$FetchSNoVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Query$FetchSNoVariables<TRes>
+    implements CopyWith$Query$FetchSNoVariables<TRes> {
+  _CopyWithStubImpl$Query$FetchSNoVariables(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
@@ -1115,6 +1239,9 @@ abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
           TRes Function(Variables$Mutation$UpdateSOptional) then) =
       _CopyWithImpl$Variables$Mutation$UpdateSOptional;
 
+  factory CopyWith$Variables$Mutation$UpdateSOptional.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$UpdateSOptional;
+
   TRes call({String? name});
 }
 
@@ -1131,6 +1258,15 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Mutation$UpdateSOptional(
           name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
+    implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$UpdateSOptional(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1172,6 +1308,9 @@ abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
           TRes Function(Mutation$UpdateSOptional) then) =
       _CopyWithImpl$Mutation$UpdateSOptional;
 
+  factory CopyWith$Mutation$UpdateSOptional.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateSOptional;
+
   TRes call({String? s});
 }
 
@@ -1187,6 +1326,15 @@ class _CopyWithImpl$Mutation$UpdateSOptional<TRes>
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSOptional(
       s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdateSOptional<TRes>
+    implements CopyWith$Mutation$UpdateSOptional<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateSOptional(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [
@@ -1347,6 +1495,9 @@ abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
           TRes Function(Variables$Mutation$UpdateSRequired) then) =
       _CopyWithImpl$Variables$Mutation$UpdateSRequired;
 
+  factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
+
   TRes call({String? name});
 }
 
@@ -1362,7 +1513,18 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Mutation$UpdateSRequired(
-          name: name == _undefined ? _instance.name : (name as String)));
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String)));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
+    implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$UpdateSRequired(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1404,6 +1566,9 @@ abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
           TRes Function(Mutation$UpdateSRequired) then) =
       _CopyWithImpl$Mutation$UpdateSRequired;
 
+  factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateSRequired;
+
   TRes call({String? s});
 }
 
@@ -1419,6 +1584,15 @@ class _CopyWithImpl$Mutation$UpdateSRequired<TRes>
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSRequired(
       s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdateSRequired<TRes>
+    implements CopyWith$Mutation$UpdateSRequired<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateSRequired(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [
@@ -1578,6 +1752,9 @@ abstract class CopyWith$Mutation$UpdateSNoVariables<TRes> {
           TRes Function(Mutation$UpdateSNoVariables) then) =
       _CopyWithImpl$Mutation$UpdateSNoVariables;
 
+  factory CopyWith$Mutation$UpdateSNoVariables.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateSNoVariables;
+
   TRes call({String? s});
 }
 
@@ -1593,6 +1770,15 @@ class _CopyWithImpl$Mutation$UpdateSNoVariables<TRes>
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSNoVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdateSNoVariables<TRes>
+    implements CopyWith$Mutation$UpdateSNoVariables<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateSNoVariables(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeMutationUpdateSNoVariables = DocumentNode(definitions: [

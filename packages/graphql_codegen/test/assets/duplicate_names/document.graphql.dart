@@ -34,6 +34,8 @@ abstract class CopyWith$Input$I<TRes> {
   factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
       _CopyWithImpl$Input$I;
 
+  factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
+
   TRes call({String? title});
 }
 
@@ -48,6 +50,14 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   TRes call({Object? title = _undefined}) => _then(Input$I(
       title: title == _undefined ? _instance.title : (title as String?)));
+}
+
+class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
+  _CopyWithStubImpl$Input$I(this._res);
+
+  TRes _res;
+
+  call({String? title}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -83,6 +93,8 @@ abstract class CopyWith$Input$I_<TRes> {
   factory CopyWith$Input$I_(Input$I_ instance, TRes Function(Input$I_) then) =
       _CopyWithImpl$Input$I_;
 
+  factory CopyWith$Input$I_.stub(TRes res) = _CopyWithStubImpl$Input$I_;
+
   TRes call({double? value});
 }
 
@@ -97,6 +109,14 @@ class _CopyWithImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
 
   TRes call({Object? value = _undefined}) => _then(Input$I_(
       value: value == _undefined ? _instance.value : (value as double?)));
+}
+
+class _CopyWithStubImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
+  _CopyWithStubImpl$Input$I_(this._res);
+
+  TRes _res;
+
+  call({double? value}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -132,6 +152,8 @@ abstract class CopyWith$Input$i<TRes> {
   factory CopyWith$Input$i(Input$i instance, TRes Function(Input$i) then) =
       _CopyWithImpl$Input$i;
 
+  factory CopyWith$Input$i.stub(TRes res) = _CopyWithStubImpl$Input$i;
+
   TRes call({bool? enabled});
 }
 
@@ -146,4 +168,12 @@ class _CopyWithImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
 
   TRes call({Object? enabled = _undefined}) => _then(Input$i(
       enabled: enabled == _undefined ? _instance.enabled : (enabled as bool?)));
+}
+
+class _CopyWithStubImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
+  _CopyWithStubImpl$Input$i(this._res);
+
+  TRes _res;
+
+  call({bool? enabled}) => _res;
 }

@@ -55,7 +55,10 @@ abstract class CopyWith$Fragment$F1<TRes> {
           Fragment$F1 instance, TRes Function(Fragment$F1) then) =
       _CopyWithImpl$Fragment$F1;
 
+  factory CopyWith$Fragment$F1.stub(TRes res) = _CopyWithStubImpl$Fragment$F1;
+
   TRes call({String? name, Fragment$F2? field, String? $__typename});
+  CopyWith$Fragment$F2<TRes> get field;
 }
 
 class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
@@ -75,9 +78,25 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
           name: name == _undefined ? _instance.name : (name as String?),
           field:
               field == _undefined ? _instance.field : (field as Fragment$F2?),
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+  CopyWith$Fragment$F2<TRes> get field {
+    final local$field = _instance.field;
+    return local$field == null
+        ? CopyWith$Fragment$F2.stub(_then(_instance))
+        : CopyWith$Fragment$F2(local$field, (e) => call(field: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F1<TRes>
+    implements CopyWith$Fragment$F1<TRes> {
+  _CopyWithStubImpl$Fragment$F1(this._res);
+
+  TRes _res;
+
+  call({String? name, Fragment$F2? field, String? $__typename}) => _res;
+  CopyWith$Fragment$F2<TRes> get field => CopyWith$Fragment$F2.stub(_res);
 }
 
 const fragmentDefinitionF1 = FragmentDefinitionNode(

@@ -1,0 +1,22 @@
+type Query {
+    ts: [TS]
+    tss: [[TS]]
+}
+
+type TS {
+    name: String
+    nameEnforced: String!
+    t: TS
+}
+
+query Foobar {
+    ts {
+        t {
+            name
+        }
+        name
+    }
+    tss {
+        nameEnforced
+    }
+}

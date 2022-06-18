@@ -47,6 +47,9 @@ abstract class CopyWith$Fragment$Condition<TRes> {
           Fragment$Condition instance, TRes Function(Fragment$Condition) then) =
       _CopyWithImpl$Fragment$Condition;
 
+  factory CopyWith$Fragment$Condition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$Condition;
+
   TRes call({String? name, String? $__typename});
 }
 
@@ -62,10 +65,21 @@ class _CopyWithImpl$Fragment$Condition<TRes>
 
   TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
       _then(Fragment$Condition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Fragment$Condition<TRes>
+    implements CopyWith$Fragment$Condition<TRes> {
+  _CopyWithStubImpl$Fragment$Condition(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionCondition = FragmentDefinitionNode(
@@ -153,11 +167,16 @@ abstract class CopyWith$Fragment$AndCondition<TRes> {
           TRes Function(Fragment$AndCondition) then) =
       _CopyWithImpl$Fragment$AndCondition;
 
+  factory CopyWith$Fragment$AndCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$AndCondition;
+
   TRes call(
       {Fragment$NonCompositeCondition? left,
       Fragment$NonCompositeCondition? right,
       String? name,
       String? $__typename});
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left;
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right;
 }
 
 class _CopyWithImpl$Fragment$AndCondition<TRes>
@@ -176,16 +195,47 @@ class _CopyWithImpl$Fragment$AndCondition<TRes>
           Object? name = _undefined,
           Object? $__typename = _undefined}) =>
       _then(Fragment$AndCondition(
-          left: left == _undefined
+          left: left == _undefined || left == null
               ? _instance.left
               : (left as Fragment$NonCompositeCondition),
-          right: right == _undefined
+          right: right == _undefined || right == null
               ? _instance.right
               : (right as Fragment$NonCompositeCondition),
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left {
+    final local$left = _instance.left;
+    return CopyWith$Fragment$NonCompositeCondition(
+        local$left, (e) => call(left: e));
+  }
+
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right {
+    final local$right = _instance.right;
+    return CopyWith$Fragment$NonCompositeCondition(
+        local$right, (e) => call(right: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$AndCondition<TRes>
+    implements CopyWith$Fragment$AndCondition<TRes> {
+  _CopyWithStubImpl$Fragment$AndCondition(this._res);
+
+  TRes _res;
+
+  call(
+          {Fragment$NonCompositeCondition? left,
+          Fragment$NonCompositeCondition? right,
+          String? name,
+          String? $__typename}) =>
+      _res;
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left =>
+      CopyWith$Fragment$NonCompositeCondition.stub(_res);
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right =>
+      CopyWith$Fragment$NonCompositeCondition.stub(_res);
 }
 
 const fragmentDefinitionAndCondition = FragmentDefinitionNode(
@@ -295,6 +345,9 @@ abstract class CopyWith$Fragment$CompositeCondition<TRes> {
           TRes Function(Fragment$CompositeCondition) then) =
       _CopyWithImpl$Fragment$CompositeCondition;
 
+  factory CopyWith$Fragment$CompositeCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$CompositeCondition;
+
   TRes call({String? name, String? $__typename});
 }
 
@@ -310,10 +363,21 @@ class _CopyWithImpl$Fragment$CompositeCondition<TRes>
 
   TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
       _then(Fragment$CompositeCondition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Fragment$CompositeCondition<TRes>
+    implements CopyWith$Fragment$CompositeCondition<TRes> {
+  _CopyWithStubImpl$Fragment$CompositeCondition(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionCompositeCondition = FragmentDefinitionNode(
@@ -404,6 +468,9 @@ abstract class CopyWith$Fragment$CompositeCondition$$TimeCondition<TRes> {
           TRes Function(Fragment$CompositeCondition$$TimeCondition) then) =
       _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition;
 
+  factory CopyWith$Fragment$CompositeCondition$$TimeCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition;
+
   TRes call({String? name, String? $__typename, String? before});
 }
 
@@ -423,12 +490,24 @@ class _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition<TRes>
           Object? $__typename = _undefined,
           Object? before = _undefined}) =>
       _then(Fragment$CompositeCondition$$TimeCondition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
-          before:
-              before == _undefined ? _instance.before : (before as String)));
+          before: before == _undefined || before == null
+              ? _instance.before
+              : (before as String)));
+}
+
+class _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition<TRes>
+    implements CopyWith$Fragment$CompositeCondition$$TimeCondition<TRes> {
+  _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename, String? before}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -502,11 +581,16 @@ abstract class CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
           TRes Function(Fragment$CompositeCondition$$AndCondition) then) =
       _CopyWithImpl$Fragment$CompositeCondition$$AndCondition;
 
+  factory CopyWith$Fragment$CompositeCondition$$AndCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition;
+
   TRes call(
       {String? name,
       String? $__typename,
       Fragment$NonCompositeCondition? left,
       Fragment$NonCompositeCondition? right});
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left;
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right;
 }
 
 class _CopyWithImpl$Fragment$CompositeCondition$$AndCondition<TRes>
@@ -526,16 +610,47 @@ class _CopyWithImpl$Fragment$CompositeCondition$$AndCondition<TRes>
           Object? left = _undefined,
           Object? right = _undefined}) =>
       _then(Fragment$CompositeCondition$$AndCondition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
-          left: left == _undefined
+          left: left == _undefined || left == null
               ? _instance.left
               : (left as Fragment$NonCompositeCondition),
-          right: right == _undefined
+          right: right == _undefined || right == null
               ? _instance.right
               : (right as Fragment$NonCompositeCondition)));
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left {
+    final local$left = _instance.left;
+    return CopyWith$Fragment$NonCompositeCondition(
+        local$left, (e) => call(left: e));
+  }
+
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right {
+    final local$right = _instance.right;
+    return CopyWith$Fragment$NonCompositeCondition(
+        local$right, (e) => call(right: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition<TRes>
+    implements CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
+  _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition(this._res);
+
+  TRes _res;
+
+  call(
+          {String? name,
+          String? $__typename,
+          Fragment$NonCompositeCondition? left,
+          Fragment$NonCompositeCondition? right}) =>
+      _res;
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left =>
+      CopyWith$Fragment$NonCompositeCondition.stub(_res);
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right =>
+      CopyWith$Fragment$NonCompositeCondition.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -592,6 +707,9 @@ abstract class CopyWith$Fragment$NonCompositeCondition<TRes> {
           TRes Function(Fragment$NonCompositeCondition) then) =
       _CopyWithImpl$Fragment$NonCompositeCondition;
 
+  factory CopyWith$Fragment$NonCompositeCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$NonCompositeCondition;
+
   TRes call({String? name, String? $__typename});
 }
 
@@ -607,10 +725,21 @@ class _CopyWithImpl$Fragment$NonCompositeCondition<TRes>
 
   TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
       _then(Fragment$NonCompositeCondition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Fragment$NonCompositeCondition<TRes>
+    implements CopyWith$Fragment$NonCompositeCondition<TRes> {
+  _CopyWithStubImpl$Fragment$NonCompositeCondition(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionNonCompositeCondition = FragmentDefinitionNode(
@@ -698,6 +827,10 @@ abstract class CopyWith$Fragment$NonCompositeCondition$$TimeCondition<TRes> {
           TRes Function(Fragment$NonCompositeCondition$$TimeCondition) then) =
       _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition;
 
+  factory CopyWith$Fragment$NonCompositeCondition$$TimeCondition.stub(
+          TRes res) =
+      _CopyWithStubImpl$Fragment$NonCompositeCondition$$TimeCondition;
+
   TRes call({String? name, String? $__typename, String? before});
 }
 
@@ -717,12 +850,24 @@ class _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition<TRes>
           Object? $__typename = _undefined,
           Object? before = _undefined}) =>
       _then(Fragment$NonCompositeCondition$$TimeCondition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
-          before:
-              before == _undefined ? _instance.before : (before as String)));
+          before: before == _undefined || before == null
+              ? _instance.before
+              : (before as String)));
+}
+
+class _CopyWithStubImpl$Fragment$NonCompositeCondition$$TimeCondition<TRes>
+    implements CopyWith$Fragment$NonCompositeCondition$$TimeCondition<TRes> {
+  _CopyWithStubImpl$Fragment$NonCompositeCondition$$TimeCondition(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename, String? before}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -777,6 +922,9 @@ abstract class CopyWith$Fragment$TimeCondition<TRes> {
           TRes Function(Fragment$TimeCondition) then) =
       _CopyWithImpl$Fragment$TimeCondition;
 
+  factory CopyWith$Fragment$TimeCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$TimeCondition;
+
   TRes call({String? name, String? $__typename, String? before});
 }
 
@@ -795,12 +943,24 @@ class _CopyWithImpl$Fragment$TimeCondition<TRes>
           Object? $__typename = _undefined,
           Object? before = _undefined}) =>
       _then(Fragment$TimeCondition(
-          name: name == _undefined ? _instance.name : (name as String),
-          $__typename: $__typename == _undefined
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
-          before:
-              before == _undefined ? _instance.before : (before as String)));
+          before: before == _undefined || before == null
+              ? _instance.before
+              : (before as String)));
+}
+
+class _CopyWithStubImpl$Fragment$TimeCondition<TRes>
+    implements CopyWith$Fragment$TimeCondition<TRes> {
+  _CopyWithStubImpl$Fragment$TimeCondition(this._res);
+
+  TRes _res;
+
+  call({String? name, String? $__typename, String? before}) => _res;
 }
 
 const fragmentDefinitionTimeCondition = FragmentDefinitionNode(

@@ -40,6 +40,8 @@ abstract class CopyWith$Fragment$F<TRes> {
           Fragment$F instance, TRes Function(Fragment$F) then) =
       _CopyWithImpl$Fragment$F;
 
+  factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
+
   TRes call({String? name});
 }
 
@@ -52,8 +54,18 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? name = _undefined}) => _then(
-      Fragment$F(name: name == _undefined ? _instance.name : (name as String)));
+  TRes call({Object? name = _undefined}) => _then(Fragment$F(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String)));
+}
+
+class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
+  _CopyWithStubImpl$Fragment$F(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 const fragmentDefinitionF = FragmentDefinitionNode(

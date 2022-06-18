@@ -41,6 +41,8 @@ abstract class CopyWith$Fragment$F1<TRes> {
           Fragment$F1 instance, TRes Function(Fragment$F1) then) =
       _CopyWithImpl$Fragment$F1;
 
+  factory CopyWith$Fragment$F1.stub(TRes res) = _CopyWithStubImpl$Fragment$F1;
+
   TRes call({String? name});
 }
 
@@ -55,6 +57,15 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F1(
       name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F1<TRes>
+    implements CopyWith$Fragment$F1<TRes> {
+  _CopyWithStubImpl$Fragment$F1(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 const fragmentDefinitionF1 = FragmentDefinitionNode(
@@ -109,7 +120,10 @@ abstract class CopyWith$Query$Q<TRes> {
   factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
       _CopyWithImpl$Query$Q;
 
+  factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
+
   TRes call({Query$Q$t? t});
+  CopyWith$Query$Q$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -123,6 +137,21 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q(t: t == _undefined ? _instance.t : (t as Query$Q$t?)));
+  CopyWith$Query$Q$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q$t.stub(_then(_instance))
+        : CopyWith$Query$Q$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithStubImpl$Query$Q(this._res);
+
+  TRes _res;
+
+  call({Query$Q$t? t}) => _res;
+  CopyWith$Query$Q$t<TRes> get t => CopyWith$Query$Q$t.stub(_res);
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
@@ -183,6 +212,8 @@ abstract class CopyWith$Query$Q$t<TRes> {
           Query$Q$t instance, TRes Function(Query$Q$t) then) =
       _CopyWithImpl$Query$Q$t;
 
+  factory CopyWith$Query$Q$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t;
+
   TRes call({String? name});
 }
 
@@ -197,4 +228,12 @@ class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
 
   TRes call({Object? name = _undefined}) => _then(
       Query$Q$t(name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
+  _CopyWithStubImpl$Query$Q$t(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }

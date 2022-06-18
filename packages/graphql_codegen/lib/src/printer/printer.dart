@@ -2,6 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
+import 'package:graphql_codegen/src/printer/deep_copy.dart';
 import 'package:graphql_codegen_config/config.dart';
 import 'package:graphql_codegen/src/errors.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql.dart';
@@ -11,36 +12,6 @@ import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 
 import 'context.dart';
 import 'utils.dart';
-
-// extension UtilityExtension$Query$Foobar on Query$Foobar {
-//   CopyWith$Query$Foobar<Query$Foobar> get copyWith =>
-//       CopyWith$Query$Foobar(this, (p) => p);
-// }
-
-// abstract class CopyWith$Query$Foobar<TRes> {
-//   factory CopyWith$Query$Foobar(
-//           Query$Foobar instance, TRes Function(Query$Foobar) then) =
-//       _CopyWithImpl$Query$Foobar;
-
-//   TRes call({Enum$Enum field, List<Enum$Enum> fields});
-// }
-
-// class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
-//   Query$Foobar _instance;
-//   TRes Function(Query$Foobar) then;
-//   _CopyWithImpl$Query$Foobar(this._instance, this.then);
-
-//   static const _undefined = {};
-
-//   TRes call({Object? field = _undefined, Object? fields = _undefined}) => then(
-//         Query$Foobar(
-//           field: field == _undefined ? _instance.field : field as Enum$Enum,
-//           fields: fields == _undefined
-//               ? _instance.fields
-//               : fields as List<Enum$Enum>,
-//         ),
-//       );
-// }
 
 const _UNKNOWN_ENUM_VALUE = "\$unknown";
 const _JSON_SERIALIZABLE_BASE_CLASS = Reference("JsonSerializable");
@@ -521,6 +492,19 @@ List<Spec> printCopyWithClasses(
   String name,
   Iterable<ContextProperty> properties,
 ) {
+  final parameters = properties.map((property) {
+    final propertyType = printClassPropertyType(c, property).reference;
+    return Parameter(
+      (b) => b
+        ..name = c.namePrinter.printPropertyName(property.name)
+        ..named = true
+        ..type = TypeReference(
+          (b) => b
+            ..symbol = propertyType.symbol
+            ..isNullable = property.isRequired,
+        ),
+    );
+  });
   return [
     Class(
       (b) => b
@@ -547,28 +531,31 @@ List<Spec> printCopyWithClasses(
               ])
               ..redirect =
                   refer(c.namePrinter.printCopyWithImplClassName(name)),
+          ),
+          Constructor(
+            (b) => b
+              ..initializers
+              ..factory = true
+              ..name = 'stub'
+              ..requiredParameters = ListBuilder(<Parameter>[
+                Parameter((b) => b
+                  ..name = 'res'
+                  ..type = refer('TRes')),
+              ])
+              ..redirect =
+                  refer(c.namePrinter.printCopyWithStubImplClassName(name)),
           )
         ])
-        ..methods = ListBuilder([
+        ..methods = ListBuilder(<Method>[
           Method((b) => b
             ..name = 'call'
             ..returns = refer('TRes')
             ..optionalParameters = ListBuilder(
-              properties.map((property) {
-                final propertyType =
-                    printClassPropertyType(c, property).reference;
-                return Parameter(
-                  (b) => b
-                    ..name = c.namePrinter.printPropertyName(property.name)
-                    ..named = true
-                    ..type = TypeReference(
-                      (b) => b
-                        ..symbol = propertyType.symbol
-                        ..isNullable = property.isRequired,
-                    ),
-                );
-              }),
+              parameters,
             )),
+          ...properties
+              .map((p) => printDeepCopy(c, p, abstract: true))
+              .whereType<Method>(),
         ]),
     ),
     Class(
@@ -618,7 +605,7 @@ List<Spec> printCopyWithClasses(
               ..assignment = literalMap({}).code,
           )
         ])
-        ..methods = ListBuilder([
+        ..methods = ListBuilder(<Method>[
           Method(
             (b) => b
               ..name = 'call'
@@ -643,14 +630,56 @@ List<Spec> printCopyWithClasses(
                       printClassPropertyType(c, property).reference;
                   return MapEntry(
                       parameterName,
-                      refer(parameterName)
-                          .equalTo(refer(_undefined))
+                      (property.isRequired
+                              ? refer(parameterName)
+                                  .equalTo(refer(_undefined))
+                                  .or(refer(parameterName).equalTo(literalNull))
+                              : refer(parameterName).equalTo(refer(_undefined)))
                           .conditional(
                               refer('_instance').property(parameterName),
                               refer(parameterName).asA(propertyType)));
                 }))),
               ]).code,
           ),
+          ...properties.map((p) => printDeepCopy(c, p)).whereType<Method>(),
+        ]),
+    ),
+    Class(
+      (b) => b
+        ..name = c.namePrinter.printCopyWithStubImplClassName(name)
+        ..types = ListBuilder([refer('TRes')])
+        ..implements = ListBuilder(<Reference>[
+          generic(
+            c.namePrinter.printCopyWithClassName(name),
+            refer('TRes'),
+          )
+        ])
+        ..fields = ListBuilder([
+          Field(
+            (b) => b
+              ..name = '_res'
+              ..type = refer('TRes'),
+          )
+        ])
+        ..constructors = ListBuilder([
+          Constructor((b) => b
+            ..requiredParameters = ListBuilder([
+              Parameter((b) => b
+                ..toThis = true
+                ..name = '_res')
+            ]))
+        ])
+        ..methods = ListBuilder(<Method>[
+          Method(
+            (b) => b
+              ..name = 'call'
+              ..lambda = true
+              ..body = refer('_res').code
+              ..optionalParameters = ListBuilder(parameters),
+          ),
+          ...properties
+              .map((property) => printDeepCopyStub(c, property))
+              .whereType<Method>()
         ]),
     )
   ];

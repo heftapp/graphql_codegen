@@ -100,6 +100,9 @@ abstract class CopyWith$Query$FetchScalars<TRes> {
           Query$FetchScalars instance, TRes Function(Query$FetchScalars) then) =
       _CopyWithImpl$Query$FetchScalars;
 
+  factory CopyWith$Query$FetchScalars.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchScalars;
+
   TRes call(
       {int? i,
       int? id,
@@ -136,6 +139,23 @@ class _CopyWithImpl$Query$FetchScalars<TRes>
           c2: c2 == _undefined ? _instance.c2 : (c2 as DateTime?),
           c3: c3 == _undefined ? _instance.c3 : (c3 as Fobbob?),
           c3s: c3s == _undefined ? _instance.c3s : (c3s as List<Fobbob?>?)));
+}
+
+class _CopyWithStubImpl$Query$FetchScalars<TRes>
+    implements CopyWith$Query$FetchScalars<TRes> {
+  _CopyWithStubImpl$Query$FetchScalars(this._res);
+
+  TRes _res;
+
+  call(
+          {int? i,
+          int? id,
+          String? s,
+          String? c1,
+          DateTime? c2,
+          Fobbob? c3,
+          List<Fobbob?>? c3s}) =>
+      _res;
 }
 
 const documentNodeQueryFetchScalars = DocumentNode(definitions: [

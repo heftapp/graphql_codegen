@@ -59,6 +59,8 @@ abstract class CopyWith$Query___Q<TRes> {
           Query___Q instance, TRes Function(Query___Q) then) =
       _CopyWithImpl$Query___Q;
 
+  factory CopyWith$Query___Q.stub(TRes res) = _CopyWithStubImpl$Query___Q;
+
   TRes call({Enum___Status? status, String? $__typename});
 }
 
@@ -76,9 +78,17 @@ class _CopyWithImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
           status: status == _undefined
               ? _instance.status
               : (status as Enum___Status?),
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
+  _CopyWithStubImpl$Query___Q(this._res);
+
+  TRes _res;
+
+  call({Enum___Status? status, String? $__typename}) => _res;
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [

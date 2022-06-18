@@ -39,6 +39,9 @@ abstract class CopyWith$Variables$Query$HiBob<TRes> {
           TRes Function(Variables$Query$HiBob) then) =
       _CopyWithImpl$Variables$Query$HiBob;
 
+  factory CopyWith$Variables$Query$HiBob.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$HiBob;
+
   TRes call({Input$I1? i});
 }
 
@@ -53,7 +56,16 @@ class _CopyWithImpl$Variables$Query$HiBob<TRes>
   static const _undefined = {};
 
   TRes call({Object? i = _undefined}) => _then(Variables$Query$HiBob(
-      i: i == _undefined ? _instance.i : (i as Input$I1)));
+      i: i == _undefined || i == null ? _instance.i : (i as Input$I1)));
+}
+
+class _CopyWithStubImpl$Variables$Query$HiBob<TRes>
+    implements CopyWith$Variables$Query$HiBob<TRes> {
+  _CopyWithStubImpl$Variables$Query$HiBob(this._res);
+
+  TRes _res;
+
+  call({Input$I1? i}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -94,7 +106,10 @@ abstract class CopyWith$Query$HiBob<TRes> {
           Query$HiBob instance, TRes Function(Query$HiBob) then) =
       _CopyWithImpl$Query$HiBob;
 
+  factory CopyWith$Query$HiBob.stub(TRes res) = _CopyWithStubImpl$Query$HiBob;
+
   TRes call({Query$HiBob$field? field});
+  CopyWith$Query$HiBob$field<TRes> get field;
 }
 
 class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
@@ -110,6 +125,23 @@ class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
       field: field == _undefined
           ? _instance.field
           : (field as Query$HiBob$field?)));
+  CopyWith$Query$HiBob$field<TRes> get field {
+    final local$field = _instance.field;
+    return local$field == null
+        ? CopyWith$Query$HiBob$field.stub(_then(_instance))
+        : CopyWith$Query$HiBob$field(local$field, (e) => call(field: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$HiBob<TRes>
+    implements CopyWith$Query$HiBob<TRes> {
+  _CopyWithStubImpl$Query$HiBob(this._res);
+
+  TRes _res;
+
+  call({Query$HiBob$field? field}) => _res;
+  CopyWith$Query$HiBob$field<TRes> get field =>
+      CopyWith$Query$HiBob$field.stub(_res);
 }
 
 const documentNodeQueryHiBob = DocumentNode(definitions: [
@@ -186,6 +218,9 @@ abstract class CopyWith$Query$HiBob$field<TRes> {
           Query$HiBob$field instance, TRes Function(Query$HiBob$field) then) =
       _CopyWithImpl$Query$HiBob$field;
 
+  factory CopyWith$Query$HiBob$field.stub(TRes res) =
+      _CopyWithStubImpl$Query$HiBob$field;
+
   TRes call({String? value});
 }
 
@@ -200,5 +235,16 @@ class _CopyWithImpl$Query$HiBob$field<TRes>
   static const _undefined = {};
 
   TRes call({Object? value = _undefined}) => _then(Query$HiBob$field(
-      value: value == _undefined ? _instance.value : (value as String)));
+      value: value == _undefined || value == null
+          ? _instance.value
+          : (value as String)));
+}
+
+class _CopyWithStubImpl$Query$HiBob$field<TRes>
+    implements CopyWith$Query$HiBob$field<TRes> {
+  _CopyWithStubImpl$Query$HiBob$field(this._res);
+
+  TRes _res;
+
+  call({String? value}) => _res;
 }

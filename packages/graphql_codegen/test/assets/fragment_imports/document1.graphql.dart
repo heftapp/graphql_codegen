@@ -40,6 +40,8 @@ abstract class CopyWith$Fragment$F2<TRes> {
           Fragment$F2 instance, TRes Function(Fragment$F2) then) =
       _CopyWithImpl$Fragment$F2;
 
+  factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
+
   TRes call({int? value});
 }
 
@@ -54,6 +56,15 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   TRes call({Object? value = _undefined}) => _then(Fragment$F2(
       value: value == _undefined ? _instance.value : (value as int?)));
+}
+
+class _CopyWithStubImpl$Fragment$F2<TRes>
+    implements CopyWith$Fragment$F2<TRes> {
+  _CopyWithStubImpl$Fragment$F2(this._res);
+
+  TRes _res;
+
+  call({int? value}) => _res;
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(

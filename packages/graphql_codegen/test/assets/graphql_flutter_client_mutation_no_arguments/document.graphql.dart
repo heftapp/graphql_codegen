@@ -44,6 +44,9 @@ abstract class CopyWith$Mutation$UpdateSNo<TRes> {
           Mutation$UpdateSNo instance, TRes Function(Mutation$UpdateSNo) then) =
       _CopyWithImpl$Mutation$UpdateSNo;
 
+  factory CopyWith$Mutation$UpdateSNo.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateSNo;
+
   TRes call({String? s});
 }
 
@@ -59,6 +62,15 @@ class _CopyWithImpl$Mutation$UpdateSNo<TRes>
 
   TRes call({Object? s = _undefined}) => _then(
       Mutation$UpdateSNo(s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdateSNo<TRes>
+    implements CopyWith$Mutation$UpdateSNo<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateSNo(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeMutationUpdateSNo = DocumentNode(definitions: [

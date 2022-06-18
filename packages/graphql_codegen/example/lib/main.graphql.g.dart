@@ -47,6 +47,10 @@ Query$FetchPerson$fetchPerson _$Query$FetchPerson$fetchPersonFromJson(
           ?.map((e) => Query$FetchPerson$fetchPerson$parents.fromJson(
               e as Map<String, dynamic>))
           .toList(),
+      favParent: json['favParent'] == null
+          ? null
+          : Fragment$PersonParent.fromJson(
+              json['favParent'] as Map<String, dynamic>),
       $__typename: json['__typename'] as String,
       children: (json['children'] as List<dynamic>?)
           ?.map(
@@ -65,6 +69,7 @@ Map<String, dynamic> _$Query$FetchPerson$fetchPersonToJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
               instance.eventsOfEvents),
       'parents': instance.parents?.map((e) => e.toJson()).toList(),
+      'favParent': instance.favParent?.toJson(),
       '__typename': instance.$__typename,
       'children': instance.children?.map((e) => e.toJson()).toList(),
     };
@@ -85,6 +90,10 @@ Query$FetchPerson$fetchPerson$parents
               ?.map((e) =>
                   Fragment$PersonParent.fromJson(e as Map<String, dynamic>))
               .toList(),
+          favParent: json['favParent'] == null
+              ? null
+              : Fragment$PersonParent.fromJson(
+                  json['favParent'] as Map<String, dynamic>),
         );
 
 Map<String, dynamic> _$Query$FetchPerson$fetchPerson$parentsToJson(
@@ -99,6 +108,7 @@ Map<String, dynamic> _$Query$FetchPerson$fetchPerson$parentsToJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
               instance.eventsOfEvents),
       'parents': instance.parents?.map((e) => e.toJson()).toList(),
+      'favParent': instance.favParent?.toJson(),
     };
 
 Variables$Mutation$UpdatePerson _$Variables$Mutation$UpdatePersonFromJson(

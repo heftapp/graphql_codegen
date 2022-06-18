@@ -42,6 +42,8 @@ abstract class CopyWith$Input$I<TRes> {
   factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
       _CopyWithImpl$Input$I;
 
+  factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
+
   TRes call({String? $String, int? $OtherReservedKeyword});
 }
 
@@ -63,4 +65,12 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
           $OtherReservedKeyword: $OtherReservedKeyword == _undefined
               ? _instance.$OtherReservedKeyword
               : ($OtherReservedKeyword as int?)));
+}
+
+class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
+  _CopyWithStubImpl$Input$I(this._res);
+
+  TRes _res;
+
+  call({String? $String, int? $OtherReservedKeyword}) => _res;
 }

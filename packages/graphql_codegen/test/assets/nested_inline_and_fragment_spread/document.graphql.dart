@@ -40,7 +40,10 @@ abstract class CopyWith$Fragment$F<TRes> {
           Fragment$F instance, TRes Function(Fragment$F) then) =
       _CopyWithImpl$Fragment$F;
 
+  factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
+
   TRes call({Fragment$F$t? t});
+  CopyWith$Fragment$F$t<TRes> get t;
 }
 
 class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
@@ -54,6 +57,21 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   TRes call({Object? t = _undefined}) => _then(
       Fragment$F(t: t == _undefined ? _instance.t : (t as Fragment$F$t?)));
+  CopyWith$Fragment$F$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$F$t.stub(_then(_instance))
+        : CopyWith$Fragment$F$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
+  _CopyWithStubImpl$Fragment$F(this._res);
+
+  TRes _res;
+
+  call({Fragment$F$t? t}) => _res;
+  CopyWith$Fragment$F$t<TRes> get t => CopyWith$Fragment$F$t.stub(_res);
 }
 
 const fragmentDefinitionF = FragmentDefinitionNode(
@@ -125,7 +143,10 @@ abstract class CopyWith$Fragment$F$t<TRes> {
           Fragment$F$t instance, TRes Function(Fragment$F$t) then) =
       _CopyWithImpl$Fragment$F$t;
 
+  factory CopyWith$Fragment$F$t.stub(TRes res) = _CopyWithStubImpl$Fragment$F$t;
+
   TRes call({Fragment$F$t$t? t});
+  CopyWith$Fragment$F$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Fragment$F$t<TRes> implements CopyWith$Fragment$F$t<TRes> {
@@ -139,6 +160,22 @@ class _CopyWithImpl$Fragment$F$t<TRes> implements CopyWith$Fragment$F$t<TRes> {
 
   TRes call({Object? t = _undefined}) => _then(
       Fragment$F$t(t: t == _undefined ? _instance.t : (t as Fragment$F$t$t?)));
+  CopyWith$Fragment$F$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$F$t$t.stub(_then(_instance))
+        : CopyWith$Fragment$F$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F$t<TRes>
+    implements CopyWith$Fragment$F$t<TRes> {
+  _CopyWithStubImpl$Fragment$F$t(this._res);
+
+  TRes _res;
+
+  call({Fragment$F$t$t? t}) => _res;
+  CopyWith$Fragment$F$t$t<TRes> get t => CopyWith$Fragment$F$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -180,6 +217,9 @@ abstract class CopyWith$Fragment$F$t$t<TRes> {
           Fragment$F$t$t instance, TRes Function(Fragment$F$t$t) then) =
       _CopyWithImpl$Fragment$F$t$t;
 
+  factory CopyWith$Fragment$F$t$t.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$t$t;
+
   TRes call({String? $__typename});
 }
 
@@ -194,9 +234,18 @@ class _CopyWithImpl$Fragment$F$t$t<TRes>
   static const _undefined = {};
 
   TRes call({Object? $__typename = _undefined}) => _then(Fragment$F$t$t(
-      $__typename: $__typename == _undefined
+      $__typename: $__typename == _undefined || $__typename == null
           ? _instance.$__typename
           : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Fragment$F$t$t<TRes>
+    implements CopyWith$Fragment$F$t$t<TRes> {
+  _CopyWithStubImpl$Fragment$F$t$t(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -234,7 +283,10 @@ abstract class CopyWith$Query$Q<TRes> {
   factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
       _CopyWithImpl$Query$Q;
 
+  factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
+
   TRes call({Query$Q$t? t});
+  CopyWith$Query$Q$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -248,6 +300,21 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q(t: t == _undefined ? _instance.t : (t as Query$Q$t?)));
+  CopyWith$Query$Q$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q$t.stub(_then(_instance))
+        : CopyWith$Query$Q$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithStubImpl$Query$Q(this._res);
+
+  TRes _res;
+
+  call({Query$Q$t? t}) => _res;
+  CopyWith$Query$Q$t<TRes> get t => CopyWith$Query$Q$t.stub(_res);
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
@@ -335,7 +402,10 @@ abstract class CopyWith$Query$Q$t<TRes> {
           Query$Q$t instance, TRes Function(Query$Q$t) then) =
       _CopyWithImpl$Query$Q$t;
 
+  factory CopyWith$Query$Q$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t;
+
   TRes call({Query$Q$t$t? t});
+  CopyWith$Query$Q$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
@@ -349,6 +419,21 @@ class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q$t(t: t == _undefined ? _instance.t : (t as Query$Q$t$t?)));
+  CopyWith$Query$Q$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q$t$t.stub(_then(_instance))
+        : CopyWith$Query$Q$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
+  _CopyWithStubImpl$Query$Q$t(this._res);
+
+  TRes _res;
+
+  call({Query$Q$t$t? t}) => _res;
+  CopyWith$Query$Q$t$t<TRes> get t => CopyWith$Query$Q$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -389,7 +474,10 @@ abstract class CopyWith$Query$Q$t$t<TRes> {
           Query$Q$t$t instance, TRes Function(Query$Q$t$t) then) =
       _CopyWithImpl$Query$Q$t$t;
 
+  factory CopyWith$Query$Q$t$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t$t;
+
   TRes call({Query$Q$t$t$t? t});
+  CopyWith$Query$Q$t$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q$t$t<TRes> implements CopyWith$Query$Q$t$t<TRes> {
@@ -403,6 +491,22 @@ class _CopyWithImpl$Query$Q$t$t<TRes> implements CopyWith$Query$Q$t$t<TRes> {
 
   TRes call({Object? t = _undefined}) => _then(
       Query$Q$t$t(t: t == _undefined ? _instance.t : (t as Query$Q$t$t$t?)));
+  CopyWith$Query$Q$t$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q$t$t$t.stub(_then(_instance))
+        : CopyWith$Query$Q$t$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q$t$t<TRes>
+    implements CopyWith$Query$Q$t$t<TRes> {
+  _CopyWithStubImpl$Query$Q$t$t(this._res);
+
+  TRes _res;
+
+  call({Query$Q$t$t$t? t}) => _res;
+  CopyWith$Query$Q$t$t$t<TRes> get t => CopyWith$Query$Q$t$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -450,7 +554,11 @@ abstract class CopyWith$Query$Q$t$t$t<TRes> {
           Query$Q$t$t$t instance, TRes Function(Query$Q$t$t$t) then) =
       _CopyWithImpl$Query$Q$t$t$t;
 
+  factory CopyWith$Query$Q$t$t$t.stub(TRes res) =
+      _CopyWithStubImpl$Query$Q$t$t$t;
+
   TRes call({Query$Q$t$t$t$t? t, String? $__typename});
+  CopyWith$Query$Q$t$t$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q$t$t$t<TRes>
@@ -466,9 +574,25 @@ class _CopyWithImpl$Query$Q$t$t$t<TRes>
   TRes call({Object? t = _undefined, Object? $__typename = _undefined}) =>
       _then(Query$Q$t$t$t(
           t: t == _undefined ? _instance.t : (t as Query$Q$t$t$t$t?),
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+  CopyWith$Query$Q$t$t$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q$t$t$t$t.stub(_then(_instance))
+        : CopyWith$Query$Q$t$t$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q$t$t$t<TRes>
+    implements CopyWith$Query$Q$t$t$t<TRes> {
+  _CopyWithStubImpl$Query$Q$t$t$t(this._res);
+
+  TRes _res;
+
+  call({Query$Q$t$t$t$t? t, String? $__typename}) => _res;
+  CopyWith$Query$Q$t$t$t$t<TRes> get t => CopyWith$Query$Q$t$t$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -510,6 +634,9 @@ abstract class CopyWith$Query$Q$t$t$t$t<TRes> {
           Query$Q$t$t$t$t instance, TRes Function(Query$Q$t$t$t$t) then) =
       _CopyWithImpl$Query$Q$t$t$t$t;
 
+  factory CopyWith$Query$Q$t$t$t$t.stub(TRes res) =
+      _CopyWithStubImpl$Query$Q$t$t$t$t;
+
   TRes call({String? $__typename});
 }
 
@@ -524,9 +651,18 @@ class _CopyWithImpl$Query$Q$t$t$t$t<TRes>
   static const _undefined = {};
 
   TRes call({Object? $__typename = _undefined}) => _then(Query$Q$t$t$t$t(
-      $__typename: $__typename == _undefined
+      $__typename: $__typename == _undefined || $__typename == null
           ? _instance.$__typename
           : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query$Q$t$t$t$t<TRes>
+    implements CopyWith$Query$Q$t$t$t$t<TRes> {
+  _CopyWithStubImpl$Query$Q$t$t$t$t(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -564,7 +700,10 @@ abstract class CopyWith$Query$Q2<TRes> {
   factory CopyWith$Query$Q2(Query$Q2 instance, TRes Function(Query$Q2) then) =
       _CopyWithImpl$Query$Q2;
 
+  factory CopyWith$Query$Q2.stub(TRes res) = _CopyWithStubImpl$Query$Q2;
+
   TRes call({Query$Q2$t? t});
+  CopyWith$Query$Q2$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q2<TRes> implements CopyWith$Query$Q2<TRes> {
@@ -578,6 +717,21 @@ class _CopyWithImpl$Query$Q2<TRes> implements CopyWith$Query$Q2<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q2(t: t == _undefined ? _instance.t : (t as Query$Q2$t?)));
+  CopyWith$Query$Q2$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q2$t.stub(_then(_instance))
+        : CopyWith$Query$Q2$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q2<TRes> implements CopyWith$Query$Q2<TRes> {
+  _CopyWithStubImpl$Query$Q2(this._res);
+
+  TRes _res;
+
+  call({Query$Q2$t? t}) => _res;
+  CopyWith$Query$Q2$t<TRes> get t => CopyWith$Query$Q2$t.stub(_res);
 }
 
 const documentNodeQueryQ2 = DocumentNode(definitions: [
@@ -666,7 +820,10 @@ abstract class CopyWith$Query$Q2$t<TRes> {
           Query$Q2$t instance, TRes Function(Query$Q2$t) then) =
       _CopyWithImpl$Query$Q2$t;
 
+  factory CopyWith$Query$Q2$t.stub(TRes res) = _CopyWithStubImpl$Query$Q2$t;
+
   TRes call({Query$Q2$t$t? t});
+  CopyWith$Query$Q2$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q2$t<TRes> implements CopyWith$Query$Q2$t<TRes> {
@@ -680,6 +837,21 @@ class _CopyWithImpl$Query$Q2$t<TRes> implements CopyWith$Query$Q2$t<TRes> {
 
   TRes call({Object? t = _undefined}) => _then(
       Query$Q2$t(t: t == _undefined ? _instance.t : (t as Query$Q2$t$t?)));
+  CopyWith$Query$Q2$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q2$t$t.stub(_then(_instance))
+        : CopyWith$Query$Q2$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q2$t<TRes> implements CopyWith$Query$Q2$t<TRes> {
+  _CopyWithStubImpl$Query$Q2$t(this._res);
+
+  TRes _res;
+
+  call({Query$Q2$t$t? t}) => _res;
+  CopyWith$Query$Q2$t$t<TRes> get t => CopyWith$Query$Q2$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -720,7 +892,10 @@ abstract class CopyWith$Query$Q2$t$t<TRes> {
           Query$Q2$t$t instance, TRes Function(Query$Q2$t$t) then) =
       _CopyWithImpl$Query$Q2$t$t;
 
+  factory CopyWith$Query$Q2$t$t.stub(TRes res) = _CopyWithStubImpl$Query$Q2$t$t;
+
   TRes call({Query$Q2$t$t$t? t});
+  CopyWith$Query$Q2$t$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q2$t$t<TRes> implements CopyWith$Query$Q2$t$t<TRes> {
@@ -734,6 +909,22 @@ class _CopyWithImpl$Query$Q2$t$t<TRes> implements CopyWith$Query$Q2$t$t<TRes> {
 
   TRes call({Object? t = _undefined}) => _then(
       Query$Q2$t$t(t: t == _undefined ? _instance.t : (t as Query$Q2$t$t$t?)));
+  CopyWith$Query$Q2$t$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q2$t$t$t.stub(_then(_instance))
+        : CopyWith$Query$Q2$t$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q2$t$t<TRes>
+    implements CopyWith$Query$Q2$t$t<TRes> {
+  _CopyWithStubImpl$Query$Q2$t$t(this._res);
+
+  TRes _res;
+
+  call({Query$Q2$t$t$t? t}) => _res;
+  CopyWith$Query$Q2$t$t$t<TRes> get t => CopyWith$Query$Q2$t$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -781,7 +972,11 @@ abstract class CopyWith$Query$Q2$t$t$t<TRes> {
           Query$Q2$t$t$t instance, TRes Function(Query$Q2$t$t$t) then) =
       _CopyWithImpl$Query$Q2$t$t$t;
 
+  factory CopyWith$Query$Q2$t$t$t.stub(TRes res) =
+      _CopyWithStubImpl$Query$Q2$t$t$t;
+
   TRes call({String? $__typename, Query$Q2$t$t$t$t? t});
+  CopyWith$Query$Q2$t$t$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q2$t$t$t<TRes>
@@ -796,10 +991,26 @@ class _CopyWithImpl$Query$Q2$t$t$t<TRes>
 
   TRes call({Object? $__typename = _undefined, Object? t = _undefined}) =>
       _then(Query$Q2$t$t$t(
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
           t: t == _undefined ? _instance.t : (t as Query$Q2$t$t$t$t?)));
+  CopyWith$Query$Q2$t$t$t$t<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Query$Q2$t$t$t$t.stub(_then(_instance))
+        : CopyWith$Query$Q2$t$t$t$t(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q2$t$t$t<TRes>
+    implements CopyWith$Query$Q2$t$t$t<TRes> {
+  _CopyWithStubImpl$Query$Q2$t$t$t(this._res);
+
+  TRes _res;
+
+  call({String? $__typename, Query$Q2$t$t$t$t? t}) => _res;
+  CopyWith$Query$Q2$t$t$t$t<TRes> get t => CopyWith$Query$Q2$t$t$t$t.stub(_res);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -841,6 +1052,9 @@ abstract class CopyWith$Query$Q2$t$t$t$t<TRes> {
           Query$Q2$t$t$t$t instance, TRes Function(Query$Q2$t$t$t$t) then) =
       _CopyWithImpl$Query$Q2$t$t$t$t;
 
+  factory CopyWith$Query$Q2$t$t$t$t.stub(TRes res) =
+      _CopyWithStubImpl$Query$Q2$t$t$t$t;
+
   TRes call({String? $__typename});
 }
 
@@ -855,9 +1069,18 @@ class _CopyWithImpl$Query$Q2$t$t$t$t<TRes>
   static const _undefined = {};
 
   TRes call({Object? $__typename = _undefined}) => _then(Query$Q2$t$t$t$t(
-      $__typename: $__typename == _undefined
+      $__typename: $__typename == _undefined || $__typename == null
           ? _instance.$__typename
           : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query$Q2$t$t$t$t<TRes>
+    implements CopyWith$Query$Q2$t$t$t$t<TRes> {
+  _CopyWithStubImpl$Query$Q2$t$t$t$t(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }
 
 const possibleTypesMap = {};

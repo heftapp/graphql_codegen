@@ -62,6 +62,8 @@ abstract class CopyWith$Query$Foobar<TRes> {
           Query$Foobar instance, TRes Function(Query$Foobar) then) =
       _CopyWithImpl$Query$Foobar;
 
+  factory CopyWith$Query$Foobar.stub(TRes res) = _CopyWithStubImpl$Query$Foobar;
+
   TRes call({Enum$Enum? field, List<Enum$Enum>? fields});
 }
 
@@ -80,6 +82,15 @@ class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
           fields: fields == _undefined
               ? _instance.fields
               : (fields as List<Enum$Enum>?)));
+}
+
+class _CopyWithStubImpl$Query$Foobar<TRes>
+    implements CopyWith$Query$Foobar<TRes> {
+  _CopyWithStubImpl$Query$Foobar(this._res);
+
+  TRes _res;
+
+  call({Enum$Enum? field, List<Enum$Enum>? fields}) => _res;
 }
 
 const documentNodeQueryFoobar = DocumentNode(definitions: [

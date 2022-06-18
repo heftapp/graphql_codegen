@@ -41,7 +41,11 @@ abstract class CopyWith$Query$FetchName<TRes> {
           Query$FetchName instance, TRes Function(Query$FetchName) then) =
       _CopyWithImpl$Query$FetchName;
 
+  factory CopyWith$Query$FetchName.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchName;
+
   TRes call({Fragment$F? name});
+  CopyWith$Fragment$F<TRes> get name;
 }
 
 class _CopyWithImpl$Query$FetchName<TRes>
@@ -56,6 +60,22 @@ class _CopyWithImpl$Query$FetchName<TRes>
 
   TRes call({Object? name = _undefined}) => _then(Query$FetchName(
       name: name == _undefined ? _instance.name : (name as Fragment$F?)));
+  CopyWith$Fragment$F<TRes> get name {
+    final local$name = _instance.name;
+    return local$name == null
+        ? CopyWith$Fragment$F.stub(_then(_instance))
+        : CopyWith$Fragment$F(local$name, (e) => call(name: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$FetchName<TRes>
+    implements CopyWith$Query$FetchName<TRes> {
+  _CopyWithStubImpl$Query$FetchName(this._res);
+
+  TRes _res;
+
+  call({Fragment$F? name}) => _res;
+  CopyWith$Fragment$F<TRes> get name => CopyWith$Fragment$F.stub(_res);
 }
 
 const documentNodeQueryFetchName = DocumentNode(definitions: [

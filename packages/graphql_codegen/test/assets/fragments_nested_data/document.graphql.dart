@@ -40,7 +40,10 @@ abstract class CopyWith$Fragment$F<TRes> {
           Fragment$F instance, TRes Function(Fragment$F) then) =
       _CopyWithImpl$Fragment$F;
 
+  factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
+
   TRes call({Fragment$F2? other});
+  CopyWith$Fragment$F2<TRes> get other;
 }
 
 class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
@@ -54,6 +57,21 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F(
       other: other == _undefined ? _instance.other : (other as Fragment$F2?)));
+  CopyWith$Fragment$F2<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F2.stub(_then(_instance))
+        : CopyWith$Fragment$F2(local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
+  _CopyWithStubImpl$Fragment$F(this._res);
+
+  TRes _res;
+
+  call({Fragment$F2? other}) => _res;
+  CopyWith$Fragment$F2<TRes> get other => CopyWith$Fragment$F2.stub(_res);
 }
 
 const fragmentDefinitionF = FragmentDefinitionNode(
@@ -116,7 +134,10 @@ abstract class CopyWith$Fragment$F2<TRes> {
           Fragment$F2 instance, TRes Function(Fragment$F2) then) =
       _CopyWithImpl$Fragment$F2;
 
+  factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
+
   TRes call({Fragment$F3? other});
+  CopyWith$Fragment$F3<TRes> get other;
 }
 
 class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
@@ -130,6 +151,22 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F2(
       other: other == _undefined ? _instance.other : (other as Fragment$F3?)));
+  CopyWith$Fragment$F3<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F3.stub(_then(_instance))
+        : CopyWith$Fragment$F3(local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F2<TRes>
+    implements CopyWith$Fragment$F2<TRes> {
+  _CopyWithStubImpl$Fragment$F2(this._res);
+
+  TRes _res;
+
+  call({Fragment$F3? other}) => _res;
+  CopyWith$Fragment$F3<TRes> get other => CopyWith$Fragment$F3.stub(_res);
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(
@@ -191,7 +228,10 @@ abstract class CopyWith$Fragment$F3<TRes> {
           Fragment$F3 instance, TRes Function(Fragment$F3) then) =
       _CopyWithImpl$Fragment$F3;
 
+  factory CopyWith$Fragment$F3.stub(TRes res) = _CopyWithStubImpl$Fragment$F3;
+
   TRes call({Fragment$F4? other});
+  CopyWith$Fragment$F4<TRes> get other;
 }
 
 class _CopyWithImpl$Fragment$F3<TRes> implements CopyWith$Fragment$F3<TRes> {
@@ -205,6 +245,22 @@ class _CopyWithImpl$Fragment$F3<TRes> implements CopyWith$Fragment$F3<TRes> {
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F3(
       other: other == _undefined ? _instance.other : (other as Fragment$F4?)));
+  CopyWith$Fragment$F4<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F4.stub(_then(_instance))
+        : CopyWith$Fragment$F4(local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F3<TRes>
+    implements CopyWith$Fragment$F3<TRes> {
+  _CopyWithStubImpl$Fragment$F3(this._res);
+
+  TRes _res;
+
+  call({Fragment$F4? other}) => _res;
+  CopyWith$Fragment$F4<TRes> get other => CopyWith$Fragment$F4.stub(_res);
 }
 
 const fragmentDefinitionF3 = FragmentDefinitionNode(
@@ -265,6 +321,8 @@ abstract class CopyWith$Fragment$F4<TRes> {
           Fragment$F4 instance, TRes Function(Fragment$F4) then) =
       _CopyWithImpl$Fragment$F4;
 
+  factory CopyWith$Fragment$F4.stub(TRes res) = _CopyWithStubImpl$Fragment$F4;
+
   TRes call({String? name});
 }
 
@@ -279,6 +337,15 @@ class _CopyWithImpl$Fragment$F4<TRes> implements CopyWith$Fragment$F4<TRes> {
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F4(
       name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F4<TRes>
+    implements CopyWith$Fragment$F4<TRes> {
+  _CopyWithStubImpl$Fragment$F4(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 const fragmentDefinitionF4 = FragmentDefinitionNode(
@@ -336,7 +403,10 @@ abstract class CopyWith$Query$Fetch<TRes> {
           Query$Fetch instance, TRes Function(Query$Fetch) then) =
       _CopyWithImpl$Query$Fetch;
 
+  factory CopyWith$Query$Fetch.stub(TRes res) = _CopyWithStubImpl$Query$Fetch;
+
   TRes call({Fragment$F? t});
+  CopyWith$Fragment$F<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Fetch<TRes> implements CopyWith$Query$Fetch<TRes> {
@@ -350,6 +420,22 @@ class _CopyWithImpl$Query$Fetch<TRes> implements CopyWith$Query$Fetch<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Fetch(t: t == _undefined ? _instance.t : (t as Fragment$F?)));
+  CopyWith$Fragment$F<TRes> get t {
+    final local$t = _instance.t;
+    return local$t == null
+        ? CopyWith$Fragment$F.stub(_then(_instance))
+        : CopyWith$Fragment$F(local$t, (e) => call(t: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Fetch<TRes>
+    implements CopyWith$Query$Fetch<TRes> {
+  _CopyWithStubImpl$Query$Fetch(this._res);
+
+  TRes _res;
+
+  call({Fragment$F? t}) => _res;
+  CopyWith$Fragment$F<TRes> get t => CopyWith$Fragment$F.stub(_res);
 }
 
 const documentNodeQueryFetch = DocumentNode(definitions: [

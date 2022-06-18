@@ -27,6 +27,7 @@ void main() {
             'dob': null,
             'events': null,
             'eventsOfEvents': null,
+            'favParent': null,
             'parents': [
               {'name': 'Father', '__typename': 'Person'},
               {'name': 'Mother', '__typename': 'Person'},
@@ -57,6 +58,7 @@ void main() {
             'dob': null,
             'events': null,
             'eventsOfEvents': null,
+            'favParent': null,
             'parents': [
               {'name': 'Father', '__typename': 'Person'},
               {'name': 'Mother', '__typename': 'Person'},

@@ -47,6 +47,9 @@ abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
           TRes Function(Variables$Mutation$UpdateSRequired) then) =
       _CopyWithImpl$Variables$Mutation$UpdateSRequired;
 
+  factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
+
   TRes call({String? name});
 }
 
@@ -62,7 +65,18 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Mutation$UpdateSRequired(
-          name: name == _undefined ? _instance.name : (name as String)));
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String)));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
+    implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$UpdateSRequired(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -104,6 +118,9 @@ abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
           TRes Function(Mutation$UpdateSRequired) then) =
       _CopyWithImpl$Mutation$UpdateSRequired;
 
+  factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateSRequired;
+
   TRes call({String? s});
 }
 
@@ -119,6 +136,15 @@ class _CopyWithImpl$Mutation$UpdateSRequired<TRes>
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSRequired(
       s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdateSRequired<TRes>
+    implements CopyWith$Mutation$UpdateSRequired<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateSRequired(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [

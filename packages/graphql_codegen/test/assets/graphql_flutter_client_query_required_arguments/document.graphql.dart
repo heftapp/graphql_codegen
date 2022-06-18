@@ -42,6 +42,9 @@ abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
           TRes Function(Variables$Query$FetchSRequired) then) =
       _CopyWithImpl$Variables$Query$FetchSRequired;
 
+  factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$FetchSRequired;
+
   TRes call({String? name});
 }
 
@@ -57,7 +60,18 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSRequired(
-          name: name == _undefined ? _instance.name : (name as String)));
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String)));
+}
+
+class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
+    implements CopyWith$Variables$Query$FetchSRequired<TRes> {
+  _CopyWithStubImpl$Variables$Query$FetchSRequired(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -98,6 +112,9 @@ abstract class CopyWith$Query$FetchSRequired<TRes> {
           TRes Function(Query$FetchSRequired) then) =
       _CopyWithImpl$Query$FetchSRequired;
 
+  factory CopyWith$Query$FetchSRequired.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchSRequired;
+
   TRes call({String? s});
 }
 
@@ -113,6 +130,15 @@ class _CopyWithImpl$Query$FetchSRequired<TRes>
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)));
+}
+
+class _CopyWithStubImpl$Query$FetchSRequired<TRes>
+    implements CopyWith$Query$FetchSRequired<TRes> {
+  _CopyWithStubImpl$Query$FetchSRequired(this._res);
+
+  TRes _res;
+
+  call({String? s}) => _res;
 }
 
 const documentNodeQueryFetchSRequired = DocumentNode(definitions: [

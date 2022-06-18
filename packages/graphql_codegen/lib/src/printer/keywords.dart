@@ -1,4 +1,5 @@
 const staticKeywords = {
+  "call",
   "abstract",
   "else",
   "import",

@@ -48,7 +48,11 @@ abstract class CopyWith$Query$FetchPerson<TRes> {
           Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
       _CopyWithImpl$Query$FetchPerson;
 
+  factory CopyWith$Query$FetchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchPerson;
+
   TRes call({Query$FetchPerson$fetchPerson? fetchPerson, String? $__typename});
+  CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson;
 }
 
 class _CopyWithImpl$Query$FetchPerson<TRes>
@@ -68,9 +72,28 @@ class _CopyWithImpl$Query$FetchPerson<TRes>
           fetchPerson: fetchPerson == _undefined
               ? _instance.fetchPerson
               : (fetchPerson as Query$FetchPerson$fetchPerson?),
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+  CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson {
+    final local$fetchPerson = _instance.fetchPerson;
+    return local$fetchPerson == null
+        ? CopyWith$Query$FetchPerson$fetchPerson.stub(_then(_instance))
+        : CopyWith$Query$FetchPerson$fetchPerson(
+            local$fetchPerson, (e) => call(fetchPerson: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$FetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson<TRes> {
+  _CopyWithStubImpl$Query$FetchPerson(this._res);
+
+  TRes _res;
+
+  call({Query$FetchPerson$fetchPerson? fetchPerson, String? $__typename}) =>
+      _res;
+  CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson =>
+      CopyWith$Query$FetchPerson$fetchPerson.stub(_res);
 }
 
 const documentNodeQueryFetchPerson = DocumentNode(definitions: [
@@ -181,6 +204,9 @@ abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
           TRes Function(Query$FetchPerson$fetchPerson) then) =
       _CopyWithImpl$Query$FetchPerson$fetchPerson;
 
+  factory CopyWith$Query$FetchPerson$fetchPerson.stub(TRes res) =
+      _CopyWithStubImpl$Query$FetchPerson$fetchPerson;
+
   TRes call({int? age, String? name, Enum$Status? status, String? $__typename});
 }
 
@@ -205,7 +231,17 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
           status: status == _undefined
               ? _instance.status
               : (status as Enum$Status?),
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query$FetchPerson$fetchPerson<TRes>
+    implements CopyWith$Query$FetchPerson$fetchPerson<TRes> {
+  _CopyWithStubImpl$Query$FetchPerson$fetchPerson(this._res);
+
+  TRes _res;
+
+  call({int? age, String? name, Enum$Status? status, String? $__typename}) =>
+      _res;
 }

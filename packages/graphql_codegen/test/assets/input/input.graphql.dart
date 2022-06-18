@@ -47,6 +47,8 @@ abstract class CopyWith$Input$I1<TRes> {
   factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
       _CopyWithImpl$Input$I1;
 
+  factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
+
   TRes call({String? s, Input$I1? nested_input, int? $_min});
 }
 
@@ -64,9 +66,17 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
           Object? nested_input = _undefined,
           Object? $_min = _undefined}) =>
       _then(Input$I1(
-          s: s == _undefined ? _instance.s : (s as String),
+          s: s == _undefined || s == null ? _instance.s : (s as String),
           nested_input: nested_input == _undefined
               ? _instance.nested_input
               : (nested_input as Input$I1?),
           $_min: $_min == _undefined ? _instance.$_min : ($_min as int?)));
+}
+
+class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
+  _CopyWithStubImpl$Input$I1(this._res);
+
+  TRes _res;
+
+  call({String? s, Input$I1? nested_input, int? $_min}) => _res;
 }

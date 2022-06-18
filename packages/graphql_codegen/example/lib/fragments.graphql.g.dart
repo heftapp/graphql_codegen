@@ -20,6 +20,10 @@ Fragment$PersonSummary _$Fragment$PersonSummaryFromJson(
           ?.map(
               (e) => Fragment$PersonParent.fromJson(e as Map<String, dynamic>))
           .toList(),
+      favParent: json['favParent'] == null
+          ? null
+          : Fragment$PersonParent.fromJson(
+              json['favParent'] as Map<String, dynamic>),
       $__typename: json['__typename'] as String,
     );
 
@@ -34,6 +38,7 @@ Map<String, dynamic> _$Fragment$PersonSummaryToJson(
           _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
               instance.eventsOfEvents),
       'parents': instance.parents?.map((e) => e.toJson()).toList(),
+      'favParent': instance.favParent?.toJson(),
       '__typename': instance.$__typename,
     };
 

@@ -37,7 +37,10 @@ abstract class CopyWith$Query$Q<TRes> {
   factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
       _CopyWithImpl$Query$Q;
 
+  factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
+
   TRes call({Query$Q$u? u});
+  CopyWith$Query$Q$u<TRes> get u;
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -51,6 +54,21 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes call({Object? u = _undefined}) =>
       _then(Query$Q(u: u == _undefined ? _instance.u : (u as Query$Q$u?)));
+  CopyWith$Query$Q$u<TRes> get u {
+    final local$u = _instance.u;
+    return local$u == null
+        ? CopyWith$Query$Q$u.stub(_then(_instance))
+        : CopyWith$Query$Q$u(local$u, (e) => call(u: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
+  _CopyWithStubImpl$Query$Q(this._res);
+
+  TRes _res;
+
+  call({Query$Q$u? u}) => _res;
+  CopyWith$Query$Q$u<TRes> get u => CopyWith$Query$Q$u.stub(_res);
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
@@ -148,6 +166,8 @@ abstract class CopyWith$Query$Q$u<TRes> {
           Query$Q$u instance, TRes Function(Query$Q$u) then) =
       _CopyWithImpl$Query$Q$u;
 
+  factory CopyWith$Query$Q$u.stub(TRes res) = _CopyWithStubImpl$Query$Q$u;
+
   TRes call({String? $__typename});
 }
 
@@ -161,9 +181,17 @@ class _CopyWithImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
   static const _undefined = {};
 
   TRes call({Object? $__typename = _undefined}) => _then(Query$Q$u(
-      $__typename: $__typename == _undefined
+      $__typename: $__typename == _undefined || $__typename == null
           ? _instance.$__typename
           : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
+  _CopyWithStubImpl$Query$Q$u(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -211,6 +239,9 @@ abstract class CopyWith$Query$Q$u$$TA<TRes> {
           Query$Q$u$$TA instance, TRes Function(Query$Q$u$$TA) then) =
       _CopyWithImpl$Query$Q$u$$TA;
 
+  factory CopyWith$Query$Q$u$$TA.stub(TRes res) =
+      _CopyWithStubImpl$Query$Q$u$$TA;
+
   TRes call({String? $__typename, String? name});
 }
 
@@ -226,10 +257,19 @@ class _CopyWithImpl$Query$Q$u$$TA<TRes>
 
   TRes call({Object? $__typename = _undefined, Object? name = _undefined}) =>
       _then(Query$Q$u$$TA(
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
           name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Query$Q$u$$TA<TRes>
+    implements CopyWith$Query$Q$u$$TA<TRes> {
+  _CopyWithStubImpl$Query$Q$u$$TA(this._res);
+
+  TRes _res;
+
+  call({String? $__typename, String? name}) => _res;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -277,6 +317,9 @@ abstract class CopyWith$Query$Q$u$$TB<TRes> {
           Query$Q$u$$TB instance, TRes Function(Query$Q$u$$TB) then) =
       _CopyWithImpl$Query$Q$u$$TB;
 
+  factory CopyWith$Query$Q$u$$TB.stub(TRes res) =
+      _CopyWithStubImpl$Query$Q$u$$TB;
+
   TRes call({String? $__typename, int? velocity});
 }
 
@@ -293,12 +336,21 @@ class _CopyWithImpl$Query$Q$u$$TB<TRes>
   TRes call(
           {Object? $__typename = _undefined, Object? velocity = _undefined}) =>
       _then(Query$Q$u$$TB(
-          $__typename: $__typename == _undefined
+          $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String),
           velocity: velocity == _undefined
               ? _instance.velocity
               : (velocity as int?)));
+}
+
+class _CopyWithStubImpl$Query$Q$u$$TB<TRes>
+    implements CopyWith$Query$Q$u$$TB<TRes> {
+  _CopyWithStubImpl$Query$Q$u$$TB(this._res);
+
+  TRes _res;
+
+  call({String? $__typename, int? velocity}) => _res;
 }
 
 const possibleTypesMap = {
