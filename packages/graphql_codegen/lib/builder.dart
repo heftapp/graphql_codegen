@@ -10,6 +10,7 @@ import 'package:gql/language.dart';
 import 'package:graphql_codegen/graphql_codegen.dart';
 import 'package:graphql_codegen/src/transform/transform.dart';
 import 'package:graphql_codegen_config/config.dart';
+import 'package:path/path.dart' as p;
 
 /// The builder class.
 class GraphQLBuilder extends Builder {
@@ -62,7 +63,14 @@ class GraphQLBuilder extends Builder {
     _writeProgram(
       config,
       buildStep,
-      targetAsset,
+      AssetId(
+        targetAsset.package,
+        p.join(
+          p.dirname(targetAsset.path),
+          config.outputDirectory,
+          p.basename(targetAsset.path),
+        ),
+      ),
       result.entries[buildStep.inputId]!,
     );
   }
@@ -83,7 +91,9 @@ class GraphQLBuilder extends Builder {
   }
 
   @override
-  Map<String, List<String>> get buildExtensions => const {
-        r'.graphql': const ['.graphql.dart'],
+  Map<String, List<String>> get buildExtensions => {
+        r'{{dir}}/{{file}}.graphql': [
+          '{{dir}}/${config.outputDirectory}/{{file}}.graphql.dart'
+        ],
       };
 }

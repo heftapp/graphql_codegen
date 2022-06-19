@@ -1,3 +1,7 @@
+# 0.2.6
+
+* Add `outputDirectory` option.
+
 # 0.2.5
 
 * Add `extraKeywords` option.

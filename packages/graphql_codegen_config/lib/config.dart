@@ -32,32 +32,17 @@ class GraphQLCodegenConfigScalar extends JsonSerializable {
 
 @JsonSerializable()
 class GraphQLCodegenConfig extends JsonSerializable {
-  @JsonKey(defaultValue: const <GraphQLCodegenConfigClient>{})
   final Set<GraphQLCodegenConfigClient> clients;
-  @JsonKey(defaultValue: const <String, GraphQLCodegenConfig>{})
   final Map<String, GraphQLCodegenConfigScalar> scalars;
-  @JsonKey(defaultValue: true)
   final bool addTypename;
-  @JsonKey(defaultValue: "lib/**.graphql")
   final String assetsPath;
-
-  @JsonKey(defaultValue: const ["**.graphql"])
   final List<String> scopes;
-
-  @JsonKey(defaultValue: const [])
   final List<String> addTypenameExcludedPaths;
-
-  @JsonKey(defaultValue: "")
   final String generatedFileHeader;
-
-  @JsonKey(defaultValue: true)
   final bool includeIfNullOnInput;
-
-  @JsonKey(defaultValue: r"$")
   final String namingSeparator;
-
-  @JsonKey(defaultValue: const [])
   final List<String> extraKeywords;
+  final String outputDirectory;
 
   GraphQLCodegenConfig({
     this.clients = const {},
@@ -70,6 +55,7 @@ class GraphQLCodegenConfig extends JsonSerializable {
     this.includeIfNullOnInput = true,
     this.namingSeparator = r"$",
     this.extraKeywords = const [],
+    this.outputDirectory = '.',
   });
 
   @override

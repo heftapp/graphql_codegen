@@ -30,30 +30,31 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
       clients: (json['clients'] as List<dynamic>?)
               ?.map((e) => $enumDecode(_$GraphQLCodegenConfigClientEnumMap, e))
               .toSet() ??
-          {},
+          const {},
       scalars: (json['scalars'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(k,
                 GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
           ) ??
-          {},
+          const {},
       addTypename: json['addTypename'] as bool? ?? true,
-      assetsPath: json['assetsPath'] as String? ?? 'lib/**.graphql',
+      assetsPath: json['assetsPath'] as String? ?? "lib/**.graphql",
       scopes: (json['scopes'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          ['**.graphql'],
+          const ["**.graphql"],
       addTypenameExcludedPaths:
           (json['addTypenameExcludedPaths'] as List<dynamic>?)
                   ?.map((e) => e as String)
                   .toList() ??
-              [],
-      generatedFileHeader: json['generatedFileHeader'] as String? ?? '',
+              const [],
+      generatedFileHeader: json['generatedFileHeader'] as String? ?? "",
       includeIfNullOnInput: json['includeIfNullOnInput'] as bool? ?? true,
-      namingSeparator: json['namingSeparator'] as String? ?? r'$',
+      namingSeparator: json['namingSeparator'] as String? ?? r"$",
       extraKeywords: (json['extraKeywords'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          [],
+          const [],
+      outputDirectory: json['outputDirectory'] as String? ?? '.',
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -71,6 +72,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'includeIfNullOnInput': instance.includeIfNullOnInput,
       'namingSeparator': instance.namingSeparator,
       'extraKeywords': instance.extraKeywords,
+      'outputDirectory': instance.outputDirectory,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {
