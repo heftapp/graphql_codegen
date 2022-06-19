@@ -19,12 +19,12 @@ void main() {
         final files = Map.fromEntries(
           await Future.wait(
             testSet
-                .listSync()
+                .listSync(recursive: true)
                 .where((element) => !basename(element.path).startsWith("_"))
                 .whereType<File>()
                 .map(
                   (file) async => MapEntry(
-                    basename(file.path),
+                    file.absolute.path.replaceAll(testSet.absolute.path, ""),
                     await file.readAsString(),
                   ),
                 ),
@@ -64,11 +64,12 @@ void main() {
           );
         } catch (e) {
           for (final entry in writer.assets.entries) {
-            final file = basename(entry.key.path);
+            final file = entry.key.path.replaceAll(RegExp("^lib/"), "");
             if (utf8.decode(entry.value) != files[file])
-              await File(
-                "${testSet.absolute.path}/${file}",
-              ).writeAsBytes(entry.value);
+              await (await File(
+                "${testSet.absolute.path}/${file}.expected",
+              ).create(recursive: true))
+                  .writeAsBytes(entry.value);
           }
           rethrow;
         }

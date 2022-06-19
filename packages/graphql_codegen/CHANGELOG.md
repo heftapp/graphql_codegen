@@ -1,3 +1,7 @@
+# 0.10.0-beta.3
+
+* Allow specifying `outputDirectory` for generated outputs.
+
 # 0.10.0-beta.2
 
 * BREAKING: Improve `.copyWith` by removing functions.

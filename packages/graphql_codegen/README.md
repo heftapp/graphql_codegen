@@ -649,3 +649,23 @@ targets:
           extraKeywords:
             - String
 ```
+
+
+## Change output directory
+
+By default, the dart files are generated relative to the `*.graphql` file.
+
+You can change this by specifying the `outputDirectory` folder.
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          outputDirectory: __generated
+```
+
+which place the files in the `__generated` folder relative to the `.graphql` file.
