@@ -55,7 +55,11 @@ class GraphQLBuilder extends Builder {
     final result = await generate<AssetId>(
       SchemaConfig<AssetId>(
         entries: BuiltMap.of(Map.fromEntries(entries)),
-        lookupPath: (id) => "${id.path}.dart",
+        lookupPath: (id) => p.join(
+          p.dirname(id.path),
+          config.outputDirectory,
+          p.basename(id.path) + ".dart",
+        ),
       ),
       config,
     );

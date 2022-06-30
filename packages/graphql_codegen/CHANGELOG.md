@@ -1,3 +1,7 @@
+# 0.10.0-beta.4
+
+* Fixes broken imports when specifying the `outputDirectory`.
+
 # 0.10.0-beta.3
 
 * Allow specifying `outputDirectory` for generated outputs.

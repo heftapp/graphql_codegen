@@ -1,0 +1,9 @@
+
+type Query {
+  name: E
+}
+
+
+enum E {
+  ONE TWO THREE
+}
