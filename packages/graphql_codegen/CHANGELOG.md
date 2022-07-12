@@ -1,3 +1,7 @@
+# 0.10.0-beta.5
+
+* Fixes broken paths on windows
+
 # 0.10.0-beta.4
 
 * Fixes broken imports when specifying the `outputDirectory`.
