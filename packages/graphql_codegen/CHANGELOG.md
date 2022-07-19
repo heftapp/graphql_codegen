@@ -1,3 +1,7 @@
+# 0.10.0-beta.7
+
+* Feat Support global output dir
+
 # 0.10.0-beta.6
 
 * Fix not generating Operations with single fragment

@@ -6,6 +6,9 @@ import 'package:build_test/build_test.dart';
 import 'package:graphql_codegen/builder.dart';
 import 'package:path/path.dart';
 import 'package:test/scaffolding.dart';
+import 'package:path/path.dart' as path;
+
+final p = path.Context(style: path.Style.posix);
 
 final assetsDir = Directory("test/assets");
 
@@ -30,23 +33,34 @@ void main() {
                 ),
           ),
         );
+        final builderOptions = files.entries
+            .where((element) => element.key.endsWith("builder_options.json"))
+            .map((e) => jsonDecode(e.value))
+            .whereType<Map<String, dynamic>?>()
+            .firstWhere((element) => element != null, orElse: () => null);
+        final noFlatLib = builderOptions?['noFlatLib'] == true;
+
         final assets = <String, Object>{};
         final expectedOutputs = <String, Object>{};
         for (final entry in files.entries) {
           final path = entry.key;
           final file = await entry.value;
+          final relativePath = p.relative(path, from: '/');
+          final assetPath = noFlatLib
+              ? 'a|${relativePath}'
+              : 'a|${p.join('lib', relativePath)}';
           if (extension(path) == '.expected') {
             await File("${testSet.path}/${path}").delete();
           } else if (extension(path) == ".graphql") {
-            assets["a|lib/$path"] = file;
+            assets[assetPath] = file;
           } else if (path.endsWith(".graphql.dart")) {
-            expectedOutputs["a|lib/$path"] = file;
+            expectedOutputs[assetPath] = file;
           }
         }
         final optionsFile =
             files.entries.whereType<MapEntry<String, String>?>().firstWhere(
                   (element) =>
-                      element != null && element.key.endsWith("options.json"),
+                      element != null && element.key.endsWith("/options.json"),
                   orElse: () => null,
                 );
         final options = optionsFile == null
@@ -64,7 +78,9 @@ void main() {
           );
         } catch (e) {
           for (final entry in writer.assets.entries) {
-            final file = entry.key.path.replaceAll(RegExp("^lib/"), "");
+            final file = noFlatLib
+                ? entry.key.path
+                : entry.key.path.replaceAll(RegExp("^lib/"), "");
             if (utf8.decode(entry.value) != files[file])
               await (await File(
                 "${testSet.absolute.path}/${file}.expected",
