@@ -668,4 +668,30 @@ targets:
           outputDirectory: __generated
 ```
 
-which place the files in the `__generated` folder relative to the `.graphql` file.
+which place the files in the `__generated` folder relative to the `.graphql` file. E.g.,
+
+```
+/lib/document.graphql -> /lib/__generated/document.graphql
+```
+
+You may also specify an absolute path, e.g, 
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          outputDirectory: /lib/__generated
+          assetsPath: graphql/**
+```
+
+this in combination with an asset path will place the folders in
+
+```
+/graphql/document.graphql -> /lib/__generated/document.graphql
+/graphql/fragments/document.graphql -> /lib/__generated/fragments/document.graphql
+```
+

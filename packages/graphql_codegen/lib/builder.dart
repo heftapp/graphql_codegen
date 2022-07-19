@@ -19,6 +19,8 @@ class GraphQLBuilder extends Builder {
   final BuilderOptions options;
   final GraphQLCodegenConfig config;
 
+  static final wildcardPattern = new RegExp(r"[\[\]\?\*]+");
+
   /// A static method to initialize the builder.
   static GraphQLBuilder builder(BuilderOptions options) =>
       GraphQLBuilder(options);
@@ -31,6 +33,18 @@ class GraphQLBuilder extends Builder {
             ),
           ) as Map<String, dynamic>,
         );
+
+  String get _assetsPrefix {
+    final glob = config.assetsPath;
+    String path = '';
+    for (final segment in p.split(glob)) {
+      if (wildcardPattern.hasMatch(segment)) {
+        break;
+      }
+      path = p.join(path, segment);
+    }
+    return path;
+  }
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
@@ -57,9 +71,8 @@ class GraphQLBuilder extends Builder {
     final result = await generate<AssetId>(
       SchemaConfig<AssetId>(
         entries: BuiltMap.of(Map.fromEntries(entries)),
-        lookupPath: (id) => p.join(
+        lookupPath: (id) => _resolveOutputDir(
           p.dirname(id.path),
-          config.outputDirectory,
           p.basename(id.path) + ".dart",
         ),
       ),
@@ -71,9 +84,8 @@ class GraphQLBuilder extends Builder {
       buildStep,
       AssetId(
         targetAsset.package,
-        p.join(
+        _resolveOutputDir(
           p.dirname(targetAsset.path),
-          config.outputDirectory,
           p.basename(targetAsset.path),
         ),
       ),
@@ -96,10 +108,31 @@ class GraphQLBuilder extends Builder {
     buildStep.writeAsString(targetAssetId, contents);
   }
 
+  String _resolveOutputDir(String dir, String file) {
+    if (!p.isAbsolute(config.outputDirectory)) {
+      return p.join(dir, config.outputDirectory, file);
+    }
+    return p.join(
+      p.relative(config.outputDirectory, from: '/'),
+      p.relative(dir, from: _assetsPrefix),
+      file,
+    );
+  }
+
   @override
-  Map<String, List<String>> get buildExtensions => {
-        r'{{dir}}/{{file}}.graphql': [
-          '{{dir}}/${config.outputDirectory}/{{file}}.graphql.dart'
-        ],
+  Map<String, List<String>> get buildExtensions {
+    if (p.isRelative(config.outputDirectory)) {
+      return {
+        '{{dir}}/{{file}}.graphql': [
+          p.join('{{dir}}', config.outputDirectory, '{{file}}.graphql.dart')
+        ]
       };
+    }
+    return {
+      path.join(_assetsPrefix, '{{dir}}', '{{file}}.graphql'): [
+        p.join(p.relative(config.outputDirectory, from: '/'), '{{dir}}',
+            '{{file}}.graphql.dart')
+      ]
+    };
+  }
 }

@@ -1,0 +1,4 @@
+{
+    "outputDirectory": "/lib/__generated__",
+    "assetsPath": "graphql/**.graphql"
+}
