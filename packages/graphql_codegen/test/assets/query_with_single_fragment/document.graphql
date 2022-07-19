@@ -1,0 +1,12 @@
+query Q {
+    ...F
+}
+
+fragment F on Query {
+    name
+}
+
+
+type Query {
+    name: String
+}

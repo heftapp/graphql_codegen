@@ -143,6 +143,8 @@ class ContextFragment<TKey extends Object>
 
   @override
   NameNode get currentTypeName => currentType.name;
+
+  bool get isDefinitionContext => fragment != null;
 }
 
 const _BUILT_IN_SCALARS = const DocumentNode(definitions: [
@@ -647,6 +649,8 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     _fragmentDependencies.add(fragmentDefinitionNode);
   }
 
+  bool get isDefinitionContext;
+
   Iterable<ContextProperty> get properties => _properties.values;
 
   Iterable<ContextProperty> get variables => _variables.values;
@@ -690,6 +694,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
       replacementContext ?? this;
 
   Context<TKey, TypeDefinitionNode>? get replacementContext {
+    if (isDefinitionContext) return null;
     final parentReplace = parent?.replacementContext;
     if (parentReplace != null) {
       final newName = parentReplace.path.withSegment(path.segments.last);
@@ -765,6 +770,8 @@ class ContextRoot<TKey extends Object>
         false;
   }
 
+  final bool isDefinitionContext = false;
+
   Map<String, Set<String>> get possibleTypesMap {
     final possibleTypes = <String, Set<NameNode>>{};
     for (final definition in schema.definitions) {
@@ -815,6 +822,8 @@ class ContextEnum<TKey extends Object>
 
   @override
   NameNode get currentTypeName => currentType.name;
+
+  final bool isDefinitionContext = true;
 }
 
 class ContextInput<TKey extends Object>
@@ -837,6 +846,8 @@ class ContextInput<TKey extends Object>
         );
   @override
   NameNode get currentTypeName => currentType.name;
+
+  final bool isDefinitionContext = true;
 }
 
 class ContextOperation<TKey extends Object>
@@ -912,6 +923,8 @@ class ContextOperation<TKey extends Object>
 
   @override
   NameNode get currentTypeName => currentType.name;
+
+  bool get isDefinitionContext => operation != null;
 }
 
 class Name {
