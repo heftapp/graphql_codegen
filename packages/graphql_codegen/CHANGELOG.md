@@ -1,3 +1,15 @@
+# 0.10.0
+
+* Feat Support global output dir
+* Fix not generating Operations with single fragment
+* Fixes broken paths on windows
+* Fixes broken imports when specifying the `outputDirectory`.
+* Allow specifying `outputDirectory` for generated outputs.
+* BREAKING: Improve `.copyWith` by removing functions.
+* Add deep-copy functionality.
+* BREAKING: Inline fragments; We're now inligning fragments to reduce the number of boilerplate classes generated.
+
+
 # 0.10.0-beta.7
 
 * Feat Support global output dir
