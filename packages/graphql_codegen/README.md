@@ -4,26 +4,39 @@ This is an opinionated code-generation tool from GraphQL to Dart/Flutter.
 
 It'll allow you to generate Dart serializers and client helpers with minimal config.
 The framework makes no assumption on how you structure your fragments or queries,
-for each `operation.graphql` the framework will generate a `operation.graphq.dart` file
-containing dart classes.
+for each `operation.graphql` the framework will generate a `operation.graphql.dart` file containing dart classes.
 
 Read more about the tool and motivation at the [GraphQL Codegen deep-dive](https://budde377.medium.com/graphql-codegen-deep-dive-37eee522e4e5)
 and on how you can structure your flutter apps with the tool on [Structure your Flutter GraphQL apps](https://budde377.medium.com/structure-your-flutter-graphql-apps-717ab9e46a5d).
 
-
-The builder relies on `json_serializable` to generate the actual serializers,
-so in addition to the two files mentioned above, it'll also generate a `operation.graphql.g.dart`
-file.
-
 The framework does not fetch your schema for you, so before you run this, you'll need
-to add your schema to your project.
+to add your schema to your project. In Android Studio this cand be done with the [GraphQL](https://plugins.jetbrains.com/plugin/8097-graphql) plugin.
 
 ## Installation
 
-Add `graphql_codegen: <current_version>` to your `dev_dependencies`.
+### Dev Dependencies
 
-The project depends on `json_serializable` so read more on how to set this up [here](https://pub.dev/packages/json_serializable).
-It is also a builder, so you'll need to set up `build_runner`. Read more [here](https://pub.dev/packages/build_runner).
+- `build_runner` generates files from dart code. Read more [here](https://pub.dev/packages/build_runner)
+
+- `json_serializable` generate the actual serializers, so in addition to the two files mentioned above, it'll also generate a `operation.graphql.g.dart`
+file. Read more on how to set this up [here](https://pub.dev/packages/json_serializable)
+
+```sh
+$ flutter pub add -dev graphql_codegen build_runner json_serializable
+```
+
+### Dependencies
+- `json_annotation` annotations used with `json_serializable` for generated types
+
+- `graphql` (optional) to use generated types with `graphql`. See [options](#options)
+
+- `graphql_flutter` (optional) to use generated types with `graphql_flutter`. See [options](#options)
+
+- `flutter_hooks` (optional) to use generated operations hooks. Will be inside [HookWidgets](https://pub.dev/documentation/flutter_hooks/latest/flutter_hooks/HookWidget-class.html)
+
+```sh
+$ flutter pub add json_annotation graphql graphql_flutter flutter_hooks
+```
 
 ## Basic Usage
 
@@ -237,15 +250,7 @@ void printQuery(Query$FetchAccount query) {
 }
 ```
 
-## Custom scalars
-
-Out of the box, the standard fragments are supported and mapped to relevant dart types. You can add
-new mappings for your custom scalars or overwrite existing configurations.
-
-In the schema above, you can see that we have defined the `ISODateTime` scalar. In this example, it contains
-a string with an iso formatted date-time string. We would like to map this to darts `DateTime` type by
-adding the following configuration to the `build.yaml` file:
-
+# Options
 ```yaml
 # build.yaml
 
@@ -254,74 +259,23 @@ targets:
     builders:
       graphql_codegen:
         options:
-          scalars:
-            ISODateTime:
-              type: DateTime
-            JSON:
-              type: Map<String, dynamic>
+          # all options go here
 ```
+| Option | Default | Description | More info |
+|---|---|---|---|
+| `clients` | {} | Graphql clients to generate helper functions for. Supported types are `graphql` and `graphql_flutter`   | [Clients](#clients) |
+| `scalars` | {} | Allows custom JSON-Dart transformations. Builder will warn if scalars are not recognized. Unless json_serializable can automatically parse, will need `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-scalars) |
+| `addTypename` | true | Whether to automatically insert the `__typename` field in requests | [Add typename](#add-typename) |
+| `addTypenameExcludedPaths` | [] | When `addTypename` is true, the paths to exclude  | [Excluding typenames](#excluding-some-selections-from-adding-typename) |
+| `outputDirectory` | "." | Location where to output generated types relative to each `.graphql` file | [Change output directory](#change-output-directory) |
+| `assetsPath` | "lib/**.graphql" | Path to `.graphql` files | __see above__ |
+| `scopes` | ["**.graphql"] | For multiple schemas, the globs for each schema | [Multiple Schemas](#multiple-schemas) |
+| `generatedFileHeader` | "" | A prefix to add to all generated files |  |
+| `namingSeparator` | "$" | The separator to use for generated names | [Change naming separator](#change-naming-separator) |
+| `includeIfNullOnInput` | true | Whether to strip `null` values from Inputs | [Strip null from input](#strip-null-from-input-serializers) |
+| `extraKeywords` | [] | A way to specify fields that are also keywords | [Extra keywords](#extra-keywords) |
 
-since `json_serializable` supports parsing `DateTime` from strings, this is all we need to do.
-
-Assume we want to use a custom date-time class instead (e.g. `CustomDateTime`) we can add
-
-```yaml
-# build.yaml
-
-targets:
-  $default:
-    builders:
-      graphql_codegen:
-        options:
-          scalars:
-            ISODateTime:
-              type: CustomDateTime
-              fromJsonFunctionName: customDateTimeFromJson
-              toJsonFunctionName: customDateTimeToJson
-              import: package:my_app/scalar.dart
-```
-
-and create a `scalar.dart` file with your converter functions and class.
-
-```dart
-// custom_date_time.dart
-class CustomDateTime {
-    final String datetime;
-
-    CustomDateTime(this.datetime);
-}
-```
-
-and
-
-```dart
-// scalar.dart
-
-export 'custom_date_time.dart' show {CustomDateTime};
-
-CustomDateTime customDateTimeFromJson(dynamic data) => CustomDateTime(data as String);
-dynamic customDateTimeToJson(CustomDateTime time) => time.datetime;
-```
-
-and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
-
-## Multiple schemas
-
-To support multiple schemas, the code generator has a concept of scopes. Consider the following configuration:
-
-```yaml
-targets:
-  $default:
-    builders:
-      graphql_codegen:
-        options:
-          scopes:
-            - lib/schema1/**
-            - lib/schema2/**
-```
-
-here the generator will perform independent analysis for the GraphQL files matching the relevant scope. E.g., any GraphQL file in
-the `lib/schema1` folder will be built relative to the schema in this folder, ignoring all other files completely.
+---
 
 ## Clients
 
@@ -476,6 +430,74 @@ class PersonWidget extends HookWidget {
 }
 ```
 
+## Custom scalars
+
+Out of the box, the standard fragments are supported and mapped to relevant dart types. You can add
+new mappings for your custom scalars or overwrite existing configurations.
+
+In the schema above, you can see that we have defined the `ISODateTime` scalar. In this example, it contains
+a string with an iso formatted date-time string. We would like to map this to darts `DateTime` type by
+adding the following configuration to the `build.yaml` file:
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          scalars:
+            ISODateTime:
+              type: DateTime
+            JSON:
+              type: Map<String, dynamic>
+```
+
+since `json_serializable` supports parsing `DateTime` from strings, this is all we need to do.
+
+Assume we want to use a custom date-time class instead (e.g. `CustomDateTime`) we can add
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          scalars:
+            ISODateTime:
+              type: CustomDateTime
+              fromJsonFunctionName: customDateTimeFromJson
+              toJsonFunctionName: customDateTimeToJson
+              import: package:my_app/scalar.dart
+```
+
+and create a `scalar.dart` file with your converter functions and class.
+
+```dart
+// custom_date_time.dart
+class CustomDateTime {
+    final String datetime;
+
+    CustomDateTime(this.datetime);
+}
+```
+
+and
+
+```dart
+// scalar.dart
+
+export 'custom_date_time.dart' show {CustomDateTime};
+
+CustomDateTime customDateTimeFromJson(dynamic data) => CustomDateTime(data as String);
+dynamic customDateTimeToJson(CustomDateTime time) => time.datetime;
+```
+
+and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
+
 ## Add typename
 By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
 
@@ -503,7 +525,7 @@ query Foo {
 This ensures the best conditions for caching. 
 
 
-### Excluding some selections from adding typename.
+### Excluding some selections from adding typename
 
 Any query, mutation, subscription, or fragment can be excluded from adding the `__typename` introspection by the `addTypenameExcludedPaths` option:
 
@@ -574,83 +596,6 @@ subscription Foo {
 }
 ```
 
-## Strip `null` from input serializers
-
-Some APIs don't allow input fields with a `null` value but prefer to have no field provided, e.g.,:
-
-```json
-{ "foo": null, "bar": "Hello" } // Will fail
-{ "bar": "Hello" } // Is preferred
-```
-
-You can strip null values for all input serializers (variables and inputs) with the option
-
-```yaml
-includeIfNullOnInput: false
-```
-
-## Change naming separator
-
-The library will generate a lot of serializers and other classes. The class names are a combination of operation, field, and 
-type names. To avoid name collisions, the library will separate each of these names with `$`. 
-
-E.g.,
-
-```graphql
-query Q {
-  name
-}
-```
-
-might yield the class
-
-```dart
-class Query$Q$name { ... }
-```
-
-This should work for most, but some other libraries might not support `$`. Therefore, you can configure the naming separator with the `namingSeparator` option. E.g., the configuration:
-
-```yaml
-# build.yaml
-
-targets:
-  $default:
-    builders:
-      graphql_codegen:
-        options:
-          namingSeparator: '___'
-
-```
-
-will change the above-yielded code to
-
-```dart
-
-class Query___Q___name { ... }
-```
-
-
-## Extra keywords
-
-Some APIs will generate fields that are in some way keywords and will break code generation. These might be fields
-with type names.
-
-You may specify extra keywords with the option
-
-
-```yaml
-# build.yaml
-
-targets:
-  $default:
-    builders:
-      graphql_codegen:
-        options:
-          extraKeywords:
-            - String
-```
-
-
 ## Change output directory
 
 By default, the dart files are generated relative to the `*.graphql` file.
@@ -694,4 +639,99 @@ this in combination with an asset path will place the folders in
 /graphql/document.graphql -> /lib/__generated/document.graphql
 /graphql/fragments/document.graphql -> /lib/__generated/fragments/document.graphql
 ```
+
+
+## Multiple schemas
+
+To support multiple schemas, the code generator has a concept of scopes. Consider the following configuration:
+
+```yaml
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          scopes:
+            - lib/schema1/**
+            - lib/schema2/**
+```
+
+here the generator will perform independent analysis for the GraphQL files matching the relevant scope. E.g., any GraphQL file in
+the `lib/schema1` folder will be built relative to the schema in this folder, ignoring all other files completely.
+
+## Change naming separator
+
+The library will generate a lot of serializers and other classes. The class names are a combination of operation, field, and 
+type names. To avoid name collisions, the library will separate each of these names with `$`. 
+
+E.g.,
+
+```graphql
+query Q {
+  name
+}
+```
+
+might yield the class
+
+```dart
+class Query$Q$name { ... }
+```
+
+This should work for most, but some other libraries might not support `$`. Therefore, you can configure the naming separator with the `namingSeparator` option. E.g., the configuration:
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          namingSeparator: '___'
+
+```
+
+will change the above-yielded code to
+
+```dart
+
+class Query___Q___name { ... }
+```
+
+## Strip null from input serializers
+
+Some APIs don't allow input fields with a `null` value but prefer to have no field provided, e.g.,:
+
+```json
+{ "foo": null, "bar": "Hello" } // Will fail
+{ "bar": "Hello" } // Is preferred
+```
+
+You can strip null values for all input serializers (variables and inputs) with the option
+
+```yaml
+includeIfNullOnInput: false
+```
+
+## Extra keywords
+
+Some APIs will generate fields that are in some way keywords and will break code generation. These might be fields
+with type names.
+
+You may specify extra keywords with the option
+
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          extraKeywords:
+            - String
+```
+
 
