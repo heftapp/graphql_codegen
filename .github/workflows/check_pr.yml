@@ -13,12 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Conventional PRs
-        uses: Namchee/conventional-pr@v0.8.0
+        uses: Namchee/conventional-pr@v0.10.1
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
           issue: false
           verified_commits: true
           close: false
+          report: false
 
   check-release:
     runs-on: ubuntu-latest
