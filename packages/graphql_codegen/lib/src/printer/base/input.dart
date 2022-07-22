@@ -99,9 +99,11 @@ List<Spec> _printInputClasses(
           ),
         ])
         ..fields = ListBuilder([
-          Field((b) => b
-            ..name = kDataVariableName
-            ..type = dynamicMap)
+          Field(
+            (b) => b
+              ..name = kDataVariableName
+              ..type = dynamicMap,
+          )
         ])
         ..methods = ListBuilder([
           ...properties.map((e) => Method(
@@ -139,12 +141,12 @@ List<Spec> _printInputClasses(
             context,
             name(context.path),
             properties,
-            dataObjectCheck: true,
+            dataObjectCheckResolver: () => refer(kDataVariableName),
           ),
           printHashCodeMethod(
             context,
             properties,
-            dataObjectCheck: true,
+            dataObjectCheckResolver: () => refer(kDataVariableName),
           ),
         ]),
     ),

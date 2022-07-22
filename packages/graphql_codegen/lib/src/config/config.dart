@@ -41,9 +41,11 @@ class GraphQLCodegenConfig {
   final String namingSeparator;
   final List<String> extraKeywords;
   final String outputDirectory;
+  final bool disableContextReplacement;
 
   GraphQLCodegenConfig({
     this.clients = const {},
+    this.disableContextReplacement = false,
     this.scalars = const {},
     this.addTypename = true,
     this.assetsPath = "lib/**.graphql",

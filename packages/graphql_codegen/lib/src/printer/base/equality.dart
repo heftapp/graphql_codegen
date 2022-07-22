@@ -2,14 +2,15 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/context.dart';
-import 'package:graphql_codegen/src/printer/base/constants.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
+
+typedef DataObjResolver = Expression Function();
 
 Method printEqualityOperator(
   PrintContext c,
   String name,
   Iterable<ContextProperty> properties, {
-  bool dataObjectCheck = false,
+  DataObjResolver? dataObjectCheckResolver,
 }) =>
     Method((b) => b
       ..name = "operator=="
@@ -42,9 +43,15 @@ Method printEqualityOperator(
                     .property(c.namePrinter.printPropertyName(e.name))
                     .assignFinal(localOtherName)
                     .statement,
-                if (dataObjectCheck && !e.isRequired)
+                if (dataObjectCheckResolver != null && !e.isRequired) ...[
+                  Code('if ('),
+                  dataObjectCheckResolver().code,
+                  Code('.containsKey(\'${e.name.value}\') != other.'),
+                  dataObjectCheckResolver().code,
                   Code(
-                      'if (${kDataVariableName}.containsKey(\'${e.name.value}\') != other.${kDataVariableName}.containsKey(\'${e.name.value}\')) {return false;}'),
+                    '.containsKey(\'${e.name.value}\')) {return false;}',
+                  ),
+                ],
                 _printPropertyEqualityCheck(
                   e.type,
                   localThisName,
@@ -95,7 +102,7 @@ Code _printPropertyEqualityCheck(
 Method printHashCodeMethod(
   PrintContext context,
   Iterable<ContextProperty> properties, {
-  bool dataObjectCheck = false,
+  DataObjResolver? dataObjectCheckResolver,
 }) =>
     Method(
       (b) => b
@@ -122,8 +129,9 @@ Method printHashCodeMethod(
                           property.type,
                           refer(localProp),
                         );
-                        if (dataObjectCheck && !property.isRequired) {
-                          return refer(kDataVariableName)
+                        if (dataObjectCheckResolver != null &&
+                            !property.isRequired) {
+                          return dataObjectCheckResolver()
                               .property('containsKey')
                               .call([
                             literalString(property.name.value)

@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: graphql_codegen,graphql_switch
+dependency_overrides:
+  graphql_codegen:
+    path: ../../graphql_codegen
+  graphql_switch:
+    path: ..

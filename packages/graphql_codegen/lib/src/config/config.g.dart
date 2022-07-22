@@ -31,6 +31,8 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
               ?.map((e) => $enumDecode(_$GraphQLCodegenConfigClientEnumMap, e))
               .toSet() ??
           const {},
+      disableContextReplacement:
+          json['disableContextReplacement'] as bool? ?? false,
       scalars: (json['scalars'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(k,
                 GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
@@ -71,6 +73,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'namingSeparator': instance.namingSeparator,
       'extraKeywords': instance.extraKeywords,
       'outputDirectory': instance.outputDirectory,
+      'disableContextReplacement': instance.disableContextReplacement,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {

@@ -51,7 +51,7 @@ jobs:
         channel: 
           - beta
           - stable
-          - dev
+          # - dev
     steps:
       - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v2
@@ -62,7 +62,7 @@ jobs:
       - name: Bootstrap melos
         run: melos bs
       - name: Analyze package
-        run: melos run analyze
+        run: melos run analyze --no-select
 
   build:
     runs-on: ubuntu-latest
@@ -71,7 +71,7 @@ jobs:
         channel: 
           - beta
           - stable
-          - dev
+          # - dev
 
     timeout-minutes: 5
     steps:
@@ -84,13 +84,13 @@ jobs:
       - name: Bootstrap melos
         run: melos bs
       - name: Build dart
-        run: melos run build_dart
+        run: melos run build_dart --no-select
       - name: Build fluter
-        run: melos run build_flutter
+        run: melos run build_flutter --no-select
       - name: Bootstrap melos
         run: melos bs
       - name: Check if changed
-        run: melos run check
+        run: git diff --exit-code ':!**/pubspec.lock'
 
   test:
     runs-on: ubuntu-latest
@@ -99,7 +99,7 @@ jobs:
         channel: 
           - beta
           - stable
-          - dev
+          # - dev
 
     steps:
       - uses: actions/checkout@v2
@@ -111,6 +111,6 @@ jobs:
       - name: Bootstrap melos
         run: melos bs
       - name: Run tests dart
-        run: melos run test_dart
+        run: melos run test_dart --no-select
       - name: Run tests flutter
-        run: melos run test_flutter
+        run: melos run test_flutter --no-select

@@ -1,0 +1,26 @@
+
+type Query {
+    name: String
+    child: IPerson
+    find(details: Details!): [IPerson!]!
+}
+
+interface IPerson {
+    id: ID
+    name: String
+}
+
+type Person implements IPerson {
+    id: ID
+    name: String
+    child: IPerson
+    answer(question: String): String
+}
+
+scalar ID
+
+input Details {
+    name: String!
+    age: Int
+    deeds: Details
+}

@@ -1,0 +1,13 @@
+builders:
+  graphql_codegen:
+    import: 'package:graphql_switch/builder.dart'
+    builder_factories: ['SwitchBuilder.builder']
+    build_extensions: {'$lib$': ['switch.dart']}
+    auto_apply: dependents
+    build_to: source
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        enabled: false
+
