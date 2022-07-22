@@ -198,10 +198,12 @@ Reference _printDeepCopyReturnNode(
   String innerReference,
   String wrapper,
 ) {
-  if (node is ListTypeNode)
+  if (node is ListTypeNode) {
     return _printDeepCopyReturnList(node, innerReference, wrapper);
-  if (node is NamedTypeNode)
+  }
+  if (node is NamedTypeNode) {
     return _printDeepCopyReturnName(node, innerReference);
+  }
   throw StateError("Unsupported type node");
 }
 

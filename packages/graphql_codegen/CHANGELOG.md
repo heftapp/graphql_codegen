@@ -1,3 +1,8 @@
+# 0.10.1
+
+* Fix lint
+
+
 # 0.10.0
 
 * Feat Support global output dir
