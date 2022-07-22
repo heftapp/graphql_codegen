@@ -44,7 +44,7 @@ void main() {
         final expectedOutputs = <String, Object>{};
         for (final entry in files.entries) {
           final path = entry.key;
-          final file = await entry.value;
+          final file = entry.value;
           final relativePath = p.relative(path, from: '/');
           final assetPath = noFlatLib
               ? 'a|${relativePath}'
@@ -81,11 +81,12 @@ void main() {
             final file = noFlatLib
                 ? entry.key.path
                 : entry.key.path.replaceAll(RegExp("^lib/"), "");
-            if (utf8.decode(entry.value) != files[file])
+            if (utf8.decode(entry.value) != files[file]) {
               await (await File(
                 "${testSet.absolute.path}/${file}.expected",
               ).create(recursive: true))
                   .writeAsBytes(entry.value);
+            }
           }
           rethrow;
         }
