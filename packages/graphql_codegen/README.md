@@ -10,7 +10,7 @@ Read more about the tool and motivation at the [GraphQL Codegen deep-dive](https
 and on how you can structure your flutter apps with the tool on [Structure your Flutter GraphQL apps](https://budde377.medium.com/structure-your-flutter-graphql-apps-717ab9e46a5d).
 
 The framework does not fetch your schema for you, so before you run this, you'll need
-to add your schema to your project. In Android Studio this cand be done with the [GraphQL](https://plugins.jetbrains.com/plugin/8097-graphql) plugin.
+to add your schema to your project. In Android Studio this can be done with the [GraphQL](https://plugins.jetbrains.com/plugin/8097-graphql) plugin.
 
 ## Installation
 
@@ -22,7 +22,7 @@ to add your schema to your project. In Android Studio this cand be done with the
 file. Read more on how to set this up [here](https://pub.dev/packages/json_serializable)
 
 ```sh
-$ flutter pub add -dev graphql_codegen build_runner json_serializable
+$ flutter pub add --dev graphql_codegen build_runner json_serializable
 ```
 
 ### Dependencies
