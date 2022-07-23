@@ -1,3 +1,7 @@
+# 0.10.2
+
+* Fix operation name collision
+
 # 0.10.1
 
 * Fix lint

@@ -1,0 +1,6 @@
+
+mutation Operation {
+    setName(name: "Bob") {
+        name
+    }
+}

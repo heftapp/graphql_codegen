@@ -1,0 +1,7 @@
+{
+  "clients": [
+    "graphql",
+    "graphql_flutter"
+  ],
+  "addTypename": false
+}

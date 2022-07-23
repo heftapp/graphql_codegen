@@ -204,13 +204,6 @@ class Schema<TKey extends Object> {
     return fragmentDef;
   }
 
-  OperationDefinitionNode? lookupOperationDefinition(NameNode name) {
-    return definitions.whereType<OperationDefinitionNode?>().firstWhere(
-          (element) => element != null && element.name?.value == name.value,
-          orElse: () => null,
-        );
-  }
-
   String? lookupPathFromName(NameNode node) {
     for (final entry in entries.entries) {
       for (final definition in entry.value.definitions) {
@@ -917,9 +910,16 @@ class ContextOperation<TKey extends Object>
     return c;
   }
 
-  OperationDefinitionNode? get operation => path.segments.length == 1
-      ? schema.lookupOperationDefinition(path.baseNameSegment.name)
-      : null;
+  OperationDefinitionNode? get operation {
+    if (path.segments.length != 1) {
+      return null;
+    }
+    final base = path.baseNameSegment;
+    if (base is! OperationNameSegment) {
+      return null;
+    }
+    return base.node;
+  }
 
   @override
   NameNode get currentTypeName => currentType.name;
