@@ -1,0 +1,21 @@
+
+name: graphql_switch
+
+description: | 
+  If you like Relay, you're gonna love GraphQL Switch!
+
+version: 0.0.1
+homepage: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_switch
+repository: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_switch
+
+environment:
+  sdk: '>=2.13.0 <3.0.0'
+
+dependencies:
+  gql: ^0.13.0
+  equatable: ^2.0.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  lints: ^2.0.0
