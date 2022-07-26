@@ -269,8 +269,8 @@ targets:
 | `addTypenameExcludedPaths` | [] | When `addTypename` is true, the paths to exclude  | [Excluding typenames](#excluding-some-selections-from-adding-typename) |
 | `outputDirectory` | "." | Location where to output generated types relative to each `.graphql` file | [Change output directory](#change-output-directory) |
 | `assetsPath` | "lib/**.graphql" | Path to `.graphql` files | __see above__ |
+| `generatedFileHeader` | "" | A string to add at the beginning of all `graphql.dart` files | [Generated file headers](#generated-file-headers) |
 | `scopes` | ["**.graphql"] | For multiple schemas, the globs for each schema | [Multiple Schemas](#multiple-schemas) |
-| `generatedFileHeader` | "" | A prefix to add to all generated files |  |
 | `namingSeparator` | "$" | The separator to use for generated names | [Change naming separator](#change-naming-separator) |
 | `includeIfNullOnInput` | true | Whether to strip `null` values from Inputs | [Strip null from input](#strip-null-from-input-serializers) |
 | `extraKeywords` | [] | A way to specify fields that are also keywords | [Extra keywords](#extra-keywords) |
@@ -640,6 +640,32 @@ this in combination with an asset path will place the folders in
 /graphql/fragments/document.graphql -> /lib/__generated/fragments/document.graphql
 ```
 
+## Generated file headers
+
+Generated `.graphql.dart` files can have any string inserted at the beginning of the file with the `generatedFileHeader` option. 
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          generatedFileHeader: "// GENERATED FILE\n// DO NOT MODIFY\n"
+```
+
+One way to use this might be to ignore lint warnings with
+
+```yaml
+generatedFileHeader: "// ignore_for_file: type=lint\n"
+```
+
+But since the `.graphql.g.dart` files also might have warnings it might be easier to ignore the generated file directories from `analysis_options.yaml`
+```yaml
+analyzer:
+  exclude:
+    - lib/**/__generated__/*
+```
 
 ## Multiple schemas
 
