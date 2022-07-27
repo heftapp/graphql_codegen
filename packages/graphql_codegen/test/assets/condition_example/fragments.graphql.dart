@@ -6,7 +6,6 @@ part 'fragments.graphql.g.dart';
 class Fragment$Condition {
   Fragment$Condition({required this.name, required this.$__typename});
 
-  @override
   factory Fragment$Condition.fromJson(Map<String, dynamic> json) =>
       _$Fragment$ConditionFromJson(json);
 
@@ -16,6 +15,7 @@ class Fragment$Condition {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$ConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -114,7 +114,6 @@ class Fragment$AndCondition implements Fragment$Condition {
       required this.name,
       required this.$__typename});
 
-  @override
   factory Fragment$AndCondition.fromJson(Map<String, dynamic> json) =>
       _$Fragment$AndConditionFromJson(json);
 
@@ -128,6 +127,7 @@ class Fragment$AndCondition implements Fragment$Condition {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$AndConditionToJson(this);
+  @override
   int get hashCode {
     final l$left = left;
     final l$right = right;
@@ -294,7 +294,6 @@ const documentNodeFragmentAndCondition = DocumentNode(definitions: [
 class Fragment$CompositeCondition implements Fragment$Condition {
   Fragment$CompositeCondition({required this.name, required this.$__typename});
 
-  @override
   factory Fragment$CompositeCondition.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "TimeCondition":
@@ -312,6 +311,7 @@ class Fragment$CompositeCondition implements Fragment$Condition {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$CompositeConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -415,7 +415,6 @@ class Fragment$CompositeCondition$$TimeCondition
   Fragment$CompositeCondition$$TimeCondition(
       {required this.name, required this.$__typename, required this.before});
 
-  @override
   factory Fragment$CompositeCondition$$TimeCondition.fromJson(
           Map<String, dynamic> json) =>
       _$Fragment$CompositeCondition$$TimeConditionFromJson(json);
@@ -429,6 +428,7 @@ class Fragment$CompositeCondition$$TimeCondition
 
   Map<String, dynamic> toJson() =>
       _$Fragment$CompositeCondition$$TimeConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -522,7 +522,6 @@ class Fragment$CompositeCondition$$AndCondition
       required this.left,
       required this.right});
 
-  @override
   factory Fragment$CompositeCondition$$AndCondition.fromJson(
           Map<String, dynamic> json) =>
       _$Fragment$CompositeCondition$$AndConditionFromJson(json);
@@ -538,6 +537,7 @@ class Fragment$CompositeCondition$$AndCondition
 
   Map<String, dynamic> toJson() =>
       _$Fragment$CompositeCondition$$AndConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -658,7 +658,6 @@ class Fragment$NonCompositeCondition implements Fragment$Condition {
   Fragment$NonCompositeCondition(
       {required this.name, required this.$__typename});
 
-  @override
   factory Fragment$NonCompositeCondition.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "TimeCondition":
@@ -674,6 +673,7 @@ class Fragment$NonCompositeCondition implements Fragment$Condition {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$NonCompositeConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -774,7 +774,6 @@ class Fragment$NonCompositeCondition$$TimeCondition
   Fragment$NonCompositeCondition$$TimeCondition(
       {required this.name, required this.$__typename, required this.before});
 
-  @override
   factory Fragment$NonCompositeCondition$$TimeCondition.fromJson(
           Map<String, dynamic> json) =>
       _$Fragment$NonCompositeCondition$$TimeConditionFromJson(json);
@@ -788,6 +787,7 @@ class Fragment$NonCompositeCondition$$TimeCondition
 
   Map<String, dynamic> toJson() =>
       _$Fragment$NonCompositeCondition$$TimeConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -875,7 +875,6 @@ class Fragment$TimeCondition implements Fragment$Condition {
   Fragment$TimeCondition(
       {required this.name, required this.$__typename, required this.before});
 
-  @override
   factory Fragment$TimeCondition.fromJson(Map<String, dynamic> json) =>
       _$Fragment$TimeConditionFromJson(json);
 
@@ -887,6 +886,7 @@ class Fragment$TimeCondition implements Fragment$Condition {
   final String before;
 
   Map<String, dynamic> toJson() => _$Fragment$TimeConditionToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;

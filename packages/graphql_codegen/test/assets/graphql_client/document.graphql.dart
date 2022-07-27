@@ -8,13 +8,13 @@ part 'document.graphql.g.dart';
 class Fragment$NoVariables {
   Fragment$NoVariables({this.s});
 
-  @override
   factory Fragment$NoVariables.fromJson(Map<String, dynamic> json) =>
       _$Fragment$NoVariablesFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Fragment$NoVariablesToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -122,7 +122,6 @@ extension ClientExtension$Fragment$NoVariables on graphql.GraphQLClient {
 class Variables$Fragment$WithOptionalVariables {
   Variables$Fragment$WithOptionalVariables({this.name});
 
-  @override
   factory Variables$Fragment$WithOptionalVariables.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Fragment$WithOptionalVariablesFromJson(json);
@@ -131,6 +130,7 @@ class Variables$Fragment$WithOptionalVariables {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Fragment$WithOptionalVariablesToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -194,13 +194,13 @@ class _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables<TRes>
 class Fragment$WithOptionalVariables {
   Fragment$WithOptionalVariables({this.s});
 
-  @override
   factory Fragment$WithOptionalVariables.fromJson(Map<String, dynamic> json) =>
       _$Fragment$WithOptionalVariablesFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Fragment$WithOptionalVariablesToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -318,7 +318,6 @@ extension ClientExtension$Fragment$WithOptionalVariables
 class Variables$Fragment$WithVariables {
   Variables$Fragment$WithVariables({required this.name});
 
-  @override
   factory Variables$Fragment$WithVariables.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Fragment$WithVariablesFromJson(json);
@@ -327,6 +326,7 @@ class Variables$Fragment$WithVariables {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Fragment$WithVariablesToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -389,13 +389,13 @@ class _CopyWithStubImpl$Variables$Fragment$WithVariables<TRes>
 class Fragment$WithVariables {
   Fragment$WithVariables({this.s2});
 
-  @override
   factory Fragment$WithVariables.fromJson(Map<String, dynamic> json) =>
       _$Fragment$WithVariablesFromJson(json);
 
   final String? s2;
 
   Map<String, dynamic> toJson() => _$Fragment$WithVariablesToJson(this);
+  @override
   int get hashCode {
     final l$s2 = s2;
     return Object.hashAll([l$s2]);
@@ -508,13 +508,13 @@ extension ClientExtension$Fragment$WithVariables on graphql.GraphQLClient {
 class Variables$Query$FetchSOptional {
   Variables$Query$FetchSOptional({this.name});
 
-  @override
   factory Variables$Query$FetchSOptional.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$FetchSOptionalFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Variables$Query$FetchSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -575,13 +575,13 @@ class _CopyWithStubImpl$Variables$Query$FetchSOptional<TRes>
 class Query$FetchSOptional {
   Query$FetchSOptional({this.s});
 
-  @override
   factory Query$FetchSOptional.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchSOptionalFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Query$FetchSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -766,13 +766,13 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
 class Variables$Query$FetchSRequired {
   Variables$Query$FetchSRequired({required this.name});
 
-  @override
   factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$FetchSRequiredFromJson(json);
 
   final String name;
 
   Map<String, dynamic> toJson() => _$Variables$Query$FetchSRequiredToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -835,13 +835,13 @@ class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
 class Query$FetchSRequired {
   Query$FetchSRequired({this.s});
 
-  @override
   factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchSRequiredFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Query$FetchSRequiredToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -1027,13 +1027,13 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
 class Query$FetchSNoVariables {
   Query$FetchSNoVariables({this.s});
 
-  @override
   factory Query$FetchSNoVariables.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchSNoVariablesFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Query$FetchSNoVariablesToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -1202,7 +1202,6 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
 class Variables$Mutation$UpdateSOptional {
   Variables$Mutation$UpdateSOptional({this.name});
 
-  @override
   factory Variables$Mutation$UpdateSOptional.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Mutation$UpdateSOptionalFromJson(json);
@@ -1211,6 +1210,7 @@ class Variables$Mutation$UpdateSOptional {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Mutation$UpdateSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -1273,13 +1273,13 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
 class Mutation$UpdateSOptional {
   Mutation$UpdateSOptional({this.s});
 
-  @override
   factory Mutation$UpdateSOptional.fromJson(Map<String, dynamic> json) =>
       _$Mutation$UpdateSOptionalFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Mutation$UpdateSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -1458,7 +1458,6 @@ extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
 class Variables$Mutation$UpdateSRequired {
   Variables$Mutation$UpdateSRequired({required this.name});
 
-  @override
   factory Variables$Mutation$UpdateSRequired.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Mutation$UpdateSRequiredFromJson(json);
@@ -1467,6 +1466,7 @@ class Variables$Mutation$UpdateSRequired {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Mutation$UpdateSRequiredToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -1531,13 +1531,13 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
 class Mutation$UpdateSRequired {
   Mutation$UpdateSRequired({this.s});
 
-  @override
   factory Mutation$UpdateSRequired.fromJson(Map<String, dynamic> json) =>
       _$Mutation$UpdateSRequiredFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Mutation$UpdateSRequiredToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -1716,13 +1716,13 @@ extension ClientExtension$Mutation$UpdateSRequired on graphql.GraphQLClient {
 class Mutation$UpdateSNoVariables {
   Mutation$UpdateSNoVariables({this.s});
 
-  @override
   factory Mutation$UpdateSNoVariables.fromJson(Map<String, dynamic> json) =>
       _$Mutation$UpdateSNoVariablesFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Mutation$UpdateSNoVariablesToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);

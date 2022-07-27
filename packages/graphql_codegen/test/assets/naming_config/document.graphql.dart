@@ -18,7 +18,6 @@ enum Enum___Status {
 class Query___Q {
   Query___Q({this.status, required this.$__typename});
 
-  @override
   factory Query___Q.fromJson(Map<String, dynamic> json) =>
       _$Query___QFromJson(json);
 
@@ -29,6 +28,7 @@ class Query___Q {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query___QToJson(this);
+  @override
   int get hashCode {
     final l$status = status;
     final l$$__typename = $__typename;

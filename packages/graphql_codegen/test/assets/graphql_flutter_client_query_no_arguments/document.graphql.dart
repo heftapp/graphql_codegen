@@ -9,13 +9,13 @@ part 'document.graphql.g.dart';
 class Query$FetchSNoVariables {
   Query$FetchSNoVariables({this.s});
 
-  @override
   factory Query$FetchSNoVariables.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchSNoVariablesFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Query$FetchSNoVariablesToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);

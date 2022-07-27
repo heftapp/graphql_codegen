@@ -6,13 +6,13 @@ part 'schema.graphql.g.dart';
 class Input$I {
   Input$I({this.s});
 
-  @override
   factory Input$I.fromJson(Map<String, dynamic> json) =>
       _$Input$IFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Input$IToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);
@@ -73,7 +73,6 @@ enum Enum$Locale {
 class Variables$Fragment$F1 {
   Variables$Fragment$F1({required this.locale});
 
-  @override
   factory Variables$Fragment$F1.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F1FromJson(json);
 
@@ -81,6 +80,7 @@ class Variables$Fragment$F1 {
   final Enum$Locale locale;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F1ToJson(this);
+  @override
   int get hashCode {
     final l$locale = locale;
     return Object.hashAll([l$locale]);
@@ -141,7 +141,6 @@ class _CopyWithStubImpl$Variables$Fragment$F1<TRes>
 class Fragment$F1 implements Fragment$F2 {
   Fragment$F1({this.n2, required this.$__typename, this.n1});
 
-  @override
   factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F1FromJson(json);
 
@@ -153,6 +152,7 @@ class Fragment$F1 implements Fragment$F2 {
   final String? n1;
 
   Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
+  @override
   int get hashCode {
     final l$n2 = n2;
     final l$$__typename = $__typename;
@@ -256,7 +256,6 @@ const documentNodeFragmentF1 = DocumentNode(definitions: [
 class Variables$Fragment$F2 {
   Variables$Fragment$F2({required this.locale});
 
-  @override
   factory Variables$Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F2FromJson(json);
 
@@ -264,6 +263,7 @@ class Variables$Fragment$F2 {
   final Enum$Locale locale;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$locale = locale;
     return Object.hashAll([l$locale]);
@@ -324,7 +324,6 @@ class _CopyWithStubImpl$Variables$Fragment$F2<TRes>
 class Fragment$F2 {
   Fragment$F2({this.n2, required this.$__typename});
 
-  @override
   factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2FromJson(json);
 
@@ -334,6 +333,7 @@ class Fragment$F2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$n2 = n2;
     final l$$__typename = $__typename;
@@ -427,13 +427,13 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
 class Variables$Fragment$F3 {
   Variables$Fragment$F3({required this.i});
 
-  @override
   factory Variables$Fragment$F3.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F3FromJson(json);
 
   final Input$I i;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F3ToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     return Object.hashAll([l$i]);
@@ -498,7 +498,6 @@ class _CopyWithStubImpl$Variables$Fragment$F3<TRes>
 class Fragment$F3 {
   Fragment$F3({this.test, required this.$__typename});
 
-  @override
   factory Fragment$F3.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F3FromJson(json);
 
@@ -508,6 +507,7 @@ class Fragment$F3 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F3ToJson(this);
+  @override
   int get hashCode {
     final l$test = test;
     final l$$__typename = $__typename;
@@ -601,7 +601,6 @@ const documentNodeFragmentF3 = DocumentNode(definitions: [
 class Variables$Fragment$F4 {
   Variables$Fragment$F4({required this.locale});
 
-  @override
   factory Variables$Fragment$F4.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F4FromJson(json);
 
@@ -609,6 +608,7 @@ class Variables$Fragment$F4 {
   final Enum$Locale locale;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F4ToJson(this);
+  @override
   int get hashCode {
     final l$locale = locale;
     return Object.hashAll([l$locale]);
@@ -669,7 +669,6 @@ class _CopyWithStubImpl$Variables$Fragment$F4<TRes>
 class Fragment$F4 {
   Fragment$F4({this.n1, this.n2, required this.$__typename});
 
-  @override
   factory Fragment$F4.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F4FromJson(json);
 
@@ -681,6 +680,7 @@ class Fragment$F4 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F4ToJson(this);
+  @override
   int get hashCode {
     final l$n1 = n1;
     final l$n2 = n2;

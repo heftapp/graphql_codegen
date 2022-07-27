@@ -6,7 +6,6 @@ part 'query.graphql.g.dart';
 class Fragment$FragmentA {
   Fragment$FragmentA({this.s, this.$_s});
 
-  @override
   factory Fragment$FragmentA.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FragmentAFromJson(json);
 
@@ -16,6 +15,7 @@ class Fragment$FragmentA {
   final String? $_s;
 
   Map<String, dynamic> toJson() => _$Fragment$FragmentAToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     final l$$_s = $_s;
@@ -106,13 +106,13 @@ const documentNodeFragmentFragmentA = DocumentNode(definitions: [
 class Fragment$FragmentB {
   Fragment$FragmentB({this.i});
 
-  @override
   factory Fragment$FragmentB.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FragmentBFromJson(json);
 
   final int? i;
 
   Map<String, dynamic> toJson() => _$Fragment$FragmentBToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     return Object.hashAll([l$i]);
@@ -191,7 +191,6 @@ const documentNodeFragmentFragmentB = DocumentNode(definitions: [
 class Query$FetchImplementations {
   Query$FetchImplementations({this.$interface});
 
-  @override
   factory Query$FetchImplementations.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchImplementationsFromJson(json);
 
@@ -199,6 +198,7 @@ class Query$FetchImplementations {
   final Query$FetchImplementations$interface? $interface;
 
   Map<String, dynamic> toJson() => _$Query$FetchImplementationsToJson(this);
+  @override
   int get hashCode {
     final l$$interface = $interface;
     return Object.hashAll([l$$interface]);
@@ -349,7 +349,6 @@ class Query$FetchImplementations$interface {
   Query$FetchImplementations$interface(
       {required this.typename, this.b, required this.self});
 
-  @override
   factory Query$FetchImplementations$interface.fromJson(
       Map<String, dynamic> json) {
     switch (json["typename"] as String) {
@@ -372,6 +371,7 @@ class Query$FetchImplementations$interface {
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchImplementations$interfaceToJson(this);
+  @override
   int get hashCode {
     final l$typename = typename;
     final l$b = b;
@@ -470,7 +470,6 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface<TRes>
 class Query$FetchImplementations$interface$self {
   Query$FetchImplementations$interface$self({required this.$__typename});
 
-  @override
   factory Query$FetchImplementations$interface$self.fromJson(
       Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
@@ -490,6 +489,7 @@ class Query$FetchImplementations$interface$self {
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchImplementations$interface$selfToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -560,7 +560,6 @@ class Query$FetchImplementations$interface$self$$ImplementationA
   Query$FetchImplementations$interface$self$$ImplementationA(
       {required this.$__typename, this.s, this.$_s});
 
-  @override
   factory Query$FetchImplementations$interface$self$$ImplementationA.fromJson(
           Map<String, dynamic> json) =>
       _$Query$FetchImplementations$interface$self$$ImplementationAFromJson(
@@ -576,6 +575,7 @@ class Query$FetchImplementations$interface$self$$ImplementationA
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchImplementations$interface$self$$ImplementationAToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$s = s;
@@ -673,7 +673,6 @@ class Query$FetchImplementations$interface$self$$ImplementationB
   Query$FetchImplementations$interface$self$$ImplementationB(
       {required this.$__typename, this.i});
 
-  @override
   factory Query$FetchImplementations$interface$self$$ImplementationB.fromJson(
           Map<String, dynamic> json) =>
       _$Query$FetchImplementations$interface$self$$ImplementationBFromJson(
@@ -686,6 +685,7 @@ class Query$FetchImplementations$interface$self$$ImplementationB
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchImplementations$interface$self$$ImplementationBToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$i = i;
@@ -775,7 +775,6 @@ class Query$FetchImplementations$interface$$ImplementationA
   Query$FetchImplementations$interface$$ImplementationA(
       {required this.typename, this.b, required this.self, this.s, this.$_s});
 
-  @override
   factory Query$FetchImplementations$interface$$ImplementationA.fromJson(
           Map<String, dynamic> json) =>
       _$Query$FetchImplementations$interface$$ImplementationAFromJson(json);
@@ -793,6 +792,7 @@ class Query$FetchImplementations$interface$$ImplementationA
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchImplementations$interface$$ImplementationAToJson(this);
+  @override
   int get hashCode {
     final l$typename = typename;
     final l$b = b;
@@ -918,7 +918,6 @@ class Query$FetchImplementations$interface$$ImplementationB
   Query$FetchImplementations$interface$$ImplementationB(
       {required this.typename, this.b, required this.self, this.i});
 
-  @override
   factory Query$FetchImplementations$interface$$ImplementationB.fromJson(
           Map<String, dynamic> json) =>
       _$Query$FetchImplementations$interface$$ImplementationBFromJson(json);
@@ -933,6 +932,7 @@ class Query$FetchImplementations$interface$$ImplementationB
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchImplementations$interface$$ImplementationBToJson(this);
+  @override
   int get hashCode {
     final l$typename = typename;
     final l$b = b;

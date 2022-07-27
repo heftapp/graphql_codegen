@@ -9,13 +9,13 @@ part 'document.graphql.g.dart';
 class Variables$Query$FetchSRequired {
   Variables$Query$FetchSRequired({required this.name});
 
-  @override
   factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$FetchSRequiredFromJson(json);
 
   final String name;
 
   Map<String, dynamic> toJson() => _$Variables$Query$FetchSRequiredToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -78,13 +78,13 @@ class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
 class Query$FetchSRequired {
   Query$FetchSRequired({this.s});
 
-  @override
   factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchSRequiredFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Query$FetchSRequiredToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);

@@ -5,13 +5,13 @@ part 'document.graphql.g.dart';
 class Input$I {
   Input$I({this.title});
 
-  @override
   factory Input$I.fromJson(Map<String, dynamic> json) =>
       _$Input$IFromJson(json);
 
   final String? title;
 
   Map<String, dynamic> toJson() => _$Input$IToJson(this);
+  @override
   int get hashCode {
     final l$title = title;
     return Object.hashAll([l$title]);
@@ -64,13 +64,13 @@ class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 class Input$I_ {
   Input$I_({this.value});
 
-  @override
   factory Input$I_.fromJson(Map<String, dynamic> json) =>
       _$Input$I_FromJson(json);
 
   final double? value;
 
   Map<String, dynamic> toJson() => _$Input$I_ToJson(this);
+  @override
   int get hashCode {
     final l$value = value;
     return Object.hashAll([l$value]);
@@ -123,13 +123,13 @@ class _CopyWithStubImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
 class Input$i {
   Input$i({this.enabled});
 
-  @override
   factory Input$i.fromJson(Map<String, dynamic> json) =>
       _$Input$iFromJson(json);
 
   final bool? enabled;
 
   Map<String, dynamic> toJson() => _$Input$iToJson(this);
+  @override
   int get hashCode {
     final l$enabled = enabled;
     return Object.hashAll([l$enabled]);

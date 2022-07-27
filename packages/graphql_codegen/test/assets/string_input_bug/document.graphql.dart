@@ -5,7 +5,6 @@ part 'document.graphql.g.dart';
 class Input$I {
   Input$I({this.$String, this.$OtherReservedKeyword});
 
-  @override
   factory Input$I.fromJson(Map<String, dynamic> json) =>
       _$Input$IFromJson(json);
 
@@ -16,6 +15,7 @@ class Input$I {
   final int? $OtherReservedKeyword;
 
   Map<String, dynamic> toJson() => _$Input$IToJson(this);
+  @override
   int get hashCode {
     final l$$String = $String;
     final l$$OtherReservedKeyword = $OtherReservedKeyword;

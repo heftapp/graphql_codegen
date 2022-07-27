@@ -6,7 +6,6 @@ part 'document.graphql.g.dart';
 class Fragment$FragmentA implements Fragment$FragmentI {
   Fragment$FragmentA({required this.$__typename, this.value, this.name});
 
-  @override
   factory Fragment$FragmentA.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FragmentAFromJson(json);
 
@@ -18,6 +17,7 @@ class Fragment$FragmentA implements Fragment$FragmentI {
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$FragmentAToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$value = value;
@@ -119,7 +119,6 @@ const documentNodeFragmentFragmentA = DocumentNode(definitions: [
 class Fragment$FragmentI {
   Fragment$FragmentI({required this.$__typename, this.name});
 
-  @override
   factory Fragment$FragmentI.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FragmentIFromJson(json);
 
@@ -129,6 +128,7 @@ class Fragment$FragmentI {
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$FragmentIToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -220,7 +220,6 @@ const documentNodeFragmentFragmentI = DocumentNode(definitions: [
 class Query$FetchStuff {
   Query$FetchStuff({required this.$__typename, this.field});
 
-  @override
   factory Query$FetchStuff.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchStuffFromJson(json);
 
@@ -230,6 +229,7 @@ class Query$FetchStuff {
   final Query$FetchStuff$field? field;
 
   Map<String, dynamic> toJson() => _$Query$FetchStuffToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$field = field;
@@ -387,7 +387,6 @@ const documentNodeQueryFetchStuff = DocumentNode(definitions: [
 class Query$FetchStuff$field {
   Query$FetchStuff$field({required this.$__typename, this.name});
 
-  @override
   factory Query$FetchStuff$field.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "FieldA":
@@ -403,6 +402,7 @@ class Query$FetchStuff$field {
   final String? name;
 
   Map<String, dynamic> toJson() => _$Query$FetchStuff$fieldToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -473,7 +473,6 @@ class Query$FetchStuff$field$$FieldA
   Query$FetchStuff$field$$FieldA(
       {required this.$__typename, this.name, this.value});
 
-  @override
   factory Query$FetchStuff$field$$FieldA.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchStuff$field$$FieldAFromJson(json);
 
@@ -485,6 +484,7 @@ class Query$FetchStuff$field$$FieldA
   final String? value;
 
   Map<String, dynamic> toJson() => _$Query$FetchStuff$field$$FieldAToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;

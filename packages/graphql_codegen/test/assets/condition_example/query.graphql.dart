@@ -8,7 +8,6 @@ class Query$FetchShouldRender {
   Query$FetchShouldRender(
       {required this.shouldRender, required this.$__typename});
 
-  @override
   factory Query$FetchShouldRender.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchShouldRenderFromJson(json);
 
@@ -18,6 +17,7 @@ class Query$FetchShouldRender {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchShouldRenderToJson(this);
+  @override
   int get hashCode {
     final l$shouldRender = shouldRender;
     final l$$__typename = $__typename;

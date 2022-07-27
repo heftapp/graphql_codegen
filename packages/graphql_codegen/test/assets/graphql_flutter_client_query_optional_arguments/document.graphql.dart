@@ -9,13 +9,13 @@ part 'document.graphql.g.dart';
 class Variables$Query$FetchSOptional {
   Variables$Query$FetchSOptional({this.name});
 
-  @override
   factory Variables$Query$FetchSOptional.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$FetchSOptionalFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Variables$Query$FetchSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -76,13 +76,13 @@ class _CopyWithStubImpl$Variables$Query$FetchSOptional<TRes>
 class Query$FetchSOptional {
   Query$FetchSOptional({this.s});
 
-  @override
   factory Query$FetchSOptional.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchSOptionalFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Query$FetchSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);

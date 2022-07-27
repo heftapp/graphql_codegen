@@ -9,13 +9,13 @@ part 'query.graphql.g.dart';
 class Query$Operation {
   Query$Operation({this.name});
 
-  @override
   factory Query$Operation.fromJson(Map<String, dynamic> json) =>
       _$Query$OperationFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Query$OperationToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);

@@ -6,13 +6,13 @@ part 'document.graphql.g.dart';
 class Fragment$F {
   Fragment$F({this.other});
 
-  @override
   factory Fragment$F.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FFromJson(json);
 
   final Fragment$F2? other;
 
   Map<String, dynamic> toJson() => _$Fragment$FToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     return Object.hashAll([l$other]);
@@ -100,13 +100,13 @@ const documentNodeFragmentF = DocumentNode(definitions: [
 class Fragment$F2 {
   Fragment$F2({this.other});
 
-  @override
   factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2FromJson(json);
 
   final Fragment$F3? other;
 
   Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     return Object.hashAll([l$other]);
@@ -194,13 +194,13 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
 class Fragment$F3 {
   Fragment$F3({this.other});
 
-  @override
   factory Fragment$F3.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F3FromJson(json);
 
   final Fragment$F4? other;
 
   Map<String, dynamic> toJson() => _$Fragment$F3ToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     return Object.hashAll([l$other]);
@@ -287,13 +287,13 @@ const documentNodeFragmentF3 = DocumentNode(definitions: [
 class Fragment$F4 {
   Fragment$F4({this.name});
 
-  @override
   factory Fragment$F4.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F4FromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$F4ToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -369,13 +369,13 @@ const documentNodeFragmentF4 = DocumentNode(definitions: [
 class Query$Fetch {
   Query$Fetch({this.t});
 
-  @override
   factory Query$Fetch.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchFromJson(json);
 
   final Fragment$F? t;
 
   Map<String, dynamic> toJson() => _$Query$FetchToJson(this);
+  @override
   int get hashCode {
     final l$t = t;
     return Object.hashAll([l$t]);

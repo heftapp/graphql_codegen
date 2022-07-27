@@ -7,13 +7,13 @@ part 'schema.graphql.g.dart';
 class Variables$Fragment$NameNode {
   Variables$Fragment$NameNode({required this.setting});
 
-  @override
   factory Variables$Fragment$NameNode.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$NameNodeFromJson(json);
 
   final String setting;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$NameNodeToJson(this);
+  @override
   int get hashCode {
     final l$setting = setting;
     return Object.hashAll([l$setting]);
@@ -76,7 +76,6 @@ class _CopyWithStubImpl$Variables$Fragment$NameNode<TRes>
 class Fragment$NameNode {
   Fragment$NameNode({this.name, required this.$__typename});
 
-  @override
   factory Fragment$NameNode.fromJson(Map<String, dynamic> json) =>
       _$Fragment$NameNodeFromJson(json);
 
@@ -86,6 +85,7 @@ class Fragment$NameNode {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$NameNodeToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -212,13 +212,13 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
 class Variables$Query$Q {
   Variables$Query$Q({required this.setting});
 
-  @override
   factory Variables$Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$QFromJson(json);
 
   final String setting;
 
   Map<String, dynamic> toJson() => _$Variables$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$setting = setting;
     return Object.hashAll([l$setting]);
@@ -279,7 +279,6 @@ class _CopyWithStubImpl$Variables$Query$Q<TRes>
 class Query$Q {
   Query$Q({this.node, required this.$__typename});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
@@ -289,6 +288,7 @@ class Query$Q {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$node = node;
     final l$$__typename = $__typename;

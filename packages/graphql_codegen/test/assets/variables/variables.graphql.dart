@@ -7,13 +7,13 @@ part 'variables.graphql.g.dart';
 class Variables$Query$HiBob {
   Variables$Query$HiBob({required this.i});
 
-  @override
   factory Variables$Query$HiBob.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$HiBobFromJson(json);
 
   final Input$I1 i;
 
   Map<String, dynamic> toJson() => _$Variables$Query$HiBobToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     return Object.hashAll([l$i]);
@@ -72,13 +72,13 @@ class _CopyWithStubImpl$Variables$Query$HiBob<TRes>
 class Query$HiBob {
   Query$HiBob({this.field});
 
-  @override
   factory Query$HiBob.fromJson(Map<String, dynamic> json) =>
       _$Query$HiBobFromJson(json);
 
   final Query$HiBob$field? field;
 
   Map<String, dynamic> toJson() => _$Query$HiBobToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     return Object.hashAll([l$field]);
@@ -184,13 +184,13 @@ const documentNodeQueryHiBob = DocumentNode(definitions: [
 class Query$HiBob$field {
   Query$HiBob$field({required this.value});
 
-  @override
   factory Query$HiBob$field.fromJson(Map<String, dynamic> json) =>
       _$Query$HiBob$fieldFromJson(json);
 
   final String value;
 
   Map<String, dynamic> toJson() => _$Query$HiBob$fieldToJson(this);
+  @override
   int get hashCode {
     final l$value = value;
     return Object.hashAll([l$value]);

@@ -6,13 +6,13 @@ part 'document.graphql.g.dart';
 class Query$Q {
   Query$Q({this.u});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
   final Query$Q$u? u;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$u = u;
     return Object.hashAll([l$u]);
@@ -124,7 +124,6 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 class Query$Q$u {
   Query$Q$u({required this.$__typename});
 
-  @override
   factory Query$Q$u.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "TA":
@@ -140,6 +139,7 @@ class Query$Q$u {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Q$uToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -198,7 +198,6 @@ class _CopyWithStubImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
 class Query$Q$u$$TA implements Query$Q$u {
   Query$Q$u$$TA({required this.$__typename, this.name});
 
-  @override
   factory Query$Q$u$$TA.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$u$$TAFromJson(json);
 
@@ -208,6 +207,7 @@ class Query$Q$u$$TA implements Query$Q$u {
   final String? name;
 
   Map<String, dynamic> toJson() => _$Query$Q$u$$TAToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -276,7 +276,6 @@ class _CopyWithStubImpl$Query$Q$u$$TA<TRes>
 class Query$Q$u$$TB implements Query$Q$u {
   Query$Q$u$$TB({required this.$__typename, this.velocity});
 
-  @override
   factory Query$Q$u$$TB.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$u$$TBFromJson(json);
 
@@ -286,6 +285,7 @@ class Query$Q$u$$TB implements Query$Q$u {
   final int? velocity;
 
   Map<String, dynamic> toJson() => _$Query$Q$u$$TBToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$velocity = velocity;

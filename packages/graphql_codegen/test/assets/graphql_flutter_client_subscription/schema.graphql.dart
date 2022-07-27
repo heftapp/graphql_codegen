@@ -10,7 +10,6 @@ part 'schema.graphql.g.dart';
 class Subscription$NoArgs {
   Subscription$NoArgs({this.listenForChange, required this.$__typename});
 
-  @override
   factory Subscription$NoArgs.fromJson(Map<String, dynamic> json) =>
       _$Subscription$NoArgsFromJson(json);
 
@@ -20,6 +19,7 @@ class Subscription$NoArgs {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Subscription$NoArgsToJson(this);
+  @override
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
@@ -228,7 +228,6 @@ class Subscription$NoArgs$listenForChange {
   Subscription$NoArgs$listenForChange(
       {required this.name, required this.$__typename});
 
-  @override
   factory Subscription$NoArgs$listenForChange.fromJson(
           Map<String, dynamic> json) =>
       _$Subscription$NoArgs$listenForChangeFromJson(json);
@@ -240,6 +239,7 @@ class Subscription$NoArgs$listenForChange {
 
   Map<String, dynamic> toJson() =>
       _$Subscription$NoArgs$listenForChangeToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -314,7 +314,6 @@ class _CopyWithStubImpl$Subscription$NoArgs$listenForChange<TRes>
 class Variables$Subscription$RequiredArg {
   Variables$Subscription$RequiredArg({required this.name});
 
-  @override
   factory Variables$Subscription$RequiredArg.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Subscription$RequiredArgFromJson(json);
@@ -323,6 +322,7 @@ class Variables$Subscription$RequiredArg {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Subscription$RequiredArgToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -387,7 +387,6 @@ class _CopyWithStubImpl$Variables$Subscription$RequiredArg<TRes>
 class Subscription$RequiredArg {
   Subscription$RequiredArg({this.listenForChange, required this.$__typename});
 
-  @override
   factory Subscription$RequiredArg.fromJson(Map<String, dynamic> json) =>
       _$Subscription$RequiredArgFromJson(json);
 
@@ -397,6 +396,7 @@ class Subscription$RequiredArg {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Subscription$RequiredArgToJson(this);
+  @override
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
@@ -629,7 +629,6 @@ class Subscription$RequiredArg$listenForChange {
   Subscription$RequiredArg$listenForChange(
       {required this.name, required this.$__typename});
 
-  @override
   factory Subscription$RequiredArg$listenForChange.fromJson(
           Map<String, dynamic> json) =>
       _$Subscription$RequiredArg$listenForChangeFromJson(json);
@@ -641,6 +640,7 @@ class Subscription$RequiredArg$listenForChange {
 
   Map<String, dynamic> toJson() =>
       _$Subscription$RequiredArg$listenForChangeToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -716,7 +716,6 @@ class _CopyWithStubImpl$Subscription$RequiredArg$listenForChange<TRes>
 class Variables$Subscription$OptionalArg {
   Variables$Subscription$OptionalArg({this.name});
 
-  @override
   factory Variables$Subscription$OptionalArg.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Subscription$OptionalArgFromJson(json);
@@ -725,6 +724,7 @@ class Variables$Subscription$OptionalArg {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Subscription$OptionalArgToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -787,7 +787,6 @@ class _CopyWithStubImpl$Variables$Subscription$OptionalArg<TRes>
 class Subscription$OptionalArg {
   Subscription$OptionalArg({this.listenForChange, required this.$__typename});
 
-  @override
   factory Subscription$OptionalArg.fromJson(Map<String, dynamic> json) =>
       _$Subscription$OptionalArgFromJson(json);
 
@@ -797,6 +796,7 @@ class Subscription$OptionalArg {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Subscription$OptionalArgToJson(this);
+  @override
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
@@ -1029,7 +1029,6 @@ class Subscription$OptionalArg$listenForChange {
   Subscription$OptionalArg$listenForChange(
       {required this.name, required this.$__typename});
 
-  @override
   factory Subscription$OptionalArg$listenForChange.fromJson(
           Map<String, dynamic> json) =>
       _$Subscription$OptionalArg$listenForChangeFromJson(json);
@@ -1041,6 +1040,7 @@ class Subscription$OptionalArg$listenForChange {
 
   Map<String, dynamic> toJson() =>
       _$Subscription$OptionalArg$listenForChangeToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;

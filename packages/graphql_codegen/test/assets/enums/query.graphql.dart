@@ -7,7 +7,6 @@ part 'query.graphql.g.dart';
 class Query$Foobar {
   Query$Foobar({this.field, this.fields});
 
-  @override
   factory Query$Foobar.fromJson(Map<String, dynamic> json) =>
       _$Query$FoobarFromJson(json);
 
@@ -18,6 +17,7 @@ class Query$Foobar {
   final List<Enum$Enum>? fields;
 
   Map<String, dynamic> toJson() => _$Query$FoobarToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$fields = fields;

@@ -7,13 +7,13 @@ part 'document2.graphql.g.dart';
 class Fragment$F1 {
   Fragment$F1({this.name});
 
-  @override
   factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F1FromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -89,13 +89,13 @@ const documentNodeFragmentF1 = DocumentNode(definitions: [
 class Query$Q {
   Query$Q({this.t});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
   final Query$Q$t? t;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$t = t;
     return Object.hashAll([l$t]);
@@ -179,13 +179,13 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 class Query$Q$t implements Fragment$F1 {
   Query$Q$t({this.name});
 
-  @override
   factory Query$Q$t.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$tFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Query$Q$tToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);

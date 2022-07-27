@@ -6,13 +6,13 @@ part 'document.graphql.g.dart';
 class Fragment$F {
   Fragment$F({this.other});
 
-  @override
   factory Fragment$F.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FFromJson(json);
 
   final Fragment$F$other? other;
 
   Map<String, dynamic> toJson() => _$Fragment$FToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     return Object.hashAll([l$other]);
@@ -114,13 +114,13 @@ const documentNodeFragmentF = DocumentNode(definitions: [
 class Fragment$F$other implements Fragment$F2 {
   Fragment$F$other({this.other});
 
-  @override
   factory Fragment$F$other.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F$otherFromJson(json);
 
   final Fragment$F$other$other? other;
 
   Map<String, dynamic> toJson() => _$Fragment$F$otherToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     return Object.hashAll([l$other]);
@@ -192,13 +192,13 @@ class _CopyWithStubImpl$Fragment$F$other<TRes>
 class Fragment$F$other$other implements Fragment$F2$other {
   Fragment$F$other$other({this.name});
 
-  @override
   factory Fragment$F$other$other.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F$other$otherFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$F$other$otherToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -259,7 +259,6 @@ class _CopyWithStubImpl$Fragment$F$other$other<TRes>
 class Fragment$F$other$$T1 implements Fragment$F$other {
   Fragment$F$other$$T1({this.other, this.b});
 
-  @override
   factory Fragment$F$other$$T1.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F$other$$T1FromJson(json);
 
@@ -268,6 +267,7 @@ class Fragment$F$other$$T1 implements Fragment$F$other {
   final bool? b;
 
   Map<String, dynamic> toJson() => _$Fragment$F$other$$T1ToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     final l$b = b;
@@ -345,13 +345,13 @@ class _CopyWithStubImpl$Fragment$F$other$$T1<TRes>
 class Fragment$F2 {
   Fragment$F2({this.other});
 
-  @override
   factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2FromJson(json);
 
   final Fragment$F2$other? other;
 
   Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$other = other;
     return Object.hashAll([l$other]);
@@ -445,13 +445,13 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
 class Fragment$F2$other {
   Fragment$F2$other({this.name});
 
-  @override
   factory Fragment$F2$other.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2$otherFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$F2$otherToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -512,13 +512,13 @@ class _CopyWithStubImpl$Fragment$F2$other<TRes>
 class Query$Fetch {
   Query$Fetch({this.t});
 
-  @override
   factory Query$Fetch.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchFromJson(json);
 
   final Fragment$F? t;
 
   Map<String, dynamic> toJson() => _$Query$FetchToJson(this);
+  @override
   int get hashCode {
     final l$t = t;
     return Object.hashAll([l$t]);

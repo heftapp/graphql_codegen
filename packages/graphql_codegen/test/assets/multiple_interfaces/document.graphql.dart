@@ -6,13 +6,13 @@ part 'document.graphql.g.dart';
 class Fragment$F0 {
   Fragment$F0({this.name01});
 
-  @override
   factory Fragment$F0.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F0FromJson(json);
 
   final String? name01;
 
   Map<String, dynamic> toJson() => _$Fragment$F0ToJson(this);
+  @override
   int get hashCode {
     final l$name01 = name01;
     return Object.hashAll([l$name01]);
@@ -88,13 +88,13 @@ const documentNodeFragmentF0 = DocumentNode(definitions: [
 class Fragment$F1 {
   Fragment$F1({this.size2});
 
-  @override
   factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F1FromJson(json);
 
   final int? size2;
 
   Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
+  @override
   int get hashCode {
     final l$size2 = size2;
     return Object.hashAll([l$size2]);
@@ -170,13 +170,13 @@ const documentNodeFragmentF1 = DocumentNode(definitions: [
 class Fragment$F2 {
   Fragment$F2({this.name2});
 
-  @override
   factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2FromJson(json);
 
   final String? name2;
 
   Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$name2 = name2;
     return Object.hashAll([l$name2]);
@@ -252,13 +252,13 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
 class Fragment$F3 {
   Fragment$F3({this.value});
 
-  @override
   factory Fragment$F3.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F3FromJson(json);
 
   final double? value;
 
   Map<String, dynamic> toJson() => _$Fragment$F3ToJson(this);
+  @override
   int get hashCode {
     final l$value = value;
     return Object.hashAll([l$value]);
@@ -334,13 +334,13 @@ const documentNodeFragmentF3 = DocumentNode(definitions: [
 class Query$Q {
   Query$Q({this.field});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
   final Query$Q$field? field;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     return Object.hashAll([l$field]);
@@ -487,7 +487,6 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 class Query$Q$field implements Fragment$F0 {
   Query$Q$field({required this.$__typename, this.name0, this.name01});
 
-  @override
   factory Query$Q$field.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "T1":
@@ -505,6 +504,7 @@ class Query$Q$field implements Fragment$F0 {
   final String? name01;
 
   Map<String, dynamic> toJson() => _$Query$Q$fieldToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name0 = name0;
@@ -589,7 +589,6 @@ class Query$Q$field$$T1 implements Fragment$F1, Fragment$F2, Query$Q$field {
       this.size2,
       this.name2});
 
-  @override
   factory Query$Q$field$$T1.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$field$$T1FromJson(json);
 
@@ -609,6 +608,7 @@ class Query$Q$field$$T1 implements Fragment$F1, Fragment$F2, Query$Q$field {
   final String? name2;
 
   Map<String, dynamic> toJson() => _$Query$Q$field$$T1ToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name0 = name0;

@@ -6,7 +6,6 @@ part 'document.graphql.g.dart';
 class Fragment$F {
   Fragment$F({required this.$__typename, this.name});
 
-  @override
   factory Fragment$F.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "T":
@@ -22,6 +21,7 @@ class Fragment$F {
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$FToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -135,7 +135,6 @@ const documentNodeFragmentF = DocumentNode(definitions: [
 class Fragment$F$$T implements Fragment$F {
   Fragment$F$$T({required this.$__typename, this.name, this.t});
 
-  @override
   factory Fragment$F$$T.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F$$TFromJson(json);
 
@@ -147,6 +146,7 @@ class Fragment$F$$T implements Fragment$F {
   final Fragment$F$$T$t? t;
 
   Map<String, dynamic> toJson() => _$Fragment$F$$TToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -231,13 +231,13 @@ class _CopyWithStubImpl$Fragment$F$$T<TRes>
 class Fragment$F$$T$t {
   Fragment$F$$T$t({this.name});
 
-  @override
   factory Fragment$F$$T$t.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F$$T$tFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Fragment$F$$T$tToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -298,13 +298,13 @@ class _CopyWithStubImpl$Fragment$F$$T$t<TRes>
 class Query$Q {
   Query$Q({this.t});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
   final Query$Q$t? t;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$t = t;
     return Object.hashAll([l$t]);
@@ -392,7 +392,6 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 class Query$Q$t implements Fragment$F$$T {
   Query$Q$t({required this.$__typename, this.name, this.t});
 
-  @override
   factory Query$Q$t.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$tFromJson(json);
 
@@ -404,6 +403,7 @@ class Query$Q$t implements Fragment$F$$T {
   final Query$Q$t$t? t;
 
   Map<String, dynamic> toJson() => _$Query$Q$tToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
@@ -484,13 +484,13 @@ class _CopyWithStubImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
 class Query$Q$t$t implements Fragment$F$$T$t {
   Query$Q$t$t({this.name});
 
-  @override
   factory Query$Q$t$t.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$t$tFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Query$Q$t$tToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
