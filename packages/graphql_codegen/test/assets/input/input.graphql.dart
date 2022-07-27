@@ -50,6 +50,7 @@ abstract class CopyWith$Input$I1<TRes> {
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
   TRes call({String? s, Input$I1? nested_input, int? $_min});
+  CopyWith$Input$I1<TRes> get nested_input;
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -71,6 +72,12 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
               ? _instance.nested_input
               : (nested_input as Input$I1?),
           $_min: $_min == _undefined ? _instance.$_min : ($_min as int?)));
+  CopyWith$Input$I1<TRes> get nested_input {
+    final local$nested_input = _instance.nested_input;
+    return local$nested_input == null
+        ? CopyWith$Input$I1.stub(_then(_instance))
+        : CopyWith$Input$I1(local$nested_input, (e) => call(nested_input: e));
+  }
 }
 
 class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -79,4 +86,5 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
   TRes _res;
 
   call({String? s, Input$I1? nested_input, int? $_min}) => _res;
+  CopyWith$Input$I1<TRes> get nested_input => CopyWith$Input$I1.stub(_res);
 }

@@ -1,3 +1,7 @@
+# 0.10.3
+
+* Fix add deep copy functionality to input objects.
+
 # 0.10.2
 
 * Fix operation name collision

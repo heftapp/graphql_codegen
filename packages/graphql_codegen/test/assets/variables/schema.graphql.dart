@@ -43,6 +43,7 @@ abstract class CopyWith$Input$I1<TRes> {
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
   TRes call({String? s, Input$I1? nested});
+  CopyWith$Input$I1<TRes> get nested;
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -59,6 +60,12 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
           s: s == _undefined || s == null ? _instance.s : (s as String),
           nested:
               nested == _undefined ? _instance.nested : (nested as Input$I1?)));
+  CopyWith$Input$I1<TRes> get nested {
+    final local$nested = _instance.nested;
+    return local$nested == null
+        ? CopyWith$Input$I1.stub(_then(_instance))
+        : CopyWith$Input$I1(local$nested, (e) => call(nested: e));
+  }
 }
 
 class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -67,6 +74,7 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
   TRes _res;
 
   call({String? s, Input$I1? nested}) => _res;
+  CopyWith$Input$I1<TRes> get nested => CopyWith$Input$I1.stub(_res);
 }
 
 const possibleTypesMap = {};
