@@ -2,45 +2,77 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Query$FetchSRequired {
-  Variables$Query$FetchSRequired({required this.name});
+abstract class Variables$Query$FetchSRequired {
+  factory Variables$Query$FetchSRequired({required String name}) =>
+      _Impl$Variables$Query$FetchSRequired({'name': name});
 
-  factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Query$FetchSRequiredFromJson(json);
+  factory Variables$Query$FetchSRequired.withoutNulls({required String name}) {
+    final l$data = <String, dynamic>{'name': name};
+    return _Impl$Variables$Query$FetchSRequired(l$data);
+  }
 
-  final String name;
+  factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return _Impl$Variables$Query$FetchSRequired(result$data);
+  }
 
-  Map<String, dynamic> toJson() => _$Variables$Query$FetchSRequiredToJson(this);
+  String get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
+      get copyWith;
+  _Impl$Variables$Query$FetchSRequired get $impl;
+}
+
+class _Impl$Variables$Query$FetchSRequired
+    implements Variables$Query$FetchSRequired {
+  _Impl$Variables$Query$FetchSRequired(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get name => ($data['name'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$name = name;
+    result$data['name'] = l$name;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
+      get copyWith => CopyWith$Variables$Query$FetchSRequired(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Query$FetchSRequired) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Query$FetchSRequired) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
-      get copyWith => CopyWith$Variables$Query$FetchSRequired(this, (i) => i);
+  _Impl$Variables$Query$FetchSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
   factory CopyWith$Variables$Query$FetchSRequired(
           Variables$Query$FetchSRequired instance,
-          TRes Function(Variables$Query$FetchSRequired) then) =
-      _CopyWithImpl$Variables$Query$FetchSRequired;
+          TRes Function(Variables$Query$FetchSRequired) then) =>
+      _CopyWithImpl$Variables$Query$FetchSRequired(instance.$impl, then);
 
   factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSRequired;
@@ -52,17 +84,17 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
     implements CopyWith$Variables$Query$FetchSRequired<TRes> {
   _CopyWithImpl$Variables$Query$FetchSRequired(this._instance, this._then);
 
-  final Variables$Query$FetchSRequired _instance;
+  final _Impl$Variables$Query$FetchSRequired _instance;
 
-  final TRes Function(Variables$Query$FetchSRequired) _then;
+  final TRes Function(_Impl$Variables$Query$FetchSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Query$FetchSRequired(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String)));
+      _then(_Impl$Variables$Query$FetchSRequired({
+        ..._instance.$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
@@ -74,16 +106,23 @@ class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchSRequired {
   Query$FetchSRequired({this.s});
 
-  factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchSRequiredFromJson(json);
+  factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Query$FetchSRequired(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Query$FetchSRequiredToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -92,12 +131,17 @@ class Query$FetchSRequired {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -109,8 +153,8 @@ extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
 
 abstract class CopyWith$Query$FetchSRequired<TRes> {
   factory CopyWith$Query$FetchSRequired(Query$FetchSRequired instance,
-          TRes Function(Query$FetchSRequired) then) =
-      _CopyWithImpl$Query$FetchSRequired;
+          TRes Function(Query$FetchSRequired) then) =>
+      _CopyWithImpl$Query$FetchSRequired(instance, then);
 
   factory CopyWith$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSRequired;

@@ -1,20 +1,28 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'fragments.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$Condition {
   Fragment$Condition({required this.name, required this.$__typename});
 
-  factory Fragment$Condition.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$ConditionFromJson(json);
+  factory Fragment$Condition.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$Condition(
+        name: (l$name as String), $__typename: (l$$__typename as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$ConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -24,15 +32,22 @@ class Fragment$Condition {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$Condition) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$Condition) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -43,9 +58,9 @@ extension UtilityExtension$Fragment$Condition on Fragment$Condition {
 }
 
 abstract class CopyWith$Fragment$Condition<TRes> {
-  factory CopyWith$Fragment$Condition(
-          Fragment$Condition instance, TRes Function(Fragment$Condition) then) =
-      _CopyWithImpl$Fragment$Condition;
+  factory CopyWith$Fragment$Condition(Fragment$Condition instance,
+          TRes Function(Fragment$Condition) then) =>
+      _CopyWithImpl$Fragment$Condition(instance, then);
 
   factory CopyWith$Fragment$Condition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$Condition;
@@ -106,7 +121,6 @@ const documentNodeFragmentCondition = DocumentNode(definitions: [
   fragmentDefinitionCondition,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$AndCondition implements Fragment$Condition {
   Fragment$AndCondition(
       {required this.left,
@@ -114,8 +128,19 @@ class Fragment$AndCondition implements Fragment$Condition {
       required this.name,
       required this.$__typename});
 
-  factory Fragment$AndCondition.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$AndConditionFromJson(json);
+  factory Fragment$AndCondition.fromJson(Map<String, dynamic> json) {
+    final l$left = json['left'];
+    final l$right = json['right'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$AndCondition(
+        left: Fragment$NonCompositeCondition.fromJson(
+            (l$left as Map<String, dynamic>)),
+        right: Fragment$NonCompositeCondition.fromJson(
+            (l$right as Map<String, dynamic>)),
+        name: (l$name as String),
+        $__typename: (l$$__typename as String));
+  }
 
   final Fragment$NonCompositeCondition left;
 
@@ -123,10 +148,21 @@ class Fragment$AndCondition implements Fragment$Condition {
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$AndConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$left = left;
+    _resultData['left'] = l$left.toJson();
+    final l$right = right;
+    _resultData['right'] = l$right.toJson();
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$left = left;
@@ -138,21 +174,32 @@ class Fragment$AndCondition implements Fragment$Condition {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$AndCondition) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$AndCondition) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$left = left;
     final lOther$left = other.left;
-    if (l$left != lOther$left) return false;
+    if (l$left != lOther$left) {
+      return false;
+    }
     final l$right = right;
     final lOther$right = other.right;
-    if (l$right != lOther$right) return false;
+    if (l$right != lOther$right) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -164,8 +211,8 @@ extension UtilityExtension$Fragment$AndCondition on Fragment$AndCondition {
 
 abstract class CopyWith$Fragment$AndCondition<TRes> {
   factory CopyWith$Fragment$AndCondition(Fragment$AndCondition instance,
-          TRes Function(Fragment$AndCondition) then) =
-      _CopyWithImpl$Fragment$AndCondition;
+          TRes Function(Fragment$AndCondition) then) =>
+      _CopyWithImpl$Fragment$AndCondition(instance, then);
 
   factory CopyWith$Fragment$AndCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$AndCondition;
@@ -290,7 +337,6 @@ const documentNodeFragmentAndCondition = DocumentNode(definitions: [
   fragmentDefinitionTimeCondition,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$CompositeCondition implements Fragment$Condition {
   Fragment$CompositeCondition({required this.name, required this.$__typename});
 
@@ -298,19 +344,31 @@ class Fragment$CompositeCondition implements Fragment$Condition {
     switch (json["__typename"] as String) {
       case "TimeCondition":
         return Fragment$CompositeCondition$$TimeCondition.fromJson(json);
+
       case "AndCondition":
         return Fragment$CompositeCondition$$AndCondition.fromJson(json);
+
       default:
-        return _$Fragment$CompositeConditionFromJson(json);
+        final l$name = json['name'];
+        final l$$__typename = json['__typename'];
+        return Fragment$CompositeCondition(
+            name: (l$name as String), $__typename: (l$$__typename as String));
     }
   }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$CompositeConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -320,15 +378,23 @@ class Fragment$CompositeCondition implements Fragment$Condition {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Fragment$CompositeCondition) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -342,8 +408,8 @@ extension UtilityExtension$Fragment$CompositeCondition
 abstract class CopyWith$Fragment$CompositeCondition<TRes> {
   factory CopyWith$Fragment$CompositeCondition(
           Fragment$CompositeCondition instance,
-          TRes Function(Fragment$CompositeCondition) then) =
-      _CopyWithImpl$Fragment$CompositeCondition;
+          TRes Function(Fragment$CompositeCondition) then) =>
+      _CopyWithImpl$Fragment$CompositeCondition(instance, then);
 
   factory CopyWith$Fragment$CompositeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CompositeCondition;
@@ -406,7 +472,6 @@ const documentNodeFragmentCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionNonCompositeCondition,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$CompositeCondition$$TimeCondition
     implements
         Fragment$TimeCondition,
@@ -416,18 +481,33 @@ class Fragment$CompositeCondition$$TimeCondition
       {required this.name, required this.$__typename, required this.before});
 
   factory Fragment$CompositeCondition$$TimeCondition.fromJson(
-          Map<String, dynamic> json) =>
-      _$Fragment$CompositeCondition$$TimeConditionFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    final l$before = json['before'];
+    return Fragment$CompositeCondition$$TimeCondition(
+        name: (l$name as String),
+        $__typename: (l$$__typename as String),
+        before: (l$before as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String before;
 
-  Map<String, dynamic> toJson() =>
-      _$Fragment$CompositeCondition$$TimeConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$before = before;
+    _resultData['before'] = l$before;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -438,18 +518,28 @@ class Fragment$CompositeCondition$$TimeCondition
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Fragment$CompositeCondition$$TimeCondition) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$before = before;
     final lOther$before = other.before;
-    if (l$before != lOther$before) return false;
+    if (l$before != lOther$before) {
+      return false;
+    }
     return true;
   }
 }
@@ -465,8 +555,8 @@ extension UtilityExtension$Fragment$CompositeCondition$$TimeCondition
 abstract class CopyWith$Fragment$CompositeCondition$$TimeCondition<TRes> {
   factory CopyWith$Fragment$CompositeCondition$$TimeCondition(
           Fragment$CompositeCondition$$TimeCondition instance,
-          TRes Function(Fragment$CompositeCondition$$TimeCondition) then) =
-      _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition;
+          TRes Function(Fragment$CompositeCondition$$TimeCondition) then) =>
+      _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition(instance, then);
 
   factory CopyWith$Fragment$CompositeCondition$$TimeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition;
@@ -510,7 +600,6 @@ class _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition<TRes>
   call({String? name, String? $__typename, String? before}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$CompositeCondition$$AndCondition
     implements
         Fragment$AndCondition,
@@ -523,20 +612,41 @@ class Fragment$CompositeCondition$$AndCondition
       required this.right});
 
   factory Fragment$CompositeCondition$$AndCondition.fromJson(
-          Map<String, dynamic> json) =>
-      _$Fragment$CompositeCondition$$AndConditionFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    final l$left = json['left'];
+    final l$right = json['right'];
+    return Fragment$CompositeCondition$$AndCondition(
+        name: (l$name as String),
+        $__typename: (l$$__typename as String),
+        left: Fragment$NonCompositeCondition.fromJson(
+            (l$left as Map<String, dynamic>)),
+        right: Fragment$NonCompositeCondition.fromJson(
+            (l$right as Map<String, dynamic>)));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final Fragment$NonCompositeCondition left;
 
   final Fragment$NonCompositeCondition right;
 
-  Map<String, dynamic> toJson() =>
-      _$Fragment$CompositeCondition$$AndConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$left = left;
+    _resultData['left'] = l$left.toJson();
+    final l$right = right;
+    _resultData['right'] = l$right.toJson();
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -548,21 +658,33 @@ class Fragment$CompositeCondition$$AndCondition
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Fragment$CompositeCondition$$AndCondition) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$left = left;
     final lOther$left = other.left;
-    if (l$left != lOther$left) return false;
+    if (l$left != lOther$left) {
+      return false;
+    }
     final l$right = right;
     final lOther$right = other.right;
-    if (l$right != lOther$right) return false;
+    if (l$right != lOther$right) {
+      return false;
+    }
     return true;
   }
 }
@@ -578,8 +700,8 @@ extension UtilityExtension$Fragment$CompositeCondition$$AndCondition
 abstract class CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
   factory CopyWith$Fragment$CompositeCondition$$AndCondition(
           Fragment$CompositeCondition$$AndCondition instance,
-          TRes Function(Fragment$CompositeCondition$$AndCondition) then) =
-      _CopyWithImpl$Fragment$CompositeCondition$$AndCondition;
+          TRes Function(Fragment$CompositeCondition$$AndCondition) then) =>
+      _CopyWithImpl$Fragment$CompositeCondition$$AndCondition(instance, then);
 
   factory CopyWith$Fragment$CompositeCondition$$AndCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition;
@@ -653,7 +775,6 @@ class _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition<TRes>
       CopyWith$Fragment$NonCompositeCondition.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$NonCompositeCondition implements Fragment$Condition {
   Fragment$NonCompositeCondition(
       {required this.name, required this.$__typename});
@@ -662,17 +783,28 @@ class Fragment$NonCompositeCondition implements Fragment$Condition {
     switch (json["__typename"] as String) {
       case "TimeCondition":
         return Fragment$NonCompositeCondition$$TimeCondition.fromJson(json);
+
       default:
-        return _$Fragment$NonCompositeConditionFromJson(json);
+        final l$name = json['name'];
+        final l$$__typename = json['__typename'];
+        return Fragment$NonCompositeCondition(
+            name: (l$name as String), $__typename: (l$$__typename as String));
     }
   }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$NonCompositeConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -682,15 +814,23 @@ class Fragment$NonCompositeCondition implements Fragment$Condition {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Fragment$NonCompositeCondition) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -704,8 +844,8 @@ extension UtilityExtension$Fragment$NonCompositeCondition
 abstract class CopyWith$Fragment$NonCompositeCondition<TRes> {
   factory CopyWith$Fragment$NonCompositeCondition(
           Fragment$NonCompositeCondition instance,
-          TRes Function(Fragment$NonCompositeCondition) then) =
-      _CopyWithImpl$Fragment$NonCompositeCondition;
+          TRes Function(Fragment$NonCompositeCondition) then) =>
+      _CopyWithImpl$Fragment$NonCompositeCondition(instance, then);
 
   factory CopyWith$Fragment$NonCompositeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NonCompositeCondition;
@@ -765,7 +905,6 @@ const documentNodeFragmentNonCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionTimeCondition,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$NonCompositeCondition$$TimeCondition
     implements
         Fragment$TimeCondition,
@@ -775,18 +914,33 @@ class Fragment$NonCompositeCondition$$TimeCondition
       {required this.name, required this.$__typename, required this.before});
 
   factory Fragment$NonCompositeCondition$$TimeCondition.fromJson(
-          Map<String, dynamic> json) =>
-      _$Fragment$NonCompositeCondition$$TimeConditionFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    final l$before = json['before'];
+    return Fragment$NonCompositeCondition$$TimeCondition(
+        name: (l$name as String),
+        $__typename: (l$$__typename as String),
+        before: (l$before as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String before;
 
-  Map<String, dynamic> toJson() =>
-      _$Fragment$NonCompositeCondition$$TimeConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$before = before;
+    _resultData['before'] = l$before;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -797,18 +951,28 @@ class Fragment$NonCompositeCondition$$TimeCondition
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Fragment$NonCompositeCondition$$TimeCondition) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$before = before;
     final lOther$before = other.before;
-    if (l$before != lOther$before) return false;
+    if (l$before != lOther$before) {
+      return false;
+    }
     return true;
   }
 }
@@ -824,8 +988,9 @@ extension UtilityExtension$Fragment$NonCompositeCondition$$TimeCondition
 abstract class CopyWith$Fragment$NonCompositeCondition$$TimeCondition<TRes> {
   factory CopyWith$Fragment$NonCompositeCondition$$TimeCondition(
           Fragment$NonCompositeCondition$$TimeCondition instance,
-          TRes Function(Fragment$NonCompositeCondition$$TimeCondition) then) =
-      _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition;
+          TRes Function(Fragment$NonCompositeCondition$$TimeCondition) then) =>
+      _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition(
+          instance, then);
 
   factory CopyWith$Fragment$NonCompositeCondition$$TimeCondition.stub(
           TRes res) =
@@ -870,22 +1035,37 @@ class _CopyWithStubImpl$Fragment$NonCompositeCondition$$TimeCondition<TRes>
   call({String? name, String? $__typename, String? before}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$TimeCondition implements Fragment$Condition {
   Fragment$TimeCondition(
       {required this.name, required this.$__typename, required this.before});
 
-  factory Fragment$TimeCondition.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$TimeConditionFromJson(json);
+  factory Fragment$TimeCondition.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    final l$before = json['before'];
+    return Fragment$TimeCondition(
+        name: (l$name as String),
+        $__typename: (l$$__typename as String),
+        before: (l$before as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String before;
 
-  Map<String, dynamic> toJson() => _$Fragment$TimeConditionToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$before = before;
+    _resultData['before'] = l$before;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -896,18 +1076,28 @@ class Fragment$TimeCondition implements Fragment$Condition {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$TimeCondition) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$TimeCondition) ||
+        runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$before = before;
     final lOther$before = other.before;
-    if (l$before != lOther$before) return false;
+    if (l$before != lOther$before) {
+      return false;
+    }
     return true;
   }
 }
@@ -919,8 +1109,8 @@ extension UtilityExtension$Fragment$TimeCondition on Fragment$TimeCondition {
 
 abstract class CopyWith$Fragment$TimeCondition<TRes> {
   factory CopyWith$Fragment$TimeCondition(Fragment$TimeCondition instance,
-          TRes Function(Fragment$TimeCondition) then) =
-      _CopyWithImpl$Fragment$TimeCondition;
+          TRes Function(Fragment$TimeCondition) then) =>
+      _CopyWithImpl$Fragment$TimeCondition(instance, then);
 
   factory CopyWith$Fragment$TimeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$TimeCondition;

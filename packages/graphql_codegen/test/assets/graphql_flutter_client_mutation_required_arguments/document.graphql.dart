@@ -3,49 +3,81 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Mutation$UpdateSRequired {
-  Variables$Mutation$UpdateSRequired({required this.name});
+abstract class Variables$Mutation$UpdateSRequired {
+  factory Variables$Mutation$UpdateSRequired({required String name}) =>
+      _Impl$Variables$Mutation$UpdateSRequired({'name': name});
 
-  factory Variables$Mutation$UpdateSRequired.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Mutation$UpdateSRequiredFromJson(json);
-
-  final String name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Mutation$UpdateSRequiredToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Mutation$UpdateSRequired.withoutNulls(
+      {required String name}) {
+    final l$data = <String, dynamic>{'name': name};
+    return _Impl$Variables$Mutation$UpdateSRequired(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Mutation$UpdateSRequired) ||
-        runtimeType != other.runtimeType) return false;
+  factory Variables$Mutation$UpdateSRequired.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return _Impl$Variables$Mutation$UpdateSRequired(result$data);
+  }
+
+  String get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Mutation$UpdateSRequired<
+      Variables$Mutation$UpdateSRequired> get copyWith;
+  _Impl$Variables$Mutation$UpdateSRequired get $impl;
+}
+
+class _Impl$Variables$Mutation$UpdateSRequired
+    implements Variables$Mutation$UpdateSRequired {
+  _Impl$Variables$Mutation$UpdateSRequired(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get name => ($data['name'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
     final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+    result$data['name'] = l$name;
+    return result$data;
   }
 
   CopyWith$Variables$Mutation$UpdateSRequired<
           Variables$Mutation$UpdateSRequired>
       get copyWith =>
           CopyWith$Variables$Mutation$UpdateSRequired(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Mutation$UpdateSRequired) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  _Impl$Variables$Mutation$UpdateSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSRequired(
           Variables$Mutation$UpdateSRequired instance,
-          TRes Function(Variables$Mutation$UpdateSRequired) then) =
-      _CopyWithImpl$Variables$Mutation$UpdateSRequired;
+          TRes Function(Variables$Mutation$UpdateSRequired) then) =>
+      _CopyWithImpl$Variables$Mutation$UpdateSRequired(instance.$impl, then);
 
   factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
@@ -57,17 +89,17 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
     implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSRequired(this._instance, this._then);
 
-  final Variables$Mutation$UpdateSRequired _instance;
+  final _Impl$Variables$Mutation$UpdateSRequired _instance;
 
-  final TRes Function(Variables$Mutation$UpdateSRequired) _then;
+  final TRes Function(_Impl$Variables$Mutation$UpdateSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Mutation$UpdateSRequired(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String)));
+      _then(_Impl$Variables$Mutation$UpdateSRequired({
+        ..._instance.$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
@@ -79,16 +111,23 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdateSRequired {
   Mutation$UpdateSRequired({this.s});
 
-  factory Mutation$UpdateSRequired.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdateSRequiredFromJson(json);
+  factory Mutation$UpdateSRequired.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Mutation$UpdateSRequired(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdateSRequiredToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -97,12 +136,18 @@ class Mutation$UpdateSRequired {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$UpdateSRequired) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -115,8 +160,8 @@ extension UtilityExtension$Mutation$UpdateSRequired
 
 abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Mutation$UpdateSRequired(Mutation$UpdateSRequired instance,
-          TRes Function(Mutation$UpdateSRequired) then) =
-      _CopyWithImpl$Mutation$UpdateSRequired;
+          TRes Function(Mutation$UpdateSRequired) then) =>
+      _CopyWithImpl$Mutation$UpdateSRequired(instance, then);
 
   factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSRequired;

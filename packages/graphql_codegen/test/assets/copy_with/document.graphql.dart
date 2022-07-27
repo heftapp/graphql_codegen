@@ -1,22 +1,46 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$Foobar {
   Query$Foobar({this.ts, this.tss, required this.$__typename});
 
-  factory Query$Foobar.fromJson(Map<String, dynamic> json) =>
-      _$Query$FoobarFromJson(json);
+  factory Query$Foobar.fromJson(Map<String, dynamic> json) {
+    final l$ts = json['ts'];
+    final l$tss = json['tss'];
+    final l$$__typename = json['__typename'];
+    return Query$Foobar(
+        ts: (l$ts as List<dynamic>?)
+            ?.map((e) => e == null
+                ? null
+                : Query$Foobar$ts.fromJson((e as Map<String, dynamic>)))
+            .toList(),
+        tss: (l$tss as List<dynamic>?)
+            ?.map((e) => (e as List<dynamic>?)
+                ?.map((e) => e == null
+                    ? null
+                    : Query$Foobar$tss.fromJson((e as Map<String, dynamic>)))
+                .toList())
+            .toList(),
+        $__typename: (l$$__typename as String));
+  }
 
   final List<Query$Foobar$ts?>? ts;
 
   final List<List<Query$Foobar$tss?>?>? tss;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$FoobarToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$ts = ts;
+    _resultData['ts'] = l$ts?.map((e) => e?.toJson()).toList();
+    final l$tss = tss;
+    _resultData['tss'] =
+        l$tss?.map((e) => e?.map((e) => e?.toJson()).toList()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$ts = ts;
@@ -34,35 +58,47 @@ class Query$Foobar {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Foobar) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Foobar) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$ts = ts;
     final lOther$ts = other.ts;
     if (l$ts != null && lOther$ts != null) {
-      if (l$ts.length != lOther$ts.length) return false;
+      if (l$ts.length != lOther$ts.length) {
+        return false;
+      }
       for (int i = 0; i < l$ts.length; i++) {
         final l$ts$entry = l$ts[i];
         final lOther$ts$entry = lOther$ts[i];
-        if (l$ts$entry != lOther$ts$entry) return false;
+        if (l$ts$entry != lOther$ts$entry) {
+          return false;
+        }
       }
     } else if (l$ts != lOther$ts) {
       return false;
     }
-
     final l$tss = tss;
     final lOther$tss = other.tss;
     if (l$tss != null && lOther$tss != null) {
-      if (l$tss.length != lOther$tss.length) return false;
+      if (l$tss.length != lOther$tss.length) {
+        return false;
+      }
       for (int i = 0; i < l$tss.length; i++) {
         final l$tss$entry = l$tss[i];
         final lOther$tss$entry = lOther$tss[i];
         if (l$tss$entry != null && lOther$tss$entry != null) {
-          if (l$tss$entry.length != lOther$tss$entry.length) return false;
+          if (l$tss$entry.length != lOther$tss$entry.length) {
+            return false;
+          }
           for (int i = 0; i < l$tss$entry.length; i++) {
             final l$tss$entry$entry = l$tss$entry[i];
             final lOther$tss$entry$entry = lOther$tss$entry[i];
-            if (l$tss$entry$entry != lOther$tss$entry$entry) return false;
+            if (l$tss$entry$entry != lOther$tss$entry$entry) {
+              return false;
+            }
           }
         } else if (l$tss$entry != lOther$tss$entry) {
           return false;
@@ -71,10 +107,11 @@ class Query$Foobar {
     } else if (l$tss != lOther$tss) {
       return false;
     }
-
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -86,8 +123,8 @@ extension UtilityExtension$Query$Foobar on Query$Foobar {
 
 abstract class CopyWith$Query$Foobar<TRes> {
   factory CopyWith$Query$Foobar(
-          Query$Foobar instance, TRes Function(Query$Foobar) then) =
-      _CopyWithImpl$Query$Foobar;
+          Query$Foobar instance, TRes Function(Query$Foobar) then) =>
+      _CopyWithImpl$Query$Foobar(instance, then);
 
   factory CopyWith$Query$Foobar.stub(TRes res) = _CopyWithStubImpl$Query$Foobar;
 
@@ -235,21 +272,38 @@ const documentNodeQueryFoobar = DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$Foobar$ts {
   Query$Foobar$ts({this.t, this.name, required this.$__typename});
 
-  factory Query$Foobar$ts.fromJson(Map<String, dynamic> json) =>
-      _$Query$Foobar$tsFromJson(json);
+  factory Query$Foobar$ts.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$Foobar$ts(
+        t: l$t == null
+            ? null
+            : Query$Foobar$ts$t.fromJson((l$t as Map<String, dynamic>)),
+        name: (l$name as String?),
+        $__typename: (l$$__typename as String));
+  }
 
   final Query$Foobar$ts$t? t;
 
   final String? name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Foobar$tsToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -260,18 +314,27 @@ class Query$Foobar$ts {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Foobar$ts) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Foobar$ts) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -283,8 +346,8 @@ extension UtilityExtension$Query$Foobar$ts on Query$Foobar$ts {
 
 abstract class CopyWith$Query$Foobar$ts<TRes> {
   factory CopyWith$Query$Foobar$ts(
-          Query$Foobar$ts instance, TRes Function(Query$Foobar$ts) then) =
-      _CopyWithImpl$Query$Foobar$ts;
+          Query$Foobar$ts instance, TRes Function(Query$Foobar$ts) then) =>
+      _CopyWithImpl$Query$Foobar$ts(instance, then);
 
   factory CopyWith$Query$Foobar$ts.stub(TRes res) =
       _CopyWithStubImpl$Query$Foobar$ts;
@@ -332,19 +395,29 @@ class _CopyWithStubImpl$Query$Foobar$ts<TRes>
       CopyWith$Query$Foobar$ts$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Foobar$ts$t {
   Query$Foobar$ts$t({this.name, required this.$__typename});
 
-  factory Query$Foobar$ts$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Foobar$ts$tFromJson(json);
+  factory Query$Foobar$ts$t.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$Foobar$ts$t(
+        name: (l$name as String?), $__typename: (l$$__typename as String));
+  }
 
   final String? name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Foobar$ts$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -354,15 +427,22 @@ class Query$Foobar$ts$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Foobar$ts$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Foobar$ts$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -374,8 +454,8 @@ extension UtilityExtension$Query$Foobar$ts$t on Query$Foobar$ts$t {
 
 abstract class CopyWith$Query$Foobar$ts$t<TRes> {
   factory CopyWith$Query$Foobar$ts$t(
-          Query$Foobar$ts$t instance, TRes Function(Query$Foobar$ts$t) then) =
-      _CopyWithImpl$Query$Foobar$ts$t;
+          Query$Foobar$ts$t instance, TRes Function(Query$Foobar$ts$t) then) =>
+      _CopyWithImpl$Query$Foobar$ts$t(instance, then);
 
   factory CopyWith$Query$Foobar$ts$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Foobar$ts$t;
@@ -410,19 +490,30 @@ class _CopyWithStubImpl$Query$Foobar$ts$t<TRes>
   call({String? name, String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Foobar$tss {
   Query$Foobar$tss({required this.nameEnforced, required this.$__typename});
 
-  factory Query$Foobar$tss.fromJson(Map<String, dynamic> json) =>
-      _$Query$Foobar$tssFromJson(json);
+  factory Query$Foobar$tss.fromJson(Map<String, dynamic> json) {
+    final l$nameEnforced = json['nameEnforced'];
+    final l$$__typename = json['__typename'];
+    return Query$Foobar$tss(
+        nameEnforced: (l$nameEnforced as String),
+        $__typename: (l$$__typename as String));
+  }
 
   final String nameEnforced;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Foobar$tssToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$nameEnforced = nameEnforced;
+    _resultData['nameEnforced'] = l$nameEnforced;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$nameEnforced = nameEnforced;
@@ -432,15 +523,22 @@ class Query$Foobar$tss {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Foobar$tss) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Foobar$tss) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$nameEnforced = nameEnforced;
     final lOther$nameEnforced = other.nameEnforced;
-    if (l$nameEnforced != lOther$nameEnforced) return false;
+    if (l$nameEnforced != lOther$nameEnforced) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -452,8 +550,8 @@ extension UtilityExtension$Query$Foobar$tss on Query$Foobar$tss {
 
 abstract class CopyWith$Query$Foobar$tss<TRes> {
   factory CopyWith$Query$Foobar$tss(
-          Query$Foobar$tss instance, TRes Function(Query$Foobar$tss) then) =
-      _CopyWithImpl$Query$Foobar$tss;
+          Query$Foobar$tss instance, TRes Function(Query$Foobar$tss) then) =>
+      _CopyWithImpl$Query$Foobar$tss(instance, then);
 
   factory CopyWith$Query$Foobar$tss.stub(TRes res) =
       _CopyWithStubImpl$Query$Foobar$tss;

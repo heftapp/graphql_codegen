@@ -1,43 +1,73 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
-part 'variables.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Query$HiBob {
-  Variables$Query$HiBob({required this.i});
+abstract class Variables$Query$HiBob {
+  factory Variables$Query$HiBob({required Input$I1 i}) =>
+      _Impl$Variables$Query$HiBob({'i': i});
 
-  factory Variables$Query$HiBob.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Query$HiBobFromJson(json);
+  factory Variables$Query$HiBob.withoutNulls({required Input$I1 i}) {
+    final l$data = <String, dynamic>{'i': i};
+    return _Impl$Variables$Query$HiBob(l$data);
+  }
 
-  final Input$I1 i;
+  factory Variables$Query$HiBob.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$i = data['i'];
+    result$data['i'] = Input$I1.fromJson((l$i as Map<String, dynamic>));
+    return _Impl$Variables$Query$HiBob(result$data);
+  }
 
-  Map<String, dynamic> toJson() => _$Variables$Query$HiBobToJson(this);
+  Input$I1 get i;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Query$HiBob<Variables$Query$HiBob> get copyWith;
+  _Impl$Variables$Query$HiBob get $impl;
+}
+
+class _Impl$Variables$Query$HiBob implements Variables$Query$HiBob {
+  _Impl$Variables$Query$HiBob(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  Input$I1 get i => ($data['i'] as Input$I1);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$i = i;
+    result$data['i'] = l$i.toJson();
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$HiBob<Variables$Query$HiBob> get copyWith =>
+      CopyWith$Variables$Query$HiBob(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Query$HiBob) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$i = i;
+    final lOther$i = other.i;
+    if (l$i != lOther$i) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$i = i;
     return Object.hashAll([l$i]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Query$HiBob) || runtimeType != other.runtimeType)
-      return false;
-    final l$i = i;
-    final lOther$i = other.i;
-    if (l$i != lOther$i) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Query$HiBob<Variables$Query$HiBob> get copyWith =>
-      CopyWith$Variables$Query$HiBob(this, (i) => i);
+  _Impl$Variables$Query$HiBob get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$HiBob<TRes> {
   factory CopyWith$Variables$Query$HiBob(Variables$Query$HiBob instance,
-          TRes Function(Variables$Query$HiBob) then) =
-      _CopyWithImpl$Variables$Query$HiBob;
+          TRes Function(Variables$Query$HiBob) then) =>
+      _CopyWithImpl$Variables$Query$HiBob(instance.$impl, then);
 
   factory CopyWith$Variables$Query$HiBob.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$HiBob;
@@ -49,14 +79,16 @@ class _CopyWithImpl$Variables$Query$HiBob<TRes>
     implements CopyWith$Variables$Query$HiBob<TRes> {
   _CopyWithImpl$Variables$Query$HiBob(this._instance, this._then);
 
-  final Variables$Query$HiBob _instance;
+  final _Impl$Variables$Query$HiBob _instance;
 
-  final TRes Function(Variables$Query$HiBob) _then;
+  final TRes Function(_Impl$Variables$Query$HiBob) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? i = _undefined}) => _then(Variables$Query$HiBob(
-      i: i == _undefined || i == null ? _instance.i : (i as Input$I1)));
+  TRes call({Object? i = _undefined}) => _then(_Impl$Variables$Query$HiBob({
+        ..._instance.$data,
+        if (i != _undefined && i != null) 'i': (i as Input$I1),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Query$HiBob<TRes>
@@ -68,16 +100,26 @@ class _CopyWithStubImpl$Variables$Query$HiBob<TRes>
   call({Input$I1? i}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$HiBob {
   Query$HiBob({this.field});
 
-  factory Query$HiBob.fromJson(Map<String, dynamic> json) =>
-      _$Query$HiBobFromJson(json);
+  factory Query$HiBob.fromJson(Map<String, dynamic> json) {
+    final l$field = json['field'];
+    return Query$HiBob(
+        field: l$field == null
+            ? null
+            : Query$HiBob$field.fromJson((l$field as Map<String, dynamic>)));
+  }
 
   final Query$HiBob$field? field;
 
-  Map<String, dynamic> toJson() => _$Query$HiBobToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$field = field;
+    _resultData['field'] = l$field?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$field = field;
@@ -86,12 +128,17 @@ class Query$HiBob {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$HiBob) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$HiBob) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$field = field;
     final lOther$field = other.field;
-    if (l$field != lOther$field) return false;
+    if (l$field != lOther$field) {
+      return false;
+    }
     return true;
   }
 }
@@ -103,8 +150,8 @@ extension UtilityExtension$Query$HiBob on Query$HiBob {
 
 abstract class CopyWith$Query$HiBob<TRes> {
   factory CopyWith$Query$HiBob(
-          Query$HiBob instance, TRes Function(Query$HiBob) then) =
-      _CopyWithImpl$Query$HiBob;
+          Query$HiBob instance, TRes Function(Query$HiBob) then) =>
+      _CopyWithImpl$Query$HiBob(instance, then);
 
   factory CopyWith$Query$HiBob.stub(TRes res) = _CopyWithStubImpl$Query$HiBob;
 
@@ -180,16 +227,23 @@ const documentNodeQueryHiBob = DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$HiBob$field {
   Query$HiBob$field({required this.value});
 
-  factory Query$HiBob$field.fromJson(Map<String, dynamic> json) =>
-      _$Query$HiBob$fieldFromJson(json);
+  factory Query$HiBob$field.fromJson(Map<String, dynamic> json) {
+    final l$value = json['value'];
+    return Query$HiBob$field(value: (l$value as String));
+  }
 
   final String value;
 
-  Map<String, dynamic> toJson() => _$Query$HiBob$fieldToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$value = value;
+    _resultData['value'] = l$value;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$value = value;
@@ -198,12 +252,17 @@ class Query$HiBob$field {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$HiBob$field) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$HiBob$field) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$value = value;
     final lOther$value = other.value;
-    if (l$value != lOther$value) return false;
+    if (l$value != lOther$value) {
+      return false;
+    }
     return true;
   }
 }
@@ -215,8 +274,8 @@ extension UtilityExtension$Query$HiBob$field on Query$HiBob$field {
 
 abstract class CopyWith$Query$HiBob$field<TRes> {
   factory CopyWith$Query$HiBob$field(
-          Query$HiBob$field instance, TRes Function(Query$HiBob$field) then) =
-      _CopyWithImpl$Query$HiBob$field;
+          Query$HiBob$field instance, TRes Function(Query$HiBob$field) then) =>
+      _CopyWithImpl$Query$HiBob$field(instance, then);
 
   factory CopyWith$Query$HiBob$field.stub(TRes res) =
       _CopyWithStubImpl$Query$HiBob$field;

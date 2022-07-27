@@ -1,22 +1,35 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$FragmentA implements Fragment$FragmentI {
   Fragment$FragmentA({required this.$__typename, this.value, this.name});
 
-  factory Fragment$FragmentA.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$FragmentAFromJson(json);
+  factory Fragment$FragmentA.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$value = json['value'];
+    final l$name = json['name'];
+    return Fragment$FragmentA(
+        $__typename: (l$$__typename as String),
+        value: (l$value as String?),
+        name: (l$name as String?));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? value;
 
   final String? name;
 
-  Map<String, dynamic> toJson() => _$Fragment$FragmentAToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$value = value;
+    _resultData['value'] = l$value;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -27,18 +40,27 @@ class Fragment$FragmentA implements Fragment$FragmentI {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$FragmentA) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$FragmentA) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$value = value;
     final lOther$value = other.value;
-    if (l$value != lOther$value) return false;
+    if (l$value != lOther$value) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     return true;
   }
 }
@@ -49,9 +71,9 @@ extension UtilityExtension$Fragment$FragmentA on Fragment$FragmentA {
 }
 
 abstract class CopyWith$Fragment$FragmentA<TRes> {
-  factory CopyWith$Fragment$FragmentA(
-          Fragment$FragmentA instance, TRes Function(Fragment$FragmentA) then) =
-      _CopyWithImpl$Fragment$FragmentA;
+  factory CopyWith$Fragment$FragmentA(Fragment$FragmentA instance,
+          TRes Function(Fragment$FragmentA) then) =>
+      _CopyWithImpl$Fragment$FragmentA(instance, then);
 
   factory CopyWith$Fragment$FragmentA.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentA;
@@ -115,19 +137,29 @@ const documentNodeFragmentFragmentA = DocumentNode(definitions: [
   fragmentDefinitionFragmentI,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$FragmentI {
   Fragment$FragmentI({required this.$__typename, this.name});
 
-  factory Fragment$FragmentI.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$FragmentIFromJson(json);
+  factory Fragment$FragmentI.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$name = json['name'];
+    return Fragment$FragmentI(
+        $__typename: (l$$__typename as String), name: (l$name as String?));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? name;
 
-  Map<String, dynamic> toJson() => _$Fragment$FragmentIToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -137,15 +169,22 @@ class Fragment$FragmentI {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$FragmentI) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$FragmentI) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     return true;
   }
 }
@@ -156,9 +195,9 @@ extension UtilityExtension$Fragment$FragmentI on Fragment$FragmentI {
 }
 
 abstract class CopyWith$Fragment$FragmentI<TRes> {
-  factory CopyWith$Fragment$FragmentI(
-          Fragment$FragmentI instance, TRes Function(Fragment$FragmentI) then) =
-      _CopyWithImpl$Fragment$FragmentI;
+  factory CopyWith$Fragment$FragmentI(Fragment$FragmentI instance,
+          TRes Function(Fragment$FragmentI) then) =>
+      _CopyWithImpl$Fragment$FragmentI(instance, then);
 
   factory CopyWith$Fragment$FragmentI.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentI;
@@ -216,19 +255,33 @@ const documentNodeFragmentFragmentI = DocumentNode(definitions: [
   fragmentDefinitionFragmentI,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchStuff {
   Query$FetchStuff({required this.$__typename, this.field});
 
-  factory Query$FetchStuff.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchStuffFromJson(json);
+  factory Query$FetchStuff.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$field = json['field'];
+    return Query$FetchStuff(
+        $__typename: (l$$__typename as String),
+        field: l$field == null
+            ? null
+            : Query$FetchStuff$field.fromJson(
+                (l$field as Map<String, dynamic>)));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final Query$FetchStuff$field? field;
 
-  Map<String, dynamic> toJson() => _$Query$FetchStuffToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$field = field;
+    _resultData['field'] = l$field?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -238,15 +291,22 @@ class Query$FetchStuff {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchStuff) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchStuff) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$field = field;
     final lOther$field = other.field;
-    if (l$field != lOther$field) return false;
+    if (l$field != lOther$field) {
+      return false;
+    }
     return true;
   }
 }
@@ -258,8 +318,8 @@ extension UtilityExtension$Query$FetchStuff on Query$FetchStuff {
 
 abstract class CopyWith$Query$FetchStuff<TRes> {
   factory CopyWith$Query$FetchStuff(
-          Query$FetchStuff instance, TRes Function(Query$FetchStuff) then) =
-      _CopyWithImpl$Query$FetchStuff;
+          Query$FetchStuff instance, TRes Function(Query$FetchStuff) then) =>
+      _CopyWithImpl$Query$FetchStuff(instance, then);
 
   factory CopyWith$Query$FetchStuff.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff;
@@ -383,7 +443,6 @@ const documentNodeQueryFetchStuff = DocumentNode(definitions: [
   fragmentDefinitionFragmentI,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchStuff$field {
   Query$FetchStuff$field({required this.$__typename, this.name});
 
@@ -391,17 +450,28 @@ class Query$FetchStuff$field {
     switch (json["__typename"] as String) {
       case "FieldA":
         return Query$FetchStuff$field$$FieldA.fromJson(json);
+
       default:
-        return _$Query$FetchStuff$fieldFromJson(json);
+        final l$$__typename = json['__typename'];
+        final l$name = json['name'];
+        return Query$FetchStuff$field(
+            $__typename: (l$$__typename as String), name: (l$name as String?));
     }
   }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? name;
 
-  Map<String, dynamic> toJson() => _$Query$FetchStuff$fieldToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -411,15 +481,23 @@ class Query$FetchStuff$field {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchStuff$field) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchStuff$field) ||
+        runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     return true;
   }
 }
@@ -431,8 +509,8 @@ extension UtilityExtension$Query$FetchStuff$field on Query$FetchStuff$field {
 
 abstract class CopyWith$Query$FetchStuff$field<TRes> {
   factory CopyWith$Query$FetchStuff$field(Query$FetchStuff$field instance,
-          TRes Function(Query$FetchStuff$field) then) =
-      _CopyWithImpl$Query$FetchStuff$field;
+          TRes Function(Query$FetchStuff$field) then) =>
+      _CopyWithImpl$Query$FetchStuff$field(instance, then);
 
   factory CopyWith$Query$FetchStuff$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff$field;
@@ -467,23 +545,38 @@ class _CopyWithStubImpl$Query$FetchStuff$field<TRes>
   call({String? $__typename, String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchStuff$field$$FieldA
     implements Fragment$FragmentA, Fragment$FragmentI, Query$FetchStuff$field {
   Query$FetchStuff$field$$FieldA(
       {required this.$__typename, this.name, this.value});
 
-  factory Query$FetchStuff$field$$FieldA.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchStuff$field$$FieldAFromJson(json);
+  factory Query$FetchStuff$field$$FieldA.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$name = json['name'];
+    final l$value = json['value'];
+    return Query$FetchStuff$field$$FieldA(
+        $__typename: (l$$__typename as String),
+        name: (l$name as String?),
+        value: (l$value as String?));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? name;
 
   final String? value;
 
-  Map<String, dynamic> toJson() => _$Query$FetchStuff$field$$FieldAToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$value = value;
+    _resultData['value'] = l$value;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -494,18 +587,28 @@ class Query$FetchStuff$field$$FieldA
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$FetchStuff$field$$FieldA) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$value = value;
     final lOther$value = other.value;
-    if (l$value != lOther$value) return false;
+    if (l$value != lOther$value) {
+      return false;
+    }
     return true;
   }
 }
@@ -519,8 +622,8 @@ extension UtilityExtension$Query$FetchStuff$field$$FieldA
 abstract class CopyWith$Query$FetchStuff$field$$FieldA<TRes> {
   factory CopyWith$Query$FetchStuff$field$$FieldA(
           Query$FetchStuff$field$$FieldA instance,
-          TRes Function(Query$FetchStuff$field$$FieldA) then) =
-      _CopyWithImpl$Query$FetchStuff$field$$FieldA;
+          TRes Function(Query$FetchStuff$field$$FieldA) then) =>
+      _CopyWithImpl$Query$FetchStuff$field$$FieldA(instance, then);
 
   factory CopyWith$Query$FetchStuff$field$$FieldA.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff$field$$FieldA;

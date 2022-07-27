@@ -3,9 +3,8 @@ import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/context.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
-import 'package:graphql_codegen/src/printer/printer.dart';
-
-import 'context.dart';
+import 'package:graphql_codegen/src/printer/context.dart';
+import 'package:graphql_codegen/src/printer/utils.dart';
 
 Method? printDeepCopyStub(PrintContext c, ContextProperty property) {
   {

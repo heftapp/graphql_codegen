@@ -1,33 +1,63 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-enum Enum___Status {
-  @JsonValue('Pending')
-  Pending,
-  @JsonValue('Successful')
-  Successful,
-  @JsonValue('Failure')
-  Failure,
-  @JsonValue('InProgress')
-  InProgress,
-  $unknown
+enum Enum___Status { Pending, Successful, Failure, InProgress, $unknown }
+String toJson$Enum___Status(Enum___Status e) {
+  switch (e) {
+    case Enum___Status.Pending:
+      return r'Pending';
+    case Enum___Status.Successful:
+      return r'Successful';
+    case Enum___Status.Failure:
+      return r'Failure';
+    case Enum___Status.InProgress:
+      return r'InProgress';
+    case Enum___Status.$unknown:
+      return r'$unknown';
+  }
 }
 
-@JsonSerializable(explicitToJson: true)
+Enum___Status fromJson$Enum___Status(String value) {
+  switch (value) {
+    case r'Pending':
+      return Enum___Status.Pending;
+    case r'Successful':
+      return Enum___Status.Successful;
+    case r'Failure':
+      return Enum___Status.Failure;
+    case r'InProgress':
+      return Enum___Status.InProgress;
+    default:
+      return Enum___Status.$unknown;
+  }
+}
+
 class Query___Q {
   Query___Q({this.status, required this.$__typename});
 
-  factory Query___Q.fromJson(Map<String, dynamic> json) =>
-      _$Query___QFromJson(json);
+  factory Query___Q.fromJson(Map<String, dynamic> json) {
+    final l$status = json['status'];
+    final l$$__typename = json['__typename'];
+    return Query___Q(
+        status: l$status == null
+            ? null
+            : fromJson$Enum___Status((l$status as String)),
+        $__typename: (l$$__typename as String));
+  }
 
-  @JsonKey(unknownEnumValue: Enum___Status.$unknown)
   final Enum___Status? status;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query___QToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJson$Enum___Status(l$status);
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$status = status;
@@ -37,14 +67,22 @@ class Query___Q {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query___Q) || runtimeType != other.runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query___Q) || runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$status = status;
     final lOther$status = other.status;
-    if (l$status != lOther$status) return false;
+    if (l$status != lOther$status) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -56,8 +94,8 @@ extension UtilityExtension$Query___Q on Query___Q {
 
 abstract class CopyWith$Query___Q<TRes> {
   factory CopyWith$Query___Q(
-          Query___Q instance, TRes Function(Query___Q) then) =
-      _CopyWithImpl$Query___Q;
+          Query___Q instance, TRes Function(Query___Q) then) =>
+      _CopyWithImpl$Query___Q(instance, then);
 
   factory CopyWith$Query___Q.stub(TRes res) = _CopyWithStubImpl$Query___Q;
 

@@ -2,19 +2,24 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchSNoVariables {
   Query$FetchSNoVariables({this.s});
 
-  factory Query$FetchSNoVariables.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchSNoVariablesFromJson(json);
+  factory Query$FetchSNoVariables.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Query$FetchSNoVariables(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Query$FetchSNoVariablesToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -23,12 +28,18 @@ class Query$FetchSNoVariables {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchSNoVariables) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchSNoVariables) ||
+        runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -40,8 +51,8 @@ extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
 
 abstract class CopyWith$Query$FetchSNoVariables<TRes> {
   factory CopyWith$Query$FetchSNoVariables(Query$FetchSNoVariables instance,
-          TRes Function(Query$FetchSNoVariables) then) =
-      _CopyWithImpl$Query$FetchSNoVariables;
+          TRes Function(Query$FetchSNoVariables) then) =>
+      _CopyWithImpl$Query$FetchSNoVariables(instance, then);
 
   factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSNoVariables;

@@ -1,17 +1,22 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'document1.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$F2 {
   Fragment$F2({this.value});
 
-  factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$F2FromJson(json);
+  factory Fragment$F2.fromJson(Map<String, dynamic> json) {
+    final l$value = json['value'];
+    return Fragment$F2(value: (l$value as int?));
+  }
 
   final int? value;
 
-  Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$value = value;
+    _resultData['value'] = l$value;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$value = value;
@@ -20,12 +25,17 @@ class Fragment$F2 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F2) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F2) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$value = value;
     final lOther$value = other.value;
-    if (l$value != lOther$value) return false;
+    if (l$value != lOther$value) {
+      return false;
+    }
     return true;
   }
 }
@@ -37,8 +47,8 @@ extension UtilityExtension$Fragment$F2 on Fragment$F2 {
 
 abstract class CopyWith$Fragment$F2<TRes> {
   factory CopyWith$Fragment$F2(
-          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
-      _CopyWithImpl$Fragment$F2;
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =>
+      _CopyWithImpl$Fragment$F2(instance, then);
 
   factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
 

@@ -1,46 +1,103 @@
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
+abstract class Input$I {
+  factory Input$I({String? $String, int? $OtherReservedKeyword}) =>
+      _Impl$Input$I(
+          {'String': $String, 'OtherReservedKeyword': $OtherReservedKeyword});
 
-@JsonSerializable(explicitToJson: true)
-class Input$I {
-  Input$I({this.$String, this.$OtherReservedKeyword});
+  factory Input$I.withoutNulls({String? $String, int? $OtherReservedKeyword}) {
+    final l$data = <String, dynamic>{};
+    if ($String != null) l$data['String'] = $String;
+    if ($OtherReservedKeyword != null)
+      l$data['OtherReservedKeyword'] = $OtherReservedKeyword;
+    return _Impl$Input$I(l$data);
+  }
 
-  factory Input$I.fromJson(Map<String, dynamic> json) =>
-      _$Input$IFromJson(json);
+  factory Input$I.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('String')) {
+      final l$$String = data['String'];
+      result$data['String'] = (l$$String as String?);
+    }
+    if (data.containsKey('OtherReservedKeyword')) {
+      final l$$OtherReservedKeyword = data['OtherReservedKeyword'];
+      result$data['OtherReservedKeyword'] = (l$$OtherReservedKeyword as int?);
+    }
+    return _Impl$Input$I(result$data);
+  }
 
-  @JsonKey(name: 'String')
-  final String? $String;
+  String? get $String;
+  int? get $OtherReservedKeyword;
+  Map<String, dynamic> toJson();
+  CopyWith$Input$I<Input$I> get copyWith;
+  _Impl$Input$I get $impl;
+}
 
-  @JsonKey(name: 'OtherReservedKeyword')
-  final int? $OtherReservedKeyword;
+class _Impl$Input$I implements Input$I {
+  _Impl$Input$I(this.$data);
 
-  Map<String, dynamic> toJson() => _$Input$IToJson(this);
+  final Map<String, dynamic> $data;
+
+  String? get $String => ($data['String'] as String?);
+  int? get $OtherReservedKeyword => ($data['OtherReservedKeyword'] as int?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('String')) {
+      final l$$String = $String;
+      result$data['String'] = l$$String;
+    }
+    if ($data.containsKey('OtherReservedKeyword')) {
+      final l$$OtherReservedKeyword = $OtherReservedKeyword;
+      result$data['OtherReservedKeyword'] = l$$OtherReservedKeyword;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Input$I) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$String = $String;
+    final lOther$$String = other.$String;
+    if ($data.containsKey('String') != other.$data.containsKey('String')) {
+      return false;
+    }
+    if (l$$String != lOther$$String) {
+      return false;
+    }
+    final l$$OtherReservedKeyword = $OtherReservedKeyword;
+    final lOther$$OtherReservedKeyword = other.$OtherReservedKeyword;
+    if ($data.containsKey('OtherReservedKeyword') !=
+        other.$data.containsKey('OtherReservedKeyword')) {
+      return false;
+    }
+    if (l$$OtherReservedKeyword != lOther$$OtherReservedKeyword) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$$String = $String;
     final l$$OtherReservedKeyword = $OtherReservedKeyword;
-    return Object.hashAll([l$$String, l$$OtherReservedKeyword]);
+    return Object.hashAll([
+      $data.containsKey('String') ? l$$String : const {},
+      $data.containsKey('OtherReservedKeyword')
+          ? l$$OtherReservedKeyword
+          : const {}
+    ]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Input$I) || runtimeType != other.runtimeType) return false;
-    final l$$String = $String;
-    final lOther$$String = other.$String;
-    if (l$$String != lOther$$String) return false;
-    final l$$OtherReservedKeyword = $OtherReservedKeyword;
-    final lOther$$OtherReservedKeyword = other.$OtherReservedKeyword;
-    if (l$$OtherReservedKeyword != lOther$$OtherReservedKeyword) return false;
-    return true;
-  }
-
-  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+  _Impl$Input$I get $impl => this;
 }
 
 abstract class CopyWith$Input$I<TRes> {
-  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
-      _CopyWithImpl$Input$I;
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =>
+      _CopyWithImpl$Input$I(instance.$impl, then);
 
   factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
 
@@ -50,21 +107,21 @@ abstract class CopyWith$Input$I<TRes> {
 class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
   _CopyWithImpl$Input$I(this._instance, this._then);
 
-  final Input$I _instance;
+  final _Impl$Input$I _instance;
 
-  final TRes Function(Input$I) _then;
+  final TRes Function(_Impl$Input$I) _then;
 
   static const _undefined = {};
 
   TRes call(
           {Object? $String = _undefined,
           Object? $OtherReservedKeyword = _undefined}) =>
-      _then(Input$I(
-          $String:
-              $String == _undefined ? _instance.$String : ($String as String?),
-          $OtherReservedKeyword: $OtherReservedKeyword == _undefined
-              ? _instance.$OtherReservedKeyword
-              : ($OtherReservedKeyword as int?)));
+      _then(_Impl$Input$I({
+        ..._instance.$data,
+        if ($String != _undefined) 'String': ($String as String?),
+        if ($OtherReservedKeyword != _undefined)
+          'OtherReservedKeyword': ($OtherReservedKeyword as int?),
+      }));
 }
 
 class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {

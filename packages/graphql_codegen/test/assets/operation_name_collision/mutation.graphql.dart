@@ -3,20 +3,29 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
 import 'query.graphql.dart';
-part 'mutation.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$Operation {
   Mutation$Operation({this.setName});
 
-  factory Mutation$Operation.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$OperationFromJson(json);
+  factory Mutation$Operation.fromJson(Map<String, dynamic> json) {
+    final l$setName = json['setName'];
+    return Mutation$Operation(
+        setName: l$setName == null
+            ? null
+            : Mutation$Operation$setName.fromJson(
+                (l$setName as Map<String, dynamic>)));
+  }
 
   final Mutation$Operation$setName? setName;
 
-  Map<String, dynamic> toJson() => _$Mutation$OperationToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$setName = setName;
+    _resultData['setName'] = l$setName?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$setName = setName;
@@ -25,12 +34,17 @@ class Mutation$Operation {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Mutation$Operation) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$Operation) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$setName = setName;
     final lOther$setName = other.setName;
-    if (l$setName != lOther$setName) return false;
+    if (l$setName != lOther$setName) {
+      return false;
+    }
     return true;
   }
 }
@@ -41,9 +55,9 @@ extension UtilityExtension$Mutation$Operation on Mutation$Operation {
 }
 
 abstract class CopyWith$Mutation$Operation<TRes> {
-  factory CopyWith$Mutation$Operation(
-          Mutation$Operation instance, TRes Function(Mutation$Operation) then) =
-      _CopyWithImpl$Mutation$Operation;
+  factory CopyWith$Mutation$Operation(Mutation$Operation instance,
+          TRes Function(Mutation$Operation) then) =>
+      _CopyWithImpl$Mutation$Operation(instance, then);
 
   factory CopyWith$Mutation$Operation.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Operation;
@@ -281,16 +295,23 @@ class Mutation$Operation$Widget
                 result));
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$Operation$setName {
   Mutation$Operation$setName({this.name});
 
-  factory Mutation$Operation$setName.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$Operation$setNameFromJson(json);
+  factory Mutation$Operation$setName.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Mutation$Operation$setName(name: (l$name as String?));
+  }
 
   final String? name;
 
-  Map<String, dynamic> toJson() => _$Mutation$Operation$setNameToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -299,12 +320,18 @@ class Mutation$Operation$setName {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$Operation$setName) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     return true;
   }
 }
@@ -318,8 +345,8 @@ extension UtilityExtension$Mutation$Operation$setName
 abstract class CopyWith$Mutation$Operation$setName<TRes> {
   factory CopyWith$Mutation$Operation$setName(
           Mutation$Operation$setName instance,
-          TRes Function(Mutation$Operation$setName) then) =
-      _CopyWithImpl$Mutation$Operation$setName;
+          TRes Function(Mutation$Operation$setName) then) =>
+      _CopyWithImpl$Mutation$Operation$setName(instance, then);
 
   factory CopyWith$Mutation$Operation$setName.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Operation$setName;

@@ -2,19 +2,24 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'query.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$Operation {
   Query$Operation({this.name});
 
-  factory Query$Operation.fromJson(Map<String, dynamic> json) =>
-      _$Query$OperationFromJson(json);
+  factory Query$Operation.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Query$Operation(name: (l$name as String?));
+  }
 
   final String? name;
 
-  Map<String, dynamic> toJson() => _$Query$OperationToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -23,12 +28,17 @@ class Query$Operation {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Operation) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Operation) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     return true;
   }
 }
@@ -40,8 +50,8 @@ extension UtilityExtension$Query$Operation on Query$Operation {
 
 abstract class CopyWith$Query$Operation<TRes> {
   factory CopyWith$Query$Operation(
-          Query$Operation instance, TRes Function(Query$Operation) then) =
-      _CopyWithImpl$Query$Operation;
+          Query$Operation instance, TRes Function(Query$Operation) then) =>
+      _CopyWithImpl$Query$Operation(instance, then);
 
   factory CopyWith$Query$Operation.stub(TRes res) =
       _CopyWithStubImpl$Query$Operation;

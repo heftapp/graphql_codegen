@@ -1,15 +1,29 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'scalar_import.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchScalars {
   Query$FetchScalars(
       {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});
 
-  factory Query$FetchScalars.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchScalarsFromJson(json);
+  factory Query$FetchScalars.fromJson(Map<String, dynamic> json) {
+    final l$i = json['i'];
+    final l$id = json['id'];
+    final l$s = json['s'];
+    final l$c1 = json['c1'];
+    final l$c2 = json['c2'];
+    final l$c3 = json['c3'];
+    final l$c3s = json['c3s'];
+    return Query$FetchScalars(
+        i: (l$i as int?),
+        id: (l$id as int?),
+        s: (l$s as String?),
+        c1: (l$c1 as String?),
+        c2: (l$c2 as DateTime?),
+        c3: l$c3 == null ? null : fobbobFromJson(l$c3),
+        c3s: (l$c3s as List<dynamic>?)
+            ?.map((e) => e == null ? null : fobbobFromJson(e))
+            .toList());
+  }
 
   final int? i;
 
@@ -21,15 +35,30 @@ class Query$FetchScalars {
 
   final DateTime? c2;
 
-  @JsonKey(fromJson: _nullable$fobbobFromJson, toJson: _nullable$fobbobToJson)
   final Fobbob? c3;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$fobbobFromJson,
-      toJson: _nullable$_list$_nullable$fobbobToJson)
   final List<Fobbob?>? c3s;
 
-  Map<String, dynamic> toJson() => _$Query$FetchScalarsToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$i = i;
+    _resultData['i'] = l$i;
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$s = s;
+    _resultData['s'] = l$s;
+    final l$c1 = c1;
+    _resultData['c1'] = l$c1;
+    final l$c2 = c2;
+    _resultData['c2'] = l$c2;
+    final l$c3 = c3;
+    _resultData['c3'] = l$c3 == null ? null : fobbobToJson(l$c3);
+    final l$c3s = c3s;
+    _resultData['c3s'] =
+        l$c3s?.map((e) => e == null ? null : fobbobToJson(e)).toList();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$i = i;
@@ -52,40 +81,58 @@ class Query$FetchScalars {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchScalars) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchScalars) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$i = i;
     final lOther$i = other.i;
-    if (l$i != lOther$i) return false;
+    if (l$i != lOther$i) {
+      return false;
+    }
     final l$id = id;
     final lOther$id = other.id;
-    if (l$id != lOther$id) return false;
+    if (l$id != lOther$id) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     final l$c1 = c1;
     final lOther$c1 = other.c1;
-    if (l$c1 != lOther$c1) return false;
+    if (l$c1 != lOther$c1) {
+      return false;
+    }
     final l$c2 = c2;
     final lOther$c2 = other.c2;
-    if (l$c2 != lOther$c2) return false;
+    if (l$c2 != lOther$c2) {
+      return false;
+    }
     final l$c3 = c3;
     final lOther$c3 = other.c3;
-    if (l$c3 != lOther$c3) return false;
+    if (l$c3 != lOther$c3) {
+      return false;
+    }
     final l$c3s = c3s;
     final lOther$c3s = other.c3s;
     if (l$c3s != null && lOther$c3s != null) {
-      if (l$c3s.length != lOther$c3s.length) return false;
+      if (l$c3s.length != lOther$c3s.length) {
+        return false;
+      }
       for (int i = 0; i < l$c3s.length; i++) {
         final l$c3s$entry = l$c3s[i];
         final lOther$c3s$entry = lOther$c3s[i];
-        if (l$c3s$entry != lOther$c3s$entry) return false;
+        if (l$c3s$entry != lOther$c3s$entry) {
+          return false;
+        }
       }
     } else if (l$c3s != lOther$c3s) {
       return false;
     }
-
     return true;
   }
 }
@@ -96,9 +143,9 @@ extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
 }
 
 abstract class CopyWith$Query$FetchScalars<TRes> {
-  factory CopyWith$Query$FetchScalars(
-          Query$FetchScalars instance, TRes Function(Query$FetchScalars) then) =
-      _CopyWithImpl$Query$FetchScalars;
+  factory CopyWith$Query$FetchScalars(Query$FetchScalars instance,
+          TRes Function(Query$FetchScalars) then) =>
+      _CopyWithImpl$Query$FetchScalars(instance, then);
 
   factory CopyWith$Query$FetchScalars.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchScalars;
@@ -210,15 +257,3 @@ const documentNodeQueryFetchScalars = DocumentNode(definitions: [
       ])),
 ]);
 const possibleTypesMap = {};
-Fobbob? _nullable$fobbobFromJson(dynamic data) =>
-    data == null ? null : fobbobFromJson(data);
-dynamic _nullable$fobbobToJson(Fobbob? data) =>
-    data == null ? null : fobbobToJson(data);
-List<Fobbob?> _list$_nullable$fobbobFromJson(dynamic data) =>
-    data is List ? data.map(_nullable$fobbobFromJson).toList() : [];
-dynamic _list$_nullable$fobbobToJson(List<Fobbob?> data) =>
-    data.map(_nullable$fobbobToJson).toList();
-List<Fobbob?>? _nullable$_list$_nullable$fobbobFromJson(dynamic data) =>
-    data == null ? null : _list$_nullable$fobbobFromJson(data);
-dynamic _nullable$_list$_nullable$fobbobToJson(List<Fobbob?>? data) =>
-    data == null ? null : _list$_nullable$fobbobToJson(data);

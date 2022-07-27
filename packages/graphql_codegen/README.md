@@ -18,15 +18,11 @@ to add your schema to your project. In Android Studio this can be done with the 
 
 - `build_runner` generates files from dart code. Read more [here](https://pub.dev/packages/build_runner)
 
-- `json_serializable` generate the actual serializers, so in addition to the two files mentioned above, it'll also generate a `operation.graphql.g.dart`
-file. Read more on how to set this up [here](https://pub.dev/packages/json_serializable)
-
 ```sh
-$ flutter pub add --dev graphql_codegen build_runner json_serializable
+$ flutter pub add --dev graphql_codegen build_runner
 ```
 
 ### Dependencies
-- `json_annotation` annotations used with `json_serializable` for generated types
 
 - `graphql` (optional) to use generated types with `graphql`. See [options](#options)
 
@@ -264,7 +260,7 @@ targets:
 | Option | Default | Description | More info |
 |---|---|---|---|
 | `clients` | {} | Graphql clients to generate helper functions for. Supported types are `graphql` and `graphql_flutter`   | [Clients](#clients) |
-| `scalars` | {} | Allows custom JSON-Dart transformations. Builder will warn if scalars are not recognized. Unless json_serializable can automatically parse, will need `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-scalars) |
+| `scalars` | {} | Allows custom JSON-Dart transformations. Builder will warn if scalars are not recognized. Unless using primitive types, you will need `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-scalars) |
 | `addTypename` | true | Whether to automatically insert the `__typename` field in requests | [Add typename](#add-typename) |
 | `addTypenameExcludedPaths` | [] | When `addTypename` is true, the paths to exclude  | [Excluding typenames](#excluding-some-selections-from-adding-typename) |
 | `outputDirectory` | "." | Location where to output generated types relative to each `.graphql` file | [Change output directory](#change-output-directory) |
@@ -272,7 +268,6 @@ targets:
 | `generatedFileHeader` | "" | A string to add at the beginning of all `graphql.dart` files | [Generated file headers](#generated-file-headers) |
 | `scopes` | ["**.graphql"] | For multiple schemas, the globs for each schema | [Multiple Schemas](#multiple-schemas) |
 | `namingSeparator` | "$" | The separator to use for generated names | [Change naming separator](#change-naming-separator) |
-| `includeIfNullOnInput` | true | Whether to strip `null` values from Inputs | [Strip null from input](#strip-null-from-input-serializers) |
 | `extraKeywords` | [] | A way to specify fields that are also keywords | [Extra keywords](#extra-keywords) |
 
 ---
@@ -436,7 +431,7 @@ Out of the box, the standard fragments are supported and mapped to relevant dart
 new mappings for your custom scalars or overwrite existing configurations.
 
 In the schema above, you can see that we have defined the `ISODateTime` scalar. In this example, it contains
-a string with an iso formatted date-time string. We would like to map this to darts `DateTime` type by
+a string with an iso formatted date-time string. We would like to map this to a `String` type by
 adding the following configuration to the `build.yaml` file:
 
 ```yaml
@@ -449,14 +444,12 @@ targets:
         options:
           scalars:
             ISODateTime:
-              type: DateTime
+              type: String
             JSON:
               type: Map<String, dynamic>
 ```
 
-since `json_serializable` supports parsing `DateTime` from strings, this is all we need to do.
-
-Assume we want to use a custom date-time class instead (e.g. `CustomDateTime`) we can add
+Assume we want to use the built-in `DateTime` class instead, we can add
 
 ```yaml
 # build.yaml
@@ -468,35 +461,22 @@ targets:
         options:
           scalars:
             ISODateTime:
-              type: CustomDateTime
-              fromJsonFunctionName: customDateTimeFromJson
-              toJsonFunctionName: customDateTimeToJson
+              type: DateTime
+              fromJsonFunctionName: dateTimeFromJson
+              toJsonFunctionName: dateTimeToJson
               import: package:my_app/scalar.dart
 ```
 
-and create a `scalar.dart` file with your converter functions and class.
-
-```dart
-// custom_date_time.dart
-class CustomDateTime {
-    final String datetime;
-
-    CustomDateTime(this.datetime);
-}
-```
-
-and
+and create a `scalar.dart` file with your converters
 
 ```dart
 // scalar.dart
 
-export 'custom_date_time.dart' show {CustomDateTime};
-
-CustomDateTime customDateTimeFromJson(dynamic data) => CustomDateTime(data as String);
-dynamic customDateTimeToJson(CustomDateTime time) => time.datetime;
+DateTime dateTimeFromJson(dynamic data) => DateTime(data as String);
+dynamic dateTimeToJson(DateTime time) => time.datetime;
 ```
 
-and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
+and now all fields using `ISODateTime` will be a `DateTime` instance.
 
 ## Add typename
 By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
@@ -736,8 +716,9 @@ Some APIs don't allow input fields with a `null` value but prefer to have no fie
 
 You can strip null values for all input serializers (variables and inputs) with the option
 
-```yaml
-includeIfNullOnInput: false
+
+```dart
+Input$SomeInput.withoutNulls(bar: "Hello");
 ```
 
 ## Extra keywords

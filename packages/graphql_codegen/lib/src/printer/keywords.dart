@@ -60,5 +60,5 @@ const staticKeywords = {
   "show",
   "dynamic",
   "implements",
-  "static"
+  "static",
 };

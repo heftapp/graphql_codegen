@@ -1,22 +1,32 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'schema.graphql.dart';
-part 'query.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$Foobar {
   Query$Foobar({this.field, this.fields});
 
-  factory Query$Foobar.fromJson(Map<String, dynamic> json) =>
-      _$Query$FoobarFromJson(json);
+  factory Query$Foobar.fromJson(Map<String, dynamic> json) {
+    final l$field = json['field'];
+    final l$fields = json['fields'];
+    return Query$Foobar(
+        field: l$field == null ? null : fromJson$Enum$Enum((l$field as String)),
+        fields: (l$fields as List<dynamic>?)
+            ?.map((e) => fromJson$Enum$Enum((e as String)))
+            .toList());
+  }
 
-  @JsonKey(unknownEnumValue: Enum$Enum.$unknown)
   final Enum$Enum? field;
 
-  @JsonKey(unknownEnumValue: Enum$Enum.$unknown)
   final List<Enum$Enum>? fields;
 
-  Map<String, dynamic> toJson() => _$Query$FoobarToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$field = field;
+    _resultData['field'] = l$field == null ? null : toJson$Enum$Enum(l$field);
+    final l$fields = fields;
+    _resultData['fields'] = l$fields?.map((e) => toJson$Enum$Enum(e)).toList();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$field = field;
@@ -29,25 +39,33 @@ class Query$Foobar {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Foobar) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Foobar) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$field = field;
     final lOther$field = other.field;
-    if (l$field != lOther$field) return false;
+    if (l$field != lOther$field) {
+      return false;
+    }
     final l$fields = fields;
     final lOther$fields = other.fields;
     if (l$fields != null && lOther$fields != null) {
-      if (l$fields.length != lOther$fields.length) return false;
+      if (l$fields.length != lOther$fields.length) {
+        return false;
+      }
       for (int i = 0; i < l$fields.length; i++) {
         final l$fields$entry = l$fields[i];
         final lOther$fields$entry = lOther$fields[i];
-        if (l$fields$entry != lOther$fields$entry) return false;
+        if (l$fields$entry != lOther$fields$entry) {
+          return false;
+        }
       }
     } else if (l$fields != lOther$fields) {
       return false;
     }
-
     return true;
   }
 }
@@ -59,8 +77,8 @@ extension UtilityExtension$Query$Foobar on Query$Foobar {
 
 abstract class CopyWith$Query$Foobar<TRes> {
   factory CopyWith$Query$Foobar(
-          Query$Foobar instance, TRes Function(Query$Foobar) then) =
-      _CopyWithImpl$Query$Foobar;
+          Query$Foobar instance, TRes Function(Query$Foobar) then) =>
+      _CopyWithImpl$Query$Foobar(instance, then);
 
   factory CopyWith$Query$Foobar.stub(TRes res) = _CopyWithStubImpl$Query$Foobar;
 
