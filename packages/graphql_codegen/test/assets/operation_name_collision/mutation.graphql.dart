@@ -11,13 +11,13 @@ part 'mutation.graphql.g.dart';
 class Mutation$Operation {
   Mutation$Operation({this.setName});
 
-  @override
   factory Mutation$Operation.fromJson(Map<String, dynamic> json) =>
       _$Mutation$OperationFromJson(json);
 
   final Mutation$Operation$setName? setName;
 
   Map<String, dynamic> toJson() => _$Mutation$OperationToJson(this);
+  @override
   int get hashCode {
     final l$setName = setName;
     return Object.hashAll([l$setName]);
@@ -285,13 +285,13 @@ class Mutation$Operation$Widget
 class Mutation$Operation$setName {
   Mutation$Operation$setName({this.name});
 
-  @override
   factory Mutation$Operation$setName.fromJson(Map<String, dynamic> json) =>
       _$Mutation$Operation$setNameFromJson(json);
 
   final String? name;
 
   Map<String, dynamic> toJson() => _$Mutation$Operation$setNameToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);

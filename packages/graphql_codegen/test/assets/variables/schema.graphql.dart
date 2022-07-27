@@ -5,7 +5,6 @@ part 'schema.graphql.g.dart';
 class Input$I1 {
   Input$I1({required this.s, this.nested});
 
-  @override
   factory Input$I1.fromJson(Map<String, dynamic> json) =>
       _$Input$I1FromJson(json);
 
@@ -14,6 +13,7 @@ class Input$I1 {
   final Input$I1? nested;
 
   Map<String, dynamic> toJson() => _$Input$I1ToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     final l$nested = nested;

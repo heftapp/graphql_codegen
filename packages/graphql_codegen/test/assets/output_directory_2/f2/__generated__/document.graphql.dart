@@ -7,7 +7,6 @@ part 'document.graphql.g.dart';
 class Query$Q {
   Query$Q({this.name, required this.$__typename});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
@@ -18,6 +17,7 @@ class Query$Q {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;

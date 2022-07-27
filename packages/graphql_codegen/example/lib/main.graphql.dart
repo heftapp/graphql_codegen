@@ -12,13 +12,13 @@ part 'main.graphql.g.dart';
 class Variables$Query$FetchPerson {
   Variables$Query$FetchPerson({required this.id});
 
-  @override
   factory Variables$Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$FetchPersonFromJson(json);
 
   final String id;
 
   Map<String, dynamic> toJson() => _$Variables$Query$FetchPersonToJson(this);
+  @override
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
@@ -78,7 +78,6 @@ class _CopyWithStubImpl$Variables$Query$FetchPerson<TRes>
 class Query$FetchPerson {
   Query$FetchPerson({this.fetchPerson, required this.$__typename});
 
-  @override
   factory Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchPersonFromJson(json);
 
@@ -88,6 +87,7 @@ class Query$FetchPerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchPersonToJson(this);
+  @override
   int get hashCode {
     final l$fetchPerson = fetchPerson;
     final l$$__typename = $__typename;
@@ -366,7 +366,6 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
       required this.$__typename,
       this.children});
 
-  @override
   factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchPerson$fetchPersonFromJson(json);
 
@@ -398,6 +397,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
   final List<Fragment$PersonSummary>? children;
 
   Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
+  @override
   int get hashCode {
     final l$nickname = nickname;
     final l$name = name;
@@ -663,7 +663,6 @@ class Query$FetchPerson$fetchPerson$parents
       this.parents,
       this.favParent});
 
-  @override
   factory Query$FetchPerson$fetchPerson$parents.fromJson(
           Map<String, dynamic> json) =>
       _$Query$FetchPerson$fetchPerson$parentsFromJson(json);
@@ -695,6 +694,7 @@ class Query$FetchPerson$fetchPerson$parents
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchPerson$fetchPerson$parentsToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -914,7 +914,6 @@ class _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents<TRes>
 class Variables$Mutation$UpdatePerson {
   Variables$Mutation$UpdatePerson({required this.id});
 
-  @override
   factory Variables$Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) =>
       _$Variables$Mutation$UpdatePersonFromJson(json);
 
@@ -922,6 +921,7 @@ class Variables$Mutation$UpdatePerson {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Mutation$UpdatePersonToJson(this);
+  @override
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
@@ -981,7 +981,6 @@ class _CopyWithStubImpl$Variables$Mutation$UpdatePerson<TRes>
 class Mutation$UpdatePerson {
   Mutation$UpdatePerson({this.updatePerson, required this.$__typename});
 
-  @override
   factory Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) =>
       _$Mutation$UpdatePersonFromJson(json);
 
@@ -991,6 +990,7 @@ class Mutation$UpdatePerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Mutation$UpdatePersonToJson(this);
+  @override
   int get hashCode {
     final l$updatePerson = updatePerson;
     final l$$__typename = $__typename;
@@ -1302,7 +1302,6 @@ class Mutation$UpdatePerson$updatePerson {
   Mutation$UpdatePerson$updatePerson(
       {required this.full_name, required this.$__typename});
 
-  @override
   factory Mutation$UpdatePerson$updatePerson.fromJson(
           Map<String, dynamic> json) =>
       _$Mutation$UpdatePerson$updatePersonFromJson(json);
@@ -1314,6 +1313,7 @@ class Mutation$UpdatePerson$updatePerson {
 
   Map<String, dynamic> toJson() =>
       _$Mutation$UpdatePerson$updatePersonToJson(this);
+  @override
   int get hashCode {
     final l$full_name = full_name;
     final l$$__typename = $__typename;
@@ -1389,7 +1389,6 @@ class _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson<TRes>
 class Variables$Subscription$WatchPerson {
   Variables$Subscription$WatchPerson({this.id});
 
-  @override
   factory Variables$Subscription$WatchPerson.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Subscription$WatchPersonFromJson(json);
@@ -1398,6 +1397,7 @@ class Variables$Subscription$WatchPerson {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Subscription$WatchPersonToJson(this);
+  @override
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
@@ -1460,7 +1460,6 @@ class _CopyWithStubImpl$Variables$Subscription$WatchPerson<TRes>
 class Subscription$WatchPerson {
   Subscription$WatchPerson({this.watchPerson, required this.$__typename});
 
-  @override
   factory Subscription$WatchPerson.fromJson(Map<String, dynamic> json) =>
       _$Subscription$WatchPersonFromJson(json);
 
@@ -1470,6 +1469,7 @@ class Subscription$WatchPerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Subscription$WatchPersonToJson(this);
+  @override
   int get hashCode {
     final l$watchPerson = watchPerson;
     final l$$__typename = $__typename;
@@ -1699,7 +1699,6 @@ class Subscription$WatchPerson$watchPerson {
   Subscription$WatchPerson$watchPerson(
       {required this.full_name, required this.$__typename});
 
-  @override
   factory Subscription$WatchPerson$watchPerson.fromJson(
           Map<String, dynamic> json) =>
       _$Subscription$WatchPerson$watchPersonFromJson(json);
@@ -1711,6 +1710,7 @@ class Subscription$WatchPerson$watchPerson {
 
   Map<String, dynamic> toJson() =>
       _$Subscription$WatchPerson$watchPersonToJson(this);
+  @override
   int get hashCode {
     final l$full_name = full_name;
     final l$$__typename = $__typename;

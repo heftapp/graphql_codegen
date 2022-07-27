@@ -16,7 +16,6 @@ class Fragment$PersonSummary {
       this.favParent,
       required this.$__typename});
 
-  @override
   factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) =>
       _$Fragment$PersonSummaryFromJson(json);
 
@@ -46,6 +45,7 @@ class Fragment$PersonSummary {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$PersonSummaryToJson(this);
+  @override
   int get hashCode {
     final l$nickname = nickname;
     final l$name = name;
@@ -364,7 +364,6 @@ extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
 class Fragment$PersonParent {
   Fragment$PersonParent({required this.name, required this.$__typename});
 
-  @override
   factory Fragment$PersonParent.fromJson(Map<String, dynamic> json) =>
       _$Fragment$PersonParentFromJson(json);
 
@@ -374,6 +373,7 @@ class Fragment$PersonParent {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$PersonParentToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;

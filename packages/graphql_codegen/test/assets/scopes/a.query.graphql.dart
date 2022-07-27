@@ -7,7 +7,6 @@ part 'a.query.graphql.g.dart';
 class Query$FetchPerson {
   Query$FetchPerson({this.fetchPerson, required this.$__typename});
 
-  @override
   factory Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchPersonFromJson(json);
 
@@ -17,6 +16,7 @@ class Query$FetchPerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchPersonToJson(this);
+  @override
   int get hashCode {
     final l$fetchPerson = fetchPerson;
     final l$$__typename = $__typename;
@@ -142,7 +142,6 @@ class Query$FetchPerson$fetchPerson {
   Query$FetchPerson$fetchPerson(
       {this.name, required this.status, required this.$__typename});
 
-  @override
   factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchPerson$fetchPersonFromJson(json);
 
@@ -155,6 +154,7 @@ class Query$FetchPerson$fetchPerson {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$status = status;

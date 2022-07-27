@@ -6,13 +6,13 @@ part 'fragments.graphql.g.dart';
 class Fragment$F {
   Fragment$F({required this.name});
 
-  @override
   factory Fragment$F.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FFromJson(json);
 
   final String name;
 
   Map<String, dynamic> toJson() => _$Fragment$FToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);

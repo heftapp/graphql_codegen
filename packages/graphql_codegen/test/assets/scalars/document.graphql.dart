@@ -8,7 +8,6 @@ class Query$FetchScalars {
   Query$FetchScalars(
       {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});
 
-  @override
   factory Query$FetchScalars.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchScalarsFromJson(json);
 
@@ -31,6 +30,7 @@ class Query$FetchScalars {
   final List<Fobbob?>? c3s;
 
   Map<String, dynamic> toJson() => _$Query$FetchScalarsToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     final l$id = id;

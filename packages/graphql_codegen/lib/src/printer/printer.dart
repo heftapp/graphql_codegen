@@ -134,6 +134,7 @@ Method printHashCodeMethod(
     Method(
       (b) => b
         ..name = "hashCode"
+        ..annotations = ListBuilder([refer("override")])
         ..returns = refer("int")
         ..type = MethodType.getter
         ..lambda = false
@@ -356,7 +357,6 @@ switch(json["${typenameProperty.name.value}"] as String) {
     (b) => b
       ..factory = true
       ..name = "fromJson"
-      ..annotations = ListBuilder([refer("override")])
       ..requiredParameters = ListBuilder([
         Parameter(
           (b) => b

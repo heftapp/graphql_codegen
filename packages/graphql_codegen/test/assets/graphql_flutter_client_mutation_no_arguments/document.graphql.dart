@@ -10,13 +10,13 @@ part 'document.graphql.g.dart';
 class Mutation$UpdateSNo {
   Mutation$UpdateSNo({this.s});
 
-  @override
   factory Mutation$UpdateSNo.fromJson(Map<String, dynamic> json) =>
       _$Mutation$UpdateSNoFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Mutation$UpdateSNoToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);

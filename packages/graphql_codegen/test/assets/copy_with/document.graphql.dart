@@ -6,7 +6,6 @@ part 'document.graphql.g.dart';
 class Query$Foobar {
   Query$Foobar({this.ts, this.tss, required this.$__typename});
 
-  @override
   factory Query$Foobar.fromJson(Map<String, dynamic> json) =>
       _$Query$FoobarFromJson(json);
 
@@ -18,6 +17,7 @@ class Query$Foobar {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FoobarToJson(this);
+  @override
   int get hashCode {
     final l$ts = ts;
     final l$tss = tss;
@@ -239,7 +239,6 @@ const documentNodeQueryFoobar = DocumentNode(definitions: [
 class Query$Foobar$ts {
   Query$Foobar$ts({this.t, this.name, required this.$__typename});
 
-  @override
   factory Query$Foobar$ts.fromJson(Map<String, dynamic> json) =>
       _$Query$Foobar$tsFromJson(json);
 
@@ -251,6 +250,7 @@ class Query$Foobar$ts {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Foobar$tsToJson(this);
+  @override
   int get hashCode {
     final l$t = t;
     final l$name = name;
@@ -336,7 +336,6 @@ class _CopyWithStubImpl$Query$Foobar$ts<TRes>
 class Query$Foobar$ts$t {
   Query$Foobar$ts$t({this.name, required this.$__typename});
 
-  @override
   factory Query$Foobar$ts$t.fromJson(Map<String, dynamic> json) =>
       _$Query$Foobar$ts$tFromJson(json);
 
@@ -346,6 +345,7 @@ class Query$Foobar$ts$t {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Foobar$ts$tToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -414,7 +414,6 @@ class _CopyWithStubImpl$Query$Foobar$ts$t<TRes>
 class Query$Foobar$tss {
   Query$Foobar$tss({required this.nameEnforced, required this.$__typename});
 
-  @override
   factory Query$Foobar$tss.fromJson(Map<String, dynamic> json) =>
       _$Query$Foobar$tssFromJson(json);
 
@@ -424,6 +423,7 @@ class Query$Foobar$tss {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Foobar$tssToJson(this);
+  @override
   int get hashCode {
     final l$nameEnforced = nameEnforced;
     final l$$__typename = $__typename;

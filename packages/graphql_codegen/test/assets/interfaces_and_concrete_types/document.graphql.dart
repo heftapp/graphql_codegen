@@ -6,7 +6,6 @@ part 'document.graphql.g.dart';
 class Query$FetchI {
   Query$FetchI({this.i1, required this.$__typename});
 
-  @override
   factory Query$FetchI.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchIFromJson(json);
 
@@ -16,6 +15,7 @@ class Query$FetchI {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchIToJson(this);
+  @override
   int get hashCode {
     final l$i1 = i1;
     final l$$__typename = $__typename;
@@ -261,7 +261,6 @@ const documentNodeQueryFetchI = DocumentNode(definitions: [
 class Query$FetchI$i1 {
   Query$FetchI$i1({this.i2, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "T1":
@@ -277,6 +276,7 @@ class Query$FetchI$i1 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1ToJson(this);
+  @override
   int get hashCode {
     final l$i2 = i2;
     final l$$__typename = $__typename;
@@ -354,7 +354,6 @@ class _CopyWithStubImpl$Query$FetchI$i1<TRes>
 class Query$FetchI$i1$i2 {
   Query$FetchI$i1$i2({this.field, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$i2.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$i2FromJson(json);
 
@@ -364,6 +363,7 @@ class Query$FetchI$i1$i2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$i2ToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;
@@ -443,7 +443,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2<TRes>
 class Query$FetchI$i1$i2$field {
   Query$FetchI$i1$i2$field({this.name, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$i2$field.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$i2$fieldFromJson(json);
 
@@ -453,6 +452,7 @@ class Query$FetchI$i1$i2$field {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$i2$fieldToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -522,7 +522,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2$field<TRes>
 class Query$FetchI$i1$$T1 implements Query$FetchI$i1 {
   Query$FetchI$i1$$T1({this.i2, required this.$__typename, this.i2c});
 
-  @override
   factory Query$FetchI$i1$$T1.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$$T1FromJson(json);
 
@@ -534,6 +533,7 @@ class Query$FetchI$i1$$T1 implements Query$FetchI$i1 {
   final Query$FetchI$i1$$T1$i2c? i2c;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$$T1ToJson(this);
+  @override
   int get hashCode {
     final l$i2 = i2;
     final l$$__typename = $__typename;
@@ -638,7 +638,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1<TRes>
 class Query$FetchI$i1$$T1$i2c {
   Query$FetchI$i1$$T1$i2c({this.field, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$$T1$i2c.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$$T1$i2cFromJson(json);
 
@@ -648,6 +647,7 @@ class Query$FetchI$i1$$T1$i2c {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$$T1$i2cToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;
@@ -728,7 +728,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2c<TRes>
 class Query$FetchI$i1$$T1$i2c$field {
   Query$FetchI$i1$$T1$i2c$field({this.age, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$$T1$i2c$field.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$$T1$i2c$fieldFromJson(json);
 
@@ -738,6 +737,7 @@ class Query$FetchI$i1$$T1$i2c$field {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$$T1$i2c$fieldToJson(this);
+  @override
   int get hashCode {
     final l$age = age;
     final l$$__typename = $__typename;
@@ -808,7 +808,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2c$field<TRes>
 class Query$FetchI$i1$$T1$i2 implements Query$FetchI$i1$i2 {
   Query$FetchI$i1$$T1$i2({this.field, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$$T1$i2.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "T2":
@@ -824,6 +823,7 @@ class Query$FetchI$i1$$T1$i2 implements Query$FetchI$i1$i2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$$T1$i2ToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;
@@ -904,7 +904,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2<TRes>
 class Query$FetchI$i1$$T1$i2$field implements Query$FetchI$i1$i2$field {
   Query$FetchI$i1$$T1$i2$field({this.name, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$$T1$i2$field.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$$T1$i2$fieldFromJson(json);
 
@@ -914,6 +913,7 @@ class Query$FetchI$i1$$T1$i2$field implements Query$FetchI$i1$i2$field {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$$T1$i2$fieldToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
@@ -984,7 +984,6 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$field<TRes>
 class Query$FetchI$i1$$T1$i2$$T2 implements Query$FetchI$i1$$T1$i2 {
   Query$FetchI$i1$$T1$i2$$T2({this.field, required this.$__typename});
 
-  @override
   factory Query$FetchI$i1$$T1$i2$$T2.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchI$i1$$T1$i2$$T2FromJson(json);
 
@@ -994,6 +993,7 @@ class Query$FetchI$i1$$T1$i2$$T2 implements Query$FetchI$i1$$T1$i2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$FetchI$i1$$T1$i2$$T2ToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;
@@ -1077,7 +1077,6 @@ class Query$FetchI$i1$$T1$i2$$T2$field implements Query$FetchI$i1$$T1$i2$field {
   Query$FetchI$i1$$T1$i2$$T2$field(
       {this.name, required this.$__typename, this.age});
 
-  @override
   factory Query$FetchI$i1$$T1$i2$$T2$field.fromJson(
           Map<String, dynamic> json) =>
       _$Query$FetchI$i1$$T1$i2$$T2$fieldFromJson(json);
@@ -1091,6 +1090,7 @@ class Query$FetchI$i1$$T1$i2$$T2$field implements Query$FetchI$i1$$T1$i2$field {
 
   Map<String, dynamic> toJson() =>
       _$Query$FetchI$i1$$T1$i2$$T2$fieldToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;

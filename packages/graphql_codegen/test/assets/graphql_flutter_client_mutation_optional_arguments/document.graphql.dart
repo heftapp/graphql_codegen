@@ -10,7 +10,6 @@ part 'document.graphql.g.dart';
 class Variables$Mutation$UpdateSOptional {
   Variables$Mutation$UpdateSOptional({this.name});
 
-  @override
   factory Variables$Mutation$UpdateSOptional.fromJson(
           Map<String, dynamic> json) =>
       _$Variables$Mutation$UpdateSOptionalFromJson(json);
@@ -19,6 +18,7 @@ class Variables$Mutation$UpdateSOptional {
 
   Map<String, dynamic> toJson() =>
       _$Variables$Mutation$UpdateSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
@@ -81,13 +81,13 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
 class Mutation$UpdateSOptional {
   Mutation$UpdateSOptional({this.s});
 
-  @override
   factory Mutation$UpdateSOptional.fromJson(Map<String, dynamic> json) =>
       _$Mutation$UpdateSOptionalFromJson(json);
 
   final String? s;
 
   Map<String, dynamic> toJson() => _$Mutation$UpdateSOptionalToJson(this);
+  @override
   int get hashCode {
     final l$s = s;
     return Object.hashAll([l$s]);

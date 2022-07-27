@@ -6,7 +6,6 @@ part 'document.graphql.g.dart';
 class Input$Input {
   Input$Input({this.field, this.flag});
 
-  @override
   factory Input$Input.fromJson(Map<String, dynamic> json) =>
       _$Input$InputFromJson(json);
 
@@ -15,6 +14,7 @@ class Input$Input {
   final bool? flag;
 
   Map<String, dynamic> toJson() => _$Input$InputToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$flag = flag;
@@ -77,13 +77,13 @@ class _CopyWithStubImpl$Input$Input<TRes>
 class Variables$Query$Q1 {
   Variables$Query$Q1({this.input});
 
-  @override
   factory Variables$Query$Q1.fromJson(Map<String, dynamic> json) =>
       _$Variables$Query$Q1FromJson(json);
 
   final Input$Input? input;
 
   Map<String, dynamic> toJson() => _$Variables$Query$Q1ToJson(this);
+  @override
   int get hashCode {
     final l$input = input;
     return Object.hashAll([l$input]);
@@ -150,7 +150,6 @@ class _CopyWithStubImpl$Variables$Query$Q1<TRes>
 class Query$Q1 {
   Query$Q1({this.field, required this.$__typename});
 
-  @override
   factory Query$Q1.fromJson(Map<String, dynamic> json) =>
       _$Query$Q1FromJson(json);
 
@@ -160,6 +159,7 @@ class Query$Q1 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Q1ToJson(this);
+  @override
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;

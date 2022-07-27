@@ -7,13 +7,13 @@ part 'a.graphql.g.dart';
 class Query$FetchName {
   Query$FetchName({this.name});
 
-  @override
   factory Query$FetchName.fromJson(Map<String, dynamic> json) =>
       _$Query$FetchNameFromJson(json);
 
   final Fragment$F? name;
 
   Map<String, dynamic> toJson() => _$Query$FetchNameToJson(this);
+  @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);

@@ -6,13 +6,13 @@ part 'document.graphql.g.dart';
 class Input$Input {
   Input$Input({this.inputField});
 
-  @override
   factory Input$Input.fromJson(Map<String, dynamic> json) =>
       _$Input$InputFromJson(json);
 
   final bool? inputField;
 
   Map<String, dynamic> toJson() => _$Input$InputToJson(this);
+  @override
   int get hashCode {
     final l$inputField = inputField;
     return Object.hashAll([l$inputField]);
@@ -71,7 +71,6 @@ class _CopyWithStubImpl$Input$Input<TRes>
 class Variables$Fragment$F1 {
   Variables$Fragment$F1({this.i, required this.name});
 
-  @override
   factory Variables$Fragment$F1.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F1FromJson(json);
 
@@ -80,6 +79,7 @@ class Variables$Fragment$F1 {
   final String name;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F1ToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     final l$name = name;
@@ -146,7 +146,6 @@ class _CopyWithStubImpl$Variables$Fragment$F1<TRes>
 class Fragment$F1 {
   Fragment$F1({this.level1, required this.$__typename});
 
-  @override
   factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F1FromJson(json);
 
@@ -156,6 +155,7 @@ class Fragment$F1 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
+  @override
   int get hashCode {
     final l$level1 = level1;
     final l$$__typename = $__typename;
@@ -312,7 +312,6 @@ const documentNodeFragmentF1 = DocumentNode(definitions: [
 class Fragment$F1$level1 {
   Fragment$F1$level1({this.level2, required this.$__typename});
 
-  @override
   factory Fragment$F1$level1.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F1$level1FromJson(json);
 
@@ -322,6 +321,7 @@ class Fragment$F1$level1 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F1$level1ToJson(this);
+  @override
   int get hashCode {
     final l$level2 = level2;
     final l$$__typename = $__typename;
@@ -402,7 +402,6 @@ class _CopyWithStubImpl$Fragment$F1$level1<TRes>
 class Fragment$F1$level1$level2 {
   Fragment$F1$level1$level2({this.level3, required this.$__typename});
 
-  @override
   factory Fragment$F1$level1$level2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F1$level1$level2FromJson(json);
 
@@ -412,6 +411,7 @@ class Fragment$F1$level1$level2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F1$level1$level2ToJson(this);
+  @override
   int get hashCode {
     final l$level3 = level3;
     final l$$__typename = $__typename;
@@ -493,7 +493,6 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2<TRes>
 class Fragment$F1$level1$level2$level3 {
   Fragment$F1$level1$level2$level3({this.level4, required this.$__typename});
 
-  @override
   factory Fragment$F1$level1$level2$level3.fromJson(
           Map<String, dynamic> json) =>
       _$Fragment$F1$level1$level2$level3FromJson(json);
@@ -505,6 +504,7 @@ class Fragment$F1$level1$level2$level3 {
 
   Map<String, dynamic> toJson() =>
       _$Fragment$F1$level1$level2$level3ToJson(this);
+  @override
   int get hashCode {
     final l$level4 = level4;
     final l$$__typename = $__typename;
@@ -575,7 +575,6 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2$level3<TRes>
 class Variables$Fragment$F2 {
   Variables$Fragment$F2({this.i, this.name});
 
-  @override
   factory Variables$Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F2FromJson(json);
 
@@ -584,6 +583,7 @@ class Variables$Fragment$F2 {
   final String? name;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     final l$name = name;
@@ -648,7 +648,6 @@ class _CopyWithStubImpl$Variables$Fragment$F2<TRes>
 class Fragment$F2 {
   Fragment$F2({this.level1, required this.$__typename});
 
-  @override
   factory Fragment$F2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F2FromJson(json);
 
@@ -658,6 +657,7 @@ class Fragment$F2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F2ToJson(this);
+  @override
   int get hashCode {
     final l$level1 = level1;
     final l$$__typename = $__typename;
@@ -770,13 +770,13 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
 class Variables$Fragment$F21 {
   Variables$Fragment$F21({this.i});
 
-  @override
   factory Variables$Fragment$F21.fromJson(Map<String, dynamic> json) =>
       _$Variables$Fragment$F21FromJson(json);
 
   final bool? i;
 
   Map<String, dynamic> toJson() => _$Variables$Fragment$F21ToJson(this);
+  @override
   int get hashCode {
     final l$i = i;
     return Object.hashAll([l$i]);
@@ -835,7 +835,6 @@ class _CopyWithStubImpl$Variables$Fragment$F21<TRes>
 class Fragment$F21 {
   Fragment$F21({this.level2, required this.$__typename});
 
-  @override
   factory Fragment$F21.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F21FromJson(json);
 
@@ -845,6 +844,7 @@ class Fragment$F21 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F21ToJson(this);
+  @override
   int get hashCode {
     final l$level2 = level2;
     final l$$__typename = $__typename;
@@ -983,7 +983,6 @@ const documentNodeFragmentF21 = DocumentNode(definitions: [
 class Fragment$F21$level2 {
   Fragment$F21$level2({this.level3, required this.$__typename});
 
-  @override
   factory Fragment$F21$level2.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F21$level2FromJson(json);
 
@@ -993,6 +992,7 @@ class Fragment$F21$level2 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F21$level2ToJson(this);
+  @override
   int get hashCode {
     final l$level3 = level3;
     final l$$__typename = $__typename;
@@ -1073,7 +1073,6 @@ class _CopyWithStubImpl$Fragment$F21$level2<TRes>
 class Fragment$F21$level2$level3 {
   Fragment$F21$level2$level3({this.level4, required this.$__typename});
 
-  @override
   factory Fragment$F21$level2$level3.fromJson(Map<String, dynamic> json) =>
       _$Fragment$F21$level2$level3FromJson(json);
 
@@ -1083,6 +1082,7 @@ class Fragment$F21$level2$level3 {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$F21$level2$level3ToJson(this);
+  @override
   int get hashCode {
     final l$level4 = level4;
     final l$$__typename = $__typename;

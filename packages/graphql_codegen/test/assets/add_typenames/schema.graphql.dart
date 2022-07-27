@@ -6,7 +6,6 @@ part 'schema.graphql.g.dart';
 class Fragment$FReport {
   Fragment$FReport({this.title, required this.$__typename});
 
-  @override
   factory Fragment$FReport.fromJson(Map<String, dynamic> json) =>
       _$Fragment$FReportFromJson(json);
 
@@ -16,6 +15,7 @@ class Fragment$FReport {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Fragment$FReportToJson(this);
+  @override
   int get hashCode {
     final l$title = title;
     final l$$__typename = $__typename;
@@ -112,7 +112,6 @@ class Query$Q {
       this.docsWithFragment,
       required this.$__typename});
 
-  @override
   factory Query$Q.fromJson(Map<String, dynamic> json) =>
       _$Query$QFromJson(json);
 
@@ -128,6 +127,7 @@ class Query$Q {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  @override
   int get hashCode {
     final l$docsWithTypename = docsWithTypename;
     final l$docsWihtoutTypename = docsWihtoutTypename;
@@ -462,7 +462,6 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 class Query$Q$docsWithTypename {
   Query$Q$docsWithTypename({required this.$__typename});
 
-  @override
   factory Query$Q$docsWithTypename.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$docsWithTypenameFromJson(json);
 
@@ -470,6 +469,7 @@ class Query$Q$docsWithTypename {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Q$docsWithTypenameToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -534,7 +534,6 @@ class _CopyWithStubImpl$Query$Q$docsWithTypename<TRes>
 class Query$Q$docsWihtoutTypename {
   Query$Q$docsWihtoutTypename({this.title, required this.$__typename});
 
-  @override
   factory Query$Q$docsWihtoutTypename.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$docsWihtoutTypenameFromJson(json);
 
@@ -544,6 +543,7 @@ class Query$Q$docsWihtoutTypename {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Q$docsWihtoutTypenameToJson(this);
+  @override
   int get hashCode {
     final l$title = title;
     final l$$__typename = $__typename;
@@ -614,7 +614,6 @@ class _CopyWithStubImpl$Query$Q$docsWihtoutTypename<TRes>
 class Query$Q$docsWithAliasedTypename {
   Query$Q$docsWithAliasedTypename({this.$__typename});
 
-  @override
   factory Query$Q$docsWithAliasedTypename.fromJson(Map<String, dynamic> json) =>
       _$Query$Q$docsWithAliasedTypenameFromJson(json);
 
@@ -623,6 +622,7 @@ class Query$Q$docsWithAliasedTypename {
 
   Map<String, dynamic> toJson() =>
       _$Query$Q$docsWithAliasedTypenameToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -688,7 +688,6 @@ class _CopyWithStubImpl$Query$Q$docsWithAliasedTypename<TRes>
 class Query$Q$docsWithFragment {
   Query$Q$docsWithFragment({required this.$__typename});
 
-  @override
   factory Query$Q$docsWithFragment.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "Contract":
@@ -704,6 +703,7 @@ class Query$Q$docsWithFragment {
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$Query$Q$docsWithFragmentToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     return Object.hashAll([l$$__typename]);
@@ -768,7 +768,6 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment<TRes>
 class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
   Query$Q$docsWithFragment$$Contract({required this.$__typename, this.title});
 
-  @override
   factory Query$Q$docsWithFragment$$Contract.fromJson(
           Map<String, dynamic> json) =>
       _$Query$Q$docsWithFragment$$ContractFromJson(json);
@@ -780,6 +779,7 @@ class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
 
   Map<String, dynamic> toJson() =>
       _$Query$Q$docsWithFragment$$ContractToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$title = title;
@@ -853,7 +853,6 @@ class Query$Q$docsWithFragment$$Report
     implements Fragment$FReport, Query$Q$docsWithFragment {
   Query$Q$docsWithFragment$$Report({required this.$__typename, this.title});
 
-  @override
   factory Query$Q$docsWithFragment$$Report.fromJson(
           Map<String, dynamic> json) =>
       _$Query$Q$docsWithFragment$$ReportFromJson(json);
@@ -865,6 +864,7 @@ class Query$Q$docsWithFragment$$Report
 
   Map<String, dynamic> toJson() =>
       _$Query$Q$docsWithFragment$$ReportToJson(this);
+  @override
   int get hashCode {
     final l$$__typename = $__typename;
     final l$title = title;
