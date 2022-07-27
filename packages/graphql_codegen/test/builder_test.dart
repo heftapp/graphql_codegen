@@ -80,7 +80,7 @@ void main() {
           for (final entry in writer.assets.entries) {
             final file = noFlatLib
                 ? entry.key.path
-                : entry.key.path.replaceAll(RegExp("^lib/"), "");
+                : entry.key.path.replaceAll(RegExp("^lib"), "");
             if (utf8.decode(entry.value) != files[file]) {
               await (await File(
                 "${testSet.absolute.path}/${file}.expected",

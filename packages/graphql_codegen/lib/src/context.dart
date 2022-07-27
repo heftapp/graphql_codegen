@@ -553,6 +553,8 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
       config: config,
       schema: schema,
       type: input,
+      contexts: _contexts,
+      allContexts: _allContexts,
     );
     _addContext(c);
     return c;
@@ -828,12 +830,15 @@ class ContextInput<TKey extends Object>
     required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
     required InputObjectTypeDefinitionNode type,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> contexts,
+    required Map<Name, Context<TKey, TypeDefinitionNode>> allContexts,
   })  : path = Name.fromSegment(InputNameSegment(type)),
         super(
           key: key,
           config: config,
           schema: schema,
-          allContexts: {},
+          allContexts: allContexts,
+          contexts: contexts,
           currentType: type,
           parent: parent,
         );
