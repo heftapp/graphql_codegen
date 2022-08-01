@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/keywords.dart';
@@ -82,6 +83,8 @@ class NamePrinter {
 
   String printClassName(Name name) => _printName(name);
 
+  String printImplClassName(Name name) => "_Impl\$${printClassName(name)}";
+
   String printClassExtensionName(Name name) =>
       "UtilityExtension\$" + _printName(name);
 
@@ -95,6 +98,9 @@ class NamePrinter {
   String printParserFnName(Name name) => "_parserFn\$${_printName(name)}";
 
   String printVariableClassName(Name name) => "Variables\$${_printName(name)}";
+
+  String printVariableImplClassName(Name name) =>
+      "_Impl\$${printVariableClassName(name)}";
 
   String printGraphQLClientOptionsName(Name name) =>
       "Options\$${_printName(name)}";
@@ -166,13 +172,21 @@ class NamePrinter {
 
   String printToJsonFactoryName(String name) => "_\$${name}ToJson";
 
+  String printFromJsonConverterFunctionName(Name name) =>
+      "fromJson\$${printClassName(name)}";
+
+  String printToJsonConverterFunctionName(Name name) =>
+      "toJson\$${printClassName(name)}";
+
   String printKeywordSafe(String name) =>
       _keywords.contains(name) ? "\$${name}" : name;
 
   String printEnumValueName(NameNode name) => printKeywordSafe(name.value);
 
-  String printPropertyName(NameNode name) {
-    String value = name.value;
+  String printPropertyName(NameNode name) =>
+      _printPropertyNameString(name.value);
+
+  String _printPropertyNameString(String value) {
     if (value.startsWith('_')) {
       value = "\$${value}";
     }
@@ -180,5 +194,12 @@ class NamePrinter {
   }
 }
 
-Expression printNullCheck(Reference variable, Expression whenNotNull) =>
+Expression printNullCheck(Expression variable, Expression whenNotNull) =>
     variable.equalTo(literalNull).conditional(literalNull, whenNotNull);
+
+Method printIdentityFunction() => Method(
+      (b) => b
+        ..lambda = true
+        ..requiredParameters = ListBuilder([Parameter((b) => b..name = 'i')])
+        ..body = refer('i').code,
+    );

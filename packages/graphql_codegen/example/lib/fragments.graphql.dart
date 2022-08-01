@@ -1,10 +1,7 @@
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_codegen_example/scalars.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'fragments.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$PersonSummary {
   Fragment$PersonSummary(
       {this.nickname,
@@ -16,35 +13,79 @@ class Fragment$PersonSummary {
       this.favParent,
       required this.$__typename});
 
-  factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$PersonSummaryFromJson(json);
+  factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) {
+    final l$nickname = json['nickname'];
+    final l$name = json['name'];
+    final l$dob = json['dob'];
+    final l$events = json['events'];
+    final l$eventsOfEvents = json['eventsOfEvents'];
+    final l$parents = json['parents'];
+    final l$favParent = json['favParent'];
+    final l$$__typename = json['__typename'];
+    return Fragment$PersonSummary(
+        nickname: (l$nickname as String?),
+        name: (l$name as String),
+        dob: l$dob == null ? null : dateTimeFromJson(l$dob),
+        events: (l$events as List<dynamic>?)
+            ?.map((e) => e == null ? null : dateTimeFromJson(e))
+            .toList(),
+        eventsOfEvents: (l$eventsOfEvents as List<dynamic>?)
+            ?.map((e) => (e as List<dynamic>?)
+                ?.map((e) => e == null ? null : dateTimeFromJson(e))
+                .toList())
+            .toList(),
+        parents: (l$parents as List<dynamic>?)
+            ?.map((e) =>
+                Fragment$PersonParent.fromJson((e as Map<String, dynamic>)))
+            .toList(),
+        favParent: l$favParent == null
+            ? null
+            : Fragment$PersonParent.fromJson(
+                (l$favParent as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final String? nickname;
 
   final String name;
 
-  @JsonKey(
-      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
   final DateTime? dob;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$dateTimeToJson)
   final List<DateTime?>? events;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
   final List<Fragment$PersonParent>? parents;
 
   final Fragment$PersonParent? favParent;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$PersonSummaryToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$nickname = nickname;
+    _resultData['nickname'] = l$nickname;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$dob = dob;
+    _resultData['dob'] = l$dob == null ? null : dateTimeToJson(l$dob);
+    final l$events = events;
+    _resultData['events'] =
+        l$events?.map((e) => e == null ? null : dateTimeToJson(e)).toList();
+    final l$eventsOfEvents = eventsOfEvents;
+    _resultData['eventsOfEvents'] = l$eventsOfEvents
+        ?.map(
+            (e) => e?.map((e) => e == null ? null : dateTimeToJson(e)).toList())
+        .toList();
+    final l$parents = parents;
+    _resultData['parents'] = l$parents?.map((e) => e.toJson()).toList();
+    final l$favParent = favParent;
+    _resultData['favParent'] = l$favParent?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$nickname = nickname;
@@ -72,48 +113,67 @@ class Fragment$PersonSummary {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$PersonSummary) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$PersonSummary) ||
+        runtimeType != other.runtimeType) {
       return false;
+    }
     final l$nickname = nickname;
     final lOther$nickname = other.nickname;
-    if (l$nickname != lOther$nickname) return false;
+    if (l$nickname != lOther$nickname) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$dob = dob;
     final lOther$dob = other.dob;
-    if (l$dob != lOther$dob) return false;
+    if (l$dob != lOther$dob) {
+      return false;
+    }
     final l$events = events;
     final lOther$events = other.events;
     if (l$events != null && lOther$events != null) {
-      if (l$events.length != lOther$events.length) return false;
+      if (l$events.length != lOther$events.length) {
+        return false;
+      }
       for (int i = 0; i < l$events.length; i++) {
         final l$events$entry = l$events[i];
         final lOther$events$entry = lOther$events[i];
-        if (l$events$entry != lOther$events$entry) return false;
+        if (l$events$entry != lOther$events$entry) {
+          return false;
+        }
       }
     } else if (l$events != lOther$events) {
       return false;
     }
-
     final l$eventsOfEvents = eventsOfEvents;
     final lOther$eventsOfEvents = other.eventsOfEvents;
     if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
-      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
+      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) {
+        return false;
+      }
       for (int i = 0; i < l$eventsOfEvents.length; i++) {
         final l$eventsOfEvents$entry = l$eventsOfEvents[i];
         final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
         if (l$eventsOfEvents$entry != null &&
             lOther$eventsOfEvents$entry != null) {
           if (l$eventsOfEvents$entry.length !=
-              lOther$eventsOfEvents$entry.length) return false;
+              lOther$eventsOfEvents$entry.length) {
+            return false;
+          }
           for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
             final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
             final lOther$eventsOfEvents$entry$entry =
                 lOther$eventsOfEvents$entry[i];
             if (l$eventsOfEvents$entry$entry !=
-                lOther$eventsOfEvents$entry$entry) return false;
+                lOther$eventsOfEvents$entry$entry) {
+              return false;
+            }
           }
         } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
           return false;
@@ -122,26 +182,32 @@ class Fragment$PersonSummary {
     } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
       return false;
     }
-
     final l$parents = parents;
     final lOther$parents = other.parents;
     if (l$parents != null && lOther$parents != null) {
-      if (l$parents.length != lOther$parents.length) return false;
+      if (l$parents.length != lOther$parents.length) {
+        return false;
+      }
       for (int i = 0; i < l$parents.length; i++) {
         final l$parents$entry = l$parents[i];
         final lOther$parents$entry = lOther$parents[i];
-        if (l$parents$entry != lOther$parents$entry) return false;
+        if (l$parents$entry != lOther$parents$entry) {
+          return false;
+        }
       }
     } else if (l$parents != lOther$parents) {
       return false;
     }
-
     final l$favParent = favParent;
     final lOther$favParent = other.favParent;
-    if (l$favParent != lOther$favParent) return false;
+    if (l$favParent != lOther$favParent) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -153,8 +219,8 @@ extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
 
 abstract class CopyWith$Fragment$PersonSummary<TRes> {
   factory CopyWith$Fragment$PersonSummary(Fragment$PersonSummary instance,
-          TRes Function(Fragment$PersonSummary) then) =
-      _CopyWithImpl$Fragment$PersonSummary;
+          TRes Function(Fragment$PersonSummary) then) =>
+      _CopyWithImpl$Fragment$PersonSummary(instance, then);
 
   factory CopyWith$Fragment$PersonSummary.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonSummary;
@@ -360,19 +426,29 @@ extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$PersonParent {
   Fragment$PersonParent({required this.name, required this.$__typename});
 
-  factory Fragment$PersonParent.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$PersonParentFromJson(json);
+  factory Fragment$PersonParent.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$PersonParent(
+        name: (l$name as String), $__typename: (l$$__typename as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$PersonParentToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -382,15 +458,22 @@ class Fragment$PersonParent {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$PersonParent) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$PersonParent) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -402,8 +485,8 @@ extension UtilityExtension$Fragment$PersonParent on Fragment$PersonParent {
 
 abstract class CopyWith$Fragment$PersonParent<TRes> {
   factory CopyWith$Fragment$PersonParent(Fragment$PersonParent instance,
-          TRes Function(Fragment$PersonParent) then) =
-      _CopyWithImpl$Fragment$PersonParent;
+          TRes Function(Fragment$PersonParent) then) =>
+      _CopyWithImpl$Fragment$PersonParent(instance, then);
 
   factory CopyWith$Fragment$PersonParent.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonParent;
@@ -488,32 +571,3 @@ extension ClientExtension$Fragment$PersonParent on graphql.GraphQLClient {
     return result == null ? null : Fragment$PersonParent.fromJson(result);
   }
 }
-
-DateTime? _nullable$dateTimeFromJson(dynamic data) =>
-    data == null ? null : dateTimeFromJson(data);
-dynamic _nullable$dateTimeToJson(DateTime? data) =>
-    data == null ? null : dateTimeToJson(data);
-List<DateTime?> _list$_nullable$dateTimeFromJson(dynamic data) =>
-    data is List ? data.map(_nullable$dateTimeFromJson).toList() : [];
-dynamic _list$_nullable$dateTimeToJson(List<DateTime?> data) =>
-    data.map(_nullable$dateTimeToJson).toList();
-List<DateTime?>? _nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
-    data == null ? null : _list$_nullable$dateTimeFromJson(data);
-dynamic _nullable$_list$_nullable$dateTimeToJson(List<DateTime?>? data) =>
-    data == null ? null : _list$_nullable$dateTimeToJson(data);
-List<List<DateTime?>?> _list$_nullable$_list$_nullable$dateTimeFromJson(
-        dynamic data) =>
-    data is List
-        ? data.map(_nullable$_list$_nullable$dateTimeFromJson).toList()
-        : [];
-dynamic _list$_nullable$_list$_nullable$dateTimeToJson(
-        List<List<DateTime?>?> data) =>
-    data.map(_nullable$_list$_nullable$dateTimeToJson).toList();
-List<List<DateTime?>?>?
-    _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
-        data == null
-            ? null
-            : _list$_nullable$_list$_nullable$dateTimeFromJson(data);
-dynamic _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
-        List<List<DateTime?>?>? data) =>
-    data == null ? null : _list$_nullable$_list$_nullable$dateTimeToJson(data);

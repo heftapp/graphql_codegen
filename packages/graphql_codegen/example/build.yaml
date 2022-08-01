@@ -4,6 +4,8 @@ targets:
       graphql_codegen:
         options:
           scalars:
+            URL:
+              type: String
             ISODateTime:
               type: DateTime
               fromJsonFunctionName: dateTimeFromJson

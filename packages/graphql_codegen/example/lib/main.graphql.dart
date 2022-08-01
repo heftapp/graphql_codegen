@@ -5,45 +5,76 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_codegen_example/scalars.dart';
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'main.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Query$FetchPerson {
-  Variables$Query$FetchPerson({required this.id});
+abstract class Variables$Query$FetchPerson {
+  factory Variables$Query$FetchPerson({required String id}) =>
+      _Impl$Variables$Query$FetchPerson({'id': id});
 
-  factory Variables$Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Query$FetchPersonFromJson(json);
+  factory Variables$Query$FetchPerson.withoutNulls({required String id}) {
+    final l$data = <String, dynamic>{'id': id};
+    return _Impl$Variables$Query$FetchPerson(l$data);
+  }
 
-  final String id;
+  factory Variables$Query$FetchPerson.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$id = data['id'];
+    result$data['id'] = (l$id as String);
+    return _Impl$Variables$Query$FetchPerson(result$data);
+  }
 
-  Map<String, dynamic> toJson() => _$Variables$Query$FetchPersonToJson(this);
+  String get id;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Query$FetchPerson<Variables$Query$FetchPerson>
+      get copyWith;
+  _Impl$Variables$Query$FetchPerson get $impl;
+}
+
+class _Impl$Variables$Query$FetchPerson implements Variables$Query$FetchPerson {
+  _Impl$Variables$Query$FetchPerson(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get id => ($data['id'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$id = id;
+    result$data['id'] = l$id;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$FetchPerson<Variables$Query$FetchPerson>
+      get copyWith => CopyWith$Variables$Query$FetchPerson(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Query$FetchPerson) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Query$FetchPerson) ||
-        runtimeType != other.runtimeType) return false;
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Query$FetchPerson<Variables$Query$FetchPerson>
-      get copyWith => CopyWith$Variables$Query$FetchPerson(this, (i) => i);
+  _Impl$Variables$Query$FetchPerson get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchPerson<TRes> {
   factory CopyWith$Variables$Query$FetchPerson(
           Variables$Query$FetchPerson instance,
-          TRes Function(Variables$Query$FetchPerson) then) =
-      _CopyWithImpl$Variables$Query$FetchPerson;
+          TRes Function(Variables$Query$FetchPerson) then) =>
+      _CopyWithImpl$Variables$Query$FetchPerson(instance.$impl, then);
 
   factory CopyWith$Variables$Query$FetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchPerson;
@@ -55,14 +86,17 @@ class _CopyWithImpl$Variables$Query$FetchPerson<TRes>
     implements CopyWith$Variables$Query$FetchPerson<TRes> {
   _CopyWithImpl$Variables$Query$FetchPerson(this._instance, this._then);
 
-  final Variables$Query$FetchPerson _instance;
+  final _Impl$Variables$Query$FetchPerson _instance;
 
-  final TRes Function(Variables$Query$FetchPerson) _then;
+  final TRes Function(_Impl$Variables$Query$FetchPerson) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? id = _undefined}) => _then(Variables$Query$FetchPerson(
-      id: id == _undefined || id == null ? _instance.id : (id as String)));
+  TRes call({Object? id = _undefined}) =>
+      _then(_Impl$Variables$Query$FetchPerson({
+        ..._instance.$data,
+        if (id != _undefined && id != null) 'id': (id as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Query$FetchPerson<TRes>
@@ -74,19 +108,33 @@ class _CopyWithStubImpl$Variables$Query$FetchPerson<TRes>
   call({String? id}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchPerson {
   Query$FetchPerson({this.fetchPerson, required this.$__typename});
 
-  factory Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchPersonFromJson(json);
+  factory Query$FetchPerson.fromJson(Map<String, dynamic> json) {
+    final l$fetchPerson = json['fetchPerson'];
+    final l$$__typename = json['__typename'];
+    return Query$FetchPerson(
+        fetchPerson: l$fetchPerson == null
+            ? null
+            : Query$FetchPerson$fetchPerson.fromJson(
+                (l$fetchPerson as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Query$FetchPerson$fetchPerson? fetchPerson;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$FetchPersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$fetchPerson = fetchPerson;
+    _resultData['fetchPerson'] = l$fetchPerson?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$fetchPerson = fetchPerson;
@@ -96,15 +144,22 @@ class Query$FetchPerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$fetchPerson = fetchPerson;
     final lOther$fetchPerson = other.fetchPerson;
-    if (l$fetchPerson != lOther$fetchPerson) return false;
+    if (l$fetchPerson != lOther$fetchPerson) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -116,8 +171,8 @@ extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
 
 abstract class CopyWith$Query$FetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson(
-          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
-      _CopyWithImpl$Query$FetchPerson;
+          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =>
+      _CopyWithImpl$Query$FetchPerson(instance, then);
 
   factory CopyWith$Query$FetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson;
@@ -353,7 +408,6 @@ class Query$FetchPerson$Widget
       : super(key: key, options: options, builder: builder);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
   Query$FetchPerson$fetchPerson(
       {this.nickname,
@@ -366,37 +420,88 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
       required this.$__typename,
       this.children});
 
-  factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchPerson$fetchPersonFromJson(json);
+  factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) {
+    final l$nickname = json['nickname'];
+    final l$name = json['name'];
+    final l$dob = json['dob'];
+    final l$events = json['events'];
+    final l$eventsOfEvents = json['eventsOfEvents'];
+    final l$parents = json['parents'];
+    final l$favParent = json['favParent'];
+    final l$$__typename = json['__typename'];
+    final l$children = json['children'];
+    return Query$FetchPerson$fetchPerson(
+        nickname: (l$nickname as String?),
+        name: (l$name as String),
+        dob: l$dob == null ? null : dateTimeFromJson(l$dob),
+        events: (l$events as List<dynamic>?)
+            ?.map((e) => e == null ? null : dateTimeFromJson(e))
+            .toList(),
+        eventsOfEvents: (l$eventsOfEvents as List<dynamic>?)
+            ?.map((e) => (e as List<dynamic>?)
+                ?.map((e) => e == null ? null : dateTimeFromJson(e))
+                .toList())
+            .toList(),
+        parents: (l$parents as List<dynamic>?)
+            ?.map((e) => Query$FetchPerson$fetchPerson$parents.fromJson(
+                (e as Map<String, dynamic>)))
+            .toList(),
+        favParent: l$favParent == null
+            ? null
+            : Fragment$PersonParent.fromJson(
+                (l$favParent as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String),
+        children: (l$children as List<dynamic>?)
+            ?.map((e) =>
+                Fragment$PersonSummary.fromJson((e as Map<String, dynamic>)))
+            .toList());
+  }
 
   final String? nickname;
 
   final String name;
 
-  @JsonKey(
-      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
   final DateTime? dob;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$dateTimeToJson)
   final List<DateTime?>? events;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
   final List<Query$FetchPerson$fetchPerson$parents>? parents;
 
   final Fragment$PersonParent? favParent;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final List<Fragment$PersonSummary>? children;
 
-  Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$nickname = nickname;
+    _resultData['nickname'] = l$nickname;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$dob = dob;
+    _resultData['dob'] = l$dob == null ? null : dateTimeToJson(l$dob);
+    final l$events = events;
+    _resultData['events'] =
+        l$events?.map((e) => e == null ? null : dateTimeToJson(e)).toList();
+    final l$eventsOfEvents = eventsOfEvents;
+    _resultData['eventsOfEvents'] = l$eventsOfEvents
+        ?.map(
+            (e) => e?.map((e) => e == null ? null : dateTimeToJson(e)).toList())
+        .toList();
+    final l$parents = parents;
+    _resultData['parents'] = l$parents?.map((e) => e.toJson()).toList();
+    final l$favParent = favParent;
+    _resultData['favParent'] = l$favParent?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$children = children;
+    _resultData['children'] = l$children?.map((e) => e.toJson()).toList();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$nickname = nickname;
@@ -426,48 +531,67 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$FetchPerson$fetchPerson) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$nickname = nickname;
     final lOther$nickname = other.nickname;
-    if (l$nickname != lOther$nickname) return false;
+    if (l$nickname != lOther$nickname) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$dob = dob;
     final lOther$dob = other.dob;
-    if (l$dob != lOther$dob) return false;
+    if (l$dob != lOther$dob) {
+      return false;
+    }
     final l$events = events;
     final lOther$events = other.events;
     if (l$events != null && lOther$events != null) {
-      if (l$events.length != lOther$events.length) return false;
+      if (l$events.length != lOther$events.length) {
+        return false;
+      }
       for (int i = 0; i < l$events.length; i++) {
         final l$events$entry = l$events[i];
         final lOther$events$entry = lOther$events[i];
-        if (l$events$entry != lOther$events$entry) return false;
+        if (l$events$entry != lOther$events$entry) {
+          return false;
+        }
       }
     } else if (l$events != lOther$events) {
       return false;
     }
-
     final l$eventsOfEvents = eventsOfEvents;
     final lOther$eventsOfEvents = other.eventsOfEvents;
     if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
-      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
+      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) {
+        return false;
+      }
       for (int i = 0; i < l$eventsOfEvents.length; i++) {
         final l$eventsOfEvents$entry = l$eventsOfEvents[i];
         final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
         if (l$eventsOfEvents$entry != null &&
             lOther$eventsOfEvents$entry != null) {
           if (l$eventsOfEvents$entry.length !=
-              lOther$eventsOfEvents$entry.length) return false;
+              lOther$eventsOfEvents$entry.length) {
+            return false;
+          }
           for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
             final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
             final lOther$eventsOfEvents$entry$entry =
                 lOther$eventsOfEvents$entry[i];
             if (l$eventsOfEvents$entry$entry !=
-                lOther$eventsOfEvents$entry$entry) return false;
+                lOther$eventsOfEvents$entry$entry) {
+              return false;
+            }
           }
         } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
           return false;
@@ -476,39 +600,48 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
     } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
       return false;
     }
-
     final l$parents = parents;
     final lOther$parents = other.parents;
     if (l$parents != null && lOther$parents != null) {
-      if (l$parents.length != lOther$parents.length) return false;
+      if (l$parents.length != lOther$parents.length) {
+        return false;
+      }
       for (int i = 0; i < l$parents.length; i++) {
         final l$parents$entry = l$parents[i];
         final lOther$parents$entry = lOther$parents[i];
-        if (l$parents$entry != lOther$parents$entry) return false;
+        if (l$parents$entry != lOther$parents$entry) {
+          return false;
+        }
       }
     } else if (l$parents != lOther$parents) {
       return false;
     }
-
     final l$favParent = favParent;
     final lOther$favParent = other.favParent;
-    if (l$favParent != lOther$favParent) return false;
+    if (l$favParent != lOther$favParent) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$children = children;
     final lOther$children = other.children;
     if (l$children != null && lOther$children != null) {
-      if (l$children.length != lOther$children.length) return false;
+      if (l$children.length != lOther$children.length) {
+        return false;
+      }
       for (int i = 0; i < l$children.length; i++) {
         final l$children$entry = l$children[i];
         final lOther$children$entry = lOther$children[i];
-        if (l$children$entry != lOther$children$entry) return false;
+        if (l$children$entry != lOther$children$entry) {
+          return false;
+        }
       }
     } else if (l$children != lOther$children) {
       return false;
     }
-
     return true;
   }
 }
@@ -522,8 +655,8 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson
 abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson$fetchPerson(
           Query$FetchPerson$fetchPerson instance,
-          TRes Function(Query$FetchPerson$fetchPerson) then) =
-      _CopyWithImpl$Query$FetchPerson$fetchPerson;
+          TRes Function(Query$FetchPerson$fetchPerson) then) =>
+      _CopyWithImpl$Query$FetchPerson$fetchPerson(instance, then);
 
   factory CopyWith$Query$FetchPerson$fetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson$fetchPerson;
@@ -650,7 +783,6 @@ class _CopyWithStubImpl$Query$FetchPerson$fetchPerson<TRes>
   children(_fn) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchPerson$fetchPerson$parents
     implements Fragment$PersonParent, Fragment$PersonSummary {
   Query$FetchPerson$fetchPerson$parents(
@@ -664,36 +796,79 @@ class Query$FetchPerson$fetchPerson$parents
       this.favParent});
 
   factory Query$FetchPerson$fetchPerson$parents.fromJson(
-          Map<String, dynamic> json) =>
-      _$Query$FetchPerson$fetchPerson$parentsFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    final l$nickname = json['nickname'];
+    final l$dob = json['dob'];
+    final l$events = json['events'];
+    final l$eventsOfEvents = json['eventsOfEvents'];
+    final l$parents = json['parents'];
+    final l$favParent = json['favParent'];
+    return Query$FetchPerson$fetchPerson$parents(
+        name: (l$name as String),
+        $__typename: (l$$__typename as String),
+        nickname: (l$nickname as String?),
+        dob: l$dob == null ? null : dateTimeFromJson(l$dob),
+        events: (l$events as List<dynamic>?)
+            ?.map((e) => e == null ? null : dateTimeFromJson(e))
+            .toList(),
+        eventsOfEvents: (l$eventsOfEvents as List<dynamic>?)
+            ?.map((e) => (e as List<dynamic>?)
+                ?.map((e) => e == null ? null : dateTimeFromJson(e))
+                .toList())
+            .toList(),
+        parents: (l$parents as List<dynamic>?)
+            ?.map((e) =>
+                Fragment$PersonParent.fromJson((e as Map<String, dynamic>)))
+            .toList(),
+        favParent: l$favParent == null
+            ? null
+            : Fragment$PersonParent.fromJson(
+                (l$favParent as Map<String, dynamic>)));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? nickname;
 
-  @JsonKey(
-      fromJson: _nullable$dateTimeFromJson, toJson: _nullable$dateTimeToJson)
   final DateTime? dob;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$dateTimeToJson)
   final List<DateTime?>? events;
 
-  @JsonKey(
-      fromJson: _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson,
-      toJson: _nullable$_list$_nullable$_list$_nullable$dateTimeToJson)
   final List<List<DateTime?>?>? eventsOfEvents;
 
   final List<Fragment$PersonParent>? parents;
 
   final Fragment$PersonParent? favParent;
 
-  Map<String, dynamic> toJson() =>
-      _$Query$FetchPerson$fetchPerson$parentsToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$nickname = nickname;
+    _resultData['nickname'] = l$nickname;
+    final l$dob = dob;
+    _resultData['dob'] = l$dob == null ? null : dateTimeToJson(l$dob);
+    final l$events = events;
+    _resultData['events'] =
+        l$events?.map((e) => e == null ? null : dateTimeToJson(e)).toList();
+    final l$eventsOfEvents = eventsOfEvents;
+    _resultData['eventsOfEvents'] = l$eventsOfEvents
+        ?.map(
+            (e) => e?.map((e) => e == null ? null : dateTimeToJson(e)).toList())
+        .toList();
+    final l$parents = parents;
+    _resultData['parents'] = l$parents?.map((e) => e.toJson()).toList();
+    final l$favParent = favParent;
+    _resultData['favParent'] = l$favParent?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -721,51 +896,72 @@ class Query$FetchPerson$fetchPerson$parents
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$FetchPerson$fetchPerson$parents) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$nickname = nickname;
     final lOther$nickname = other.nickname;
-    if (l$nickname != lOther$nickname) return false;
+    if (l$nickname != lOther$nickname) {
+      return false;
+    }
     final l$dob = dob;
     final lOther$dob = other.dob;
-    if (l$dob != lOther$dob) return false;
+    if (l$dob != lOther$dob) {
+      return false;
+    }
     final l$events = events;
     final lOther$events = other.events;
     if (l$events != null && lOther$events != null) {
-      if (l$events.length != lOther$events.length) return false;
+      if (l$events.length != lOther$events.length) {
+        return false;
+      }
       for (int i = 0; i < l$events.length; i++) {
         final l$events$entry = l$events[i];
         final lOther$events$entry = lOther$events[i];
-        if (l$events$entry != lOther$events$entry) return false;
+        if (l$events$entry != lOther$events$entry) {
+          return false;
+        }
       }
     } else if (l$events != lOther$events) {
       return false;
     }
-
     final l$eventsOfEvents = eventsOfEvents;
     final lOther$eventsOfEvents = other.eventsOfEvents;
     if (l$eventsOfEvents != null && lOther$eventsOfEvents != null) {
-      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) return false;
+      if (l$eventsOfEvents.length != lOther$eventsOfEvents.length) {
+        return false;
+      }
       for (int i = 0; i < l$eventsOfEvents.length; i++) {
         final l$eventsOfEvents$entry = l$eventsOfEvents[i];
         final lOther$eventsOfEvents$entry = lOther$eventsOfEvents[i];
         if (l$eventsOfEvents$entry != null &&
             lOther$eventsOfEvents$entry != null) {
           if (l$eventsOfEvents$entry.length !=
-              lOther$eventsOfEvents$entry.length) return false;
+              lOther$eventsOfEvents$entry.length) {
+            return false;
+          }
           for (int i = 0; i < l$eventsOfEvents$entry.length; i++) {
             final l$eventsOfEvents$entry$entry = l$eventsOfEvents$entry[i];
             final lOther$eventsOfEvents$entry$entry =
                 lOther$eventsOfEvents$entry[i];
             if (l$eventsOfEvents$entry$entry !=
-                lOther$eventsOfEvents$entry$entry) return false;
+                lOther$eventsOfEvents$entry$entry) {
+              return false;
+            }
           }
         } else if (l$eventsOfEvents$entry != lOther$eventsOfEvents$entry) {
           return false;
@@ -774,23 +970,27 @@ class Query$FetchPerson$fetchPerson$parents
     } else if (l$eventsOfEvents != lOther$eventsOfEvents) {
       return false;
     }
-
     final l$parents = parents;
     final lOther$parents = other.parents;
     if (l$parents != null && lOther$parents != null) {
-      if (l$parents.length != lOther$parents.length) return false;
+      if (l$parents.length != lOther$parents.length) {
+        return false;
+      }
       for (int i = 0; i < l$parents.length; i++) {
         final l$parents$entry = l$parents[i];
         final lOther$parents$entry = lOther$parents[i];
-        if (l$parents$entry != lOther$parents$entry) return false;
+        if (l$parents$entry != lOther$parents$entry) {
+          return false;
+        }
       }
     } else if (l$parents != lOther$parents) {
       return false;
     }
-
     final l$favParent = favParent;
     final lOther$favParent = other.favParent;
-    if (l$favParent != lOther$favParent) return false;
+    if (l$favParent != lOther$favParent) {
+      return false;
+    }
     return true;
   }
 }
@@ -806,8 +1006,8 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson$parents
 abstract class CopyWith$Query$FetchPerson$fetchPerson$parents<TRes> {
   factory CopyWith$Query$FetchPerson$fetchPerson$parents(
           Query$FetchPerson$fetchPerson$parents instance,
-          TRes Function(Query$FetchPerson$fetchPerson$parents) then) =
-      _CopyWithImpl$Query$FetchPerson$fetchPerson$parents;
+          TRes Function(Query$FetchPerson$fetchPerson$parents) then) =>
+      _CopyWithImpl$Query$FetchPerson$fetchPerson$parents(instance, then);
 
   factory CopyWith$Query$FetchPerson$fetchPerson$parents.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents;
@@ -910,43 +1110,76 @@ class _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents<TRes>
       CopyWith$Fragment$PersonParent.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Mutation$UpdatePerson {
-  Variables$Mutation$UpdatePerson({required this.id});
+abstract class Variables$Mutation$UpdatePerson {
+  factory Variables$Mutation$UpdatePerson({required String id}) =>
+      _Impl$Variables$Mutation$UpdatePerson({'id': id});
 
-  factory Variables$Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Mutation$UpdatePersonFromJson(json);
+  factory Variables$Mutation$UpdatePerson.withoutNulls({required String id}) {
+    final l$data = <String, dynamic>{'id': id};
+    return _Impl$Variables$Mutation$UpdatePerson(l$data);
+  }
 
-  final String id;
+  factory Variables$Mutation$UpdatePerson.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$id = data['id'];
+    result$data['id'] = (l$id as String);
+    return _Impl$Variables$Mutation$UpdatePerson(result$data);
+  }
 
-  Map<String, dynamic> toJson() =>
-      _$Variables$Mutation$UpdatePersonToJson(this);
+  String get id;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Mutation$UpdatePerson<Variables$Mutation$UpdatePerson>
+      get copyWith;
+  _Impl$Variables$Mutation$UpdatePerson get $impl;
+}
+
+class _Impl$Variables$Mutation$UpdatePerson
+    implements Variables$Mutation$UpdatePerson {
+  _Impl$Variables$Mutation$UpdatePerson(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get id => ($data['id'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$id = id;
+    result$data['id'] = l$id;
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$UpdatePerson<Variables$Mutation$UpdatePerson>
+      get copyWith => CopyWith$Variables$Mutation$UpdatePerson(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Mutation$UpdatePerson) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$id = id;
     return Object.hashAll([l$id]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Mutation$UpdatePerson) ||
-        runtimeType != other.runtimeType) return false;
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Mutation$UpdatePerson<Variables$Mutation$UpdatePerson>
-      get copyWith => CopyWith$Variables$Mutation$UpdatePerson(this, (i) => i);
+  _Impl$Variables$Mutation$UpdatePerson get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdatePerson<TRes> {
   factory CopyWith$Variables$Mutation$UpdatePerson(
           Variables$Mutation$UpdatePerson instance,
-          TRes Function(Variables$Mutation$UpdatePerson) then) =
-      _CopyWithImpl$Variables$Mutation$UpdatePerson;
+          TRes Function(Variables$Mutation$UpdatePerson) then) =>
+      _CopyWithImpl$Variables$Mutation$UpdatePerson(instance.$impl, then);
 
   factory CopyWith$Variables$Mutation$UpdatePerson.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdatePerson;
@@ -958,14 +1191,17 @@ class _CopyWithImpl$Variables$Mutation$UpdatePerson<TRes>
     implements CopyWith$Variables$Mutation$UpdatePerson<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdatePerson(this._instance, this._then);
 
-  final Variables$Mutation$UpdatePerson _instance;
+  final _Impl$Variables$Mutation$UpdatePerson _instance;
 
-  final TRes Function(Variables$Mutation$UpdatePerson) _then;
+  final TRes Function(_Impl$Variables$Mutation$UpdatePerson) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? id = _undefined}) => _then(Variables$Mutation$UpdatePerson(
-      id: id == _undefined || id == null ? _instance.id : (id as String)));
+  TRes call({Object? id = _undefined}) =>
+      _then(_Impl$Variables$Mutation$UpdatePerson({
+        ..._instance.$data,
+        if (id != _undefined && id != null) 'id': (id as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdatePerson<TRes>
@@ -977,19 +1213,33 @@ class _CopyWithStubImpl$Variables$Mutation$UpdatePerson<TRes>
   call({String? id}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdatePerson {
   Mutation$UpdatePerson({this.updatePerson, required this.$__typename});
 
-  factory Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdatePersonFromJson(json);
+  factory Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) {
+    final l$updatePerson = json['updatePerson'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UpdatePerson(
+        updatePerson: l$updatePerson == null
+            ? null
+            : Mutation$UpdatePerson$updatePerson.fromJson(
+                (l$updatePerson as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Mutation$UpdatePerson$updatePerson? updatePerson;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdatePersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$updatePerson = updatePerson;
+    _resultData['updatePerson'] = l$updatePerson?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$updatePerson = updatePerson;
@@ -999,15 +1249,22 @@ class Mutation$UpdatePerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Mutation$UpdatePerson) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$UpdatePerson) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$updatePerson = updatePerson;
     final lOther$updatePerson = other.updatePerson;
-    if (l$updatePerson != lOther$updatePerson) return false;
+    if (l$updatePerson != lOther$updatePerson) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -1019,8 +1276,8 @@ extension UtilityExtension$Mutation$UpdatePerson on Mutation$UpdatePerson {
 
 abstract class CopyWith$Mutation$UpdatePerson<TRes> {
   factory CopyWith$Mutation$UpdatePerson(Mutation$UpdatePerson instance,
-          TRes Function(Mutation$UpdatePerson) then) =
-      _CopyWithImpl$Mutation$UpdatePerson;
+          TRes Function(Mutation$UpdatePerson) then) =>
+      _CopyWithImpl$Mutation$UpdatePerson(instance, then);
 
   factory CopyWith$Mutation$UpdatePerson.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdatePerson;
@@ -1297,22 +1554,32 @@ class Mutation$UpdatePerson$Widget
                 result));
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdatePerson$updatePerson {
   Mutation$UpdatePerson$updatePerson(
       {required this.full_name, required this.$__typename});
 
   factory Mutation$UpdatePerson$updatePerson.fromJson(
-          Map<String, dynamic> json) =>
-      _$Mutation$UpdatePerson$updatePersonFromJson(json);
+      Map<String, dynamic> json) {
+    final l$full_name = json['full_name'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UpdatePerson$updatePerson(
+        full_name: (l$full_name as String),
+        $__typename: (l$$__typename as String));
+  }
 
   final String full_name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() =>
-      _$Mutation$UpdatePerson$updatePersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$full_name = full_name;
+    _resultData['full_name'] = l$full_name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$full_name = full_name;
@@ -1322,15 +1589,23 @@ class Mutation$UpdatePerson$updatePerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$UpdatePerson$updatePerson) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$full_name = full_name;
     final lOther$full_name = other.full_name;
-    if (l$full_name != lOther$full_name) return false;
+    if (l$full_name != lOther$full_name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -1346,8 +1621,8 @@ extension UtilityExtension$Mutation$UpdatePerson$updatePerson
 abstract class CopyWith$Mutation$UpdatePerson$updatePerson<TRes> {
   factory CopyWith$Mutation$UpdatePerson$updatePerson(
           Mutation$UpdatePerson$updatePerson instance,
-          TRes Function(Mutation$UpdatePerson$updatePerson) then) =
-      _CopyWithImpl$Mutation$UpdatePerson$updatePerson;
+          TRes Function(Mutation$UpdatePerson$updatePerson) then) =>
+      _CopyWithImpl$Mutation$UpdatePerson$updatePerson(instance, then);
 
   factory CopyWith$Mutation$UpdatePerson$updatePerson.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson;
@@ -1385,46 +1660,87 @@ class _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson<TRes>
   call({String? full_name, String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Subscription$WatchPerson {
-  Variables$Subscription$WatchPerson({this.id});
+abstract class Variables$Subscription$WatchPerson {
+  factory Variables$Subscription$WatchPerson({String? id}) =>
+      _Impl$Variables$Subscription$WatchPerson({'id': id});
 
-  factory Variables$Subscription$WatchPerson.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Subscription$WatchPersonFromJson(json);
-
-  final String? id;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Subscription$WatchPersonToJson(this);
-  @override
-  int get hashCode {
-    final l$id = id;
-    return Object.hashAll([l$id]);
+  factory Variables$Subscription$WatchPerson.withoutNulls({String? id}) {
+    final l$data = <String, dynamic>{};
+    if (id != null) l$data['id'] = id;
+    return _Impl$Variables$Subscription$WatchPerson(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Subscription$WatchPerson) ||
-        runtimeType != other.runtimeType) return false;
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) return false;
-    return true;
+  factory Variables$Subscription$WatchPerson.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as String?);
+    }
+    return _Impl$Variables$Subscription$WatchPerson(result$data);
+  }
+
+  String? get id;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Subscription$WatchPerson<
+      Variables$Subscription$WatchPerson> get copyWith;
+  _Impl$Variables$Subscription$WatchPerson get $impl;
+}
+
+class _Impl$Variables$Subscription$WatchPerson
+    implements Variables$Subscription$WatchPerson {
+  _Impl$Variables$Subscription$WatchPerson(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String? get id => ($data['id'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    return result$data;
   }
 
   CopyWith$Variables$Subscription$WatchPerson<
           Variables$Subscription$WatchPerson>
       get copyWith =>
           CopyWith$Variables$Subscription$WatchPerson(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Subscription$WatchPerson) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if ($data.containsKey('id') != other.$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([$data.containsKey('id') ? l$id : const {}]);
+  }
+
+  _Impl$Variables$Subscription$WatchPerson get $impl => this;
 }
 
 abstract class CopyWith$Variables$Subscription$WatchPerson<TRes> {
   factory CopyWith$Variables$Subscription$WatchPerson(
           Variables$Subscription$WatchPerson instance,
-          TRes Function(Variables$Subscription$WatchPerson) then) =
-      _CopyWithImpl$Variables$Subscription$WatchPerson;
+          TRes Function(Variables$Subscription$WatchPerson) then) =>
+      _CopyWithImpl$Variables$Subscription$WatchPerson(instance.$impl, then);
 
   factory CopyWith$Variables$Subscription$WatchPerson.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$WatchPerson;
@@ -1436,15 +1752,17 @@ class _CopyWithImpl$Variables$Subscription$WatchPerson<TRes>
     implements CopyWith$Variables$Subscription$WatchPerson<TRes> {
   _CopyWithImpl$Variables$Subscription$WatchPerson(this._instance, this._then);
 
-  final Variables$Subscription$WatchPerson _instance;
+  final _Impl$Variables$Subscription$WatchPerson _instance;
 
-  final TRes Function(Variables$Subscription$WatchPerson) _then;
+  final TRes Function(_Impl$Variables$Subscription$WatchPerson) _then;
 
   static const _undefined = {};
 
   TRes call({Object? id = _undefined}) =>
-      _then(Variables$Subscription$WatchPerson(
-          id: id == _undefined ? _instance.id : (id as String?)));
+      _then(_Impl$Variables$Subscription$WatchPerson({
+        ..._instance.$data,
+        if (id != _undefined) 'id': (id as String?),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Subscription$WatchPerson<TRes>
@@ -1456,19 +1774,33 @@ class _CopyWithStubImpl$Variables$Subscription$WatchPerson<TRes>
   call({String? id}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$WatchPerson {
   Subscription$WatchPerson({this.watchPerson, required this.$__typename});
 
-  factory Subscription$WatchPerson.fromJson(Map<String, dynamic> json) =>
-      _$Subscription$WatchPersonFromJson(json);
+  factory Subscription$WatchPerson.fromJson(Map<String, dynamic> json) {
+    final l$watchPerson = json['watchPerson'];
+    final l$$__typename = json['__typename'];
+    return Subscription$WatchPerson(
+        watchPerson: l$watchPerson == null
+            ? null
+            : Subscription$WatchPerson$watchPerson.fromJson(
+                (l$watchPerson as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Subscription$WatchPerson$watchPerson? watchPerson;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Subscription$WatchPersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$watchPerson = watchPerson;
+    _resultData['watchPerson'] = l$watchPerson?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$watchPerson = watchPerson;
@@ -1478,15 +1810,23 @@ class Subscription$WatchPerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$WatchPerson) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$watchPerson = watchPerson;
     final lOther$watchPerson = other.watchPerson;
-    if (l$watchPerson != lOther$watchPerson) return false;
+    if (l$watchPerson != lOther$watchPerson) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -1499,8 +1839,8 @@ extension UtilityExtension$Subscription$WatchPerson
 
 abstract class CopyWith$Subscription$WatchPerson<TRes> {
   factory CopyWith$Subscription$WatchPerson(Subscription$WatchPerson instance,
-          TRes Function(Subscription$WatchPerson) then) =
-      _CopyWithImpl$Subscription$WatchPerson;
+          TRes Function(Subscription$WatchPerson) then) =>
+      _CopyWithImpl$Subscription$WatchPerson(instance, then);
 
   factory CopyWith$Subscription$WatchPerson.stub(TRes res) =
       _CopyWithStubImpl$Subscription$WatchPerson;
@@ -1694,22 +2034,32 @@ class Subscription$WatchPerson$Widget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$WatchPerson$watchPerson {
   Subscription$WatchPerson$watchPerson(
       {required this.full_name, required this.$__typename});
 
   factory Subscription$WatchPerson$watchPerson.fromJson(
-          Map<String, dynamic> json) =>
-      _$Subscription$WatchPerson$watchPersonFromJson(json);
+      Map<String, dynamic> json) {
+    final l$full_name = json['full_name'];
+    final l$$__typename = json['__typename'];
+    return Subscription$WatchPerson$watchPerson(
+        full_name: (l$full_name as String),
+        $__typename: (l$$__typename as String));
+  }
 
   final String full_name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() =>
-      _$Subscription$WatchPerson$watchPersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$full_name = full_name;
+    _resultData['full_name'] = l$full_name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$full_name = full_name;
@@ -1719,15 +2069,23 @@ class Subscription$WatchPerson$watchPerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$WatchPerson$watchPerson) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$full_name = full_name;
     final lOther$full_name = other.full_name;
-    if (l$full_name != lOther$full_name) return false;
+    if (l$full_name != lOther$full_name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -1743,8 +2101,8 @@ extension UtilityExtension$Subscription$WatchPerson$watchPerson
 abstract class CopyWith$Subscription$WatchPerson$watchPerson<TRes> {
   factory CopyWith$Subscription$WatchPerson$watchPerson(
           Subscription$WatchPerson$watchPerson instance,
-          TRes Function(Subscription$WatchPerson$watchPerson) then) =
-      _CopyWithImpl$Subscription$WatchPerson$watchPerson;
+          TRes Function(Subscription$WatchPerson$watchPerson) then) =>
+      _CopyWithImpl$Subscription$WatchPerson$watchPerson(instance, then);
 
   factory CopyWith$Subscription$WatchPerson$watchPerson.stub(TRes res) =
       _CopyWithStubImpl$Subscription$WatchPerson$watchPerson;
@@ -1782,32 +2140,3 @@ class _CopyWithStubImpl$Subscription$WatchPerson$watchPerson<TRes>
 
   call({String? full_name, String? $__typename}) => _res;
 }
-
-DateTime? _nullable$dateTimeFromJson(dynamic data) =>
-    data == null ? null : dateTimeFromJson(data);
-dynamic _nullable$dateTimeToJson(DateTime? data) =>
-    data == null ? null : dateTimeToJson(data);
-List<DateTime?> _list$_nullable$dateTimeFromJson(dynamic data) =>
-    data is List ? data.map(_nullable$dateTimeFromJson).toList() : [];
-dynamic _list$_nullable$dateTimeToJson(List<DateTime?> data) =>
-    data.map(_nullable$dateTimeToJson).toList();
-List<DateTime?>? _nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
-    data == null ? null : _list$_nullable$dateTimeFromJson(data);
-dynamic _nullable$_list$_nullable$dateTimeToJson(List<DateTime?>? data) =>
-    data == null ? null : _list$_nullable$dateTimeToJson(data);
-List<List<DateTime?>?> _list$_nullable$_list$_nullable$dateTimeFromJson(
-        dynamic data) =>
-    data is List
-        ? data.map(_nullable$_list$_nullable$dateTimeFromJson).toList()
-        : [];
-dynamic _list$_nullable$_list$_nullable$dateTimeToJson(
-        List<List<DateTime?>?> data) =>
-    data.map(_nullable$_list$_nullable$dateTimeToJson).toList();
-List<List<DateTime?>?>?
-    _nullable$_list$_nullable$_list$_nullable$dateTimeFromJson(dynamic data) =>
-        data == null
-            ? null
-            : _list$_nullable$_list$_nullable$dateTimeFromJson(data);
-dynamic _nullable$_list$_nullable$_list$_nullable$dateTimeToJson(
-        List<List<DateTime?>?>? data) =>
-    data == null ? null : _list$_nullable$_list$_nullable$dateTimeToJson(data);

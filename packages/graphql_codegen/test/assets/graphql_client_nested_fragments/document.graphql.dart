@@ -1,24 +1,39 @@
 import 'document2.graphql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$F1 {
   Fragment$F1({this.name, this.field, required this.$__typename});
 
-  factory Fragment$F1.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$F1FromJson(json);
+  factory Fragment$F1.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$field = json['field'];
+    final l$$__typename = json['__typename'];
+    return Fragment$F1(
+        name: (l$name as String?),
+        field: l$field == null
+            ? null
+            : Fragment$F2.fromJson((l$field as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final String? name;
 
   final Fragment$F2? field;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$F1ToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$field = field;
+    _resultData['field'] = l$field?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -29,18 +44,27 @@ class Fragment$F1 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F1) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F1) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$field = field;
     final lOther$field = other.field;
-    if (l$field != lOther$field) return false;
+    if (l$field != lOther$field) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -52,8 +76,8 @@ extension UtilityExtension$Fragment$F1 on Fragment$F1 {
 
 abstract class CopyWith$Fragment$F1<TRes> {
   factory CopyWith$Fragment$F1(
-          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
-      _CopyWithImpl$Fragment$F1;
+          Fragment$F1 instance, TRes Function(Fragment$F1) then) =>
+      _CopyWithImpl$Fragment$F1(instance, then);
 
   factory CopyWith$Fragment$F1.stub(TRes res) = _CopyWithStubImpl$Fragment$F1;
 

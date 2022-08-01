@@ -1,44 +1,75 @@
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
-import 'package:json_annotation/json_annotation.dart';
-part 'schema.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Fragment$NameNode {
-  Variables$Fragment$NameNode({required this.setting});
+abstract class Variables$Fragment$NameNode {
+  factory Variables$Fragment$NameNode({required String setting}) =>
+      _Impl$Variables$Fragment$NameNode({'setting': setting});
 
-  factory Variables$Fragment$NameNode.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Fragment$NameNodeFromJson(json);
+  factory Variables$Fragment$NameNode.withoutNulls({required String setting}) {
+    final l$data = <String, dynamic>{'setting': setting};
+    return _Impl$Variables$Fragment$NameNode(l$data);
+  }
 
-  final String setting;
+  factory Variables$Fragment$NameNode.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$setting = data['setting'];
+    result$data['setting'] = (l$setting as String);
+    return _Impl$Variables$Fragment$NameNode(result$data);
+  }
 
-  Map<String, dynamic> toJson() => _$Variables$Fragment$NameNodeToJson(this);
+  String get setting;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Fragment$NameNode<Variables$Fragment$NameNode>
+      get copyWith;
+  _Impl$Variables$Fragment$NameNode get $impl;
+}
+
+class _Impl$Variables$Fragment$NameNode implements Variables$Fragment$NameNode {
+  _Impl$Variables$Fragment$NameNode(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get setting => ($data['setting'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$setting = setting;
+    result$data['setting'] = l$setting;
+    return result$data;
+  }
+
+  CopyWith$Variables$Fragment$NameNode<Variables$Fragment$NameNode>
+      get copyWith => CopyWith$Variables$Fragment$NameNode(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Fragment$NameNode) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$setting = setting;
+    final lOther$setting = other.setting;
+    if (l$setting != lOther$setting) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$setting = setting;
     return Object.hashAll([l$setting]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Fragment$NameNode) ||
-        runtimeType != other.runtimeType) return false;
-    final l$setting = setting;
-    final lOther$setting = other.setting;
-    if (l$setting != lOther$setting) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Fragment$NameNode<Variables$Fragment$NameNode>
-      get copyWith => CopyWith$Variables$Fragment$NameNode(this, (i) => i);
+  _Impl$Variables$Fragment$NameNode get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$NameNode<TRes> {
   factory CopyWith$Variables$Fragment$NameNode(
           Variables$Fragment$NameNode instance,
-          TRes Function(Variables$Fragment$NameNode) then) =
-      _CopyWithImpl$Variables$Fragment$NameNode;
+          TRes Function(Variables$Fragment$NameNode) then) =>
+      _CopyWithImpl$Variables$Fragment$NameNode(instance.$impl, then);
 
   factory CopyWith$Variables$Fragment$NameNode.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$NameNode;
@@ -50,17 +81,18 @@ class _CopyWithImpl$Variables$Fragment$NameNode<TRes>
     implements CopyWith$Variables$Fragment$NameNode<TRes> {
   _CopyWithImpl$Variables$Fragment$NameNode(this._instance, this._then);
 
-  final Variables$Fragment$NameNode _instance;
+  final _Impl$Variables$Fragment$NameNode _instance;
 
-  final TRes Function(Variables$Fragment$NameNode) _then;
+  final TRes Function(_Impl$Variables$Fragment$NameNode) _then;
 
   static const _undefined = {};
 
   TRes call({Object? setting = _undefined}) =>
-      _then(Variables$Fragment$NameNode(
-          setting: setting == _undefined || setting == null
-              ? _instance.setting
-              : (setting as String)));
+      _then(_Impl$Variables$Fragment$NameNode({
+        ..._instance.$data,
+        if (setting != _undefined && setting != null)
+          'setting': (setting as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Fragment$NameNode<TRes>
@@ -72,19 +104,29 @@ class _CopyWithStubImpl$Variables$Fragment$NameNode<TRes>
   call({String? setting}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$NameNode {
   Fragment$NameNode({this.name, required this.$__typename});
 
-  factory Fragment$NameNode.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$NameNodeFromJson(json);
+  factory Fragment$NameNode.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$NameNode(
+        name: (l$name as String?), $__typename: (l$$__typename as String));
+  }
 
   final String? name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$NameNodeToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -94,15 +136,22 @@ class Fragment$NameNode {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$NameNode) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$NameNode) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -114,8 +163,8 @@ extension UtilityExtension$Fragment$NameNode on Fragment$NameNode {
 
 abstract class CopyWith$Fragment$NameNode<TRes> {
   factory CopyWith$Fragment$NameNode(
-          Fragment$NameNode instance, TRes Function(Fragment$NameNode) then) =
-      _CopyWithImpl$Fragment$NameNode;
+          Fragment$NameNode instance, TRes Function(Fragment$NameNode) then) =>
+      _CopyWithImpl$Fragment$NameNode(instance, then);
 
   factory CopyWith$Fragment$NameNode.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NameNode;
@@ -208,41 +257,73 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Query$Q {
-  Variables$Query$Q({required this.setting});
+abstract class Variables$Query$Q {
+  factory Variables$Query$Q({required String setting}) =>
+      _Impl$Variables$Query$Q({'setting': setting});
 
-  factory Variables$Query$Q.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Query$QFromJson(json);
+  factory Variables$Query$Q.withoutNulls({required String setting}) {
+    final l$data = <String, dynamic>{'setting': setting};
+    return _Impl$Variables$Query$Q(l$data);
+  }
 
-  final String setting;
+  factory Variables$Query$Q.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$setting = data['setting'];
+    result$data['setting'] = (l$setting as String);
+    return _Impl$Variables$Query$Q(result$data);
+  }
 
-  Map<String, dynamic> toJson() => _$Variables$Query$QToJson(this);
+  String get setting;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Query$Q<Variables$Query$Q> get copyWith;
+  _Impl$Variables$Query$Q get $impl;
+}
+
+class _Impl$Variables$Query$Q implements Variables$Query$Q {
+  _Impl$Variables$Query$Q(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get setting => ($data['setting'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$setting = setting;
+    result$data['setting'] = l$setting;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$Q<Variables$Query$Q> get copyWith =>
+      CopyWith$Variables$Query$Q(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Query$Q) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$setting = setting;
+    final lOther$setting = other.setting;
+    if (l$setting != lOther$setting) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$setting = setting;
     return Object.hashAll([l$setting]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Query$Q) || runtimeType != other.runtimeType)
-      return false;
-    final l$setting = setting;
-    final lOther$setting = other.setting;
-    if (l$setting != lOther$setting) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Query$Q<Variables$Query$Q> get copyWith =>
-      CopyWith$Variables$Query$Q(this, (i) => i);
+  _Impl$Variables$Query$Q get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$Q<TRes> {
   factory CopyWith$Variables$Query$Q(
-          Variables$Query$Q instance, TRes Function(Variables$Query$Q) then) =
-      _CopyWithImpl$Variables$Query$Q;
+          Variables$Query$Q instance, TRes Function(Variables$Query$Q) then) =>
+      _CopyWithImpl$Variables$Query$Q(instance.$impl, then);
 
   factory CopyWith$Variables$Query$Q.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Q;
@@ -254,16 +335,17 @@ class _CopyWithImpl$Variables$Query$Q<TRes>
     implements CopyWith$Variables$Query$Q<TRes> {
   _CopyWithImpl$Variables$Query$Q(this._instance, this._then);
 
-  final Variables$Query$Q _instance;
+  final _Impl$Variables$Query$Q _instance;
 
-  final TRes Function(Variables$Query$Q) _then;
+  final TRes Function(_Impl$Variables$Query$Q) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? setting = _undefined}) => _then(Variables$Query$Q(
-      setting: setting == _undefined || setting == null
-          ? _instance.setting
-          : (setting as String)));
+  TRes call({Object? setting = _undefined}) => _then(_Impl$Variables$Query$Q({
+        ..._instance.$data,
+        if (setting != _undefined && setting != null)
+          'setting': (setting as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Query$Q<TRes>
@@ -275,19 +357,32 @@ class _CopyWithStubImpl$Variables$Query$Q<TRes>
   call({String? setting}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q {
   Query$Q({this.node, required this.$__typename});
 
-  factory Query$Q.fromJson(Map<String, dynamic> json) =>
-      _$Query$QFromJson(json);
+  factory Query$Q.fromJson(Map<String, dynamic> json) {
+    final l$node = json['node'];
+    final l$$__typename = json['__typename'];
+    return Query$Q(
+        node: l$node == null
+            ? null
+            : Fragment$NameNode.fromJson((l$node as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Fragment$NameNode? node;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$node = node;
+    _resultData['node'] = l$node?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$node = node;
@@ -297,14 +392,22 @@ class Query$Q {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$node = node;
     final lOther$node = other.node;
-    if (l$node != lOther$node) return false;
+    if (l$node != lOther$node) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -314,8 +417,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
+      _CopyWithImpl$Query$Q(instance, then);
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 

@@ -1,3 +1,8 @@
+# 0.11.0-beta.1
+
+* Remove dependency on `json_serializable`
+* Improve input `null`-handling.
+
 # 0.10.3
 
 * Fix add deep copy functionality to input objects.

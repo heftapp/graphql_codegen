@@ -3,19 +3,24 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdateSNo {
   Mutation$UpdateSNo({this.s});
 
-  factory Mutation$UpdateSNo.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdateSNoFromJson(json);
+  factory Mutation$UpdateSNo.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Mutation$UpdateSNo(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdateSNoToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -24,12 +29,17 @@ class Mutation$UpdateSNo {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Mutation$UpdateSNo) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$UpdateSNo) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -40,9 +50,9 @@ extension UtilityExtension$Mutation$UpdateSNo on Mutation$UpdateSNo {
 }
 
 abstract class CopyWith$Mutation$UpdateSNo<TRes> {
-  factory CopyWith$Mutation$UpdateSNo(
-          Mutation$UpdateSNo instance, TRes Function(Mutation$UpdateSNo) then) =
-      _CopyWithImpl$Mutation$UpdateSNo;
+  factory CopyWith$Mutation$UpdateSNo(Mutation$UpdateSNo instance,
+          TRes Function(Mutation$UpdateSNo) then) =>
+      _CopyWithImpl$Mutation$UpdateSNo(instance, then);
 
   factory CopyWith$Mutation$UpdateSNo.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSNo;

@@ -1,21 +1,33 @@
 import 'b.schema.graphql.dart';
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'b.query.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchPerson {
   Query$FetchPerson({this.fetchPerson, required this.$__typename});
 
-  factory Query$FetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchPersonFromJson(json);
+  factory Query$FetchPerson.fromJson(Map<String, dynamic> json) {
+    final l$fetchPerson = json['fetchPerson'];
+    final l$$__typename = json['__typename'];
+    return Query$FetchPerson(
+        fetchPerson: l$fetchPerson == null
+            ? null
+            : Query$FetchPerson$fetchPerson.fromJson(
+                (l$fetchPerson as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Query$FetchPerson$fetchPerson? fetchPerson;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$FetchPersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$fetchPerson = fetchPerson;
+    _resultData['fetchPerson'] = l$fetchPerson?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$fetchPerson = fetchPerson;
@@ -25,15 +37,22 @@ class Query$FetchPerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$fetchPerson = fetchPerson;
     final lOther$fetchPerson = other.fetchPerson;
-    if (l$fetchPerson != lOther$fetchPerson) return false;
+    if (l$fetchPerson != lOther$fetchPerson) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -45,8 +64,8 @@ extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
 
 abstract class CopyWith$Query$FetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson(
-          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
-      _CopyWithImpl$Query$FetchPerson;
+          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =>
+      _CopyWithImpl$Query$FetchPerson(instance, then);
 
   factory CopyWith$Query$FetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson;
@@ -143,25 +162,46 @@ const documentNodeQueryFetchPerson = DocumentNode(definitions: [
       ])),
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchPerson$fetchPerson {
   Query$FetchPerson$fetchPerson(
       {this.age, this.name, this.status, required this.$__typename});
 
-  factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchPerson$fetchPersonFromJson(json);
+  factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) {
+    final l$age = json['age'];
+    final l$name = json['name'];
+    final l$status = json['status'];
+    final l$$__typename = json['__typename'];
+    return Query$FetchPerson$fetchPerson(
+        age: (l$age as int?),
+        name: (l$name as String?),
+        status: l$status == null
+            ? null
+            : fromJson$Enum$Status((l$status as String)),
+        $__typename: (l$$__typename as String));
+  }
 
   final int? age;
 
   final String? name;
 
-  @JsonKey(unknownEnumValue: Enum$Status.$unknown)
   final Enum$Status? status;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$FetchPerson$fetchPersonToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$age = age;
+    _resultData['age'] = l$age;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJson$Enum$Status(l$status);
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$age = age;
@@ -173,21 +213,33 @@ class Query$FetchPerson$fetchPerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$FetchPerson$fetchPerson) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$age = age;
     final lOther$age = other.age;
-    if (l$age != lOther$age) return false;
+    if (l$age != lOther$age) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$status = status;
     final lOther$status = other.status;
-    if (l$status != lOther$status) return false;
+    if (l$status != lOther$status) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -201,8 +253,8 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson
 abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson$fetchPerson(
           Query$FetchPerson$fetchPerson instance,
-          TRes Function(Query$FetchPerson$fetchPerson) then) =
-      _CopyWithImpl$Query$FetchPerson$fetchPerson;
+          TRes Function(Query$FetchPerson$fetchPerson) then) =>
+      _CopyWithImpl$Query$FetchPerson$fetchPerson(instance, then);
 
   factory CopyWith$Query$FetchPerson$fetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson$fetchPerson;

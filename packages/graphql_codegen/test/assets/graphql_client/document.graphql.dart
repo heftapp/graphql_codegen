@@ -1,19 +1,24 @@
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$NoVariables {
   Fragment$NoVariables({this.s});
 
-  factory Fragment$NoVariables.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$NoVariablesFromJson(json);
+  factory Fragment$NoVariables.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Fragment$NoVariables(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Fragment$NoVariablesToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -22,12 +27,17 @@ class Fragment$NoVariables {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$NoVariables) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$NoVariables) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -39,8 +49,8 @@ extension UtilityExtension$Fragment$NoVariables on Fragment$NoVariables {
 
 abstract class CopyWith$Fragment$NoVariables<TRes> {
   factory CopyWith$Fragment$NoVariables(Fragment$NoVariables instance,
-          TRes Function(Fragment$NoVariables) then) =
-      _CopyWithImpl$Fragment$NoVariables;
+          TRes Function(Fragment$NoVariables) then) =>
+      _CopyWithImpl$Fragment$NoVariables(instance, then);
 
   factory CopyWith$Fragment$NoVariables.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NoVariables;
@@ -118,46 +128,89 @@ extension ClientExtension$Fragment$NoVariables on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Fragment$WithOptionalVariables {
-  Variables$Fragment$WithOptionalVariables({this.name});
+abstract class Variables$Fragment$WithOptionalVariables {
+  factory Variables$Fragment$WithOptionalVariables({String? name}) =>
+      _Impl$Variables$Fragment$WithOptionalVariables({'name': name});
 
-  factory Variables$Fragment$WithOptionalVariables.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Fragment$WithOptionalVariablesFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Fragment$WithOptionalVariablesToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Fragment$WithOptionalVariables.withoutNulls(
+      {String? name}) {
+    final l$data = <String, dynamic>{};
+    if (name != null) l$data['name'] = name;
+    return _Impl$Variables$Fragment$WithOptionalVariables(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Fragment$WithOptionalVariables) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+  factory Variables$Fragment$WithOptionalVariables.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return _Impl$Variables$Fragment$WithOptionalVariables(result$data);
+  }
+
+  String? get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Fragment$WithOptionalVariables<
+      Variables$Fragment$WithOptionalVariables> get copyWith;
+  _Impl$Variables$Fragment$WithOptionalVariables get $impl;
+}
+
+class _Impl$Variables$Fragment$WithOptionalVariables
+    implements Variables$Fragment$WithOptionalVariables {
+  _Impl$Variables$Fragment$WithOptionalVariables(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String? get name => ($data['name'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
   }
 
   CopyWith$Variables$Fragment$WithOptionalVariables<
           Variables$Fragment$WithOptionalVariables>
       get copyWith =>
           CopyWith$Variables$Fragment$WithOptionalVariables(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Fragment$WithOptionalVariables) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+  }
+
+  _Impl$Variables$Fragment$WithOptionalVariables get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$WithOptionalVariables<TRes> {
   factory CopyWith$Variables$Fragment$WithOptionalVariables(
           Variables$Fragment$WithOptionalVariables instance,
-          TRes Function(Variables$Fragment$WithOptionalVariables) then) =
-      _CopyWithImpl$Variables$Fragment$WithOptionalVariables;
+          TRes Function(Variables$Fragment$WithOptionalVariables) then) =>
+      _CopyWithImpl$Variables$Fragment$WithOptionalVariables(
+          instance.$impl, then);
 
   factory CopyWith$Variables$Fragment$WithOptionalVariables.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables;
@@ -170,15 +223,17 @@ class _CopyWithImpl$Variables$Fragment$WithOptionalVariables<TRes>
   _CopyWithImpl$Variables$Fragment$WithOptionalVariables(
       this._instance, this._then);
 
-  final Variables$Fragment$WithOptionalVariables _instance;
+  final _Impl$Variables$Fragment$WithOptionalVariables _instance;
 
-  final TRes Function(Variables$Fragment$WithOptionalVariables) _then;
+  final TRes Function(_Impl$Variables$Fragment$WithOptionalVariables) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Fragment$WithOptionalVariables(
-          name: name == _undefined ? _instance.name : (name as String?)));
+      _then(_Impl$Variables$Fragment$WithOptionalVariables({
+        ..._instance.$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables<TRes>
@@ -190,16 +245,23 @@ class _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$WithOptionalVariables {
   Fragment$WithOptionalVariables({this.s});
 
-  factory Fragment$WithOptionalVariables.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$WithOptionalVariablesFromJson(json);
+  factory Fragment$WithOptionalVariables.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Fragment$WithOptionalVariables(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Fragment$WithOptionalVariablesToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -208,12 +270,18 @@ class Fragment$WithOptionalVariables {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Fragment$WithOptionalVariables) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -227,8 +295,8 @@ extension UtilityExtension$Fragment$WithOptionalVariables
 abstract class CopyWith$Fragment$WithOptionalVariables<TRes> {
   factory CopyWith$Fragment$WithOptionalVariables(
           Fragment$WithOptionalVariables instance,
-          TRes Function(Fragment$WithOptionalVariables) then) =
-      _CopyWithImpl$Fragment$WithOptionalVariables;
+          TRes Function(Fragment$WithOptionalVariables) then) =>
+      _CopyWithImpl$Fragment$WithOptionalVariables(instance, then);
 
   factory CopyWith$Fragment$WithOptionalVariables.stub(TRes res) =
       _CopyWithStubImpl$Fragment$WithOptionalVariables;
@@ -314,44 +382,77 @@ extension ClientExtension$Fragment$WithOptionalVariables
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Fragment$WithVariables {
-  Variables$Fragment$WithVariables({required this.name});
+abstract class Variables$Fragment$WithVariables {
+  factory Variables$Fragment$WithVariables({required String name}) =>
+      _Impl$Variables$Fragment$WithVariables({'name': name});
 
-  factory Variables$Fragment$WithVariables.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Fragment$WithVariablesFromJson(json);
+  factory Variables$Fragment$WithVariables.withoutNulls(
+      {required String name}) {
+    final l$data = <String, dynamic>{'name': name};
+    return _Impl$Variables$Fragment$WithVariables(l$data);
+  }
 
-  final String name;
+  factory Variables$Fragment$WithVariables.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return _Impl$Variables$Fragment$WithVariables(result$data);
+  }
 
-  Map<String, dynamic> toJson() =>
-      _$Variables$Fragment$WithVariablesToJson(this);
+  String get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Fragment$WithVariables<Variables$Fragment$WithVariables>
+      get copyWith;
+  _Impl$Variables$Fragment$WithVariables get $impl;
+}
+
+class _Impl$Variables$Fragment$WithVariables
+    implements Variables$Fragment$WithVariables {
+  _Impl$Variables$Fragment$WithVariables(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get name => ($data['name'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$name = name;
+    result$data['name'] = l$name;
+    return result$data;
+  }
+
+  CopyWith$Variables$Fragment$WithVariables<Variables$Fragment$WithVariables>
+      get copyWith => CopyWith$Variables$Fragment$WithVariables(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Fragment$WithVariables) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Fragment$WithVariables) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Fragment$WithVariables<Variables$Fragment$WithVariables>
-      get copyWith => CopyWith$Variables$Fragment$WithVariables(this, (i) => i);
+  _Impl$Variables$Fragment$WithVariables get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$WithVariables<TRes> {
   factory CopyWith$Variables$Fragment$WithVariables(
           Variables$Fragment$WithVariables instance,
-          TRes Function(Variables$Fragment$WithVariables) then) =
-      _CopyWithImpl$Variables$Fragment$WithVariables;
+          TRes Function(Variables$Fragment$WithVariables) then) =>
+      _CopyWithImpl$Variables$Fragment$WithVariables(instance.$impl, then);
 
   factory CopyWith$Variables$Fragment$WithVariables.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$WithVariables;
@@ -363,17 +464,17 @@ class _CopyWithImpl$Variables$Fragment$WithVariables<TRes>
     implements CopyWith$Variables$Fragment$WithVariables<TRes> {
   _CopyWithImpl$Variables$Fragment$WithVariables(this._instance, this._then);
 
-  final Variables$Fragment$WithVariables _instance;
+  final _Impl$Variables$Fragment$WithVariables _instance;
 
-  final TRes Function(Variables$Fragment$WithVariables) _then;
+  final TRes Function(_Impl$Variables$Fragment$WithVariables) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Fragment$WithVariables(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String)));
+      _then(_Impl$Variables$Fragment$WithVariables({
+        ..._instance.$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Fragment$WithVariables<TRes>
@@ -385,16 +486,23 @@ class _CopyWithStubImpl$Variables$Fragment$WithVariables<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$WithVariables {
   Fragment$WithVariables({this.s2});
 
-  factory Fragment$WithVariables.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$WithVariablesFromJson(json);
+  factory Fragment$WithVariables.fromJson(Map<String, dynamic> json) {
+    final l$s2 = json['s2'];
+    return Fragment$WithVariables(s2: (l$s2 as String?));
+  }
 
   final String? s2;
 
-  Map<String, dynamic> toJson() => _$Fragment$WithVariablesToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s2 = s2;
+    _resultData['s2'] = l$s2;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s2 = s2;
@@ -403,12 +511,18 @@ class Fragment$WithVariables {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$WithVariables) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$WithVariables) ||
+        runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s2 = s2;
     final lOther$s2 = other.s2;
-    if (l$s2 != lOther$s2) return false;
+    if (l$s2 != lOther$s2) {
+      return false;
+    }
     return true;
   }
 }
@@ -420,8 +534,8 @@ extension UtilityExtension$Fragment$WithVariables on Fragment$WithVariables {
 
 abstract class CopyWith$Fragment$WithVariables<TRes> {
   factory CopyWith$Fragment$WithVariables(Fragment$WithVariables instance,
-          TRes Function(Fragment$WithVariables) then) =
-      _CopyWithImpl$Fragment$WithVariables;
+          TRes Function(Fragment$WithVariables) then) =>
+      _CopyWithImpl$Fragment$WithVariables(instance, then);
 
   factory CopyWith$Fragment$WithVariables.stub(TRes res) =
       _CopyWithStubImpl$Fragment$WithVariables;
@@ -504,42 +618,84 @@ extension ClientExtension$Fragment$WithVariables on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Query$FetchSOptional {
-  Variables$Query$FetchSOptional({this.name});
+abstract class Variables$Query$FetchSOptional {
+  factory Variables$Query$FetchSOptional({String? name}) =>
+      _Impl$Variables$Query$FetchSOptional({'name': name});
 
-  factory Variables$Query$FetchSOptional.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Query$FetchSOptionalFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() => _$Variables$Query$FetchSOptionalToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Query$FetchSOptional.withoutNulls({String? name}) {
+    final l$data = <String, dynamic>{};
+    if (name != null) l$data['name'] = name;
+    return _Impl$Variables$Query$FetchSOptional(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Query$FetchSOptional) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+  factory Variables$Query$FetchSOptional.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return _Impl$Variables$Query$FetchSOptional(result$data);
+  }
+
+  String? get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Query$FetchSOptional<Variables$Query$FetchSOptional>
+      get copyWith;
+  _Impl$Variables$Query$FetchSOptional get $impl;
+}
+
+class _Impl$Variables$Query$FetchSOptional
+    implements Variables$Query$FetchSOptional {
+  _Impl$Variables$Query$FetchSOptional(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String? get name => ($data['name'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
   }
 
   CopyWith$Variables$Query$FetchSOptional<Variables$Query$FetchSOptional>
       get copyWith => CopyWith$Variables$Query$FetchSOptional(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Query$FetchSOptional) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+  }
+
+  _Impl$Variables$Query$FetchSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
   factory CopyWith$Variables$Query$FetchSOptional(
           Variables$Query$FetchSOptional instance,
-          TRes Function(Variables$Query$FetchSOptional) then) =
-      _CopyWithImpl$Variables$Query$FetchSOptional;
+          TRes Function(Variables$Query$FetchSOptional) then) =>
+      _CopyWithImpl$Variables$Query$FetchSOptional(instance.$impl, then);
 
   factory CopyWith$Variables$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSOptional;
@@ -551,15 +707,17 @@ class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
     implements CopyWith$Variables$Query$FetchSOptional<TRes> {
   _CopyWithImpl$Variables$Query$FetchSOptional(this._instance, this._then);
 
-  final Variables$Query$FetchSOptional _instance;
+  final _Impl$Variables$Query$FetchSOptional _instance;
 
-  final TRes Function(Variables$Query$FetchSOptional) _then;
+  final TRes Function(_Impl$Variables$Query$FetchSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Query$FetchSOptional(
-          name: name == _undefined ? _instance.name : (name as String?)));
+      _then(_Impl$Variables$Query$FetchSOptional({
+        ..._instance.$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Query$FetchSOptional<TRes>
@@ -571,16 +729,23 @@ class _CopyWithStubImpl$Variables$Query$FetchSOptional<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchSOptional {
   Query$FetchSOptional({this.s});
 
-  factory Query$FetchSOptional.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchSOptionalFromJson(json);
+  factory Query$FetchSOptional.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Query$FetchSOptional(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Query$FetchSOptionalToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -589,12 +754,17 @@ class Query$FetchSOptional {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchSOptional) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchSOptional) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -606,8 +776,8 @@ extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
 
 abstract class CopyWith$Query$FetchSOptional<TRes> {
   factory CopyWith$Query$FetchSOptional(Query$FetchSOptional instance,
-          TRes Function(Query$FetchSOptional) then) =
-      _CopyWithImpl$Query$FetchSOptional;
+          TRes Function(Query$FetchSOptional) then) =>
+      _CopyWithImpl$Query$FetchSOptional(instance, then);
 
   factory CopyWith$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSOptional;
@@ -762,42 +932,76 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Query$FetchSRequired {
-  Variables$Query$FetchSRequired({required this.name});
+abstract class Variables$Query$FetchSRequired {
+  factory Variables$Query$FetchSRequired({required String name}) =>
+      _Impl$Variables$Query$FetchSRequired({'name': name});
 
-  factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
-      _$Variables$Query$FetchSRequiredFromJson(json);
+  factory Variables$Query$FetchSRequired.withoutNulls({required String name}) {
+    final l$data = <String, dynamic>{'name': name};
+    return _Impl$Variables$Query$FetchSRequired(l$data);
+  }
 
-  final String name;
+  factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return _Impl$Variables$Query$FetchSRequired(result$data);
+  }
 
-  Map<String, dynamic> toJson() => _$Variables$Query$FetchSRequiredToJson(this);
+  String get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
+      get copyWith;
+  _Impl$Variables$Query$FetchSRequired get $impl;
+}
+
+class _Impl$Variables$Query$FetchSRequired
+    implements Variables$Query$FetchSRequired {
+  _Impl$Variables$Query$FetchSRequired(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get name => ($data['name'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$name = name;
+    result$data['name'] = l$name;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
+      get copyWith => CopyWith$Variables$Query$FetchSRequired(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Query$FetchSRequired) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
     return Object.hashAll([l$name]);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Query$FetchSRequired) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
-  }
-
-  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
-      get copyWith => CopyWith$Variables$Query$FetchSRequired(this, (i) => i);
+  _Impl$Variables$Query$FetchSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
   factory CopyWith$Variables$Query$FetchSRequired(
           Variables$Query$FetchSRequired instance,
-          TRes Function(Variables$Query$FetchSRequired) then) =
-      _CopyWithImpl$Variables$Query$FetchSRequired;
+          TRes Function(Variables$Query$FetchSRequired) then) =>
+      _CopyWithImpl$Variables$Query$FetchSRequired(instance.$impl, then);
 
   factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSRequired;
@@ -809,17 +1013,17 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
     implements CopyWith$Variables$Query$FetchSRequired<TRes> {
   _CopyWithImpl$Variables$Query$FetchSRequired(this._instance, this._then);
 
-  final Variables$Query$FetchSRequired _instance;
+  final _Impl$Variables$Query$FetchSRequired _instance;
 
-  final TRes Function(Variables$Query$FetchSRequired) _then;
+  final TRes Function(_Impl$Variables$Query$FetchSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Query$FetchSRequired(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String)));
+      _then(_Impl$Variables$Query$FetchSRequired({
+        ..._instance.$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
@@ -831,16 +1035,23 @@ class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchSRequired {
   Query$FetchSRequired({this.s});
 
-  factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchSRequiredFromJson(json);
+  factory Query$FetchSRequired.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Query$FetchSRequired(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Query$FetchSRequiredToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -849,12 +1060,17 @@ class Query$FetchSRequired {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -866,8 +1082,8 @@ extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
 
 abstract class CopyWith$Query$FetchSRequired<TRes> {
   factory CopyWith$Query$FetchSRequired(Query$FetchSRequired instance,
-          TRes Function(Query$FetchSRequired) then) =
-      _CopyWithImpl$Query$FetchSRequired;
+          TRes Function(Query$FetchSRequired) then) =>
+      _CopyWithImpl$Query$FetchSRequired(instance, then);
 
   factory CopyWith$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSRequired;
@@ -1023,16 +1239,23 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchSNoVariables {
   Query$FetchSNoVariables({this.s});
 
-  factory Query$FetchSNoVariables.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchSNoVariablesFromJson(json);
+  factory Query$FetchSNoVariables.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Query$FetchSNoVariables(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Query$FetchSNoVariablesToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -1041,12 +1264,18 @@ class Query$FetchSNoVariables {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchSNoVariables) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchSNoVariables) ||
+        runtimeType != other.runtimeType) {
       return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -1058,8 +1287,8 @@ extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
 
 abstract class CopyWith$Query$FetchSNoVariables<TRes> {
   factory CopyWith$Query$FetchSNoVariables(Query$FetchSNoVariables instance,
-          TRes Function(Query$FetchSNoVariables) then) =
-      _CopyWithImpl$Query$FetchSNoVariables;
+          TRes Function(Query$FetchSNoVariables) then) =>
+      _CopyWithImpl$Query$FetchSNoVariables(instance, then);
 
   factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSNoVariables;
@@ -1198,46 +1427,87 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Mutation$UpdateSOptional {
-  Variables$Mutation$UpdateSOptional({this.name});
+abstract class Variables$Mutation$UpdateSOptional {
+  factory Variables$Mutation$UpdateSOptional({String? name}) =>
+      _Impl$Variables$Mutation$UpdateSOptional({'name': name});
 
-  factory Variables$Mutation$UpdateSOptional.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Mutation$UpdateSOptionalFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Mutation$UpdateSOptionalToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Mutation$UpdateSOptional.withoutNulls({String? name}) {
+    final l$data = <String, dynamic>{};
+    if (name != null) l$data['name'] = name;
+    return _Impl$Variables$Mutation$UpdateSOptional(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Mutation$UpdateSOptional) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+  factory Variables$Mutation$UpdateSOptional.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return _Impl$Variables$Mutation$UpdateSOptional(result$data);
+  }
+
+  String? get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Mutation$UpdateSOptional<
+      Variables$Mutation$UpdateSOptional> get copyWith;
+  _Impl$Variables$Mutation$UpdateSOptional get $impl;
+}
+
+class _Impl$Variables$Mutation$UpdateSOptional
+    implements Variables$Mutation$UpdateSOptional {
+  _Impl$Variables$Mutation$UpdateSOptional(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String? get name => ($data['name'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
   }
 
   CopyWith$Variables$Mutation$UpdateSOptional<
           Variables$Mutation$UpdateSOptional>
       get copyWith =>
           CopyWith$Variables$Mutation$UpdateSOptional(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Mutation$UpdateSOptional) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+  }
+
+  _Impl$Variables$Mutation$UpdateSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSOptional(
           Variables$Mutation$UpdateSOptional instance,
-          TRes Function(Variables$Mutation$UpdateSOptional) then) =
-      _CopyWithImpl$Variables$Mutation$UpdateSOptional;
+          TRes Function(Variables$Mutation$UpdateSOptional) then) =>
+      _CopyWithImpl$Variables$Mutation$UpdateSOptional(instance.$impl, then);
 
   factory CopyWith$Variables$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSOptional;
@@ -1249,15 +1519,17 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
     implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSOptional(this._instance, this._then);
 
-  final Variables$Mutation$UpdateSOptional _instance;
+  final _Impl$Variables$Mutation$UpdateSOptional _instance;
 
-  final TRes Function(Variables$Mutation$UpdateSOptional) _then;
+  final TRes Function(_Impl$Variables$Mutation$UpdateSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Mutation$UpdateSOptional(
-          name: name == _undefined ? _instance.name : (name as String?)));
+      _then(_Impl$Variables$Mutation$UpdateSOptional({
+        ..._instance.$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
@@ -1269,16 +1541,23 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdateSOptional {
   Mutation$UpdateSOptional({this.s});
 
-  factory Mutation$UpdateSOptional.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdateSOptionalFromJson(json);
+  factory Mutation$UpdateSOptional.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Mutation$UpdateSOptional(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdateSOptionalToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -1287,12 +1566,18 @@ class Mutation$UpdateSOptional {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$UpdateSOptional) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -1305,8 +1590,8 @@ extension UtilityExtension$Mutation$UpdateSOptional
 
 abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Mutation$UpdateSOptional(Mutation$UpdateSOptional instance,
-          TRes Function(Mutation$UpdateSOptional) then) =
-      _CopyWithImpl$Mutation$UpdateSOptional;
+          TRes Function(Mutation$UpdateSOptional) then) =>
+      _CopyWithImpl$Mutation$UpdateSOptional(instance, then);
 
   factory CopyWith$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSOptional;
@@ -1454,46 +1739,80 @@ extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
       this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Mutation$UpdateSRequired {
-  Variables$Mutation$UpdateSRequired({required this.name});
+abstract class Variables$Mutation$UpdateSRequired {
+  factory Variables$Mutation$UpdateSRequired({required String name}) =>
+      _Impl$Variables$Mutation$UpdateSRequired({'name': name});
 
-  factory Variables$Mutation$UpdateSRequired.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Mutation$UpdateSRequiredFromJson(json);
-
-  final String name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Mutation$UpdateSRequiredToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Mutation$UpdateSRequired.withoutNulls(
+      {required String name}) {
+    final l$data = <String, dynamic>{'name': name};
+    return _Impl$Variables$Mutation$UpdateSRequired(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Mutation$UpdateSRequired) ||
-        runtimeType != other.runtimeType) return false;
+  factory Variables$Mutation$UpdateSRequired.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return _Impl$Variables$Mutation$UpdateSRequired(result$data);
+  }
+
+  String get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Mutation$UpdateSRequired<
+      Variables$Mutation$UpdateSRequired> get copyWith;
+  _Impl$Variables$Mutation$UpdateSRequired get $impl;
+}
+
+class _Impl$Variables$Mutation$UpdateSRequired
+    implements Variables$Mutation$UpdateSRequired {
+  _Impl$Variables$Mutation$UpdateSRequired(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get name => ($data['name'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
     final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+    result$data['name'] = l$name;
+    return result$data;
   }
 
   CopyWith$Variables$Mutation$UpdateSRequired<
           Variables$Mutation$UpdateSRequired>
       get copyWith =>
           CopyWith$Variables$Mutation$UpdateSRequired(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Mutation$UpdateSRequired) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  _Impl$Variables$Mutation$UpdateSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSRequired(
           Variables$Mutation$UpdateSRequired instance,
-          TRes Function(Variables$Mutation$UpdateSRequired) then) =
-      _CopyWithImpl$Variables$Mutation$UpdateSRequired;
+          TRes Function(Variables$Mutation$UpdateSRequired) then) =>
+      _CopyWithImpl$Variables$Mutation$UpdateSRequired(instance.$impl, then);
 
   factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
@@ -1505,17 +1824,17 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
     implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSRequired(this._instance, this._then);
 
-  final Variables$Mutation$UpdateSRequired _instance;
+  final _Impl$Variables$Mutation$UpdateSRequired _instance;
 
-  final TRes Function(Variables$Mutation$UpdateSRequired) _then;
+  final TRes Function(_Impl$Variables$Mutation$UpdateSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Mutation$UpdateSRequired(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String)));
+      _then(_Impl$Variables$Mutation$UpdateSRequired({
+        ..._instance.$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
@@ -1527,16 +1846,23 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSRequired<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdateSRequired {
   Mutation$UpdateSRequired({this.s});
 
-  factory Mutation$UpdateSRequired.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdateSRequiredFromJson(json);
+  factory Mutation$UpdateSRequired.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Mutation$UpdateSRequired(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdateSRequiredToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -1545,12 +1871,18 @@ class Mutation$UpdateSRequired {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$UpdateSRequired) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -1563,8 +1895,8 @@ extension UtilityExtension$Mutation$UpdateSRequired
 
 abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Mutation$UpdateSRequired(Mutation$UpdateSRequired instance,
-          TRes Function(Mutation$UpdateSRequired) then) =
-      _CopyWithImpl$Mutation$UpdateSRequired;
+          TRes Function(Mutation$UpdateSRequired) then) =>
+      _CopyWithImpl$Mutation$UpdateSRequired(instance, then);
 
   factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSRequired;
@@ -1712,16 +2044,23 @@ extension ClientExtension$Mutation$UpdateSRequired on graphql.GraphQLClient {
           this.watchMutation(options);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdateSNoVariables {
   Mutation$UpdateSNoVariables({this.s});
 
-  factory Mutation$UpdateSNoVariables.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdateSNoVariablesFromJson(json);
+  factory Mutation$UpdateSNoVariables.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Mutation$UpdateSNoVariables(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdateSNoVariablesToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -1730,12 +2069,18 @@ class Mutation$UpdateSNoVariables {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$UpdateSNoVariables) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -1749,8 +2094,8 @@ extension UtilityExtension$Mutation$UpdateSNoVariables
 abstract class CopyWith$Mutation$UpdateSNoVariables<TRes> {
   factory CopyWith$Mutation$UpdateSNoVariables(
           Mutation$UpdateSNoVariables instance,
-          TRes Function(Mutation$UpdateSNoVariables) then) =
-      _CopyWithImpl$Mutation$UpdateSNoVariables;
+          TRes Function(Mutation$UpdateSNoVariables) then) =>
+      _CopyWithImpl$Mutation$UpdateSNoVariables(instance, then);
 
   factory CopyWith$Mutation$UpdateSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSNoVariables;

@@ -33,6 +33,8 @@ class PrintContext<TContext extends Context> {
   final Map<String, Spec> _converters;
   final NamePrinter namePrinter;
 
+  Schema get schema => context.schema;
+
   Iterable<Spec> get converters => _converters.values;
 
   Iterable<Directive> get directives {
@@ -47,8 +49,6 @@ class PrintContext<TContext extends Context> {
     imports.sort((e1, e2) => e1.url.compareTo(e2.url));
     return [
       ...imports,
-      if (_jsonSerializable.value)
-        Directive.part(p.basenameWithoutExtension(currentFile) + ".g.dart"),
     ];
   }
 

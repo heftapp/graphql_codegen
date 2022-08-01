@@ -3,22 +3,34 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'schema.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$NoArgs {
   Subscription$NoArgs({this.listenForChange, required this.$__typename});
 
-  factory Subscription$NoArgs.fromJson(Map<String, dynamic> json) =>
-      _$Subscription$NoArgsFromJson(json);
+  factory Subscription$NoArgs.fromJson(Map<String, dynamic> json) {
+    final l$listenForChange = json['listenForChange'];
+    final l$$__typename = json['__typename'];
+    return Subscription$NoArgs(
+        listenForChange: l$listenForChange == null
+            ? null
+            : Subscription$NoArgs$listenForChange.fromJson(
+                (l$listenForChange as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Subscription$NoArgs$listenForChange? listenForChange;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Subscription$NoArgsToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$listenForChange = listenForChange;
+    _resultData['listenForChange'] = l$listenForChange?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$listenForChange = listenForChange;
@@ -28,15 +40,22 @@ class Subscription$NoArgs {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Subscription$NoArgs) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Subscription$NoArgs) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$listenForChange = listenForChange;
     final lOther$listenForChange = other.listenForChange;
-    if (l$listenForChange != lOther$listenForChange) return false;
+    if (l$listenForChange != lOther$listenForChange) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -48,8 +67,8 @@ extension UtilityExtension$Subscription$NoArgs on Subscription$NoArgs {
 
 abstract class CopyWith$Subscription$NoArgs<TRes> {
   factory CopyWith$Subscription$NoArgs(Subscription$NoArgs instance,
-          TRes Function(Subscription$NoArgs) then) =
-      _CopyWithImpl$Subscription$NoArgs;
+          TRes Function(Subscription$NoArgs) then) =>
+      _CopyWithImpl$Subscription$NoArgs(instance, then);
 
   factory CopyWith$Subscription$NoArgs.stub(TRes res) =
       _CopyWithStubImpl$Subscription$NoArgs;
@@ -223,22 +242,31 @@ class Subscription$NoArgs$Widget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$NoArgs$listenForChange {
   Subscription$NoArgs$listenForChange(
       {required this.name, required this.$__typename});
 
   factory Subscription$NoArgs$listenForChange.fromJson(
-          Map<String, dynamic> json) =>
-      _$Subscription$NoArgs$listenForChangeFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Subscription$NoArgs$listenForChange(
+        name: (l$name as String), $__typename: (l$$__typename as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() =>
-      _$Subscription$NoArgs$listenForChangeToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -248,15 +276,23 @@ class Subscription$NoArgs$listenForChange {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$NoArgs$listenForChange) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -272,8 +308,8 @@ extension UtilityExtension$Subscription$NoArgs$listenForChange
 abstract class CopyWith$Subscription$NoArgs$listenForChange<TRes> {
   factory CopyWith$Subscription$NoArgs$listenForChange(
           Subscription$NoArgs$listenForChange instance,
-          TRes Function(Subscription$NoArgs$listenForChange) then) =
-      _CopyWithImpl$Subscription$NoArgs$listenForChange;
+          TRes Function(Subscription$NoArgs$listenForChange) then) =>
+      _CopyWithImpl$Subscription$NoArgs$listenForChange(instance, then);
 
   factory CopyWith$Subscription$NoArgs$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$NoArgs$listenForChange;
@@ -310,46 +346,80 @@ class _CopyWithStubImpl$Subscription$NoArgs$listenForChange<TRes>
   call({String? name, String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Subscription$RequiredArg {
-  Variables$Subscription$RequiredArg({required this.name});
+abstract class Variables$Subscription$RequiredArg {
+  factory Variables$Subscription$RequiredArg({required String name}) =>
+      _Impl$Variables$Subscription$RequiredArg({'name': name});
 
-  factory Variables$Subscription$RequiredArg.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Subscription$RequiredArgFromJson(json);
-
-  final String name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Subscription$RequiredArgToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Subscription$RequiredArg.withoutNulls(
+      {required String name}) {
+    final l$data = <String, dynamic>{'name': name};
+    return _Impl$Variables$Subscription$RequiredArg(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Subscription$RequiredArg) ||
-        runtimeType != other.runtimeType) return false;
+  factory Variables$Subscription$RequiredArg.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return _Impl$Variables$Subscription$RequiredArg(result$data);
+  }
+
+  String get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Subscription$RequiredArg<
+      Variables$Subscription$RequiredArg> get copyWith;
+  _Impl$Variables$Subscription$RequiredArg get $impl;
+}
+
+class _Impl$Variables$Subscription$RequiredArg
+    implements Variables$Subscription$RequiredArg {
+  _Impl$Variables$Subscription$RequiredArg(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String get name => ($data['name'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
     final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+    result$data['name'] = l$name;
+    return result$data;
   }
 
   CopyWith$Variables$Subscription$RequiredArg<
           Variables$Subscription$RequiredArg>
       get copyWith =>
           CopyWith$Variables$Subscription$RequiredArg(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Subscription$RequiredArg) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  _Impl$Variables$Subscription$RequiredArg get $impl => this;
 }
 
 abstract class CopyWith$Variables$Subscription$RequiredArg<TRes> {
   factory CopyWith$Variables$Subscription$RequiredArg(
           Variables$Subscription$RequiredArg instance,
-          TRes Function(Variables$Subscription$RequiredArg) then) =
-      _CopyWithImpl$Variables$Subscription$RequiredArg;
+          TRes Function(Variables$Subscription$RequiredArg) then) =>
+      _CopyWithImpl$Variables$Subscription$RequiredArg(instance.$impl, then);
 
   factory CopyWith$Variables$Subscription$RequiredArg.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$RequiredArg;
@@ -361,17 +431,17 @@ class _CopyWithImpl$Variables$Subscription$RequiredArg<TRes>
     implements CopyWith$Variables$Subscription$RequiredArg<TRes> {
   _CopyWithImpl$Variables$Subscription$RequiredArg(this._instance, this._then);
 
-  final Variables$Subscription$RequiredArg _instance;
+  final _Impl$Variables$Subscription$RequiredArg _instance;
 
-  final TRes Function(Variables$Subscription$RequiredArg) _then;
+  final TRes Function(_Impl$Variables$Subscription$RequiredArg) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Subscription$RequiredArg(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String)));
+      _then(_Impl$Variables$Subscription$RequiredArg({
+        ..._instance.$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Subscription$RequiredArg<TRes>
@@ -383,19 +453,33 @@ class _CopyWithStubImpl$Variables$Subscription$RequiredArg<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$RequiredArg {
   Subscription$RequiredArg({this.listenForChange, required this.$__typename});
 
-  factory Subscription$RequiredArg.fromJson(Map<String, dynamic> json) =>
-      _$Subscription$RequiredArgFromJson(json);
+  factory Subscription$RequiredArg.fromJson(Map<String, dynamic> json) {
+    final l$listenForChange = json['listenForChange'];
+    final l$$__typename = json['__typename'];
+    return Subscription$RequiredArg(
+        listenForChange: l$listenForChange == null
+            ? null
+            : Subscription$RequiredArg$listenForChange.fromJson(
+                (l$listenForChange as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Subscription$RequiredArg$listenForChange? listenForChange;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Subscription$RequiredArgToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$listenForChange = listenForChange;
+    _resultData['listenForChange'] = l$listenForChange?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$listenForChange = listenForChange;
@@ -405,15 +489,23 @@ class Subscription$RequiredArg {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$RequiredArg) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$listenForChange = listenForChange;
     final lOther$listenForChange = other.listenForChange;
-    if (l$listenForChange != lOther$listenForChange) return false;
+    if (l$listenForChange != lOther$listenForChange) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -426,8 +518,8 @@ extension UtilityExtension$Subscription$RequiredArg
 
 abstract class CopyWith$Subscription$RequiredArg<TRes> {
   factory CopyWith$Subscription$RequiredArg(Subscription$RequiredArg instance,
-          TRes Function(Subscription$RequiredArg) then) =
-      _CopyWithImpl$Subscription$RequiredArg;
+          TRes Function(Subscription$RequiredArg) then) =>
+      _CopyWithImpl$Subscription$RequiredArg(instance, then);
 
   factory CopyWith$Subscription$RequiredArg.stub(TRes res) =
       _CopyWithStubImpl$Subscription$RequiredArg;
@@ -624,22 +716,31 @@ class Subscription$RequiredArg$Widget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$RequiredArg$listenForChange {
   Subscription$RequiredArg$listenForChange(
       {required this.name, required this.$__typename});
 
   factory Subscription$RequiredArg$listenForChange.fromJson(
-          Map<String, dynamic> json) =>
-      _$Subscription$RequiredArg$listenForChangeFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Subscription$RequiredArg$listenForChange(
+        name: (l$name as String), $__typename: (l$$__typename as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() =>
-      _$Subscription$RequiredArg$listenForChangeToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -649,15 +750,23 @@ class Subscription$RequiredArg$listenForChange {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$RequiredArg$listenForChange) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -673,8 +782,8 @@ extension UtilityExtension$Subscription$RequiredArg$listenForChange
 abstract class CopyWith$Subscription$RequiredArg$listenForChange<TRes> {
   factory CopyWith$Subscription$RequiredArg$listenForChange(
           Subscription$RequiredArg$listenForChange instance,
-          TRes Function(Subscription$RequiredArg$listenForChange) then) =
-      _CopyWithImpl$Subscription$RequiredArg$listenForChange;
+          TRes Function(Subscription$RequiredArg$listenForChange) then) =>
+      _CopyWithImpl$Subscription$RequiredArg$listenForChange(instance, then);
 
   factory CopyWith$Subscription$RequiredArg$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$RequiredArg$listenForChange;
@@ -712,46 +821,87 @@ class _CopyWithStubImpl$Subscription$RequiredArg$listenForChange<TRes>
   call({String? name, String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Subscription$OptionalArg {
-  Variables$Subscription$OptionalArg({this.name});
+abstract class Variables$Subscription$OptionalArg {
+  factory Variables$Subscription$OptionalArg({String? name}) =>
+      _Impl$Variables$Subscription$OptionalArg({'name': name});
 
-  factory Variables$Subscription$OptionalArg.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Subscription$OptionalArgFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Subscription$OptionalArgToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Subscription$OptionalArg.withoutNulls({String? name}) {
+    final l$data = <String, dynamic>{};
+    if (name != null) l$data['name'] = name;
+    return _Impl$Variables$Subscription$OptionalArg(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Subscription$OptionalArg) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+  factory Variables$Subscription$OptionalArg.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return _Impl$Variables$Subscription$OptionalArg(result$data);
+  }
+
+  String? get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Subscription$OptionalArg<
+      Variables$Subscription$OptionalArg> get copyWith;
+  _Impl$Variables$Subscription$OptionalArg get $impl;
+}
+
+class _Impl$Variables$Subscription$OptionalArg
+    implements Variables$Subscription$OptionalArg {
+  _Impl$Variables$Subscription$OptionalArg(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String? get name => ($data['name'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
   }
 
   CopyWith$Variables$Subscription$OptionalArg<
           Variables$Subscription$OptionalArg>
       get copyWith =>
           CopyWith$Variables$Subscription$OptionalArg(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Subscription$OptionalArg) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+  }
+
+  _Impl$Variables$Subscription$OptionalArg get $impl => this;
 }
 
 abstract class CopyWith$Variables$Subscription$OptionalArg<TRes> {
   factory CopyWith$Variables$Subscription$OptionalArg(
           Variables$Subscription$OptionalArg instance,
-          TRes Function(Variables$Subscription$OptionalArg) then) =
-      _CopyWithImpl$Variables$Subscription$OptionalArg;
+          TRes Function(Variables$Subscription$OptionalArg) then) =>
+      _CopyWithImpl$Variables$Subscription$OptionalArg(instance.$impl, then);
 
   factory CopyWith$Variables$Subscription$OptionalArg.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$OptionalArg;
@@ -763,15 +913,17 @@ class _CopyWithImpl$Variables$Subscription$OptionalArg<TRes>
     implements CopyWith$Variables$Subscription$OptionalArg<TRes> {
   _CopyWithImpl$Variables$Subscription$OptionalArg(this._instance, this._then);
 
-  final Variables$Subscription$OptionalArg _instance;
+  final _Impl$Variables$Subscription$OptionalArg _instance;
 
-  final TRes Function(Variables$Subscription$OptionalArg) _then;
+  final TRes Function(_Impl$Variables$Subscription$OptionalArg) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Subscription$OptionalArg(
-          name: name == _undefined ? _instance.name : (name as String?)));
+      _then(_Impl$Variables$Subscription$OptionalArg({
+        ..._instance.$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Subscription$OptionalArg<TRes>
@@ -783,19 +935,33 @@ class _CopyWithStubImpl$Variables$Subscription$OptionalArg<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$OptionalArg {
   Subscription$OptionalArg({this.listenForChange, required this.$__typename});
 
-  factory Subscription$OptionalArg.fromJson(Map<String, dynamic> json) =>
-      _$Subscription$OptionalArgFromJson(json);
+  factory Subscription$OptionalArg.fromJson(Map<String, dynamic> json) {
+    final l$listenForChange = json['listenForChange'];
+    final l$$__typename = json['__typename'];
+    return Subscription$OptionalArg(
+        listenForChange: l$listenForChange == null
+            ? null
+            : Subscription$OptionalArg$listenForChange.fromJson(
+                (l$listenForChange as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Subscription$OptionalArg$listenForChange? listenForChange;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Subscription$OptionalArgToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$listenForChange = listenForChange;
+    _resultData['listenForChange'] = l$listenForChange?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$listenForChange = listenForChange;
@@ -805,15 +971,23 @@ class Subscription$OptionalArg {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$OptionalArg) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$listenForChange = listenForChange;
     final lOther$listenForChange = other.listenForChange;
-    if (l$listenForChange != lOther$listenForChange) return false;
+    if (l$listenForChange != lOther$listenForChange) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -826,8 +1000,8 @@ extension UtilityExtension$Subscription$OptionalArg
 
 abstract class CopyWith$Subscription$OptionalArg<TRes> {
   factory CopyWith$Subscription$OptionalArg(Subscription$OptionalArg instance,
-          TRes Function(Subscription$OptionalArg) then) =
-      _CopyWithImpl$Subscription$OptionalArg;
+          TRes Function(Subscription$OptionalArg) then) =>
+      _CopyWithImpl$Subscription$OptionalArg(instance, then);
 
   factory CopyWith$Subscription$OptionalArg.stub(TRes res) =
       _CopyWithStubImpl$Subscription$OptionalArg;
@@ -1024,22 +1198,31 @@ class Subscription$OptionalArg$Widget
             onSubscriptionResult: onSubscriptionResult);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Subscription$OptionalArg$listenForChange {
   Subscription$OptionalArg$listenForChange(
       {required this.name, required this.$__typename});
 
   factory Subscription$OptionalArg$listenForChange.fromJson(
-          Map<String, dynamic> json) =>
-      _$Subscription$OptionalArg$listenForChangeFromJson(json);
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Subscription$OptionalArg$listenForChange(
+        name: (l$name as String), $__typename: (l$$__typename as String));
+  }
 
   final String name;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() =>
-      _$Subscription$OptionalArg$listenForChangeToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -1049,15 +1232,23 @@ class Subscription$OptionalArg$listenForChange {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Subscription$OptionalArg$listenForChange) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -1073,8 +1264,8 @@ extension UtilityExtension$Subscription$OptionalArg$listenForChange
 abstract class CopyWith$Subscription$OptionalArg$listenForChange<TRes> {
   factory CopyWith$Subscription$OptionalArg$listenForChange(
           Subscription$OptionalArg$listenForChange instance,
-          TRes Function(Subscription$OptionalArg$listenForChange) then) =
-      _CopyWithImpl$Subscription$OptionalArg$listenForChange;
+          TRes Function(Subscription$OptionalArg$listenForChange) then) =>
+      _CopyWithImpl$Subscription$OptionalArg$listenForChange(instance, then);
 
   factory CopyWith$Subscription$OptionalArg$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$OptionalArg$listenForChange;

@@ -1,17 +1,25 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$F {
   Fragment$F({this.t});
 
-  factory Fragment$F.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$FFromJson(json);
+  factory Fragment$F.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Fragment$F(
+        t: l$t == null
+            ? null
+            : Fragment$F$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Fragment$F$t? t;
 
-  Map<String, dynamic> toJson() => _$Fragment$FToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -20,12 +28,17 @@ class Fragment$F {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -37,8 +50,8 @@ extension UtilityExtension$Fragment$F on Fragment$F {
 
 abstract class CopyWith$Fragment$F<TRes> {
   factory CopyWith$Fragment$F(
-          Fragment$F instance, TRes Function(Fragment$F) then) =
-      _CopyWithImpl$Fragment$F;
+          Fragment$F instance, TRes Function(Fragment$F) then) =>
+      _CopyWithImpl$Fragment$F(instance, then);
 
   factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
 
@@ -105,16 +118,26 @@ const documentNodeFragmentF = DocumentNode(definitions: [
   fragmentDefinitionF,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$F$t {
   Fragment$F$t({this.t});
 
-  factory Fragment$F$t.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$F$tFromJson(json);
+  factory Fragment$F$t.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Fragment$F$t(
+        t: l$t == null
+            ? null
+            : Fragment$F$t$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Fragment$F$t$t? t;
 
-  Map<String, dynamic> toJson() => _$Fragment$F$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -123,12 +146,17 @@ class Fragment$F$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -140,8 +168,8 @@ extension UtilityExtension$Fragment$F$t on Fragment$F$t {
 
 abstract class CopyWith$Fragment$F$t<TRes> {
   factory CopyWith$Fragment$F$t(
-          Fragment$F$t instance, TRes Function(Fragment$F$t) then) =
-      _CopyWithImpl$Fragment$F$t;
+          Fragment$F$t instance, TRes Function(Fragment$F$t) then) =>
+      _CopyWithImpl$Fragment$F$t(instance, then);
 
   factory CopyWith$Fragment$F$t.stub(TRes res) = _CopyWithStubImpl$Fragment$F$t;
 
@@ -178,17 +206,23 @@ class _CopyWithStubImpl$Fragment$F$t<TRes>
   CopyWith$Fragment$F$t$t<TRes> get t => CopyWith$Fragment$F$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$F$t$t {
   Fragment$F$t$t({required this.$__typename});
 
-  factory Fragment$F$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$F$t$tFromJson(json);
+  factory Fragment$F$t$t.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Fragment$F$t$t($__typename: (l$$__typename as String));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$F$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -197,12 +231,17 @@ class Fragment$F$t$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$F$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -214,8 +253,8 @@ extension UtilityExtension$Fragment$F$t$t on Fragment$F$t$t {
 
 abstract class CopyWith$Fragment$F$t$t<TRes> {
   factory CopyWith$Fragment$F$t$t(
-          Fragment$F$t$t instance, TRes Function(Fragment$F$t$t) then) =
-      _CopyWithImpl$Fragment$F$t$t;
+          Fragment$F$t$t instance, TRes Function(Fragment$F$t$t) then) =>
+      _CopyWithImpl$Fragment$F$t$t(instance, then);
 
   factory CopyWith$Fragment$F$t$t.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$t$t;
@@ -248,16 +287,26 @@ class _CopyWithStubImpl$Fragment$F$t$t<TRes>
   call({String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q {
   Query$Q({this.t});
 
-  factory Query$Q.fromJson(Map<String, dynamic> json) =>
-      _$Query$QFromJson(json);
+  factory Query$Q.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Query$Q(
+        t: l$t == null
+            ? null
+            : Query$Q$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Query$Q$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -266,11 +315,17 @@ class Query$Q {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -280,8 +335,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
+      _CopyWithImpl$Query$Q(instance, then);
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -365,16 +420,26 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionF,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$t implements Fragment$F {
   Query$Q$t({this.t});
 
-  factory Query$Q$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$tFromJson(json);
+  factory Query$Q$t.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Query$Q$t(
+        t: l$t == null
+            ? null
+            : Query$Q$t$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Query$Q$t$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$Q$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -383,11 +448,17 @@ class Query$Q$t implements Fragment$F {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$t) || runtimeType != other.runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q$t) || runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -399,8 +470,8 @@ extension UtilityExtension$Query$Q$t on Query$Q$t {
 
 abstract class CopyWith$Query$Q$t<TRes> {
   factory CopyWith$Query$Q$t(
-          Query$Q$t instance, TRes Function(Query$Q$t) then) =
-      _CopyWithImpl$Query$Q$t;
+          Query$Q$t instance, TRes Function(Query$Q$t) then) =>
+      _CopyWithImpl$Query$Q$t(instance, then);
 
   factory CopyWith$Query$Q$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t;
 
@@ -436,16 +507,26 @@ class _CopyWithStubImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
   CopyWith$Query$Q$t$t<TRes> get t => CopyWith$Query$Q$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$t$t implements Fragment$F, Fragment$F$t {
   Query$Q$t$t({this.t});
 
-  factory Query$Q$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$t$tFromJson(json);
+  factory Query$Q$t$t.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Query$Q$t$t(
+        t: l$t == null
+            ? null
+            : Query$Q$t$t$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Query$Q$t$t$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$Q$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -454,12 +535,17 @@ class Query$Q$t$t implements Fragment$F, Fragment$F$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -471,8 +557,8 @@ extension UtilityExtension$Query$Q$t$t on Query$Q$t$t {
 
 abstract class CopyWith$Query$Q$t$t<TRes> {
   factory CopyWith$Query$Q$t$t(
-          Query$Q$t$t instance, TRes Function(Query$Q$t$t) then) =
-      _CopyWithImpl$Query$Q$t$t;
+          Query$Q$t$t instance, TRes Function(Query$Q$t$t) then) =>
+      _CopyWithImpl$Query$Q$t$t(instance, then);
 
   factory CopyWith$Query$Q$t$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t$t;
 
@@ -509,19 +595,32 @@ class _CopyWithStubImpl$Query$Q$t$t<TRes>
   CopyWith$Query$Q$t$t$t<TRes> get t => CopyWith$Query$Q$t$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
   Query$Q$t$t$t({this.t, required this.$__typename});
 
-  factory Query$Q$t$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$t$t$tFromJson(json);
+  factory Query$Q$t$t$t.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    final l$$__typename = json['__typename'];
+    return Query$Q$t$t$t(
+        t: l$t == null
+            ? null
+            : Query$Q$t$t$t$t.fromJson((l$t as Map<String, dynamic>)),
+        $__typename: (l$$__typename as String));
+  }
 
   final Query$Q$t$t$t$t? t;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Q$t$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -531,15 +630,22 @@ class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$t$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q$t$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -551,8 +657,8 @@ extension UtilityExtension$Query$Q$t$t$t on Query$Q$t$t$t {
 
 abstract class CopyWith$Query$Q$t$t$t<TRes> {
   factory CopyWith$Query$Q$t$t$t(
-          Query$Q$t$t$t instance, TRes Function(Query$Q$t$t$t) then) =
-      _CopyWithImpl$Query$Q$t$t$t;
+          Query$Q$t$t$t instance, TRes Function(Query$Q$t$t$t) then) =>
+      _CopyWithImpl$Query$Q$t$t$t(instance, then);
 
   factory CopyWith$Query$Q$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$t$t$t;
@@ -595,17 +701,23 @@ class _CopyWithStubImpl$Query$Q$t$t$t<TRes>
   CopyWith$Query$Q$t$t$t$t<TRes> get t => CopyWith$Query$Q$t$t$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$t$t$t$t implements Fragment$F$t$t {
   Query$Q$t$t$t$t({required this.$__typename});
 
-  factory Query$Q$t$t$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$t$t$t$tFromJson(json);
+  factory Query$Q$t$t$t$t.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Query$Q$t$t$t$t($__typename: (l$$__typename as String));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Q$t$t$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -614,12 +726,17 @@ class Query$Q$t$t$t$t implements Fragment$F$t$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q$t$t$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q$t$t$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -631,8 +748,8 @@ extension UtilityExtension$Query$Q$t$t$t$t on Query$Q$t$t$t$t {
 
 abstract class CopyWith$Query$Q$t$t$t$t<TRes> {
   factory CopyWith$Query$Q$t$t$t$t(
-          Query$Q$t$t$t$t instance, TRes Function(Query$Q$t$t$t$t) then) =
-      _CopyWithImpl$Query$Q$t$t$t$t;
+          Query$Q$t$t$t$t instance, TRes Function(Query$Q$t$t$t$t) then) =>
+      _CopyWithImpl$Query$Q$t$t$t$t(instance, then);
 
   factory CopyWith$Query$Q$t$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$t$t$t$t;
@@ -665,16 +782,26 @@ class _CopyWithStubImpl$Query$Q$t$t$t$t<TRes>
   call({String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q2 {
   Query$Q2({this.t});
 
-  factory Query$Q2.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q2FromJson(json);
+  factory Query$Q2.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Query$Q2(
+        t: l$t == null
+            ? null
+            : Query$Q2$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Query$Q2$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$Q2ToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -683,11 +810,17 @@ class Query$Q2 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q2) || runtimeType != other.runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q2) || runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -697,8 +830,8 @@ extension UtilityExtension$Query$Q2 on Query$Q2 {
 }
 
 abstract class CopyWith$Query$Q2<TRes> {
-  factory CopyWith$Query$Q2(Query$Q2 instance, TRes Function(Query$Q2) then) =
-      _CopyWithImpl$Query$Q2;
+  factory CopyWith$Query$Q2(Query$Q2 instance, TRes Function(Query$Q2) then) =>
+      _CopyWithImpl$Query$Q2(instance, then);
 
   factory CopyWith$Query$Q2.stub(TRes res) = _CopyWithStubImpl$Query$Q2;
 
@@ -782,16 +915,26 @@ const documentNodeQueryQ2 = DocumentNode(definitions: [
   fragmentDefinitionF,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q2$t implements Fragment$F {
   Query$Q2$t({this.t});
 
-  factory Query$Q2$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q2$tFromJson(json);
+  factory Query$Q2$t.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Query$Q2$t(
+        t: l$t == null
+            ? null
+            : Query$Q2$t$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Query$Q2$t$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$Q2$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -800,12 +943,17 @@ class Query$Q2$t implements Fragment$F {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q2$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q2$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -817,8 +965,8 @@ extension UtilityExtension$Query$Q2$t on Query$Q2$t {
 
 abstract class CopyWith$Query$Q2$t<TRes> {
   factory CopyWith$Query$Q2$t(
-          Query$Q2$t instance, TRes Function(Query$Q2$t) then) =
-      _CopyWithImpl$Query$Q2$t;
+          Query$Q2$t instance, TRes Function(Query$Q2$t) then) =>
+      _CopyWithImpl$Query$Q2$t(instance, then);
 
   factory CopyWith$Query$Q2$t.stub(TRes res) = _CopyWithStubImpl$Query$Q2$t;
 
@@ -854,16 +1002,26 @@ class _CopyWithStubImpl$Query$Q2$t<TRes> implements CopyWith$Query$Q2$t<TRes> {
   CopyWith$Query$Q2$t$t<TRes> get t => CopyWith$Query$Q2$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q2$t$t implements Fragment$F$t, Fragment$F {
   Query$Q2$t$t({this.t});
 
-  factory Query$Q2$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q2$t$tFromJson(json);
+  factory Query$Q2$t$t.fromJson(Map<String, dynamic> json) {
+    final l$t = json['t'];
+    return Query$Q2$t$t(
+        t: l$t == null
+            ? null
+            : Query$Q2$t$t$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
   final Query$Q2$t$t$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$Q2$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$t = t;
@@ -872,12 +1030,17 @@ class Query$Q2$t$t implements Fragment$F$t, Fragment$F {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q2$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q2$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -889,8 +1052,8 @@ extension UtilityExtension$Query$Q2$t$t on Query$Q2$t$t {
 
 abstract class CopyWith$Query$Q2$t$t<TRes> {
   factory CopyWith$Query$Q2$t$t(
-          Query$Q2$t$t instance, TRes Function(Query$Q2$t$t) then) =
-      _CopyWithImpl$Query$Q2$t$t;
+          Query$Q2$t$t instance, TRes Function(Query$Q2$t$t) then) =>
+      _CopyWithImpl$Query$Q2$t$t(instance, then);
 
   factory CopyWith$Query$Q2$t$t.stub(TRes res) = _CopyWithStubImpl$Query$Q2$t$t;
 
@@ -927,19 +1090,32 @@ class _CopyWithStubImpl$Query$Q2$t$t<TRes>
   CopyWith$Query$Q2$t$t$t<TRes> get t => CopyWith$Query$Q2$t$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
   Query$Q2$t$t$t({required this.$__typename, this.t});
 
-  factory Query$Q2$t$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q2$t$t$tFromJson(json);
+  factory Query$Q2$t$t$t.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$t = json['t'];
+    return Query$Q2$t$t$t(
+        $__typename: (l$$__typename as String),
+        t: l$t == null
+            ? null
+            : Query$Q2$t$t$t$t.fromJson((l$t as Map<String, dynamic>)));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final Query$Q2$t$t$t$t? t;
 
-  Map<String, dynamic> toJson() => _$Query$Q2$t$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$t = t;
+    _resultData['t'] = l$t?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -949,15 +1125,22 @@ class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q2$t$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q2$t$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$t = t;
     final lOther$t = other.t;
-    if (l$t != lOther$t) return false;
+    if (l$t != lOther$t) {
+      return false;
+    }
     return true;
   }
 }
@@ -969,8 +1152,8 @@ extension UtilityExtension$Query$Q2$t$t$t on Query$Q2$t$t$t {
 
 abstract class CopyWith$Query$Q2$t$t$t<TRes> {
   factory CopyWith$Query$Q2$t$t$t(
-          Query$Q2$t$t$t instance, TRes Function(Query$Q2$t$t$t) then) =
-      _CopyWithImpl$Query$Q2$t$t$t;
+          Query$Q2$t$t$t instance, TRes Function(Query$Q2$t$t$t) then) =>
+      _CopyWithImpl$Query$Q2$t$t$t(instance, then);
 
   factory CopyWith$Query$Q2$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q2$t$t$t;
@@ -1013,17 +1196,23 @@ class _CopyWithStubImpl$Query$Q2$t$t$t<TRes>
   CopyWith$Query$Q2$t$t$t$t<TRes> get t => CopyWith$Query$Q2$t$t$t$t.stub(_res);
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q2$t$t$t$t implements Fragment$F$t$t {
   Query$Q2$t$t$t$t({required this.$__typename});
 
-  factory Query$Q2$t$t$t$t.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q2$t$t$t$tFromJson(json);
+  factory Query$Q2$t$t$t$t.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Query$Q2$t$t$t$t($__typename: (l$$__typename as String));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Q2$t$t$t$tToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -1032,12 +1221,17 @@ class Query$Q2$t$t$t$t implements Fragment$F$t$t {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q2$t$t$t$t) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q2$t$t$t$t) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -1049,8 +1243,8 @@ extension UtilityExtension$Query$Q2$t$t$t$t on Query$Q2$t$t$t$t {
 
 abstract class CopyWith$Query$Q2$t$t$t$t<TRes> {
   factory CopyWith$Query$Q2$t$t$t$t(
-          Query$Q2$t$t$t$t instance, TRes Function(Query$Q2$t$t$t$t) then) =
-      _CopyWithImpl$Query$Q2$t$t$t$t;
+          Query$Q2$t$t$t$t instance, TRes Function(Query$Q2$t$t$t$t) then) =>
+      _CopyWithImpl$Query$Q2$t$t$t$t(instance, then);
 
   factory CopyWith$Query$Q2$t$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q2$t$t$t$t;

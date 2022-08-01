@@ -4,4 +4,4 @@ export 'fobbob.dart' show Fobbob;
 
 Fobbob? fobbobFromJson(dynamic) => Fobbob();
 
-dynamic fobbobToJson(Fobbob) => 1337;
+dynamic fobbobToJson(Fobbob bob) => 1337;

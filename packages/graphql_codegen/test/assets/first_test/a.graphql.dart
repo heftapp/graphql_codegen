@@ -1,18 +1,26 @@
 import 'fragments.graphql.dart';
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'a.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Query$FetchName {
   Query$FetchName({this.name});
 
-  factory Query$FetchName.fromJson(Map<String, dynamic> json) =>
-      _$Query$FetchNameFromJson(json);
+  factory Query$FetchName.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Query$FetchName(
+        name: l$name == null
+            ? null
+            : Fragment$F.fromJson((l$name as Map<String, dynamic>)));
+  }
 
   final Fragment$F? name;
 
-  Map<String, dynamic> toJson() => _$Query$FetchNameToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name?.toJson();
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$name = name;
@@ -21,12 +29,17 @@ class Query$FetchName {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$FetchName) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchName) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
+    if (l$name != lOther$name) {
+      return false;
+    }
     return true;
   }
 }
@@ -38,8 +51,8 @@ extension UtilityExtension$Query$FetchName on Query$FetchName {
 
 abstract class CopyWith$Query$FetchName<TRes> {
   factory CopyWith$Query$FetchName(
-          Query$FetchName instance, TRes Function(Query$FetchName) then) =
-      _CopyWithImpl$Query$FetchName;
+          Query$FetchName instance, TRes Function(Query$FetchName) then) =>
+      _CopyWithImpl$Query$FetchName(instance, then);
 
   factory CopyWith$Query$FetchName.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchName;

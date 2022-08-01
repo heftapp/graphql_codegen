@@ -3,49 +3,88 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:json_annotation/json_annotation.dart';
-part 'document.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Variables$Mutation$UpdateSOptional {
-  Variables$Mutation$UpdateSOptional({this.name});
+abstract class Variables$Mutation$UpdateSOptional {
+  factory Variables$Mutation$UpdateSOptional({String? name}) =>
+      _Impl$Variables$Mutation$UpdateSOptional({'name': name});
 
-  factory Variables$Mutation$UpdateSOptional.fromJson(
-          Map<String, dynamic> json) =>
-      _$Variables$Mutation$UpdateSOptionalFromJson(json);
-
-  final String? name;
-
-  Map<String, dynamic> toJson() =>
-      _$Variables$Mutation$UpdateSOptionalToJson(this);
-  @override
-  int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+  factory Variables$Mutation$UpdateSOptional.withoutNulls({String? name}) {
+    final l$data = <String, dynamic>{};
+    if (name != null) l$data['name'] = name;
+    return _Impl$Variables$Mutation$UpdateSOptional(l$data);
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Variables$Mutation$UpdateSOptional) ||
-        runtimeType != other.runtimeType) return false;
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) return false;
-    return true;
+  factory Variables$Mutation$UpdateSOptional.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return _Impl$Variables$Mutation$UpdateSOptional(result$data);
+  }
+
+  String? get name;
+  Map<String, dynamic> toJson();
+  CopyWith$Variables$Mutation$UpdateSOptional<
+      Variables$Mutation$UpdateSOptional> get copyWith;
+  _Impl$Variables$Mutation$UpdateSOptional get $impl;
+}
+
+class _Impl$Variables$Mutation$UpdateSOptional
+    implements Variables$Mutation$UpdateSOptional {
+  _Impl$Variables$Mutation$UpdateSOptional(this.$data);
+
+  final Map<String, dynamic> $data;
+
+  String? get name => ($data['name'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if ($data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
   }
 
   CopyWith$Variables$Mutation$UpdateSOptional<
           Variables$Mutation$UpdateSOptional>
       get copyWith =>
           CopyWith$Variables$Mutation$UpdateSOptional(this, (i) => i);
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is _Impl$Variables$Mutation$UpdateSOptional) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+  }
+
+  _Impl$Variables$Mutation$UpdateSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSOptional(
           Variables$Mutation$UpdateSOptional instance,
-          TRes Function(Variables$Mutation$UpdateSOptional) then) =
-      _CopyWithImpl$Variables$Mutation$UpdateSOptional;
+          TRes Function(Variables$Mutation$UpdateSOptional) then) =>
+      _CopyWithImpl$Variables$Mutation$UpdateSOptional(instance.$impl, then);
 
   factory CopyWith$Variables$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSOptional;
@@ -57,15 +96,17 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
     implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSOptional(this._instance, this._then);
 
-  final Variables$Mutation$UpdateSOptional _instance;
+  final _Impl$Variables$Mutation$UpdateSOptional _instance;
 
-  final TRes Function(Variables$Mutation$UpdateSOptional) _then;
+  final TRes Function(_Impl$Variables$Mutation$UpdateSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(Variables$Mutation$UpdateSOptional(
-          name: name == _undefined ? _instance.name : (name as String?)));
+      _then(_Impl$Variables$Mutation$UpdateSOptional({
+        ..._instance.$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
@@ -77,16 +118,23 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
   call({String? name}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Mutation$UpdateSOptional {
   Mutation$UpdateSOptional({this.s});
 
-  factory Mutation$UpdateSOptional.fromJson(Map<String, dynamic> json) =>
-      _$Mutation$UpdateSOptionalFromJson(json);
+  factory Mutation$UpdateSOptional.fromJson(Map<String, dynamic> json) {
+    final l$s = json['s'];
+    return Mutation$UpdateSOptional(s: (l$s as String?));
+  }
 
   final String? s;
 
-  Map<String, dynamic> toJson() => _$Mutation$UpdateSOptionalToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$s = s;
+    _resultData['s'] = l$s;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$s = s;
@@ -95,12 +143,18 @@ class Mutation$UpdateSOptional {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Mutation$UpdateSOptional) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$s = s;
     final lOther$s = other.s;
-    if (l$s != lOther$s) return false;
+    if (l$s != lOther$s) {
+      return false;
+    }
     return true;
   }
 }
@@ -113,8 +167,8 @@ extension UtilityExtension$Mutation$UpdateSOptional
 
 abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Mutation$UpdateSOptional(Mutation$UpdateSOptional instance,
-          TRes Function(Mutation$UpdateSOptional) then) =
-      _CopyWithImpl$Mutation$UpdateSOptional;
+          TRes Function(Mutation$UpdateSOptional) then) =>
+      _CopyWithImpl$Mutation$UpdateSOptional(instance, then);
 
   factory CopyWith$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSOptional;

@@ -1,20 +1,28 @@
 import 'package:gql/ast.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'schema.graphql.g.dart';
 
-@JsonSerializable(explicitToJson: true)
 class Fragment$FReport {
   Fragment$FReport({this.title, required this.$__typename});
 
-  factory Fragment$FReport.fromJson(Map<String, dynamic> json) =>
-      _$Fragment$FReportFromJson(json);
+  factory Fragment$FReport.fromJson(Map<String, dynamic> json) {
+    final l$title = json['title'];
+    final l$$__typename = json['__typename'];
+    return Fragment$FReport(
+        title: (l$title as String?), $__typename: (l$$__typename as String));
+  }
 
   final String? title;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Fragment$FReportToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$title = title;
+    _resultData['title'] = l$title;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$title = title;
@@ -24,15 +32,22 @@ class Fragment$FReport {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Fragment$FReport) || runtimeType != other.runtimeType)
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$FReport) || runtimeType != other.runtimeType) {
       return false;
+    }
     final l$title = title;
     final lOther$title = other.title;
-    if (l$title != lOther$title) return false;
+    if (l$title != lOther$title) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -44,8 +59,8 @@ extension UtilityExtension$Fragment$FReport on Fragment$FReport {
 
 abstract class CopyWith$Fragment$FReport<TRes> {
   factory CopyWith$Fragment$FReport(
-          Fragment$FReport instance, TRes Function(Fragment$FReport) then) =
-      _CopyWithImpl$Fragment$FReport;
+          Fragment$FReport instance, TRes Function(Fragment$FReport) then) =>
+      _CopyWithImpl$Fragment$FReport(instance, then);
 
   factory CopyWith$Fragment$FReport.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FReport;
@@ -103,7 +118,6 @@ const documentNodeFragmentFReport = DocumentNode(definitions: [
   fragmentDefinitionFReport,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q {
   Query$Q(
       {this.docsWithTypename,
@@ -112,8 +126,39 @@ class Query$Q {
       this.docsWithFragment,
       required this.$__typename});
 
-  factory Query$Q.fromJson(Map<String, dynamic> json) =>
-      _$Query$QFromJson(json);
+  factory Query$Q.fromJson(Map<String, dynamic> json) {
+    final l$docsWithTypename = json['docsWithTypename'];
+    final l$docsWihtoutTypename = json['docsWihtoutTypename'];
+    final l$docsWithAliasedTypename = json['docsWithAliasedTypename'];
+    final l$docsWithFragment = json['docsWithFragment'];
+    final l$$__typename = json['__typename'];
+    return Query$Q(
+        docsWithTypename: (l$docsWithTypename as List<dynamic>?)
+            ?.map((e) => e == null
+                ? null
+                : Query$Q$docsWithTypename.fromJson(
+                    (e as Map<String, dynamic>)))
+            .toList(),
+        docsWihtoutTypename: (l$docsWihtoutTypename as List<dynamic>?)
+            ?.map((e) => e == null
+                ? null
+                : Query$Q$docsWihtoutTypename.fromJson(
+                    (e as Map<String, dynamic>)))
+            .toList(),
+        docsWithAliasedTypename: (l$docsWithAliasedTypename as List<dynamic>?)
+            ?.map((e) => e == null
+                ? null
+                : Query$Q$docsWithAliasedTypename.fromJson(
+                    (e as Map<String, dynamic>)))
+            .toList(),
+        docsWithFragment: (l$docsWithFragment as List<dynamic>?)
+            ?.map((e) => e == null
+                ? null
+                : Query$Q$docsWithFragment.fromJson(
+                    (e as Map<String, dynamic>)))
+            .toList(),
+        $__typename: (l$$__typename as String));
+  }
 
   final List<Query$Q$docsWithTypename?>? docsWithTypename;
 
@@ -123,10 +168,27 @@ class Query$Q {
 
   final List<Query$Q$docsWithFragment?>? docsWithFragment;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$QToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$docsWithTypename = docsWithTypename;
+    _resultData['docsWithTypename'] =
+        l$docsWithTypename?.map((e) => e?.toJson()).toList();
+    final l$docsWihtoutTypename = docsWihtoutTypename;
+    _resultData['docsWihtoutTypename'] =
+        l$docsWihtoutTypename?.map((e) => e?.toJson()).toList();
+    final l$docsWithAliasedTypename = docsWithAliasedTypename;
+    _resultData['docsWithAliasedTypename'] =
+        l$docsWithAliasedTypename?.map((e) => e?.toJson()).toList();
+    final l$docsWithFragment = docsWithFragment;
+    _resultData['docsWithFragment'] =
+        l$docsWithFragment?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$docsWithTypename = docsWithTypename;
@@ -153,73 +215,85 @@ class Query$Q {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$docsWithTypename = docsWithTypename;
     final lOther$docsWithTypename = other.docsWithTypename;
     if (l$docsWithTypename != null && lOther$docsWithTypename != null) {
-      if (l$docsWithTypename.length != lOther$docsWithTypename.length)
+      if (l$docsWithTypename.length != lOther$docsWithTypename.length) {
         return false;
+      }
       for (int i = 0; i < l$docsWithTypename.length; i++) {
         final l$docsWithTypename$entry = l$docsWithTypename[i];
         final lOther$docsWithTypename$entry = lOther$docsWithTypename[i];
-        if (l$docsWithTypename$entry != lOther$docsWithTypename$entry)
+        if (l$docsWithTypename$entry != lOther$docsWithTypename$entry) {
           return false;
+        }
       }
     } else if (l$docsWithTypename != lOther$docsWithTypename) {
       return false;
     }
-
     final l$docsWihtoutTypename = docsWihtoutTypename;
     final lOther$docsWihtoutTypename = other.docsWihtoutTypename;
     if (l$docsWihtoutTypename != null && lOther$docsWihtoutTypename != null) {
-      if (l$docsWihtoutTypename.length != lOther$docsWihtoutTypename.length)
+      if (l$docsWihtoutTypename.length != lOther$docsWihtoutTypename.length) {
         return false;
+      }
       for (int i = 0; i < l$docsWihtoutTypename.length; i++) {
         final l$docsWihtoutTypename$entry = l$docsWihtoutTypename[i];
         final lOther$docsWihtoutTypename$entry = lOther$docsWihtoutTypename[i];
-        if (l$docsWihtoutTypename$entry != lOther$docsWihtoutTypename$entry)
+        if (l$docsWihtoutTypename$entry != lOther$docsWihtoutTypename$entry) {
           return false;
+        }
       }
     } else if (l$docsWihtoutTypename != lOther$docsWihtoutTypename) {
       return false;
     }
-
     final l$docsWithAliasedTypename = docsWithAliasedTypename;
     final lOther$docsWithAliasedTypename = other.docsWithAliasedTypename;
     if (l$docsWithAliasedTypename != null &&
         lOther$docsWithAliasedTypename != null) {
       if (l$docsWithAliasedTypename.length !=
-          lOther$docsWithAliasedTypename.length) return false;
+          lOther$docsWithAliasedTypename.length) {
+        return false;
+      }
       for (int i = 0; i < l$docsWithAliasedTypename.length; i++) {
         final l$docsWithAliasedTypename$entry = l$docsWithAliasedTypename[i];
         final lOther$docsWithAliasedTypename$entry =
             lOther$docsWithAliasedTypename[i];
         if (l$docsWithAliasedTypename$entry !=
-            lOther$docsWithAliasedTypename$entry) return false;
+            lOther$docsWithAliasedTypename$entry) {
+          return false;
+        }
       }
     } else if (l$docsWithAliasedTypename != lOther$docsWithAliasedTypename) {
       return false;
     }
-
     final l$docsWithFragment = docsWithFragment;
     final lOther$docsWithFragment = other.docsWithFragment;
     if (l$docsWithFragment != null && lOther$docsWithFragment != null) {
-      if (l$docsWithFragment.length != lOther$docsWithFragment.length)
+      if (l$docsWithFragment.length != lOther$docsWithFragment.length) {
         return false;
+      }
       for (int i = 0; i < l$docsWithFragment.length; i++) {
         final l$docsWithFragment$entry = l$docsWithFragment[i];
         final lOther$docsWithFragment$entry = lOther$docsWithFragment[i];
-        if (l$docsWithFragment$entry != lOther$docsWithFragment$entry)
+        if (l$docsWithFragment$entry != lOther$docsWithFragment$entry) {
           return false;
+        }
       }
     } else if (l$docsWithFragment != lOther$docsWithFragment) {
       return false;
     }
-
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -229,8 +303,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
+      _CopyWithImpl$Query$Q(instance, then);
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -458,17 +532,23 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionFReport,
 ]);
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$docsWithTypename {
   Query$Q$docsWithTypename({required this.$__typename});
 
-  factory Query$Q$docsWithTypename.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$docsWithTypenameFromJson(json);
+  factory Query$Q$docsWithTypename.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Query$Q$docsWithTypename($__typename: (l$$__typename as String));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Q$docsWithTypenameToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -477,12 +557,18 @@ class Query$Q$docsWithTypename {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$Q$docsWithTypename) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -495,8 +581,8 @@ extension UtilityExtension$Query$Q$docsWithTypename
 
 abstract class CopyWith$Query$Q$docsWithTypename<TRes> {
   factory CopyWith$Query$Q$docsWithTypename(Query$Q$docsWithTypename instance,
-          TRes Function(Query$Q$docsWithTypename) then) =
-      _CopyWithImpl$Query$Q$docsWithTypename;
+          TRes Function(Query$Q$docsWithTypename) then) =>
+      _CopyWithImpl$Query$Q$docsWithTypename(instance, then);
 
   factory CopyWith$Query$Q$docsWithTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithTypename;
@@ -530,19 +616,29 @@ class _CopyWithStubImpl$Query$Q$docsWithTypename<TRes>
   call({String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$docsWihtoutTypename {
   Query$Q$docsWihtoutTypename({this.title, required this.$__typename});
 
-  factory Query$Q$docsWihtoutTypename.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$docsWihtoutTypenameFromJson(json);
+  factory Query$Q$docsWihtoutTypename.fromJson(Map<String, dynamic> json) {
+    final l$title = json['title'];
+    final l$$__typename = json['__typename'];
+    return Query$Q$docsWihtoutTypename(
+        title: (l$title as String?), $__typename: (l$$__typename as String));
+  }
 
   final String? title;
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Q$docsWihtoutTypenameToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$title = title;
+    _resultData['title'] = l$title;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$title = title;
@@ -552,15 +648,23 @@ class Query$Q$docsWihtoutTypename {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$Q$docsWihtoutTypename) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$title = title;
     final lOther$title = other.title;
-    if (l$title != lOther$title) return false;
+    if (l$title != lOther$title) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -574,8 +678,8 @@ extension UtilityExtension$Query$Q$docsWihtoutTypename
 abstract class CopyWith$Query$Q$docsWihtoutTypename<TRes> {
   factory CopyWith$Query$Q$docsWihtoutTypename(
           Query$Q$docsWihtoutTypename instance,
-          TRes Function(Query$Q$docsWihtoutTypename) then) =
-      _CopyWithImpl$Query$Q$docsWihtoutTypename;
+          TRes Function(Query$Q$docsWihtoutTypename) then) =>
+      _CopyWithImpl$Query$Q$docsWihtoutTypename(instance, then);
 
   factory CopyWith$Query$Q$docsWihtoutTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWihtoutTypename;
@@ -610,18 +714,24 @@ class _CopyWithStubImpl$Query$Q$docsWihtoutTypename<TRes>
   call({String? title, String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$docsWithAliasedTypename {
   Query$Q$docsWithAliasedTypename({this.$__typename});
 
-  factory Query$Q$docsWithAliasedTypename.fromJson(Map<String, dynamic> json) =>
-      _$Query$Q$docsWithAliasedTypenameFromJson(json);
+  factory Query$Q$docsWithAliasedTypename.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Query$Q$docsWithAliasedTypename(
+        $__typename: (l$$__typename as String?));
+  }
 
-  @JsonKey(name: '__typename')
   final String? $__typename;
 
-  Map<String, dynamic> toJson() =>
-      _$Query$Q$docsWithAliasedTypenameToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -630,12 +740,18 @@ class Query$Q$docsWithAliasedTypename {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$Q$docsWithAliasedTypename) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -649,8 +765,8 @@ extension UtilityExtension$Query$Q$docsWithAliasedTypename
 abstract class CopyWith$Query$Q$docsWithAliasedTypename<TRes> {
   factory CopyWith$Query$Q$docsWithAliasedTypename(
           Query$Q$docsWithAliasedTypename instance,
-          TRes Function(Query$Q$docsWithAliasedTypename) then) =
-      _CopyWithImpl$Query$Q$docsWithAliasedTypename;
+          TRes Function(Query$Q$docsWithAliasedTypename) then) =>
+      _CopyWithImpl$Query$Q$docsWithAliasedTypename(instance, then);
 
   factory CopyWith$Query$Q$docsWithAliasedTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithAliasedTypename;
@@ -684,7 +800,6 @@ class _CopyWithStubImpl$Query$Q$docsWithAliasedTypename<TRes>
   call({String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$docsWithFragment {
   Query$Q$docsWithFragment({required this.$__typename});
 
@@ -692,17 +807,25 @@ class Query$Q$docsWithFragment {
     switch (json["__typename"] as String) {
       case "Contract":
         return Query$Q$docsWithFragment$$Contract.fromJson(json);
+
       case "Report":
         return Query$Q$docsWithFragment$$Report.fromJson(json);
+
       default:
-        return _$Query$Q$docsWithFragmentFromJson(json);
+        final l$$__typename = json['__typename'];
+        return Query$Q$docsWithFragment($__typename: (l$$__typename as String));
     }
   }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
-  Map<String, dynamic> toJson() => _$Query$Q$docsWithFragmentToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -711,12 +834,18 @@ class Query$Q$docsWithFragment {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$Q$docsWithFragment) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -729,8 +858,8 @@ extension UtilityExtension$Query$Q$docsWithFragment
 
 abstract class CopyWith$Query$Q$docsWithFragment<TRes> {
   factory CopyWith$Query$Q$docsWithFragment(Query$Q$docsWithFragment instance,
-          TRes Function(Query$Q$docsWithFragment) then) =
-      _CopyWithImpl$Query$Q$docsWithFragment;
+          TRes Function(Query$Q$docsWithFragment) then) =>
+      _CopyWithImpl$Query$Q$docsWithFragment(instance, then);
 
   factory CopyWith$Query$Q$docsWithFragment.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment;
@@ -764,21 +893,30 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment<TRes>
   call({String? $__typename}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
   Query$Q$docsWithFragment$$Contract({required this.$__typename, this.title});
 
   factory Query$Q$docsWithFragment$$Contract.fromJson(
-          Map<String, dynamic> json) =>
-      _$Query$Q$docsWithFragment$$ContractFromJson(json);
+      Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$title = json['title'];
+    return Query$Q$docsWithFragment$$Contract(
+        $__typename: (l$$__typename as String), title: (l$title as String?));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? title;
 
-  Map<String, dynamic> toJson() =>
-      _$Query$Q$docsWithFragment$$ContractToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$title = title;
+    _resultData['title'] = l$title;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -788,15 +926,23 @@ class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$Q$docsWithFragment$$Contract) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$title = title;
     final lOther$title = other.title;
-    if (l$title != lOther$title) return false;
+    if (l$title != lOther$title) {
+      return false;
+    }
     return true;
   }
 }
@@ -812,8 +958,8 @@ extension UtilityExtension$Query$Q$docsWithFragment$$Contract
 abstract class CopyWith$Query$Q$docsWithFragment$$Contract<TRes> {
   factory CopyWith$Query$Q$docsWithFragment$$Contract(
           Query$Q$docsWithFragment$$Contract instance,
-          TRes Function(Query$Q$docsWithFragment$$Contract) then) =
-      _CopyWithImpl$Query$Q$docsWithFragment$$Contract;
+          TRes Function(Query$Q$docsWithFragment$$Contract) then) =>
+      _CopyWithImpl$Query$Q$docsWithFragment$$Contract(instance, then);
 
   factory CopyWith$Query$Q$docsWithFragment$$Contract.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment$$Contract;
@@ -848,22 +994,30 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment$$Contract<TRes>
   call({String? $__typename, String? title}) => _res;
 }
 
-@JsonSerializable(explicitToJson: true)
 class Query$Q$docsWithFragment$$Report
     implements Fragment$FReport, Query$Q$docsWithFragment {
   Query$Q$docsWithFragment$$Report({required this.$__typename, this.title});
 
-  factory Query$Q$docsWithFragment$$Report.fromJson(
-          Map<String, dynamic> json) =>
-      _$Query$Q$docsWithFragment$$ReportFromJson(json);
+  factory Query$Q$docsWithFragment$$Report.fromJson(Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$title = json['title'];
+    return Query$Q$docsWithFragment$$Report(
+        $__typename: (l$$__typename as String), title: (l$title as String?));
+  }
 
-  @JsonKey(name: '__typename')
   final String $__typename;
 
   final String? title;
 
-  Map<String, dynamic> toJson() =>
-      _$Query$Q$docsWithFragment$$ReportToJson(this);
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$title = title;
+    _resultData['title'] = l$title;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
   @override
   int get hashCode {
     final l$$__typename = $__typename;
@@ -873,15 +1027,23 @@ class Query$Q$docsWithFragment$$Report
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+    if (identical(this, other)) {
+      return true;
+    }
     if (!(other is Query$Q$docsWithFragment$$Report) ||
-        runtimeType != other.runtimeType) return false;
+        runtimeType != other.runtimeType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) return false;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     final l$title = title;
     final lOther$title = other.title;
-    if (l$title != lOther$title) return false;
+    if (l$title != lOther$title) {
+      return false;
+    }
     return true;
   }
 }
@@ -895,8 +1057,8 @@ extension UtilityExtension$Query$Q$docsWithFragment$$Report
 abstract class CopyWith$Query$Q$docsWithFragment$$Report<TRes> {
   factory CopyWith$Query$Q$docsWithFragment$$Report(
           Query$Q$docsWithFragment$$Report instance,
-          TRes Function(Query$Q$docsWithFragment$$Report) then) =
-      _CopyWithImpl$Query$Q$docsWithFragment$$Report;
+          TRes Function(Query$Q$docsWithFragment$$Report) then) =>
+      _CopyWithImpl$Query$Q$docsWithFragment$$Report(instance, then);
 
   factory CopyWith$Query$Q$docsWithFragment$$Report.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment$$Report;
