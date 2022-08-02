@@ -1,3 +1,7 @@
+# 0.11.0-beta.2
+
+* Simplify input classes
+
 # 0.11.0-beta.1
 
 * Remove dependency on `json_serializable`
