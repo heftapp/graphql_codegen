@@ -3,15 +3,13 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-abstract class Variables$Query$FetchSOptional {
+class Variables$Query$FetchSOptional {
   factory Variables$Query$FetchSOptional({String? name}) =>
-      _Impl$Variables$Query$FetchSOptional({'name': name});
+      Variables$Query$FetchSOptional._({
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Query$FetchSOptional.withoutNulls({String? name}) {
-    final l$data = <String, dynamic>{};
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Query$FetchSOptional(l$data);
-  }
+  Variables$Query$FetchSOptional._(this._$data);
 
   factory Variables$Query$FetchSOptional.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -19,26 +17,15 @@ abstract class Variables$Query$FetchSOptional {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Query$FetchSOptional(result$data);
+    return Variables$Query$FetchSOptional._(result$data);
   }
 
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$FetchSOptional<Variables$Query$FetchSOptional>
-      get copyWith;
-  _Impl$Variables$Query$FetchSOptional get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$FetchSOptional
-    implements Variables$Query$FetchSOptional {
-  _Impl$Variables$Query$FetchSOptional(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get name => ($data['name'] as String?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -52,13 +39,13 @@ class _Impl$Variables$Query$FetchSOptional
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$FetchSOptional) ||
+    if (!(other is Variables$Query$FetchSOptional) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -70,17 +57,15 @@ class _Impl$Variables$Query$FetchSOptional
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
   }
-
-  _Impl$Variables$Query$FetchSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
   factory CopyWith$Variables$Query$FetchSOptional(
           Variables$Query$FetchSOptional instance,
-          TRes Function(Variables$Query$FetchSOptional) then) =>
-      _CopyWithImpl$Variables$Query$FetchSOptional(instance.$impl, then);
+          TRes Function(Variables$Query$FetchSOptional) then) =
+      _CopyWithImpl$Variables$Query$FetchSOptional;
 
   factory CopyWith$Variables$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSOptional;
@@ -92,15 +77,15 @@ class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
     implements CopyWith$Variables$Query$FetchSOptional<TRes> {
   _CopyWithImpl$Variables$Query$FetchSOptional(this._instance, this._then);
 
-  final _Impl$Variables$Query$FetchSOptional _instance;
+  final Variables$Query$FetchSOptional _instance;
 
-  final TRes Function(_Impl$Variables$Query$FetchSOptional) _then;
+  final TRes Function(Variables$Query$FetchSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Query$FetchSOptional({
-        ..._instance.$data,
+      _then(Variables$Query$FetchSOptional._({
+        ..._instance._$data,
         if (name != _undefined) 'name': (name as String?),
       }));
 }
@@ -161,8 +146,8 @@ extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
 
 abstract class CopyWith$Query$FetchSOptional<TRes> {
   factory CopyWith$Query$FetchSOptional(Query$FetchSOptional instance,
-          TRes Function(Query$FetchSOptional) then) =>
-      _CopyWithImpl$Query$FetchSOptional(instance, then);
+          TRes Function(Query$FetchSOptional) then) =
+      _CopyWithImpl$Query$FetchSOptional;
 
   factory CopyWith$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSOptional;

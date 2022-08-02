@@ -62,8 +62,8 @@ extension UtilityExtension$Query$FetchI on Query$FetchI {
 
 abstract class CopyWith$Query$FetchI<TRes> {
   factory CopyWith$Query$FetchI(
-          Query$FetchI instance, TRes Function(Query$FetchI) then) =>
-      _CopyWithImpl$Query$FetchI(instance, then);
+          Query$FetchI instance, TRes Function(Query$FetchI) then) =
+      _CopyWithImpl$Query$FetchI;
 
   factory CopyWith$Query$FetchI.stub(TRes res) = _CopyWithStubImpl$Query$FetchI;
 
@@ -343,8 +343,8 @@ extension UtilityExtension$Query$FetchI$i1 on Query$FetchI$i1 {
 
 abstract class CopyWith$Query$FetchI$i1<TRes> {
   factory CopyWith$Query$FetchI$i1(
-          Query$FetchI$i1 instance, TRes Function(Query$FetchI$i1) then) =>
-      _CopyWithImpl$Query$FetchI$i1(instance, then);
+          Query$FetchI$i1 instance, TRes Function(Query$FetchI$i1) then) =
+      _CopyWithImpl$Query$FetchI$i1;
 
   factory CopyWith$Query$FetchI$i1.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1;
@@ -450,9 +450,9 @@ extension UtilityExtension$Query$FetchI$i1$i2 on Query$FetchI$i1$i2 {
 }
 
 abstract class CopyWith$Query$FetchI$i1$i2<TRes> {
-  factory CopyWith$Query$FetchI$i1$i2(Query$FetchI$i1$i2 instance,
-          TRes Function(Query$FetchI$i1$i2) then) =>
-      _CopyWithImpl$Query$FetchI$i1$i2(instance, then);
+  factory CopyWith$Query$FetchI$i1$i2(
+          Query$FetchI$i1$i2 instance, TRes Function(Query$FetchI$i1$i2) then) =
+      _CopyWithImpl$Query$FetchI$i1$i2;
 
   factory CopyWith$Query$FetchI$i1$i2.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$i2;
@@ -559,8 +559,8 @@ extension UtilityExtension$Query$FetchI$i1$i2$field
 
 abstract class CopyWith$Query$FetchI$i1$i2$field<TRes> {
   factory CopyWith$Query$FetchI$i1$i2$field(Query$FetchI$i1$i2$field instance,
-          TRes Function(Query$FetchI$i1$i2$field) then) =>
-      _CopyWithImpl$Query$FetchI$i1$i2$field(instance, then);
+          TRes Function(Query$FetchI$i1$i2$field) then) =
+      _CopyWithImpl$Query$FetchI$i1$i2$field;
 
   factory CopyWith$Query$FetchI$i1$i2$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$i2$field;
@@ -672,8 +672,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1 on Query$FetchI$i1$$T1 {
 
 abstract class CopyWith$Query$FetchI$i1$$T1<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1(Query$FetchI$i1$$T1 instance,
-          TRes Function(Query$FetchI$i1$$T1) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1(instance, then);
+          TRes Function(Query$FetchI$i1$$T1) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1;
 
   factory CopyWith$Query$FetchI$i1$$T1.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1;
@@ -804,8 +804,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2c on Query$FetchI$i1$$T1$i2c {
 
 abstract class CopyWith$Query$FetchI$i1$$T1$i2c<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1$i2c(Query$FetchI$i1$$T1$i2c instance,
-          TRes Function(Query$FetchI$i1$$T1$i2c) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1$i2c(instance, then);
+          TRes Function(Query$FetchI$i1$$T1$i2c) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1$i2c;
 
   factory CopyWith$Query$FetchI$i1$$T1$i2c.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1$i2c;
@@ -914,8 +914,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2c$field
 abstract class CopyWith$Query$FetchI$i1$$T1$i2c$field<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1$i2c$field(
           Query$FetchI$i1$$T1$i2c$field instance,
-          TRes Function(Query$FetchI$i1$$T1$i2c$field) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1$i2c$field(instance, then);
+          TRes Function(Query$FetchI$i1$$T1$i2c$field) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1$i2c$field;
 
   factory CopyWith$Query$FetchI$i1$$T1$i2c$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1$i2c$field;
@@ -1020,8 +1020,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2 on Query$FetchI$i1$$T1$i2 {
 
 abstract class CopyWith$Query$FetchI$i1$$T1$i2<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1$i2(Query$FetchI$i1$$T1$i2 instance,
-          TRes Function(Query$FetchI$i1$$T1$i2) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1$i2(instance, then);
+          TRes Function(Query$FetchI$i1$$T1$i2) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1$i2;
 
   factory CopyWith$Query$FetchI$i1$$T1$i2.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1$i2;
@@ -1130,8 +1130,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2$field
 abstract class CopyWith$Query$FetchI$i1$$T1$i2$field<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1$i2$field(
           Query$FetchI$i1$$T1$i2$field instance,
-          TRes Function(Query$FetchI$i1$$T1$i2$field) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1$i2$field(instance, then);
+          TRes Function(Query$FetchI$i1$$T1$i2$field) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1$i2$field;
 
   factory CopyWith$Query$FetchI$i1$$T1$i2$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$field;
@@ -1232,8 +1232,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2$$T2
 abstract class CopyWith$Query$FetchI$i1$$T1$i2$$T2<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1$i2$$T2(
           Query$FetchI$i1$$T1$i2$$T2 instance,
-          TRes Function(Query$FetchI$i1$$T1$i2$$T2) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2(instance, then);
+          TRes Function(Query$FetchI$i1$$T1$i2$$T2) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2;
 
   factory CopyWith$Query$FetchI$i1$$T1$i2$$T2.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$$T2;
@@ -1354,8 +1354,8 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2$$T2$field
 abstract class CopyWith$Query$FetchI$i1$$T1$i2$$T2$field<TRes> {
   factory CopyWith$Query$FetchI$i1$$T1$i2$$T2$field(
           Query$FetchI$i1$$T1$i2$$T2$field instance,
-          TRes Function(Query$FetchI$i1$$T1$i2$$T2$field) then) =>
-      _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2$field(instance, then);
+          TRes Function(Query$FetchI$i1$$T1$i2$$T2$field) then) =
+      _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2$field;
 
   factory CopyWith$Query$FetchI$i1$$T1$i2$$T2$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$$T2$field;

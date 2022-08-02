@@ -705,21 +705,28 @@ will change the above-yielded code to
 class Query___Q___name { ... }
 ```
 
-## Strip null from input serializers
+## Null and input serializers
 
-Some APIs don't allow input fields with a `null` value but prefer to have no field provided, e.g.,:
+Per default, when you construct an input any `null` field provided in the constructor will be omitted. E.g., given the input
 
-```json
-{ "foo": null, "bar": "Hello" } // Will fail
-{ "bar": "Hello" } // Is preferred
+```graphql
+input I {
+  s: String
+  b: Boolean
+}
 ```
 
-You can strip null values for all input serializers (variables and inputs) with the option
-
+the following holds
 
 ```dart
-Input$SomeInput.withoutNulls(bar: "Hello");
+Input$I(s: "Foo").toJson(); // {"s": "Foo"}
+Input$I(s: "Foo", b: null).toJson(); // {"s": "Foo"}
+Input$I(s: "Foo", b: false).toJson(); // {"s": "Foo", "b": false}
+Input$I(s: "Foo").copyWith(b: null).toJson(); // {"s": "Foo", "b": null}
 ```
+
+So to explicitly set a (nullable) field to `null`, you'll need to use the `copyWith` function.
+
 
 ## Extra keywords
 

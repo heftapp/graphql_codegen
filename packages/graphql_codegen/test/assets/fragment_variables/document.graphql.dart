@@ -1,14 +1,11 @@
 import 'package:gql/ast.dart';
 
-abstract class Input$Input {
-  factory Input$Input({bool? inputField}) =>
-      _Impl$Input$Input({'inputField': inputField});
+class Input$Input {
+  factory Input$Input({bool? inputField}) => Input$Input._({
+        if (inputField != null) r'inputField': inputField,
+      });
 
-  factory Input$Input.withoutNulls({bool? inputField}) {
-    final l$data = <String, dynamic>{};
-    if (inputField != null) l$data['inputField'] = inputField;
-    return _Impl$Input$Input(l$data);
-  }
+  Input$Input._(this._$data);
 
   factory Input$Input.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -16,24 +13,15 @@ abstract class Input$Input {
       final l$inputField = data['inputField'];
       result$data['inputField'] = (l$inputField as bool?);
     }
-    return _Impl$Input$Input(result$data);
+    return Input$Input._(result$data);
   }
 
-  bool? get inputField;
-  Map<String, dynamic> toJson();
-  CopyWith$Input$Input<Input$Input> get copyWith;
-  _Impl$Input$Input get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Input$Input implements Input$Input {
-  _Impl$Input$Input(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  bool? get inputField => ($data['inputField'] as bool?);
+  bool? get inputField => (_$data['inputField'] as bool?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('inputField')) {
+    if (_$data.containsKey('inputField')) {
       final l$inputField = inputField;
       result$data['inputField'] = l$inputField;
     }
@@ -47,13 +35,13 @@ class _Impl$Input$Input implements Input$Input {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Input$Input) || runtimeType != other.runtimeType) {
+    if (!(other is Input$Input) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$inputField = inputField;
     final lOther$inputField = other.inputField;
-    if ($data.containsKey('inputField') !=
-        other.$data.containsKey('inputField')) {
+    if (_$data.containsKey('inputField') !=
+        other._$data.containsKey('inputField')) {
       return false;
     }
     if (l$inputField != lOther$inputField) {
@@ -66,16 +54,14 @@ class _Impl$Input$Input implements Input$Input {
   int get hashCode {
     final l$inputField = inputField;
     return Object.hashAll(
-        [$data.containsKey('inputField') ? l$inputField : const {}]);
+        [_$data.containsKey('inputField') ? l$inputField : const {}]);
   }
-
-  _Impl$Input$Input get $impl => this;
 }
 
 abstract class CopyWith$Input$Input<TRes> {
   factory CopyWith$Input$Input(
-          Input$Input instance, TRes Function(Input$Input) then) =>
-      _CopyWithImpl$Input$Input(instance.$impl, then);
+          Input$Input instance, TRes Function(Input$Input) then) =
+      _CopyWithImpl$Input$Input;
 
   factory CopyWith$Input$Input.stub(TRes res) = _CopyWithStubImpl$Input$Input;
 
@@ -85,14 +71,14 @@ abstract class CopyWith$Input$Input<TRes> {
 class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
   _CopyWithImpl$Input$Input(this._instance, this._then);
 
-  final _Impl$Input$Input _instance;
+  final Input$Input _instance;
 
-  final TRes Function(_Impl$Input$Input) _then;
+  final TRes Function(Input$Input) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? inputField = _undefined}) => _then(_Impl$Input$Input({
-        ..._instance.$data,
+  TRes call({Object? inputField = _undefined}) => _then(Input$Input._({
+        ..._instance._$data,
         if (inputField != _undefined) 'inputField': (inputField as bool?),
       }));
 }
@@ -106,15 +92,14 @@ class _CopyWithStubImpl$Input$Input<TRes>
   call({bool? inputField}) => _res;
 }
 
-abstract class Variables$Fragment$F1 {
+class Variables$Fragment$F1 {
   factory Variables$Fragment$F1({bool? i, required String name}) =>
-      _Impl$Variables$Fragment$F1({'i': i, 'name': name});
+      Variables$Fragment$F1._({
+        if (i != null) r'i': i,
+        r'name': name,
+      });
 
-  factory Variables$Fragment$F1.withoutNulls({bool? i, required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    if (i != null) l$data['i'] = i;
-    return _Impl$Variables$Fragment$F1(l$data);
-  }
+  Variables$Fragment$F1._(this._$data);
 
   factory Variables$Fragment$F1.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -124,26 +109,16 @@ abstract class Variables$Fragment$F1 {
     }
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Fragment$F1(result$data);
+    return Variables$Fragment$F1._(result$data);
   }
 
-  bool? get i;
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F1<Variables$Fragment$F1> get copyWith;
-  _Impl$Variables$Fragment$F1 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F1 implements Variables$Fragment$F1 {
-  _Impl$Variables$Fragment$F1(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  bool? get i => ($data['i'] as bool?);
-  String get name => ($data['name'] as String);
+  bool? get i => (_$data['i'] as bool?);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('i')) {
+    if (_$data.containsKey('i')) {
       final l$i = i;
       result$data['i'] = l$i;
     }
@@ -159,13 +134,12 @@ class _Impl$Variables$Fragment$F1 implements Variables$Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F1) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Fragment$F1) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
     final lOther$i = other.i;
-    if ($data.containsKey('i') != other.$data.containsKey('i')) {
+    if (_$data.containsKey('i') != other._$data.containsKey('i')) {
       return false;
     }
     if (l$i != lOther$i) {
@@ -183,16 +157,14 @@ class _Impl$Variables$Fragment$F1 implements Variables$Fragment$F1 {
   int get hashCode {
     final l$i = i;
     final l$name = name;
-    return Object.hashAll([$data.containsKey('i') ? l$i : const {}, l$name]);
+    return Object.hashAll([_$data.containsKey('i') ? l$i : const {}, l$name]);
   }
-
-  _Impl$Variables$Fragment$F1 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F1<TRes> {
   factory CopyWith$Variables$Fragment$F1(Variables$Fragment$F1 instance,
-          TRes Function(Variables$Fragment$F1) then) =>
-      _CopyWithImpl$Variables$Fragment$F1(instance.$impl, then);
+          TRes Function(Variables$Fragment$F1) then) =
+      _CopyWithImpl$Variables$Fragment$F1;
 
   factory CopyWith$Variables$Fragment$F1.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F1;
@@ -204,15 +176,15 @@ class _CopyWithImpl$Variables$Fragment$F1<TRes>
     implements CopyWith$Variables$Fragment$F1<TRes> {
   _CopyWithImpl$Variables$Fragment$F1(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F1 _instance;
+  final Variables$Fragment$F1 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F1) _then;
+  final TRes Function(Variables$Fragment$F1) _then;
 
   static const _undefined = {};
 
   TRes call({Object? i = _undefined, Object? name = _undefined}) =>
-      _then(_Impl$Variables$Fragment$F1({
-        ..._instance.$data,
+      _then(Variables$Fragment$F1._({
+        ..._instance._$data,
         if (i != _undefined) 'i': (i as bool?),
         if (name != _undefined && name != null) 'name': (name as String),
       }));
@@ -289,8 +261,8 @@ extension UtilityExtension$Fragment$F1 on Fragment$F1 {
 
 abstract class CopyWith$Fragment$F1<TRes> {
   factory CopyWith$Fragment$F1(
-          Fragment$F1 instance, TRes Function(Fragment$F1) then) =>
-      _CopyWithImpl$Fragment$F1(instance, then);
+          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
+      _CopyWithImpl$Fragment$F1;
 
   factory CopyWith$Fragment$F1.stub(TRes res) = _CopyWithStubImpl$Fragment$F1;
 
@@ -475,9 +447,9 @@ extension UtilityExtension$Fragment$F1$level1 on Fragment$F1$level1 {
 }
 
 abstract class CopyWith$Fragment$F1$level1<TRes> {
-  factory CopyWith$Fragment$F1$level1(Fragment$F1$level1 instance,
-          TRes Function(Fragment$F1$level1) then) =>
-      _CopyWithImpl$Fragment$F1$level1(instance, then);
+  factory CopyWith$Fragment$F1$level1(
+          Fragment$F1$level1 instance, TRes Function(Fragment$F1$level1) then) =
+      _CopyWithImpl$Fragment$F1$level1;
 
   factory CopyWith$Fragment$F1$level1.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F1$level1;
@@ -589,8 +561,8 @@ extension UtilityExtension$Fragment$F1$level1$level2
 
 abstract class CopyWith$Fragment$F1$level1$level2<TRes> {
   factory CopyWith$Fragment$F1$level1$level2(Fragment$F1$level1$level2 instance,
-          TRes Function(Fragment$F1$level1$level2) then) =>
-      _CopyWithImpl$Fragment$F1$level1$level2(instance, then);
+          TRes Function(Fragment$F1$level1$level2) then) =
+      _CopyWithImpl$Fragment$F1$level1$level2;
 
   factory CopyWith$Fragment$F1$level1$level2.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F1$level1$level2;
@@ -699,8 +671,8 @@ extension UtilityExtension$Fragment$F1$level1$level2$level3
 abstract class CopyWith$Fragment$F1$level1$level2$level3<TRes> {
   factory CopyWith$Fragment$F1$level1$level2$level3(
           Fragment$F1$level1$level2$level3 instance,
-          TRes Function(Fragment$F1$level1$level2$level3) then) =>
-      _CopyWithImpl$Fragment$F1$level1$level2$level3(instance, then);
+          TRes Function(Fragment$F1$level1$level2$level3) then) =
+      _CopyWithImpl$Fragment$F1$level1$level2$level3;
 
   factory CopyWith$Fragment$F1$level1$level2$level3.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F1$level1$level2$level3;
@@ -735,16 +707,14 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2$level3<TRes>
   call({int? level4, String? $__typename}) => _res;
 }
 
-abstract class Variables$Fragment$F2 {
+class Variables$Fragment$F2 {
   factory Variables$Fragment$F2({bool? i, String? name}) =>
-      _Impl$Variables$Fragment$F2({'i': i, 'name': name});
+      Variables$Fragment$F2._({
+        if (i != null) r'i': i,
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Fragment$F2.withoutNulls({bool? i, String? name}) {
-    final l$data = <String, dynamic>{};
-    if (i != null) l$data['i'] = i;
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Fragment$F2(l$data);
-  }
+  Variables$Fragment$F2._(this._$data);
 
   factory Variables$Fragment$F2.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -756,30 +726,20 @@ abstract class Variables$Fragment$F2 {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Fragment$F2(result$data);
+    return Variables$Fragment$F2._(result$data);
   }
 
-  bool? get i;
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F2<Variables$Fragment$F2> get copyWith;
-  _Impl$Variables$Fragment$F2 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
-  _Impl$Variables$Fragment$F2(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  bool? get i => ($data['i'] as bool?);
-  String? get name => ($data['name'] as String?);
+  bool? get i => (_$data['i'] as bool?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('i')) {
+    if (_$data.containsKey('i')) {
       final l$i = i;
       result$data['i'] = l$i;
     }
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -793,13 +753,12 @@ class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F2) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Fragment$F2) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
     final lOther$i = other.i;
-    if ($data.containsKey('i') != other.$data.containsKey('i')) {
+    if (_$data.containsKey('i') != other._$data.containsKey('i')) {
       return false;
     }
     if (l$i != lOther$i) {
@@ -807,7 +766,7 @@ class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -821,18 +780,16 @@ class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
     final l$i = i;
     final l$name = name;
     return Object.hashAll([
-      $data.containsKey('i') ? l$i : const {},
-      $data.containsKey('name') ? l$name : const {}
+      _$data.containsKey('i') ? l$i : const {},
+      _$data.containsKey('name') ? l$name : const {}
     ]);
   }
-
-  _Impl$Variables$Fragment$F2 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F2<TRes> {
   factory CopyWith$Variables$Fragment$F2(Variables$Fragment$F2 instance,
-          TRes Function(Variables$Fragment$F2) then) =>
-      _CopyWithImpl$Variables$Fragment$F2(instance.$impl, then);
+          TRes Function(Variables$Fragment$F2) then) =
+      _CopyWithImpl$Variables$Fragment$F2;
 
   factory CopyWith$Variables$Fragment$F2.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F2;
@@ -844,15 +801,15 @@ class _CopyWithImpl$Variables$Fragment$F2<TRes>
     implements CopyWith$Variables$Fragment$F2<TRes> {
   _CopyWithImpl$Variables$Fragment$F2(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F2 _instance;
+  final Variables$Fragment$F2 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F2) _then;
+  final TRes Function(Variables$Fragment$F2) _then;
 
   static const _undefined = {};
 
   TRes call({Object? i = _undefined, Object? name = _undefined}) =>
-      _then(_Impl$Variables$Fragment$F2({
-        ..._instance.$data,
+      _then(Variables$Fragment$F2._({
+        ..._instance._$data,
         if (i != _undefined) 'i': (i as bool?),
         if (name != _undefined) 'name': (name as String?),
       }));
@@ -929,8 +886,8 @@ extension UtilityExtension$Fragment$F2 on Fragment$F2 {
 
 abstract class CopyWith$Fragment$F2<TRes> {
   factory CopyWith$Fragment$F2(
-          Fragment$F2 instance, TRes Function(Fragment$F2) then) =>
-      _CopyWithImpl$Fragment$F2(instance, then);
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
+      _CopyWithImpl$Fragment$F2;
 
   factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
 
@@ -1009,15 +966,12 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF21,
 ]);
 
-abstract class Variables$Fragment$F21 {
-  factory Variables$Fragment$F21({bool? i}) =>
-      _Impl$Variables$Fragment$F21({'i': i});
+class Variables$Fragment$F21 {
+  factory Variables$Fragment$F21({bool? i}) => Variables$Fragment$F21._({
+        if (i != null) r'i': i,
+      });
 
-  factory Variables$Fragment$F21.withoutNulls({bool? i}) {
-    final l$data = <String, dynamic>{};
-    if (i != null) l$data['i'] = i;
-    return _Impl$Variables$Fragment$F21(l$data);
-  }
+  Variables$Fragment$F21._(this._$data);
 
   factory Variables$Fragment$F21.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -1025,24 +979,15 @@ abstract class Variables$Fragment$F21 {
       final l$i = data['i'];
       result$data['i'] = (l$i as bool?);
     }
-    return _Impl$Variables$Fragment$F21(result$data);
+    return Variables$Fragment$F21._(result$data);
   }
 
-  bool? get i;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F21<Variables$Fragment$F21> get copyWith;
-  _Impl$Variables$Fragment$F21 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F21 implements Variables$Fragment$F21 {
-  _Impl$Variables$Fragment$F21(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  bool? get i => ($data['i'] as bool?);
+  bool? get i => (_$data['i'] as bool?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('i')) {
+    if (_$data.containsKey('i')) {
       final l$i = i;
       result$data['i'] = l$i;
     }
@@ -1056,13 +1001,13 @@ class _Impl$Variables$Fragment$F21 implements Variables$Fragment$F21 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F21) ||
+    if (!(other is Variables$Fragment$F21) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
     final lOther$i = other.i;
-    if ($data.containsKey('i') != other.$data.containsKey('i')) {
+    if (_$data.containsKey('i') != other._$data.containsKey('i')) {
       return false;
     }
     if (l$i != lOther$i) {
@@ -1074,16 +1019,14 @@ class _Impl$Variables$Fragment$F21 implements Variables$Fragment$F21 {
   @override
   int get hashCode {
     final l$i = i;
-    return Object.hashAll([$data.containsKey('i') ? l$i : const {}]);
+    return Object.hashAll([_$data.containsKey('i') ? l$i : const {}]);
   }
-
-  _Impl$Variables$Fragment$F21 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F21<TRes> {
   factory CopyWith$Variables$Fragment$F21(Variables$Fragment$F21 instance,
-          TRes Function(Variables$Fragment$F21) then) =>
-      _CopyWithImpl$Variables$Fragment$F21(instance.$impl, then);
+          TRes Function(Variables$Fragment$F21) then) =
+      _CopyWithImpl$Variables$Fragment$F21;
 
   factory CopyWith$Variables$Fragment$F21.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F21;
@@ -1095,14 +1038,14 @@ class _CopyWithImpl$Variables$Fragment$F21<TRes>
     implements CopyWith$Variables$Fragment$F21<TRes> {
   _CopyWithImpl$Variables$Fragment$F21(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F21 _instance;
+  final Variables$Fragment$F21 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F21) _then;
+  final TRes Function(Variables$Fragment$F21) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? i = _undefined}) => _then(_Impl$Variables$Fragment$F21({
-        ..._instance.$data,
+  TRes call({Object? i = _undefined}) => _then(Variables$Fragment$F21._({
+        ..._instance._$data,
         if (i != _undefined) 'i': (i as bool?),
       }));
 }
@@ -1178,8 +1121,8 @@ extension UtilityExtension$Fragment$F21 on Fragment$F21 {
 
 abstract class CopyWith$Fragment$F21<TRes> {
   factory CopyWith$Fragment$F21(
-          Fragment$F21 instance, TRes Function(Fragment$F21) then) =>
-      _CopyWithImpl$Fragment$F21(instance, then);
+          Fragment$F21 instance, TRes Function(Fragment$F21) then) =
+      _CopyWithImpl$Fragment$F21;
 
   factory CopyWith$Fragment$F21.stub(TRes res) = _CopyWithStubImpl$Fragment$F21;
 
@@ -1347,8 +1290,8 @@ extension UtilityExtension$Fragment$F21$level2 on Fragment$F21$level2 {
 
 abstract class CopyWith$Fragment$F21$level2<TRes> {
   factory CopyWith$Fragment$F21$level2(Fragment$F21$level2 instance,
-          TRes Function(Fragment$F21$level2) then) =>
-      _CopyWithImpl$Fragment$F21$level2(instance, then);
+          TRes Function(Fragment$F21$level2) then) =
+      _CopyWithImpl$Fragment$F21$level2;
 
   factory CopyWith$Fragment$F21$level2.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F21$level2;
@@ -1457,8 +1400,8 @@ extension UtilityExtension$Fragment$F21$level2$level3
 abstract class CopyWith$Fragment$F21$level2$level3<TRes> {
   factory CopyWith$Fragment$F21$level2$level3(
           Fragment$F21$level2$level3 instance,
-          TRes Function(Fragment$F21$level2$level3) then) =>
-      _CopyWithImpl$Fragment$F21$level2$level3(instance, then);
+          TRes Function(Fragment$F21$level2$level3) then) =
+      _CopyWithImpl$Fragment$F21$level2$level3;
 
   factory CopyWith$Fragment$F21$level2$level3.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F21$level2$level3;

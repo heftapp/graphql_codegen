@@ -4,38 +4,25 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-abstract class Variables$Mutation$UpdateSRequired {
+class Variables$Mutation$UpdateSRequired {
   factory Variables$Mutation$UpdateSRequired({required String name}) =>
-      _Impl$Variables$Mutation$UpdateSRequired({'name': name});
+      Variables$Mutation$UpdateSRequired._({
+        r'name': name,
+      });
 
-  factory Variables$Mutation$UpdateSRequired.withoutNulls(
-      {required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    return _Impl$Variables$Mutation$UpdateSRequired(l$data);
-  }
+  Variables$Mutation$UpdateSRequired._(this._$data);
 
   factory Variables$Mutation$UpdateSRequired.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Mutation$UpdateSRequired(result$data);
+    return Variables$Mutation$UpdateSRequired._(result$data);
   }
 
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Mutation$UpdateSRequired<
-      Variables$Mutation$UpdateSRequired> get copyWith;
-  _Impl$Variables$Mutation$UpdateSRequired get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Mutation$UpdateSRequired
-    implements Variables$Mutation$UpdateSRequired {
-  _Impl$Variables$Mutation$UpdateSRequired(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get name => ($data['name'] as String);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -52,7 +39,7 @@ class _Impl$Variables$Mutation$UpdateSRequired
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Mutation$UpdateSRequired) ||
+    if (!(other is Variables$Mutation$UpdateSRequired) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -69,15 +56,13 @@ class _Impl$Variables$Mutation$UpdateSRequired
     final l$name = name;
     return Object.hashAll([l$name]);
   }
-
-  _Impl$Variables$Mutation$UpdateSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSRequired(
           Variables$Mutation$UpdateSRequired instance,
-          TRes Function(Variables$Mutation$UpdateSRequired) then) =>
-      _CopyWithImpl$Variables$Mutation$UpdateSRequired(instance.$impl, then);
+          TRes Function(Variables$Mutation$UpdateSRequired) then) =
+      _CopyWithImpl$Variables$Mutation$UpdateSRequired;
 
   factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
@@ -89,15 +74,15 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
     implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSRequired(this._instance, this._then);
 
-  final _Impl$Variables$Mutation$UpdateSRequired _instance;
+  final Variables$Mutation$UpdateSRequired _instance;
 
-  final TRes Function(_Impl$Variables$Mutation$UpdateSRequired) _then;
+  final TRes Function(Variables$Mutation$UpdateSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Mutation$UpdateSRequired({
-        ..._instance.$data,
+      _then(Variables$Mutation$UpdateSRequired._({
+        ..._instance._$data,
         if (name != _undefined && name != null) 'name': (name as String),
       }));
 }
@@ -160,8 +145,8 @@ extension UtilityExtension$Mutation$UpdateSRequired
 
 abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Mutation$UpdateSRequired(Mutation$UpdateSRequired instance,
-          TRes Function(Mutation$UpdateSRequired) then) =>
-      _CopyWithImpl$Mutation$UpdateSRequired(instance, then);
+          TRes Function(Mutation$UpdateSRequired) then) =
+      _CopyWithImpl$Mutation$UpdateSRequired;
 
   factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSRequired;

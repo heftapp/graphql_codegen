@@ -1,35 +1,24 @@
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
-abstract class Variables$Fragment$NameNode {
+class Variables$Fragment$NameNode {
   factory Variables$Fragment$NameNode({required String setting}) =>
-      _Impl$Variables$Fragment$NameNode({'setting': setting});
+      Variables$Fragment$NameNode._({
+        r'setting': setting,
+      });
 
-  factory Variables$Fragment$NameNode.withoutNulls({required String setting}) {
-    final l$data = <String, dynamic>{'setting': setting};
-    return _Impl$Variables$Fragment$NameNode(l$data);
-  }
+  Variables$Fragment$NameNode._(this._$data);
 
   factory Variables$Fragment$NameNode.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$setting = data['setting'];
     result$data['setting'] = (l$setting as String);
-    return _Impl$Variables$Fragment$NameNode(result$data);
+    return Variables$Fragment$NameNode._(result$data);
   }
 
-  String get setting;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$NameNode<Variables$Fragment$NameNode>
-      get copyWith;
-  _Impl$Variables$Fragment$NameNode get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$NameNode implements Variables$Fragment$NameNode {
-  _Impl$Variables$Fragment$NameNode(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get setting => ($data['setting'] as String);
+  String get setting => (_$data['setting'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$setting = setting;
@@ -44,7 +33,7 @@ class _Impl$Variables$Fragment$NameNode implements Variables$Fragment$NameNode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$NameNode) ||
+    if (!(other is Variables$Fragment$NameNode) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -61,15 +50,13 @@ class _Impl$Variables$Fragment$NameNode implements Variables$Fragment$NameNode {
     final l$setting = setting;
     return Object.hashAll([l$setting]);
   }
-
-  _Impl$Variables$Fragment$NameNode get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$NameNode<TRes> {
   factory CopyWith$Variables$Fragment$NameNode(
           Variables$Fragment$NameNode instance,
-          TRes Function(Variables$Fragment$NameNode) then) =>
-      _CopyWithImpl$Variables$Fragment$NameNode(instance.$impl, then);
+          TRes Function(Variables$Fragment$NameNode) then) =
+      _CopyWithImpl$Variables$Fragment$NameNode;
 
   factory CopyWith$Variables$Fragment$NameNode.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$NameNode;
@@ -81,15 +68,15 @@ class _CopyWithImpl$Variables$Fragment$NameNode<TRes>
     implements CopyWith$Variables$Fragment$NameNode<TRes> {
   _CopyWithImpl$Variables$Fragment$NameNode(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$NameNode _instance;
+  final Variables$Fragment$NameNode _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$NameNode) _then;
+  final TRes Function(Variables$Fragment$NameNode) _then;
 
   static const _undefined = {};
 
   TRes call({Object? setting = _undefined}) =>
-      _then(_Impl$Variables$Fragment$NameNode({
-        ..._instance.$data,
+      _then(Variables$Fragment$NameNode._({
+        ..._instance._$data,
         if (setting != _undefined && setting != null)
           'setting': (setting as String),
       }));
@@ -163,8 +150,8 @@ extension UtilityExtension$Fragment$NameNode on Fragment$NameNode {
 
 abstract class CopyWith$Fragment$NameNode<TRes> {
   factory CopyWith$Fragment$NameNode(
-          Fragment$NameNode instance, TRes Function(Fragment$NameNode) then) =>
-      _CopyWithImpl$Fragment$NameNode(instance, then);
+          Fragment$NameNode instance, TRes Function(Fragment$NameNode) then) =
+      _CopyWithImpl$Fragment$NameNode;
 
   factory CopyWith$Fragment$NameNode.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NameNode;
@@ -257,34 +244,23 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
   }
 }
 
-abstract class Variables$Query$Q {
-  factory Variables$Query$Q({required String setting}) =>
-      _Impl$Variables$Query$Q({'setting': setting});
+class Variables$Query$Q {
+  factory Variables$Query$Q({required String setting}) => Variables$Query$Q._({
+        r'setting': setting,
+      });
 
-  factory Variables$Query$Q.withoutNulls({required String setting}) {
-    final l$data = <String, dynamic>{'setting': setting};
-    return _Impl$Variables$Query$Q(l$data);
-  }
+  Variables$Query$Q._(this._$data);
 
   factory Variables$Query$Q.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$setting = data['setting'];
     result$data['setting'] = (l$setting as String);
-    return _Impl$Variables$Query$Q(result$data);
+    return Variables$Query$Q._(result$data);
   }
 
-  String get setting;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$Q<Variables$Query$Q> get copyWith;
-  _Impl$Variables$Query$Q get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$Q implements Variables$Query$Q {
-  _Impl$Variables$Query$Q(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get setting => ($data['setting'] as String);
+  String get setting => (_$data['setting'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$setting = setting;
@@ -299,8 +275,7 @@ class _Impl$Variables$Query$Q implements Variables$Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$Q) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$Q) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$setting = setting;
@@ -316,14 +291,12 @@ class _Impl$Variables$Query$Q implements Variables$Query$Q {
     final l$setting = setting;
     return Object.hashAll([l$setting]);
   }
-
-  _Impl$Variables$Query$Q get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$Q<TRes> {
   factory CopyWith$Variables$Query$Q(
-          Variables$Query$Q instance, TRes Function(Variables$Query$Q) then) =>
-      _CopyWithImpl$Variables$Query$Q(instance.$impl, then);
+          Variables$Query$Q instance, TRes Function(Variables$Query$Q) then) =
+      _CopyWithImpl$Variables$Query$Q;
 
   factory CopyWith$Variables$Query$Q.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Q;
@@ -335,14 +308,14 @@ class _CopyWithImpl$Variables$Query$Q<TRes>
     implements CopyWith$Variables$Query$Q<TRes> {
   _CopyWithImpl$Variables$Query$Q(this._instance, this._then);
 
-  final _Impl$Variables$Query$Q _instance;
+  final Variables$Query$Q _instance;
 
-  final TRes Function(_Impl$Variables$Query$Q) _then;
+  final TRes Function(Variables$Query$Q) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? setting = _undefined}) => _then(_Impl$Variables$Query$Q({
-        ..._instance.$data,
+  TRes call({Object? setting = _undefined}) => _then(Variables$Query$Q._({
+        ..._instance._$data,
         if (setting != _undefined && setting != null)
           'setting': (setting as String),
       }));
@@ -417,8 +390,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
-      _CopyWithImpl$Query$Q(instance, then);
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 

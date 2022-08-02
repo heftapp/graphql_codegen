@@ -67,8 +67,8 @@ extension UtilityExtension$Subscription$NoArgs on Subscription$NoArgs {
 
 abstract class CopyWith$Subscription$NoArgs<TRes> {
   factory CopyWith$Subscription$NoArgs(Subscription$NoArgs instance,
-          TRes Function(Subscription$NoArgs) then) =>
-      _CopyWithImpl$Subscription$NoArgs(instance, then);
+          TRes Function(Subscription$NoArgs) then) =
+      _CopyWithImpl$Subscription$NoArgs;
 
   factory CopyWith$Subscription$NoArgs.stub(TRes res) =
       _CopyWithStubImpl$Subscription$NoArgs;
@@ -308,8 +308,8 @@ extension UtilityExtension$Subscription$NoArgs$listenForChange
 abstract class CopyWith$Subscription$NoArgs$listenForChange<TRes> {
   factory CopyWith$Subscription$NoArgs$listenForChange(
           Subscription$NoArgs$listenForChange instance,
-          TRes Function(Subscription$NoArgs$listenForChange) then) =>
-      _CopyWithImpl$Subscription$NoArgs$listenForChange(instance, then);
+          TRes Function(Subscription$NoArgs$listenForChange) then) =
+      _CopyWithImpl$Subscription$NoArgs$listenForChange;
 
   factory CopyWith$Subscription$NoArgs$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$NoArgs$listenForChange;
@@ -346,38 +346,25 @@ class _CopyWithStubImpl$Subscription$NoArgs$listenForChange<TRes>
   call({String? name, String? $__typename}) => _res;
 }
 
-abstract class Variables$Subscription$RequiredArg {
+class Variables$Subscription$RequiredArg {
   factory Variables$Subscription$RequiredArg({required String name}) =>
-      _Impl$Variables$Subscription$RequiredArg({'name': name});
+      Variables$Subscription$RequiredArg._({
+        r'name': name,
+      });
 
-  factory Variables$Subscription$RequiredArg.withoutNulls(
-      {required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    return _Impl$Variables$Subscription$RequiredArg(l$data);
-  }
+  Variables$Subscription$RequiredArg._(this._$data);
 
   factory Variables$Subscription$RequiredArg.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Subscription$RequiredArg(result$data);
+    return Variables$Subscription$RequiredArg._(result$data);
   }
 
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Subscription$RequiredArg<
-      Variables$Subscription$RequiredArg> get copyWith;
-  _Impl$Variables$Subscription$RequiredArg get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Subscription$RequiredArg
-    implements Variables$Subscription$RequiredArg {
-  _Impl$Variables$Subscription$RequiredArg(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get name => ($data['name'] as String);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -394,7 +381,7 @@ class _Impl$Variables$Subscription$RequiredArg
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Subscription$RequiredArg) ||
+    if (!(other is Variables$Subscription$RequiredArg) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -411,15 +398,13 @@ class _Impl$Variables$Subscription$RequiredArg
     final l$name = name;
     return Object.hashAll([l$name]);
   }
-
-  _Impl$Variables$Subscription$RequiredArg get $impl => this;
 }
 
 abstract class CopyWith$Variables$Subscription$RequiredArg<TRes> {
   factory CopyWith$Variables$Subscription$RequiredArg(
           Variables$Subscription$RequiredArg instance,
-          TRes Function(Variables$Subscription$RequiredArg) then) =>
-      _CopyWithImpl$Variables$Subscription$RequiredArg(instance.$impl, then);
+          TRes Function(Variables$Subscription$RequiredArg) then) =
+      _CopyWithImpl$Variables$Subscription$RequiredArg;
 
   factory CopyWith$Variables$Subscription$RequiredArg.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$RequiredArg;
@@ -431,15 +416,15 @@ class _CopyWithImpl$Variables$Subscription$RequiredArg<TRes>
     implements CopyWith$Variables$Subscription$RequiredArg<TRes> {
   _CopyWithImpl$Variables$Subscription$RequiredArg(this._instance, this._then);
 
-  final _Impl$Variables$Subscription$RequiredArg _instance;
+  final Variables$Subscription$RequiredArg _instance;
 
-  final TRes Function(_Impl$Variables$Subscription$RequiredArg) _then;
+  final TRes Function(Variables$Subscription$RequiredArg) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Subscription$RequiredArg({
-        ..._instance.$data,
+      _then(Variables$Subscription$RequiredArg._({
+        ..._instance._$data,
         if (name != _undefined && name != null) 'name': (name as String),
       }));
 }
@@ -518,8 +503,8 @@ extension UtilityExtension$Subscription$RequiredArg
 
 abstract class CopyWith$Subscription$RequiredArg<TRes> {
   factory CopyWith$Subscription$RequiredArg(Subscription$RequiredArg instance,
-          TRes Function(Subscription$RequiredArg) then) =>
-      _CopyWithImpl$Subscription$RequiredArg(instance, then);
+          TRes Function(Subscription$RequiredArg) then) =
+      _CopyWithImpl$Subscription$RequiredArg;
 
   factory CopyWith$Subscription$RequiredArg.stub(TRes res) =
       _CopyWithStubImpl$Subscription$RequiredArg;
@@ -782,8 +767,8 @@ extension UtilityExtension$Subscription$RequiredArg$listenForChange
 abstract class CopyWith$Subscription$RequiredArg$listenForChange<TRes> {
   factory CopyWith$Subscription$RequiredArg$listenForChange(
           Subscription$RequiredArg$listenForChange instance,
-          TRes Function(Subscription$RequiredArg$listenForChange) then) =>
-      _CopyWithImpl$Subscription$RequiredArg$listenForChange(instance, then);
+          TRes Function(Subscription$RequiredArg$listenForChange) then) =
+      _CopyWithImpl$Subscription$RequiredArg$listenForChange;
 
   factory CopyWith$Subscription$RequiredArg$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$RequiredArg$listenForChange;
@@ -821,15 +806,13 @@ class _CopyWithStubImpl$Subscription$RequiredArg$listenForChange<TRes>
   call({String? name, String? $__typename}) => _res;
 }
 
-abstract class Variables$Subscription$OptionalArg {
+class Variables$Subscription$OptionalArg {
   factory Variables$Subscription$OptionalArg({String? name}) =>
-      _Impl$Variables$Subscription$OptionalArg({'name': name});
+      Variables$Subscription$OptionalArg._({
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Subscription$OptionalArg.withoutNulls({String? name}) {
-    final l$data = <String, dynamic>{};
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Subscription$OptionalArg(l$data);
-  }
+  Variables$Subscription$OptionalArg._(this._$data);
 
   factory Variables$Subscription$OptionalArg.fromJson(
       Map<String, dynamic> data) {
@@ -838,26 +821,15 @@ abstract class Variables$Subscription$OptionalArg {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Subscription$OptionalArg(result$data);
+    return Variables$Subscription$OptionalArg._(result$data);
   }
 
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Subscription$OptionalArg<
-      Variables$Subscription$OptionalArg> get copyWith;
-  _Impl$Variables$Subscription$OptionalArg get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Subscription$OptionalArg
-    implements Variables$Subscription$OptionalArg {
-  _Impl$Variables$Subscription$OptionalArg(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get name => ($data['name'] as String?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -873,13 +845,13 @@ class _Impl$Variables$Subscription$OptionalArg
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Subscription$OptionalArg) ||
+    if (!(other is Variables$Subscription$OptionalArg) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -891,17 +863,15 @@ class _Impl$Variables$Subscription$OptionalArg
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
   }
-
-  _Impl$Variables$Subscription$OptionalArg get $impl => this;
 }
 
 abstract class CopyWith$Variables$Subscription$OptionalArg<TRes> {
   factory CopyWith$Variables$Subscription$OptionalArg(
           Variables$Subscription$OptionalArg instance,
-          TRes Function(Variables$Subscription$OptionalArg) then) =>
-      _CopyWithImpl$Variables$Subscription$OptionalArg(instance.$impl, then);
+          TRes Function(Variables$Subscription$OptionalArg) then) =
+      _CopyWithImpl$Variables$Subscription$OptionalArg;
 
   factory CopyWith$Variables$Subscription$OptionalArg.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$OptionalArg;
@@ -913,15 +883,15 @@ class _CopyWithImpl$Variables$Subscription$OptionalArg<TRes>
     implements CopyWith$Variables$Subscription$OptionalArg<TRes> {
   _CopyWithImpl$Variables$Subscription$OptionalArg(this._instance, this._then);
 
-  final _Impl$Variables$Subscription$OptionalArg _instance;
+  final Variables$Subscription$OptionalArg _instance;
 
-  final TRes Function(_Impl$Variables$Subscription$OptionalArg) _then;
+  final TRes Function(Variables$Subscription$OptionalArg) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Subscription$OptionalArg({
-        ..._instance.$data,
+      _then(Variables$Subscription$OptionalArg._({
+        ..._instance._$data,
         if (name != _undefined) 'name': (name as String?),
       }));
 }
@@ -1000,8 +970,8 @@ extension UtilityExtension$Subscription$OptionalArg
 
 abstract class CopyWith$Subscription$OptionalArg<TRes> {
   factory CopyWith$Subscription$OptionalArg(Subscription$OptionalArg instance,
-          TRes Function(Subscription$OptionalArg) then) =>
-      _CopyWithImpl$Subscription$OptionalArg(instance, then);
+          TRes Function(Subscription$OptionalArg) then) =
+      _CopyWithImpl$Subscription$OptionalArg;
 
   factory CopyWith$Subscription$OptionalArg.stub(TRes res) =
       _CopyWithStubImpl$Subscription$OptionalArg;
@@ -1264,8 +1234,8 @@ extension UtilityExtension$Subscription$OptionalArg$listenForChange
 abstract class CopyWith$Subscription$OptionalArg$listenForChange<TRes> {
   factory CopyWith$Subscription$OptionalArg$listenForChange(
           Subscription$OptionalArg$listenForChange instance,
-          TRes Function(Subscription$OptionalArg$listenForChange) then) =>
-      _CopyWithImpl$Subscription$OptionalArg$listenForChange(instance, then);
+          TRes Function(Subscription$OptionalArg$listenForChange) then) =
+      _CopyWithImpl$Subscription$OptionalArg$listenForChange;
 
   factory CopyWith$Subscription$OptionalArg$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$OptionalArg$listenForChange;

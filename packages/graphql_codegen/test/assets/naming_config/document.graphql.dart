@@ -94,8 +94,8 @@ extension UtilityExtension$Query___Q on Query___Q {
 
 abstract class CopyWith$Query___Q<TRes> {
   factory CopyWith$Query___Q(
-          Query___Q instance, TRes Function(Query___Q) then) =>
-      _CopyWithImpl$Query___Q(instance, then);
+          Query___Q instance, TRes Function(Query___Q) then) =
+      _CopyWithImpl$Query___Q;
 
   factory CopyWith$Query___Q.stub(TRes res) = _CopyWithStubImpl$Query___Q;
 

@@ -59,8 +59,8 @@ extension UtilityExtension$Fragment$F on Fragment$F {
 
 abstract class CopyWith$Fragment$F<TRes> {
   factory CopyWith$Fragment$F(
-          Fragment$F instance, TRes Function(Fragment$F) then) =>
-      _CopyWithImpl$Fragment$F(instance, then);
+          Fragment$F instance, TRes Function(Fragment$F) then) =
+      _CopyWithImpl$Fragment$F;
 
   factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
 
@@ -172,8 +172,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
-      _CopyWithImpl$Query$Q(instance, then);
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 

@@ -83,8 +83,6 @@ class NamePrinter {
 
   String printClassName(Name name) => _printName(name);
 
-  String printImplClassName(Name name) => "_Impl\$${printClassName(name)}";
-
   String printClassExtensionName(Name name) =>
       "UtilityExtension\$" + _printName(name);
 
@@ -98,9 +96,6 @@ class NamePrinter {
   String printParserFnName(Name name) => "_parserFn\$${_printName(name)}";
 
   String printVariableClassName(Name name) => "Variables\$${_printName(name)}";
-
-  String printVariableImplClassName(Name name) =>
-      "_Impl\$${printVariableClassName(name)}";
 
   String printGraphQLClientOptionsName(Name name) =>
       "Options\$${_printName(name)}";

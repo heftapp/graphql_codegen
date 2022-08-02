@@ -48,8 +48,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
-      _CopyWithImpl$Query$Q(instance, then);
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -190,8 +190,8 @@ extension UtilityExtension$Query$Q$u on Query$Q$u {
 
 abstract class CopyWith$Query$Q$u<TRes> {
   factory CopyWith$Query$Q$u(
-          Query$Q$u instance, TRes Function(Query$Q$u) then) =>
-      _CopyWithImpl$Query$Q$u(instance, then);
+          Query$Q$u instance, TRes Function(Query$Q$u) then) =
+      _CopyWithImpl$Query$Q$u;
 
   factory CopyWith$Query$Q$u.stub(TRes res) = _CopyWithStubImpl$Query$Q$u;
 
@@ -278,8 +278,8 @@ extension UtilityExtension$Query$Q$u$$TA on Query$Q$u$$TA {
 
 abstract class CopyWith$Query$Q$u$$TA<TRes> {
   factory CopyWith$Query$Q$u$$TA(
-          Query$Q$u$$TA instance, TRes Function(Query$Q$u$$TA) then) =>
-      _CopyWithImpl$Query$Q$u$$TA(instance, then);
+          Query$Q$u$$TA instance, TRes Function(Query$Q$u$$TA) then) =
+      _CopyWithImpl$Query$Q$u$$TA;
 
   factory CopyWith$Query$Q$u$$TA.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$u$$TA;
@@ -371,8 +371,8 @@ extension UtilityExtension$Query$Q$u$$TB on Query$Q$u$$TB {
 
 abstract class CopyWith$Query$Q$u$$TB<TRes> {
   factory CopyWith$Query$Q$u$$TB(
-          Query$Q$u$$TB instance, TRes Function(Query$Q$u$$TB) then) =>
-      _CopyWithImpl$Query$Q$u$$TB(instance, then);
+          Query$Q$u$$TB instance, TRes Function(Query$Q$u$$TB) then) =
+      _CopyWithImpl$Query$Q$u$$TB;
 
   factory CopyWith$Query$Q$u$$TB.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$u$$TB;

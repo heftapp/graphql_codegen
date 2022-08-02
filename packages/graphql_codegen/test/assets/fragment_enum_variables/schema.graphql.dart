@@ -1,13 +1,11 @@
 import 'package:gql/ast.dart';
 
-abstract class Input$I {
-  factory Input$I({String? s}) => _Impl$Input$I({'s': s});
+class Input$I {
+  factory Input$I({String? s}) => Input$I._({
+        if (s != null) r's': s,
+      });
 
-  factory Input$I.withoutNulls({String? s}) {
-    final l$data = <String, dynamic>{};
-    if (s != null) l$data['s'] = s;
-    return _Impl$Input$I(l$data);
-  }
+  Input$I._(this._$data);
 
   factory Input$I.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -15,24 +13,15 @@ abstract class Input$I {
       final l$s = data['s'];
       result$data['s'] = (l$s as String?);
     }
-    return _Impl$Input$I(result$data);
+    return Input$I._(result$data);
   }
 
-  String? get s;
-  Map<String, dynamic> toJson();
-  CopyWith$Input$I<Input$I> get copyWith;
-  _Impl$Input$I get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Input$I implements Input$I {
-  _Impl$Input$I(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get s => ($data['s'] as String?);
+  String? get s => (_$data['s'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('s')) {
+    if (_$data.containsKey('s')) {
       final l$s = s;
       result$data['s'] = l$s;
     }
@@ -45,12 +34,12 @@ class _Impl$Input$I implements Input$I {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Input$I) || runtimeType != other.runtimeType) {
+    if (!(other is Input$I) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
     final lOther$s = other.s;
-    if ($data.containsKey('s') != other.$data.containsKey('s')) {
+    if (_$data.containsKey('s') != other._$data.containsKey('s')) {
       return false;
     }
     if (l$s != lOther$s) {
@@ -62,15 +51,13 @@ class _Impl$Input$I implements Input$I {
   @override
   int get hashCode {
     final l$s = s;
-    return Object.hashAll([$data.containsKey('s') ? l$s : const {}]);
+    return Object.hashAll([_$data.containsKey('s') ? l$s : const {}]);
   }
-
-  _Impl$Input$I get $impl => this;
 }
 
 abstract class CopyWith$Input$I<TRes> {
-  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =>
-      _CopyWithImpl$Input$I(instance.$impl, then);
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
+      _CopyWithImpl$Input$I;
 
   factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
 
@@ -80,14 +67,14 @@ abstract class CopyWith$Input$I<TRes> {
 class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
   _CopyWithImpl$Input$I(this._instance, this._then);
 
-  final _Impl$Input$I _instance;
+  final Input$I _instance;
 
-  final TRes Function(_Impl$Input$I) _then;
+  final TRes Function(Input$I) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? s = _undefined}) => _then(_Impl$Input$I({
-        ..._instance.$data,
+  TRes call({Object? s = _undefined}) => _then(Input$I._({
+        ..._instance._$data,
         if (s != _undefined) 's': (s as String?),
       }));
 }
@@ -123,34 +110,24 @@ Enum$Locale fromJson$Enum$Locale(String value) {
   }
 }
 
-abstract class Variables$Fragment$F1 {
+class Variables$Fragment$F1 {
   factory Variables$Fragment$F1({required Enum$Locale locale}) =>
-      _Impl$Variables$Fragment$F1({'locale': locale});
+      Variables$Fragment$F1._({
+        r'locale': locale,
+      });
 
-  factory Variables$Fragment$F1.withoutNulls({required Enum$Locale locale}) {
-    final l$data = <String, dynamic>{'locale': locale};
-    return _Impl$Variables$Fragment$F1(l$data);
-  }
+  Variables$Fragment$F1._(this._$data);
 
   factory Variables$Fragment$F1.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$locale = data['locale'];
     result$data['locale'] = fromJson$Enum$Locale((l$locale as String));
-    return _Impl$Variables$Fragment$F1(result$data);
+    return Variables$Fragment$F1._(result$data);
   }
 
-  Enum$Locale get locale;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F1<Variables$Fragment$F1> get copyWith;
-  _Impl$Variables$Fragment$F1 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F1 implements Variables$Fragment$F1 {
-  _Impl$Variables$Fragment$F1(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  Enum$Locale get locale => ($data['locale'] as Enum$Locale);
+  Enum$Locale get locale => (_$data['locale'] as Enum$Locale);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$locale = locale;
@@ -165,8 +142,7 @@ class _Impl$Variables$Fragment$F1 implements Variables$Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F1) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Fragment$F1) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$locale = locale;
@@ -182,14 +158,12 @@ class _Impl$Variables$Fragment$F1 implements Variables$Fragment$F1 {
     final l$locale = locale;
     return Object.hashAll([l$locale]);
   }
-
-  _Impl$Variables$Fragment$F1 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F1<TRes> {
   factory CopyWith$Variables$Fragment$F1(Variables$Fragment$F1 instance,
-          TRes Function(Variables$Fragment$F1) then) =>
-      _CopyWithImpl$Variables$Fragment$F1(instance.$impl, then);
+          TRes Function(Variables$Fragment$F1) then) =
+      _CopyWithImpl$Variables$Fragment$F1;
 
   factory CopyWith$Variables$Fragment$F1.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F1;
@@ -201,15 +175,14 @@ class _CopyWithImpl$Variables$Fragment$F1<TRes>
     implements CopyWith$Variables$Fragment$F1<TRes> {
   _CopyWithImpl$Variables$Fragment$F1(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F1 _instance;
+  final Variables$Fragment$F1 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F1) _then;
+  final TRes Function(Variables$Fragment$F1) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? locale = _undefined}) =>
-      _then(_Impl$Variables$Fragment$F1({
-        ..._instance.$data,
+  TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F1._({
+        ..._instance._$data,
         if (locale != _undefined && locale != null)
           'locale': (locale as Enum$Locale),
       }));
@@ -296,8 +269,8 @@ extension UtilityExtension$Fragment$F1 on Fragment$F1 {
 
 abstract class CopyWith$Fragment$F1<TRes> {
   factory CopyWith$Fragment$F1(
-          Fragment$F1 instance, TRes Function(Fragment$F1) then) =>
-      _CopyWithImpl$Fragment$F1(instance, then);
+          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
+      _CopyWithImpl$Fragment$F1;
 
   factory CopyWith$Fragment$F1.stub(TRes res) = _CopyWithStubImpl$Fragment$F1;
 
@@ -363,34 +336,24 @@ const documentNodeFragmentF1 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);
 
-abstract class Variables$Fragment$F2 {
+class Variables$Fragment$F2 {
   factory Variables$Fragment$F2({required Enum$Locale locale}) =>
-      _Impl$Variables$Fragment$F2({'locale': locale});
+      Variables$Fragment$F2._({
+        r'locale': locale,
+      });
 
-  factory Variables$Fragment$F2.withoutNulls({required Enum$Locale locale}) {
-    final l$data = <String, dynamic>{'locale': locale};
-    return _Impl$Variables$Fragment$F2(l$data);
-  }
+  Variables$Fragment$F2._(this._$data);
 
   factory Variables$Fragment$F2.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$locale = data['locale'];
     result$data['locale'] = fromJson$Enum$Locale((l$locale as String));
-    return _Impl$Variables$Fragment$F2(result$data);
+    return Variables$Fragment$F2._(result$data);
   }
 
-  Enum$Locale get locale;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F2<Variables$Fragment$F2> get copyWith;
-  _Impl$Variables$Fragment$F2 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
-  _Impl$Variables$Fragment$F2(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  Enum$Locale get locale => ($data['locale'] as Enum$Locale);
+  Enum$Locale get locale => (_$data['locale'] as Enum$Locale);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$locale = locale;
@@ -405,8 +368,7 @@ class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F2) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Fragment$F2) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$locale = locale;
@@ -422,14 +384,12 @@ class _Impl$Variables$Fragment$F2 implements Variables$Fragment$F2 {
     final l$locale = locale;
     return Object.hashAll([l$locale]);
   }
-
-  _Impl$Variables$Fragment$F2 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F2<TRes> {
   factory CopyWith$Variables$Fragment$F2(Variables$Fragment$F2 instance,
-          TRes Function(Variables$Fragment$F2) then) =>
-      _CopyWithImpl$Variables$Fragment$F2(instance.$impl, then);
+          TRes Function(Variables$Fragment$F2) then) =
+      _CopyWithImpl$Variables$Fragment$F2;
 
   factory CopyWith$Variables$Fragment$F2.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F2;
@@ -441,15 +401,14 @@ class _CopyWithImpl$Variables$Fragment$F2<TRes>
     implements CopyWith$Variables$Fragment$F2<TRes> {
   _CopyWithImpl$Variables$Fragment$F2(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F2 _instance;
+  final Variables$Fragment$F2 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F2) _then;
+  final TRes Function(Variables$Fragment$F2) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? locale = _undefined}) =>
-      _then(_Impl$Variables$Fragment$F2({
-        ..._instance.$data,
+  TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F2._({
+        ..._instance._$data,
         if (locale != _undefined && locale != null)
           'locale': (locale as Enum$Locale),
       }));
@@ -523,8 +482,8 @@ extension UtilityExtension$Fragment$F2 on Fragment$F2 {
 
 abstract class CopyWith$Fragment$F2<TRes> {
   factory CopyWith$Fragment$F2(
-          Fragment$F2 instance, TRes Function(Fragment$F2) then) =>
-      _CopyWithImpl$Fragment$F2(instance, then);
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
+      _CopyWithImpl$Fragment$F2;
 
   factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
 
@@ -584,34 +543,24 @@ const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);
 
-abstract class Variables$Fragment$F3 {
+class Variables$Fragment$F3 {
   factory Variables$Fragment$F3({required Input$I i}) =>
-      _Impl$Variables$Fragment$F3({'i': i});
+      Variables$Fragment$F3._({
+        r'i': i,
+      });
 
-  factory Variables$Fragment$F3.withoutNulls({required Input$I i}) {
-    final l$data = <String, dynamic>{'i': i};
-    return _Impl$Variables$Fragment$F3(l$data);
-  }
+  Variables$Fragment$F3._(this._$data);
 
   factory Variables$Fragment$F3.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$i = data['i'];
     result$data['i'] = Input$I.fromJson((l$i as Map<String, dynamic>));
-    return _Impl$Variables$Fragment$F3(result$data);
+    return Variables$Fragment$F3._(result$data);
   }
 
-  Input$I get i;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F3<Variables$Fragment$F3> get copyWith;
-  _Impl$Variables$Fragment$F3 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F3 implements Variables$Fragment$F3 {
-  _Impl$Variables$Fragment$F3(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  Input$I get i => ($data['i'] as Input$I);
+  Input$I get i => (_$data['i'] as Input$I);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$i = i;
@@ -626,8 +575,7 @@ class _Impl$Variables$Fragment$F3 implements Variables$Fragment$F3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F3) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Fragment$F3) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -643,14 +591,12 @@ class _Impl$Variables$Fragment$F3 implements Variables$Fragment$F3 {
     final l$i = i;
     return Object.hashAll([l$i]);
   }
-
-  _Impl$Variables$Fragment$F3 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F3<TRes> {
   factory CopyWith$Variables$Fragment$F3(Variables$Fragment$F3 instance,
-          TRes Function(Variables$Fragment$F3) then) =>
-      _CopyWithImpl$Variables$Fragment$F3(instance.$impl, then);
+          TRes Function(Variables$Fragment$F3) then) =
+      _CopyWithImpl$Variables$Fragment$F3;
 
   factory CopyWith$Variables$Fragment$F3.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F3;
@@ -663,14 +609,14 @@ class _CopyWithImpl$Variables$Fragment$F3<TRes>
     implements CopyWith$Variables$Fragment$F3<TRes> {
   _CopyWithImpl$Variables$Fragment$F3(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F3 _instance;
+  final Variables$Fragment$F3 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F3) _then;
+  final TRes Function(Variables$Fragment$F3) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? i = _undefined}) => _then(_Impl$Variables$Fragment$F3({
-        ..._instance.$data,
+  TRes call({Object? i = _undefined}) => _then(Variables$Fragment$F3._({
+        ..._instance._$data,
         if (i != _undefined && i != null) 'i': (i as Input$I),
       }));
   CopyWith$Input$I<TRes> get i {
@@ -748,8 +694,8 @@ extension UtilityExtension$Fragment$F3 on Fragment$F3 {
 
 abstract class CopyWith$Fragment$F3<TRes> {
   factory CopyWith$Fragment$F3(
-          Fragment$F3 instance, TRes Function(Fragment$F3) then) =>
-      _CopyWithImpl$Fragment$F3(instance, then);
+          Fragment$F3 instance, TRes Function(Fragment$F3) then) =
+      _CopyWithImpl$Fragment$F3;
 
   factory CopyWith$Fragment$F3.stub(TRes res) = _CopyWithStubImpl$Fragment$F3;
 
@@ -809,34 +755,24 @@ const documentNodeFragmentF3 = DocumentNode(definitions: [
   fragmentDefinitionF3,
 ]);
 
-abstract class Variables$Fragment$F4 {
+class Variables$Fragment$F4 {
   factory Variables$Fragment$F4({required Enum$Locale locale}) =>
-      _Impl$Variables$Fragment$F4({'locale': locale});
+      Variables$Fragment$F4._({
+        r'locale': locale,
+      });
 
-  factory Variables$Fragment$F4.withoutNulls({required Enum$Locale locale}) {
-    final l$data = <String, dynamic>{'locale': locale};
-    return _Impl$Variables$Fragment$F4(l$data);
-  }
+  Variables$Fragment$F4._(this._$data);
 
   factory Variables$Fragment$F4.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$locale = data['locale'];
     result$data['locale'] = fromJson$Enum$Locale((l$locale as String));
-    return _Impl$Variables$Fragment$F4(result$data);
+    return Variables$Fragment$F4._(result$data);
   }
 
-  Enum$Locale get locale;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$F4<Variables$Fragment$F4> get copyWith;
-  _Impl$Variables$Fragment$F4 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$F4 implements Variables$Fragment$F4 {
-  _Impl$Variables$Fragment$F4(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  Enum$Locale get locale => ($data['locale'] as Enum$Locale);
+  Enum$Locale get locale => (_$data['locale'] as Enum$Locale);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$locale = locale;
@@ -851,8 +787,7 @@ class _Impl$Variables$Fragment$F4 implements Variables$Fragment$F4 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$F4) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Fragment$F4) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$locale = locale;
@@ -868,14 +803,12 @@ class _Impl$Variables$Fragment$F4 implements Variables$Fragment$F4 {
     final l$locale = locale;
     return Object.hashAll([l$locale]);
   }
-
-  _Impl$Variables$Fragment$F4 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$F4<TRes> {
   factory CopyWith$Variables$Fragment$F4(Variables$Fragment$F4 instance,
-          TRes Function(Variables$Fragment$F4) then) =>
-      _CopyWithImpl$Variables$Fragment$F4(instance.$impl, then);
+          TRes Function(Variables$Fragment$F4) then) =
+      _CopyWithImpl$Variables$Fragment$F4;
 
   factory CopyWith$Variables$Fragment$F4.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F4;
@@ -887,15 +820,14 @@ class _CopyWithImpl$Variables$Fragment$F4<TRes>
     implements CopyWith$Variables$Fragment$F4<TRes> {
   _CopyWithImpl$Variables$Fragment$F4(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$F4 _instance;
+  final Variables$Fragment$F4 _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$F4) _then;
+  final TRes Function(Variables$Fragment$F4) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? locale = _undefined}) =>
-      _then(_Impl$Variables$Fragment$F4({
-        ..._instance.$data,
+  TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F4._({
+        ..._instance._$data,
         if (locale != _undefined && locale != null)
           'locale': (locale as Enum$Locale),
       }));
@@ -982,8 +914,8 @@ extension UtilityExtension$Fragment$F4 on Fragment$F4 {
 
 abstract class CopyWith$Fragment$F4<TRes> {
   factory CopyWith$Fragment$F4(
-          Fragment$F4 instance, TRes Function(Fragment$F4) then) =>
-      _CopyWithImpl$Fragment$F4(instance, then);
+          Fragment$F4 instance, TRes Function(Fragment$F4) then) =
+      _CopyWithImpl$Fragment$F4;
 
   factory CopyWith$Fragment$F4.stub(TRes res) = _CopyWithStubImpl$Fragment$F4;
 

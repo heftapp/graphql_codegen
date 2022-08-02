@@ -50,8 +50,8 @@ extension UtilityExtension$Query$Operation on Query$Operation {
 
 abstract class CopyWith$Query$Operation<TRes> {
   factory CopyWith$Query$Operation(
-          Query$Operation instance, TRes Function(Query$Operation) then) =>
-      _CopyWithImpl$Query$Operation(instance, then);
+          Query$Operation instance, TRes Function(Query$Operation) then) =
+      _CopyWithImpl$Query$Operation;
 
   factory CopyWith$Query$Operation.stub(TRes res) =
       _CopyWithStubImpl$Query$Operation;

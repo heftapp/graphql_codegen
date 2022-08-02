@@ -1,7 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:graphql_codegen/src/context.dart';
-import 'package:graphql_codegen/src/printer/base/constants.dart';
 import 'package:graphql_codegen/src/printer/base/deep_copy.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
@@ -40,7 +39,6 @@ List<Spec> printCopyWithClasses(
   PrintContext c,
   String name,
   Iterable<ContextProperty> properties, [
-  Reference? instanceType,
   Expression? instanceConstructor,
 ]) {
   final finalInstanceConstructor =
@@ -85,14 +83,8 @@ List<Spec> printCopyWithClasses(
                           ListBuilder(<Reference>[refer(name)]),
                   )),
               ])
-              ..body =
-                  refer(c.namePrinter.printCopyWithImplClassName(name)).call([
-                if (instanceType == null)
-                  refer('instance')
-                else
-                  refer('instance').property(kImplInstanceFieldName),
-                refer('then'),
-              ]).code,
+              ..redirect =
+                  refer(c.namePrinter.printCopyWithImplClassName(name)),
           ),
           Constructor(
             (b) => b
@@ -147,7 +139,7 @@ List<Spec> printCopyWithClasses(
           Field(
             (b) => b
               ..name = '_instance'
-              ..type = instanceType ?? refer(name)
+              ..type = refer(name)
               ..modifier = FieldModifier.final$,
           ),
           Field(
@@ -157,7 +149,7 @@ List<Spec> printCopyWithClasses(
                 (b) => b
                   ..requiredParameters = ListBuilder(
                     <Reference>[
-                      instanceType ?? refer(name),
+                      refer(name),
                     ],
                   )
                   ..returnType = refer('TRes'),

@@ -50,8 +50,8 @@ extension UtilityExtension$Fragment$F on Fragment$F {
 
 abstract class CopyWith$Fragment$F<TRes> {
   factory CopyWith$Fragment$F(
-          Fragment$F instance, TRes Function(Fragment$F) then) =>
-      _CopyWithImpl$Fragment$F(instance, then);
+          Fragment$F instance, TRes Function(Fragment$F) then) =
+      _CopyWithImpl$Fragment$F;
 
   factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
 
@@ -174,8 +174,8 @@ extension UtilityExtension$Fragment$F$other on Fragment$F$other {
 
 abstract class CopyWith$Fragment$F$other<TRes> {
   factory CopyWith$Fragment$F$other(
-          Fragment$F$other instance, TRes Function(Fragment$F$other) then) =>
-      _CopyWithImpl$Fragment$F$other(instance, then);
+          Fragment$F$other instance, TRes Function(Fragment$F$other) then) =
+      _CopyWithImpl$Fragment$F$other;
 
   factory CopyWith$Fragment$F$other.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$other;
@@ -265,8 +265,8 @@ extension UtilityExtension$Fragment$F$other$other on Fragment$F$other$other {
 
 abstract class CopyWith$Fragment$F$other$other<TRes> {
   factory CopyWith$Fragment$F$other$other(Fragment$F$other$other instance,
-          TRes Function(Fragment$F$other$other) then) =>
-      _CopyWithImpl$Fragment$F$other$other(instance, then);
+          TRes Function(Fragment$F$other$other) then) =
+      _CopyWithImpl$Fragment$F$other$other;
 
   factory CopyWith$Fragment$F$other$other.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$other$other;
@@ -358,8 +358,8 @@ extension UtilityExtension$Fragment$F$other$$T1 on Fragment$F$other$$T1 {
 
 abstract class CopyWith$Fragment$F$other$$T1<TRes> {
   factory CopyWith$Fragment$F$other$$T1(Fragment$F$other$$T1 instance,
-          TRes Function(Fragment$F$other$$T1) then) =>
-      _CopyWithImpl$Fragment$F$other$$T1(instance, then);
+          TRes Function(Fragment$F$other$$T1) then) =
+      _CopyWithImpl$Fragment$F$other$$T1;
 
   factory CopyWith$Fragment$F$other$$T1.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$other$$T1;
@@ -453,8 +453,8 @@ extension UtilityExtension$Fragment$F2 on Fragment$F2 {
 
 abstract class CopyWith$Fragment$F2<TRes> {
   factory CopyWith$Fragment$F2(
-          Fragment$F2 instance, TRes Function(Fragment$F2) then) =>
-      _CopyWithImpl$Fragment$F2(instance, then);
+          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
+      _CopyWithImpl$Fragment$F2;
 
   factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
 
@@ -565,8 +565,8 @@ extension UtilityExtension$Fragment$F2$other on Fragment$F2$other {
 
 abstract class CopyWith$Fragment$F2$other<TRes> {
   factory CopyWith$Fragment$F2$other(
-          Fragment$F2$other instance, TRes Function(Fragment$F2$other) then) =>
-      _CopyWithImpl$Fragment$F2$other(instance, then);
+          Fragment$F2$other instance, TRes Function(Fragment$F2$other) then) =
+      _CopyWithImpl$Fragment$F2$other;
 
   factory CopyWith$Fragment$F2$other.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F2$other;
@@ -647,8 +647,8 @@ extension UtilityExtension$Query$Fetch on Query$Fetch {
 
 abstract class CopyWith$Query$Fetch<TRes> {
   factory CopyWith$Query$Fetch(
-          Query$Fetch instance, TRes Function(Query$Fetch) then) =>
-      _CopyWithImpl$Query$Fetch(instance, then);
+          Query$Fetch instance, TRes Function(Query$Fetch) then) =
+      _CopyWithImpl$Query$Fetch;
 
   factory CopyWith$Query$Fetch.stub(TRes res) = _CopyWithStubImpl$Query$Fetch;
 

@@ -64,8 +64,8 @@ extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
 
 abstract class CopyWith$Query$FetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson(
-          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =>
-      _CopyWithImpl$Query$FetchPerson(instance, then);
+          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson;
 
   factory CopyWith$Query$FetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson;
@@ -253,8 +253,8 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson
 abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson$fetchPerson(
           Query$FetchPerson$fetchPerson instance,
-          TRes Function(Query$FetchPerson$fetchPerson) then) =>
-      _CopyWithImpl$Query$FetchPerson$fetchPerson(instance, then);
+          TRes Function(Query$FetchPerson$fetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson$fetchPerson;
 
   factory CopyWith$Query$FetchPerson$fetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson$fetchPerson;

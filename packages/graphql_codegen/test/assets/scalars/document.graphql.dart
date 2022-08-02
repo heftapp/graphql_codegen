@@ -143,9 +143,9 @@ extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
 }
 
 abstract class CopyWith$Query$FetchScalars<TRes> {
-  factory CopyWith$Query$FetchScalars(Query$FetchScalars instance,
-          TRes Function(Query$FetchScalars) then) =>
-      _CopyWithImpl$Query$FetchScalars(instance, then);
+  factory CopyWith$Query$FetchScalars(
+          Query$FetchScalars instance, TRes Function(Query$FetchScalars) then) =
+      _CopyWithImpl$Query$FetchScalars;
 
   factory CopyWith$Query$FetchScalars.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchScalars;

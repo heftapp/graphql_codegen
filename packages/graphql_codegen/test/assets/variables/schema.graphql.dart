@@ -1,12 +1,10 @@
-abstract class Input$I1 {
-  factory Input$I1({required String s, Input$I1? nested}) =>
-      _Impl$Input$I1({'s': s, 'nested': nested});
+class Input$I1 {
+  factory Input$I1({required String s, Input$I1? nested}) => Input$I1._({
+        r's': s,
+        if (nested != null) r'nested': nested,
+      });
 
-  factory Input$I1.withoutNulls({required String s, Input$I1? nested}) {
-    final l$data = <String, dynamic>{'s': s};
-    if (nested != null) l$data['nested'] = nested;
-    return _Impl$Input$I1(l$data);
-  }
+  Input$I1._(this._$data);
 
   factory Input$I1.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -18,28 +16,18 @@ abstract class Input$I1 {
           ? null
           : Input$I1.fromJson((l$nested as Map<String, dynamic>));
     }
-    return _Impl$Input$I1(result$data);
+    return Input$I1._(result$data);
   }
 
-  String get s;
-  Input$I1? get nested;
-  Map<String, dynamic> toJson();
-  CopyWith$Input$I1<Input$I1> get copyWith;
-  _Impl$Input$I1 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Input$I1 implements Input$I1 {
-  _Impl$Input$I1(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get s => ($data['s'] as String);
-  Input$I1? get nested => ($data['nested'] as Input$I1?);
+  String get s => (_$data['s'] as String);
+  Input$I1? get nested => (_$data['nested'] as Input$I1?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$s = s;
     result$data['s'] = l$s;
-    if ($data.containsKey('nested')) {
+    if (_$data.containsKey('nested')) {
       final l$nested = nested;
       result$data['nested'] = l$nested?.toJson();
     }
@@ -52,7 +40,7 @@ class _Impl$Input$I1 implements Input$I1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Input$I1) || runtimeType != other.runtimeType) {
+    if (!(other is Input$I1) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -62,7 +50,7 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$nested = nested;
     final lOther$nested = other.nested;
-    if ($data.containsKey('nested') != other.$data.containsKey('nested')) {
+    if (_$data.containsKey('nested') != other._$data.containsKey('nested')) {
       return false;
     }
     if (l$nested != lOther$nested) {
@@ -76,15 +64,13 @@ class _Impl$Input$I1 implements Input$I1 {
     final l$s = s;
     final l$nested = nested;
     return Object.hashAll(
-        [l$s, $data.containsKey('nested') ? l$nested : const {}]);
+        [l$s, _$data.containsKey('nested') ? l$nested : const {}]);
   }
-
-  _Impl$Input$I1 get $impl => this;
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =>
-      _CopyWithImpl$Input$I1(instance.$impl, then);
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
@@ -95,15 +81,15 @@ abstract class CopyWith$Input$I1<TRes> {
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
   _CopyWithImpl$Input$I1(this._instance, this._then);
 
-  final _Impl$Input$I1 _instance;
+  final Input$I1 _instance;
 
-  final TRes Function(_Impl$Input$I1) _then;
+  final TRes Function(Input$I1) _then;
 
   static const _undefined = {};
 
   TRes call({Object? s = _undefined, Object? nested = _undefined}) =>
-      _then(_Impl$Input$I1({
-        ..._instance.$data,
+      _then(Input$I1._({
+        ..._instance._$data,
         if (s != _undefined && s != null) 's': (s as String),
         if (nested != _undefined) 'nested': (nested as Input$I1?),
       }));

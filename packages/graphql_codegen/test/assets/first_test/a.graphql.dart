@@ -51,8 +51,8 @@ extension UtilityExtension$Query$FetchName on Query$FetchName {
 
 abstract class CopyWith$Query$FetchName<TRes> {
   factory CopyWith$Query$FetchName(
-          Query$FetchName instance, TRes Function(Query$FetchName) then) =>
-      _CopyWithImpl$Query$FetchName(instance, then);
+          Query$FetchName instance, TRes Function(Query$FetchName) then) =
+      _CopyWithImpl$Query$FetchName;
 
   factory CopyWith$Query$FetchName.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchName;

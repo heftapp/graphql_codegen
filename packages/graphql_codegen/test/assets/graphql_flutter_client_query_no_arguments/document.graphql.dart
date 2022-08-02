@@ -51,8 +51,8 @@ extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
 
 abstract class CopyWith$Query$FetchSNoVariables<TRes> {
   factory CopyWith$Query$FetchSNoVariables(Query$FetchSNoVariables instance,
-          TRes Function(Query$FetchSNoVariables) then) =>
-      _CopyWithImpl$Query$FetchSNoVariables(instance, then);
+          TRes Function(Query$FetchSNoVariables) then) =
+      _CopyWithImpl$Query$FetchSNoVariables;
 
   factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSNoVariables;

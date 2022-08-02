@@ -14,21 +14,18 @@ List<Spec> printInputClasses(PrintContext<ContextInput> context) =>
     _printInputClasses(
       context,
       context.namePrinter.printClassName,
-      context.namePrinter.printImplClassName,
       context.context.properties,
     );
 
 List<Spec> printVariableClasses(PrintContext context) => _printInputClasses(
       context,
       context.namePrinter.printVariableClassName,
-      context.namePrinter.printVariableImplClassName,
       context.context.variables,
     );
 
 List<Spec> _printInputClasses(
   PrintContext context,
   String Function(Name) name,
-  String Function(Name) implClassName,
   Iterable<ContextProperty> properties,
 ) {
   final factoryParameters = ListBuilder<Parameter>(
@@ -48,47 +45,41 @@ List<Spec> _printInputClasses(
     Class(
       (b) => b
         ..name = name(context.path)
-        ..abstract = true
         ..constructors = ListBuilder([
           Constructor(
             (b) => b
               ..factory = true
               ..optionalParameters = factoryParameters
-              ..lambda = true
-              ..body = refer(implClassName(context.path)).call([
-                literalMap({
-                  for (final property in properties)
-                    property.name.value: refer(
-                        context.namePrinter.printPropertyName(property.name))
-                })
+              ..body = refer(name(context.path)).property('_').call([
+                CodeExpression(Code(
+                  """
+                  {
+                    ${properties.map((property) {
+                    final key = property.name.value;
+                    final value =
+                        context.namePrinter.printPropertyName(property.name);
+                    final entry = "r'${key}': ${value},";
+                    if (property.isRequired) {
+                      return entry;
+                    }
+                    return """
+                    if (${value} != null) ${entry}
+                    """;
+                  }).join()}
+                  }
+                  """,
+                )),
               ]).code,
           ),
-          Constructor(
-            (b) => b
-              ..factory = true
-              ..name = 'withoutNulls'
-              ..optionalParameters = factoryParameters
-              ..body = Block.of([
-                literalMap(
-                  {
-                    for (final property in properties)
-                      if (property.isRequired)
-                        property.name.value: refer(context.namePrinter
-                            .printPropertyName(property.name))
-                  },
-                  refer('String'),
-                  refer('dynamic'),
-                ).assignFinal(r'l$data').statement,
-                for (final property in properties)
-                  if (!property.isRequired)
-                    Code(
-                        'if(${context.namePrinter.printPropertyName(property.name)} != null) l\$data[\'${property.name.value}\'] = ${context.namePrinter.printPropertyName(property.name)}; '),
-                refer(implClassName(context.path))
-                    .call([refer(r'l$data')])
-                    .returned
-                    .statement,
-              ]),
-          ),
+          Constructor((b) => b
+            ..name = '_'
+            ..requiredParameters = ListBuilder([
+              Parameter(
+                (b) => b
+                  ..name = kDataVariableName
+                  ..toThis = true,
+              )
+            ])),
           Constructor(
             (b) => b
               ..factory = true
@@ -102,60 +93,15 @@ List<Spec> _printInputClasses(
               ])
               ..body = _printFromJson(
                 context,
-                implClassName(context.path),
+                name(context.path),
                 properties,
               ),
           ),
         ])
-        ..methods = ListBuilder([
-          ...properties.map(
-            (e) => Method(
-              (b) => b
-                ..name = context.namePrinter.printPropertyName(e.name)
-                ..returns = printClassPropertyType(context, e)
-                ..type = MethodType.getter,
-            ),
-          ),
-          Method((b) => b
-            ..name = 'toJson'
-            ..returns = dynamicMap),
-          Method((b) => b
-            ..name = 'copyWith'
-            ..type = MethodType.getter
-            ..returns = TypeReference((b) => b
-              ..symbol = context.namePrinter.printCopyWithClassName(
-                name(context.path),
-              )
-              ..types = ListBuilder([refer(name(context.path))]))),
-          Method(
-            (b) => b
-              ..name = kImplInstanceFieldName
-              ..type = MethodType.getter
-              ..returns = refer(implClassName(context.path)),
-          ),
-        ]),
-    ),
-    Class(
-      (b) => b
-        ..name = implClassName(context.path)
-        ..implements = ListBuilder([refer(name(context.path))])
-        ..constructors = ListBuilder([
-          Constructor((b) => b
-            ..requiredParameters = ListBuilder([
-              Parameter(
-                (b) => b
-                  ..toThis = true
-                  ..name = kDataVariableName,
-              )
-            ]))
-        ])
         ..fields = ListBuilder([
-          Field(
-            (b) => b
-              ..name = kDataVariableName
-              ..modifier = FieldModifier.final$
-              ..type = dynamicMap,
-          ),
+          Field((b) => b
+            ..name = kDataVariableName
+            ..type = dynamicMap)
         ])
         ..methods = ListBuilder([
           ...properties.map((e) => Method(
@@ -191,7 +137,7 @@ List<Spec> _printInputClasses(
           ),
           printEqualityOperator(
             context,
-            implClassName(context.path),
+            name(context.path),
             properties,
             dataObjectCheck: true,
           ),
@@ -200,21 +146,13 @@ List<Spec> _printInputClasses(
             properties,
             dataObjectCheck: true,
           ),
-          Method(
-            (b) => b
-              ..name = kImplInstanceFieldName
-              ..type = MethodType.getter
-              ..returns = refer(implClassName(context.path))
-              ..body = refer('this').code,
-          )
         ]),
     ),
     ...printCopyWithClasses(
       context,
       name(context.path),
       properties,
-      refer(implClassName(context.path)),
-      refer(implClassName(context.path)).call([
+      refer(name(context.path)).property('_').call([
         CodeExpression(Block.of([
           Code('{'),
           Code('..._instance.${kDataVariableName},'),
@@ -273,7 +211,7 @@ Code _printToJson(PrintContext context, Iterable<ContextProperty> properties) {
 
 Code _printFromJson(
   PrintContext context,
-  String implClassName,
+  String name,
   Iterable<ContextProperty> properties,
 ) {
   const resultDataVariableName = r'result$data';
@@ -304,7 +242,8 @@ Code _printFromJson(
           .statement,
       if (!property.isRequired) Code('}')
     ],
-    refer(implClassName)
+    refer(name)
+        .property('_')
         .call([refer(resultDataVariableName)])
         .returned
         .statement,

@@ -58,9 +58,9 @@ extension UtilityExtension$Fragment$Condition on Fragment$Condition {
 }
 
 abstract class CopyWith$Fragment$Condition<TRes> {
-  factory CopyWith$Fragment$Condition(Fragment$Condition instance,
-          TRes Function(Fragment$Condition) then) =>
-      _CopyWithImpl$Fragment$Condition(instance, then);
+  factory CopyWith$Fragment$Condition(
+          Fragment$Condition instance, TRes Function(Fragment$Condition) then) =
+      _CopyWithImpl$Fragment$Condition;
 
   factory CopyWith$Fragment$Condition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$Condition;
@@ -211,8 +211,8 @@ extension UtilityExtension$Fragment$AndCondition on Fragment$AndCondition {
 
 abstract class CopyWith$Fragment$AndCondition<TRes> {
   factory CopyWith$Fragment$AndCondition(Fragment$AndCondition instance,
-          TRes Function(Fragment$AndCondition) then) =>
-      _CopyWithImpl$Fragment$AndCondition(instance, then);
+          TRes Function(Fragment$AndCondition) then) =
+      _CopyWithImpl$Fragment$AndCondition;
 
   factory CopyWith$Fragment$AndCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$AndCondition;
@@ -408,8 +408,8 @@ extension UtilityExtension$Fragment$CompositeCondition
 abstract class CopyWith$Fragment$CompositeCondition<TRes> {
   factory CopyWith$Fragment$CompositeCondition(
           Fragment$CompositeCondition instance,
-          TRes Function(Fragment$CompositeCondition) then) =>
-      _CopyWithImpl$Fragment$CompositeCondition(instance, then);
+          TRes Function(Fragment$CompositeCondition) then) =
+      _CopyWithImpl$Fragment$CompositeCondition;
 
   factory CopyWith$Fragment$CompositeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CompositeCondition;
@@ -555,8 +555,8 @@ extension UtilityExtension$Fragment$CompositeCondition$$TimeCondition
 abstract class CopyWith$Fragment$CompositeCondition$$TimeCondition<TRes> {
   factory CopyWith$Fragment$CompositeCondition$$TimeCondition(
           Fragment$CompositeCondition$$TimeCondition instance,
-          TRes Function(Fragment$CompositeCondition$$TimeCondition) then) =>
-      _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition(instance, then);
+          TRes Function(Fragment$CompositeCondition$$TimeCondition) then) =
+      _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition;
 
   factory CopyWith$Fragment$CompositeCondition$$TimeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition;
@@ -700,8 +700,8 @@ extension UtilityExtension$Fragment$CompositeCondition$$AndCondition
 abstract class CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
   factory CopyWith$Fragment$CompositeCondition$$AndCondition(
           Fragment$CompositeCondition$$AndCondition instance,
-          TRes Function(Fragment$CompositeCondition$$AndCondition) then) =>
-      _CopyWithImpl$Fragment$CompositeCondition$$AndCondition(instance, then);
+          TRes Function(Fragment$CompositeCondition$$AndCondition) then) =
+      _CopyWithImpl$Fragment$CompositeCondition$$AndCondition;
 
   factory CopyWith$Fragment$CompositeCondition$$AndCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition;
@@ -844,8 +844,8 @@ extension UtilityExtension$Fragment$NonCompositeCondition
 abstract class CopyWith$Fragment$NonCompositeCondition<TRes> {
   factory CopyWith$Fragment$NonCompositeCondition(
           Fragment$NonCompositeCondition instance,
-          TRes Function(Fragment$NonCompositeCondition) then) =>
-      _CopyWithImpl$Fragment$NonCompositeCondition(instance, then);
+          TRes Function(Fragment$NonCompositeCondition) then) =
+      _CopyWithImpl$Fragment$NonCompositeCondition;
 
   factory CopyWith$Fragment$NonCompositeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NonCompositeCondition;
@@ -988,9 +988,8 @@ extension UtilityExtension$Fragment$NonCompositeCondition$$TimeCondition
 abstract class CopyWith$Fragment$NonCompositeCondition$$TimeCondition<TRes> {
   factory CopyWith$Fragment$NonCompositeCondition$$TimeCondition(
           Fragment$NonCompositeCondition$$TimeCondition instance,
-          TRes Function(Fragment$NonCompositeCondition$$TimeCondition) then) =>
-      _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition(
-          instance, then);
+          TRes Function(Fragment$NonCompositeCondition$$TimeCondition) then) =
+      _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition;
 
   factory CopyWith$Fragment$NonCompositeCondition$$TimeCondition.stub(
           TRes res) =
@@ -1109,8 +1108,8 @@ extension UtilityExtension$Fragment$TimeCondition on Fragment$TimeCondition {
 
 abstract class CopyWith$Fragment$TimeCondition<TRes> {
   factory CopyWith$Fragment$TimeCondition(Fragment$TimeCondition instance,
-          TRes Function(Fragment$TimeCondition) then) =>
-      _CopyWithImpl$Fragment$TimeCondition(instance, then);
+          TRes Function(Fragment$TimeCondition) then) =
+      _CopyWithImpl$Fragment$TimeCondition;
 
   factory CopyWith$Fragment$TimeCondition.stub(TRes res) =
       _CopyWithStubImpl$Fragment$TimeCondition;
