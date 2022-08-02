@@ -64,8 +64,8 @@ extension UtilityExtension$Query$FetchShouldRender on Query$FetchShouldRender {
 
 abstract class CopyWith$Query$FetchShouldRender<TRes> {
   factory CopyWith$Query$FetchShouldRender(Query$FetchShouldRender instance,
-          TRes Function(Query$FetchShouldRender) then) =>
-      _CopyWithImpl$Query$FetchShouldRender(instance, then);
+          TRes Function(Query$FetchShouldRender) then) =
+      _CopyWithImpl$Query$FetchShouldRender;
 
   factory CopyWith$Query$FetchShouldRender.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchShouldRender;

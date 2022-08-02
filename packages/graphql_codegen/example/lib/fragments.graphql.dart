@@ -219,8 +219,8 @@ extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
 
 abstract class CopyWith$Fragment$PersonSummary<TRes> {
   factory CopyWith$Fragment$PersonSummary(Fragment$PersonSummary instance,
-          TRes Function(Fragment$PersonSummary) then) =>
-      _CopyWithImpl$Fragment$PersonSummary(instance, then);
+          TRes Function(Fragment$PersonSummary) then) =
+      _CopyWithImpl$Fragment$PersonSummary;
 
   factory CopyWith$Fragment$PersonSummary.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonSummary;
@@ -485,8 +485,8 @@ extension UtilityExtension$Fragment$PersonParent on Fragment$PersonParent {
 
 abstract class CopyWith$Fragment$PersonParent<TRes> {
   factory CopyWith$Fragment$PersonParent(Fragment$PersonParent instance,
-          TRes Function(Fragment$PersonParent) then) =>
-      _CopyWithImpl$Fragment$PersonParent(instance, then);
+          TRes Function(Fragment$PersonParent) then) =
+      _CopyWithImpl$Fragment$PersonParent;
 
   factory CopyWith$Fragment$PersonParent.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonParent;

@@ -3,36 +3,24 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-abstract class Variables$Query$FetchSRequired {
+class Variables$Query$FetchSRequired {
   factory Variables$Query$FetchSRequired({required String name}) =>
-      _Impl$Variables$Query$FetchSRequired({'name': name});
+      Variables$Query$FetchSRequired._({
+        r'name': name,
+      });
 
-  factory Variables$Query$FetchSRequired.withoutNulls({required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    return _Impl$Variables$Query$FetchSRequired(l$data);
-  }
+  Variables$Query$FetchSRequired._(this._$data);
 
   factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Query$FetchSRequired(result$data);
+    return Variables$Query$FetchSRequired._(result$data);
   }
 
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
-      get copyWith;
-  _Impl$Variables$Query$FetchSRequired get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$FetchSRequired
-    implements Variables$Query$FetchSRequired {
-  _Impl$Variables$Query$FetchSRequired(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get name => ($data['name'] as String);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -47,7 +35,7 @@ class _Impl$Variables$Query$FetchSRequired
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$FetchSRequired) ||
+    if (!(other is Variables$Query$FetchSRequired) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -64,15 +52,13 @@ class _Impl$Variables$Query$FetchSRequired
     final l$name = name;
     return Object.hashAll([l$name]);
   }
-
-  _Impl$Variables$Query$FetchSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
   factory CopyWith$Variables$Query$FetchSRequired(
           Variables$Query$FetchSRequired instance,
-          TRes Function(Variables$Query$FetchSRequired) then) =>
-      _CopyWithImpl$Variables$Query$FetchSRequired(instance.$impl, then);
+          TRes Function(Variables$Query$FetchSRequired) then) =
+      _CopyWithImpl$Variables$Query$FetchSRequired;
 
   factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSRequired;
@@ -84,15 +70,15 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
     implements CopyWith$Variables$Query$FetchSRequired<TRes> {
   _CopyWithImpl$Variables$Query$FetchSRequired(this._instance, this._then);
 
-  final _Impl$Variables$Query$FetchSRequired _instance;
+  final Variables$Query$FetchSRequired _instance;
 
-  final TRes Function(_Impl$Variables$Query$FetchSRequired) _then;
+  final TRes Function(Variables$Query$FetchSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Query$FetchSRequired({
-        ..._instance.$data,
+      _then(Variables$Query$FetchSRequired._({
+        ..._instance._$data,
         if (name != _undefined && name != null) 'name': (name as String),
       }));
 }
@@ -153,8 +139,8 @@ extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
 
 abstract class CopyWith$Query$FetchSRequired<TRes> {
   factory CopyWith$Query$FetchSRequired(Query$FetchSRequired instance,
-          TRes Function(Query$FetchSRequired) then) =>
-      _CopyWithImpl$Query$FetchSRequired(instance, then);
+          TRes Function(Query$FetchSRequired) then) =
+      _CopyWithImpl$Query$FetchSRequired;
 
   factory CopyWith$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSRequired;

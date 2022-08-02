@@ -1,15 +1,12 @@
 import 'package:gql/ast.dart';
 
-abstract class Input$Input {
-  factory Input$Input({String? field, bool? flag}) =>
-      _Impl$Input$Input({'field': field, 'flag': flag});
+class Input$Input {
+  factory Input$Input({String? field, bool? flag}) => Input$Input._({
+        if (field != null) r'field': field,
+        if (flag != null) r'flag': flag,
+      });
 
-  factory Input$Input.withoutNulls({String? field, bool? flag}) {
-    final l$data = <String, dynamic>{};
-    if (field != null) l$data['field'] = field;
-    if (flag != null) l$data['flag'] = flag;
-    return _Impl$Input$Input(l$data);
-  }
+  Input$Input._(this._$data);
 
   factory Input$Input.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -21,30 +18,20 @@ abstract class Input$Input {
       final l$flag = data['flag'];
       result$data['flag'] = (l$flag as bool?);
     }
-    return _Impl$Input$Input(result$data);
+    return Input$Input._(result$data);
   }
 
-  String? get field;
-  bool? get flag;
-  Map<String, dynamic> toJson();
-  CopyWith$Input$Input<Input$Input> get copyWith;
-  _Impl$Input$Input get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Input$Input implements Input$Input {
-  _Impl$Input$Input(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get field => ($data['field'] as String?);
-  bool? get flag => ($data['flag'] as bool?);
+  String? get field => (_$data['field'] as String?);
+  bool? get flag => (_$data['flag'] as bool?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('field')) {
+    if (_$data.containsKey('field')) {
       final l$field = field;
       result$data['field'] = l$field;
     }
-    if ($data.containsKey('flag')) {
+    if (_$data.containsKey('flag')) {
       final l$flag = flag;
       result$data['flag'] = l$flag;
     }
@@ -58,12 +45,12 @@ class _Impl$Input$Input implements Input$Input {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Input$Input) || runtimeType != other.runtimeType) {
+    if (!(other is Input$Input) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
     final lOther$field = other.field;
-    if ($data.containsKey('field') != other.$data.containsKey('field')) {
+    if (_$data.containsKey('field') != other._$data.containsKey('field')) {
       return false;
     }
     if (l$field != lOther$field) {
@@ -71,7 +58,7 @@ class _Impl$Input$Input implements Input$Input {
     }
     final l$flag = flag;
     final lOther$flag = other.flag;
-    if ($data.containsKey('flag') != other.$data.containsKey('flag')) {
+    if (_$data.containsKey('flag') != other._$data.containsKey('flag')) {
       return false;
     }
     if (l$flag != lOther$flag) {
@@ -85,18 +72,16 @@ class _Impl$Input$Input implements Input$Input {
     final l$field = field;
     final l$flag = flag;
     return Object.hashAll([
-      $data.containsKey('field') ? l$field : const {},
-      $data.containsKey('flag') ? l$flag : const {}
+      _$data.containsKey('field') ? l$field : const {},
+      _$data.containsKey('flag') ? l$flag : const {}
     ]);
   }
-
-  _Impl$Input$Input get $impl => this;
 }
 
 abstract class CopyWith$Input$Input<TRes> {
   factory CopyWith$Input$Input(
-          Input$Input instance, TRes Function(Input$Input) then) =>
-      _CopyWithImpl$Input$Input(instance.$impl, then);
+          Input$Input instance, TRes Function(Input$Input) then) =
+      _CopyWithImpl$Input$Input;
 
   factory CopyWith$Input$Input.stub(TRes res) = _CopyWithStubImpl$Input$Input;
 
@@ -106,15 +91,15 @@ abstract class CopyWith$Input$Input<TRes> {
 class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
   _CopyWithImpl$Input$Input(this._instance, this._then);
 
-  final _Impl$Input$Input _instance;
+  final Input$Input _instance;
 
-  final TRes Function(_Impl$Input$Input) _then;
+  final TRes Function(Input$Input) _then;
 
   static const _undefined = {};
 
   TRes call({Object? field = _undefined, Object? flag = _undefined}) =>
-      _then(_Impl$Input$Input({
-        ..._instance.$data,
+      _then(Input$Input._({
+        ..._instance._$data,
         if (field != _undefined) 'field': (field as String?),
         if (flag != _undefined) 'flag': (flag as bool?),
       }));
@@ -129,15 +114,12 @@ class _CopyWithStubImpl$Input$Input<TRes>
   call({String? field, bool? flag}) => _res;
 }
 
-abstract class Variables$Query$Q1 {
-  factory Variables$Query$Q1({Input$Input? input}) =>
-      _Impl$Variables$Query$Q1({'input': input});
+class Variables$Query$Q1 {
+  factory Variables$Query$Q1({Input$Input? input}) => Variables$Query$Q1._({
+        if (input != null) r'input': input,
+      });
 
-  factory Variables$Query$Q1.withoutNulls({Input$Input? input}) {
-    final l$data = <String, dynamic>{};
-    if (input != null) l$data['input'] = input;
-    return _Impl$Variables$Query$Q1(l$data);
-  }
+  Variables$Query$Q1._(this._$data);
 
   factory Variables$Query$Q1.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -147,24 +129,15 @@ abstract class Variables$Query$Q1 {
           ? null
           : Input$Input.fromJson((l$input as Map<String, dynamic>));
     }
-    return _Impl$Variables$Query$Q1(result$data);
+    return Variables$Query$Q1._(result$data);
   }
 
-  Input$Input? get input;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$Q1<Variables$Query$Q1> get copyWith;
-  _Impl$Variables$Query$Q1 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$Q1 implements Variables$Query$Q1 {
-  _Impl$Variables$Query$Q1(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  Input$Input? get input => ($data['input'] as Input$Input?);
+  Input$Input? get input => (_$data['input'] as Input$Input?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('input')) {
+    if (_$data.containsKey('input')) {
       final l$input = input;
       result$data['input'] = l$input?.toJson();
     }
@@ -178,13 +151,12 @@ class _Impl$Variables$Query$Q1 implements Variables$Query$Q1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$Q1) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$Q1) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$input = input;
     final lOther$input = other.input;
-    if ($data.containsKey('input') != other.$data.containsKey('input')) {
+    if (_$data.containsKey('input') != other._$data.containsKey('input')) {
       return false;
     }
     if (l$input != lOther$input) {
@@ -196,16 +168,14 @@ class _Impl$Variables$Query$Q1 implements Variables$Query$Q1 {
   @override
   int get hashCode {
     final l$input = input;
-    return Object.hashAll([$data.containsKey('input') ? l$input : const {}]);
+    return Object.hashAll([_$data.containsKey('input') ? l$input : const {}]);
   }
-
-  _Impl$Variables$Query$Q1 get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$Q1<TRes> {
-  factory CopyWith$Variables$Query$Q1(Variables$Query$Q1 instance,
-          TRes Function(Variables$Query$Q1) then) =>
-      _CopyWithImpl$Variables$Query$Q1(instance.$impl, then);
+  factory CopyWith$Variables$Query$Q1(
+          Variables$Query$Q1 instance, TRes Function(Variables$Query$Q1) then) =
+      _CopyWithImpl$Variables$Query$Q1;
 
   factory CopyWith$Variables$Query$Q1.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Q1;
@@ -218,14 +188,14 @@ class _CopyWithImpl$Variables$Query$Q1<TRes>
     implements CopyWith$Variables$Query$Q1<TRes> {
   _CopyWithImpl$Variables$Query$Q1(this._instance, this._then);
 
-  final _Impl$Variables$Query$Q1 _instance;
+  final Variables$Query$Q1 _instance;
 
-  final TRes Function(_Impl$Variables$Query$Q1) _then;
+  final TRes Function(Variables$Query$Q1) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? input = _undefined}) => _then(_Impl$Variables$Query$Q1({
-        ..._instance.$data,
+  TRes call({Object? input = _undefined}) => _then(Variables$Query$Q1._({
+        ..._instance._$data,
         if (input != _undefined) 'input': (input as Input$Input?),
       }));
   CopyWith$Input$Input<TRes> get input {
@@ -303,8 +273,8 @@ extension UtilityExtension$Query$Q1 on Query$Q1 {
 }
 
 abstract class CopyWith$Query$Q1<TRes> {
-  factory CopyWith$Query$Q1(Query$Q1 instance, TRes Function(Query$Q1) then) =>
-      _CopyWithImpl$Query$Q1(instance, then);
+  factory CopyWith$Query$Q1(Query$Q1 instance, TRes Function(Query$Q1) then) =
+      _CopyWithImpl$Query$Q1;
 
   factory CopyWith$Query$Q1.stub(TRes res) = _CopyWithStubImpl$Query$Q1;
 

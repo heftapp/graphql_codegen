@@ -77,8 +77,8 @@ extension UtilityExtension$Query$Foobar on Query$Foobar {
 
 abstract class CopyWith$Query$Foobar<TRes> {
   factory CopyWith$Query$Foobar(
-          Query$Foobar instance, TRes Function(Query$Foobar) then) =>
-      _CopyWithImpl$Query$Foobar(instance, then);
+          Query$Foobar instance, TRes Function(Query$Foobar) then) =
+      _CopyWithImpl$Query$Foobar;
 
   factory CopyWith$Query$Foobar.stub(TRes res) = _CopyWithStubImpl$Query$Foobar;
 

@@ -1,4 +1,4 @@
-abstract class Input$I1 {
+class Input$I1 {
   factory Input$I1(
           {required String s,
           String? sMaybe,
@@ -10,40 +10,20 @@ abstract class Input$I1 {
           required Enum$E e,
           required List<Enum$E> es,
           Input$I2? i2}) =>
-      _Impl$Input$I1({
-        's': s,
-        'sMaybe': sMaybe,
-        'nested_input': nested_input,
-        'children': children,
-        'children2': children2,
-        '_min': $_min,
-        'eMaybe': eMaybe,
-        'e': e,
-        'es': es,
-        'i2': i2
+      Input$I1._({
+        r's': s,
+        if (sMaybe != null) r'sMaybe': sMaybe,
+        if (nested_input != null) r'nested_input': nested_input,
+        if (children != null) r'children': children,
+        if (children2 != null) r'children2': children2,
+        if ($_min != null) r'_min': $_min,
+        if (eMaybe != null) r'eMaybe': eMaybe,
+        r'e': e,
+        r'es': es,
+        if (i2 != null) r'i2': i2,
       });
 
-  factory Input$I1.withoutNulls(
-      {required String s,
-      String? sMaybe,
-      Input$I1? nested_input,
-      List<Input$I1>? children,
-      List<List<Input$I1?>?>? children2,
-      int? $_min,
-      Enum$E? eMaybe,
-      required Enum$E e,
-      required List<Enum$E> es,
-      Input$I2? i2}) {
-    final l$data = <String, dynamic>{'s': s, 'e': e, 'es': es};
-    if (sMaybe != null) l$data['sMaybe'] = sMaybe;
-    if (nested_input != null) l$data['nested_input'] = nested_input;
-    if (children != null) l$data['children'] = children;
-    if (children2 != null) l$data['children2'] = children2;
-    if ($_min != null) l$data['_min'] = $_min;
-    if (eMaybe != null) l$data['eMaybe'] = eMaybe;
-    if (i2 != null) l$data['i2'] = i2;
-    return _Impl$Input$I1(l$data);
-  }
+  Input$I1._(this._$data);
 
   factory Input$I1.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -96,66 +76,48 @@ abstract class Input$I1 {
           ? null
           : Input$I2.fromJson((l$i2 as Map<String, dynamic>));
     }
-    return _Impl$Input$I1(result$data);
+    return Input$I1._(result$data);
   }
 
-  String get s;
-  String? get sMaybe;
-  Input$I1? get nested_input;
-  List<Input$I1>? get children;
-  List<List<Input$I1?>?>? get children2;
-  int? get $_min;
-  Enum$E? get eMaybe;
-  Enum$E get e;
-  List<Enum$E> get es;
-  Input$I2? get i2;
-  Map<String, dynamic> toJson();
-  CopyWith$Input$I1<Input$I1> get copyWith;
-  _Impl$Input$I1 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Input$I1 implements Input$I1 {
-  _Impl$Input$I1(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get s => ($data['s'] as String);
-  String? get sMaybe => ($data['sMaybe'] as String?);
-  Input$I1? get nested_input => ($data['nested_input'] as Input$I1?);
-  List<Input$I1>? get children => ($data['children'] as List<Input$I1>?);
+  String get s => (_$data['s'] as String);
+  String? get sMaybe => (_$data['sMaybe'] as String?);
+  Input$I1? get nested_input => (_$data['nested_input'] as Input$I1?);
+  List<Input$I1>? get children => (_$data['children'] as List<Input$I1>?);
   List<List<Input$I1?>?>? get children2 =>
-      ($data['children2'] as List<List<Input$I1?>?>?);
-  int? get $_min => ($data['_min'] as int?);
-  Enum$E? get eMaybe => ($data['eMaybe'] as Enum$E?);
-  Enum$E get e => ($data['e'] as Enum$E);
-  List<Enum$E> get es => ($data['es'] as List<Enum$E>);
-  Input$I2? get i2 => ($data['i2'] as Input$I2?);
+      (_$data['children2'] as List<List<Input$I1?>?>?);
+  int? get $_min => (_$data['_min'] as int?);
+  Enum$E? get eMaybe => (_$data['eMaybe'] as Enum$E?);
+  Enum$E get e => (_$data['e'] as Enum$E);
+  List<Enum$E> get es => (_$data['es'] as List<Enum$E>);
+  Input$I2? get i2 => (_$data['i2'] as Input$I2?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$s = s;
     result$data['s'] = l$s;
-    if ($data.containsKey('sMaybe')) {
+    if (_$data.containsKey('sMaybe')) {
       final l$sMaybe = sMaybe;
       result$data['sMaybe'] = l$sMaybe;
     }
-    if ($data.containsKey('nested_input')) {
+    if (_$data.containsKey('nested_input')) {
       final l$nested_input = nested_input;
       result$data['nested_input'] = l$nested_input?.toJson();
     }
-    if ($data.containsKey('children')) {
+    if (_$data.containsKey('children')) {
       final l$children = children;
       result$data['children'] = l$children?.map((e) => e.toJson()).toList();
     }
-    if ($data.containsKey('children2')) {
+    if (_$data.containsKey('children2')) {
       final l$children2 = children2;
       result$data['children2'] =
           l$children2?.map((e) => e?.map((e) => e?.toJson()).toList()).toList();
     }
-    if ($data.containsKey('_min')) {
+    if (_$data.containsKey('_min')) {
       final l$$_min = $_min;
       result$data['_min'] = l$$_min;
     }
-    if ($data.containsKey('eMaybe')) {
+    if (_$data.containsKey('eMaybe')) {
       final l$eMaybe = eMaybe;
       result$data['eMaybe'] = l$eMaybe == null ? null : toJson$Enum$E(l$eMaybe);
     }
@@ -163,7 +125,7 @@ class _Impl$Input$I1 implements Input$I1 {
     result$data['e'] = toJson$Enum$E(l$e);
     final l$es = es;
     result$data['es'] = l$es.map((e) => toJson$Enum$E(e)).toList();
-    if ($data.containsKey('i2')) {
+    if (_$data.containsKey('i2')) {
       final l$i2 = i2;
       result$data['i2'] = l$i2?.toJson();
     }
@@ -176,7 +138,7 @@ class _Impl$Input$I1 implements Input$I1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Input$I1) || runtimeType != other.runtimeType) {
+    if (!(other is Input$I1) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -186,7 +148,7 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$sMaybe = sMaybe;
     final lOther$sMaybe = other.sMaybe;
-    if ($data.containsKey('sMaybe') != other.$data.containsKey('sMaybe')) {
+    if (_$data.containsKey('sMaybe') != other._$data.containsKey('sMaybe')) {
       return false;
     }
     if (l$sMaybe != lOther$sMaybe) {
@@ -194,8 +156,8 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$nested_input = nested_input;
     final lOther$nested_input = other.nested_input;
-    if ($data.containsKey('nested_input') !=
-        other.$data.containsKey('nested_input')) {
+    if (_$data.containsKey('nested_input') !=
+        other._$data.containsKey('nested_input')) {
       return false;
     }
     if (l$nested_input != lOther$nested_input) {
@@ -203,7 +165,8 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$children = children;
     final lOther$children = other.children;
-    if ($data.containsKey('children') != other.$data.containsKey('children')) {
+    if (_$data.containsKey('children') !=
+        other._$data.containsKey('children')) {
       return false;
     }
     if (l$children != null && lOther$children != null) {
@@ -222,8 +185,8 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$children2 = children2;
     final lOther$children2 = other.children2;
-    if ($data.containsKey('children2') !=
-        other.$data.containsKey('children2')) {
+    if (_$data.containsKey('children2') !=
+        other._$data.containsKey('children2')) {
       return false;
     }
     if (l$children2 != null && lOther$children2 != null) {
@@ -253,7 +216,7 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$$_min = $_min;
     final lOther$$_min = other.$_min;
-    if ($data.containsKey('_min') != other.$data.containsKey('_min')) {
+    if (_$data.containsKey('_min') != other._$data.containsKey('_min')) {
       return false;
     }
     if (l$$_min != lOther$$_min) {
@@ -261,7 +224,7 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$eMaybe = eMaybe;
     final lOther$eMaybe = other.eMaybe;
-    if ($data.containsKey('eMaybe') != other.$data.containsKey('eMaybe')) {
+    if (_$data.containsKey('eMaybe') != other._$data.containsKey('eMaybe')) {
       return false;
     }
     if (l$eMaybe != lOther$eMaybe) {
@@ -286,7 +249,7 @@ class _Impl$Input$I1 implements Input$I1 {
     }
     final l$i2 = i2;
     final lOther$i2 = other.i2;
-    if ($data.containsKey('i2') != other.$data.containsKey('i2')) {
+    if (_$data.containsKey('i2') != other._$data.containsKey('i2')) {
       return false;
     }
     if (l$i2 != lOther$i2) {
@@ -309,33 +272,31 @@ class _Impl$Input$I1 implements Input$I1 {
     final l$i2 = i2;
     return Object.hashAll([
       l$s,
-      $data.containsKey('sMaybe') ? l$sMaybe : const {},
-      $data.containsKey('nested_input') ? l$nested_input : const {},
-      $data.containsKey('children')
+      _$data.containsKey('sMaybe') ? l$sMaybe : const {},
+      _$data.containsKey('nested_input') ? l$nested_input : const {},
+      _$data.containsKey('children')
           ? l$children == null
               ? null
               : Object.hashAll(l$children.map((v) => v))
           : const {},
-      $data.containsKey('children2')
+      _$data.containsKey('children2')
           ? l$children2 == null
               ? null
               : Object.hashAll(l$children2.map(
                   (v) => v == null ? null : Object.hashAll(v.map((v) => v))))
           : const {},
-      $data.containsKey('_min') ? l$$_min : const {},
-      $data.containsKey('eMaybe') ? l$eMaybe : const {},
+      _$data.containsKey('_min') ? l$$_min : const {},
+      _$data.containsKey('eMaybe') ? l$eMaybe : const {},
       l$e,
       Object.hashAll(l$es.map((v) => v)),
-      $data.containsKey('i2') ? l$i2 : const {}
+      _$data.containsKey('i2') ? l$i2 : const {}
     ]);
   }
-
-  _Impl$Input$I1 get $impl => this;
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =>
-      _CopyWithImpl$Input$I1(instance.$impl, then);
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
@@ -363,9 +324,9 @@ abstract class CopyWith$Input$I1<TRes> {
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
   _CopyWithImpl$Input$I1(this._instance, this._then);
 
-  final _Impl$Input$I1 _instance;
+  final Input$I1 _instance;
 
-  final TRes Function(_Impl$Input$I1) _then;
+  final TRes Function(Input$I1) _then;
 
   static const _undefined = {};
 
@@ -380,8 +341,8 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
           Object? e = _undefined,
           Object? es = _undefined,
           Object? i2 = _undefined}) =>
-      _then(_Impl$Input$I1({
-        ..._instance.$data,
+      _then(Input$I1._({
+        ..._instance._$data,
         if (s != _undefined && s != null) 's': (s as String),
         if (sMaybe != _undefined) 'sMaybe': (sMaybe as String?),
         if (nested_input != _undefined)
@@ -448,14 +409,12 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
   CopyWith$Input$I2<TRes> get i2 => CopyWith$Input$I2.stub(_res);
 }
 
-abstract class Input$I2 {
-  factory Input$I2({String? foobar}) => _Impl$Input$I2({'foobar': foobar});
+class Input$I2 {
+  factory Input$I2({String? foobar}) => Input$I2._({
+        if (foobar != null) r'foobar': foobar,
+      });
 
-  factory Input$I2.withoutNulls({String? foobar}) {
-    final l$data = <String, dynamic>{};
-    if (foobar != null) l$data['foobar'] = foobar;
-    return _Impl$Input$I2(l$data);
-  }
+  Input$I2._(this._$data);
 
   factory Input$I2.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -463,24 +422,15 @@ abstract class Input$I2 {
       final l$foobar = data['foobar'];
       result$data['foobar'] = (l$foobar as String?);
     }
-    return _Impl$Input$I2(result$data);
+    return Input$I2._(result$data);
   }
 
-  String? get foobar;
-  Map<String, dynamic> toJson();
-  CopyWith$Input$I2<Input$I2> get copyWith;
-  _Impl$Input$I2 get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Input$I2 implements Input$I2 {
-  _Impl$Input$I2(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get foobar => ($data['foobar'] as String?);
+  String? get foobar => (_$data['foobar'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('foobar')) {
+    if (_$data.containsKey('foobar')) {
       final l$foobar = foobar;
       result$data['foobar'] = l$foobar;
     }
@@ -493,12 +443,12 @@ class _Impl$Input$I2 implements Input$I2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Input$I2) || runtimeType != other.runtimeType) {
+    if (!(other is Input$I2) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$foobar = foobar;
     final lOther$foobar = other.foobar;
-    if ($data.containsKey('foobar') != other.$data.containsKey('foobar')) {
+    if (_$data.containsKey('foobar') != other._$data.containsKey('foobar')) {
       return false;
     }
     if (l$foobar != lOther$foobar) {
@@ -510,15 +460,13 @@ class _Impl$Input$I2 implements Input$I2 {
   @override
   int get hashCode {
     final l$foobar = foobar;
-    return Object.hashAll([$data.containsKey('foobar') ? l$foobar : const {}]);
+    return Object.hashAll([_$data.containsKey('foobar') ? l$foobar : const {}]);
   }
-
-  _Impl$Input$I2 get $impl => this;
 }
 
 abstract class CopyWith$Input$I2<TRes> {
-  factory CopyWith$Input$I2(Input$I2 instance, TRes Function(Input$I2) then) =>
-      _CopyWithImpl$Input$I2(instance.$impl, then);
+  factory CopyWith$Input$I2(Input$I2 instance, TRes Function(Input$I2) then) =
+      _CopyWithImpl$Input$I2;
 
   factory CopyWith$Input$I2.stub(TRes res) = _CopyWithStubImpl$Input$I2;
 
@@ -528,14 +476,14 @@ abstract class CopyWith$Input$I2<TRes> {
 class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
   _CopyWithImpl$Input$I2(this._instance, this._then);
 
-  final _Impl$Input$I2 _instance;
+  final Input$I2 _instance;
 
-  final TRes Function(_Impl$Input$I2) _then;
+  final TRes Function(Input$I2) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? foobar = _undefined}) => _then(_Impl$Input$I2({
-        ..._instance.$data,
+  TRes call({Object? foobar = _undefined}) => _then(Input$I2._({
+        ..._instance._$data,
         if (foobar != _undefined) 'foobar': (foobar as String?),
       }));
 }

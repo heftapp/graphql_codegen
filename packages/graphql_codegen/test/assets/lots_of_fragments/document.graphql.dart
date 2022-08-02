@@ -71,9 +71,9 @@ extension UtilityExtension$Fragment$FragmentA on Fragment$FragmentA {
 }
 
 abstract class CopyWith$Fragment$FragmentA<TRes> {
-  factory CopyWith$Fragment$FragmentA(Fragment$FragmentA instance,
-          TRes Function(Fragment$FragmentA) then) =>
-      _CopyWithImpl$Fragment$FragmentA(instance, then);
+  factory CopyWith$Fragment$FragmentA(
+          Fragment$FragmentA instance, TRes Function(Fragment$FragmentA) then) =
+      _CopyWithImpl$Fragment$FragmentA;
 
   factory CopyWith$Fragment$FragmentA.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentA;
@@ -195,9 +195,9 @@ extension UtilityExtension$Fragment$FragmentI on Fragment$FragmentI {
 }
 
 abstract class CopyWith$Fragment$FragmentI<TRes> {
-  factory CopyWith$Fragment$FragmentI(Fragment$FragmentI instance,
-          TRes Function(Fragment$FragmentI) then) =>
-      _CopyWithImpl$Fragment$FragmentI(instance, then);
+  factory CopyWith$Fragment$FragmentI(
+          Fragment$FragmentI instance, TRes Function(Fragment$FragmentI) then) =
+      _CopyWithImpl$Fragment$FragmentI;
 
   factory CopyWith$Fragment$FragmentI.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentI;
@@ -318,8 +318,8 @@ extension UtilityExtension$Query$FetchStuff on Query$FetchStuff {
 
 abstract class CopyWith$Query$FetchStuff<TRes> {
   factory CopyWith$Query$FetchStuff(
-          Query$FetchStuff instance, TRes Function(Query$FetchStuff) then) =>
-      _CopyWithImpl$Query$FetchStuff(instance, then);
+          Query$FetchStuff instance, TRes Function(Query$FetchStuff) then) =
+      _CopyWithImpl$Query$FetchStuff;
 
   factory CopyWith$Query$FetchStuff.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff;
@@ -509,8 +509,8 @@ extension UtilityExtension$Query$FetchStuff$field on Query$FetchStuff$field {
 
 abstract class CopyWith$Query$FetchStuff$field<TRes> {
   factory CopyWith$Query$FetchStuff$field(Query$FetchStuff$field instance,
-          TRes Function(Query$FetchStuff$field) then) =>
-      _CopyWithImpl$Query$FetchStuff$field(instance, then);
+          TRes Function(Query$FetchStuff$field) then) =
+      _CopyWithImpl$Query$FetchStuff$field;
 
   factory CopyWith$Query$FetchStuff$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff$field;
@@ -622,8 +622,8 @@ extension UtilityExtension$Query$FetchStuff$field$$FieldA
 abstract class CopyWith$Query$FetchStuff$field$$FieldA<TRes> {
   factory CopyWith$Query$FetchStuff$field$$FieldA(
           Query$FetchStuff$field$$FieldA instance,
-          TRes Function(Query$FetchStuff$field$$FieldA) then) =>
-      _CopyWithImpl$Query$FetchStuff$field$$FieldA(instance, then);
+          TRes Function(Query$FetchStuff$field$$FieldA) then) =
+      _CopyWithImpl$Query$FetchStuff$field$$FieldA;
 
   factory CopyWith$Query$FetchStuff$field$$FieldA.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff$field$$FieldA;

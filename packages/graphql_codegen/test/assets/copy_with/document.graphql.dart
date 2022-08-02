@@ -123,8 +123,8 @@ extension UtilityExtension$Query$Foobar on Query$Foobar {
 
 abstract class CopyWith$Query$Foobar<TRes> {
   factory CopyWith$Query$Foobar(
-          Query$Foobar instance, TRes Function(Query$Foobar) then) =>
-      _CopyWithImpl$Query$Foobar(instance, then);
+          Query$Foobar instance, TRes Function(Query$Foobar) then) =
+      _CopyWithImpl$Query$Foobar;
 
   factory CopyWith$Query$Foobar.stub(TRes res) = _CopyWithStubImpl$Query$Foobar;
 
@@ -346,8 +346,8 @@ extension UtilityExtension$Query$Foobar$ts on Query$Foobar$ts {
 
 abstract class CopyWith$Query$Foobar$ts<TRes> {
   factory CopyWith$Query$Foobar$ts(
-          Query$Foobar$ts instance, TRes Function(Query$Foobar$ts) then) =>
-      _CopyWithImpl$Query$Foobar$ts(instance, then);
+          Query$Foobar$ts instance, TRes Function(Query$Foobar$ts) then) =
+      _CopyWithImpl$Query$Foobar$ts;
 
   factory CopyWith$Query$Foobar$ts.stub(TRes res) =
       _CopyWithStubImpl$Query$Foobar$ts;
@@ -454,8 +454,8 @@ extension UtilityExtension$Query$Foobar$ts$t on Query$Foobar$ts$t {
 
 abstract class CopyWith$Query$Foobar$ts$t<TRes> {
   factory CopyWith$Query$Foobar$ts$t(
-          Query$Foobar$ts$t instance, TRes Function(Query$Foobar$ts$t) then) =>
-      _CopyWithImpl$Query$Foobar$ts$t(instance, then);
+          Query$Foobar$ts$t instance, TRes Function(Query$Foobar$ts$t) then) =
+      _CopyWithImpl$Query$Foobar$ts$t;
 
   factory CopyWith$Query$Foobar$ts$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Foobar$ts$t;
@@ -550,8 +550,8 @@ extension UtilityExtension$Query$Foobar$tss on Query$Foobar$tss {
 
 abstract class CopyWith$Query$Foobar$tss<TRes> {
   factory CopyWith$Query$Foobar$tss(
-          Query$Foobar$tss instance, TRes Function(Query$Foobar$tss) then) =>
-      _CopyWithImpl$Query$Foobar$tss(instance, then);
+          Query$Foobar$tss instance, TRes Function(Query$Foobar$tss) then) =
+      _CopyWithImpl$Query$Foobar$tss;
 
   factory CopyWith$Query$Foobar$tss.stub(TRes res) =
       _CopyWithStubImpl$Query$Foobar$tss;

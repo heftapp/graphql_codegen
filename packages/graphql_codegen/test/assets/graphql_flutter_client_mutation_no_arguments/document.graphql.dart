@@ -50,9 +50,9 @@ extension UtilityExtension$Mutation$UpdateSNo on Mutation$UpdateSNo {
 }
 
 abstract class CopyWith$Mutation$UpdateSNo<TRes> {
-  factory CopyWith$Mutation$UpdateSNo(Mutation$UpdateSNo instance,
-          TRes Function(Mutation$UpdateSNo) then) =>
-      _CopyWithImpl$Mutation$UpdateSNo(instance, then);
+  factory CopyWith$Mutation$UpdateSNo(
+          Mutation$UpdateSNo instance, TRes Function(Mutation$UpdateSNo) then) =
+      _CopyWithImpl$Mutation$UpdateSNo;
 
   factory CopyWith$Mutation$UpdateSNo.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSNo;

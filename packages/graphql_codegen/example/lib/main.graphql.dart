@@ -6,35 +6,24 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_codegen_example/scalars.dart';
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-abstract class Variables$Query$FetchPerson {
+class Variables$Query$FetchPerson {
   factory Variables$Query$FetchPerson({required String id}) =>
-      _Impl$Variables$Query$FetchPerson({'id': id});
+      Variables$Query$FetchPerson._({
+        r'id': id,
+      });
 
-  factory Variables$Query$FetchPerson.withoutNulls({required String id}) {
-    final l$data = <String, dynamic>{'id': id};
-    return _Impl$Variables$Query$FetchPerson(l$data);
-  }
+  Variables$Query$FetchPerson._(this._$data);
 
   factory Variables$Query$FetchPerson.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
-    return _Impl$Variables$Query$FetchPerson(result$data);
+    return Variables$Query$FetchPerson._(result$data);
   }
 
-  String get id;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$FetchPerson<Variables$Query$FetchPerson>
-      get copyWith;
-  _Impl$Variables$Query$FetchPerson get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$FetchPerson implements Variables$Query$FetchPerson {
-  _Impl$Variables$Query$FetchPerson(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get id => ($data['id'] as String);
+  String get id => (_$data['id'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -49,7 +38,7 @@ class _Impl$Variables$Query$FetchPerson implements Variables$Query$FetchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$FetchPerson) ||
+    if (!(other is Variables$Query$FetchPerson) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -66,15 +55,13 @@ class _Impl$Variables$Query$FetchPerson implements Variables$Query$FetchPerson {
     final l$id = id;
     return Object.hashAll([l$id]);
   }
-
-  _Impl$Variables$Query$FetchPerson get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchPerson<TRes> {
   factory CopyWith$Variables$Query$FetchPerson(
           Variables$Query$FetchPerson instance,
-          TRes Function(Variables$Query$FetchPerson) then) =>
-      _CopyWithImpl$Variables$Query$FetchPerson(instance.$impl, then);
+          TRes Function(Variables$Query$FetchPerson) then) =
+      _CopyWithImpl$Variables$Query$FetchPerson;
 
   factory CopyWith$Variables$Query$FetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchPerson;
@@ -86,15 +73,14 @@ class _CopyWithImpl$Variables$Query$FetchPerson<TRes>
     implements CopyWith$Variables$Query$FetchPerson<TRes> {
   _CopyWithImpl$Variables$Query$FetchPerson(this._instance, this._then);
 
-  final _Impl$Variables$Query$FetchPerson _instance;
+  final Variables$Query$FetchPerson _instance;
 
-  final TRes Function(_Impl$Variables$Query$FetchPerson) _then;
+  final TRes Function(Variables$Query$FetchPerson) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? id = _undefined}) =>
-      _then(_Impl$Variables$Query$FetchPerson({
-        ..._instance.$data,
+  TRes call({Object? id = _undefined}) => _then(Variables$Query$FetchPerson._({
+        ..._instance._$data,
         if (id != _undefined && id != null) 'id': (id as String),
       }));
 }
@@ -171,8 +157,8 @@ extension UtilityExtension$Query$FetchPerson on Query$FetchPerson {
 
 abstract class CopyWith$Query$FetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson(
-          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =>
-      _CopyWithImpl$Query$FetchPerson(instance, then);
+          Query$FetchPerson instance, TRes Function(Query$FetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson;
 
   factory CopyWith$Query$FetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson;
@@ -655,8 +641,8 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson
 abstract class CopyWith$Query$FetchPerson$fetchPerson<TRes> {
   factory CopyWith$Query$FetchPerson$fetchPerson(
           Query$FetchPerson$fetchPerson instance,
-          TRes Function(Query$FetchPerson$fetchPerson) then) =>
-      _CopyWithImpl$Query$FetchPerson$fetchPerson(instance, then);
+          TRes Function(Query$FetchPerson$fetchPerson) then) =
+      _CopyWithImpl$Query$FetchPerson$fetchPerson;
 
   factory CopyWith$Query$FetchPerson$fetchPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson$fetchPerson;
@@ -1006,8 +992,8 @@ extension UtilityExtension$Query$FetchPerson$fetchPerson$parents
 abstract class CopyWith$Query$FetchPerson$fetchPerson$parents<TRes> {
   factory CopyWith$Query$FetchPerson$fetchPerson$parents(
           Query$FetchPerson$fetchPerson$parents instance,
-          TRes Function(Query$FetchPerson$fetchPerson$parents) then) =>
-      _CopyWithImpl$Query$FetchPerson$fetchPerson$parents(instance, then);
+          TRes Function(Query$FetchPerson$fetchPerson$parents) then) =
+      _CopyWithImpl$Query$FetchPerson$fetchPerson$parents;
 
   factory CopyWith$Query$FetchPerson$fetchPerson$parents.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents;
@@ -1110,36 +1096,24 @@ class _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents<TRes>
       CopyWith$Fragment$PersonParent.stub(_res);
 }
 
-abstract class Variables$Mutation$UpdatePerson {
+class Variables$Mutation$UpdatePerson {
   factory Variables$Mutation$UpdatePerson({required String id}) =>
-      _Impl$Variables$Mutation$UpdatePerson({'id': id});
+      Variables$Mutation$UpdatePerson._({
+        r'id': id,
+      });
 
-  factory Variables$Mutation$UpdatePerson.withoutNulls({required String id}) {
-    final l$data = <String, dynamic>{'id': id};
-    return _Impl$Variables$Mutation$UpdatePerson(l$data);
-  }
+  Variables$Mutation$UpdatePerson._(this._$data);
 
   factory Variables$Mutation$UpdatePerson.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
-    return _Impl$Variables$Mutation$UpdatePerson(result$data);
+    return Variables$Mutation$UpdatePerson._(result$data);
   }
 
-  String get id;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Mutation$UpdatePerson<Variables$Mutation$UpdatePerson>
-      get copyWith;
-  _Impl$Variables$Mutation$UpdatePerson get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Mutation$UpdatePerson
-    implements Variables$Mutation$UpdatePerson {
-  _Impl$Variables$Mutation$UpdatePerson(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get id => ($data['id'] as String);
+  String get id => (_$data['id'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -1154,7 +1128,7 @@ class _Impl$Variables$Mutation$UpdatePerson
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Mutation$UpdatePerson) ||
+    if (!(other is Variables$Mutation$UpdatePerson) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1171,15 +1145,13 @@ class _Impl$Variables$Mutation$UpdatePerson
     final l$id = id;
     return Object.hashAll([l$id]);
   }
-
-  _Impl$Variables$Mutation$UpdatePerson get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdatePerson<TRes> {
   factory CopyWith$Variables$Mutation$UpdatePerson(
           Variables$Mutation$UpdatePerson instance,
-          TRes Function(Variables$Mutation$UpdatePerson) then) =>
-      _CopyWithImpl$Variables$Mutation$UpdatePerson(instance.$impl, then);
+          TRes Function(Variables$Mutation$UpdatePerson) then) =
+      _CopyWithImpl$Variables$Mutation$UpdatePerson;
 
   factory CopyWith$Variables$Mutation$UpdatePerson.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdatePerson;
@@ -1191,15 +1163,15 @@ class _CopyWithImpl$Variables$Mutation$UpdatePerson<TRes>
     implements CopyWith$Variables$Mutation$UpdatePerson<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdatePerson(this._instance, this._then);
 
-  final _Impl$Variables$Mutation$UpdatePerson _instance;
+  final Variables$Mutation$UpdatePerson _instance;
 
-  final TRes Function(_Impl$Variables$Mutation$UpdatePerson) _then;
+  final TRes Function(Variables$Mutation$UpdatePerson) _then;
 
   static const _undefined = {};
 
   TRes call({Object? id = _undefined}) =>
-      _then(_Impl$Variables$Mutation$UpdatePerson({
-        ..._instance.$data,
+      _then(Variables$Mutation$UpdatePerson._({
+        ..._instance._$data,
         if (id != _undefined && id != null) 'id': (id as String),
       }));
 }
@@ -1276,8 +1248,8 @@ extension UtilityExtension$Mutation$UpdatePerson on Mutation$UpdatePerson {
 
 abstract class CopyWith$Mutation$UpdatePerson<TRes> {
   factory CopyWith$Mutation$UpdatePerson(Mutation$UpdatePerson instance,
-          TRes Function(Mutation$UpdatePerson) then) =>
-      _CopyWithImpl$Mutation$UpdatePerson(instance, then);
+          TRes Function(Mutation$UpdatePerson) then) =
+      _CopyWithImpl$Mutation$UpdatePerson;
 
   factory CopyWith$Mutation$UpdatePerson.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdatePerson;
@@ -1621,8 +1593,8 @@ extension UtilityExtension$Mutation$UpdatePerson$updatePerson
 abstract class CopyWith$Mutation$UpdatePerson$updatePerson<TRes> {
   factory CopyWith$Mutation$UpdatePerson$updatePerson(
           Mutation$UpdatePerson$updatePerson instance,
-          TRes Function(Mutation$UpdatePerson$updatePerson) then) =>
-      _CopyWithImpl$Mutation$UpdatePerson$updatePerson(instance, then);
+          TRes Function(Mutation$UpdatePerson$updatePerson) then) =
+      _CopyWithImpl$Mutation$UpdatePerson$updatePerson;
 
   factory CopyWith$Mutation$UpdatePerson$updatePerson.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson;
@@ -1660,15 +1632,13 @@ class _CopyWithStubImpl$Mutation$UpdatePerson$updatePerson<TRes>
   call({String? full_name, String? $__typename}) => _res;
 }
 
-abstract class Variables$Subscription$WatchPerson {
+class Variables$Subscription$WatchPerson {
   factory Variables$Subscription$WatchPerson({String? id}) =>
-      _Impl$Variables$Subscription$WatchPerson({'id': id});
+      Variables$Subscription$WatchPerson._({
+        if (id != null) r'id': id,
+      });
 
-  factory Variables$Subscription$WatchPerson.withoutNulls({String? id}) {
-    final l$data = <String, dynamic>{};
-    if (id != null) l$data['id'] = id;
-    return _Impl$Variables$Subscription$WatchPerson(l$data);
-  }
+  Variables$Subscription$WatchPerson._(this._$data);
 
   factory Variables$Subscription$WatchPerson.fromJson(
       Map<String, dynamic> data) {
@@ -1677,26 +1647,15 @@ abstract class Variables$Subscription$WatchPerson {
       final l$id = data['id'];
       result$data['id'] = (l$id as String?);
     }
-    return _Impl$Variables$Subscription$WatchPerson(result$data);
+    return Variables$Subscription$WatchPerson._(result$data);
   }
 
-  String? get id;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Subscription$WatchPerson<
-      Variables$Subscription$WatchPerson> get copyWith;
-  _Impl$Variables$Subscription$WatchPerson get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Subscription$WatchPerson
-    implements Variables$Subscription$WatchPerson {
-  _Impl$Variables$Subscription$WatchPerson(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get id => ($data['id'] as String?);
+  String? get id => (_$data['id'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('id')) {
+    if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id;
     }
@@ -1712,13 +1671,13 @@ class _Impl$Variables$Subscription$WatchPerson
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Subscription$WatchPerson) ||
+    if (!(other is Variables$Subscription$WatchPerson) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
     final lOther$id = other.id;
-    if ($data.containsKey('id') != other.$data.containsKey('id')) {
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
       return false;
     }
     if (l$id != lOther$id) {
@@ -1730,17 +1689,15 @@ class _Impl$Variables$Subscription$WatchPerson
   @override
   int get hashCode {
     final l$id = id;
-    return Object.hashAll([$data.containsKey('id') ? l$id : const {}]);
+    return Object.hashAll([_$data.containsKey('id') ? l$id : const {}]);
   }
-
-  _Impl$Variables$Subscription$WatchPerson get $impl => this;
 }
 
 abstract class CopyWith$Variables$Subscription$WatchPerson<TRes> {
   factory CopyWith$Variables$Subscription$WatchPerson(
           Variables$Subscription$WatchPerson instance,
-          TRes Function(Variables$Subscription$WatchPerson) then) =>
-      _CopyWithImpl$Variables$Subscription$WatchPerson(instance.$impl, then);
+          TRes Function(Variables$Subscription$WatchPerson) then) =
+      _CopyWithImpl$Variables$Subscription$WatchPerson;
 
   factory CopyWith$Variables$Subscription$WatchPerson.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$WatchPerson;
@@ -1752,15 +1709,15 @@ class _CopyWithImpl$Variables$Subscription$WatchPerson<TRes>
     implements CopyWith$Variables$Subscription$WatchPerson<TRes> {
   _CopyWithImpl$Variables$Subscription$WatchPerson(this._instance, this._then);
 
-  final _Impl$Variables$Subscription$WatchPerson _instance;
+  final Variables$Subscription$WatchPerson _instance;
 
-  final TRes Function(_Impl$Variables$Subscription$WatchPerson) _then;
+  final TRes Function(Variables$Subscription$WatchPerson) _then;
 
   static const _undefined = {};
 
   TRes call({Object? id = _undefined}) =>
-      _then(_Impl$Variables$Subscription$WatchPerson({
-        ..._instance.$data,
+      _then(Variables$Subscription$WatchPerson._({
+        ..._instance._$data,
         if (id != _undefined) 'id': (id as String?),
       }));
 }
@@ -1839,8 +1796,8 @@ extension UtilityExtension$Subscription$WatchPerson
 
 abstract class CopyWith$Subscription$WatchPerson<TRes> {
   factory CopyWith$Subscription$WatchPerson(Subscription$WatchPerson instance,
-          TRes Function(Subscription$WatchPerson) then) =>
-      _CopyWithImpl$Subscription$WatchPerson(instance, then);
+          TRes Function(Subscription$WatchPerson) then) =
+      _CopyWithImpl$Subscription$WatchPerson;
 
   factory CopyWith$Subscription$WatchPerson.stub(TRes res) =
       _CopyWithStubImpl$Subscription$WatchPerson;
@@ -2101,8 +2058,8 @@ extension UtilityExtension$Subscription$WatchPerson$watchPerson
 abstract class CopyWith$Subscription$WatchPerson$watchPerson<TRes> {
   factory CopyWith$Subscription$WatchPerson$watchPerson(
           Subscription$WatchPerson$watchPerson instance,
-          TRes Function(Subscription$WatchPerson$watchPerson) then) =>
-      _CopyWithImpl$Subscription$WatchPerson$watchPerson(instance, then);
+          TRes Function(Subscription$WatchPerson$watchPerson) then) =
+      _CopyWithImpl$Subscription$WatchPerson$watchPerson;
 
   factory CopyWith$Subscription$WatchPerson$watchPerson.stub(TRes res) =
       _CopyWithStubImpl$Subscription$WatchPerson$watchPerson;

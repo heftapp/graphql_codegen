@@ -49,8 +49,8 @@ extension UtilityExtension$Fragment$NoVariables on Fragment$NoVariables {
 
 abstract class CopyWith$Fragment$NoVariables<TRes> {
   factory CopyWith$Fragment$NoVariables(Fragment$NoVariables instance,
-          TRes Function(Fragment$NoVariables) then) =>
-      _CopyWithImpl$Fragment$NoVariables(instance, then);
+          TRes Function(Fragment$NoVariables) then) =
+      _CopyWithImpl$Fragment$NoVariables;
 
   factory CopyWith$Fragment$NoVariables.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NoVariables;
@@ -128,16 +128,13 @@ extension ClientExtension$Fragment$NoVariables on graphql.GraphQLClient {
   }
 }
 
-abstract class Variables$Fragment$WithOptionalVariables {
+class Variables$Fragment$WithOptionalVariables {
   factory Variables$Fragment$WithOptionalVariables({String? name}) =>
-      _Impl$Variables$Fragment$WithOptionalVariables({'name': name});
+      Variables$Fragment$WithOptionalVariables._({
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Fragment$WithOptionalVariables.withoutNulls(
-      {String? name}) {
-    final l$data = <String, dynamic>{};
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Fragment$WithOptionalVariables(l$data);
-  }
+  Variables$Fragment$WithOptionalVariables._(this._$data);
 
   factory Variables$Fragment$WithOptionalVariables.fromJson(
       Map<String, dynamic> data) {
@@ -146,26 +143,15 @@ abstract class Variables$Fragment$WithOptionalVariables {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Fragment$WithOptionalVariables(result$data);
+    return Variables$Fragment$WithOptionalVariables._(result$data);
   }
 
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$WithOptionalVariables<
-      Variables$Fragment$WithOptionalVariables> get copyWith;
-  _Impl$Variables$Fragment$WithOptionalVariables get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$WithOptionalVariables
-    implements Variables$Fragment$WithOptionalVariables {
-  _Impl$Variables$Fragment$WithOptionalVariables(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get name => ($data['name'] as String?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -181,13 +167,13 @@ class _Impl$Variables$Fragment$WithOptionalVariables
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$WithOptionalVariables) ||
+    if (!(other is Variables$Fragment$WithOptionalVariables) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -199,18 +185,15 @@ class _Impl$Variables$Fragment$WithOptionalVariables
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
   }
-
-  _Impl$Variables$Fragment$WithOptionalVariables get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$WithOptionalVariables<TRes> {
   factory CopyWith$Variables$Fragment$WithOptionalVariables(
           Variables$Fragment$WithOptionalVariables instance,
-          TRes Function(Variables$Fragment$WithOptionalVariables) then) =>
-      _CopyWithImpl$Variables$Fragment$WithOptionalVariables(
-          instance.$impl, then);
+          TRes Function(Variables$Fragment$WithOptionalVariables) then) =
+      _CopyWithImpl$Variables$Fragment$WithOptionalVariables;
 
   factory CopyWith$Variables$Fragment$WithOptionalVariables.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$WithOptionalVariables;
@@ -223,15 +206,15 @@ class _CopyWithImpl$Variables$Fragment$WithOptionalVariables<TRes>
   _CopyWithImpl$Variables$Fragment$WithOptionalVariables(
       this._instance, this._then);
 
-  final _Impl$Variables$Fragment$WithOptionalVariables _instance;
+  final Variables$Fragment$WithOptionalVariables _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$WithOptionalVariables) _then;
+  final TRes Function(Variables$Fragment$WithOptionalVariables) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Fragment$WithOptionalVariables({
-        ..._instance.$data,
+      _then(Variables$Fragment$WithOptionalVariables._({
+        ..._instance._$data,
         if (name != _undefined) 'name': (name as String?),
       }));
 }
@@ -295,8 +278,8 @@ extension UtilityExtension$Fragment$WithOptionalVariables
 abstract class CopyWith$Fragment$WithOptionalVariables<TRes> {
   factory CopyWith$Fragment$WithOptionalVariables(
           Fragment$WithOptionalVariables instance,
-          TRes Function(Fragment$WithOptionalVariables) then) =>
-      _CopyWithImpl$Fragment$WithOptionalVariables(instance, then);
+          TRes Function(Fragment$WithOptionalVariables) then) =
+      _CopyWithImpl$Fragment$WithOptionalVariables;
 
   factory CopyWith$Fragment$WithOptionalVariables.stub(TRes res) =
       _CopyWithStubImpl$Fragment$WithOptionalVariables;
@@ -382,37 +365,24 @@ extension ClientExtension$Fragment$WithOptionalVariables
   }
 }
 
-abstract class Variables$Fragment$WithVariables {
+class Variables$Fragment$WithVariables {
   factory Variables$Fragment$WithVariables({required String name}) =>
-      _Impl$Variables$Fragment$WithVariables({'name': name});
+      Variables$Fragment$WithVariables._({
+        r'name': name,
+      });
 
-  factory Variables$Fragment$WithVariables.withoutNulls(
-      {required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    return _Impl$Variables$Fragment$WithVariables(l$data);
-  }
+  Variables$Fragment$WithVariables._(this._$data);
 
   factory Variables$Fragment$WithVariables.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Fragment$WithVariables(result$data);
+    return Variables$Fragment$WithVariables._(result$data);
   }
 
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Fragment$WithVariables<Variables$Fragment$WithVariables>
-      get copyWith;
-  _Impl$Variables$Fragment$WithVariables get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Fragment$WithVariables
-    implements Variables$Fragment$WithVariables {
-  _Impl$Variables$Fragment$WithVariables(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get name => ($data['name'] as String);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -427,7 +397,7 @@ class _Impl$Variables$Fragment$WithVariables
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Fragment$WithVariables) ||
+    if (!(other is Variables$Fragment$WithVariables) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -444,15 +414,13 @@ class _Impl$Variables$Fragment$WithVariables
     final l$name = name;
     return Object.hashAll([l$name]);
   }
-
-  _Impl$Variables$Fragment$WithVariables get $impl => this;
 }
 
 abstract class CopyWith$Variables$Fragment$WithVariables<TRes> {
   factory CopyWith$Variables$Fragment$WithVariables(
           Variables$Fragment$WithVariables instance,
-          TRes Function(Variables$Fragment$WithVariables) then) =>
-      _CopyWithImpl$Variables$Fragment$WithVariables(instance.$impl, then);
+          TRes Function(Variables$Fragment$WithVariables) then) =
+      _CopyWithImpl$Variables$Fragment$WithVariables;
 
   factory CopyWith$Variables$Fragment$WithVariables.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$WithVariables;
@@ -464,15 +432,15 @@ class _CopyWithImpl$Variables$Fragment$WithVariables<TRes>
     implements CopyWith$Variables$Fragment$WithVariables<TRes> {
   _CopyWithImpl$Variables$Fragment$WithVariables(this._instance, this._then);
 
-  final _Impl$Variables$Fragment$WithVariables _instance;
+  final Variables$Fragment$WithVariables _instance;
 
-  final TRes Function(_Impl$Variables$Fragment$WithVariables) _then;
+  final TRes Function(Variables$Fragment$WithVariables) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Fragment$WithVariables({
-        ..._instance.$data,
+      _then(Variables$Fragment$WithVariables._({
+        ..._instance._$data,
         if (name != _undefined && name != null) 'name': (name as String),
       }));
 }
@@ -534,8 +502,8 @@ extension UtilityExtension$Fragment$WithVariables on Fragment$WithVariables {
 
 abstract class CopyWith$Fragment$WithVariables<TRes> {
   factory CopyWith$Fragment$WithVariables(Fragment$WithVariables instance,
-          TRes Function(Fragment$WithVariables) then) =>
-      _CopyWithImpl$Fragment$WithVariables(instance, then);
+          TRes Function(Fragment$WithVariables) then) =
+      _CopyWithImpl$Fragment$WithVariables;
 
   factory CopyWith$Fragment$WithVariables.stub(TRes res) =
       _CopyWithStubImpl$Fragment$WithVariables;
@@ -618,15 +586,13 @@ extension ClientExtension$Fragment$WithVariables on graphql.GraphQLClient {
   }
 }
 
-abstract class Variables$Query$FetchSOptional {
+class Variables$Query$FetchSOptional {
   factory Variables$Query$FetchSOptional({String? name}) =>
-      _Impl$Variables$Query$FetchSOptional({'name': name});
+      Variables$Query$FetchSOptional._({
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Query$FetchSOptional.withoutNulls({String? name}) {
-    final l$data = <String, dynamic>{};
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Query$FetchSOptional(l$data);
-  }
+  Variables$Query$FetchSOptional._(this._$data);
 
   factory Variables$Query$FetchSOptional.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
@@ -634,26 +600,15 @@ abstract class Variables$Query$FetchSOptional {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Query$FetchSOptional(result$data);
+    return Variables$Query$FetchSOptional._(result$data);
   }
 
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$FetchSOptional<Variables$Query$FetchSOptional>
-      get copyWith;
-  _Impl$Variables$Query$FetchSOptional get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$FetchSOptional
-    implements Variables$Query$FetchSOptional {
-  _Impl$Variables$Query$FetchSOptional(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get name => ($data['name'] as String?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -667,13 +622,13 @@ class _Impl$Variables$Query$FetchSOptional
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$FetchSOptional) ||
+    if (!(other is Variables$Query$FetchSOptional) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -685,17 +640,15 @@ class _Impl$Variables$Query$FetchSOptional
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
   }
-
-  _Impl$Variables$Query$FetchSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
   factory CopyWith$Variables$Query$FetchSOptional(
           Variables$Query$FetchSOptional instance,
-          TRes Function(Variables$Query$FetchSOptional) then) =>
-      _CopyWithImpl$Variables$Query$FetchSOptional(instance.$impl, then);
+          TRes Function(Variables$Query$FetchSOptional) then) =
+      _CopyWithImpl$Variables$Query$FetchSOptional;
 
   factory CopyWith$Variables$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSOptional;
@@ -707,15 +660,15 @@ class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
     implements CopyWith$Variables$Query$FetchSOptional<TRes> {
   _CopyWithImpl$Variables$Query$FetchSOptional(this._instance, this._then);
 
-  final _Impl$Variables$Query$FetchSOptional _instance;
+  final Variables$Query$FetchSOptional _instance;
 
-  final TRes Function(_Impl$Variables$Query$FetchSOptional) _then;
+  final TRes Function(Variables$Query$FetchSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Query$FetchSOptional({
-        ..._instance.$data,
+      _then(Variables$Query$FetchSOptional._({
+        ..._instance._$data,
         if (name != _undefined) 'name': (name as String?),
       }));
 }
@@ -776,8 +729,8 @@ extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
 
 abstract class CopyWith$Query$FetchSOptional<TRes> {
   factory CopyWith$Query$FetchSOptional(Query$FetchSOptional instance,
-          TRes Function(Query$FetchSOptional) then) =>
-      _CopyWithImpl$Query$FetchSOptional(instance, then);
+          TRes Function(Query$FetchSOptional) then) =
+      _CopyWithImpl$Query$FetchSOptional;
 
   factory CopyWith$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSOptional;
@@ -932,36 +885,24 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
   }
 }
 
-abstract class Variables$Query$FetchSRequired {
+class Variables$Query$FetchSRequired {
   factory Variables$Query$FetchSRequired({required String name}) =>
-      _Impl$Variables$Query$FetchSRequired({'name': name});
+      Variables$Query$FetchSRequired._({
+        r'name': name,
+      });
 
-  factory Variables$Query$FetchSRequired.withoutNulls({required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    return _Impl$Variables$Query$FetchSRequired(l$data);
-  }
+  Variables$Query$FetchSRequired._(this._$data);
 
   factory Variables$Query$FetchSRequired.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Query$FetchSRequired(result$data);
+    return Variables$Query$FetchSRequired._(result$data);
   }
 
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
-      get copyWith;
-  _Impl$Variables$Query$FetchSRequired get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$FetchSRequired
-    implements Variables$Query$FetchSRequired {
-  _Impl$Variables$Query$FetchSRequired(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get name => ($data['name'] as String);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -976,7 +917,7 @@ class _Impl$Variables$Query$FetchSRequired
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$FetchSRequired) ||
+    if (!(other is Variables$Query$FetchSRequired) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -993,15 +934,13 @@ class _Impl$Variables$Query$FetchSRequired
     final l$name = name;
     return Object.hashAll([l$name]);
   }
-
-  _Impl$Variables$Query$FetchSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
   factory CopyWith$Variables$Query$FetchSRequired(
           Variables$Query$FetchSRequired instance,
-          TRes Function(Variables$Query$FetchSRequired) then) =>
-      _CopyWithImpl$Variables$Query$FetchSRequired(instance.$impl, then);
+          TRes Function(Variables$Query$FetchSRequired) then) =
+      _CopyWithImpl$Variables$Query$FetchSRequired;
 
   factory CopyWith$Variables$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSRequired;
@@ -1013,15 +952,15 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
     implements CopyWith$Variables$Query$FetchSRequired<TRes> {
   _CopyWithImpl$Variables$Query$FetchSRequired(this._instance, this._then);
 
-  final _Impl$Variables$Query$FetchSRequired _instance;
+  final Variables$Query$FetchSRequired _instance;
 
-  final TRes Function(_Impl$Variables$Query$FetchSRequired) _then;
+  final TRes Function(Variables$Query$FetchSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Query$FetchSRequired({
-        ..._instance.$data,
+      _then(Variables$Query$FetchSRequired._({
+        ..._instance._$data,
         if (name != _undefined && name != null) 'name': (name as String),
       }));
 }
@@ -1082,8 +1021,8 @@ extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
 
 abstract class CopyWith$Query$FetchSRequired<TRes> {
   factory CopyWith$Query$FetchSRequired(Query$FetchSRequired instance,
-          TRes Function(Query$FetchSRequired) then) =>
-      _CopyWithImpl$Query$FetchSRequired(instance, then);
+          TRes Function(Query$FetchSRequired) then) =
+      _CopyWithImpl$Query$FetchSRequired;
 
   factory CopyWith$Query$FetchSRequired.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSRequired;
@@ -1287,8 +1226,8 @@ extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
 
 abstract class CopyWith$Query$FetchSNoVariables<TRes> {
   factory CopyWith$Query$FetchSNoVariables(Query$FetchSNoVariables instance,
-          TRes Function(Query$FetchSNoVariables) then) =>
-      _CopyWithImpl$Query$FetchSNoVariables(instance, then);
+          TRes Function(Query$FetchSNoVariables) then) =
+      _CopyWithImpl$Query$FetchSNoVariables;
 
   factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSNoVariables;
@@ -1427,15 +1366,13 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
   }
 }
 
-abstract class Variables$Mutation$UpdateSOptional {
+class Variables$Mutation$UpdateSOptional {
   factory Variables$Mutation$UpdateSOptional({String? name}) =>
-      _Impl$Variables$Mutation$UpdateSOptional({'name': name});
+      Variables$Mutation$UpdateSOptional._({
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Mutation$UpdateSOptional.withoutNulls({String? name}) {
-    final l$data = <String, dynamic>{};
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Mutation$UpdateSOptional(l$data);
-  }
+  Variables$Mutation$UpdateSOptional._(this._$data);
 
   factory Variables$Mutation$UpdateSOptional.fromJson(
       Map<String, dynamic> data) {
@@ -1444,26 +1381,15 @@ abstract class Variables$Mutation$UpdateSOptional {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Mutation$UpdateSOptional(result$data);
+    return Variables$Mutation$UpdateSOptional._(result$data);
   }
 
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Mutation$UpdateSOptional<
-      Variables$Mutation$UpdateSOptional> get copyWith;
-  _Impl$Variables$Mutation$UpdateSOptional get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Mutation$UpdateSOptional
-    implements Variables$Mutation$UpdateSOptional {
-  _Impl$Variables$Mutation$UpdateSOptional(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get name => ($data['name'] as String?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -1479,13 +1405,13 @@ class _Impl$Variables$Mutation$UpdateSOptional
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Mutation$UpdateSOptional) ||
+    if (!(other is Variables$Mutation$UpdateSOptional) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -1497,17 +1423,15 @@ class _Impl$Variables$Mutation$UpdateSOptional
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
   }
-
-  _Impl$Variables$Mutation$UpdateSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSOptional(
           Variables$Mutation$UpdateSOptional instance,
-          TRes Function(Variables$Mutation$UpdateSOptional) then) =>
-      _CopyWithImpl$Variables$Mutation$UpdateSOptional(instance.$impl, then);
+          TRes Function(Variables$Mutation$UpdateSOptional) then) =
+      _CopyWithImpl$Variables$Mutation$UpdateSOptional;
 
   factory CopyWith$Variables$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSOptional;
@@ -1519,15 +1443,15 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
     implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSOptional(this._instance, this._then);
 
-  final _Impl$Variables$Mutation$UpdateSOptional _instance;
+  final Variables$Mutation$UpdateSOptional _instance;
 
-  final TRes Function(_Impl$Variables$Mutation$UpdateSOptional) _then;
+  final TRes Function(Variables$Mutation$UpdateSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Mutation$UpdateSOptional({
-        ..._instance.$data,
+      _then(Variables$Mutation$UpdateSOptional._({
+        ..._instance._$data,
         if (name != _undefined) 'name': (name as String?),
       }));
 }
@@ -1590,8 +1514,8 @@ extension UtilityExtension$Mutation$UpdateSOptional
 
 abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Mutation$UpdateSOptional(Mutation$UpdateSOptional instance,
-          TRes Function(Mutation$UpdateSOptional) then) =>
-      _CopyWithImpl$Mutation$UpdateSOptional(instance, then);
+          TRes Function(Mutation$UpdateSOptional) then) =
+      _CopyWithImpl$Mutation$UpdateSOptional;
 
   factory CopyWith$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSOptional;
@@ -1739,38 +1663,25 @@ extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
       this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
 }
 
-abstract class Variables$Mutation$UpdateSRequired {
+class Variables$Mutation$UpdateSRequired {
   factory Variables$Mutation$UpdateSRequired({required String name}) =>
-      _Impl$Variables$Mutation$UpdateSRequired({'name': name});
+      Variables$Mutation$UpdateSRequired._({
+        r'name': name,
+      });
 
-  factory Variables$Mutation$UpdateSRequired.withoutNulls(
-      {required String name}) {
-    final l$data = <String, dynamic>{'name': name};
-    return _Impl$Variables$Mutation$UpdateSRequired(l$data);
-  }
+  Variables$Mutation$UpdateSRequired._(this._$data);
 
   factory Variables$Mutation$UpdateSRequired.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
-    return _Impl$Variables$Mutation$UpdateSRequired(result$data);
+    return Variables$Mutation$UpdateSRequired._(result$data);
   }
 
-  String get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Mutation$UpdateSRequired<
-      Variables$Mutation$UpdateSRequired> get copyWith;
-  _Impl$Variables$Mutation$UpdateSRequired get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Mutation$UpdateSRequired
-    implements Variables$Mutation$UpdateSRequired {
-  _Impl$Variables$Mutation$UpdateSRequired(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String get name => ($data['name'] as String);
+  String get name => (_$data['name'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -1787,7 +1698,7 @@ class _Impl$Variables$Mutation$UpdateSRequired
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Mutation$UpdateSRequired) ||
+    if (!(other is Variables$Mutation$UpdateSRequired) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1804,15 +1715,13 @@ class _Impl$Variables$Mutation$UpdateSRequired
     final l$name = name;
     return Object.hashAll([l$name]);
   }
-
-  _Impl$Variables$Mutation$UpdateSRequired get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSRequired(
           Variables$Mutation$UpdateSRequired instance,
-          TRes Function(Variables$Mutation$UpdateSRequired) then) =>
-      _CopyWithImpl$Variables$Mutation$UpdateSRequired(instance.$impl, then);
+          TRes Function(Variables$Mutation$UpdateSRequired) then) =
+      _CopyWithImpl$Variables$Mutation$UpdateSRequired;
 
   factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
@@ -1824,15 +1733,15 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
     implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSRequired(this._instance, this._then);
 
-  final _Impl$Variables$Mutation$UpdateSRequired _instance;
+  final Variables$Mutation$UpdateSRequired _instance;
 
-  final TRes Function(_Impl$Variables$Mutation$UpdateSRequired) _then;
+  final TRes Function(Variables$Mutation$UpdateSRequired) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Mutation$UpdateSRequired({
-        ..._instance.$data,
+      _then(Variables$Mutation$UpdateSRequired._({
+        ..._instance._$data,
         if (name != _undefined && name != null) 'name': (name as String),
       }));
 }
@@ -1895,8 +1804,8 @@ extension UtilityExtension$Mutation$UpdateSRequired
 
 abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Mutation$UpdateSRequired(Mutation$UpdateSRequired instance,
-          TRes Function(Mutation$UpdateSRequired) then) =>
-      _CopyWithImpl$Mutation$UpdateSRequired(instance, then);
+          TRes Function(Mutation$UpdateSRequired) then) =
+      _CopyWithImpl$Mutation$UpdateSRequired;
 
   factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSRequired;
@@ -2094,8 +2003,8 @@ extension UtilityExtension$Mutation$UpdateSNoVariables
 abstract class CopyWith$Mutation$UpdateSNoVariables<TRes> {
   factory CopyWith$Mutation$UpdateSNoVariables(
           Mutation$UpdateSNoVariables instance,
-          TRes Function(Mutation$UpdateSNoVariables) then) =>
-      _CopyWithImpl$Mutation$UpdateSNoVariables(instance, then);
+          TRes Function(Mutation$UpdateSNoVariables) then) =
+      _CopyWithImpl$Mutation$UpdateSNoVariables;
 
   factory CopyWith$Mutation$UpdateSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSNoVariables;

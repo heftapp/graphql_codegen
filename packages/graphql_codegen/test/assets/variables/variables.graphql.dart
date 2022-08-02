@@ -1,34 +1,24 @@
 import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
-abstract class Variables$Query$HiBob {
+class Variables$Query$HiBob {
   factory Variables$Query$HiBob({required Input$I1 i}) =>
-      _Impl$Variables$Query$HiBob({'i': i});
+      Variables$Query$HiBob._({
+        r'i': i,
+      });
 
-  factory Variables$Query$HiBob.withoutNulls({required Input$I1 i}) {
-    final l$data = <String, dynamic>{'i': i};
-    return _Impl$Variables$Query$HiBob(l$data);
-  }
+  Variables$Query$HiBob._(this._$data);
 
   factory Variables$Query$HiBob.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$i = data['i'];
     result$data['i'] = Input$I1.fromJson((l$i as Map<String, dynamic>));
-    return _Impl$Variables$Query$HiBob(result$data);
+    return Variables$Query$HiBob._(result$data);
   }
 
-  Input$I1 get i;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Query$HiBob<Variables$Query$HiBob> get copyWith;
-  _Impl$Variables$Query$HiBob get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Query$HiBob implements Variables$Query$HiBob {
-  _Impl$Variables$Query$HiBob(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  Input$I1 get i => ($data['i'] as Input$I1);
+  Input$I1 get i => (_$data['i'] as Input$I1);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$i = i;
@@ -43,8 +33,7 @@ class _Impl$Variables$Query$HiBob implements Variables$Query$HiBob {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Query$HiBob) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$HiBob) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -60,14 +49,12 @@ class _Impl$Variables$Query$HiBob implements Variables$Query$HiBob {
     final l$i = i;
     return Object.hashAll([l$i]);
   }
-
-  _Impl$Variables$Query$HiBob get $impl => this;
 }
 
 abstract class CopyWith$Variables$Query$HiBob<TRes> {
   factory CopyWith$Variables$Query$HiBob(Variables$Query$HiBob instance,
-          TRes Function(Variables$Query$HiBob) then) =>
-      _CopyWithImpl$Variables$Query$HiBob(instance.$impl, then);
+          TRes Function(Variables$Query$HiBob) then) =
+      _CopyWithImpl$Variables$Query$HiBob;
 
   factory CopyWith$Variables$Query$HiBob.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$HiBob;
@@ -79,14 +66,14 @@ class _CopyWithImpl$Variables$Query$HiBob<TRes>
     implements CopyWith$Variables$Query$HiBob<TRes> {
   _CopyWithImpl$Variables$Query$HiBob(this._instance, this._then);
 
-  final _Impl$Variables$Query$HiBob _instance;
+  final Variables$Query$HiBob _instance;
 
-  final TRes Function(_Impl$Variables$Query$HiBob) _then;
+  final TRes Function(Variables$Query$HiBob) _then;
 
   static const _undefined = {};
 
-  TRes call({Object? i = _undefined}) => _then(_Impl$Variables$Query$HiBob({
-        ..._instance.$data,
+  TRes call({Object? i = _undefined}) => _then(Variables$Query$HiBob._({
+        ..._instance._$data,
         if (i != _undefined && i != null) 'i': (i as Input$I1),
       }));
 }
@@ -150,8 +137,8 @@ extension UtilityExtension$Query$HiBob on Query$HiBob {
 
 abstract class CopyWith$Query$HiBob<TRes> {
   factory CopyWith$Query$HiBob(
-          Query$HiBob instance, TRes Function(Query$HiBob) then) =>
-      _CopyWithImpl$Query$HiBob(instance, then);
+          Query$HiBob instance, TRes Function(Query$HiBob) then) =
+      _CopyWithImpl$Query$HiBob;
 
   factory CopyWith$Query$HiBob.stub(TRes res) = _CopyWithStubImpl$Query$HiBob;
 
@@ -274,8 +261,8 @@ extension UtilityExtension$Query$HiBob$field on Query$HiBob$field {
 
 abstract class CopyWith$Query$HiBob$field<TRes> {
   factory CopyWith$Query$HiBob$field(
-          Query$HiBob$field instance, TRes Function(Query$HiBob$field) then) =>
-      _CopyWithImpl$Query$HiBob$field(instance, then);
+          Query$HiBob$field instance, TRes Function(Query$HiBob$field) then) =
+      _CopyWithImpl$Query$HiBob$field;
 
   factory CopyWith$Query$HiBob$field.stub(TRes res) =
       _CopyWithStubImpl$Query$HiBob$field;

@@ -55,9 +55,9 @@ extension UtilityExtension$Mutation$Operation on Mutation$Operation {
 }
 
 abstract class CopyWith$Mutation$Operation<TRes> {
-  factory CopyWith$Mutation$Operation(Mutation$Operation instance,
-          TRes Function(Mutation$Operation) then) =>
-      _CopyWithImpl$Mutation$Operation(instance, then);
+  factory CopyWith$Mutation$Operation(
+          Mutation$Operation instance, TRes Function(Mutation$Operation) then) =
+      _CopyWithImpl$Mutation$Operation;
 
   factory CopyWith$Mutation$Operation.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Operation;
@@ -345,8 +345,8 @@ extension UtilityExtension$Mutation$Operation$setName
 abstract class CopyWith$Mutation$Operation$setName<TRes> {
   factory CopyWith$Mutation$Operation$setName(
           Mutation$Operation$setName instance,
-          TRes Function(Mutation$Operation$setName) then) =>
-      _CopyWithImpl$Mutation$Operation$setName(instance, then);
+          TRes Function(Mutation$Operation$setName) then) =
+      _CopyWithImpl$Mutation$Operation$setName;
 
   factory CopyWith$Mutation$Operation$setName.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Operation$setName;

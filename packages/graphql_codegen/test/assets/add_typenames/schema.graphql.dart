@@ -59,8 +59,8 @@ extension UtilityExtension$Fragment$FReport on Fragment$FReport {
 
 abstract class CopyWith$Fragment$FReport<TRes> {
   factory CopyWith$Fragment$FReport(
-          Fragment$FReport instance, TRes Function(Fragment$FReport) then) =>
-      _CopyWithImpl$Fragment$FReport(instance, then);
+          Fragment$FReport instance, TRes Function(Fragment$FReport) then) =
+      _CopyWithImpl$Fragment$FReport;
 
   factory CopyWith$Fragment$FReport.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FReport;
@@ -303,8 +303,8 @@ extension UtilityExtension$Query$Q on Query$Q {
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =>
-      _CopyWithImpl$Query$Q(instance, then);
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -581,8 +581,8 @@ extension UtilityExtension$Query$Q$docsWithTypename
 
 abstract class CopyWith$Query$Q$docsWithTypename<TRes> {
   factory CopyWith$Query$Q$docsWithTypename(Query$Q$docsWithTypename instance,
-          TRes Function(Query$Q$docsWithTypename) then) =>
-      _CopyWithImpl$Query$Q$docsWithTypename(instance, then);
+          TRes Function(Query$Q$docsWithTypename) then) =
+      _CopyWithImpl$Query$Q$docsWithTypename;
 
   factory CopyWith$Query$Q$docsWithTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithTypename;
@@ -678,8 +678,8 @@ extension UtilityExtension$Query$Q$docsWihtoutTypename
 abstract class CopyWith$Query$Q$docsWihtoutTypename<TRes> {
   factory CopyWith$Query$Q$docsWihtoutTypename(
           Query$Q$docsWihtoutTypename instance,
-          TRes Function(Query$Q$docsWihtoutTypename) then) =>
-      _CopyWithImpl$Query$Q$docsWihtoutTypename(instance, then);
+          TRes Function(Query$Q$docsWihtoutTypename) then) =
+      _CopyWithImpl$Query$Q$docsWihtoutTypename;
 
   factory CopyWith$Query$Q$docsWihtoutTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWihtoutTypename;
@@ -765,8 +765,8 @@ extension UtilityExtension$Query$Q$docsWithAliasedTypename
 abstract class CopyWith$Query$Q$docsWithAliasedTypename<TRes> {
   factory CopyWith$Query$Q$docsWithAliasedTypename(
           Query$Q$docsWithAliasedTypename instance,
-          TRes Function(Query$Q$docsWithAliasedTypename) then) =>
-      _CopyWithImpl$Query$Q$docsWithAliasedTypename(instance, then);
+          TRes Function(Query$Q$docsWithAliasedTypename) then) =
+      _CopyWithImpl$Query$Q$docsWithAliasedTypename;
 
   factory CopyWith$Query$Q$docsWithAliasedTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithAliasedTypename;
@@ -858,8 +858,8 @@ extension UtilityExtension$Query$Q$docsWithFragment
 
 abstract class CopyWith$Query$Q$docsWithFragment<TRes> {
   factory CopyWith$Query$Q$docsWithFragment(Query$Q$docsWithFragment instance,
-          TRes Function(Query$Q$docsWithFragment) then) =>
-      _CopyWithImpl$Query$Q$docsWithFragment(instance, then);
+          TRes Function(Query$Q$docsWithFragment) then) =
+      _CopyWithImpl$Query$Q$docsWithFragment;
 
   factory CopyWith$Query$Q$docsWithFragment.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment;
@@ -958,8 +958,8 @@ extension UtilityExtension$Query$Q$docsWithFragment$$Contract
 abstract class CopyWith$Query$Q$docsWithFragment$$Contract<TRes> {
   factory CopyWith$Query$Q$docsWithFragment$$Contract(
           Query$Q$docsWithFragment$$Contract instance,
-          TRes Function(Query$Q$docsWithFragment$$Contract) then) =>
-      _CopyWithImpl$Query$Q$docsWithFragment$$Contract(instance, then);
+          TRes Function(Query$Q$docsWithFragment$$Contract) then) =
+      _CopyWithImpl$Query$Q$docsWithFragment$$Contract;
 
   factory CopyWith$Query$Q$docsWithFragment$$Contract.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment$$Contract;
@@ -1057,8 +1057,8 @@ extension UtilityExtension$Query$Q$docsWithFragment$$Report
 abstract class CopyWith$Query$Q$docsWithFragment$$Report<TRes> {
   factory CopyWith$Query$Q$docsWithFragment$$Report(
           Query$Q$docsWithFragment$$Report instance,
-          TRes Function(Query$Q$docsWithFragment$$Report) then) =>
-      _CopyWithImpl$Query$Q$docsWithFragment$$Report(instance, then);
+          TRes Function(Query$Q$docsWithFragment$$Report) then) =
+      _CopyWithImpl$Query$Q$docsWithFragment$$Report;
 
   factory CopyWith$Query$Q$docsWithFragment$$Report.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment$$Report;

@@ -4,15 +4,13 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-abstract class Variables$Mutation$UpdateSOptional {
+class Variables$Mutation$UpdateSOptional {
   factory Variables$Mutation$UpdateSOptional({String? name}) =>
-      _Impl$Variables$Mutation$UpdateSOptional({'name': name});
+      Variables$Mutation$UpdateSOptional._({
+        if (name != null) r'name': name,
+      });
 
-  factory Variables$Mutation$UpdateSOptional.withoutNulls({String? name}) {
-    final l$data = <String, dynamic>{};
-    if (name != null) l$data['name'] = name;
-    return _Impl$Variables$Mutation$UpdateSOptional(l$data);
-  }
+  Variables$Mutation$UpdateSOptional._(this._$data);
 
   factory Variables$Mutation$UpdateSOptional.fromJson(
       Map<String, dynamic> data) {
@@ -21,26 +19,15 @@ abstract class Variables$Mutation$UpdateSOptional {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
     }
-    return _Impl$Variables$Mutation$UpdateSOptional(result$data);
+    return Variables$Mutation$UpdateSOptional._(result$data);
   }
 
-  String? get name;
-  Map<String, dynamic> toJson();
-  CopyWith$Variables$Mutation$UpdateSOptional<
-      Variables$Mutation$UpdateSOptional> get copyWith;
-  _Impl$Variables$Mutation$UpdateSOptional get $impl;
-}
+  Map<String, dynamic> _$data;
 
-class _Impl$Variables$Mutation$UpdateSOptional
-    implements Variables$Mutation$UpdateSOptional {
-  _Impl$Variables$Mutation$UpdateSOptional(this.$data);
-
-  final Map<String, dynamic> $data;
-
-  String? get name => ($data['name'] as String?);
+  String? get name => (_$data['name'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if ($data.containsKey('name')) {
+    if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
     }
@@ -56,13 +43,13 @@ class _Impl$Variables$Mutation$UpdateSOptional
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is _Impl$Variables$Mutation$UpdateSOptional) ||
+    if (!(other is Variables$Mutation$UpdateSOptional) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
     final lOther$name = other.name;
-    if ($data.containsKey('name') != other.$data.containsKey('name')) {
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
       return false;
     }
     if (l$name != lOther$name) {
@@ -74,17 +61,15 @@ class _Impl$Variables$Mutation$UpdateSOptional
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([$data.containsKey('name') ? l$name : const {}]);
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
   }
-
-  _Impl$Variables$Mutation$UpdateSOptional get $impl => this;
 }
 
 abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSOptional(
           Variables$Mutation$UpdateSOptional instance,
-          TRes Function(Variables$Mutation$UpdateSOptional) then) =>
-      _CopyWithImpl$Variables$Mutation$UpdateSOptional(instance.$impl, then);
+          TRes Function(Variables$Mutation$UpdateSOptional) then) =
+      _CopyWithImpl$Variables$Mutation$UpdateSOptional;
 
   factory CopyWith$Variables$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSOptional;
@@ -96,15 +81,15 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
     implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
   _CopyWithImpl$Variables$Mutation$UpdateSOptional(this._instance, this._then);
 
-  final _Impl$Variables$Mutation$UpdateSOptional _instance;
+  final Variables$Mutation$UpdateSOptional _instance;
 
-  final TRes Function(_Impl$Variables$Mutation$UpdateSOptional) _then;
+  final TRes Function(Variables$Mutation$UpdateSOptional) _then;
 
   static const _undefined = {};
 
   TRes call({Object? name = _undefined}) =>
-      _then(_Impl$Variables$Mutation$UpdateSOptional({
-        ..._instance.$data,
+      _then(Variables$Mutation$UpdateSOptional._({
+        ..._instance._$data,
         if (name != _undefined) 'name': (name as String?),
       }));
 }
@@ -167,8 +152,8 @@ extension UtilityExtension$Mutation$UpdateSOptional
 
 abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
   factory CopyWith$Mutation$UpdateSOptional(Mutation$UpdateSOptional instance,
-          TRes Function(Mutation$UpdateSOptional) then) =>
-      _CopyWithImpl$Mutation$UpdateSOptional(instance, then);
+          TRes Function(Mutation$UpdateSOptional) then) =
+      _CopyWithImpl$Mutation$UpdateSOptional;
 
   factory CopyWith$Mutation$UpdateSOptional.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSOptional;
