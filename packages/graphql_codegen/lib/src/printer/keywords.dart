@@ -61,4 +61,6 @@ const staticKeywords = {
   "dynamic",
   "implements",
   "static",
+  "int",
+  "double"
 };

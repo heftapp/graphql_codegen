@@ -18,7 +18,7 @@ class Query$FetchScalars {
         id: (l$id as int?),
         s: (l$s as String?),
         c1: (l$c1 as String?),
-        c2: (l$c2 as DateTime?),
+        c2: l$c2 == null ? null : DateTime.parse((l$c2 as String)),
         c3: l$c3 == null ? null : fobbobFromJson(l$c3),
         c3s: (l$c3s as List<dynamic>?)
             ?.map((e) => e == null ? null : fobbobFromJson(e))
@@ -50,7 +50,7 @@ class Query$FetchScalars {
     final l$c1 = c1;
     _resultData['c1'] = l$c1;
     final l$c2 = c2;
-    _resultData['c2'] = l$c2;
+    _resultData['c2'] = l$c2?.toIso8601String();
     final l$c3 = c3;
     _resultData['c3'] = l$c3 == null ? null : fobbobToJson(l$c3);
     final l$c3s = c3s;

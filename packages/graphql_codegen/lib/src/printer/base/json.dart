@@ -7,6 +7,47 @@ import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 import 'package:graphql_codegen/src/printer/utils.dart';
 
+typedef _Converter = Expression Function(TypeNode, Expression);
+
+Expression _convertDoubleFromJson(TypeNode type, Expression valueRef) {
+  final casted = valueRef.asA(
+    TypeReference((b) => b
+      ..symbol = 'num'
+      ..isNullable = !type.isNonNull),
+  );
+  final converter = 'toDouble';
+  final accessed = type.isNonNull
+      ? casted.property(converter)
+      : casted.nullSafeProperty(converter);
+  return accessed.call([]);
+}
+
+Expression _convertDateTimeFromJson(TypeNode type, Expression valueRef) {
+  final parsed =
+      refer('DateTime').property('parse').call([valueRef.asA(refer('String'))]);
+  if (type.isNonNull) {
+    return parsed;
+  }
+  return printNullCheck(valueRef, parsed);
+}
+
+Expression _convertDateTimeToJson(TypeNode type, Expression valueRef) {
+  const isoGetter = 'toIso8601String';
+  return (type.isNonNull
+          ? valueRef.property(isoGetter)
+          : valueRef.nullSafeProperty(isoGetter))
+      .call([]);
+}
+
+const _customFromJson = <String, _Converter>{
+  'double': _convertDoubleFromJson,
+  'DateTime': _convertDateTimeFromJson,
+};
+
+const _customToJson = <String, _Converter>{
+  'DateTime': _convertDateTimeToJson,
+};
+
 Expression printFromJsonValue(
   PrintContext context,
   ContextProperty property,
@@ -68,15 +109,16 @@ Expression _printFromJsonValue(
   if (typeDefinition is ScalarTypeDefinitionNode) {
     final ref = scalarConfigFromScalarDefinition(context, typeDefinition);
     final fromJson = ref.fromJsonFunctionName;
-    if (fromJson == null) {
-      return valueRef.asA(
-        TypeReference((b) => b
-          ..symbol = ref.type
-          ..isNullable = !type.isNonNull),
-      );
+    if (fromJson != null) {
+      final v = refer(fromJson).call([valueRef]);
+      return !type.isNonNull ? printNullCheck(valueRef, v) : v;
     }
-    final v = refer(fromJson).call([valueRef]);
-    return !type.isNonNull ? printNullCheck(valueRef, v) : v;
+    return _customFromJson[ref.type]?.call(type, valueRef) ??
+        valueRef.asA(
+          TypeReference((b) => b
+            ..symbol = ref.type
+            ..isNullable = !type.isNonNull),
+        );
   }
 
   if (typeDefinition is EnumTypeDefinitionNode && replacementContext != null) {
@@ -161,11 +203,11 @@ Expression _printToJsonValue(
   if (typeDefinition is ScalarTypeDefinitionNode) {
     final ref = scalarConfigFromScalarDefinition(context, typeDefinition);
     final toJson = ref.toJsonFunctionName;
-    if (toJson == null) {
-      return valueRef;
+    if (toJson != null) {
+      final v = refer(toJson).call([valueRef]);
+      return !type.isNonNull ? printNullCheck(valueRef, v) : v;
     }
-    final v = refer(toJson).call([valueRef]);
-    return !type.isNonNull ? printNullCheck(valueRef, v) : v;
+    return _customToJson[ref.type]?.call(type, valueRef) ?? valueRef;
   }
 
   if (typeDefinition is EnumTypeDefinitionNode && replacementContext != null) {

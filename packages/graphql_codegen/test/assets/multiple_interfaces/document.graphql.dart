@@ -287,7 +287,7 @@ class Fragment$F3 {
 
   factory Fragment$F3.fromJson(Map<String, dynamic> json) {
     final l$value = json['value'];
-    return Fragment$F3(value: (l$value as double?));
+    return Fragment$F3(value: (l$value as num?)?.toDouble());
   }
 
   final double? value;

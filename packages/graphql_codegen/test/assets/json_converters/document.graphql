@@ -1,0 +1,15 @@
+
+type Query {
+    mFloat: Float
+    float: Float!
+    int: Int!
+    mInt: Int
+    dt: DT!
+    mDt: DT
+}
+
+query Q {
+    mFloat float int mInt dt mDt
+}
+
+scalar DT

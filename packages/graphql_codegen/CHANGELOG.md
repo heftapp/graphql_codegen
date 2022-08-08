@@ -1,3 +1,8 @@
+# 0.11.0-beta.3
+
+* Add custom support for `DateTime`
+* Fix `double` conversion.
+
 # 0.11.0-beta.2
 
 * Simplify input classes
