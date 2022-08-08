@@ -96,7 +96,7 @@ class Input$I_ {
     final result$data = <String, dynamic>{};
     if (data.containsKey('value')) {
       final l$value = data['value'];
-      result$data['value'] = (l$value as double?);
+      result$data['value'] = (l$value as num?)?.toDouble();
     }
     return Input$I_._(result$data);
   }

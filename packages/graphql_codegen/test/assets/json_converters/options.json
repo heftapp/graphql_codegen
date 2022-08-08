@@ -1,0 +1,7 @@
+{
+    "scalars": {
+        "DT": {
+            "type": "DateTime"
+        }
+    }
+}
