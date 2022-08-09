@@ -481,8 +481,8 @@ targets:
           scalars:
             ISODateTime:
               type: CustomDateTime
-              fromJsonFunctionName: dateTimeFromJson
-              toJsonFunctionName: dateTimeToJson
+              fromJsonFunctionName: customDateTimeFromJson
+              toJsonFunctionName: customDateTimeToJson
               import: package:my_app/scalar.dart
 ```
 
@@ -496,8 +496,8 @@ class CustomDateTime {
   CustomDateTime(this.dt);
 }
 
-DateTime dateTimeFromJson(dynamic data) => CustomDateTime(DateTime(data as String));
-dynamic dateTimeToJson(CustomDateTime time) => time.dt.toIso8601String();
+CustomDateTime customDateTimeFromJson(dynamic data) => CustomDateTime(DateTime(data as String));
+dynamic customDateTimeToJson(CustomDateTime time) => time.dt.toIso8601String();
 ```
 
 and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
