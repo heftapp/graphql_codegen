@@ -1,3 +1,7 @@
+# 0.11.0-beta.4
+
+* Fix deep copy on nested objects
+
 # 0.11.0-beta.3
 
 * Add custom support for `DateTime`

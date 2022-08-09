@@ -175,7 +175,7 @@ Expression _maybeNullSafeProperty(
 Expression _printDeepCopyResultMapper(ListTypeNode node, Expression reference) {
   final innerType = node.type;
   if (innerType is ListTypeNode) {
-    return _maybeNullSafeProperty(reference, 'map', !innerType.isNonNull)
+    return _maybeNullSafeProperty(reference, 'map', !node.isNonNull)
         .call([
           Method(
             (b) => b

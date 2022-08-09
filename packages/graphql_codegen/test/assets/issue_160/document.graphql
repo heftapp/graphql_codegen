@@ -1,0 +1,9 @@
+
+input I1 {
+    nested: [[I2!]!]
+    maybe_nested: [[I2]]
+}
+
+input I2 {
+    str: String
+}
