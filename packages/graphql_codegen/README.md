@@ -449,7 +449,7 @@ targets:
               type: Map<String, dynamic>
 ```
 
-Assume we want to use the built-in `DateTime` class instead, we can add
+The library supports converting to and from `DateTime` automatically. So, we can write our config as
 
 ```yaml
 # build.yaml
@@ -462,6 +462,25 @@ targets:
           scalars:
             ISODateTime:
               type: DateTime
+            JSON:
+              type: Map<String, dynamic>
+```
+
+and it'll work as expected.
+
+Assume we want to use a `CustomDateTime` class instead, we can add
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          scalars:
+            ISODateTime:
+              type: CustomDateTime
               fromJsonFunctionName: dateTimeFromJson
               toJsonFunctionName: dateTimeToJson
               import: package:my_app/scalar.dart
@@ -472,11 +491,16 @@ and create a `scalar.dart` file with your converters
 ```dart
 // scalar.dart
 
-DateTime dateTimeFromJson(dynamic data) => DateTime(data as String);
-dynamic dateTimeToJson(DateTime time) => time.datetime;
+class CustomDateTime {
+  final DateTime dt;
+  CustomDateTime(this.dt);
+}
+
+DateTime dateTimeFromJson(dynamic data) => CustomDateTime(DateTime(data as String));
+dynamic dateTimeToJson(CustomDateTime time) => time.dt.toIso8601String();
 ```
 
-and now all fields using `ISODateTime` will be a `DateTime` instance.
+and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
 
 ## Add typename
 By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
