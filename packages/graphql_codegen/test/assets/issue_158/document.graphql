@@ -1,0 +1,23 @@
+interface IPerson {
+  id: ID!
+}
+
+type Person implements IPerson {
+  id: ID!
+}
+
+
+type Query {
+    person(id: ID!): Person
+}
+
+query GetPerson {
+  #type Person
+  person(id: 1) {
+    ...PersonSummary 
+  }
+}
+
+fragment PersonSummary on IPerson {
+  id
+}
