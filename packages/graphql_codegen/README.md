@@ -296,7 +296,7 @@ Currently, we support two clients:
 
 ### Client `graphql`
 
-Once you've set up your `graphql`` client (see [pub.dev/packages/graphql](https://pub.dev/packages/graphql)), you can use
+Once you've set up your `graphql` client (see [pub.dev/packages/graphql](https://pub.dev/packages/graphql)), you can use
 GraphQL Codegen to generate new queries or mutators on the client.
 
 With the query from above:
@@ -364,7 +364,7 @@ the query methods work similarly.
 
 ### Client `graphql_flutter`
 
-Once you've set up your `graphql_flutter`` client (see [pub.dev/packages/graphql_flutter](https://pub.dev/packages/graphql_flutter)),
+Once you've set up your `graphql_flutter` client (see [pub.dev/packages/graphql_flutter](https://pub.dev/packages/graphql_flutter)),
 you can use GraphQL Codegen to generate new `Query` or `Mutation` widgets.
 
 With the query from above:
