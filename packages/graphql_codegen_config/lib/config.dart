@@ -39,7 +39,6 @@ class GraphQLCodegenConfig extends JsonSerializable {
   final List<String> scopes;
   final List<String> addTypenameExcludedPaths;
   final String generatedFileHeader;
-  final bool includeIfNullOnInput;
   final String namingSeparator;
   final List<String> extraKeywords;
   final String outputDirectory;
@@ -52,8 +51,6 @@ class GraphQLCodegenConfig extends JsonSerializable {
     this.scopes = const ["**.graphql"],
     this.addTypenameExcludedPaths = const [],
     this.generatedFileHeader = "",
-    // deprecated after removing json_serializable
-    this.includeIfNullOnInput = true,
     this.namingSeparator = r"$",
     this.extraKeywords = const [],
     this.outputDirectory = '.',
