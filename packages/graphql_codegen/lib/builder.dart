@@ -9,7 +9,6 @@ import 'package:glob/glob.dart';
 import 'package:gql/language.dart';
 import 'package:graphql_codegen/graphql_codegen.dart';
 import 'package:graphql_codegen/src/transform/transform.dart';
-import 'package:graphql_codegen_config/config.dart';
 import 'package:path/path.dart' as path;
 
 final p = path.Context(style: path.Style.posix);

@@ -260,13 +260,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.1"
-  graphql_codegen_config:
-    dependency: "direct main"
-    description:
-      path: "../graphql_codegen_config"
-      relative: true
-    source: path
-    version: "0.2.6"
   graphs:
     dependency: transitive
     description:
@@ -324,19 +317,19 @@ packages:
     source: hosted
     version: "0.6.3"
   json_annotation:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.4.0"
+    version: "4.6.0"
   json_serializable:
     dependency: "direct dev"
     description:
       name: json_serializable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.5"
+    version: "6.3.1"
   lints:
     dependency: "direct dev"
     description:

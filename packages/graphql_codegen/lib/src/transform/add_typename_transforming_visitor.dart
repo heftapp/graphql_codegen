@@ -1,6 +1,6 @@
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/src/config/config.dart';
 import 'package:graphql_codegen/src/transform/transforming_visitor.dart';
-import 'package:graphql_codegen_config/config.dart';
 
 const typenameFieldName = '__typename';
 

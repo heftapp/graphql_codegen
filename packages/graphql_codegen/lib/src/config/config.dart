@@ -9,7 +9,7 @@ enum GraphQLCodegenConfigClient {
 }
 
 @JsonSerializable()
-class GraphQLCodegenConfigScalar extends JsonSerializable {
+class GraphQLCodegenConfigScalar {
   final String type;
   final String? import;
   final String? fromJsonFunctionName;
@@ -26,12 +26,11 @@ class GraphQLCodegenConfigScalar extends JsonSerializable {
   factory GraphQLCodegenConfigScalar.fromJson(Map<String, dynamic> json) =>
       _$GraphQLCodegenConfigScalarFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$GraphQLCodegenConfigScalarToJson(this);
 }
 
 @JsonSerializable()
-class GraphQLCodegenConfig extends JsonSerializable {
+class GraphQLCodegenConfig {
   final Set<GraphQLCodegenConfigClient> clients;
   final Map<String, GraphQLCodegenConfigScalar> scalars;
   final bool addTypename;
@@ -60,6 +59,5 @@ class GraphQLCodegenConfig extends JsonSerializable {
   factory GraphQLCodegenConfig.fromJson(Map<String, dynamic> json) =>
       _$GraphQLCodegenConfigFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$GraphQLCodegenConfigToJson(this);
 }

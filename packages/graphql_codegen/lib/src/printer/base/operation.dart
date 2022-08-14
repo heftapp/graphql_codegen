@@ -5,7 +5,7 @@ import 'package:graphql_codegen/src/printer/base/input.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql_flutter.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
-import 'package:graphql_codegen_config/config.dart';
+import 'package:graphql_codegen/src/config/config.dart';
 
 List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
   final context = elementContext.context;
