@@ -60,7 +60,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
         GraphQLCodegenConfig instance) =>
     <String, dynamic>{
       'clients': instance.clients
-          .map((e) => _$GraphQLCodegenConfigClientEnumMap[e])
+          .map((e) => _$GraphQLCodegenConfigClientEnumMap[e]!)
           .toList(),
       'scalars': instance.scalars,
       'addTypename': instance.addTypename,
