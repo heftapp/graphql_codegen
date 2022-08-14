@@ -48,7 +48,6 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
                   .toList() ??
               const [],
       generatedFileHeader: json['generatedFileHeader'] as String? ?? "",
-      includeIfNullOnInput: json['includeIfNullOnInput'] as bool? ?? true,
       namingSeparator: json['namingSeparator'] as String? ?? r"$",
       extraKeywords: (json['extraKeywords'] as List<dynamic>?)
               ?.map((e) => e as String)
@@ -69,7 +68,6 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'scopes': instance.scopes,
       'addTypenameExcludedPaths': instance.addTypenameExcludedPaths,
       'generatedFileHeader': instance.generatedFileHeader,
-      'includeIfNullOnInput': instance.includeIfNullOnInput,
       'namingSeparator': instance.namingSeparator,
       'extraKeywords': instance.extraKeywords,
       'outputDirectory': instance.outputDirectory,

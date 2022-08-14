@@ -31,7 +31,7 @@ $ flutter pub add --dev graphql_codegen build_runner
 - `flutter_hooks` (optional) to use generated operations hooks. Will be inside [HookWidgets](https://pub.dev/documentation/flutter_hooks/latest/flutter_hooks/HookWidget-class.html)
 
 ```sh
-$ flutter pub add json_annotation graphql graphql_flutter flutter_hooks
+$ flutter pub add graphql graphql_flutter flutter_hooks
 ```
 
 ## Basic Usage
@@ -427,7 +427,7 @@ class PersonWidget extends HookWidget {
 
 ## Custom scalars
 
-Out of the box, the standard fragments are supported and mapped to relevant dart types. You can add
+Out of the box, the standard scalars are supported and mapped to relevant dart types. You can add
 new mappings for your custom scalars or overwrite existing configurations.
 
 In the schema above, you can see that we have defined the `ISODateTime` scalar. In this example, it contains
