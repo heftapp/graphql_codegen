@@ -1,0 +1,56 @@
+union WalletContentBlock = WalletContentBlockList
+
+type WalletContentBlockList {
+  id: ID!
+  blockType: WalletContentBlockType!
+  caption: String
+  items: [WalletContentItem!]
+}
+
+type WalletContentBlockType {
+  id: ID!
+}
+
+union WalletContentItem = WalletContentItemContentPreview
+
+type WalletContentItemContentPreview {
+  id: ID!
+  caption: String
+  imageURL: String
+  link: String
+}
+
+input WalletGetContentInput {
+  id: ID
+}
+
+type WalletGetContentPayload {
+  blocks: [WalletContentBlock!]
+}
+
+type Query {
+  walletGetContent(input: WalletGetContentInput!): WalletGetContentPayload!
+}
+
+
+query WalletGetContent($input: WalletGetContentInput!) {
+  walletGetContent(input: $input) {
+    blocks {
+      ... on WalletContentBlockList {
+        id
+        blockType {
+          id
+        }
+        caption
+        items {
+          ... on WalletContentItemContentPreview {
+            id
+            caption
+            imageURL
+            link
+          }
+        }
+      }
+    }
+  }
+}
