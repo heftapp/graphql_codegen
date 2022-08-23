@@ -96,13 +96,24 @@ Future<void> _initialzer(ClientInitializer initializer) async {
           OperationDefinitionNode(
               type: OperationType.query,
               name: NameNode(value: 'FetchAllFilms'),
-              variableDefinitions: [],
+              variableDefinitions: [
+                VariableDefinitionNode(
+                    variable: VariableNode(name: NameNode(value: 'count')),
+                    type: NamedTypeNode(
+                        name: NameNode(value: 'Int'), isNonNull: true),
+                    defaultValue: DefaultValueNode(value: null),
+                    directives: [])
+              ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
                 FieldNode(
                     name: NameNode(value: 'allFilms'),
                     alias: null,
-                    arguments: [],
+                    arguments: [
+                      ArgumentNode(
+                          name: NameNode(value: 'first'),
+                          value: VariableNode(name: NameNode(value: 'count')))
+                    ],
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FieldNode(
@@ -152,10 +163,11 @@ class SwitchClient extends InternalSwitchClient {
       InternalSwitchClient.initialize(_initialzer, fetch);
 }
 
-QueryResult<Query$FetchAllFilms> useQuery$FetchAllFilms(DocumentNode document,
+QueryResult<Query$FetchAllFilms> useQuery$FetchAllFilms(
+        DocumentNode document, Variables$Query$FetchAllFilms variables,
         {QueryOptions? options}) =>
-    useQuery(
-        r'Query$FetchAllFilms', Query$FetchAllFilms.fromJson, options, null);
+    useQuery(r'Query$FetchAllFilms', Query$FetchAllFilms.fromJson, options,
+        variables);
 Fragment$Movie_film useFragment$Movie_film(
         DocumentNode document, FragmentKey$Movie_film key) =>
     useFragment(r'Fragment$Movie_film', key, Fragment$Movie_film.fromJson);
@@ -534,4 +546,53 @@ class Query$FetchAllFilms$allFilms$films$characters$characters
       Map<String, dynamic> json) {
     return Query$FetchAllFilms$allFilms$films$characters$characters._(json);
   }
+}
+
+typedef _BuilderVariables$Query$FetchAllFilms = Variables$Query$FetchAllFilms
+    Function(Variables$Query$FetchAllFilms Function({required int count}));
+
+class Variables$Query$FetchAllFilms implements Input {
+  Variables$Query$FetchAllFilms._(this._data);
+
+  factory Variables$Query$FetchAllFilms(
+          _BuilderVariables$Query$FetchAllFilms builder) =>
+      builder(({required Object count}) => Variables$Query$FetchAllFilms._(
+            {
+              r"count": count,
+            },
+          ));
+
+  Map<String, dynamic> _data;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$FetchAllFilms) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (l$count != lOther$count) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$count = count;
+    return Object.hashAll([l$count]);
+  }
+
+  Map<String, dynamic> toJson() {
+    final l$count = (_data['count'] as int);
+    return {
+      "count": l$count,
+    };
+  }
+
+  int get count => (_data['count'] as int);
 }
