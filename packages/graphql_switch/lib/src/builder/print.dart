@@ -324,20 +324,36 @@ Iterable<Spec> _printHelpers(PrintContext<ContextRoot> pc) {
             (b) => b
               ..static = true
               ..name = 'initialize'
+              ..types = ListBuilder([refer('TClientContext extends Object?')])
               ..optionalParameters = ListBuilder([
                 Parameter(
                   (b) => b
                     ..name = 'fetch'
                     ..required = true
                     ..named = true
-                    ..type = refer('FetchFn'),
+                    ..type = TypeReference(
+                      (b) => b
+                        ..symbol = 'FetchFn'
+                        ..types = ListBuilder([refer('TClientContext')]),
+                    ),
+                ),
+                Parameter(
+                  (b) => b
+                    ..name = 'clientContext'
+                    ..required = true
+                    ..named = true
+                    ..type = refer('TClientContext'),
                 )
               ])
               ..returns = futureRefer(refer('InitializeResult'))
-              ..body =
-                  refer('InternalSwitchClient').property('initialize').call([
+              ..body = refer('InternalSwitchClient')
+                  .property('initialize')
+                  .call([
                 refer(kInitializerName),
                 refer('fetch'),
+                refer('clientContext')
+              ], {}, [
+                refer('TClientContext')
               ]).code,
           )
         ])

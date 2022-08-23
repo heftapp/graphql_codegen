@@ -1,14 +1,19 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:graphql_switch/graphql_switch.dart';
 import './switch.dart';
 
-Future<Map<String, dynamic>> fetch(params, variables) async {
+Future<Map<String, dynamic>> fetch(
+  RequestParameters<Object?> params,
+  variables,
+) async {
   return {};
 }
 
 void main() async {
   final result = await SwitchClient.initialize(
     fetch: fetch,
+    clientContext: null,
   );
 
   runApp(SwitchClient(
