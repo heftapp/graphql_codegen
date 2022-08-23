@@ -1,3 +1,7 @@
+# 0.11.0-beta.6
+
+* Expose methods for `graphql_switch`
+
 # 0.11.0-beta.5
 
 * Inline GraphQL Config
