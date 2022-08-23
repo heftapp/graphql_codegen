@@ -7,12 +7,12 @@ import 'package:graphql_switch/graphql_switch.dart';
 import 'package:http/http.dart' as http;
 
 Future<Map<String, dynamic>> fetchGraphQL(
-  RequestParameters params,
+  RequestParameters<Map<String, String>> params,
   Map<String, dynamic> variables,
 ) async {
   final response = await http.post(
     Uri.parse('https://swapi-graphql.netlify.app/.netlify/functions/index'),
-    headers: {'content-type': 'application/json'},
+    headers: {'content-type': 'application/json', ...params.clientContext},
     body: json.encode({
       'query': params.text,
       'operationName': params.name,
@@ -25,6 +25,7 @@ Future<Map<String, dynamic>> fetchGraphQL(
 void main() async {
   final initializeResult = await SwitchClient.initialize(
     fetch: fetchGraphQL,
+    clientContext: <String, String>{},
   );
   runApp(
     SwitchClient(

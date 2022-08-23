@@ -20,20 +20,23 @@ OperationKind _operationToOperationKind(OperationDefinitionNode op) {
   }
 }
 
-class RequestParameters {
+class RequestParameters<TClientContext> {
+  final TClientContext clientContext;
   final String text;
   final String name;
   final OperationKind operationKind;
 
   RequestParameters({
+    required this.clientContext,
     required this.text,
     required this.name,
     required this.operationKind,
   });
 }
 
-typedef FetchFn = Future<Map<String, dynamic>> Function(
-  RequestParameters,
+typedef FetchFn<TClientContext extends Object?> = Future<Map<String, dynamic>>
+    Function(
+  RequestParameters<TClientContext> requestParameters,
   Map<String, dynamic> variables,
 );
 
@@ -67,10 +70,11 @@ class _StopQueryMessage implements _Message {
   _StopQueryMessage(this.id);
 }
 
-class _FetchLink extends graphql.Link {
-  final FetchFn fetch;
+class _FetchLink<TClientContext> extends graphql.Link {
+  final TClientContext clientContext;
+  final FetchFn<TClientContext> fetch;
 
-  _FetchLink(this.fetch);
+  _FetchLink(this.fetch, this.clientContext);
 
   @override
   Stream<graphql.Response> request(
@@ -82,6 +86,7 @@ class _FetchLink extends graphql.Link {
         .first;
     final response = await fetch(
       RequestParameters(
+        clientContext: clientContext,
         text: printNode(request.operation.document),
         name: request.operation.operationName ?? opDoc.name!.value,
         operationKind: _operationToOperationKind(opDoc),
@@ -93,14 +98,16 @@ class _FetchLink extends graphql.Link {
   }
 }
 
-class ClientInitializer {
+class ClientInitializer<TClientContext extends Object?> {
   final SendPort isolateToMain;
-  final FetchFn fetch;
+  final FetchFn<TClientContext> fetch;
+  final TClientContext clientContext;
   late final graphql.GraphQLClient client;
   final Map<String, DocumentNode> operations = {};
   final Map<int, graphql.ObservableQuery<Object?>> queries = {};
 
   ClientInitializer({
+    required this.clientContext,
     required this.isolateToMain,
     required this.fetch,
   });
@@ -139,7 +146,7 @@ class ClientInitializer {
     final mainToIsolate = ReceivePort();
     _sendToMain(_InitializeMessage(mainToIsolate.sendPort));
     client = graphql.GraphQLClient(
-      link: _FetchLink(fetch),
+      link: _FetchLink<TClientContext>(fetch, clientContext),
       cache: graphql.GraphQLCache(store: graphql.InMemoryStore()),
     );
     mainToIsolate.listen(_listen);
@@ -239,15 +246,17 @@ class InternalSwitchClient extends StatelessWidget {
   InternalSwitchClient(Widget this.child, this.initializeResult, Key? key)
       : super(key: key);
 
-  static Future<InitializeResult> initialize(
+  static Future<InitializeResult> initialize<TClientContext extends Object?>(
     Initializer initializer,
-    FetchFn fetch,
+    FetchFn<TClientContext> fetch,
+    TClientContext clientContext,
   ) async {
     print('Setting up main');
     final isolateToMain = ReceivePort();
     Isolate.spawn(
       initializer,
       ClientInitializer(
+        clientContext: clientContext,
         isolateToMain: isolateToMain.sendPort,
         fetch: fetch,
       ),

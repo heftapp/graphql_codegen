@@ -137,8 +137,11 @@ class SwitchClient extends InternalSwitchClient {
       Key? key})
       : super(child, initializeResult, key);
 
-  static Future<InitializeResult> initialize({required FetchFn fetch}) =>
-      InternalSwitchClient.initialize(_initialzer, fetch);
+  static Future<InitializeResult> initialize<TClientContext extends Object?>(
+          {required FetchFn<TClientContext> fetch,
+          required TClientContext clientContext}) =>
+      InternalSwitchClient.initialize<TClientContext>(
+          _initialzer, fetch, clientContext);
 }
 
 QueryResult<Query$MyWidgetQuery> useQuery$MyWidgetQuery(
