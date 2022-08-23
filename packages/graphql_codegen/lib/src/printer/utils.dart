@@ -15,7 +15,7 @@ class NamePrinter {
   NamePrinter(this.config)
       : _keywords = {...staticKeywords, ...config.extraKeywords};
 
-  String _printName(
+  String printName(
     Name name, {
     bool isAction = false,
     String? separator,
@@ -71,9 +71,9 @@ class NamePrinter {
   }
 
   String printDocumentDefinitionNodeName(Name name) =>
-      "documentNode" + _printName(name, separator: '');
+      "documentNode" + printName(name, separator: '');
 
-  String printFragmentDefinitionNodeName(Name name) => _printName(
+  String printFragmentDefinitionNodeName(Name name) => printName(
         name,
         separator: '',
         prefix: 'fragmentDefinition',
@@ -81,10 +81,10 @@ class NamePrinter {
 
   String printPossibleTypesMapName() => 'possibleTypesMap';
 
-  String printClassName(Name name) => _printName(name);
+  String printClassName(Name name) => printName(name);
 
   String printClassExtensionName(Name name) =>
-      "UtilityExtension\$" + _printName(name);
+      "UtilityExtension\$" + printName(name);
 
   String printCopyWithClassName(String name) => 'CopyWith\$' + name;
 
@@ -93,75 +93,75 @@ class NamePrinter {
   String printCopyWithStubImplClassName(String name) =>
       '_CopyWithStubImpl\$' + name;
 
-  String printParserFnName(Name name) => "_parserFn\$${_printName(name)}";
+  String printParserFnName(Name name) => "_parserFn\$${printName(name)}";
 
-  String printVariableClassName(Name name) => "Variables\$${_printName(name)}";
+  String printVariableClassName(Name name) => "Variables\$${printName(name)}";
 
   String printGraphQLClientOptionsName(Name name) =>
-      "Options\$${_printName(name)}";
+      "Options\$${printName(name)}";
 
   String printGraphQLClientWatchOptionsName(Name name) =>
-      "WatchOptions\$${_printName(name)}";
+      "WatchOptions\$${printName(name)}";
 
   String printGraphQLClientFetchMoreOptionsName(Name name) =>
-      "FetchMoreOptions\$${_printName(name)}";
+      "FetchMoreOptions\$${printName(name)}";
 
   String printGraphQLFlutterClientOptionsName(Name name) =>
-      "WidgetOptions\$${_printName(name)}";
+      "WidgetOptions\$${printName(name)}";
 
   String printGraphQLFlutterClientRunMutationName(Name name) =>
-      "RunMutation\$${_printName(name)}";
+      "RunMutation\$${printName(name)}";
 
   String printGraphQLFlutterClientBuilderName(Name name) =>
-      "Builder\$${_printName(name)}";
+      "Builder\$${printName(name)}";
 
   String printLocalPropertyName(NameNode name, [String prefix = "l"]) =>
       "${prefix}\$" + printPropertyName(name);
 
   String printGraphQLFlutterClientOperationName(Name name) =>
-      "${_printName(name)}\$Widget";
+      "${printName(name)}\$Widget";
 
   String printGraphQLFlutterClientMutationHookResultName(Name name) =>
-      "${_printName(name)}\$HookResult";
+      "${printName(name)}\$HookResult";
 
   String printGraphQLFlutterClientMutationHookName(Name name) =>
-      "use${_printName(name)}";
+      "use${printName(name)}";
 
   String printGraphQLFlutterClientWatchHookName(Name name) =>
-      "useWatch${_printName(name)}";
+      "useWatch${printName(name)}";
 
   String printGraphQLFlutterClientQueryHookName(Name name) =>
-      "use${_printName(name)}";
+      "use${printName(name)}";
 
   String printGraphQLFlutterClientWatchQueryHookName(Name name) =>
-      "useWatch${_printName(name)}";
+      "useWatch${printName(name)}";
 
   String printGraphQLFlutterClientSubscriptionHookName(Name name) =>
-      "use${_printName(name)}";
+      "use${printName(name)}";
 
   String printGraphQLClientOnMutationCompleteName(Name name) =>
-      "OnMutationCompleted\$${_printName(name)}";
+      "OnMutationCompleted\$${printName(name)}";
 
   String printGraphQLClientExtensionName(Name name) =>
-      "ClientExtension\$${_printName(name)}";
+      "ClientExtension\$${printName(name)}";
 
   String printGraphQLClientResultExtensionName(Name name) =>
-      "ResultExtension\$${_printName(name)}";
+      "ResultExtension\$${printName(name)}";
 
   String printGraphQLClientExtensionMethodName(Name name) =>
-      _printName(name, isAction: true);
+      printName(name, isAction: true);
 
   String printGraphQLClientExtensionWatchMethodName(Name name) =>
-      "watch${_printName(name, isAction: false)}";
+      "watch${printName(name, isAction: false)}";
 
   String printGraphQLClientExtensionWriteQueryMethodName(Name name) =>
-      "write${_printName(name, isAction: false)}";
+      "write${printName(name, isAction: false)}";
 
   String printGraphQLClientExtensionReadQueryMethodName(Name name) =>
-      "read${_printName(name, isAction: false)}";
+      "read${printName(name, isAction: false)}";
 
   String printGraphQLClientResultExtensionGetterName(Name name) =>
-      "parsedData" + _printName(name);
+      "parsedData" + printName(name);
 
   String printFromJsonFactoryName(String name) => "_\$${name}FromJson";
 

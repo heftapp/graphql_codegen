@@ -103,6 +103,7 @@ class ContextFragment<TKey extends Object>
         type: type,
         name: argument.name,
         path: path,
+        directives: [],
       ),
     );
   }
@@ -293,6 +294,17 @@ class Schema<TKey extends Object> {
     return lookupType(typeName);
   }
 
+  TypeDefinitionNode? lookupTypeDefinitionNodeFromField(
+    TypeDefinitionNode onType,
+    NameNode node,
+  ) {
+    final type = lookupTypeNodeFromField(onType, node);
+    if (type == null) {
+      return null;
+    }
+    return lookupTypeDefinitionFromTypeNode(type);
+  }
+
   TypeNode? lookupTypeNodeFromField(
     TypeDefinitionNode onType,
     NameNode node,
@@ -356,6 +368,7 @@ class ContextProperty {
   final NameNode _name;
   final NameNode? alias;
   final Name? path;
+  final List<DirectiveNode> directives;
 
   NameNode get name => alias ?? _name;
 
@@ -364,6 +377,7 @@ class ContextProperty {
     this.alias,
     required this.type,
     required NameNode name,
+    required this.directives,
   }) : _name = name;
 
   ContextProperty.fromFieldNode(
@@ -371,26 +385,30 @@ class ContextProperty {
     this.path,
     required this.type,
   })  : _name = node.name,
-        alias = node.alias;
+        alias = node.alias,
+        directives = node.directives;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
     this.path,
   })  : _name = node.name,
         type = node.type,
-        alias = null;
+        alias = null,
+        directives = node.directives;
 
   ContextProperty.fromVariableDefinitionNode(
     VariableDefinitionNode node, {
     this.path,
   })  : _name = node.variable.name,
         type = node.type,
-        alias = null;
+        alias = null,
+        directives = node.directives;
 
   ContextProperty merge(ContextProperty other) => ContextProperty(
         type: _mergeTypes(type, other.type),
         name: name,
         path: path,
+        directives: directives,
       );
 
   String get _key => name.value;
@@ -458,6 +476,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   final Set<Name> _fragments = {};
   final Set<Context<TKey, TypeDefinitionNode>> _possibleTypes = {};
   final Map<String, ContextProperty> _properties = {};
+  final Map<String, ContextProperty> _ownProperties = {};
   final Map<String, ContextProperty> _variables;
   final Set<FragmentDefinitionNode> _fragmentDependencies;
   final Set<SelectionNode> _selections = {};
@@ -614,10 +633,12 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   }
 
   void addProperty(ContextProperty property) {
-    if (_properties[property._key] != null) {
-      return;
+    if (_properties[property._key] == null) {
+      _properties[property._key] = property;
     }
-    _properties[property._key] = property;
+    if (_ownProperties[property._key] == null && _inFragment.isEmpty) {
+      _ownProperties[property._key] = property;
+    }
   }
 
   void addVariable(ContextProperty property) {
@@ -647,6 +668,8 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   bool get isDefinitionContext;
 
   Iterable<ContextProperty> get properties => _properties.values;
+
+  Iterable<ContextProperty> get ownProperties => _ownProperties.values;
 
   Iterable<ContextProperty> get variables => _variables.values;
 
@@ -689,6 +712,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
       replacementContext ?? this;
 
   Context<TKey, TypeDefinitionNode>? get replacementContext {
+    if (config.disableContextReplacement) return null;
     if (isDefinitionContext) return null;
     final parentReplace = parent?.replacementContext;
     if (parentReplace != null) {
