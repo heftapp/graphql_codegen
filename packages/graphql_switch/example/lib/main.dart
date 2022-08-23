@@ -44,6 +44,7 @@ class HideAppWrapper extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final show = useState(true);
+    final count = useState(1);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -52,27 +53,37 @@ class HideAppWrapper extends HookWidget {
               show.value = !show.value;
             },
             child: Text(show.value ? 'Hide movies' : 'Show movies')),
-        if (show.value) const MyApp(),
+        ElevatedButton(
+          onPressed: () {
+            count.value++;
+          },
+          child: const Text('Increment variables'),
+        ),
+        if (show.value) MyApp(count.value),
       ],
     );
   }
 }
 
 class MyApp extends HookWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final int count;
+  const MyApp(this.count, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final data = useQuery$FetchAllFilms(
-      graphql(r"""
-      query FetchAllFilms {
-        allFilms {
+      graphql(
+        r"""
+      query FetchAllFilms($count: Int!) {
+        allFilms(first: $count) {
           films {
             ...Movie_film
           }
         }
       }
-    """),
+    """,
+      ),
+      Variables$Query$FetchAllFilms((vs) => vs(count: count)),
     );
     final films = data.data?.allFilms?.films ?? [];
     return Column(
