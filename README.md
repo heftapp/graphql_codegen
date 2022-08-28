@@ -6,6 +6,5 @@ to generate type-safe Dart classes for your GraphQL operations.
 It contains the following packages
 
 * [graphql_codegen](/packages/graphql_codegen) - The build runner generating the Dart classes.
-* [graphql_codegen_config](/packages/graphql_codegen_config) - A package holding the configs for `graphql_codegen`.
 
 You'll probably only need `graphql_codegen`.
