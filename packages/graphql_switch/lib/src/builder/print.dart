@@ -154,6 +154,46 @@ Iterable<Spec> _printHooks(PrintContext<ContextRoot> pc) {
               ),
           ),
         ),
+    ...pc.context.contextOperations
+        .where((element) => element.operation?.type == OperationType.mutation)
+        .map(
+          (e) => Method(
+            (b) => b
+              ..name = pc.namePrinter.printHookName(e.path)
+              ..body = refer(
+                e.isVariablesRequired
+                    ? 'useMutationWithRequiredVariables'
+                    : 'useMutation',
+              ).call([
+                literalString(
+                  pc.namePrinter.printDocumentReference(e.path),
+                  raw: true,
+                ),
+                refer(pc.namePrinter.printClassName(e.path))
+                    .property('fromJson'),
+              ]).code
+              ..requiredParameters = ListBuilder([
+                Parameter(
+                  (b) => b
+                    ..name = 'document'
+                    ..type = refer('DocumentNode'),
+                ),
+              ])
+              ..returns = TypeReference(
+                (b) => b
+                  ..symbol = e.isVariablesRequired
+                      ? 'MutationResultWithRequiredVariables'
+                      : 'MutationResult'
+                  ..types = ListBuilder([
+                    if (e.hasVariables)
+                      refer(pc.namePrinter.printVariableClassName(e.path))
+                    else
+                      refer('Null'),
+                    refer(pc.namePrinter.printClassName(e.path)),
+                  ]),
+              ),
+          ),
+        ),
     ...pc.context.contextFragments.map(
       (e) {
         final fragment = e.fragment;

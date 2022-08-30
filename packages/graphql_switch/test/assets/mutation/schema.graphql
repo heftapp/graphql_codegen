@@ -1,0 +1,4 @@
+
+type Mutation {
+    incrementCounter(step: Int): Int
+}

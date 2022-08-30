@@ -83,6 +83,12 @@ Future<void> _initialzer(ClientInitializer initializer) async {
             directives: [],
             selectionSet: null),
         FieldNode(
+            name: NameNode(value: 'birthYear'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null),
+        FieldNode(
             name: NameNode(value: 'id'),
             alias: null,
             arguments: [],
@@ -334,11 +340,13 @@ class Fragment$Movie_film$characters$characters
 }
 
 class Fragment$Characters {
-  Fragment$Characters._(this.$rawData, this.name);
+  Fragment$Characters._(this.$rawData, this.name, this.birthYear);
 
   final Map<String, dynamic> $rawData;
 
   final String? name;
+
+  final String? birthYear;
 
   @override
   bool operator ==(Object other) {
@@ -353,18 +361,26 @@ class Fragment$Characters {
     if (l$name != lOther$name) {
       return false;
     }
+    final l$birthYear = birthYear;
+    final lOther$birthYear = other.birthYear;
+    if (l$birthYear != lOther$birthYear) {
+      return false;
+    }
     return true;
   }
 
   @override
   int get hashCode {
     final l$name = name;
-    return Object.hashAll([l$name]);
+    final l$birthYear = birthYear;
+    return Object.hashAll([l$name, l$birthYear]);
   }
 
   static Fragment$Characters fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
-    return Fragment$Characters._(json, (l$name as String?));
+    final l$birthYear = json['birthYear'];
+    return Fragment$Characters._(
+        json, (l$name as String?), (l$birthYear as String?));
   }
 }
 

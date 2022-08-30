@@ -5,18 +5,24 @@ import 'package:flutter/widgets.dart';
 import 'package:gql/ast.dart';
 import 'package:gql/language.dart';
 import 'package:graphql/client.dart' as graphql;
+import 'package:graphql_switch/src/client/logger.dart';
+import 'package:graphql_switch/src/client/mutation.dart';
 import 'package:graphql_switch/src/client/query.dart';
 
-enum OperationKind { mutation, query, subscription }
+enum OperationKind {
+  mutation,
+  query,
+  subscription;
 
-OperationKind _operationToOperationKind(OperationDefinitionNode op) {
-  switch (op.type) {
-    case OperationType.mutation:
-      return OperationKind.mutation;
-    case OperationType.query:
-      return OperationKind.query;
-    case OperationType.subscription:
-      return OperationKind.subscription;
+  static OperationKind fromOperationDefinitionNode(OperationDefinitionNode op) {
+    switch (op.type) {
+      case OperationType.mutation:
+        return OperationKind.mutation;
+      case OperationType.query:
+        return OperationKind.query;
+      case OperationType.subscription:
+        return OperationKind.subscription;
+    }
   }
 }
 
@@ -51,7 +57,7 @@ class _InitializeMessage implements _Message {
 class _QueryMessage implements _Message {
   final int id;
   final SendPort isolateToMain;
-  final QueryOptions? options;
+  final QueryOptions options;
   final String key;
   final Map<String, dynamic> variables;
 
@@ -68,6 +74,24 @@ class _StopQueryMessage implements _Message {
   final int id;
 
   _StopQueryMessage(this.id);
+}
+
+class _MutationStartMessage implements _Message {
+  final SendPort isolateToMain;
+  final Map<String, dynamic> variables;
+  final String key;
+
+  _MutationStartMessage({
+    required this.isolateToMain,
+    required this.variables,
+    required this.key,
+  });
+}
+
+class _MutationComplateMessage implements _Message {
+  final Map<String, dynamic>? data;
+
+  _MutationComplateMessage(this.data);
 }
 
 class _FetchLink<TClientContext> extends graphql.Link {
@@ -89,7 +113,7 @@ class _FetchLink<TClientContext> extends graphql.Link {
         clientContext: clientContext,
         text: printNode(request.operation.document),
         name: request.operation.operationName ?? opDoc.name!.value,
-        operationKind: _operationToOperationKind(opDoc),
+        operationKind: OperationKind.fromOperationDefinitionNode(opDoc),
       ),
       request.variables,
     );
@@ -114,13 +138,13 @@ class ClientInitializer<TClientContext extends Object?> {
 
   void _listen(Object? message) async {
     if (message is _QueryMessage) {
-      print('Watching you');
+      logger.d('Starting to watch query ${message.id}');
       final observableQuery = client.watchQuery(
         graphql.WatchQueryOptions(
           fetchResults: true,
           document: operations[message.key]!,
           variables: message.variables,
-          fetchPolicy: graphql.FetchPolicy.cacheAndNetwork,
+          fetchPolicy: message.options.fetchPolicy.graphqlFetchPolicy,
         ),
       );
       queries[message.id] = observableQuery;
@@ -129,20 +153,36 @@ class ClientInitializer<TClientContext extends Object?> {
         message.isolateToMain.send(
           QueryResult(
             data: msg.data,
-            isInFlight: msg.isLoading,
+            isLoading: msg.isLoading,
           ),
         );
       }
-      print('Not watching you');
+      logger.d('Stop watching query ${message.id}');
     }
     if (message is _StopQueryMessage) {
+      logger.d('Stopping query ${message.id}');
       queries[message.id]?.close();
       queries.remove(message.id);
+    }
+
+    if (message is _MutationStartMessage) {
+      logger.d('Starting mutation ${message.key}');
+      final result = await client.mutate(
+        graphql.MutationOptions(
+          document: operations[message.key]!,
+          variables: message.variables,
+        ),
+      );
+      message.isolateToMain.send(
+        _MutationComplateMessage(
+          result.data,
+        ),
+      );
     }
   }
 
   Future<void> setup() async {
-    print('Setting up client');
+    logger.d('Setting up client');
     final mainToIsolate = ReceivePort();
     _sendToMain(_InitializeMessage(mainToIsolate.sendPort));
     client = graphql.GraphQLClient(
@@ -157,7 +197,7 @@ class ClientInitializer<TClientContext extends Object?> {
   }
 
   void registerOperation(String key, DocumentNode documentNode) {
-    print('Registering operation ${key}');
+    logger.d('Registering operation ${key}');
     operations[key] = documentNode;
   }
 }
@@ -170,6 +210,8 @@ class QueryStreamWrapper {
 
   QueryStreamWrapper(this.stream, this.dispose);
 }
+
+class MutationStreamWrapper {}
 
 class InitializeResult {
   static int queryIDCounter = 0;
@@ -184,9 +226,35 @@ class InitializeResult {
 
   void _listen(Object? message, Completer<void> initializationCompleter) {
     if (message is _InitializeMessage) {
-      print('Bi-lateral comms established');
+      logger.d('Bi-lateral comms established');
       mainToIsolate = message.mainToIsolate;
       initializationCompleter.complete();
+    }
+  }
+
+  void mutate({
+    required String key,
+    required Map<String, dynamic> variables,
+    required OnCompletedFn<Map<String, dynamic>> onCompleted,
+  }) async {
+    logger.d('Mutating ${key}');
+    final isolateToMain = ReceivePort();
+    mainToIsolate.send(
+      _MutationStartMessage(
+        isolateToMain: isolateToMain.sendPort,
+        variables: variables,
+        key: key,
+      ),
+    );
+    await for (final message in isolateToMain) {
+      if (message is _MutationComplateMessage) {
+        onCompleted(
+          OnCompleteResult(
+            message.data,
+          ),
+        );
+        return;
+      }
     }
   }
 
@@ -195,14 +263,14 @@ class InitializeResult {
     Map<String, dynamic> variables,
     QueryOptions? options,
   ) {
-    print('Querying ${key}');
+    logger.d('Querying ${key}');
     final id = InitializeResult.queryIDCounter++;
     final isolateToMain = ReceivePort();
     mainToIsolate.send(
       _QueryMessage(
         id: id,
         isolateToMain: isolateToMain.sendPort,
-        options: options,
+        options: options ?? QueryOptions(),
         key: key,
         variables: variables,
       ),
@@ -251,7 +319,7 @@ class InternalSwitchClient extends StatelessWidget {
     FetchFn<TClientContext> fetch,
     TClientContext clientContext,
   ) async {
-    print('Setting up main');
+    logger.d('Setting up main');
     final isolateToMain = ReceivePort();
     Isolate.spawn(
       initializer,

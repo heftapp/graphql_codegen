@@ -1,13 +1,17 @@
+import 'package:equatable/equatable.dart';
 import 'package:graphql_switch/graphql_switch.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:graphql/client.dart' as graphql;
+import 'package:graphql_switch/src/client/logger.dart';
+import 'package:graphql_switch/src/client/mutation.dart';
 
-class QueryResult<TResult> {
+class QueryResult<TResult> extends Equatable {
   final TResult? data;
-  final bool isInFlight;
+  final bool isLoading;
 
   QueryResult({
     required this.data,
-    required this.isInFlight,
+    required this.isLoading,
   });
 
   QueryResult<TNewResult> parseData<TNewResult>(
@@ -16,22 +20,26 @@ class QueryResult<TResult> {
     final data = this.data;
     return QueryResult(
       data: data == null ? null : parser(data),
-      isInFlight: isInFlight,
+      isLoading: isLoading,
     );
   }
+
+  @override
+  List<Object?> get props => [data, isLoading];
 }
+
+typedef ParserFn<TResult> = TResult Function(Map<String, dynamic> data);
 
 QueryResult<TResult> useQuery<TResult>(
   String documentReference,
-  TResult Function(Map<String, dynamic> data) parser,
+  ParserFn<TResult> parserFn,
   QueryOptions? options,
   Input? variables,
 ) {
   final context = useContext();
   final streamWrapper = useMemoized(() {
-    print('Starting query ${documentReference}');
+    logger.d('Starting query ${documentReference}');
     final client = InitializeResult.of(context)!;
-    print('Has client');
     return client.query(
       documentReference,
       variables?.toJson() ?? const {},
@@ -45,17 +53,36 @@ QueryResult<TResult> useQuery<TResult>(
 
   final stream = useMemoized(() async* {
     await for (final msg in streamWrapper.stream) {
-      yield msg.parseData(parser);
+      yield msg.parseData(parserFn);
     }
-  }, [streamWrapper, parser]);
+  }, [streamWrapper, parserFn]);
 
-  final snapshot = useStream(stream);
+  final snapshot = useStream(
+    stream,
+    initialData: QueryResult<TResult>(
+      data: null,
+      isLoading: true,
+    ),
+  );
 
-  return snapshot.data ??
-      QueryResult<TResult>(
-        data: null,
-        isInFlight: true,
-      );
+  return snapshot.data!;
 }
 
-abstract class QueryOptions {}
+enum FetchPolicy {
+  storeAndNetwork(graphql.FetchPolicy.cacheAndNetwork),
+  storeOrNetwork(graphql.FetchPolicy.cacheFirst),
+  networkOnly(graphql.FetchPolicy.networkOnly),
+  storeOnly(graphql.FetchPolicy.cacheOnly);
+
+  const FetchPolicy(this.graphqlFetchPolicy);
+
+  final graphql.FetchPolicy graphqlFetchPolicy;
+}
+
+class QueryOptions {
+  final FetchPolicy fetchPolicy;
+
+  QueryOptions({
+    this.fetchPolicy = FetchPolicy.storeOrNetwork,
+  });
+}
