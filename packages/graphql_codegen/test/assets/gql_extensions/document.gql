@@ -1,0 +1,9 @@
+
+type Query {
+    fetchCount: Int
+}
+
+
+query FetchCount {
+    fetchCount
+}

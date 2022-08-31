@@ -1,3 +1,7 @@
+# 0.11.0-beta.7
+
+* Support `.gql` file-extension
+
 # 0.11.0-beta.6
 
 * Expose methods for `graphql_switch`

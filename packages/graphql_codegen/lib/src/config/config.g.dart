@@ -39,11 +39,11 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
           ) ??
           const {},
       addTypename: json['addTypename'] as bool? ?? true,
-      assetsPath: json['assetsPath'] as String? ?? "lib/**.graphql",
+      assetsPath: json['assetsPath'] as String? ?? "lib/**{.graphql,.gql}",
       scopes: (json['scopes'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const ["**.graphql"],
+          const ["**{.graphql,.gql}"],
       addTypenameExcludedPaths:
           (json['addTypenameExcludedPaths'] as List<dynamic>?)
                   ?.map((e) => e as String)
