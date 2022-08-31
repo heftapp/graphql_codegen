@@ -1,3 +1,16 @@
+# 0.11.0
+
+* Support `.gql` file-extension
+* Expose methods for `graphql_switch`
+* Inline GraphQL Config
+* Fix deep copy on nested objects
+* Add custom support for `DateTime`
+* Fix `double` conversion.
+* Simplify input classes
+* Remove dependency on `json_serializable`
+* Improve input `null`-handling.
+
+
 # 0.11.0-beta.7
 
 * Support `.gql` file-extension
