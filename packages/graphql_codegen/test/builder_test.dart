@@ -51,9 +51,10 @@ void main() {
               : 'a|${p.join('lib', relativePath)}';
           if (extension(path) == '.expected') {
             await File("${testSet.path}/${path}").delete();
-          } else if (extension(path) == ".graphql") {
+          } else if ({'.graphql', '.gql'}.contains(extension(path))) {
             assets[assetPath] = file;
-          } else if (path.endsWith(".graphql.dart")) {
+          } else if (path.endsWith(".graphql.dart") ||
+              path.endsWith('.gql.dart')) {
             expectedOutputs[assetPath] = file;
           }
         }
