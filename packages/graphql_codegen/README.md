@@ -14,7 +14,7 @@ to add your schema to your project. In Android Studio this can be done with the 
 
 ## Installation
 
-### Dev Dependencies
+### Dev dependencies
 
 - `build_runner` generates files from dart code. Read more [here](https://pub.dev/packages/build_runner)
 
@@ -643,6 +643,9 @@ this in combination with an asset path will place the folders in
 /graphql/document.graphql -> /lib/__generated/document.graphql
 /graphql/fragments/document.graphql -> /lib/__generated/fragments/document.graphql
 ```
+
+**NOTICE:** For `build_runner` to consider files outside of the "default package layout" you'll need to add the `graphql/**` to the [source options](https://github.com/dart-lang/build/blob/master/docs/faq.md#how-can-i-include-additional-sources-in-my-build).
+
 
 ## Generated file headers
 
