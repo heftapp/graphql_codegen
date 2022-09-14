@@ -26,7 +26,10 @@ class Input$I {
     return result$data;
   }
 
-  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -54,8 +57,10 @@ class Input$I {
 }
 
 abstract class CopyWith$Input$I<TRes> {
-  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
-      _CopyWithImpl$Input$I;
+  factory CopyWith$Input$I(
+    Input$I instance,
+    TRes Function(Input$I) then,
+  ) = _CopyWithImpl$Input$I;
 
   factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
 
@@ -63,7 +68,10 @@ abstract class CopyWith$Input$I<TRes> {
 }
 
 class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
-  _CopyWithImpl$Input$I(this._instance, this._then);
+  _CopyWithImpl$Input$I(
+    this._instance,
+    this._then,
+  );
 
   final Input$I _instance;
 
@@ -113,7 +121,10 @@ class Input$I_ {
     return result$data;
   }
 
-  CopyWith$Input$I_<Input$I_> get copyWith => CopyWith$Input$I_(this, (i) => i);
+  CopyWith$Input$I_<Input$I_> get copyWith => CopyWith$Input$I_(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -141,8 +152,10 @@ class Input$I_ {
 }
 
 abstract class CopyWith$Input$I_<TRes> {
-  factory CopyWith$Input$I_(Input$I_ instance, TRes Function(Input$I_) then) =
-      _CopyWithImpl$Input$I_;
+  factory CopyWith$Input$I_(
+    Input$I_ instance,
+    TRes Function(Input$I_) then,
+  ) = _CopyWithImpl$Input$I_;
 
   factory CopyWith$Input$I_.stub(TRes res) = _CopyWithStubImpl$Input$I_;
 
@@ -150,7 +163,10 @@ abstract class CopyWith$Input$I_<TRes> {
 }
 
 class _CopyWithImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
-  _CopyWithImpl$Input$I_(this._instance, this._then);
+  _CopyWithImpl$Input$I_(
+    this._instance,
+    this._then,
+  );
 
   final Input$I_ _instance;
 
@@ -200,7 +216,10 @@ class Input$i {
     return result$data;
   }
 
-  CopyWith$Input$i<Input$i> get copyWith => CopyWith$Input$i(this, (i) => i);
+  CopyWith$Input$i<Input$i> get copyWith => CopyWith$Input$i(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -229,8 +248,10 @@ class Input$i {
 }
 
 abstract class CopyWith$Input$i<TRes> {
-  factory CopyWith$Input$i(Input$i instance, TRes Function(Input$i) then) =
-      _CopyWithImpl$Input$i;
+  factory CopyWith$Input$i(
+    Input$i instance,
+    TRes Function(Input$i) then,
+  ) = _CopyWithImpl$Input$i;
 
   factory CopyWith$Input$i.stub(TRes res) = _CopyWithStubImpl$Input$i;
 
@@ -238,7 +259,10 @@ abstract class CopyWith$Input$i<TRes> {
 }
 
 class _CopyWithImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
-  _CopyWithImpl$Input$i(this._instance, this._then);
+  _CopyWithImpl$Input$i(
+    this._instance,
+    this._then,
+  );
 
   final Input$i _instance;
 

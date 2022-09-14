@@ -1,3 +1,6 @@
 const possibleTypesMap = {
-  'Condition': {'AndCondition', 'TimeCondition'}
+  'Condition': {
+    'AndCondition',
+    'TimeCondition',
+  }
 };

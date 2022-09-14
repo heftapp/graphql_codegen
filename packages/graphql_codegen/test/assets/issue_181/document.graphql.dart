@@ -181,4 +181,28 @@ class _CopyWithStubImpl$Input$UpdatePersonInput<TRes>
       _res;
 }
 
+enum Enum$QueryMode { $default, insensitive, $unknown }
+
+String toJson$Enum$QueryMode(Enum$QueryMode e) {
+  switch (e) {
+    case Enum$QueryMode.$default:
+      return r'default';
+    case Enum$QueryMode.insensitive:
+      return r'insensitive';
+    case Enum$QueryMode.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$QueryMode fromJson$Enum$QueryMode(String value) {
+  switch (value) {
+    case r'default':
+      return Enum$QueryMode.$default;
+    case r'insensitive':
+      return Enum$QueryMode.insensitive;
+    default:
+      return Enum$QueryMode.$unknown;
+  }
+}
+
 const possibleTypesMap = {};

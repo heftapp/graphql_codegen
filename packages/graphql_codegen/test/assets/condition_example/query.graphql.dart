@@ -2,16 +2,19 @@ import 'fragments.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Query$FetchShouldRender {
-  Query$FetchShouldRender(
-      {required this.shouldRender, required this.$__typename});
+  Query$FetchShouldRender({
+    required this.shouldRender,
+    required this.$__typename,
+  });
 
   factory Query$FetchShouldRender.fromJson(Map<String, dynamic> json) {
     final l$shouldRender = json['shouldRender'];
     final l$$__typename = json['__typename'];
     return Query$FetchShouldRender(
-        shouldRender: Fragment$CompositeCondition.fromJson(
-            (l$shouldRender as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      shouldRender: Fragment$CompositeCondition.fromJson(
+          (l$shouldRender as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$CompositeCondition shouldRender;
@@ -31,7 +34,10 @@ class Query$FetchShouldRender {
   int get hashCode {
     final l$shouldRender = shouldRender;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$shouldRender, l$$__typename]);
+    return Object.hashAll([
+      l$shouldRender,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -59,24 +65,34 @@ class Query$FetchShouldRender {
 
 extension UtilityExtension$Query$FetchShouldRender on Query$FetchShouldRender {
   CopyWith$Query$FetchShouldRender<Query$FetchShouldRender> get copyWith =>
-      CopyWith$Query$FetchShouldRender(this, (i) => i);
+      CopyWith$Query$FetchShouldRender(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchShouldRender<TRes> {
-  factory CopyWith$Query$FetchShouldRender(Query$FetchShouldRender instance,
-          TRes Function(Query$FetchShouldRender) then) =
-      _CopyWithImpl$Query$FetchShouldRender;
+  factory CopyWith$Query$FetchShouldRender(
+    Query$FetchShouldRender instance,
+    TRes Function(Query$FetchShouldRender) then,
+  ) = _CopyWithImpl$Query$FetchShouldRender;
 
   factory CopyWith$Query$FetchShouldRender.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchShouldRender;
 
-  TRes call({Fragment$CompositeCondition? shouldRender, String? $__typename});
+  TRes call({
+    Fragment$CompositeCondition? shouldRender,
+    String? $__typename,
+  });
   CopyWith$Fragment$CompositeCondition<TRes> get shouldRender;
 }
 
 class _CopyWithImpl$Query$FetchShouldRender<TRes>
     implements CopyWith$Query$FetchShouldRender<TRes> {
-  _CopyWithImpl$Query$FetchShouldRender(this._instance, this._then);
+  _CopyWithImpl$Query$FetchShouldRender(
+    this._instance,
+    this._then,
+  );
 
   final Query$FetchShouldRender _instance;
 
@@ -84,16 +100,18 @@ class _CopyWithImpl$Query$FetchShouldRender<TRes>
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? shouldRender = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? shouldRender = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$FetchShouldRender(
-          shouldRender: shouldRender == _undefined || shouldRender == null
-              ? _instance.shouldRender
-              : (shouldRender as Fragment$CompositeCondition),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        shouldRender: shouldRender == _undefined || shouldRender == null
+            ? _instance.shouldRender
+            : (shouldRender as Fragment$CompositeCondition),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$CompositeCondition<TRes> get shouldRender {
     final local$shouldRender = _instance.shouldRender;
     return CopyWith$Fragment$CompositeCondition(
@@ -107,7 +125,10 @@ class _CopyWithStubImpl$Query$FetchShouldRender<TRes>
 
   TRes _res;
 
-  call({Fragment$CompositeCondition? shouldRender, String? $__typename}) =>
+  call({
+    Fragment$CompositeCondition? shouldRender,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Fragment$CompositeCondition<TRes> get shouldRender =>
       CopyWith$Fragment$CompositeCondition.stub(_res);
@@ -115,33 +136,39 @@ class _CopyWithStubImpl$Query$FetchShouldRender<TRes>
 
 const documentNodeQueryFetchShouldRender = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'FetchShouldRender'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'shouldRender'),
-            alias: null,
-            arguments: [],
+    type: OperationType.query,
+    name: NameNode(value: 'FetchShouldRender'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'shouldRender'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'CompositeCondition'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                  name: NameNode(value: 'CompositeCondition'), directives: []),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
   fragmentDefinitionCompositeCondition,
   fragmentDefinitionTimeCondition,
   fragmentDefinitionCondition,

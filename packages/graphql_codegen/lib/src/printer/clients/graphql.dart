@@ -815,13 +815,13 @@ Spec printQueryExtension(PrintContext<ContextOperation> context) {
               ),
             ])
             ..body = Block.of([
-              refer("this")
-                  .property("readQuery")
-                  .call(
-                    [request],
-                    {'optimistic': refer('optimistic')},
+              declareFinal('result')
+                  .assign(
+                    refer("this").property("readQuery").call(
+                      [request],
+                      {'optimistic': refer('optimistic')},
+                    ),
                   )
-                  .assignFinal('result')
                   .statement,
               refer('result')
                   .equalTo(literalNull)
@@ -946,13 +946,13 @@ Spec printFragmentExtension(PrintContext<ContextFragment> context) {
               ),
             ])
             ..body = Block.of([
-              refer("this")
-                  .property("readFragment")
-                  .call(
-                    [fragmentRequest],
-                    {'optimistic': refer('optimistic')},
+              declareFinal('result')
+                  .assign(
+                    refer("this").property("readFragment").call(
+                      [fragmentRequest],
+                      {'optimistic': refer('optimistic')},
+                    ),
                   )
-                  .assignFinal('result')
                   .statement,
               refer('result')
                   .equalTo(literalNull)

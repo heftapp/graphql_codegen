@@ -1,15 +1,16 @@
 class Input$I1 {
-  factory Input$I1(
-          {required String s,
-          String? sMaybe,
-          Input$I1? nested_input,
-          List<Input$I1>? children,
-          List<List<Input$I1?>?>? children2,
-          int? $_min,
-          Enum$E? eMaybe,
-          required Enum$E e,
-          required List<Enum$E> es,
-          Input$I2? i2}) =>
+  factory Input$I1({
+    required String s,
+    String? sMaybe,
+    Input$I1? nested_input,
+    List<Input$I1>? children,
+    List<List<Input$I1?>?>? children2,
+    int? $_min,
+    Enum$E? eMaybe,
+    required Enum$E e,
+    required List<Enum$E> es,
+    Input$I2? i2,
+  }) =>
       Input$I1._({
         r's': s,
         if (sMaybe != null) r'sMaybe': sMaybe,
@@ -132,7 +133,10 @@ class Input$I1 {
     return result$data;
   }
 
-  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -289,28 +293,31 @@ class Input$I1 {
       _$data.containsKey('eMaybe') ? l$eMaybe : const {},
       l$e,
       Object.hashAll(l$es.map((v) => v)),
-      _$data.containsKey('i2') ? l$i2 : const {}
+      _$data.containsKey('i2') ? l$i2 : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
-      _CopyWithImpl$Input$I1;
+  factory CopyWith$Input$I1(
+    Input$I1 instance,
+    TRes Function(Input$I1) then,
+  ) = _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
-  TRes call(
-      {String? s,
-      String? sMaybe,
-      Input$I1? nested_input,
-      List<Input$I1>? children,
-      List<List<Input$I1?>?>? children2,
-      int? $_min,
-      Enum$E? eMaybe,
-      Enum$E? e,
-      List<Enum$E>? es,
-      Input$I2? i2});
+  TRes call({
+    String? s,
+    String? sMaybe,
+    Input$I1? nested_input,
+    List<Input$I1>? children,
+    List<List<Input$I1?>?>? children2,
+    int? $_min,
+    Enum$E? eMaybe,
+    Enum$E? e,
+    List<Enum$E>? es,
+    Input$I2? i2,
+  });
   CopyWith$Input$I1<TRes> get nested_input;
   TRes children(
       Iterable<Input$I1>? Function(Iterable<CopyWith$Input$I1<Input$I1>>?) _fn);
@@ -322,7 +329,10 @@ abstract class CopyWith$Input$I1<TRes> {
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
-  _CopyWithImpl$Input$I1(this._instance, this._then);
+  _CopyWithImpl$Input$I1(
+    this._instance,
+    this._then,
+  );
 
   final Input$I1 _instance;
 
@@ -330,17 +340,18 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? s = _undefined,
-          Object? sMaybe = _undefined,
-          Object? nested_input = _undefined,
-          Object? children = _undefined,
-          Object? children2 = _undefined,
-          Object? $_min = _undefined,
-          Object? eMaybe = _undefined,
-          Object? e = _undefined,
-          Object? es = _undefined,
-          Object? i2 = _undefined}) =>
+  TRes call({
+    Object? s = _undefined,
+    Object? sMaybe = _undefined,
+    Object? nested_input = _undefined,
+    Object? children = _undefined,
+    Object? children2 = _undefined,
+    Object? $_min = _undefined,
+    Object? eMaybe = _undefined,
+    Object? e = _undefined,
+    Object? es = _undefined,
+    Object? i2 = _undefined,
+  }) =>
       _then(Input$I1._({
         ..._instance._$data,
         if (s != _undefined && s != null) 's': (s as String),
@@ -367,17 +378,21 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
           Iterable<Input$I1>? Function(Iterable<CopyWith$Input$I1<Input$I1>>?)
               _fn) =>
       call(
-          children: _fn(_instance.children
-              ?.map((e) => CopyWith$Input$I1(e, (i) => i)))?.toList());
+          children: _fn(_instance.children?.map((e) => CopyWith$Input$I1(
+                e,
+                (i) => i,
+              )))?.toList());
   TRes children2(
           Iterable<Iterable<Input$I1?>?>? Function(
                   Iterable<Iterable<CopyWith$Input$I1<Input$I1>?>?>?)
               _fn) =>
       call(
-          children2: _fn(_instance.children2?.map((e) => e?.map(
-                  (e) => e == null ? null : CopyWith$Input$I1(e, (i) => i))))
-              ?.map((e) => e?.toList())
-              .toList());
+          children2: _fn(_instance.children2?.map((e) => e?.map((e) => e == null
+              ? null
+              : CopyWith$Input$I1(
+                  e,
+                  (i) => i,
+                ))))?.map((e) => e?.toList()).toList());
   CopyWith$Input$I2<TRes> get i2 {
     final local$i2 = _instance.i2;
     return local$i2 == null
@@ -391,17 +406,18 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   TRes _res;
 
-  call(
-          {String? s,
-          String? sMaybe,
-          Input$I1? nested_input,
-          List<Input$I1>? children,
-          List<List<Input$I1?>?>? children2,
-          int? $_min,
-          Enum$E? eMaybe,
-          Enum$E? e,
-          List<Enum$E>? es,
-          Input$I2? i2}) =>
+  call({
+    String? s,
+    String? sMaybe,
+    Input$I1? nested_input,
+    List<Input$I1>? children,
+    List<List<Input$I1?>?>? children2,
+    int? $_min,
+    Enum$E? eMaybe,
+    Enum$E? e,
+    List<Enum$E>? es,
+    Input$I2? i2,
+  }) =>
       _res;
   CopyWith$Input$I1<TRes> get nested_input => CopyWith$Input$I1.stub(_res);
   children(_fn) => _res;
@@ -437,7 +453,10 @@ class Input$I2 {
     return result$data;
   }
 
-  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(this, (i) => i);
+  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -465,8 +484,10 @@ class Input$I2 {
 }
 
 abstract class CopyWith$Input$I2<TRes> {
-  factory CopyWith$Input$I2(Input$I2 instance, TRes Function(Input$I2) then) =
-      _CopyWithImpl$Input$I2;
+  factory CopyWith$Input$I2(
+    Input$I2 instance,
+    TRes Function(Input$I2) then,
+  ) = _CopyWithImpl$Input$I2;
 
   factory CopyWith$Input$I2.stub(TRes res) = _CopyWithStubImpl$Input$I2;
 
@@ -474,7 +495,10 @@ abstract class CopyWith$Input$I2<TRes> {
 }
 
 class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
-  _CopyWithImpl$Input$I2(this._instance, this._then);
+  _CopyWithImpl$Input$I2(
+    this._instance,
+    this._then,
+  );
 
   final Input$I2 _instance;
 
@@ -497,6 +521,7 @@ class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
 }
 
 enum Enum$E { FOO, BAR, BAZ, $unknown }
+
 String toJson$Enum$E(Enum$E e) {
   switch (e) {
     case Enum$E.FOO:

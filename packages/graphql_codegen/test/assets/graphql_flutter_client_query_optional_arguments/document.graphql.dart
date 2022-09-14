@@ -33,7 +33,10 @@ class Variables$Query$FetchSOptional {
   }
 
   CopyWith$Variables$Query$FetchSOptional<Variables$Query$FetchSOptional>
-      get copyWith => CopyWith$Variables$Query$FetchSOptional(this, (i) => i);
+      get copyWith => CopyWith$Variables$Query$FetchSOptional(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -63,9 +66,9 @@ class Variables$Query$FetchSOptional {
 
 abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
   factory CopyWith$Variables$Query$FetchSOptional(
-          Variables$Query$FetchSOptional instance,
-          TRes Function(Variables$Query$FetchSOptional) then) =
-      _CopyWithImpl$Variables$Query$FetchSOptional;
+    Variables$Query$FetchSOptional instance,
+    TRes Function(Variables$Query$FetchSOptional) then,
+  ) = _CopyWithImpl$Variables$Query$FetchSOptional;
 
   factory CopyWith$Variables$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FetchSOptional;
@@ -75,7 +78,10 @@ abstract class CopyWith$Variables$Query$FetchSOptional<TRes> {
 
 class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
     implements CopyWith$Variables$Query$FetchSOptional<TRes> {
-  _CopyWithImpl$Variables$Query$FetchSOptional(this._instance, this._then);
+  _CopyWithImpl$Variables$Query$FetchSOptional(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$FetchSOptional _instance;
 
@@ -141,13 +147,17 @@ class Query$FetchSOptional {
 
 extension UtilityExtension$Query$FetchSOptional on Query$FetchSOptional {
   CopyWith$Query$FetchSOptional<Query$FetchSOptional> get copyWith =>
-      CopyWith$Query$FetchSOptional(this, (i) => i);
+      CopyWith$Query$FetchSOptional(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchSOptional<TRes> {
-  factory CopyWith$Query$FetchSOptional(Query$FetchSOptional instance,
-          TRes Function(Query$FetchSOptional) then) =
-      _CopyWithImpl$Query$FetchSOptional;
+  factory CopyWith$Query$FetchSOptional(
+    Query$FetchSOptional instance,
+    TRes Function(Query$FetchSOptional) then,
+  ) = _CopyWithImpl$Query$FetchSOptional;
 
   factory CopyWith$Query$FetchSOptional.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSOptional;
@@ -157,7 +167,10 @@ abstract class CopyWith$Query$FetchSOptional<TRes> {
 
 class _CopyWithImpl$Query$FetchSOptional<TRes>
     implements CopyWith$Query$FetchSOptional<TRes> {
-  _CopyWithImpl$Query$FetchSOptional(this._instance, this._then);
+  _CopyWithImpl$Query$FetchSOptional(
+    this._instance,
+    this._then,
+  );
 
   final Query$FetchSOptional _instance;
 
@@ -180,29 +193,35 @@ class _CopyWithStubImpl$Query$FetchSOptional<TRes>
 
 const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'FetchSOptional'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'name')),
-            type: NamedTypeNode(
-                name: NameNode(value: 'String'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 's'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: VariableNode(name: NameNode(value: 'name')))
-            ],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'FetchSOptional'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'name')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 's'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'name'),
+            value: VariableNode(name: NameNode(value: 'name')),
+          )
+        ],
+        directives: [],
+        selectionSet: null,
+      )
+    ]),
+  ),
 ]);
 Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
@@ -210,66 +229,69 @@ Query$FetchSOptional _parserFn$Query$FetchSOptional(
 
 class Options$Query$FetchSOptional
     extends graphql.QueryOptions<Query$FetchSOptional> {
-  Options$Query$FetchSOptional(
-      {String? operationName,
-      Variables$Query$FetchSOptional? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQueryFetchSOptional,
-            parserFn: _parserFn$Query$FetchSOptional);
+  Options$Query$FetchSOptional({
+    String? operationName,
+    Variables$Query$FetchSOptional? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          pollInterval: pollInterval,
+          context: context,
+          document: documentNodeQueryFetchSOptional,
+          parserFn: _parserFn$Query$FetchSOptional,
+        );
 }
 
 class WatchOptions$Query$FetchSOptional
     extends graphql.WatchQueryOptions<Query$FetchSOptional> {
-  WatchOptions$Query$FetchSOptional(
-      {String? operationName,
-      Variables$Query$FetchSOptional? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQueryFetchSOptional,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$FetchSOptional);
+  WatchOptions$Query$FetchSOptional({
+    String? operationName,
+    Variables$Query$FetchSOptional? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeQueryFetchSOptional,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$FetchSOptional,
+        );
 }
 
 class FetchMoreOptions$Query$FetchSOptional extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$FetchSOptional(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$FetchSOptional? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQueryFetchSOptional);
+  FetchMoreOptions$Query$FetchSOptional({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$FetchSOptional? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQueryFetchSOptional,
+        );
 }
 
 extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
@@ -279,25 +301,31 @@ extension ClientExtension$Query$FetchSOptional on graphql.GraphQLClient {
   graphql.ObservableQuery<Query$FetchSOptional> watchQuery$FetchSOptional(
           [WatchOptions$Query$FetchSOptional? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$FetchSOptional());
-  void writeQuery$FetchSOptional(
-          {required Query$FetchSOptional data,
-          Variables$Query$FetchSOptional? variables,
-          bool broadcast = true}) =>
+  void writeQuery$FetchSOptional({
+    required Query$FetchSOptional data,
+    Variables$Query$FetchSOptional? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation:
-                  graphql.Operation(document: documentNodeQueryFetchSOptional),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$FetchSOptional? readQuery$FetchSOptional(
-      {Variables$Query$FetchSOptional? variables, bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation:
-                graphql.Operation(document: documentNodeQueryFetchSOptional),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation:
+              graphql.Operation(document: documentNodeQueryFetchSOptional),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$FetchSOptional? readQuery$FetchSOptional({
+    Variables$Query$FetchSOptional? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(document: documentNodeQueryFetchSOptional),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null ? null : Query$FetchSOptional.fromJson(result);
   }
 }
@@ -312,14 +340,15 @@ graphql.ObservableQuery<Query$FetchSOptional> useWatchQuery$FetchSOptional(
 
 class Query$FetchSOptional$Widget
     extends graphql_flutter.Query<Query$FetchSOptional> {
-  Query$FetchSOptional$Widget(
-      {widgets.Key? key,
-      Options$Query$FetchSOptional? options,
-      required graphql_flutter.QueryBuilder<Query$FetchSOptional> builder})
-      : super(
-            key: key,
-            options: options ?? Options$Query$FetchSOptional(),
-            builder: builder);
+  Query$FetchSOptional$Widget({
+    widgets.Key? key,
+    Options$Query$FetchSOptional? options,
+    required graphql_flutter.QueryBuilder<Query$FetchSOptional> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$FetchSOptional(),
+          builder: builder,
+        );
 }
 
 const possibleTypesMap = {};

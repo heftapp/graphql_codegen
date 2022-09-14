@@ -20,10 +20,8 @@ Constructor _printFromJson(
 ]) {
   List<Code> body = [
     for (final property in properties)
-      refer('json')
-          .index(literalString(property.name.value))
-          .assignFinal(
-              context.namePrinter.printLocalPropertyName(property.name))
+      declareFinal(context.namePrinter.printLocalPropertyName(property.name))
+          .assign(refer('json').index(literalString(property.name.value)))
           .statement,
     refer(name)
         .call([], {
@@ -195,12 +193,12 @@ Method _printToJsonMethod(
       ..returns = dynamicMap
       ..name = "toJson"
       ..body = Block.of([
-        literalMap({}, refer('String'), refer('dynamic'))
-            .assignFinal(resultDataVariable)
+        declareFinal(resultDataVariable)
+            .assign(literalMap({}, refer('String'), refer('dynamic')))
             .statement,
         for (final property in c.context.properties) ...[
-          refer(c.namePrinter.printPropertyName(property.name))
-              .assignFinal(c.namePrinter.printLocalPropertyName(property.name))
+          declareFinal(c.namePrinter.printLocalPropertyName(property.name))
+              .assign(refer(c.namePrinter.printPropertyName(property.name)))
               .statement,
           refer(resultDataVariable)
               .index(literalString(property.name.value))

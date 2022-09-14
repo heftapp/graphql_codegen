@@ -27,7 +27,10 @@ class Variables$Query$HiBob {
   }
 
   CopyWith$Variables$Query$HiBob<Variables$Query$HiBob> get copyWith =>
-      CopyWith$Variables$Query$HiBob(this, (i) => i);
+      CopyWith$Variables$Query$HiBob(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -52,9 +55,10 @@ class Variables$Query$HiBob {
 }
 
 abstract class CopyWith$Variables$Query$HiBob<TRes> {
-  factory CopyWith$Variables$Query$HiBob(Variables$Query$HiBob instance,
-          TRes Function(Variables$Query$HiBob) then) =
-      _CopyWithImpl$Variables$Query$HiBob;
+  factory CopyWith$Variables$Query$HiBob(
+    Variables$Query$HiBob instance,
+    TRes Function(Variables$Query$HiBob) then,
+  ) = _CopyWithImpl$Variables$Query$HiBob;
 
   factory CopyWith$Variables$Query$HiBob.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$HiBob;
@@ -64,7 +68,10 @@ abstract class CopyWith$Variables$Query$HiBob<TRes> {
 
 class _CopyWithImpl$Variables$Query$HiBob<TRes>
     implements CopyWith$Variables$Query$HiBob<TRes> {
-  _CopyWithImpl$Variables$Query$HiBob(this._instance, this._then);
+  _CopyWithImpl$Variables$Query$HiBob(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$HiBob _instance;
 
@@ -131,14 +138,17 @@ class Query$HiBob {
 }
 
 extension UtilityExtension$Query$HiBob on Query$HiBob {
-  CopyWith$Query$HiBob<Query$HiBob> get copyWith =>
-      CopyWith$Query$HiBob(this, (i) => i);
+  CopyWith$Query$HiBob<Query$HiBob> get copyWith => CopyWith$Query$HiBob(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$HiBob<TRes> {
   factory CopyWith$Query$HiBob(
-          Query$HiBob instance, TRes Function(Query$HiBob) then) =
-      _CopyWithImpl$Query$HiBob;
+    Query$HiBob instance,
+    TRes Function(Query$HiBob) then,
+  ) = _CopyWithImpl$Query$HiBob;
 
   factory CopyWith$Query$HiBob.stub(TRes res) = _CopyWithStubImpl$Query$HiBob;
 
@@ -147,7 +157,10 @@ abstract class CopyWith$Query$HiBob<TRes> {
 }
 
 class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
-  _CopyWithImpl$Query$HiBob(this._instance, this._then);
+  _CopyWithImpl$Query$HiBob(
+    this._instance,
+    this._then,
+  );
 
   final Query$HiBob _instance;
 
@@ -180,38 +193,47 @@ class _CopyWithStubImpl$Query$HiBob<TRes>
 
 const documentNodeQueryHiBob = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'HiBob'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'i')),
-            type: NamedTypeNode(name: NameNode(value: 'I1'), isNonNull: true),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'field'),
+    type: OperationType.query,
+    name: NameNode(value: 'HiBob'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'i')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'I1'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'field'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'i')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'b'),
+            value: BooleanValueNode(value: true),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'value'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'input'),
-                  value: VariableNode(name: NameNode(value: 'i'))),
-              ArgumentNode(
-                  name: NameNode(value: 'b'),
-                  value: BooleanValueNode(value: true))
-            ],
+            arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'value'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ]))
-      ])),
+            selectionSet: null,
+          )
+        ]),
+      )
+    ]),
+  ),
 ]);
 
 class Query$HiBob$field {
@@ -256,13 +278,17 @@ class Query$HiBob$field {
 
 extension UtilityExtension$Query$HiBob$field on Query$HiBob$field {
   CopyWith$Query$HiBob$field<Query$HiBob$field> get copyWith =>
-      CopyWith$Query$HiBob$field(this, (i) => i);
+      CopyWith$Query$HiBob$field(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$HiBob$field<TRes> {
   factory CopyWith$Query$HiBob$field(
-          Query$HiBob$field instance, TRes Function(Query$HiBob$field) then) =
-      _CopyWithImpl$Query$HiBob$field;
+    Query$HiBob$field instance,
+    TRes Function(Query$HiBob$field) then,
+  ) = _CopyWithImpl$Query$HiBob$field;
 
   factory CopyWith$Query$HiBob$field.stub(TRes res) =
       _CopyWithStubImpl$Query$HiBob$field;
@@ -272,7 +298,10 @@ abstract class CopyWith$Query$HiBob$field<TRes> {
 
 class _CopyWithImpl$Query$HiBob$field<TRes>
     implements CopyWith$Query$HiBob$field<TRes> {
-  _CopyWithImpl$Query$HiBob$field(this._instance, this._then);
+  _CopyWithImpl$Query$HiBob$field(
+    this._instance,
+    this._then,
+  );
 
   final Query$HiBob$field _instance;
 

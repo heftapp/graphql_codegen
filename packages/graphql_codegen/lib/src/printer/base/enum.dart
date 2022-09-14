@@ -12,7 +12,7 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
     kUnknowkEnumValue: kUnknowkEnumValue
   };
   final className = context.namePrinter.printClassName(context.path);
-  return [
+  final specs = <Spec>[
     Enum(
       (b) => b
         ..name = className
@@ -35,7 +35,7 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
         ..body = Block.of([
           Code('switch(e) {'),
           for (final value in values.entries)
-            Code('case ${className}.${value.key}: return r\'${value.value}\';'),
+            Code('case ${className}.${value.value}: return r\'${value.key}\';'),
           Code('}')
         ]),
     ),
@@ -56,10 +56,11 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
           for (final value in values.entries)
             if (value.key != kUnknowkEnumValue)
               Code(
-                  'case r\'${value.value}\': return ${className}.${value.key};'),
+                  'case r\'${value.key}\': return ${className}.${value.value};'),
           Code('default: return ${className}.${kUnknowkEnumValue};'),
           Code('}')
         ]),
     )
   ];
+  return specs;
 }

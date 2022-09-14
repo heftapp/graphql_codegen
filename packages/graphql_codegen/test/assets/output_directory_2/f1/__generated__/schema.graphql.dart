@@ -1,4 +1,5 @@
 enum Enum$E { ONE, TWO, THREE, $unknown }
+
 String toJson$Enum$E(Enum$E e) {
   switch (e) {
     case Enum$E.ONE:

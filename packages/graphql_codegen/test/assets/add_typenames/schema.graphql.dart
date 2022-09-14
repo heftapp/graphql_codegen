@@ -1,13 +1,18 @@
 import 'package:gql/ast.dart';
 
 class Fragment$FReport {
-  Fragment$FReport({this.title, required this.$__typename});
+  Fragment$FReport({
+    this.title,
+    required this.$__typename,
+  });
 
   factory Fragment$FReport.fromJson(Map<String, dynamic> json) {
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
     return Fragment$FReport(
-        title: (l$title as String?), $__typename: (l$$__typename as String));
+      title: (l$title as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String? title;
@@ -27,7 +32,10 @@ class Fragment$FReport {
   int get hashCode {
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$title, l$$__typename]);
+    return Object.hashAll([
+      l$title,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -54,23 +62,33 @@ class Fragment$FReport {
 
 extension UtilityExtension$Fragment$FReport on Fragment$FReport {
   CopyWith$Fragment$FReport<Fragment$FReport> get copyWith =>
-      CopyWith$Fragment$FReport(this, (i) => i);
+      CopyWith$Fragment$FReport(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$FReport<TRes> {
   factory CopyWith$Fragment$FReport(
-          Fragment$FReport instance, TRes Function(Fragment$FReport) then) =
-      _CopyWithImpl$Fragment$FReport;
+    Fragment$FReport instance,
+    TRes Function(Fragment$FReport) then,
+  ) = _CopyWithImpl$Fragment$FReport;
 
   factory CopyWith$Fragment$FReport.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FReport;
 
-  TRes call({String? title, String? $__typename});
+  TRes call({
+    String? title,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Fragment$FReport<TRes>
     implements CopyWith$Fragment$FReport<TRes> {
-  _CopyWithImpl$Fragment$FReport(this._instance, this._then);
+  _CopyWithImpl$Fragment$FReport(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$FReport _instance;
 
@@ -78,12 +96,16 @@ class _CopyWithImpl$Fragment$FReport<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? title = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? title = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$FReport(
-          title: title == _undefined ? _instance.title : (title as String?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        title: title == _undefined ? _instance.title : (title as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Fragment$FReport<TRes>
@@ -92,39 +114,50 @@ class _CopyWithStubImpl$Fragment$FReport<TRes>
 
   TRes _res;
 
-  call({String? title, String? $__typename}) => _res;
+  call({
+    String? title,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 const fragmentDefinitionFReport = FragmentDefinitionNode(
-    name: NameNode(value: 'FReport'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Report'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'title'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null)
-    ]));
+  name: NameNode(value: 'FReport'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Report'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'title'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
 const documentNodeFragmentFReport = DocumentNode(definitions: [
   fragmentDefinitionFReport,
 ]);
 
 class Query$Q {
-  Query$Q(
-      {this.docsWithTypename,
-      this.docsWihtoutTypename,
-      this.docsWithAliasedTypename,
-      this.docsWithFragment,
-      required this.$__typename});
+  Query$Q({
+    this.docsWithTypename,
+    this.docsWihtoutTypename,
+    this.docsWithAliasedTypename,
+    this.docsWithFragment,
+    required this.$__typename,
+  });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$docsWithTypename = json['docsWithTypename'];
@@ -133,31 +166,30 @@ class Query$Q {
     final l$docsWithFragment = json['docsWithFragment'];
     final l$$__typename = json['__typename'];
     return Query$Q(
-        docsWithTypename: (l$docsWithTypename as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$Q$docsWithTypename.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        docsWihtoutTypename: (l$docsWihtoutTypename as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$Q$docsWihtoutTypename.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        docsWithAliasedTypename: (l$docsWithAliasedTypename as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$Q$docsWithAliasedTypename.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        docsWithFragment: (l$docsWithFragment as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$Q$docsWithFragment.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      docsWithTypename: (l$docsWithTypename as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$Q$docsWithTypename.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      docsWihtoutTypename: (l$docsWihtoutTypename as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$Q$docsWihtoutTypename.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      docsWithAliasedTypename: (l$docsWithAliasedTypename as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$Q$docsWithAliasedTypename.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      docsWithFragment: (l$docsWithFragment as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$Q$docsWithFragment.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$Q$docsWithTypename?>? docsWithTypename;
@@ -209,7 +241,7 @@ class Query$Q {
       l$docsWithFragment == null
           ? null
           : Object.hashAll(l$docsWithFragment.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -299,21 +331,27 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(
+    Query$Q instance,
+    TRes Function(Query$Q) then,
+  ) = _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call(
-      {List<Query$Q$docsWithTypename?>? docsWithTypename,
-      List<Query$Q$docsWihtoutTypename?>? docsWihtoutTypename,
-      List<Query$Q$docsWithAliasedTypename?>? docsWithAliasedTypename,
-      List<Query$Q$docsWithFragment?>? docsWithFragment,
-      String? $__typename});
+  TRes call({
+    List<Query$Q$docsWithTypename?>? docsWithTypename,
+    List<Query$Q$docsWihtoutTypename?>? docsWihtoutTypename,
+    List<Query$Q$docsWithAliasedTypename?>? docsWithAliasedTypename,
+    List<Query$Q$docsWithFragment?>? docsWithFragment,
+    String? $__typename,
+  });
   TRes docsWithTypename(
       Iterable<Query$Q$docsWithTypename?>? Function(
               Iterable<
@@ -341,7 +379,10 @@ abstract class CopyWith$Query$Q<TRes> {
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(this._instance, this._then);
+  _CopyWithImpl$Query$Q(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q _instance;
 
@@ -349,29 +390,31 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? docsWithTypename = _undefined,
-          Object? docsWihtoutTypename = _undefined,
-          Object? docsWithAliasedTypename = _undefined,
-          Object? docsWithFragment = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? docsWithTypename = _undefined,
+    Object? docsWihtoutTypename = _undefined,
+    Object? docsWithAliasedTypename = _undefined,
+    Object? docsWithFragment = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$Q(
-          docsWithTypename: docsWithTypename == _undefined
-              ? _instance.docsWithTypename
-              : (docsWithTypename as List<Query$Q$docsWithTypename?>?),
-          docsWihtoutTypename: docsWihtoutTypename == _undefined
-              ? _instance.docsWihtoutTypename
-              : (docsWihtoutTypename as List<Query$Q$docsWihtoutTypename?>?),
-          docsWithAliasedTypename: docsWithAliasedTypename == _undefined
-              ? _instance.docsWithAliasedTypename
-              : (docsWithAliasedTypename
-                  as List<Query$Q$docsWithAliasedTypename?>?),
-          docsWithFragment: docsWithFragment == _undefined
-              ? _instance.docsWithFragment
-              : (docsWithFragment as List<Query$Q$docsWithFragment?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        docsWithTypename: docsWithTypename == _undefined
+            ? _instance.docsWithTypename
+            : (docsWithTypename as List<Query$Q$docsWithTypename?>?),
+        docsWihtoutTypename: docsWihtoutTypename == _undefined
+            ? _instance.docsWihtoutTypename
+            : (docsWihtoutTypename as List<Query$Q$docsWihtoutTypename?>?),
+        docsWithAliasedTypename: docsWithAliasedTypename == _undefined
+            ? _instance.docsWithAliasedTypename
+            : (docsWithAliasedTypename
+                as List<Query$Q$docsWithAliasedTypename?>?),
+        docsWithFragment: docsWithFragment == _undefined
+            ? _instance.docsWithFragment
+            : (docsWithFragment as List<Query$Q$docsWithFragment?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes docsWithTypename(
           Iterable<Query$Q$docsWithTypename?>? Function(
                   Iterable<
@@ -381,7 +424,10 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
       call(
           docsWithTypename: _fn(_instance.docsWithTypename?.map((e) => e == null
               ? null
-              : CopyWith$Query$Q$docsWithTypename(e, (i) => i)))?.toList());
+              : CopyWith$Query$Q$docsWithTypename(
+                  e,
+                  (i) => i,
+                )))?.toList());
   TRes docsWihtoutTypename(
           Iterable<Query$Q$docsWihtoutTypename?>? Function(
                   Iterable<
@@ -389,11 +435,13 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
                           Query$Q$docsWihtoutTypename>?>?)
               _fn) =>
       call(
-          docsWihtoutTypename: _fn(_instance.docsWihtoutTypename?.map((e) =>
-                  e == null
-                      ? null
-                      : CopyWith$Query$Q$docsWihtoutTypename(e, (i) => i)))
-              ?.toList());
+          docsWihtoutTypename:
+              _fn(_instance.docsWihtoutTypename?.map((e) => e == null
+                  ? null
+                  : CopyWith$Query$Q$docsWihtoutTypename(
+                      e,
+                      (i) => i,
+                    )))?.toList());
   TRes docsWithAliasedTypename(
           Iterable<Query$Q$docsWithAliasedTypename?>? Function(
                   Iterable<
@@ -401,11 +449,13 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
                           Query$Q$docsWithAliasedTypename>?>?)
               _fn) =>
       call(
-          docsWithAliasedTypename: _fn(_instance.docsWithAliasedTypename?.map(
-                  (e) => e == null
-                      ? null
-                      : CopyWith$Query$Q$docsWithAliasedTypename(e, (i) => i)))
-              ?.toList());
+          docsWithAliasedTypename:
+              _fn(_instance.docsWithAliasedTypename?.map((e) => e == null
+                  ? null
+                  : CopyWith$Query$Q$docsWithAliasedTypename(
+                      e,
+                      (i) => i,
+                    )))?.toList());
   TRes docsWithFragment(
           Iterable<Query$Q$docsWithFragment?>? Function(
                   Iterable<
@@ -415,7 +465,10 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
       call(
           docsWithFragment: _fn(_instance.docsWithFragment?.map((e) => e == null
               ? null
-              : CopyWith$Query$Q$docsWithFragment(e, (i) => i)))?.toList());
+              : CopyWith$Query$Q$docsWithFragment(
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -423,12 +476,13 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call(
-          {List<Query$Q$docsWithTypename?>? docsWithTypename,
-          List<Query$Q$docsWihtoutTypename?>? docsWihtoutTypename,
-          List<Query$Q$docsWithAliasedTypename?>? docsWithAliasedTypename,
-          List<Query$Q$docsWithFragment?>? docsWithFragment,
-          String? $__typename}) =>
+  call({
+    List<Query$Q$docsWithTypename?>? docsWithTypename,
+    List<Query$Q$docsWihtoutTypename?>? docsWihtoutTypename,
+    List<Query$Q$docsWithAliasedTypename?>? docsWithAliasedTypename,
+    List<Query$Q$docsWithFragment?>? docsWithFragment,
+    String? $__typename,
+  }) =>
       _res;
   docsWithTypename(_fn) => _res;
   docsWihtoutTypename(_fn) => _res;
@@ -438,97 +492,115 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
 const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'documents'),
-            alias: NameNode(value: 'docsWithTypename'),
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
-            name: NameNode(value: 'documents'),
-            alias: NameNode(value: 'docsWihtoutTypename'),
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'title'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
-            name: NameNode(value: 'documents'),
-            alias: NameNode(value: 'docsWithAliasedTypename'),
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'title'),
-                  alias: NameNode(value: '__typename'),
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
-            name: NameNode(value: 'documents'),
-            alias: NameNode(value: 'docsWithFragment'),
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                  typeCondition: TypeConditionNode(
-                      on: NamedTypeNode(
-                          name: NameNode(value: 'Contract'), isNonNull: false)),
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FragmentSpreadNode(
-                  name: NameNode(value: 'FReport'), directives: []),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+    type: OperationType.query,
+    name: NameNode(value: 'Q'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'documents'),
+        alias: NameNode(value: 'docsWithTypename'),
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          )
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'documents'),
+        alias: NameNode(value: 'docsWihtoutTypename'),
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'title'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'documents'),
+        alias: NameNode(value: 'docsWithAliasedTypename'),
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'title'),
+            alias: NameNode(value: '__typename'),
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          )
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'documents'),
+        alias: NameNode(value: 'docsWithFragment'),
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'Contract'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'title'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FragmentSpreadNode(
+            name: NameNode(value: 'FReport'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
   fragmentDefinitionFReport,
 ]);
 
@@ -576,13 +648,17 @@ class Query$Q$docsWithTypename {
 extension UtilityExtension$Query$Q$docsWithTypename
     on Query$Q$docsWithTypename {
   CopyWith$Query$Q$docsWithTypename<Query$Q$docsWithTypename> get copyWith =>
-      CopyWith$Query$Q$docsWithTypename(this, (i) => i);
+      CopyWith$Query$Q$docsWithTypename(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$docsWithTypename<TRes> {
-  factory CopyWith$Query$Q$docsWithTypename(Query$Q$docsWithTypename instance,
-          TRes Function(Query$Q$docsWithTypename) then) =
-      _CopyWithImpl$Query$Q$docsWithTypename;
+  factory CopyWith$Query$Q$docsWithTypename(
+    Query$Q$docsWithTypename instance,
+    TRes Function(Query$Q$docsWithTypename) then,
+  ) = _CopyWithImpl$Query$Q$docsWithTypename;
 
   factory CopyWith$Query$Q$docsWithTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithTypename;
@@ -592,7 +668,10 @@ abstract class CopyWith$Query$Q$docsWithTypename<TRes> {
 
 class _CopyWithImpl$Query$Q$docsWithTypename<TRes>
     implements CopyWith$Query$Q$docsWithTypename<TRes> {
-  _CopyWithImpl$Query$Q$docsWithTypename(this._instance, this._then);
+  _CopyWithImpl$Query$Q$docsWithTypename(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$docsWithTypename _instance;
 
@@ -617,13 +696,18 @@ class _CopyWithStubImpl$Query$Q$docsWithTypename<TRes>
 }
 
 class Query$Q$docsWihtoutTypename {
-  Query$Q$docsWihtoutTypename({this.title, required this.$__typename});
+  Query$Q$docsWihtoutTypename({
+    this.title,
+    required this.$__typename,
+  });
 
   factory Query$Q$docsWihtoutTypename.fromJson(Map<String, dynamic> json) {
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
     return Query$Q$docsWihtoutTypename(
-        title: (l$title as String?), $__typename: (l$$__typename as String));
+      title: (l$title as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String? title;
@@ -643,7 +727,10 @@ class Query$Q$docsWihtoutTypename {
   int get hashCode {
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$title, l$$__typename]);
+    return Object.hashAll([
+      l$title,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -672,24 +759,33 @@ class Query$Q$docsWihtoutTypename {
 extension UtilityExtension$Query$Q$docsWihtoutTypename
     on Query$Q$docsWihtoutTypename {
   CopyWith$Query$Q$docsWihtoutTypename<Query$Q$docsWihtoutTypename>
-      get copyWith => CopyWith$Query$Q$docsWihtoutTypename(this, (i) => i);
+      get copyWith => CopyWith$Query$Q$docsWihtoutTypename(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$Q$docsWihtoutTypename<TRes> {
   factory CopyWith$Query$Q$docsWihtoutTypename(
-          Query$Q$docsWihtoutTypename instance,
-          TRes Function(Query$Q$docsWihtoutTypename) then) =
-      _CopyWithImpl$Query$Q$docsWihtoutTypename;
+    Query$Q$docsWihtoutTypename instance,
+    TRes Function(Query$Q$docsWihtoutTypename) then,
+  ) = _CopyWithImpl$Query$Q$docsWihtoutTypename;
 
   factory CopyWith$Query$Q$docsWihtoutTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWihtoutTypename;
 
-  TRes call({String? title, String? $__typename});
+  TRes call({
+    String? title,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$Q$docsWihtoutTypename<TRes>
     implements CopyWith$Query$Q$docsWihtoutTypename<TRes> {
-  _CopyWithImpl$Query$Q$docsWihtoutTypename(this._instance, this._then);
+  _CopyWithImpl$Query$Q$docsWihtoutTypename(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$docsWihtoutTypename _instance;
 
@@ -697,12 +793,16 @@ class _CopyWithImpl$Query$Q$docsWihtoutTypename<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? title = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? title = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$Q$docsWihtoutTypename(
-          title: title == _undefined ? _instance.title : (title as String?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        title: title == _undefined ? _instance.title : (title as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q$docsWihtoutTypename<TRes>
@@ -711,7 +811,11 @@ class _CopyWithStubImpl$Query$Q$docsWihtoutTypename<TRes>
 
   TRes _res;
 
-  call({String? title, String? $__typename}) => _res;
+  call({
+    String? title,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$Q$docsWithAliasedTypename {
@@ -759,14 +863,17 @@ class Query$Q$docsWithAliasedTypename {
 extension UtilityExtension$Query$Q$docsWithAliasedTypename
     on Query$Q$docsWithAliasedTypename {
   CopyWith$Query$Q$docsWithAliasedTypename<Query$Q$docsWithAliasedTypename>
-      get copyWith => CopyWith$Query$Q$docsWithAliasedTypename(this, (i) => i);
+      get copyWith => CopyWith$Query$Q$docsWithAliasedTypename(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$Q$docsWithAliasedTypename<TRes> {
   factory CopyWith$Query$Q$docsWithAliasedTypename(
-          Query$Q$docsWithAliasedTypename instance,
-          TRes Function(Query$Q$docsWithAliasedTypename) then) =
-      _CopyWithImpl$Query$Q$docsWithAliasedTypename;
+    Query$Q$docsWithAliasedTypename instance,
+    TRes Function(Query$Q$docsWithAliasedTypename) then,
+  ) = _CopyWithImpl$Query$Q$docsWithAliasedTypename;
 
   factory CopyWith$Query$Q$docsWithAliasedTypename.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithAliasedTypename;
@@ -776,7 +883,10 @@ abstract class CopyWith$Query$Q$docsWithAliasedTypename<TRes> {
 
 class _CopyWithImpl$Query$Q$docsWithAliasedTypename<TRes>
     implements CopyWith$Query$Q$docsWithAliasedTypename<TRes> {
-  _CopyWithImpl$Query$Q$docsWithAliasedTypename(this._instance, this._then);
+  _CopyWithImpl$Query$Q$docsWithAliasedTypename(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$docsWithAliasedTypename _instance;
 
@@ -853,13 +963,17 @@ class Query$Q$docsWithFragment {
 extension UtilityExtension$Query$Q$docsWithFragment
     on Query$Q$docsWithFragment {
   CopyWith$Query$Q$docsWithFragment<Query$Q$docsWithFragment> get copyWith =>
-      CopyWith$Query$Q$docsWithFragment(this, (i) => i);
+      CopyWith$Query$Q$docsWithFragment(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$docsWithFragment<TRes> {
-  factory CopyWith$Query$Q$docsWithFragment(Query$Q$docsWithFragment instance,
-          TRes Function(Query$Q$docsWithFragment) then) =
-      _CopyWithImpl$Query$Q$docsWithFragment;
+  factory CopyWith$Query$Q$docsWithFragment(
+    Query$Q$docsWithFragment instance,
+    TRes Function(Query$Q$docsWithFragment) then,
+  ) = _CopyWithImpl$Query$Q$docsWithFragment;
 
   factory CopyWith$Query$Q$docsWithFragment.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment;
@@ -869,7 +983,10 @@ abstract class CopyWith$Query$Q$docsWithFragment<TRes> {
 
 class _CopyWithImpl$Query$Q$docsWithFragment<TRes>
     implements CopyWith$Query$Q$docsWithFragment<TRes> {
-  _CopyWithImpl$Query$Q$docsWithFragment(this._instance, this._then);
+  _CopyWithImpl$Query$Q$docsWithFragment(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$docsWithFragment _instance;
 
@@ -894,14 +1011,19 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment<TRes>
 }
 
 class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
-  Query$Q$docsWithFragment$$Contract({required this.$__typename, this.title});
+  Query$Q$docsWithFragment$$Contract({
+    required this.$__typename,
+    this.title,
+  });
 
   factory Query$Q$docsWithFragment$$Contract.fromJson(
       Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
     final l$title = json['title'];
     return Query$Q$docsWithFragment$$Contract(
-        $__typename: (l$$__typename as String), title: (l$title as String?));
+      $__typename: (l$$__typename as String),
+      title: (l$title as String?),
+    );
   }
 
   final String $__typename;
@@ -921,7 +1043,10 @@ class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$title = title;
-    return Object.hashAll([l$$__typename, l$title]);
+    return Object.hashAll([
+      l$$__typename,
+      l$title,
+    ]);
   }
 
   @override
@@ -951,25 +1076,33 @@ extension UtilityExtension$Query$Q$docsWithFragment$$Contract
     on Query$Q$docsWithFragment$$Contract {
   CopyWith$Query$Q$docsWithFragment$$Contract<
           Query$Q$docsWithFragment$$Contract>
-      get copyWith =>
-          CopyWith$Query$Q$docsWithFragment$$Contract(this, (i) => i);
+      get copyWith => CopyWith$Query$Q$docsWithFragment$$Contract(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$Q$docsWithFragment$$Contract<TRes> {
   factory CopyWith$Query$Q$docsWithFragment$$Contract(
-          Query$Q$docsWithFragment$$Contract instance,
-          TRes Function(Query$Q$docsWithFragment$$Contract) then) =
-      _CopyWithImpl$Query$Q$docsWithFragment$$Contract;
+    Query$Q$docsWithFragment$$Contract instance,
+    TRes Function(Query$Q$docsWithFragment$$Contract) then,
+  ) = _CopyWithImpl$Query$Q$docsWithFragment$$Contract;
 
   factory CopyWith$Query$Q$docsWithFragment$$Contract.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment$$Contract;
 
-  TRes call({String? $__typename, String? title});
+  TRes call({
+    String? $__typename,
+    String? title,
+  });
 }
 
 class _CopyWithImpl$Query$Q$docsWithFragment$$Contract<TRes>
     implements CopyWith$Query$Q$docsWithFragment$$Contract<TRes> {
-  _CopyWithImpl$Query$Q$docsWithFragment$$Contract(this._instance, this._then);
+  _CopyWithImpl$Query$Q$docsWithFragment$$Contract(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$docsWithFragment$$Contract _instance;
 
@@ -977,12 +1110,16 @@ class _CopyWithImpl$Query$Q$docsWithFragment$$Contract<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? $__typename = _undefined, Object? title = _undefined}) =>
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? title = _undefined,
+  }) =>
       _then(Query$Q$docsWithFragment$$Contract(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String),
-          title: title == _undefined ? _instance.title : (title as String?)));
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        title: title == _undefined ? _instance.title : (title as String?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q$docsWithFragment$$Contract<TRes>
@@ -991,18 +1128,27 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment$$Contract<TRes>
 
   TRes _res;
 
-  call({String? $__typename, String? title}) => _res;
+  call({
+    String? $__typename,
+    String? title,
+  }) =>
+      _res;
 }
 
 class Query$Q$docsWithFragment$$Report
     implements Fragment$FReport, Query$Q$docsWithFragment {
-  Query$Q$docsWithFragment$$Report({required this.$__typename, this.title});
+  Query$Q$docsWithFragment$$Report({
+    required this.$__typename,
+    this.title,
+  });
 
   factory Query$Q$docsWithFragment$$Report.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
     final l$title = json['title'];
     return Query$Q$docsWithFragment$$Report(
-        $__typename: (l$$__typename as String), title: (l$title as String?));
+      $__typename: (l$$__typename as String),
+      title: (l$title as String?),
+    );
   }
 
   final String $__typename;
@@ -1022,7 +1168,10 @@ class Query$Q$docsWithFragment$$Report
   int get hashCode {
     final l$$__typename = $__typename;
     final l$title = title;
-    return Object.hashAll([l$$__typename, l$title]);
+    return Object.hashAll([
+      l$$__typename,
+      l$title,
+    ]);
   }
 
   @override
@@ -1051,24 +1200,33 @@ class Query$Q$docsWithFragment$$Report
 extension UtilityExtension$Query$Q$docsWithFragment$$Report
     on Query$Q$docsWithFragment$$Report {
   CopyWith$Query$Q$docsWithFragment$$Report<Query$Q$docsWithFragment$$Report>
-      get copyWith => CopyWith$Query$Q$docsWithFragment$$Report(this, (i) => i);
+      get copyWith => CopyWith$Query$Q$docsWithFragment$$Report(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$Q$docsWithFragment$$Report<TRes> {
   factory CopyWith$Query$Q$docsWithFragment$$Report(
-          Query$Q$docsWithFragment$$Report instance,
-          TRes Function(Query$Q$docsWithFragment$$Report) then) =
-      _CopyWithImpl$Query$Q$docsWithFragment$$Report;
+    Query$Q$docsWithFragment$$Report instance,
+    TRes Function(Query$Q$docsWithFragment$$Report) then,
+  ) = _CopyWithImpl$Query$Q$docsWithFragment$$Report;
 
   factory CopyWith$Query$Q$docsWithFragment$$Report.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$docsWithFragment$$Report;
 
-  TRes call({String? $__typename, String? title});
+  TRes call({
+    String? $__typename,
+    String? title,
+  });
 }
 
 class _CopyWithImpl$Query$Q$docsWithFragment$$Report<TRes>
     implements CopyWith$Query$Q$docsWithFragment$$Report<TRes> {
-  _CopyWithImpl$Query$Q$docsWithFragment$$Report(this._instance, this._then);
+  _CopyWithImpl$Query$Q$docsWithFragment$$Report(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$docsWithFragment$$Report _instance;
 
@@ -1076,12 +1234,16 @@ class _CopyWithImpl$Query$Q$docsWithFragment$$Report<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? $__typename = _undefined, Object? title = _undefined}) =>
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? title = _undefined,
+  }) =>
       _then(Query$Q$docsWithFragment$$Report(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String),
-          title: title == _undefined ? _instance.title : (title as String?)));
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        title: title == _undefined ? _instance.title : (title as String?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q$docsWithFragment$$Report<TRes>
@@ -1090,9 +1252,16 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment$$Report<TRes>
 
   TRes _res;
 
-  call({String? $__typename, String? title}) => _res;
+  call({
+    String? $__typename,
+    String? title,
+  }) =>
+      _res;
 }
 
 const possibleTypesMap = {
-  'Document': {'Contract', 'Report'}
+  'Document': {
+    'Contract',
+    'Report',
+  }
 };

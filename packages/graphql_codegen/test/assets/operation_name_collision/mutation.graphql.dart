@@ -51,13 +51,17 @@ class Mutation$Operation {
 
 extension UtilityExtension$Mutation$Operation on Mutation$Operation {
   CopyWith$Mutation$Operation<Mutation$Operation> get copyWith =>
-      CopyWith$Mutation$Operation(this, (i) => i);
+      CopyWith$Mutation$Operation(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$Operation<TRes> {
   factory CopyWith$Mutation$Operation(
-          Mutation$Operation instance, TRes Function(Mutation$Operation) then) =
-      _CopyWithImpl$Mutation$Operation;
+    Mutation$Operation instance,
+    TRes Function(Mutation$Operation) then,
+  ) = _CopyWithImpl$Mutation$Operation;
 
   factory CopyWith$Mutation$Operation.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Operation;
@@ -68,7 +72,10 @@ abstract class CopyWith$Mutation$Operation<TRes> {
 
 class _CopyWithImpl$Mutation$Operation<TRes>
     implements CopyWith$Mutation$Operation<TRes> {
-  _CopyWithImpl$Mutation$Operation(this._instance, this._then);
+  _CopyWithImpl$Mutation$Operation(
+    this._instance,
+    this._then,
+  );
 
   final Mutation$Operation _instance;
 
@@ -102,63 +109,75 @@ class _CopyWithStubImpl$Mutation$Operation<TRes>
 
 const documentNodeMutationOperation = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.mutation,
-      name: NameNode(value: 'Operation'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'setName'),
+    type: OperationType.mutation,
+    name: NameNode(value: 'Operation'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'setName'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'name'),
+            value: StringValueNode(
+              value: 'Bob',
+              isBlock: false,
+            ),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: StringValueNode(value: 'Bob', isBlock: false))
-            ],
+            arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ]))
-      ])),
+            selectionSet: null,
+          )
+        ]),
+      )
+    ]),
+  ),
 ]);
 Mutation$Operation _parserFn$Mutation$Operation(Map<String, dynamic> data) =>
     Mutation$Operation.fromJson(data);
 typedef OnMutationCompleted$Mutation$Operation = FutureOr<void> Function(
-    dynamic, Mutation$Operation?);
+  dynamic,
+  Mutation$Operation?,
+);
 
 class Options$Mutation$Operation
     extends graphql.MutationOptions<Mutation$Operation> {
-  Options$Mutation$Operation(
-      {String? operationName,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      OnMutationCompleted$Mutation$Operation? onCompleted,
-      graphql.OnMutationUpdate<Mutation$Operation>? update,
-      graphql.OnError? onError})
-      : onCompletedWithParsed = onCompleted,
+  Options$Mutation$Operation({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$Operation? onCompleted,
+    graphql.OnMutationUpdate<Mutation$Operation>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
         super(
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            onCompleted: onCompleted == null
-                ? null
-                : (data) => onCompleted(data,
-                    data == null ? null : _parserFn$Mutation$Operation(data)),
-            update: update,
-            onError: onError,
-            document: documentNodeMutationOperation,
-            parserFn: _parserFn$Mutation$Operation);
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null ? null : _parserFn$Mutation$Operation(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationOperation,
+          parserFn: _parserFn$Mutation$Operation,
+        );
 
   final OnMutationCompleted$Mutation$Operation? onCompletedWithParsed;
 
@@ -167,36 +186,37 @@ class Options$Mutation$Operation
         ...super.onCompleted == null
             ? super.properties
             : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed
+        onCompletedWithParsed,
       ];
 }
 
 class WatchOptions$Mutation$Operation
     extends graphql.WatchQueryOptions<Mutation$Operation> {
-  WatchOptions$Mutation$Operation(
-      {String? operationName,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeMutationOperation,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Mutation$Operation);
+  WatchOptions$Mutation$Operation({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeMutationOperation,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$Operation,
+        );
 }
 
 extension ClientExtension$Mutation$Operation on graphql.GraphQLClient {
@@ -209,7 +229,10 @@ extension ClientExtension$Mutation$Operation on graphql.GraphQLClient {
 }
 
 class Mutation$Operation$HookResult {
-  Mutation$Operation$HookResult(this.runMutation, this.result);
+  Mutation$Operation$HookResult(
+    this.runMutation,
+    this.result,
+  );
 
   final RunMutation$Mutation$Operation runMutation;
 
@@ -236,32 +259,35 @@ graphql.ObservableQuery<Mutation$Operation> useWatchMutation$Operation(
 
 class WidgetOptions$Mutation$Operation
     extends graphql.MutationOptions<Mutation$Operation> {
-  WidgetOptions$Mutation$Operation(
-      {String? operationName,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      OnMutationCompleted$Mutation$Operation? onCompleted,
-      graphql.OnMutationUpdate<Mutation$Operation>? update,
-      graphql.OnError? onError})
-      : onCompletedWithParsed = onCompleted,
+  WidgetOptions$Mutation$Operation({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$Operation? onCompleted,
+    graphql.OnMutationUpdate<Mutation$Operation>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
         super(
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            onCompleted: onCompleted == null
-                ? null
-                : (data) => onCompleted(data,
-                    data == null ? null : _parserFn$Mutation$Operation(data)),
-            update: update,
-            onError: onError,
-            document: documentNodeMutationOperation,
-            parserFn: _parserFn$Mutation$Operation);
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null ? null : _parserFn$Mutation$Operation(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationOperation,
+          parserFn: _parserFn$Mutation$Operation,
+        );
 
   final OnMutationCompleted$Mutation$Operation? onCompletedWithParsed;
 
@@ -270,7 +296,7 @@ class WidgetOptions$Mutation$Operation
         ...super.onCompleted == null
             ? super.properties
             : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed
+        onCompletedWithParsed,
       ];
 }
 
@@ -278,21 +304,31 @@ typedef RunMutation$Mutation$Operation
     = graphql.MultiSourceResult<Mutation$Operation> Function(
         {Object? optimisticResult});
 typedef Builder$Mutation$Operation = widgets.Widget Function(
-    RunMutation$Mutation$Operation, graphql.QueryResult<Mutation$Operation>?);
+  RunMutation$Mutation$Operation,
+  graphql.QueryResult<Mutation$Operation>?,
+);
 
 class Mutation$Operation$Widget
     extends graphql_flutter.Mutation<Mutation$Operation> {
-  Mutation$Operation$Widget(
-      {widgets.Key? key,
-      WidgetOptions$Mutation$Operation? options,
-      required Builder$Mutation$Operation builder})
-      : super(
-            key: key,
-            options: options ?? WidgetOptions$Mutation$Operation(),
-            builder: (run, result) => builder(
-                ({optimisticResult}) =>
-                    run(const {}, optimisticResult: optimisticResult),
-                result));
+  Mutation$Operation$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$Operation? options,
+    required Builder$Mutation$Operation builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$Operation(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({optimisticResult}) => run(
+              const {},
+              optimisticResult: optimisticResult,
+            ),
+            result,
+          ),
+        );
 }
 
 class Mutation$Operation$setName {
@@ -339,14 +375,17 @@ class Mutation$Operation$setName {
 extension UtilityExtension$Mutation$Operation$setName
     on Mutation$Operation$setName {
   CopyWith$Mutation$Operation$setName<Mutation$Operation$setName>
-      get copyWith => CopyWith$Mutation$Operation$setName(this, (i) => i);
+      get copyWith => CopyWith$Mutation$Operation$setName(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Mutation$Operation$setName<TRes> {
   factory CopyWith$Mutation$Operation$setName(
-          Mutation$Operation$setName instance,
-          TRes Function(Mutation$Operation$setName) then) =
-      _CopyWithImpl$Mutation$Operation$setName;
+    Mutation$Operation$setName instance,
+    TRes Function(Mutation$Operation$setName) then,
+  ) = _CopyWithImpl$Mutation$Operation$setName;
 
   factory CopyWith$Mutation$Operation$setName.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Operation$setName;
@@ -356,7 +395,10 @@ abstract class CopyWith$Mutation$Operation$setName<TRes> {
 
 class _CopyWithImpl$Mutation$Operation$setName<TRes>
     implements CopyWith$Mutation$Operation$setName<TRes> {
-  _CopyWithImpl$Mutation$Operation$setName(this._instance, this._then);
+  _CopyWithImpl$Mutation$Operation$setName(
+    this._instance,
+    this._then,
+  );
 
   final Mutation$Operation$setName _instance;
 

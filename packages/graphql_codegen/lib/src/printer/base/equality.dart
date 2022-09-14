@@ -36,12 +36,12 @@ Method printEqualityOperator(
               final localOtherName =
                   c.namePrinter.printLocalPropertyName(e.name, 'lOther');
               return [
-                refer(c.namePrinter.printPropertyName(e.name))
-                    .assignFinal(localThisName)
+                declareFinal(localThisName)
+                    .assign(refer(c.namePrinter.printPropertyName(e.name)))
                     .statement,
-                refer("other")
-                    .property(c.namePrinter.printPropertyName(e.name))
-                    .assignFinal(localOtherName)
+                declareFinal(localOtherName)
+                    .assign(refer("other")
+                        .property(c.namePrinter.printPropertyName(e.name)))
                     .statement,
                 if (dataObjectCheckResolver != null && !e.isRequired) ...[
                   Code('if ('),
@@ -113,9 +113,10 @@ Method printHashCodeMethod(
         ..lambda = false
         ..body = Block((b) => b.statements = ListBuilder([
               ...properties.map(
-                (e) => refer(context.namePrinter.printPropertyName(e.name))
-                    .assignFinal(
+                (e) => declareFinal(
                         context.namePrinter.printLocalPropertyName(e.name))
+                    .assign(
+                        refer(context.namePrinter.printPropertyName(e.name)))
                     .statement,
               ),
               refer("Object")

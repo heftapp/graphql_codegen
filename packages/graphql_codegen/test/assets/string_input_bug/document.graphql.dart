@@ -1,5 +1,9 @@
 class Input$I {
-  factory Input$I({String? $String, int? $OtherReservedKeyword}) => Input$I._({
+  factory Input$I({
+    String? $String,
+    int? $OtherReservedKeyword,
+  }) =>
+      Input$I._({
         if ($String != null) r'String': $String,
         if ($OtherReservedKeyword != null)
           r'OtherReservedKeyword': $OtherReservedKeyword,
@@ -37,7 +41,10 @@ class Input$I {
     return result$data;
   }
 
-  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -74,22 +81,30 @@ class Input$I {
       _$data.containsKey('String') ? l$$String : const {},
       _$data.containsKey('OtherReservedKeyword')
           ? l$$OtherReservedKeyword
-          : const {}
+          : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Input$I<TRes> {
-  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
-      _CopyWithImpl$Input$I;
+  factory CopyWith$Input$I(
+    Input$I instance,
+    TRes Function(Input$I) then,
+  ) = _CopyWithImpl$Input$I;
 
   factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
 
-  TRes call({String? $String, int? $OtherReservedKeyword});
+  TRes call({
+    String? $String,
+    int? $OtherReservedKeyword,
+  });
 }
 
 class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
-  _CopyWithImpl$Input$I(this._instance, this._then);
+  _CopyWithImpl$Input$I(
+    this._instance,
+    this._then,
+  );
 
   final Input$I _instance;
 
@@ -97,9 +112,10 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? $String = _undefined,
-          Object? $OtherReservedKeyword = _undefined}) =>
+  TRes call({
+    Object? $String = _undefined,
+    Object? $OtherReservedKeyword = _undefined,
+  }) =>
       _then(Input$I._({
         ..._instance._$data,
         if ($String != _undefined) 'String': ($String as String?),
@@ -113,5 +129,9 @@ class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   TRes _res;
 
-  call({String? $String, int? $OtherReservedKeyword}) => _res;
+  call({
+    String? $String,
+    int? $OtherReservedKeyword,
+  }) =>
+      _res;
 }

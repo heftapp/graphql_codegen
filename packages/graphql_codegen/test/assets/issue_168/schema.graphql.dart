@@ -30,7 +30,10 @@ class Input$WalletGetContentInput {
   }
 
   CopyWith$Input$WalletGetContentInput<Input$WalletGetContentInput>
-      get copyWith => CopyWith$Input$WalletGetContentInput(this, (i) => i);
+      get copyWith => CopyWith$Input$WalletGetContentInput(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -60,9 +63,9 @@ class Input$WalletGetContentInput {
 
 abstract class CopyWith$Input$WalletGetContentInput<TRes> {
   factory CopyWith$Input$WalletGetContentInput(
-          Input$WalletGetContentInput instance,
-          TRes Function(Input$WalletGetContentInput) then) =
-      _CopyWithImpl$Input$WalletGetContentInput;
+    Input$WalletGetContentInput instance,
+    TRes Function(Input$WalletGetContentInput) then,
+  ) = _CopyWithImpl$Input$WalletGetContentInput;
 
   factory CopyWith$Input$WalletGetContentInput.stub(TRes res) =
       _CopyWithStubImpl$Input$WalletGetContentInput;
@@ -72,7 +75,10 @@ abstract class CopyWith$Input$WalletGetContentInput<TRes> {
 
 class _CopyWithImpl$Input$WalletGetContentInput<TRes>
     implements CopyWith$Input$WalletGetContentInput<TRes> {
-  _CopyWithImpl$Input$WalletGetContentInput(this._instance, this._then);
+  _CopyWithImpl$Input$WalletGetContentInput(
+    this._instance,
+    this._then,
+  );
 
   final Input$WalletGetContentInput _instance;
 
@@ -124,7 +130,10 @@ class Variables$Query$WalletGetContent {
   }
 
   CopyWith$Variables$Query$WalletGetContent<Variables$Query$WalletGetContent>
-      get copyWith => CopyWith$Variables$Query$WalletGetContent(this, (i) => i);
+      get copyWith => CopyWith$Variables$Query$WalletGetContent(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -151,9 +160,9 @@ class Variables$Query$WalletGetContent {
 
 abstract class CopyWith$Variables$Query$WalletGetContent<TRes> {
   factory CopyWith$Variables$Query$WalletGetContent(
-          Variables$Query$WalletGetContent instance,
-          TRes Function(Variables$Query$WalletGetContent) then) =
-      _CopyWithImpl$Variables$Query$WalletGetContent;
+    Variables$Query$WalletGetContent instance,
+    TRes Function(Variables$Query$WalletGetContent) then,
+  ) = _CopyWithImpl$Variables$Query$WalletGetContent;
 
   factory CopyWith$Variables$Query$WalletGetContent.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$WalletGetContent;
@@ -164,7 +173,10 @@ abstract class CopyWith$Variables$Query$WalletGetContent<TRes> {
 
 class _CopyWithImpl$Variables$Query$WalletGetContent<TRes>
     implements CopyWith$Variables$Query$WalletGetContent<TRes> {
-  _CopyWithImpl$Variables$Query$WalletGetContent(this._instance, this._then);
+  _CopyWithImpl$Variables$Query$WalletGetContent(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$WalletGetContent _instance;
 
@@ -197,16 +209,19 @@ class _CopyWithStubImpl$Variables$Query$WalletGetContent<TRes>
 }
 
 class Query$WalletGetContent {
-  Query$WalletGetContent(
-      {required this.walletGetContent, required this.$__typename});
+  Query$WalletGetContent({
+    required this.walletGetContent,
+    required this.$__typename,
+  });
 
   factory Query$WalletGetContent.fromJson(Map<String, dynamic> json) {
     final l$walletGetContent = json['walletGetContent'];
     final l$$__typename = json['__typename'];
     return Query$WalletGetContent(
-        walletGetContent: Query$WalletGetContent$walletGetContent.fromJson(
-            (l$walletGetContent as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      walletGetContent: Query$WalletGetContent$walletGetContent.fromJson(
+          (l$walletGetContent as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Query$WalletGetContent$walletGetContent walletGetContent;
@@ -226,7 +241,10 @@ class Query$WalletGetContent {
   int get hashCode {
     final l$walletGetContent = walletGetContent;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$walletGetContent, l$$__typename]);
+    return Object.hashAll([
+      l$walletGetContent,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -254,26 +272,34 @@ class Query$WalletGetContent {
 
 extension UtilityExtension$Query$WalletGetContent on Query$WalletGetContent {
   CopyWith$Query$WalletGetContent<Query$WalletGetContent> get copyWith =>
-      CopyWith$Query$WalletGetContent(this, (i) => i);
+      CopyWith$Query$WalletGetContent(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$WalletGetContent<TRes> {
-  factory CopyWith$Query$WalletGetContent(Query$WalletGetContent instance,
-          TRes Function(Query$WalletGetContent) then) =
-      _CopyWithImpl$Query$WalletGetContent;
+  factory CopyWith$Query$WalletGetContent(
+    Query$WalletGetContent instance,
+    TRes Function(Query$WalletGetContent) then,
+  ) = _CopyWithImpl$Query$WalletGetContent;
 
   factory CopyWith$Query$WalletGetContent.stub(TRes res) =
       _CopyWithStubImpl$Query$WalletGetContent;
 
-  TRes call(
-      {Query$WalletGetContent$walletGetContent? walletGetContent,
-      String? $__typename});
+  TRes call({
+    Query$WalletGetContent$walletGetContent? walletGetContent,
+    String? $__typename,
+  });
   CopyWith$Query$WalletGetContent$walletGetContent<TRes> get walletGetContent;
 }
 
 class _CopyWithImpl$Query$WalletGetContent<TRes>
     implements CopyWith$Query$WalletGetContent<TRes> {
-  _CopyWithImpl$Query$WalletGetContent(this._instance, this._then);
+  _CopyWithImpl$Query$WalletGetContent(
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent _instance;
 
@@ -281,17 +307,19 @@ class _CopyWithImpl$Query$WalletGetContent<TRes>
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? walletGetContent = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? walletGetContent = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$WalletGetContent(
-          walletGetContent: walletGetContent == _undefined ||
-                  walletGetContent == null
-              ? _instance.walletGetContent
-              : (walletGetContent as Query$WalletGetContent$walletGetContent),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        walletGetContent:
+            walletGetContent == _undefined || walletGetContent == null
+                ? _instance.walletGetContent
+                : (walletGetContent as Query$WalletGetContent$walletGetContent),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$WalletGetContent$walletGetContent<TRes> get walletGetContent {
     final local$walletGetContent = _instance.walletGetContent;
     return CopyWith$Query$WalletGetContent$walletGetContent(
@@ -305,9 +333,10 @@ class _CopyWithStubImpl$Query$WalletGetContent<TRes>
 
   TRes _res;
 
-  call(
-          {Query$WalletGetContent$walletGetContent? walletGetContent,
-          String? $__typename}) =>
+  call({
+    Query$WalletGetContent$walletGetContent? walletGetContent,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$WalletGetContent$walletGetContent<TRes> get walletGetContent =>
       CopyWith$Query$WalletGetContent$walletGetContent.stub(_res);
@@ -315,171 +344,198 @@ class _CopyWithStubImpl$Query$WalletGetContent<TRes>
 
 const documentNodeQueryWalletGetContent = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'WalletGetContent'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'input')),
-            type: NamedTypeNode(
-                name: NameNode(value: 'WalletGetContentInput'),
-                isNonNull: true),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'walletGetContent'),
+    type: OperationType.query,
+    name: NameNode(value: 'WalletGetContent'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'WalletGetContentInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'walletGetContent'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'blocks'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'input'),
-                  value: VariableNode(name: NameNode(value: 'input')))
-            ],
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'blocks'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    InlineFragmentNode(
-                        typeCondition: TypeConditionNode(
-                            on: NamedTypeNode(
-                                name: NameNode(value: 'WalletContentBlockList'),
-                                isNonNull: false)),
+              InlineFragmentNode(
+                typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                  name: NameNode(value: 'WalletContentBlockList'),
+                  isNonNull: false,
+                )),
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'blockType'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
                         directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FieldNode(
-                              name: NameNode(value: 'id'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null),
-                          FieldNode(
-                              name: NameNode(value: 'blockType'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: SelectionSetNode(selections: [
-                                FieldNode(
-                                    name: NameNode(value: 'id'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null),
-                                FieldNode(
-                                    name: NameNode(value: '__typename'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null)
-                              ])),
-                          FieldNode(
-                              name: NameNode(value: 'caption'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null),
-                          FieldNode(
-                              name: NameNode(value: 'items'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: SelectionSetNode(selections: [
-                                InlineFragmentNode(
-                                    typeCondition: TypeConditionNode(
-                                        on: NamedTypeNode(
-                                            name: NameNode(
-                                                value:
-                                                    'WalletContentItemContentPreview'),
-                                            isNonNull: false)),
-                                    directives: [],
-                                    selectionSet: SelectionSetNode(selections: [
-                                      FieldNode(
-                                          name: NameNode(value: 'id'),
-                                          alias: null,
-                                          arguments: [],
-                                          directives: [],
-                                          selectionSet: null),
-                                      FieldNode(
-                                          name: NameNode(value: 'caption'),
-                                          alias: null,
-                                          arguments: [],
-                                          directives: [],
-                                          selectionSet: null),
-                                      FieldNode(
-                                          name: NameNode(value: 'imageURL'),
-                                          alias: null,
-                                          arguments: [],
-                                          directives: [],
-                                          selectionSet: null),
-                                      FieldNode(
-                                          name: NameNode(value: 'link'),
-                                          alias: null,
-                                          arguments: [],
-                                          directives: [],
-                                          selectionSet: null),
-                                      FieldNode(
-                                          name: NameNode(value: '__typename'),
-                                          alias: null,
-                                          arguments: [],
-                                          directives: [],
-                                          selectionSet: null)
-                                    ])),
-                                FieldNode(
-                                    name: NameNode(value: '__typename'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null)
-                              ])),
-                          FieldNode(
-                              name: NameNode(value: '__typename'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null)
-                        ])),
-                    FieldNode(
+                        selectionSet: null,
+                      ),
+                      FieldNode(
                         name: NameNode(value: '__typename'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: null)
-                  ])),
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'caption'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'items'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                            on: NamedTypeNode(
+                          name: NameNode(
+                              value: 'WalletContentItemContentPreview'),
+                          isNonNull: false,
+                        )),
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'caption'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'imageURL'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'link'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
               FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 
 class Query$WalletGetContent$walletGetContent {
-  Query$WalletGetContent$walletGetContent(
-      {this.blocks, required this.$__typename});
+  Query$WalletGetContent$walletGetContent({
+    this.blocks,
+    required this.$__typename,
+  });
 
   factory Query$WalletGetContent$walletGetContent.fromJson(
       Map<String, dynamic> json) {
     final l$blocks = json['blocks'];
     final l$$__typename = json['__typename'];
     return Query$WalletGetContent$walletGetContent(
-        blocks: (l$blocks as List<dynamic>?)
-            ?.map((e) =>
-                Query$WalletGetContent$walletGetContent$blocks.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      blocks: (l$blocks as List<dynamic>?)
+          ?.map((e) => Query$WalletGetContent$walletGetContent$blocks.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$WalletGetContent$walletGetContent$blocks>? blocks;
@@ -501,7 +557,7 @@ class Query$WalletGetContent$walletGetContent {
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$blocks == null ? null : Object.hashAll(l$blocks.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -543,22 +599,25 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent
     on Query$WalletGetContent$walletGetContent {
   CopyWith$Query$WalletGetContent$walletGetContent<
           Query$WalletGetContent$walletGetContent>
-      get copyWith =>
-          CopyWith$Query$WalletGetContent$walletGetContent(this, (i) => i);
+      get copyWith => CopyWith$Query$WalletGetContent$walletGetContent(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent<TRes> {
   factory CopyWith$Query$WalletGetContent$walletGetContent(
-          Query$WalletGetContent$walletGetContent instance,
-          TRes Function(Query$WalletGetContent$walletGetContent) then) =
-      _CopyWithImpl$Query$WalletGetContent$walletGetContent;
+    Query$WalletGetContent$walletGetContent instance,
+    TRes Function(Query$WalletGetContent$walletGetContent) then,
+  ) = _CopyWithImpl$Query$WalletGetContent$walletGetContent;
 
   factory CopyWith$Query$WalletGetContent$walletGetContent.stub(TRes res) =
       _CopyWithStubImpl$Query$WalletGetContent$walletGetContent;
 
-  TRes call(
-      {List<Query$WalletGetContent$walletGetContent$blocks>? blocks,
-      String? $__typename});
+  TRes call({
+    List<Query$WalletGetContent$walletGetContent$blocks>? blocks,
+    String? $__typename,
+  });
   TRes blocks(
       Iterable<Query$WalletGetContent$walletGetContent$blocks>? Function(
               Iterable<
@@ -570,7 +629,9 @@ abstract class CopyWith$Query$WalletGetContent$walletGetContent<TRes> {
 class _CopyWithImpl$Query$WalletGetContent$walletGetContent<TRes>
     implements CopyWith$Query$WalletGetContent$walletGetContent<TRes> {
   _CopyWithImpl$Query$WalletGetContent$walletGetContent(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent$walletGetContent _instance;
 
@@ -578,15 +639,18 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? blocks = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? blocks = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$WalletGetContent$walletGetContent(
-          blocks: blocks == _undefined
-              ? _instance.blocks
-              : (blocks
-                  as List<Query$WalletGetContent$walletGetContent$blocks>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        blocks: blocks == _undefined
+            ? _instance.blocks
+            : (blocks as List<Query$WalletGetContent$walletGetContent$blocks>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes blocks(
           Iterable<Query$WalletGetContent$walletGetContent$blocks>? Function(
                   Iterable<
@@ -594,9 +658,11 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent<TRes>
                           Query$WalletGetContent$walletGetContent$blocks>>?)
               _fn) =>
       call(
-          blocks: _fn(_instance.blocks?.map((e) =>
-              CopyWith$Query$WalletGetContent$walletGetContent$blocks(
-                  e, (i) => i)))?.toList());
+          blocks: _fn(_instance.blocks?.map(
+              (e) => CopyWith$Query$WalletGetContent$walletGetContent$blocks(
+                    e,
+                    (i) => i,
+                  )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent<TRes>
@@ -605,9 +671,10 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$WalletGetContent$walletGetContent$blocks>? blocks,
-          String? $__typename}) =>
+  call({
+    List<Query$WalletGetContent$walletGetContent$blocks>? blocks,
+    String? $__typename,
+  }) =>
       _res;
   blocks(_fn) => _res;
 }
@@ -667,14 +734,16 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks
   CopyWith$Query$WalletGetContent$walletGetContent$blocks<
           Query$WalletGetContent$walletGetContent$blocks>
       get copyWith => CopyWith$Query$WalletGetContent$walletGetContent$blocks(
-          this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks<TRes> {
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks(
-          Query$WalletGetContent$walletGetContent$blocks instance,
-          TRes Function(Query$WalletGetContent$walletGetContent$blocks) then) =
-      _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks;
+    Query$WalletGetContent$walletGetContent$blocks instance,
+    TRes Function(Query$WalletGetContent$walletGetContent$blocks) then,
+  ) = _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks;
 
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks.stub(
           TRes res) =
@@ -686,7 +755,9 @@ abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks<TRes> {
 class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks<TRes>
     implements CopyWith$Query$WalletGetContent$walletGetContent$blocks<TRes> {
   _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent$walletGetContent$blocks _instance;
 
@@ -712,12 +783,13 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks<TRes>
 
 class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     implements Query$WalletGetContent$walletGetContent$blocks {
-  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-      {required this.$__typename,
-      required this.id,
-      required this.blockType,
-      this.caption,
-      this.items});
+  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList({
+    required this.$__typename,
+    required this.id,
+    required this.blockType,
+    this.caption,
+    this.items,
+  });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList.fromJson(
       Map<String, dynamic> json) {
@@ -727,17 +799,18 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     final l$caption = json['caption'];
     final l$items = json['items'];
     return Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-        $__typename: (l$$__typename as String),
-        id: (l$id as String),
-        blockType:
-            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
-                .fromJson((l$blockType as Map<String, dynamic>)),
-        caption: (l$caption as String?),
-        items: (l$items as List<dynamic>?)
-            ?.map((e) =>
-                Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList());
+      $__typename: (l$$__typename as String),
+      id: (l$id as String),
+      blockType:
+          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
+              .fromJson((l$blockType as Map<String, dynamic>)),
+      caption: (l$caption as String?),
+      items: (l$items as List<dynamic>?)
+          ?.map((e) =>
+              Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+    );
   }
 
   final String $__typename;
@@ -780,7 +853,7 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
       l$id,
       l$blockType,
       l$caption,
-      l$items == null ? null : Object.hashAll(l$items.map((v) => v))
+      l$items == null ? null : Object.hashAll(l$items.map((v) => v)),
     ]);
   }
 
@@ -840,31 +913,34 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks$$Walle
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList>
       get copyWith =>
           CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList<
     TRes> {
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
-              instance,
-          TRes Function(
-                  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList)
-              then) =
-      _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList;
+    Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
+        instance,
+    TRes Function(
+            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList)
+        then,
+  ) = _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList;
 
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList.stub(
           TRes res) =
       _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList;
 
-  TRes call(
-      {String? $__typename,
-      String? id,
-      Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType?
-          blockType,
-      String? caption,
-      List<Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
-          items});
+  TRes call({
+    String? $__typename,
+    String? id,
+    Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType?
+        blockType,
+    String? caption,
+    List<Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
+        items,
+  });
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
       TRes> get blockType;
   TRes items(
@@ -881,7 +957,9 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
         CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList<
             TRes> {
   _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
       _instance;
@@ -892,27 +970,30 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? $__typename = _undefined,
-          Object? id = _undefined,
-          Object? blockType = _undefined,
-          Object? caption = _undefined,
-          Object? items = _undefined}) =>
-      _then(Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String),
-          id: id == _undefined || id == null ? _instance.id : (id as String),
-          blockType: blockType == _undefined || blockType == null
-              ? _instance.blockType
-              : (blockType
-                  as Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType),
-          caption:
-              caption == _undefined ? _instance.caption : (caption as String?),
-          items: items == _undefined
-              ? _instance.items
-              : (items as List<
-                  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?)));
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? id = _undefined,
+    Object? blockType = _undefined,
+    Object? caption = _undefined,
+    Object? items = _undefined,
+  }) =>
+      _then(
+          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        blockType: blockType == _undefined || blockType == null
+            ? _instance.blockType
+            : (blockType
+                as Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType),
+        caption:
+            caption == _undefined ? _instance.caption : (caption as String?),
+        items: items == _undefined
+            ? _instance.items
+            : (items as List<
+                Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?),
+      ));
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
       TRes> get blockType {
     final local$blockType = _instance.blockType;
@@ -929,7 +1010,9 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
       call(
           items: _fn(_instance.items?.map((e) =>
               CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items(
-                  e, (i) => i)))?.toList());
+                e,
+                (i) => i,
+              )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList<
@@ -942,14 +1025,15 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
 
   TRes _res;
 
-  call(
-          {String? $__typename,
-          String? id,
-          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType?
-              blockType,
-          String? caption,
-          List<Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
-              items}) =>
+  call({
+    String? $__typename,
+    String? id,
+    Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType?
+        blockType,
+    String? caption,
+    List<Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
+        items,
+  }) =>
       _res;
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
           TRes>
@@ -960,15 +1044,19 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
 }
 
 class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType {
-  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
-      {required this.id, required this.$__typename});
+  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType({
+    required this.id,
+    required this.$__typename,
+  });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
-        id: (l$id as String), $__typename: (l$$__typename as String));
+      id: (l$id as String),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String id;
@@ -988,7 +1076,10 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blo
   int get hashCode {
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$$__typename]);
+    return Object.hashAll([
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1021,24 +1112,29 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks$$Walle
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType>
       get copyWith =>
           CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
     TRes> {
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
-          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
-              instance,
-          TRes Function(
-                  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType)
-              then) =
-      _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType;
+    Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
+        instance,
+    TRes Function(
+            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType)
+        then,
+  ) = _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType;
 
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType.stub(
           TRes res) =
       _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType;
 
-  TRes call({String? id, String? $__typename});
+  TRes call({
+    String? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
@@ -1047,7 +1143,9 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
         CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
             TRes> {
   _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
       _instance;
@@ -1058,12 +1156,17 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
 
   static const _undefined = {};
 
-  TRes call({Object? id = _undefined, Object? $__typename = _undefined}) => _then(
-      Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
-          id: id == _undefined || id == null ? _instance.id : (id as String),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
@@ -1076,7 +1179,11 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
 
   TRes _res;
 
-  call({String? id, String? $__typename}) => _res;
+  call({
+    String? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items {
@@ -1137,18 +1244,20 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks$$Walle
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>
       get copyWith =>
           CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items<
     TRes> {
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items(
-          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items
-              instance,
-          TRes Function(
-                  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items)
-              then) =
-      _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items;
+    Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items
+        instance,
+    TRes Function(
+            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items)
+        then,
+  ) = _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items;
 
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items.stub(
           TRes res) =
@@ -1163,7 +1272,9 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
         CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items<
             TRes> {
   _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items
       _instance;
@@ -1197,12 +1308,13 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
 class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview
     implements
         Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items {
-  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-      {required this.$__typename,
-      required this.id,
-      this.caption,
-      this.imageURL,
-      this.link});
+  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview({
+    required this.$__typename,
+    required this.id,
+    this.caption,
+    this.imageURL,
+    this.link,
+  });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview.fromJson(
       Map<String, dynamic> json) {
@@ -1212,11 +1324,12 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     final l$imageURL = json['imageURL'];
     final l$link = json['link'];
     return Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-        $__typename: (l$$__typename as String),
-        id: (l$id as String),
-        caption: (l$caption as String?),
-        imageURL: (l$imageURL as String?),
-        link: (l$link as String?));
+      $__typename: (l$$__typename as String),
+      id: (l$id as String),
+      caption: (l$caption as String?),
+      imageURL: (l$imageURL as String?),
+      link: (l$link as String?),
+    );
   }
 
   final String $__typename;
@@ -1251,7 +1364,13 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     final l$caption = caption;
     final l$imageURL = imageURL;
     final l$link = link;
-    return Object.hashAll([l$$__typename, l$id, l$caption, l$imageURL, l$link]);
+    return Object.hashAll([
+      l$$__typename,
+      l$id,
+      l$caption,
+      l$imageURL,
+      l$link,
+    ]);
   }
 
   @override
@@ -1299,29 +1418,32 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks$$Walle
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview>
       get copyWith =>
           CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview<
     TRes> {
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-          Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview
-              instance,
-          TRes Function(
-                  Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview)
-              then) =
-      _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview;
+    Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview
+        instance,
+    TRes Function(
+            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview)
+        then,
+  ) = _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview;
 
   factory CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview.stub(
           TRes res) =
       _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview;
 
-  TRes call(
-      {String? $__typename,
-      String? id,
-      String? caption,
-      String? imageURL,
-      String? link});
+  TRes call({
+    String? $__typename,
+    String? id,
+    String? caption,
+    String? imageURL,
+    String? link,
+  });
 }
 
 class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview<
@@ -1330,7 +1452,9 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
         CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview<
             TRes> {
   _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview
       _instance;
@@ -1341,27 +1465,25 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? $__typename = _undefined,
-          Object? id = _undefined,
-          Object? caption = _undefined,
-          Object? imageURL = _undefined,
-          Object? link = _undefined}) =>
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? id = _undefined,
+    Object? caption = _undefined,
+    Object? imageURL = _undefined,
+    Object? link = _undefined,
+  }) =>
       _then(
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String),
-              id: id == _undefined || id == null
-                  ? _instance.id
-                  : (id as String),
-              caption: caption == _undefined
-                  ? _instance.caption
-                  : (caption as String?),
-              imageURL: imageURL == _undefined
-                  ? _instance.imageURL
-                  : (imageURL as String?),
-              link: link == _undefined ? _instance.link : (link as String?)));
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        caption:
+            caption == _undefined ? _instance.caption : (caption as String?),
+        imageURL:
+            imageURL == _undefined ? _instance.imageURL : (imageURL as String?),
+        link: link == _undefined ? _instance.link : (link as String?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview<
@@ -1374,16 +1496,17 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
 
   TRes _res;
 
-  call(
-          {String? $__typename,
-          String? id,
-          String? caption,
-          String? imageURL,
-          String? link}) =>
+  call({
+    String? $__typename,
+    String? id,
+    String? caption,
+    String? imageURL,
+    String? link,
+  }) =>
       _res;
 }
 
 const possibleTypesMap = {
   'WalletContentBlock': {'WalletContentBlockList'},
-  'WalletContentItem': {'WalletContentItemContentPreview'}
+  'WalletContentItem': {'WalletContentItemContentPreview'},
 };

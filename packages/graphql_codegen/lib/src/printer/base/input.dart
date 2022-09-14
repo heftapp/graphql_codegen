@@ -181,19 +181,19 @@ List<Spec> _printInputClasses(
 Code _printToJson(PrintContext context, Iterable<ContextProperty> properties) {
   const resultDataVariableName = r'result$data';
   return Block.of([
-    literalMap(
-      {},
-      refer('String'),
-      refer('dynamic'),
-    ).assignFinal(resultDataVariableName).statement,
+    declareFinal(resultDataVariableName)
+        .assign(literalMap(
+          {},
+          refer('String'),
+          refer('dynamic'),
+        ))
+        .statement,
     for (final property in properties) ...[
       if (!property.isRequired)
         Code(
             'if(${kDataVariableName}.containsKey(\'${property.name.value}\')) {'),
-      refer(context.namePrinter.printPropertyName(property.name))
-          .assignFinal(
-            context.namePrinter.printLocalPropertyName(property.name),
-          )
+      declareFinal(context.namePrinter.printLocalPropertyName(property.name))
+          .assign(refer(context.namePrinter.printPropertyName(property.name)))
           .statement,
       refer(resultDataVariableName)
           .index(literalString(property.name.value))
@@ -218,19 +218,18 @@ Code _printFromJson(
 ) {
   const resultDataVariableName = r'result$data';
   return Block.of([
-    literalMap(
-      {},
-      refer('String'),
-      refer('dynamic'),
-    ).assignFinal(resultDataVariableName).statement,
+    declareFinal(resultDataVariableName)
+        .assign(literalMap(
+          {},
+          refer('String'),
+          refer('dynamic'),
+        ))
+        .statement,
     for (final property in properties) ...[
       if (!property.isRequired)
         Code('if(data.containsKey(\'${property.name.value}\')) {'),
-      refer('data')
-          .index(literalString(property.name.value))
-          .assignFinal(
-            context.namePrinter.printLocalPropertyName(property.name),
-          )
+      declareFinal(context.namePrinter.printLocalPropertyName(property.name))
+          .assign(refer('data').index(literalString(property.name.value)))
           .statement,
       refer(resultDataVariableName)
           .index(literalString(property.name.value))

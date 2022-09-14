@@ -2,8 +2,15 @@ import 'package:gql/ast.dart';
 import 'scalar_import.dart';
 
 class Query$FetchScalars {
-  Query$FetchScalars(
-      {this.i, this.id, this.s, this.c1, this.c2, this.c3, this.c3s});
+  Query$FetchScalars({
+    this.i,
+    this.id,
+    this.s,
+    this.c1,
+    this.c2,
+    this.c3,
+    this.c3s,
+  });
 
   factory Query$FetchScalars.fromJson(Map<String, dynamic> json) {
     final l$i = json['i'];
@@ -14,15 +21,16 @@ class Query$FetchScalars {
     final l$c3 = json['c3'];
     final l$c3s = json['c3s'];
     return Query$FetchScalars(
-        i: (l$i as int?),
-        id: (l$id as int?),
-        s: (l$s as String?),
-        c1: (l$c1 as String?),
-        c2: l$c2 == null ? null : DateTime.parse((l$c2 as String)),
-        c3: l$c3 == null ? null : fobbobFromJson(l$c3),
-        c3s: (l$c3s as List<dynamic>?)
-            ?.map((e) => e == null ? null : fobbobFromJson(e))
-            .toList());
+      i: (l$i as int?),
+      id: (l$id as int?),
+      s: (l$s as String?),
+      c1: (l$c1 as String?),
+      c2: l$c2 == null ? null : DateTime.parse((l$c2 as String)),
+      c3: l$c3 == null ? null : fobbobFromJson(l$c3),
+      c3s: (l$c3s as List<dynamic>?)
+          ?.map((e) => e == null ? null : fobbobFromJson(e))
+          .toList(),
+    );
   }
 
   final int? i;
@@ -75,7 +83,7 @@ class Query$FetchScalars {
       l$c1,
       l$c2,
       l$c3,
-      l$c3s == null ? null : Object.hashAll(l$c3s.map((v) => v))
+      l$c3s == null ? null : Object.hashAll(l$c3s.map((v) => v)),
     ]);
   }
 
@@ -139,30 +147,38 @@ class Query$FetchScalars {
 
 extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
   CopyWith$Query$FetchScalars<Query$FetchScalars> get copyWith =>
-      CopyWith$Query$FetchScalars(this, (i) => i);
+      CopyWith$Query$FetchScalars(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchScalars<TRes> {
   factory CopyWith$Query$FetchScalars(
-          Query$FetchScalars instance, TRes Function(Query$FetchScalars) then) =
-      _CopyWithImpl$Query$FetchScalars;
+    Query$FetchScalars instance,
+    TRes Function(Query$FetchScalars) then,
+  ) = _CopyWithImpl$Query$FetchScalars;
 
   factory CopyWith$Query$FetchScalars.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchScalars;
 
-  TRes call(
-      {int? i,
-      int? id,
-      String? s,
-      String? c1,
-      DateTime? c2,
-      Fobbob? c3,
-      List<Fobbob?>? c3s});
+  TRes call({
+    int? i,
+    int? id,
+    String? s,
+    String? c1,
+    DateTime? c2,
+    Fobbob? c3,
+    List<Fobbob?>? c3s,
+  });
 }
 
 class _CopyWithImpl$Query$FetchScalars<TRes>
     implements CopyWith$Query$FetchScalars<TRes> {
-  _CopyWithImpl$Query$FetchScalars(this._instance, this._then);
+  _CopyWithImpl$Query$FetchScalars(
+    this._instance,
+    this._then,
+  );
 
   final Query$FetchScalars _instance;
 
@@ -170,22 +186,24 @@ class _CopyWithImpl$Query$FetchScalars<TRes>
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? i = _undefined,
-          Object? id = _undefined,
-          Object? s = _undefined,
-          Object? c1 = _undefined,
-          Object? c2 = _undefined,
-          Object? c3 = _undefined,
-          Object? c3s = _undefined}) =>
+  TRes call({
+    Object? i = _undefined,
+    Object? id = _undefined,
+    Object? s = _undefined,
+    Object? c1 = _undefined,
+    Object? c2 = _undefined,
+    Object? c3 = _undefined,
+    Object? c3s = _undefined,
+  }) =>
       _then(Query$FetchScalars(
-          i: i == _undefined ? _instance.i : (i as int?),
-          id: id == _undefined ? _instance.id : (id as int?),
-          s: s == _undefined ? _instance.s : (s as String?),
-          c1: c1 == _undefined ? _instance.c1 : (c1 as String?),
-          c2: c2 == _undefined ? _instance.c2 : (c2 as DateTime?),
-          c3: c3 == _undefined ? _instance.c3 : (c3 as Fobbob?),
-          c3s: c3s == _undefined ? _instance.c3s : (c3s as List<Fobbob?>?)));
+        i: i == _undefined ? _instance.i : (i as int?),
+        id: id == _undefined ? _instance.id : (id as int?),
+        s: s == _undefined ? _instance.s : (s as String?),
+        c1: c1 == _undefined ? _instance.c1 : (c1 as String?),
+        c2: c2 == _undefined ? _instance.c2 : (c2 as DateTime?),
+        c3: c3 == _undefined ? _instance.c3 : (c3 as Fobbob?),
+        c3s: c3s == _undefined ? _instance.c3s : (c3s as List<Fobbob?>?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$FetchScalars<TRes>
@@ -194,66 +212,75 @@ class _CopyWithStubImpl$Query$FetchScalars<TRes>
 
   TRes _res;
 
-  call(
-          {int? i,
-          int? id,
-          String? s,
-          String? c1,
-          DateTime? c2,
-          Fobbob? c3,
-          List<Fobbob?>? c3s}) =>
+  call({
+    int? i,
+    int? id,
+    String? s,
+    String? c1,
+    DateTime? c2,
+    Fobbob? c3,
+    List<Fobbob?>? c3s,
+  }) =>
       _res;
 }
 
 const documentNodeQueryFetchScalars = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'FetchScalars'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'i'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 's'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'c1'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'c2'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'c3'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'c3s'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'FetchScalars'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'i'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 's'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'c1'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'c2'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'c3'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'c3s'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 const possibleTypesMap = {};
