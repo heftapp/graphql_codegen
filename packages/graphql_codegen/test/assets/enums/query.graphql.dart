@@ -2,16 +2,20 @@ import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
 class Query$Foobar {
-  Query$Foobar({this.field, this.fields});
+  Query$Foobar({
+    this.field,
+    this.fields,
+  });
 
   factory Query$Foobar.fromJson(Map<String, dynamic> json) {
     final l$field = json['field'];
     final l$fields = json['fields'];
     return Query$Foobar(
-        field: l$field == null ? null : fromJson$Enum$Enum((l$field as String)),
-        fields: (l$fields as List<dynamic>?)
-            ?.map((e) => fromJson$Enum$Enum((e as String)))
-            .toList());
+      field: l$field == null ? null : fromJson$Enum$Enum((l$field as String)),
+      fields: (l$fields as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$Enum((e as String)))
+          .toList(),
+    );
   }
 
   final Enum$Enum? field;
@@ -33,7 +37,7 @@ class Query$Foobar {
     final l$fields = fields;
     return Object.hashAll([
       l$field,
-      l$fields == null ? null : Object.hashAll(l$fields.map((v) => v))
+      l$fields == null ? null : Object.hashAll(l$fields.map((v) => v)),
     ]);
   }
 
@@ -71,22 +75,31 @@ class Query$Foobar {
 }
 
 extension UtilityExtension$Query$Foobar on Query$Foobar {
-  CopyWith$Query$Foobar<Query$Foobar> get copyWith =>
-      CopyWith$Query$Foobar(this, (i) => i);
+  CopyWith$Query$Foobar<Query$Foobar> get copyWith => CopyWith$Query$Foobar(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Foobar<TRes> {
   factory CopyWith$Query$Foobar(
-          Query$Foobar instance, TRes Function(Query$Foobar) then) =
-      _CopyWithImpl$Query$Foobar;
+    Query$Foobar instance,
+    TRes Function(Query$Foobar) then,
+  ) = _CopyWithImpl$Query$Foobar;
 
   factory CopyWith$Query$Foobar.stub(TRes res) = _CopyWithStubImpl$Query$Foobar;
 
-  TRes call({Enum$Enum? field, List<Enum$Enum>? fields});
+  TRes call({
+    Enum$Enum? field,
+    List<Enum$Enum>? fields,
+  });
 }
 
 class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
-  _CopyWithImpl$Query$Foobar(this._instance, this._then);
+  _CopyWithImpl$Query$Foobar(
+    this._instance,
+    this._then,
+  );
 
   final Query$Foobar _instance;
 
@@ -94,12 +107,16 @@ class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? field = _undefined, Object? fields = _undefined}) =>
+  TRes call({
+    Object? field = _undefined,
+    Object? fields = _undefined,
+  }) =>
       _then(Query$Foobar(
-          field: field == _undefined ? _instance.field : (field as Enum$Enum?),
-          fields: fields == _undefined
-              ? _instance.fields
-              : (fields as List<Enum$Enum>?)));
+        field: field == _undefined ? _instance.field : (field as Enum$Enum?),
+        fields: fields == _undefined
+            ? _instance.fields
+            : (fields as List<Enum$Enum>?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Foobar<TRes>
@@ -108,27 +125,34 @@ class _CopyWithStubImpl$Query$Foobar<TRes>
 
   TRes _res;
 
-  call({Enum$Enum? field, List<Enum$Enum>? fields}) => _res;
+  call({
+    Enum$Enum? field,
+    List<Enum$Enum>? fields,
+  }) =>
+      _res;
 }
 
 const documentNodeQueryFoobar = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Foobar'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'field'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'fields'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'Foobar'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'field'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'fields'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);

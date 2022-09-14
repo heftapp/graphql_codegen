@@ -3,15 +3,16 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_codegen_example/scalars.dart';
 
 class Fragment$PersonSummary {
-  Fragment$PersonSummary(
-      {this.nickname,
-      required this.name,
-      this.dob,
-      this.events,
-      this.eventsOfEvents,
-      this.parents,
-      this.favParent,
-      required this.$__typename});
+  Fragment$PersonSummary({
+    this.nickname,
+    required this.name,
+    this.dob,
+    this.events,
+    this.eventsOfEvents,
+    this.parents,
+    this.favParent,
+    required this.$__typename,
+  });
 
   factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) {
     final l$nickname = json['nickname'];
@@ -23,26 +24,27 @@ class Fragment$PersonSummary {
     final l$favParent = json['favParent'];
     final l$$__typename = json['__typename'];
     return Fragment$PersonSummary(
-        nickname: (l$nickname as String?),
-        name: (l$name as String),
-        dob: l$dob == null ? null : dateTimeFromJson(l$dob),
-        events: (l$events as List<dynamic>?)
-            ?.map((e) => e == null ? null : dateTimeFromJson(e))
-            .toList(),
-        eventsOfEvents: (l$eventsOfEvents as List<dynamic>?)
-            ?.map((e) => (e as List<dynamic>?)
-                ?.map((e) => e == null ? null : dateTimeFromJson(e))
-                .toList())
-            .toList(),
-        parents: (l$parents as List<dynamic>?)
-            ?.map((e) =>
-                Fragment$PersonParent.fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        favParent: l$favParent == null
-            ? null
-            : Fragment$PersonParent.fromJson(
-                (l$favParent as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      nickname: (l$nickname as String?),
+      name: (l$name as String),
+      dob: l$dob == null ? null : dateTimeFromJson(l$dob),
+      events: (l$events as List<dynamic>?)
+          ?.map((e) => e == null ? null : dateTimeFromJson(e))
+          .toList(),
+      eventsOfEvents: (l$eventsOfEvents as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>?)
+              ?.map((e) => e == null ? null : dateTimeFromJson(e))
+              .toList())
+          .toList(),
+      parents: (l$parents as List<dynamic>?)
+          ?.map((e) =>
+              Fragment$PersonParent.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      favParent: l$favParent == null
+          ? null
+          : Fragment$PersonParent.fromJson(
+              (l$favParent as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String? nickname;
@@ -107,7 +109,7 @@ class Fragment$PersonSummary {
               .map((v) => v == null ? null : Object.hashAll(v.map((v) => v)))),
       l$parents == null ? null : Object.hashAll(l$parents.map((v) => v)),
       l$favParent,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -214,26 +216,31 @@ class Fragment$PersonSummary {
 
 extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
   CopyWith$Fragment$PersonSummary<Fragment$PersonSummary> get copyWith =>
-      CopyWith$Fragment$PersonSummary(this, (i) => i);
+      CopyWith$Fragment$PersonSummary(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$PersonSummary<TRes> {
-  factory CopyWith$Fragment$PersonSummary(Fragment$PersonSummary instance,
-          TRes Function(Fragment$PersonSummary) then) =
-      _CopyWithImpl$Fragment$PersonSummary;
+  factory CopyWith$Fragment$PersonSummary(
+    Fragment$PersonSummary instance,
+    TRes Function(Fragment$PersonSummary) then,
+  ) = _CopyWithImpl$Fragment$PersonSummary;
 
   factory CopyWith$Fragment$PersonSummary.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonSummary;
 
-  TRes call(
-      {String? nickname,
-      String? name,
-      DateTime? dob,
-      List<DateTime?>? events,
-      List<List<DateTime?>?>? eventsOfEvents,
-      List<Fragment$PersonParent>? parents,
-      Fragment$PersonParent? favParent,
-      String? $__typename});
+  TRes call({
+    String? nickname,
+    String? name,
+    DateTime? dob,
+    List<DateTime?>? events,
+    List<List<DateTime?>?>? eventsOfEvents,
+    List<Fragment$PersonParent>? parents,
+    Fragment$PersonParent? favParent,
+    String? $__typename,
+  });
   TRes parents(
       Iterable<Fragment$PersonParent>? Function(
               Iterable<CopyWith$Fragment$PersonParent<Fragment$PersonParent>>?)
@@ -243,7 +250,10 @@ abstract class CopyWith$Fragment$PersonSummary<TRes> {
 
 class _CopyWithImpl$Fragment$PersonSummary<TRes>
     implements CopyWith$Fragment$PersonSummary<TRes> {
-  _CopyWithImpl$Fragment$PersonSummary(this._instance, this._then);
+  _CopyWithImpl$Fragment$PersonSummary(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$PersonSummary _instance;
 
@@ -251,47 +261,50 @@ class _CopyWithImpl$Fragment$PersonSummary<TRes>
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? nickname = _undefined,
-          Object? name = _undefined,
-          Object? dob = _undefined,
-          Object? events = _undefined,
-          Object? eventsOfEvents = _undefined,
-          Object? parents = _undefined,
-          Object? favParent = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? nickname = _undefined,
+    Object? name = _undefined,
+    Object? dob = _undefined,
+    Object? events = _undefined,
+    Object? eventsOfEvents = _undefined,
+    Object? parents = _undefined,
+    Object? favParent = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$PersonSummary(
-          nickname: nickname == _undefined
-              ? _instance.nickname
-              : (nickname as String?),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          dob: dob == _undefined ? _instance.dob : (dob as DateTime?),
-          events: events == _undefined
-              ? _instance.events
-              : (events as List<DateTime?>?),
-          eventsOfEvents: eventsOfEvents == _undefined
-              ? _instance.eventsOfEvents
-              : (eventsOfEvents as List<List<DateTime?>?>?),
-          parents: parents == _undefined
-              ? _instance.parents
-              : (parents as List<Fragment$PersonParent>?),
-          favParent: favParent == _undefined
-              ? _instance.favParent
-              : (favParent as Fragment$PersonParent?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        nickname:
+            nickname == _undefined ? _instance.nickname : (nickname as String?),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        dob: dob == _undefined ? _instance.dob : (dob as DateTime?),
+        events: events == _undefined
+            ? _instance.events
+            : (events as List<DateTime?>?),
+        eventsOfEvents: eventsOfEvents == _undefined
+            ? _instance.eventsOfEvents
+            : (eventsOfEvents as List<List<DateTime?>?>?),
+        parents: parents == _undefined
+            ? _instance.parents
+            : (parents as List<Fragment$PersonParent>?),
+        favParent: favParent == _undefined
+            ? _instance.favParent
+            : (favParent as Fragment$PersonParent?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes parents(
           Iterable<Fragment$PersonParent>? Function(
                   Iterable<
                       CopyWith$Fragment$PersonParent<Fragment$PersonParent>>?)
               _fn) =>
       call(
-          parents: _fn(_instance.parents
-                  ?.map((e) => CopyWith$Fragment$PersonParent(e, (i) => i)))
-              ?.toList());
+          parents:
+              _fn(_instance.parents?.map((e) => CopyWith$Fragment$PersonParent(
+                    e,
+                    (i) => i,
+                  )))?.toList());
   CopyWith$Fragment$PersonParent<TRes> get favParent {
     final local$favParent = _instance.favParent;
     return local$favParent == null
@@ -307,15 +320,16 @@ class _CopyWithStubImpl$Fragment$PersonSummary<TRes>
 
   TRes _res;
 
-  call(
-          {String? nickname,
-          String? name,
-          DateTime? dob,
-          List<DateTime?>? events,
-          List<List<DateTime?>?>? eventsOfEvents,
-          List<Fragment$PersonParent>? parents,
-          Fragment$PersonParent? favParent,
-          String? $__typename}) =>
+  call({
+    String? nickname,
+    String? name,
+    DateTime? dob,
+    List<DateTime?>? events,
+    List<List<DateTime?>?>? eventsOfEvents,
+    List<Fragment$PersonParent>? parents,
+    Fragment$PersonParent? favParent,
+    String? $__typename,
+  }) =>
       _res;
   parents(_fn) => _res;
   CopyWith$Fragment$PersonParent<TRes> get favParent =>
@@ -323,117 +337,149 @@ class _CopyWithStubImpl$Fragment$PersonSummary<TRes>
 }
 
 const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
-    name: NameNode(value: 'PersonSummary'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'nickname'),
-          alias: null,
-          arguments: [],
+  name: NameNode(value: 'PersonSummary'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Person'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'nickname'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'full_name'),
+      alias: NameNode(value: 'name'),
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'dob'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'events'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'events_of_events'),
+      alias: NameNode(value: 'eventsOfEvents'),
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'parents'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'PersonParent'),
           directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'full_name'),
-          alias: NameNode(value: 'name'),
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'dob'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'events'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'events_of_events'),
-          alias: NameNode(value: 'eventsOfEvents'),
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'parents'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(
-                name: NameNode(value: 'PersonParent'), directives: []),
-            FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null)
-          ])),
-      FieldNode(
-          name: NameNode(value: 'favorite_parent'),
-          alias: NameNode(value: 'favParent'),
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(
-                name: NameNode(value: 'PersonParent'), directives: []),
-            FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null)
-          ])),
-      FieldNode(
+        ),
+        FieldNode(
           name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
           directives: [],
-          selectionSet: null)
-    ]));
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: 'favorite_parent'),
+      alias: NameNode(value: 'favParent'),
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'PersonParent'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
 const documentNodeFragmentPersonSummary = DocumentNode(definitions: [
   fragmentDefinitionPersonSummary,
   fragmentDefinitionPersonParent,
 ]);
 
 extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
-  void writeFragment$PersonSummary(
-          {required Fragment$PersonSummary data,
-          required Map<String, dynamic> idFields,
-          bool broadcast = true}) =>
+  void writeFragment$PersonSummary({
+    required Fragment$PersonSummary data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
       this.writeFragment(
-          graphql.FragmentRequest(
-              idFields: idFields,
-              fragment: const graphql.Fragment(
-                  fragmentName: 'PersonSummary',
-                  document: documentNodeFragmentPersonSummary)),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Fragment$PersonSummary? readFragment$PersonSummary(
-      {required Map<String, dynamic> idFields, bool optimistic = true}) {
-    final result = this.readFragment(
         graphql.FragmentRequest(
-            idFields: idFields,
-            fragment: const graphql.Fragment(
-                fragmentName: 'PersonSummary',
-                document: documentNodeFragmentPersonSummary)),
-        optimistic: optimistic);
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'PersonSummary',
+            document: documentNodeFragmentPersonSummary,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$PersonSummary? readFragment$PersonSummary({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'PersonSummary',
+          document: documentNodeFragmentPersonSummary,
+        ),
+      ),
+      optimistic: optimistic,
+    );
     return result == null ? null : Fragment$PersonSummary.fromJson(result);
   }
 }
 
 class Fragment$PersonParent {
-  Fragment$PersonParent({required this.name, required this.$__typename});
+  Fragment$PersonParent({
+    required this.name,
+    required this.$__typename,
+  });
 
   factory Fragment$PersonParent.fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Fragment$PersonParent(
-        name: (l$name as String), $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -453,7 +499,10 @@ class Fragment$PersonParent {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -480,23 +529,33 @@ class Fragment$PersonParent {
 
 extension UtilityExtension$Fragment$PersonParent on Fragment$PersonParent {
   CopyWith$Fragment$PersonParent<Fragment$PersonParent> get copyWith =>
-      CopyWith$Fragment$PersonParent(this, (i) => i);
+      CopyWith$Fragment$PersonParent(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$PersonParent<TRes> {
-  factory CopyWith$Fragment$PersonParent(Fragment$PersonParent instance,
-          TRes Function(Fragment$PersonParent) then) =
-      _CopyWithImpl$Fragment$PersonParent;
+  factory CopyWith$Fragment$PersonParent(
+    Fragment$PersonParent instance,
+    TRes Function(Fragment$PersonParent) then,
+  ) = _CopyWithImpl$Fragment$PersonParent;
 
   factory CopyWith$Fragment$PersonParent.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonParent;
 
-  TRes call({String? name, String? $__typename});
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Fragment$PersonParent<TRes>
     implements CopyWith$Fragment$PersonParent<TRes> {
-  _CopyWithImpl$Fragment$PersonParent(this._instance, this._then);
+  _CopyWithImpl$Fragment$PersonParent(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$PersonParent _instance;
 
@@ -504,14 +563,18 @@ class _CopyWithImpl$Fragment$PersonParent<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$PersonParent(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Fragment$PersonParent<TRes>
@@ -520,54 +583,73 @@ class _CopyWithStubImpl$Fragment$PersonParent<TRes>
 
   TRes _res;
 
-  call({String? name, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 const fragmentDefinitionPersonParent = FragmentDefinitionNode(
-    name: NameNode(value: 'PersonParent'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'full_name'),
-          alias: NameNode(value: 'name'),
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null)
-    ]));
+  name: NameNode(value: 'PersonParent'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Person'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'full_name'),
+      alias: NameNode(value: 'name'),
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
 const documentNodeFragmentPersonParent = DocumentNode(definitions: [
   fragmentDefinitionPersonParent,
 ]);
 
 extension ClientExtension$Fragment$PersonParent on graphql.GraphQLClient {
-  void writeFragment$PersonParent(
-          {required Fragment$PersonParent data,
-          required Map<String, dynamic> idFields,
-          bool broadcast = true}) =>
+  void writeFragment$PersonParent({
+    required Fragment$PersonParent data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
       this.writeFragment(
-          graphql.FragmentRequest(
-              idFields: idFields,
-              fragment: const graphql.Fragment(
-                  fragmentName: 'PersonParent',
-                  document: documentNodeFragmentPersonParent)),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Fragment$PersonParent? readFragment$PersonParent(
-      {required Map<String, dynamic> idFields, bool optimistic = true}) {
-    final result = this.readFragment(
         graphql.FragmentRequest(
-            idFields: idFields,
-            fragment: const graphql.Fragment(
-                fragmentName: 'PersonParent',
-                document: documentNodeFragmentPersonParent)),
-        optimistic: optimistic);
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'PersonParent',
+            document: documentNodeFragmentPersonParent,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$PersonParent? readFragment$PersonParent({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'PersonParent',
+          document: documentNodeFragmentPersonParent,
+        ),
+      ),
+      optimistic: optimistic,
+    );
     return result == null ? null : Fragment$PersonParent.fromJson(result);
   }
 }

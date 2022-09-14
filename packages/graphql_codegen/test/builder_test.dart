@@ -25,6 +25,13 @@ void main() {
                 .listSync(recursive: true)
                 .where((element) => !basename(element.path).startsWith("_"))
                 .whereType<File>()
+                .where((file) => const {
+                      '.graphql',
+                      '.dart',
+                      '.gql',
+                      '.expected',
+                      '.json'
+                    }.contains(extension(file.path)))
                 .map(
                   (file) async => MapEntry(
                     file.absolute.path.replaceAll(testSet.absolute.path, ""),

@@ -1,4 +1,5 @@
 enum Enum$Status { COOL, BEANS, $unknown }
+
 String toJson$Enum$Status(Enum$Status e) {
   switch (e) {
     case Enum$Status.COOL:

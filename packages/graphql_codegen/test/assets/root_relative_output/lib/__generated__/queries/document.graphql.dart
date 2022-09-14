@@ -2,13 +2,18 @@ import '../fragments/document.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Query$Q implements Fragment$F {
-  Query$Q({this.name, required this.$__typename});
+  Query$Q({
+    this.name,
+    required this.$__typename,
+  });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Query$Q(
-        name: (l$name as String?), $__typename: (l$$__typename as String));
+      name: (l$name as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String? name;
@@ -28,7 +33,10 @@ class Query$Q implements Fragment$F {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -54,20 +62,31 @@ class Query$Q implements Fragment$F {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(
+    Query$Q instance,
+    TRes Function(Query$Q) then,
+  ) = _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call({String? name, String? $__typename});
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(this._instance, this._then);
+  _CopyWithImpl$Query$Q(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q _instance;
 
@@ -75,12 +94,16 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$Q(
-          name: name == _undefined ? _instance.name : (name as String?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        name: name == _undefined ? _instance.name : (name as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -88,23 +111,32 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call({String? name, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(name: NameNode(value: 'F'), directives: []),
-        FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'Q'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FragmentSpreadNode(
+        name: NameNode(value: 'F'),
+        directives: [],
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
   fragmentDefinitionF,
 ]);

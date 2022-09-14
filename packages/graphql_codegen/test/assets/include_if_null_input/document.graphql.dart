@@ -1,7 +1,11 @@
 import 'package:gql/ast.dart';
 
 class Input$Input {
-  factory Input$Input({String? field, bool? flag}) => Input$Input._({
+  factory Input$Input({
+    String? field,
+    bool? flag,
+  }) =>
+      Input$Input._({
         if (field != null) r'field': field,
         if (flag != null) r'flag': flag,
       });
@@ -38,8 +42,10 @@ class Input$Input {
     return result$data;
   }
 
-  CopyWith$Input$Input<Input$Input> get copyWith =>
-      CopyWith$Input$Input(this, (i) => i);
+  CopyWith$Input$Input<Input$Input> get copyWith => CopyWith$Input$Input(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -73,23 +79,30 @@ class Input$Input {
     final l$flag = flag;
     return Object.hashAll([
       _$data.containsKey('field') ? l$field : const {},
-      _$data.containsKey('flag') ? l$flag : const {}
+      _$data.containsKey('flag') ? l$flag : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Input$Input<TRes> {
   factory CopyWith$Input$Input(
-          Input$Input instance, TRes Function(Input$Input) then) =
-      _CopyWithImpl$Input$Input;
+    Input$Input instance,
+    TRes Function(Input$Input) then,
+  ) = _CopyWithImpl$Input$Input;
 
   factory CopyWith$Input$Input.stub(TRes res) = _CopyWithStubImpl$Input$Input;
 
-  TRes call({String? field, bool? flag});
+  TRes call({
+    String? field,
+    bool? flag,
+  });
 }
 
 class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
-  _CopyWithImpl$Input$Input(this._instance, this._then);
+  _CopyWithImpl$Input$Input(
+    this._instance,
+    this._then,
+  );
 
   final Input$Input _instance;
 
@@ -97,7 +110,10 @@ class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? field = _undefined, Object? flag = _undefined}) =>
+  TRes call({
+    Object? field = _undefined,
+    Object? flag = _undefined,
+  }) =>
       _then(Input$Input._({
         ..._instance._$data,
         if (field != _undefined) 'field': (field as String?),
@@ -111,7 +127,11 @@ class _CopyWithStubImpl$Input$Input<TRes>
 
   TRes _res;
 
-  call({String? field, bool? flag}) => _res;
+  call({
+    String? field,
+    bool? flag,
+  }) =>
+      _res;
 }
 
 class Variables$Query$Q1 {
@@ -145,7 +165,10 @@ class Variables$Query$Q1 {
   }
 
   CopyWith$Variables$Query$Q1<Variables$Query$Q1> get copyWith =>
-      CopyWith$Variables$Query$Q1(this, (i) => i);
+      CopyWith$Variables$Query$Q1(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -174,8 +197,9 @@ class Variables$Query$Q1 {
 
 abstract class CopyWith$Variables$Query$Q1<TRes> {
   factory CopyWith$Variables$Query$Q1(
-          Variables$Query$Q1 instance, TRes Function(Variables$Query$Q1) then) =
-      _CopyWithImpl$Variables$Query$Q1;
+    Variables$Query$Q1 instance,
+    TRes Function(Variables$Query$Q1) then,
+  ) = _CopyWithImpl$Variables$Query$Q1;
 
   factory CopyWith$Variables$Query$Q1.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Q1;
@@ -186,7 +210,10 @@ abstract class CopyWith$Variables$Query$Q1<TRes> {
 
 class _CopyWithImpl$Variables$Query$Q1<TRes>
     implements CopyWith$Variables$Query$Q1<TRes> {
-  _CopyWithImpl$Variables$Query$Q1(this._instance, this._then);
+  _CopyWithImpl$Variables$Query$Q1(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$Q1 _instance;
 
@@ -217,13 +244,18 @@ class _CopyWithStubImpl$Variables$Query$Q1<TRes>
 }
 
 class Query$Q1 {
-  Query$Q1({this.field, required this.$__typename});
+  Query$Q1({
+    this.field,
+    required this.$__typename,
+  });
 
   factory Query$Q1.fromJson(Map<String, dynamic> json) {
     final l$field = json['field'];
     final l$$__typename = json['__typename'];
     return Query$Q1(
-        field: (l$field as String?), $__typename: (l$$__typename as String));
+      field: (l$field as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String? field;
@@ -243,7 +275,10 @@ class Query$Q1 {
   int get hashCode {
     final l$field = field;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$field, l$$__typename]);
+    return Object.hashAll([
+      l$field,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -269,20 +304,31 @@ class Query$Q1 {
 }
 
 extension UtilityExtension$Query$Q1 on Query$Q1 {
-  CopyWith$Query$Q1<Query$Q1> get copyWith => CopyWith$Query$Q1(this, (i) => i);
+  CopyWith$Query$Q1<Query$Q1> get copyWith => CopyWith$Query$Q1(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q1<TRes> {
-  factory CopyWith$Query$Q1(Query$Q1 instance, TRes Function(Query$Q1) then) =
-      _CopyWithImpl$Query$Q1;
+  factory CopyWith$Query$Q1(
+    Query$Q1 instance,
+    TRes Function(Query$Q1) then,
+  ) = _CopyWithImpl$Query$Q1;
 
   factory CopyWith$Query$Q1.stub(TRes res) = _CopyWithStubImpl$Query$Q1;
 
-  TRes call({String? field, String? $__typename});
+  TRes call({
+    String? field,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
-  _CopyWithImpl$Query$Q1(this._instance, this._then);
+  _CopyWithImpl$Query$Q1(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q1 _instance;
 
@@ -290,12 +336,16 @@ class _CopyWithImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? field = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? field = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$Q1(
-          field: field == _undefined ? _instance.field : (field as String?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        field: field == _undefined ? _instance.field : (field as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
@@ -303,39 +353,50 @@ class _CopyWithStubImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
 
   TRes _res;
 
-  call({String? field, String? $__typename}) => _res;
+  call({
+    String? field,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 const documentNodeQueryQ1 = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q1'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'input')),
-            type:
-                NamedTypeNode(name: NameNode(value: 'Input'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'field'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'input'),
-                  value: VariableNode(name: NameNode(value: 'input')))
-            ],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'Q1'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Input'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'field'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 const possibleTypesMap = {};

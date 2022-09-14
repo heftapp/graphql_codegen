@@ -1,3 +1,6 @@
 const possibleTypesMap = {
-  'Interface': {'ImplementationA', 'ImplementationB'}
+  'Interface': {
+    'ImplementationA',
+    'ImplementationB',
+  }
 };

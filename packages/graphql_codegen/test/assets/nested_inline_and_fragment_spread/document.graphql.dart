@@ -44,14 +44,17 @@ class Fragment$F {
 }
 
 extension UtilityExtension$Fragment$F on Fragment$F {
-  CopyWith$Fragment$F<Fragment$F> get copyWith =>
-      CopyWith$Fragment$F(this, (i) => i);
+  CopyWith$Fragment$F<Fragment$F> get copyWith => CopyWith$Fragment$F(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F<TRes> {
   factory CopyWith$Fragment$F(
-          Fragment$F instance, TRes Function(Fragment$F) then) =
-      _CopyWithImpl$Fragment$F;
+    Fragment$F instance,
+    TRes Function(Fragment$F) then,
+  ) = _CopyWithImpl$Fragment$F;
 
   factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
 
@@ -60,7 +63,10 @@ abstract class CopyWith$Fragment$F<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
-  _CopyWithImpl$Fragment$F(this._instance, this._then);
+  _CopyWithImpl$Fragment$F(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F _instance;
 
@@ -88,32 +94,39 @@ class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 }
 
 const fragmentDefinitionF = FragmentDefinitionNode(
-    name: NameNode(value: 'F'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
+  name: NameNode(value: 'F'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'T'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 't'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
           name: NameNode(value: 't'),
           alias: null,
           arguments: [],
           directives: [],
           selectionSet: SelectionSetNode(selections: [
             FieldNode(
-                name: NameNode(value: 't'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                      name: NameNode(value: '__typename'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ]))
-          ]))
-    ]));
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            )
+          ]),
+        )
+      ]),
+    )
+  ]),
+);
 const documentNodeFragmentF = DocumentNode(definitions: [
   fragmentDefinitionF,
 ]);
@@ -162,14 +175,17 @@ class Fragment$F$t {
 }
 
 extension UtilityExtension$Fragment$F$t on Fragment$F$t {
-  CopyWith$Fragment$F$t<Fragment$F$t> get copyWith =>
-      CopyWith$Fragment$F$t(this, (i) => i);
+  CopyWith$Fragment$F$t<Fragment$F$t> get copyWith => CopyWith$Fragment$F$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F$t<TRes> {
   factory CopyWith$Fragment$F$t(
-          Fragment$F$t instance, TRes Function(Fragment$F$t) then) =
-      _CopyWithImpl$Fragment$F$t;
+    Fragment$F$t instance,
+    TRes Function(Fragment$F$t) then,
+  ) = _CopyWithImpl$Fragment$F$t;
 
   factory CopyWith$Fragment$F$t.stub(TRes res) = _CopyWithStubImpl$Fragment$F$t;
 
@@ -178,7 +194,10 @@ abstract class CopyWith$Fragment$F$t<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F$t<TRes> implements CopyWith$Fragment$F$t<TRes> {
-  _CopyWithImpl$Fragment$F$t(this._instance, this._then);
+  _CopyWithImpl$Fragment$F$t(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F$t _instance;
 
@@ -248,13 +267,17 @@ class Fragment$F$t$t {
 
 extension UtilityExtension$Fragment$F$t$t on Fragment$F$t$t {
   CopyWith$Fragment$F$t$t<Fragment$F$t$t> get copyWith =>
-      CopyWith$Fragment$F$t$t(this, (i) => i);
+      CopyWith$Fragment$F$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F$t$t<TRes> {
   factory CopyWith$Fragment$F$t$t(
-          Fragment$F$t$t instance, TRes Function(Fragment$F$t$t) then) =
-      _CopyWithImpl$Fragment$F$t$t;
+    Fragment$F$t$t instance,
+    TRes Function(Fragment$F$t$t) then,
+  ) = _CopyWithImpl$Fragment$F$t$t;
 
   factory CopyWith$Fragment$F$t$t.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$t$t;
@@ -264,7 +287,10 @@ abstract class CopyWith$Fragment$F$t$t<TRes> {
 
 class _CopyWithImpl$Fragment$F$t$t<TRes>
     implements CopyWith$Fragment$F$t$t<TRes> {
-  _CopyWithImpl$Fragment$F$t$t(this._instance, this._then);
+  _CopyWithImpl$Fragment$F$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F$t$t _instance;
 
@@ -331,12 +357,17 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(
+    Query$Q instance,
+    TRes Function(Query$Q) then,
+  ) = _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -345,7 +376,10 @@ abstract class CopyWith$Query$Q<TRes> {
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(this._instance, this._then);
+  _CopyWithImpl$Query$Q(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q _instance;
 
@@ -374,49 +408,60 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
 const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+    type: OperationType.query,
+    name: NameNode(value: 'Q'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 't'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
             name: NameNode(value: 't'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 't'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 't'),
+                name: NameNode(value: 't'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 't'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FieldNode(
-                              name: NameNode(value: 't'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: SelectionSetNode(selections: [
-                                FieldNode(
-                                    name: NameNode(value: '__typename'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null)
-                              ]))
-                        ])),
-                    FragmentSpreadNode(
-                        name: NameNode(value: 'F'), directives: [])
-                  ])),
-              FragmentSpreadNode(name: NameNode(value: 'F'), directives: [])
-            ]))
-      ])),
+                        selectionSet: null,
+                      )
+                    ]),
+                  )
+                ]),
+              ),
+              FragmentSpreadNode(
+                name: NameNode(value: 'F'),
+                directives: [],
+              ),
+            ]),
+          ),
+          FragmentSpreadNode(
+            name: NameNode(value: 'F'),
+            directives: [],
+          ),
+        ]),
+      )
+    ]),
+  ),
   fragmentDefinitionF,
 ]);
 
@@ -464,14 +509,17 @@ class Query$Q$t implements Fragment$F {
 }
 
 extension UtilityExtension$Query$Q$t on Query$Q$t {
-  CopyWith$Query$Q$t<Query$Q$t> get copyWith =>
-      CopyWith$Query$Q$t(this, (i) => i);
+  CopyWith$Query$Q$t<Query$Q$t> get copyWith => CopyWith$Query$Q$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$t<TRes> {
   factory CopyWith$Query$Q$t(
-          Query$Q$t instance, TRes Function(Query$Q$t) then) =
-      _CopyWithImpl$Query$Q$t;
+    Query$Q$t instance,
+    TRes Function(Query$Q$t) then,
+  ) = _CopyWithImpl$Query$Q$t;
 
   factory CopyWith$Query$Q$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t;
 
@@ -480,7 +528,10 @@ abstract class CopyWith$Query$Q$t<TRes> {
 }
 
 class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
-  _CopyWithImpl$Query$Q$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$t _instance;
 
@@ -551,14 +602,17 @@ class Query$Q$t$t implements Fragment$F, Fragment$F$t {
 }
 
 extension UtilityExtension$Query$Q$t$t on Query$Q$t$t {
-  CopyWith$Query$Q$t$t<Query$Q$t$t> get copyWith =>
-      CopyWith$Query$Q$t$t(this, (i) => i);
+  CopyWith$Query$Q$t$t<Query$Q$t$t> get copyWith => CopyWith$Query$Q$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$t$t<TRes> {
   factory CopyWith$Query$Q$t$t(
-          Query$Q$t$t instance, TRes Function(Query$Q$t$t) then) =
-      _CopyWithImpl$Query$Q$t$t;
+    Query$Q$t$t instance,
+    TRes Function(Query$Q$t$t) then,
+  ) = _CopyWithImpl$Query$Q$t$t;
 
   factory CopyWith$Query$Q$t$t.stub(TRes res) = _CopyWithStubImpl$Query$Q$t$t;
 
@@ -567,7 +621,10 @@ abstract class CopyWith$Query$Q$t$t<TRes> {
 }
 
 class _CopyWithImpl$Query$Q$t$t<TRes> implements CopyWith$Query$Q$t$t<TRes> {
-  _CopyWithImpl$Query$Q$t$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$t$t _instance;
 
@@ -596,16 +653,20 @@ class _CopyWithStubImpl$Query$Q$t$t<TRes>
 }
 
 class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
-  Query$Q$t$t$t({this.t, required this.$__typename});
+  Query$Q$t$t$t({
+    this.t,
+    required this.$__typename,
+  });
 
   factory Query$Q$t$t$t.fromJson(Map<String, dynamic> json) {
     final l$t = json['t'];
     final l$$__typename = json['__typename'];
     return Query$Q$t$t$t(
-        t: l$t == null
-            ? null
-            : Query$Q$t$t$t$t.fromJson((l$t as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      t: l$t == null
+          ? null
+          : Query$Q$t$t$t$t.fromJson((l$t as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Query$Q$t$t$t$t? t;
@@ -625,7 +686,10 @@ class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
   int get hashCode {
     final l$t = t;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$t, l$$__typename]);
+    return Object.hashAll([
+      l$t,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -651,25 +715,34 @@ class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
 }
 
 extension UtilityExtension$Query$Q$t$t$t on Query$Q$t$t$t {
-  CopyWith$Query$Q$t$t$t<Query$Q$t$t$t> get copyWith =>
-      CopyWith$Query$Q$t$t$t(this, (i) => i);
+  CopyWith$Query$Q$t$t$t<Query$Q$t$t$t> get copyWith => CopyWith$Query$Q$t$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$t$t$t<TRes> {
   factory CopyWith$Query$Q$t$t$t(
-          Query$Q$t$t$t instance, TRes Function(Query$Q$t$t$t) then) =
-      _CopyWithImpl$Query$Q$t$t$t;
+    Query$Q$t$t$t instance,
+    TRes Function(Query$Q$t$t$t) then,
+  ) = _CopyWithImpl$Query$Q$t$t$t;
 
   factory CopyWith$Query$Q$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$t$t$t;
 
-  TRes call({Query$Q$t$t$t$t? t, String? $__typename});
+  TRes call({
+    Query$Q$t$t$t$t? t,
+    String? $__typename,
+  });
   CopyWith$Query$Q$t$t$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q$t$t$t<TRes>
     implements CopyWith$Query$Q$t$t$t<TRes> {
-  _CopyWithImpl$Query$Q$t$t$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q$t$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$t$t$t _instance;
 
@@ -677,12 +750,16 @@ class _CopyWithImpl$Query$Q$t$t$t<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? t = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? t = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$Q$t$t$t(
-          t: t == _undefined ? _instance.t : (t as Query$Q$t$t$t$t?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        t: t == _undefined ? _instance.t : (t as Query$Q$t$t$t$t?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$Q$t$t$t$t<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -697,7 +774,11 @@ class _CopyWithStubImpl$Query$Q$t$t$t<TRes>
 
   TRes _res;
 
-  call({Query$Q$t$t$t$t? t, String? $__typename}) => _res;
+  call({
+    Query$Q$t$t$t$t? t,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Query$Q$t$t$t$t<TRes> get t => CopyWith$Query$Q$t$t$t$t.stub(_res);
 }
 
@@ -743,13 +824,17 @@ class Query$Q$t$t$t$t implements Fragment$F$t$t {
 
 extension UtilityExtension$Query$Q$t$t$t$t on Query$Q$t$t$t$t {
   CopyWith$Query$Q$t$t$t$t<Query$Q$t$t$t$t> get copyWith =>
-      CopyWith$Query$Q$t$t$t$t(this, (i) => i);
+      CopyWith$Query$Q$t$t$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$t$t$t$t<TRes> {
   factory CopyWith$Query$Q$t$t$t$t(
-          Query$Q$t$t$t$t instance, TRes Function(Query$Q$t$t$t$t) then) =
-      _CopyWithImpl$Query$Q$t$t$t$t;
+    Query$Q$t$t$t$t instance,
+    TRes Function(Query$Q$t$t$t$t) then,
+  ) = _CopyWithImpl$Query$Q$t$t$t$t;
 
   factory CopyWith$Query$Q$t$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$t$t$t$t;
@@ -759,7 +844,10 @@ abstract class CopyWith$Query$Q$t$t$t$t<TRes> {
 
 class _CopyWithImpl$Query$Q$t$t$t$t<TRes>
     implements CopyWith$Query$Q$t$t$t$t<TRes> {
-  _CopyWithImpl$Query$Q$t$t$t$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q$t$t$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$t$t$t$t _instance;
 
@@ -826,12 +914,17 @@ class Query$Q2 {
 }
 
 extension UtilityExtension$Query$Q2 on Query$Q2 {
-  CopyWith$Query$Q2<Query$Q2> get copyWith => CopyWith$Query$Q2(this, (i) => i);
+  CopyWith$Query$Q2<Query$Q2> get copyWith => CopyWith$Query$Q2(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q2<TRes> {
-  factory CopyWith$Query$Q2(Query$Q2 instance, TRes Function(Query$Q2) then) =
-      _CopyWithImpl$Query$Q2;
+  factory CopyWith$Query$Q2(
+    Query$Q2 instance,
+    TRes Function(Query$Q2) then,
+  ) = _CopyWithImpl$Query$Q2;
 
   factory CopyWith$Query$Q2.stub(TRes res) = _CopyWithStubImpl$Query$Q2;
 
@@ -840,7 +933,10 @@ abstract class CopyWith$Query$Q2<TRes> {
 }
 
 class _CopyWithImpl$Query$Q2<TRes> implements CopyWith$Query$Q2<TRes> {
-  _CopyWithImpl$Query$Q2(this._instance, this._then);
+  _CopyWithImpl$Query$Q2(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q2 _instance;
 
@@ -869,49 +965,60 @@ class _CopyWithStubImpl$Query$Q2<TRes> implements CopyWith$Query$Q2<TRes> {
 
 const documentNodeQueryQ2 = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q2'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+    type: OperationType.query,
+    name: NameNode(value: 'Q2'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 't'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'F'),
+            directives: [],
+          ),
+          FieldNode(
             name: NameNode(value: 't'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(name: NameNode(value: 'F'), directives: []),
+              FragmentSpreadNode(
+                name: NameNode(value: 'F'),
+                directives: [],
+              ),
               FieldNode(
-                  name: NameNode(value: 't'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FragmentSpreadNode(
-                        name: NameNode(value: 'F'), directives: []),
-                    FieldNode(
-                        name: NameNode(value: 't'),
+                name: NameNode(value: 't'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 't'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FieldNode(
-                              name: NameNode(value: 't'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: SelectionSetNode(selections: [
-                                FieldNode(
-                                    name: NameNode(value: '__typename'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null)
-                              ]))
-                        ]))
-                  ]))
-            ]))
-      ])),
+                        selectionSet: null,
+                      )
+                    ]),
+                  )
+                ]),
+              ),
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  ),
   fragmentDefinitionF,
 ]);
 
@@ -959,14 +1066,17 @@ class Query$Q2$t implements Fragment$F {
 }
 
 extension UtilityExtension$Query$Q2$t on Query$Q2$t {
-  CopyWith$Query$Q2$t<Query$Q2$t> get copyWith =>
-      CopyWith$Query$Q2$t(this, (i) => i);
+  CopyWith$Query$Q2$t<Query$Q2$t> get copyWith => CopyWith$Query$Q2$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q2$t<TRes> {
   factory CopyWith$Query$Q2$t(
-          Query$Q2$t instance, TRes Function(Query$Q2$t) then) =
-      _CopyWithImpl$Query$Q2$t;
+    Query$Q2$t instance,
+    TRes Function(Query$Q2$t) then,
+  ) = _CopyWithImpl$Query$Q2$t;
 
   factory CopyWith$Query$Q2$t.stub(TRes res) = _CopyWithStubImpl$Query$Q2$t;
 
@@ -975,7 +1085,10 @@ abstract class CopyWith$Query$Q2$t<TRes> {
 }
 
 class _CopyWithImpl$Query$Q2$t<TRes> implements CopyWith$Query$Q2$t<TRes> {
-  _CopyWithImpl$Query$Q2$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q2$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q2$t _instance;
 
@@ -1046,14 +1159,17 @@ class Query$Q2$t$t implements Fragment$F$t, Fragment$F {
 }
 
 extension UtilityExtension$Query$Q2$t$t on Query$Q2$t$t {
-  CopyWith$Query$Q2$t$t<Query$Q2$t$t> get copyWith =>
-      CopyWith$Query$Q2$t$t(this, (i) => i);
+  CopyWith$Query$Q2$t$t<Query$Q2$t$t> get copyWith => CopyWith$Query$Q2$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q2$t$t<TRes> {
   factory CopyWith$Query$Q2$t$t(
-          Query$Q2$t$t instance, TRes Function(Query$Q2$t$t) then) =
-      _CopyWithImpl$Query$Q2$t$t;
+    Query$Q2$t$t instance,
+    TRes Function(Query$Q2$t$t) then,
+  ) = _CopyWithImpl$Query$Q2$t$t;
 
   factory CopyWith$Query$Q2$t$t.stub(TRes res) = _CopyWithStubImpl$Query$Q2$t$t;
 
@@ -1062,7 +1178,10 @@ abstract class CopyWith$Query$Q2$t$t<TRes> {
 }
 
 class _CopyWithImpl$Query$Q2$t$t<TRes> implements CopyWith$Query$Q2$t$t<TRes> {
-  _CopyWithImpl$Query$Q2$t$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q2$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q2$t$t _instance;
 
@@ -1091,16 +1210,20 @@ class _CopyWithStubImpl$Query$Q2$t$t<TRes>
 }
 
 class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
-  Query$Q2$t$t$t({required this.$__typename, this.t});
+  Query$Q2$t$t$t({
+    required this.$__typename,
+    this.t,
+  });
 
   factory Query$Q2$t$t$t.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
     final l$t = json['t'];
     return Query$Q2$t$t$t(
-        $__typename: (l$$__typename as String),
-        t: l$t == null
-            ? null
-            : Query$Q2$t$t$t$t.fromJson((l$t as Map<String, dynamic>)));
+      $__typename: (l$$__typename as String),
+      t: l$t == null
+          ? null
+          : Query$Q2$t$t$t$t.fromJson((l$t as Map<String, dynamic>)),
+    );
   }
 
   final String $__typename;
@@ -1120,7 +1243,10 @@ class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$t = t;
-    return Object.hashAll([l$$__typename, l$t]);
+    return Object.hashAll([
+      l$$__typename,
+      l$t,
+    ]);
   }
 
   @override
@@ -1147,24 +1273,34 @@ class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
 
 extension UtilityExtension$Query$Q2$t$t$t on Query$Q2$t$t$t {
   CopyWith$Query$Q2$t$t$t<Query$Q2$t$t$t> get copyWith =>
-      CopyWith$Query$Q2$t$t$t(this, (i) => i);
+      CopyWith$Query$Q2$t$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q2$t$t$t<TRes> {
   factory CopyWith$Query$Q2$t$t$t(
-          Query$Q2$t$t$t instance, TRes Function(Query$Q2$t$t$t) then) =
-      _CopyWithImpl$Query$Q2$t$t$t;
+    Query$Q2$t$t$t instance,
+    TRes Function(Query$Q2$t$t$t) then,
+  ) = _CopyWithImpl$Query$Q2$t$t$t;
 
   factory CopyWith$Query$Q2$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q2$t$t$t;
 
-  TRes call({String? $__typename, Query$Q2$t$t$t$t? t});
+  TRes call({
+    String? $__typename,
+    Query$Q2$t$t$t$t? t,
+  });
   CopyWith$Query$Q2$t$t$t$t<TRes> get t;
 }
 
 class _CopyWithImpl$Query$Q2$t$t$t<TRes>
     implements CopyWith$Query$Q2$t$t$t<TRes> {
-  _CopyWithImpl$Query$Q2$t$t$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q2$t$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q2$t$t$t _instance;
 
@@ -1172,12 +1308,16 @@ class _CopyWithImpl$Query$Q2$t$t$t<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? $__typename = _undefined, Object? t = _undefined}) =>
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? t = _undefined,
+  }) =>
       _then(Query$Q2$t$t$t(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String),
-          t: t == _undefined ? _instance.t : (t as Query$Q2$t$t$t$t?)));
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        t: t == _undefined ? _instance.t : (t as Query$Q2$t$t$t$t?),
+      ));
   CopyWith$Query$Q2$t$t$t$t<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -1192,7 +1332,11 @@ class _CopyWithStubImpl$Query$Q2$t$t$t<TRes>
 
   TRes _res;
 
-  call({String? $__typename, Query$Q2$t$t$t$t? t}) => _res;
+  call({
+    String? $__typename,
+    Query$Q2$t$t$t$t? t,
+  }) =>
+      _res;
   CopyWith$Query$Q2$t$t$t$t<TRes> get t => CopyWith$Query$Q2$t$t$t$t.stub(_res);
 }
 
@@ -1238,13 +1382,17 @@ class Query$Q2$t$t$t$t implements Fragment$F$t$t {
 
 extension UtilityExtension$Query$Q2$t$t$t$t on Query$Q2$t$t$t$t {
   CopyWith$Query$Q2$t$t$t$t<Query$Q2$t$t$t$t> get copyWith =>
-      CopyWith$Query$Q2$t$t$t$t(this, (i) => i);
+      CopyWith$Query$Q2$t$t$t$t(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q2$t$t$t$t<TRes> {
   factory CopyWith$Query$Q2$t$t$t$t(
-          Query$Q2$t$t$t$t instance, TRes Function(Query$Q2$t$t$t$t) then) =
-      _CopyWithImpl$Query$Q2$t$t$t$t;
+    Query$Q2$t$t$t$t instance,
+    TRes Function(Query$Q2$t$t$t$t) then,
+  ) = _CopyWithImpl$Query$Q2$t$t$t$t;
 
   factory CopyWith$Query$Q2$t$t$t$t.stub(TRes res) =
       _CopyWithStubImpl$Query$Q2$t$t$t$t;
@@ -1254,7 +1402,10 @@ abstract class CopyWith$Query$Q2$t$t$t$t<TRes> {
 
 class _CopyWithImpl$Query$Q2$t$t$t$t<TRes>
     implements CopyWith$Query$Q2$t$t$t$t<TRes> {
-  _CopyWithImpl$Query$Q2$t$t$t$t(this._instance, this._then);
+  _CopyWithImpl$Query$Q2$t$t$t$t(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q2$t$t$t$t _instance;
 

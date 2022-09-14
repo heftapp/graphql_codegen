@@ -28,8 +28,10 @@ class Input$Input {
     return result$data;
   }
 
-  CopyWith$Input$Input<Input$Input> get copyWith =>
-      CopyWith$Input$Input(this, (i) => i);
+  CopyWith$Input$Input<Input$Input> get copyWith => CopyWith$Input$Input(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -60,8 +62,9 @@ class Input$Input {
 
 abstract class CopyWith$Input$Input<TRes> {
   factory CopyWith$Input$Input(
-          Input$Input instance, TRes Function(Input$Input) then) =
-      _CopyWithImpl$Input$Input;
+    Input$Input instance,
+    TRes Function(Input$Input) then,
+  ) = _CopyWithImpl$Input$Input;
 
   factory CopyWith$Input$Input.stub(TRes res) = _CopyWithStubImpl$Input$Input;
 
@@ -69,7 +72,10 @@ abstract class CopyWith$Input$Input<TRes> {
 }
 
 class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
-  _CopyWithImpl$Input$Input(this._instance, this._then);
+  _CopyWithImpl$Input$Input(
+    this._instance,
+    this._then,
+  );
 
   final Input$Input _instance;
 
@@ -93,7 +99,10 @@ class _CopyWithStubImpl$Input$Input<TRes>
 }
 
 class Variables$Fragment$F1 {
-  factory Variables$Fragment$F1({bool? i, required String name}) =>
+  factory Variables$Fragment$F1({
+    bool? i,
+    required String name,
+  }) =>
       Variables$Fragment$F1._({
         if (i != null) r'i': i,
         r'name': name,
@@ -128,7 +137,10 @@ class Variables$Fragment$F1 {
   }
 
   CopyWith$Variables$Fragment$F1<Variables$Fragment$F1> get copyWith =>
-      CopyWith$Variables$Fragment$F1(this, (i) => i);
+      CopyWith$Variables$Fragment$F1(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -157,24 +169,34 @@ class Variables$Fragment$F1 {
   int get hashCode {
     final l$i = i;
     final l$name = name;
-    return Object.hashAll([_$data.containsKey('i') ? l$i : const {}, l$name]);
+    return Object.hashAll([
+      _$data.containsKey('i') ? l$i : const {},
+      l$name,
+    ]);
   }
 }
 
 abstract class CopyWith$Variables$Fragment$F1<TRes> {
-  factory CopyWith$Variables$Fragment$F1(Variables$Fragment$F1 instance,
-          TRes Function(Variables$Fragment$F1) then) =
-      _CopyWithImpl$Variables$Fragment$F1;
+  factory CopyWith$Variables$Fragment$F1(
+    Variables$Fragment$F1 instance,
+    TRes Function(Variables$Fragment$F1) then,
+  ) = _CopyWithImpl$Variables$Fragment$F1;
 
   factory CopyWith$Variables$Fragment$F1.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F1;
 
-  TRes call({bool? i, String? name});
+  TRes call({
+    bool? i,
+    String? name,
+  });
 }
 
 class _CopyWithImpl$Variables$Fragment$F1<TRes>
     implements CopyWith$Variables$Fragment$F1<TRes> {
-  _CopyWithImpl$Variables$Fragment$F1(this._instance, this._then);
+  _CopyWithImpl$Variables$Fragment$F1(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Fragment$F1 _instance;
 
@@ -182,7 +204,10 @@ class _CopyWithImpl$Variables$Fragment$F1<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? i = _undefined, Object? name = _undefined}) =>
+  TRes call({
+    Object? i = _undefined,
+    Object? name = _undefined,
+  }) =>
       _then(Variables$Fragment$F1._({
         ..._instance._$data,
         if (i != _undefined) 'i': (i as bool?),
@@ -196,20 +221,28 @@ class _CopyWithStubImpl$Variables$Fragment$F1<TRes>
 
   TRes _res;
 
-  call({bool? i, String? name}) => _res;
+  call({
+    bool? i,
+    String? name,
+  }) =>
+      _res;
 }
 
 class Fragment$F1 {
-  Fragment$F1({this.level1, required this.$__typename});
+  Fragment$F1({
+    this.level1,
+    required this.$__typename,
+  });
 
   factory Fragment$F1.fromJson(Map<String, dynamic> json) {
     final l$level1 = json['level1'];
     final l$$__typename = json['__typename'];
     return Fragment$F1(
-        level1: l$level1 == null
-            ? null
-            : Fragment$F1$level1.fromJson((l$level1 as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      level1: l$level1 == null
+          ? null
+          : Fragment$F1$level1.fromJson((l$level1 as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$F1$level1? level1;
@@ -229,7 +262,10 @@ class Fragment$F1 {
   int get hashCode {
     final l$level1 = level1;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level1, l$$__typename]);
+    return Object.hashAll([
+      l$level1,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -255,23 +291,32 @@ class Fragment$F1 {
 }
 
 extension UtilityExtension$Fragment$F1 on Fragment$F1 {
-  CopyWith$Fragment$F1<Fragment$F1> get copyWith =>
-      CopyWith$Fragment$F1(this, (i) => i);
+  CopyWith$Fragment$F1<Fragment$F1> get copyWith => CopyWith$Fragment$F1(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F1<TRes> {
   factory CopyWith$Fragment$F1(
-          Fragment$F1 instance, TRes Function(Fragment$F1) then) =
-      _CopyWithImpl$Fragment$F1;
+    Fragment$F1 instance,
+    TRes Function(Fragment$F1) then,
+  ) = _CopyWithImpl$Fragment$F1;
 
   factory CopyWith$Fragment$F1.stub(TRes res) = _CopyWithStubImpl$Fragment$F1;
 
-  TRes call({Fragment$F1$level1? level1, String? $__typename});
+  TRes call({
+    Fragment$F1$level1? level1,
+    String? $__typename,
+  });
   CopyWith$Fragment$F1$level1<TRes> get level1;
 }
 
 class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
-  _CopyWithImpl$Fragment$F1(this._instance, this._then);
+  _CopyWithImpl$Fragment$F1(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F1 _instance;
 
@@ -279,14 +324,18 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? level1 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level1 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F1(
-          level1: level1 == _undefined
-              ? _instance.level1
-              : (level1 as Fragment$F1$level1?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level1: level1 == _undefined
+            ? _instance.level1
+            : (level1 as Fragment$F1$level1?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$F1$level1<TRes> get level1 {
     final local$level1 = _instance.level1;
     return local$level1 == null
@@ -301,102 +350,125 @@ class _CopyWithStubImpl$Fragment$F1<TRes>
 
   TRes _res;
 
-  call({Fragment$F1$level1? level1, String? $__typename}) => _res;
+  call({
+    Fragment$F1$level1? level1,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Fragment$F1$level1<TRes> get level1 =>
       CopyWith$Fragment$F1$level1.stub(_res);
 }
 
 const fragmentDefinitionF1 = FragmentDefinitionNode(
-    name: NameNode(value: 'F1'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'level1'),
+  name: NameNode(value: 'F1'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Query'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'level1'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'name'),
+          value: VariableNode(name: NameNode(value: 'name')),
+        )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'level2'),
           alias: null,
           arguments: [
             ArgumentNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')))
+              name: NameNode(value: 'list'),
+              value: VariableNode(name: NameNode(value: 'name')),
+            )
           ],
           directives: [],
           selectionSet: SelectionSetNode(selections: [
             FieldNode(
-                name: NameNode(value: 'level2'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                      name: NameNode(value: 'list'),
-                      value: VariableNode(name: NameNode(value: 'name')))
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                      name: NameNode(value: 'level3'),
-                      alias: null,
-                      arguments: [
-                        ArgumentNode(
-                            name: NameNode(value: 'i'),
-                            value: ObjectValueNode(fields: [
-                              ObjectFieldNode(
-                                  name: NameNode(value: 'inputField'),
-                                  value:
-                                      VariableNode(name: NameNode(value: 'i')))
-                            ]))
-                      ],
-                      directives: [],
-                      selectionSet: SelectionSetNode(selections: [
-                        FieldNode(
-                            name: NameNode(value: 'level4'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null),
-                        FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null)
-                      ])),
-                  FieldNode(
-                      name: NameNode(value: '__typename'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
+              name: NameNode(value: 'level3'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                  name: NameNode(value: 'i'),
+                  value: ObjectValueNode(fields: [
+                    ObjectFieldNode(
+                      name: NameNode(value: 'inputField'),
+                      value: VariableNode(name: NameNode(value: 'i')),
+                    )
+                  ]),
+                )
+              ],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                  name: NameNode(value: 'level4'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ]),
+            ),
             FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null)
-          ])),
-      FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
           name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
           directives: [],
-          selectionSet: null)
-    ]));
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
 const documentNodeFragmentF1 = DocumentNode(definitions: [
   fragmentDefinitionF1,
 ]);
 
 class Fragment$F1$level1 {
-  Fragment$F1$level1({this.level2, required this.$__typename});
+  Fragment$F1$level1({
+    this.level2,
+    required this.$__typename,
+  });
 
   factory Fragment$F1$level1.fromJson(Map<String, dynamic> json) {
     final l$level2 = json['level2'];
     final l$$__typename = json['__typename'];
     return Fragment$F1$level1(
-        level2: l$level2 == null
-            ? null
-            : Fragment$F1$level1$level2.fromJson(
-                (l$level2 as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      level2: l$level2 == null
+          ? null
+          : Fragment$F1$level1$level2.fromJson(
+              (l$level2 as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$F1$level1$level2? level2;
@@ -416,7 +488,10 @@ class Fragment$F1$level1 {
   int get hashCode {
     final l$level2 = level2;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level2, l$$__typename]);
+    return Object.hashAll([
+      l$level2,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -443,24 +518,34 @@ class Fragment$F1$level1 {
 
 extension UtilityExtension$Fragment$F1$level1 on Fragment$F1$level1 {
   CopyWith$Fragment$F1$level1<Fragment$F1$level1> get copyWith =>
-      CopyWith$Fragment$F1$level1(this, (i) => i);
+      CopyWith$Fragment$F1$level1(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F1$level1<TRes> {
   factory CopyWith$Fragment$F1$level1(
-          Fragment$F1$level1 instance, TRes Function(Fragment$F1$level1) then) =
-      _CopyWithImpl$Fragment$F1$level1;
+    Fragment$F1$level1 instance,
+    TRes Function(Fragment$F1$level1) then,
+  ) = _CopyWithImpl$Fragment$F1$level1;
 
   factory CopyWith$Fragment$F1$level1.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F1$level1;
 
-  TRes call({Fragment$F1$level1$level2? level2, String? $__typename});
+  TRes call({
+    Fragment$F1$level1$level2? level2,
+    String? $__typename,
+  });
   CopyWith$Fragment$F1$level1$level2<TRes> get level2;
 }
 
 class _CopyWithImpl$Fragment$F1$level1<TRes>
     implements CopyWith$Fragment$F1$level1<TRes> {
-  _CopyWithImpl$Fragment$F1$level1(this._instance, this._then);
+  _CopyWithImpl$Fragment$F1$level1(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F1$level1 _instance;
 
@@ -468,14 +553,18 @@ class _CopyWithImpl$Fragment$F1$level1<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? level2 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level2 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F1$level1(
-          level2: level2 == _undefined
-              ? _instance.level2
-              : (level2 as Fragment$F1$level1$level2?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level2: level2 == _undefined
+            ? _instance.level2
+            : (level2 as Fragment$F1$level1$level2?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$F1$level1$level2<TRes> get level2 {
     final local$level2 = _instance.level2;
     return local$level2 == null
@@ -491,23 +580,31 @@ class _CopyWithStubImpl$Fragment$F1$level1<TRes>
 
   TRes _res;
 
-  call({Fragment$F1$level1$level2? level2, String? $__typename}) => _res;
+  call({
+    Fragment$F1$level1$level2? level2,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Fragment$F1$level1$level2<TRes> get level2 =>
       CopyWith$Fragment$F1$level1$level2.stub(_res);
 }
 
 class Fragment$F1$level1$level2 {
-  Fragment$F1$level1$level2({this.level3, required this.$__typename});
+  Fragment$F1$level1$level2({
+    this.level3,
+    required this.$__typename,
+  });
 
   factory Fragment$F1$level1$level2.fromJson(Map<String, dynamic> json) {
     final l$level3 = json['level3'];
     final l$$__typename = json['__typename'];
     return Fragment$F1$level1$level2(
-        level3: l$level3 == null
-            ? null
-            : Fragment$F1$level1$level2$level3.fromJson(
-                (l$level3 as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      level3: l$level3 == null
+          ? null
+          : Fragment$F1$level1$level2$level3.fromJson(
+              (l$level3 as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$F1$level1$level2$level3? level3;
@@ -527,7 +624,10 @@ class Fragment$F1$level1$level2 {
   int get hashCode {
     final l$level3 = level3;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level3, l$$__typename]);
+    return Object.hashAll([
+      l$level3,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -556,24 +656,34 @@ class Fragment$F1$level1$level2 {
 extension UtilityExtension$Fragment$F1$level1$level2
     on Fragment$F1$level1$level2 {
   CopyWith$Fragment$F1$level1$level2<Fragment$F1$level1$level2> get copyWith =>
-      CopyWith$Fragment$F1$level1$level2(this, (i) => i);
+      CopyWith$Fragment$F1$level1$level2(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F1$level1$level2<TRes> {
-  factory CopyWith$Fragment$F1$level1$level2(Fragment$F1$level1$level2 instance,
-          TRes Function(Fragment$F1$level1$level2) then) =
-      _CopyWithImpl$Fragment$F1$level1$level2;
+  factory CopyWith$Fragment$F1$level1$level2(
+    Fragment$F1$level1$level2 instance,
+    TRes Function(Fragment$F1$level1$level2) then,
+  ) = _CopyWithImpl$Fragment$F1$level1$level2;
 
   factory CopyWith$Fragment$F1$level1$level2.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F1$level1$level2;
 
-  TRes call({Fragment$F1$level1$level2$level3? level3, String? $__typename});
+  TRes call({
+    Fragment$F1$level1$level2$level3? level3,
+    String? $__typename,
+  });
   CopyWith$Fragment$F1$level1$level2$level3<TRes> get level3;
 }
 
 class _CopyWithImpl$Fragment$F1$level1$level2<TRes>
     implements CopyWith$Fragment$F1$level1$level2<TRes> {
-  _CopyWithImpl$Fragment$F1$level1$level2(this._instance, this._then);
+  _CopyWithImpl$Fragment$F1$level1$level2(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F1$level1$level2 _instance;
 
@@ -581,14 +691,18 @@ class _CopyWithImpl$Fragment$F1$level1$level2<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? level3 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level3 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F1$level1$level2(
-          level3: level3 == _undefined
-              ? _instance.level3
-              : (level3 as Fragment$F1$level1$level2$level3?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level3: level3 == _undefined
+            ? _instance.level3
+            : (level3 as Fragment$F1$level1$level2$level3?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$F1$level1$level2$level3<TRes> get level3 {
     final local$level3 = _instance.level3;
     return local$level3 == null
@@ -604,19 +718,28 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2<TRes>
 
   TRes _res;
 
-  call({Fragment$F1$level1$level2$level3? level3, String? $__typename}) => _res;
+  call({
+    Fragment$F1$level1$level2$level3? level3,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Fragment$F1$level1$level2$level3<TRes> get level3 =>
       CopyWith$Fragment$F1$level1$level2$level3.stub(_res);
 }
 
 class Fragment$F1$level1$level2$level3 {
-  Fragment$F1$level1$level2$level3({this.level4, required this.$__typename});
+  Fragment$F1$level1$level2$level3({
+    this.level4,
+    required this.$__typename,
+  });
 
   factory Fragment$F1$level1$level2$level3.fromJson(Map<String, dynamic> json) {
     final l$level4 = json['level4'];
     final l$$__typename = json['__typename'];
     return Fragment$F1$level1$level2$level3(
-        level4: (l$level4 as int?), $__typename: (l$$__typename as String));
+      level4: (l$level4 as int?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int? level4;
@@ -636,7 +759,10 @@ class Fragment$F1$level1$level2$level3 {
   int get hashCode {
     final l$level4 = level4;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level4, l$$__typename]);
+    return Object.hashAll([
+      l$level4,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -665,24 +791,33 @@ class Fragment$F1$level1$level2$level3 {
 extension UtilityExtension$Fragment$F1$level1$level2$level3
     on Fragment$F1$level1$level2$level3 {
   CopyWith$Fragment$F1$level1$level2$level3<Fragment$F1$level1$level2$level3>
-      get copyWith => CopyWith$Fragment$F1$level1$level2$level3(this, (i) => i);
+      get copyWith => CopyWith$Fragment$F1$level1$level2$level3(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Fragment$F1$level1$level2$level3<TRes> {
   factory CopyWith$Fragment$F1$level1$level2$level3(
-          Fragment$F1$level1$level2$level3 instance,
-          TRes Function(Fragment$F1$level1$level2$level3) then) =
-      _CopyWithImpl$Fragment$F1$level1$level2$level3;
+    Fragment$F1$level1$level2$level3 instance,
+    TRes Function(Fragment$F1$level1$level2$level3) then,
+  ) = _CopyWithImpl$Fragment$F1$level1$level2$level3;
 
   factory CopyWith$Fragment$F1$level1$level2$level3.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F1$level1$level2$level3;
 
-  TRes call({int? level4, String? $__typename});
+  TRes call({
+    int? level4,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Fragment$F1$level1$level2$level3<TRes>
     implements CopyWith$Fragment$F1$level1$level2$level3<TRes> {
-  _CopyWithImpl$Fragment$F1$level1$level2$level3(this._instance, this._then);
+  _CopyWithImpl$Fragment$F1$level1$level2$level3(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F1$level1$level2$level3 _instance;
 
@@ -690,12 +825,16 @@ class _CopyWithImpl$Fragment$F1$level1$level2$level3<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? level4 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level4 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F1$level1$level2$level3(
-          level4: level4 == _undefined ? _instance.level4 : (level4 as int?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level4: level4 == _undefined ? _instance.level4 : (level4 as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Fragment$F1$level1$level2$level3<TRes>
@@ -704,11 +843,18 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2$level3<TRes>
 
   TRes _res;
 
-  call({int? level4, String? $__typename}) => _res;
+  call({
+    int? level4,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Fragment$F2 {
-  factory Variables$Fragment$F2({bool? i, String? name}) =>
+  factory Variables$Fragment$F2({
+    bool? i,
+    String? name,
+  }) =>
       Variables$Fragment$F2._({
         if (i != null) r'i': i,
         if (name != null) r'name': name,
@@ -747,7 +893,10 @@ class Variables$Fragment$F2 {
   }
 
   CopyWith$Variables$Fragment$F2<Variables$Fragment$F2> get copyWith =>
-      CopyWith$Variables$Fragment$F2(this, (i) => i);
+      CopyWith$Variables$Fragment$F2(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -781,25 +930,32 @@ class Variables$Fragment$F2 {
     final l$name = name;
     return Object.hashAll([
       _$data.containsKey('i') ? l$i : const {},
-      _$data.containsKey('name') ? l$name : const {}
+      _$data.containsKey('name') ? l$name : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Fragment$F2<TRes> {
-  factory CopyWith$Variables$Fragment$F2(Variables$Fragment$F2 instance,
-          TRes Function(Variables$Fragment$F2) then) =
-      _CopyWithImpl$Variables$Fragment$F2;
+  factory CopyWith$Variables$Fragment$F2(
+    Variables$Fragment$F2 instance,
+    TRes Function(Variables$Fragment$F2) then,
+  ) = _CopyWithImpl$Variables$Fragment$F2;
 
   factory CopyWith$Variables$Fragment$F2.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F2;
 
-  TRes call({bool? i, String? name});
+  TRes call({
+    bool? i,
+    String? name,
+  });
 }
 
 class _CopyWithImpl$Variables$Fragment$F2<TRes>
     implements CopyWith$Variables$Fragment$F2<TRes> {
-  _CopyWithImpl$Variables$Fragment$F2(this._instance, this._then);
+  _CopyWithImpl$Variables$Fragment$F2(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Fragment$F2 _instance;
 
@@ -807,7 +963,10 @@ class _CopyWithImpl$Variables$Fragment$F2<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? i = _undefined, Object? name = _undefined}) =>
+  TRes call({
+    Object? i = _undefined,
+    Object? name = _undefined,
+  }) =>
       _then(Variables$Fragment$F2._({
         ..._instance._$data,
         if (i != _undefined) 'i': (i as bool?),
@@ -821,20 +980,28 @@ class _CopyWithStubImpl$Variables$Fragment$F2<TRes>
 
   TRes _res;
 
-  call({bool? i, String? name}) => _res;
+  call({
+    bool? i,
+    String? name,
+  }) =>
+      _res;
 }
 
 class Fragment$F2 {
-  Fragment$F2({this.level1, required this.$__typename});
+  Fragment$F2({
+    this.level1,
+    required this.$__typename,
+  });
 
   factory Fragment$F2.fromJson(Map<String, dynamic> json) {
     final l$level1 = json['level1'];
     final l$$__typename = json['__typename'];
     return Fragment$F2(
-        level1: l$level1 == null
-            ? null
-            : Fragment$F21.fromJson((l$level1 as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      level1: l$level1 == null
+          ? null
+          : Fragment$F21.fromJson((l$level1 as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$F21? level1;
@@ -854,7 +1021,10 @@ class Fragment$F2 {
   int get hashCode {
     final l$level1 = level1;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level1, l$$__typename]);
+    return Object.hashAll([
+      l$level1,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -880,23 +1050,32 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
-      CopyWith$Fragment$F2(this, (i) => i);
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith => CopyWith$Fragment$F2(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F2<TRes> {
   factory CopyWith$Fragment$F2(
-          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
-      _CopyWithImpl$Fragment$F2;
+    Fragment$F2 instance,
+    TRes Function(Fragment$F2) then,
+  ) = _CopyWithImpl$Fragment$F2;
 
   factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
 
-  TRes call({Fragment$F21? level1, String? $__typename});
+  TRes call({
+    Fragment$F21? level1,
+    String? $__typename,
+  });
   CopyWith$Fragment$F21<TRes> get level1;
 }
 
 class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
-  _CopyWithImpl$Fragment$F2(this._instance, this._then);
+  _CopyWithImpl$Fragment$F2(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F2 _instance;
 
@@ -904,14 +1083,17 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? level1 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level1 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F2(
-          level1: level1 == _undefined
-              ? _instance.level1
-              : (level1 as Fragment$F21?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level1:
+            level1 == _undefined ? _instance.level1 : (level1 as Fragment$F21?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$F21<TRes> get level1 {
     final local$level1 = _instance.level1;
     return local$level1 == null
@@ -926,41 +1108,56 @@ class _CopyWithStubImpl$Fragment$F2<TRes>
 
   TRes _res;
 
-  call({Fragment$F21? level1, String? $__typename}) => _res;
+  call({
+    Fragment$F21? level1,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Fragment$F21<TRes> get level1 => CopyWith$Fragment$F21.stub(_res);
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(
-    name: NameNode(value: 'F2'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Query'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'level1'),
-          alias: null,
-          arguments: [
-            ArgumentNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')))
-          ],
+  name: NameNode(value: 'F2'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Query'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'level1'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'name'),
+          value: VariableNode(name: NameNode(value: 'name')),
+        )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'F21'),
           directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(name: NameNode(value: 'F21'), directives: []),
-            FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null)
-          ])),
-      FieldNode(
+        ),
+        FieldNode(
           name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
           directives: [],
-          selectionSet: null)
-    ]));
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
 const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
   fragmentDefinitionF21,
@@ -995,7 +1192,10 @@ class Variables$Fragment$F21 {
   }
 
   CopyWith$Variables$Fragment$F21<Variables$Fragment$F21> get copyWith =>
-      CopyWith$Variables$Fragment$F21(this, (i) => i);
+      CopyWith$Variables$Fragment$F21(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1024,9 +1224,10 @@ class Variables$Fragment$F21 {
 }
 
 abstract class CopyWith$Variables$Fragment$F21<TRes> {
-  factory CopyWith$Variables$Fragment$F21(Variables$Fragment$F21 instance,
-          TRes Function(Variables$Fragment$F21) then) =
-      _CopyWithImpl$Variables$Fragment$F21;
+  factory CopyWith$Variables$Fragment$F21(
+    Variables$Fragment$F21 instance,
+    TRes Function(Variables$Fragment$F21) then,
+  ) = _CopyWithImpl$Variables$Fragment$F21;
 
   factory CopyWith$Variables$Fragment$F21.stub(TRes res) =
       _CopyWithStubImpl$Variables$Fragment$F21;
@@ -1036,7 +1237,10 @@ abstract class CopyWith$Variables$Fragment$F21<TRes> {
 
 class _CopyWithImpl$Variables$Fragment$F21<TRes>
     implements CopyWith$Variables$Fragment$F21<TRes> {
-  _CopyWithImpl$Variables$Fragment$F21(this._instance, this._then);
+  _CopyWithImpl$Variables$Fragment$F21(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Fragment$F21 _instance;
 
@@ -1060,16 +1264,20 @@ class _CopyWithStubImpl$Variables$Fragment$F21<TRes>
 }
 
 class Fragment$F21 {
-  Fragment$F21({this.level2, required this.$__typename});
+  Fragment$F21({
+    this.level2,
+    required this.$__typename,
+  });
 
   factory Fragment$F21.fromJson(Map<String, dynamic> json) {
     final l$level2 = json['level2'];
     final l$$__typename = json['__typename'];
     return Fragment$F21(
-        level2: l$level2 == null
-            ? null
-            : Fragment$F21$level2.fromJson((l$level2 as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      level2: l$level2 == null
+          ? null
+          : Fragment$F21$level2.fromJson((l$level2 as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$F21$level2? level2;
@@ -1089,7 +1297,10 @@ class Fragment$F21 {
   int get hashCode {
     final l$level2 = level2;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level2, l$$__typename]);
+    return Object.hashAll([
+      l$level2,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1115,23 +1326,32 @@ class Fragment$F21 {
 }
 
 extension UtilityExtension$Fragment$F21 on Fragment$F21 {
-  CopyWith$Fragment$F21<Fragment$F21> get copyWith =>
-      CopyWith$Fragment$F21(this, (i) => i);
+  CopyWith$Fragment$F21<Fragment$F21> get copyWith => CopyWith$Fragment$F21(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F21<TRes> {
   factory CopyWith$Fragment$F21(
-          Fragment$F21 instance, TRes Function(Fragment$F21) then) =
-      _CopyWithImpl$Fragment$F21;
+    Fragment$F21 instance,
+    TRes Function(Fragment$F21) then,
+  ) = _CopyWithImpl$Fragment$F21;
 
   factory CopyWith$Fragment$F21.stub(TRes res) = _CopyWithStubImpl$Fragment$F21;
 
-  TRes call({Fragment$F21$level2? level2, String? $__typename});
+  TRes call({
+    Fragment$F21$level2? level2,
+    String? $__typename,
+  });
   CopyWith$Fragment$F21$level2<TRes> get level2;
 }
 
 class _CopyWithImpl$Fragment$F21<TRes> implements CopyWith$Fragment$F21<TRes> {
-  _CopyWithImpl$Fragment$F21(this._instance, this._then);
+  _CopyWithImpl$Fragment$F21(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F21 _instance;
 
@@ -1139,14 +1359,18 @@ class _CopyWithImpl$Fragment$F21<TRes> implements CopyWith$Fragment$F21<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? level2 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level2 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F21(
-          level2: level2 == _undefined
-              ? _instance.level2
-              : (level2 as Fragment$F21$level2?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level2: level2 == _undefined
+            ? _instance.level2
+            : (level2 as Fragment$F21$level2?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$F21$level2<TRes> get level2 {
     final local$level2 = _instance.level2;
     return local$level2 == null
@@ -1161,84 +1385,108 @@ class _CopyWithStubImpl$Fragment$F21<TRes>
 
   TRes _res;
 
-  call({Fragment$F21$level2? level2, String? $__typename}) => _res;
+  call({
+    Fragment$F21$level2? level2,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Fragment$F21$level2<TRes> get level2 =>
       CopyWith$Fragment$F21$level2.stub(_res);
 }
 
 const fragmentDefinitionF21 = FragmentDefinitionNode(
-    name: NameNode(value: 'F21'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'Level1'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'level2'),
+  name: NameNode(value: 'F21'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Level1'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'level2'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'list'),
+          value: StringValueNode(
+            value: 'foobar',
+            isBlock: false,
+          ),
+        )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'level3'),
           alias: null,
           arguments: [
             ArgumentNode(
-                name: NameNode(value: 'list'),
-                value: StringValueNode(value: 'foobar', isBlock: false))
+              name: NameNode(value: 'i'),
+              value: ObjectValueNode(fields: [
+                ObjectFieldNode(
+                  name: NameNode(value: 'inputField'),
+                  value: VariableNode(name: NameNode(value: 'i')),
+                )
+              ]),
+            )
           ],
           directives: [],
           selectionSet: SelectionSetNode(selections: [
             FieldNode(
-                name: NameNode(value: 'level3'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                      name: NameNode(value: 'i'),
-                      value: ObjectValueNode(fields: [
-                        ObjectFieldNode(
-                            name: NameNode(value: 'inputField'),
-                            value: VariableNode(name: NameNode(value: 'i')))
-                      ]))
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                      name: NameNode(value: 'level4'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  FieldNode(
-                      name: NameNode(value: '__typename'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
+              name: NameNode(value: 'level4'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
             FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null)
-          ])),
-      FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
           name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
           directives: [],
-          selectionSet: null)
-    ]));
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
 const documentNodeFragmentF21 = DocumentNode(definitions: [
   fragmentDefinitionF21,
 ]);
 
 class Fragment$F21$level2 {
-  Fragment$F21$level2({this.level3, required this.$__typename});
+  Fragment$F21$level2({
+    this.level3,
+    required this.$__typename,
+  });
 
   factory Fragment$F21$level2.fromJson(Map<String, dynamic> json) {
     final l$level3 = json['level3'];
     final l$$__typename = json['__typename'];
     return Fragment$F21$level2(
-        level3: l$level3 == null
-            ? null
-            : Fragment$F21$level2$level3.fromJson(
-                (l$level3 as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      level3: l$level3 == null
+          ? null
+          : Fragment$F21$level2$level3.fromJson(
+              (l$level3 as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Fragment$F21$level2$level3? level3;
@@ -1258,7 +1506,10 @@ class Fragment$F21$level2 {
   int get hashCode {
     final l$level3 = level3;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level3, l$$__typename]);
+    return Object.hashAll([
+      l$level3,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1285,24 +1536,34 @@ class Fragment$F21$level2 {
 
 extension UtilityExtension$Fragment$F21$level2 on Fragment$F21$level2 {
   CopyWith$Fragment$F21$level2<Fragment$F21$level2> get copyWith =>
-      CopyWith$Fragment$F21$level2(this, (i) => i);
+      CopyWith$Fragment$F21$level2(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F21$level2<TRes> {
-  factory CopyWith$Fragment$F21$level2(Fragment$F21$level2 instance,
-          TRes Function(Fragment$F21$level2) then) =
-      _CopyWithImpl$Fragment$F21$level2;
+  factory CopyWith$Fragment$F21$level2(
+    Fragment$F21$level2 instance,
+    TRes Function(Fragment$F21$level2) then,
+  ) = _CopyWithImpl$Fragment$F21$level2;
 
   factory CopyWith$Fragment$F21$level2.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F21$level2;
 
-  TRes call({Fragment$F21$level2$level3? level3, String? $__typename});
+  TRes call({
+    Fragment$F21$level2$level3? level3,
+    String? $__typename,
+  });
   CopyWith$Fragment$F21$level2$level3<TRes> get level3;
 }
 
 class _CopyWithImpl$Fragment$F21$level2<TRes>
     implements CopyWith$Fragment$F21$level2<TRes> {
-  _CopyWithImpl$Fragment$F21$level2(this._instance, this._then);
+  _CopyWithImpl$Fragment$F21$level2(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F21$level2 _instance;
 
@@ -1310,14 +1571,18 @@ class _CopyWithImpl$Fragment$F21$level2<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? level3 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level3 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F21$level2(
-          level3: level3 == _undefined
-              ? _instance.level3
-              : (level3 as Fragment$F21$level2$level3?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level3: level3 == _undefined
+            ? _instance.level3
+            : (level3 as Fragment$F21$level2$level3?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Fragment$F21$level2$level3<TRes> get level3 {
     final local$level3 = _instance.level3;
     return local$level3 == null
@@ -1333,19 +1598,28 @@ class _CopyWithStubImpl$Fragment$F21$level2<TRes>
 
   TRes _res;
 
-  call({Fragment$F21$level2$level3? level3, String? $__typename}) => _res;
+  call({
+    Fragment$F21$level2$level3? level3,
+    String? $__typename,
+  }) =>
+      _res;
   CopyWith$Fragment$F21$level2$level3<TRes> get level3 =>
       CopyWith$Fragment$F21$level2$level3.stub(_res);
 }
 
 class Fragment$F21$level2$level3 {
-  Fragment$F21$level2$level3({this.level4, required this.$__typename});
+  Fragment$F21$level2$level3({
+    this.level4,
+    required this.$__typename,
+  });
 
   factory Fragment$F21$level2$level3.fromJson(Map<String, dynamic> json) {
     final l$level4 = json['level4'];
     final l$$__typename = json['__typename'];
     return Fragment$F21$level2$level3(
-        level4: (l$level4 as int?), $__typename: (l$$__typename as String));
+      level4: (l$level4 as int?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int? level4;
@@ -1365,7 +1639,10 @@ class Fragment$F21$level2$level3 {
   int get hashCode {
     final l$level4 = level4;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$level4, l$$__typename]);
+    return Object.hashAll([
+      l$level4,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1394,24 +1671,33 @@ class Fragment$F21$level2$level3 {
 extension UtilityExtension$Fragment$F21$level2$level3
     on Fragment$F21$level2$level3 {
   CopyWith$Fragment$F21$level2$level3<Fragment$F21$level2$level3>
-      get copyWith => CopyWith$Fragment$F21$level2$level3(this, (i) => i);
+      get copyWith => CopyWith$Fragment$F21$level2$level3(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Fragment$F21$level2$level3<TRes> {
   factory CopyWith$Fragment$F21$level2$level3(
-          Fragment$F21$level2$level3 instance,
-          TRes Function(Fragment$F21$level2$level3) then) =
-      _CopyWithImpl$Fragment$F21$level2$level3;
+    Fragment$F21$level2$level3 instance,
+    TRes Function(Fragment$F21$level2$level3) then,
+  ) = _CopyWithImpl$Fragment$F21$level2$level3;
 
   factory CopyWith$Fragment$F21$level2$level3.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F21$level2$level3;
 
-  TRes call({int? level4, String? $__typename});
+  TRes call({
+    int? level4,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Fragment$F21$level2$level3<TRes>
     implements CopyWith$Fragment$F21$level2$level3<TRes> {
-  _CopyWithImpl$Fragment$F21$level2$level3(this._instance, this._then);
+  _CopyWithImpl$Fragment$F21$level2$level3(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F21$level2$level3 _instance;
 
@@ -1419,12 +1705,16 @@ class _CopyWithImpl$Fragment$F21$level2$level3<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? level4 = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? level4 = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Fragment$F21$level2$level3(
-          level4: level4 == _undefined ? _instance.level4 : (level4 as int?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        level4: level4 == _undefined ? _instance.level4 : (level4 as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Fragment$F21$level2$level3<TRes>
@@ -1433,7 +1723,11 @@ class _CopyWithStubImpl$Fragment$F21$level2$level3<TRes>
 
   TRes _res;
 
-  call({int? level4, String? $__typename}) => _res;
+  call({
+    int? level4,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 const possibleTypesMap = {};

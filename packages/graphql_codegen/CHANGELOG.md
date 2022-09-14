@@ -1,3 +1,7 @@
+# 0.11.1
+
+* Fix enum serialization with keywords.
+
 # 0.11.0
 
 * Support `.gql` file-extension

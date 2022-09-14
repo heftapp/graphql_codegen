@@ -46,13 +46,17 @@ class Query$FetchSNoVariables {
 
 extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
   CopyWith$Query$FetchSNoVariables<Query$FetchSNoVariables> get copyWith =>
-      CopyWith$Query$FetchSNoVariables(this, (i) => i);
+      CopyWith$Query$FetchSNoVariables(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchSNoVariables<TRes> {
-  factory CopyWith$Query$FetchSNoVariables(Query$FetchSNoVariables instance,
-          TRes Function(Query$FetchSNoVariables) then) =
-      _CopyWithImpl$Query$FetchSNoVariables;
+  factory CopyWith$Query$FetchSNoVariables(
+    Query$FetchSNoVariables instance,
+    TRes Function(Query$FetchSNoVariables) then,
+  ) = _CopyWithImpl$Query$FetchSNoVariables;
 
   factory CopyWith$Query$FetchSNoVariables.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchSNoVariables;
@@ -62,7 +66,10 @@ abstract class CopyWith$Query$FetchSNoVariables<TRes> {
 
 class _CopyWithImpl$Query$FetchSNoVariables<TRes>
     implements CopyWith$Query$FetchSNoVariables<TRes> {
-  _CopyWithImpl$Query$FetchSNoVariables(this._instance, this._then);
+  _CopyWithImpl$Query$FetchSNoVariables(
+    this._instance,
+    this._then,
+  );
 
   final Query$FetchSNoVariables _instance;
 
@@ -85,22 +92,28 @@ class _CopyWithStubImpl$Query$FetchSNoVariables<TRes>
 
 const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'FetchSNoVariables'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 's'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: StringValueNode(value: 'lol', isBlock: false))
-            ],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'FetchSNoVariables'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 's'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'name'),
+            value: StringValueNode(
+              value: 'lol',
+              isBlock: false,
+            ),
+          )
+        ],
+        directives: [],
+        selectionSet: null,
+      )
+    ]),
+  ),
 ]);
 Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
         Map<String, dynamic> data) =>
@@ -108,52 +121,54 @@ Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
 
 class Options$Query$FetchSNoVariables
     extends graphql.QueryOptions<Query$FetchSNoVariables> {
-  Options$Query$FetchSNoVariables(
-      {String? operationName,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQueryFetchSNoVariables,
-            parserFn: _parserFn$Query$FetchSNoVariables);
+  Options$Query$FetchSNoVariables({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          pollInterval: pollInterval,
+          context: context,
+          document: documentNodeQueryFetchSNoVariables,
+          parserFn: _parserFn$Query$FetchSNoVariables,
+        );
 }
 
 class WatchOptions$Query$FetchSNoVariables
     extends graphql.WatchQueryOptions<Query$FetchSNoVariables> {
-  WatchOptions$Query$FetchSNoVariables(
-      {String? operationName,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQueryFetchSNoVariables,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$FetchSNoVariables);
+  WatchOptions$Query$FetchSNoVariables({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeQueryFetchSNoVariables,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$FetchSNoVariables,
+        );
 }
 
 class FetchMoreOptions$Query$FetchSNoVariables
@@ -161,8 +176,9 @@ class FetchMoreOptions$Query$FetchSNoVariables
   FetchMoreOptions$Query$FetchSNoVariables(
       {required graphql.UpdateQuery updateQuery})
       : super(
-            updateQuery: updateQuery,
-            document: documentNodeQueryFetchSNoVariables);
+          updateQuery: updateQuery,
+          document: documentNodeQueryFetchSNoVariables,
+        );
 }
 
 extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
@@ -172,21 +188,25 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
   graphql.ObservableQuery<Query$FetchSNoVariables> watchQuery$FetchSNoVariables(
           [WatchOptions$Query$FetchSNoVariables? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$FetchSNoVariables());
-  void writeQuery$FetchSNoVariables(
-          {required Query$FetchSNoVariables data, bool broadcast = true}) =>
+  void writeQuery$FetchSNoVariables({
+    required Query$FetchSNoVariables data,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQueryFetchSNoVariables)),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$FetchSNoVariables? readQuery$FetchSNoVariables(
-      {bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
             operation: graphql.Operation(
                 document: documentNodeQueryFetchSNoVariables)),
-        optimistic: optimistic);
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$FetchSNoVariables? readQuery$FetchSNoVariables(
+      {bool optimistic = true}) {
+    final result = this.readQuery(
+      graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryFetchSNoVariables)),
+      optimistic: optimistic,
+    );
     return result == null ? null : Query$FetchSNoVariables.fromJson(result);
   }
 }
@@ -202,14 +222,15 @@ graphql.ObservableQuery<Query$FetchSNoVariables>
 
 class Query$FetchSNoVariables$Widget
     extends graphql_flutter.Query<Query$FetchSNoVariables> {
-  Query$FetchSNoVariables$Widget(
-      {widgets.Key? key,
-      Options$Query$FetchSNoVariables? options,
-      required graphql_flutter.QueryBuilder<Query$FetchSNoVariables> builder})
-      : super(
-            key: key,
-            options: options ?? Options$Query$FetchSNoVariables(),
-            builder: builder);
+  Query$FetchSNoVariables$Widget({
+    widgets.Key? key,
+    Options$Query$FetchSNoVariables? options,
+    required graphql_flutter.QueryBuilder<Query$FetchSNoVariables> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$FetchSNoVariables(),
+          builder: builder,
+        );
 }
 
 const possibleTypesMap = {};

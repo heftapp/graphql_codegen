@@ -1,14 +1,15 @@
 import 'package:gql/ast.dart';
 
 class Query$Q {
-  Query$Q(
-      {this.mFloat,
-      required this.float,
-      required this.$int,
-      this.mInt,
-      required this.dt,
-      this.mDt,
-      required this.$__typename});
+  Query$Q({
+    this.mFloat,
+    required this.float,
+    required this.$int,
+    this.mInt,
+    required this.dt,
+    this.mDt,
+    required this.$__typename,
+  });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$mFloat = json['mFloat'];
@@ -19,13 +20,14 @@ class Query$Q {
     final l$mDt = json['mDt'];
     final l$$__typename = json['__typename'];
     return Query$Q(
-        mFloat: (l$mFloat as num?)?.toDouble(),
-        float: (l$float as num).toDouble(),
-        $int: (l$$int as int),
-        mInt: (l$mInt as int?),
-        dt: DateTime.parse((l$dt as String)),
-        mDt: l$mDt == null ? null : DateTime.parse((l$mDt as String)),
-        $__typename: (l$$__typename as String));
+      mFloat: (l$mFloat as num?)?.toDouble(),
+      float: (l$float as num).toDouble(),
+      $int: (l$$int as int),
+      mInt: (l$mInt as int?),
+      dt: DateTime.parse((l$dt as String)),
+      mDt: l$mDt == null ? null : DateTime.parse((l$mDt as String)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final double? mFloat;
@@ -70,8 +72,15 @@ class Query$Q {
     final l$dt = dt;
     final l$mDt = mDt;
     final l$$__typename = $__typename;
-    return Object.hashAll(
-        [l$mFloat, l$float, l$$int, l$mInt, l$dt, l$mDt, l$$__typename]);
+    return Object.hashAll([
+      l$mFloat,
+      l$float,
+      l$$int,
+      l$mInt,
+      l$dt,
+      l$mDt,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -122,27 +131,36 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(
+    Query$Q instance,
+    TRes Function(Query$Q) then,
+  ) = _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call(
-      {double? mFloat,
-      double? float,
-      int? $int,
-      int? mInt,
-      DateTime? dt,
-      DateTime? mDt,
-      String? $__typename});
+  TRes call({
+    double? mFloat,
+    double? float,
+    int? $int,
+    int? mInt,
+    DateTime? dt,
+    DateTime? mDt,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(this._instance, this._then);
+  _CopyWithImpl$Query$Q(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q _instance;
 
@@ -150,28 +168,29 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? mFloat = _undefined,
-          Object? float = _undefined,
-          Object? $int = _undefined,
-          Object? mInt = _undefined,
-          Object? dt = _undefined,
-          Object? mDt = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? mFloat = _undefined,
+    Object? float = _undefined,
+    Object? $int = _undefined,
+    Object? mInt = _undefined,
+    Object? dt = _undefined,
+    Object? mDt = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$Q(
-          mFloat: mFloat == _undefined ? _instance.mFloat : (mFloat as double?),
-          float: float == _undefined || float == null
-              ? _instance.float
-              : (float as double),
-          $int: $int == _undefined || $int == null
-              ? _instance.$int
-              : ($int as int),
-          mInt: mInt == _undefined ? _instance.mInt : (mInt as int?),
-          dt: dt == _undefined || dt == null ? _instance.dt : (dt as DateTime),
-          mDt: mDt == _undefined ? _instance.mDt : (mDt as DateTime?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        mFloat: mFloat == _undefined ? _instance.mFloat : (mFloat as double?),
+        float: float == _undefined || float == null
+            ? _instance.float
+            : (float as double),
+        $int:
+            $int == _undefined || $int == null ? _instance.$int : ($int as int),
+        mInt: mInt == _undefined ? _instance.mInt : (mInt as int?),
+        dt: dt == _undefined || dt == null ? _instance.dt : (dt as DateTime),
+        mDt: mDt == _undefined ? _instance.mDt : (mDt as DateTime?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -179,66 +198,75 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call(
-          {double? mFloat,
-          double? float,
-          int? $int,
-          int? mInt,
-          DateTime? dt,
-          DateTime? mDt,
-          String? $__typename}) =>
+  call({
+    double? mFloat,
+    double? float,
+    int? $int,
+    int? mInt,
+    DateTime? dt,
+    DateTime? mDt,
+    String? $__typename,
+  }) =>
       _res;
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'mFloat'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'float'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'int'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'mInt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'dt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'mDt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'Q'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'mFloat'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'float'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'int'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'mInt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'dt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'mDt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 const possibleTypesMap = {};

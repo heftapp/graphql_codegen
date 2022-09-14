@@ -1,0 +1,43 @@
+
+type Query {
+  fetch_person(id: ID!): Person
+}
+
+type Person {
+  full_name: String!
+  nickname: String
+  website: URL
+  date_of_birth: ISODateTime
+  favorite_parent: Person
+  parents: [Person!]
+  siblings: [Person!]
+  children: [Person!]
+  dob: ISODateTime
+  events: [ISODateTime]
+  events_of_events: [[ISODateTime]]
+}
+
+scalar ISODateTime
+
+scalar URL
+
+type Mutation {
+  update_person(id: ID!, full_name: String): Person
+  update_person_advanced(input: UpdatePersonInput!): Person
+}
+
+type Subscription {
+  watch_person(id: ID): Person
+}
+
+input UpdatePersonInput {
+  id: ID!
+  full_name: String
+  nickname: String
+  website: URL
+}
+
+enum QueryMode {
+  default
+  insensitive
+}

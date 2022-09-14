@@ -46,13 +46,17 @@ class Query$FetchName {
 
 extension UtilityExtension$Query$FetchName on Query$FetchName {
   CopyWith$Query$FetchName<Query$FetchName> get copyWith =>
-      CopyWith$Query$FetchName(this, (i) => i);
+      CopyWith$Query$FetchName(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchName<TRes> {
   factory CopyWith$Query$FetchName(
-          Query$FetchName instance, TRes Function(Query$FetchName) then) =
-      _CopyWithImpl$Query$FetchName;
+    Query$FetchName instance,
+    TRes Function(Query$FetchName) then,
+  ) = _CopyWithImpl$Query$FetchName;
 
   factory CopyWith$Query$FetchName.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchName;
@@ -63,7 +67,10 @@ abstract class CopyWith$Query$FetchName<TRes> {
 
 class _CopyWithImpl$Query$FetchName<TRes>
     implements CopyWith$Query$FetchName<TRes> {
-  _CopyWithImpl$Query$FetchName(this._instance, this._then);
+  _CopyWithImpl$Query$FetchName(
+    this._instance,
+    this._then,
+  );
 
   final Query$FetchName _instance;
 
@@ -93,19 +100,24 @@ class _CopyWithStubImpl$Query$FetchName<TRes>
 
 const documentNodeQueryFetchName = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'FetchName'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'name'),
-            alias: null,
-            arguments: [],
+    type: OperationType.query,
+    name: NameNode(value: 'FetchName'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'F'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(name: NameNode(value: 'F'), directives: [])
-            ]))
-      ])),
+          )
+        ]),
+      )
+    ]),
+  ),
   fragmentDefinitionF,
 ]);

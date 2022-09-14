@@ -44,12 +44,17 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
-      _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(
+    Query$Q instance,
+    TRes Function(Query$Q) then,
+  ) = _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -58,7 +63,10 @@ abstract class CopyWith$Query$Q<TRes> {
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(this._instance, this._then);
+  _CopyWithImpl$Query$Q(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q _instance;
 
@@ -87,51 +95,62 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
 const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'u'),
+    type: OperationType.query,
+    name: NameNode(value: 'Q'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'u'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
+            selectionSet: null,
+          ),
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'TA'),
+              isNonNull: false,
+            )),
+            directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              InlineFragmentNode(
-                  typeCondition: TypeConditionNode(
-                      on: NamedTypeNode(
-                          name: NameNode(value: 'TA'), isNonNull: false)),
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              InlineFragmentNode(
-                  typeCondition: TypeConditionNode(
-                      on: NamedTypeNode(
-                          name: NameNode(value: 'TB'), isNonNull: false)),
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'velocity'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ]))
-            ]))
-      ])),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          ),
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'TB'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'velocity'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  ),
 ]);
 
 class Query$Q$u {
@@ -184,14 +203,17 @@ class Query$Q$u {
 }
 
 extension UtilityExtension$Query$Q$u on Query$Q$u {
-  CopyWith$Query$Q$u<Query$Q$u> get copyWith =>
-      CopyWith$Query$Q$u(this, (i) => i);
+  CopyWith$Query$Q$u<Query$Q$u> get copyWith => CopyWith$Query$Q$u(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$u<TRes> {
   factory CopyWith$Query$Q$u(
-          Query$Q$u instance, TRes Function(Query$Q$u) then) =
-      _CopyWithImpl$Query$Q$u;
+    Query$Q$u instance,
+    TRes Function(Query$Q$u) then,
+  ) = _CopyWithImpl$Query$Q$u;
 
   factory CopyWith$Query$Q$u.stub(TRes res) = _CopyWithStubImpl$Query$Q$u;
 
@@ -199,7 +221,10 @@ abstract class CopyWith$Query$Q$u<TRes> {
 }
 
 class _CopyWithImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
-  _CopyWithImpl$Query$Q$u(this._instance, this._then);
+  _CopyWithImpl$Query$Q$u(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$u _instance;
 
@@ -222,13 +247,18 @@ class _CopyWithStubImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
 }
 
 class Query$Q$u$$TA implements Query$Q$u {
-  Query$Q$u$$TA({required this.$__typename, this.name});
+  Query$Q$u$$TA({
+    required this.$__typename,
+    this.name,
+  });
 
   factory Query$Q$u$$TA.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
     final l$name = json['name'];
     return Query$Q$u$$TA(
-        $__typename: (l$$__typename as String), name: (l$name as String?));
+      $__typename: (l$$__typename as String),
+      name: (l$name as String?),
+    );
   }
 
   final String $__typename;
@@ -246,7 +276,10 @@ class Query$Q$u$$TA implements Query$Q$u {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
-    return Object.hashAll([l$$__typename, l$name]);
+    return Object.hashAll([
+      l$$__typename,
+      l$name,
+    ]);
   }
 
   @override
@@ -272,24 +305,33 @@ class Query$Q$u$$TA implements Query$Q$u {
 }
 
 extension UtilityExtension$Query$Q$u$$TA on Query$Q$u$$TA {
-  CopyWith$Query$Q$u$$TA<Query$Q$u$$TA> get copyWith =>
-      CopyWith$Query$Q$u$$TA(this, (i) => i);
+  CopyWith$Query$Q$u$$TA<Query$Q$u$$TA> get copyWith => CopyWith$Query$Q$u$$TA(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$u$$TA<TRes> {
   factory CopyWith$Query$Q$u$$TA(
-          Query$Q$u$$TA instance, TRes Function(Query$Q$u$$TA) then) =
-      _CopyWithImpl$Query$Q$u$$TA;
+    Query$Q$u$$TA instance,
+    TRes Function(Query$Q$u$$TA) then,
+  ) = _CopyWithImpl$Query$Q$u$$TA;
 
   factory CopyWith$Query$Q$u$$TA.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$u$$TA;
 
-  TRes call({String? $__typename, String? name});
+  TRes call({
+    String? $__typename,
+    String? name,
+  });
 }
 
 class _CopyWithImpl$Query$Q$u$$TA<TRes>
     implements CopyWith$Query$Q$u$$TA<TRes> {
-  _CopyWithImpl$Query$Q$u$$TA(this._instance, this._then);
+  _CopyWithImpl$Query$Q$u$$TA(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$u$$TA _instance;
 
@@ -297,12 +339,16 @@ class _CopyWithImpl$Query$Q$u$$TA<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? $__typename = _undefined, Object? name = _undefined}) =>
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? name = _undefined,
+  }) =>
       _then(Query$Q$u$$TA(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String),
-          name: name == _undefined ? _instance.name : (name as String?)));
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        name: name == _undefined ? _instance.name : (name as String?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q$u$$TA<TRes>
@@ -311,17 +357,26 @@ class _CopyWithStubImpl$Query$Q$u$$TA<TRes>
 
   TRes _res;
 
-  call({String? $__typename, String? name}) => _res;
+  call({
+    String? $__typename,
+    String? name,
+  }) =>
+      _res;
 }
 
 class Query$Q$u$$TB implements Query$Q$u {
-  Query$Q$u$$TB({required this.$__typename, this.velocity});
+  Query$Q$u$$TB({
+    required this.$__typename,
+    this.velocity,
+  });
 
   factory Query$Q$u$$TB.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
     final l$velocity = json['velocity'];
     return Query$Q$u$$TB(
-        $__typename: (l$$__typename as String), velocity: (l$velocity as int?));
+      $__typename: (l$$__typename as String),
+      velocity: (l$velocity as int?),
+    );
   }
 
   final String $__typename;
@@ -339,7 +394,10 @@ class Query$Q$u$$TB implements Query$Q$u {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$velocity = velocity;
-    return Object.hashAll([l$$__typename, l$velocity]);
+    return Object.hashAll([
+      l$$__typename,
+      l$velocity,
+    ]);
   }
 
   @override
@@ -365,24 +423,33 @@ class Query$Q$u$$TB implements Query$Q$u {
 }
 
 extension UtilityExtension$Query$Q$u$$TB on Query$Q$u$$TB {
-  CopyWith$Query$Q$u$$TB<Query$Q$u$$TB> get copyWith =>
-      CopyWith$Query$Q$u$$TB(this, (i) => i);
+  CopyWith$Query$Q$u$$TB<Query$Q$u$$TB> get copyWith => CopyWith$Query$Q$u$$TB(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Q$u$$TB<TRes> {
   factory CopyWith$Query$Q$u$$TB(
-          Query$Q$u$$TB instance, TRes Function(Query$Q$u$$TB) then) =
-      _CopyWithImpl$Query$Q$u$$TB;
+    Query$Q$u$$TB instance,
+    TRes Function(Query$Q$u$$TB) then,
+  ) = _CopyWithImpl$Query$Q$u$$TB;
 
   factory CopyWith$Query$Q$u$$TB.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$u$$TB;
 
-  TRes call({String? $__typename, int? velocity});
+  TRes call({
+    String? $__typename,
+    int? velocity,
+  });
 }
 
 class _CopyWithImpl$Query$Q$u$$TB<TRes>
     implements CopyWith$Query$Q$u$$TB<TRes> {
-  _CopyWithImpl$Query$Q$u$$TB(this._instance, this._then);
+  _CopyWithImpl$Query$Q$u$$TB(
+    this._instance,
+    this._then,
+  );
 
   final Query$Q$u$$TB _instance;
 
@@ -390,15 +457,17 @@ class _CopyWithImpl$Query$Q$u$$TB<TRes>
 
   static const _undefined = {};
 
-  TRes call(
-          {Object? $__typename = _undefined, Object? velocity = _undefined}) =>
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? velocity = _undefined,
+  }) =>
       _then(Query$Q$u$$TB(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String),
-          velocity: velocity == _undefined
-              ? _instance.velocity
-              : (velocity as int?)));
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        velocity:
+            velocity == _undefined ? _instance.velocity : (velocity as int?),
+      ));
 }
 
 class _CopyWithStubImpl$Query$Q$u$$TB<TRes>
@@ -407,9 +476,16 @@ class _CopyWithStubImpl$Query$Q$u$$TB<TRes>
 
   TRes _res;
 
-  call({String? $__typename, int? velocity}) => _res;
+  call({
+    String? $__typename,
+    int? velocity,
+  }) =>
+      _res;
 }
 
 const possibleTypesMap = {
-  'U': {'TA', 'TB'}
+  'U': {
+    'TA',
+    'TB',
+  }
 };

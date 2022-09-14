@@ -1,6 +1,7 @@
 import 'package:gql/ast.dart';
 
 enum Enum___Status { Pending, Successful, Failure, InProgress, $unknown }
+
 String toJson$Enum___Status(Enum___Status e) {
   switch (e) {
     case Enum___Status.Pending:
@@ -32,16 +33,20 @@ Enum___Status fromJson$Enum___Status(String value) {
 }
 
 class Query___Q {
-  Query___Q({this.status, required this.$__typename});
+  Query___Q({
+    this.status,
+    required this.$__typename,
+  });
 
   factory Query___Q.fromJson(Map<String, dynamic> json) {
     final l$status = json['status'];
     final l$$__typename = json['__typename'];
     return Query___Q(
-        status: l$status == null
-            ? null
-            : fromJson$Enum___Status((l$status as String)),
-        $__typename: (l$$__typename as String));
+      status: l$status == null
+          ? null
+          : fromJson$Enum___Status((l$status as String)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final Enum___Status? status;
@@ -62,7 +67,10 @@ class Query___Q {
   int get hashCode {
     final l$status = status;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$status, l$$__typename]);
+    return Object.hashAll([
+      l$status,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -88,22 +96,31 @@ class Query___Q {
 }
 
 extension UtilityExtension$Query___Q on Query___Q {
-  CopyWith$Query___Q<Query___Q> get copyWith =>
-      CopyWith$Query___Q(this, (i) => i);
+  CopyWith$Query___Q<Query___Q> get copyWith => CopyWith$Query___Q(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query___Q<TRes> {
   factory CopyWith$Query___Q(
-          Query___Q instance, TRes Function(Query___Q) then) =
-      _CopyWithImpl$Query___Q;
+    Query___Q instance,
+    TRes Function(Query___Q) then,
+  ) = _CopyWithImpl$Query___Q;
 
   factory CopyWith$Query___Q.stub(TRes res) = _CopyWithStubImpl$Query___Q;
 
-  TRes call({Enum___Status? status, String? $__typename});
+  TRes call({
+    Enum___Status? status,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
-  _CopyWithImpl$Query___Q(this._instance, this._then);
+  _CopyWithImpl$Query___Q(
+    this._instance,
+    this._then,
+  );
 
   final Query___Q _instance;
 
@@ -111,14 +128,18 @@ class _CopyWithImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
 
   static const _undefined = {};
 
-  TRes call({Object? status = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? status = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query___Q(
-          status: status == _undefined
-              ? _instance.status
-              : (status as Enum___Status?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        status: status == _undefined
+            ? _instance.status
+            : (status as Enum___Status?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
@@ -126,28 +147,35 @@ class _CopyWithStubImpl$Query___Q<TRes> implements CopyWith$Query___Q<TRes> {
 
   TRes _res;
 
-  call({Enum___Status? status, String? $__typename}) => _res;
+  call({
+    Enum___Status? status,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 const documentNodeQueryQ = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'Q'),
-      variableDefinitions: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'status'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.query,
+    name: NameNode(value: 'Q'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 const possibleTypesMap = {};

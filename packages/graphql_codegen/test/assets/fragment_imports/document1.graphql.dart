@@ -41,14 +41,17 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
-      CopyWith$Fragment$F2(this, (i) => i);
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith => CopyWith$Fragment$F2(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$F2<TRes> {
   factory CopyWith$Fragment$F2(
-          Fragment$F2 instance, TRes Function(Fragment$F2) then) =
-      _CopyWithImpl$Fragment$F2;
+    Fragment$F2 instance,
+    TRes Function(Fragment$F2) then,
+  ) = _CopyWithImpl$Fragment$F2;
 
   factory CopyWith$Fragment$F2.stub(TRes res) = _CopyWithStubImpl$Fragment$F2;
 
@@ -56,7 +59,10 @@ abstract class CopyWith$Fragment$F2<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
-  _CopyWithImpl$Fragment$F2(this._instance, this._then);
+  _CopyWithImpl$Fragment$F2(
+    this._instance,
+    this._then,
+  );
 
   final Fragment$F2 _instance;
 
@@ -78,18 +84,23 @@ class _CopyWithStubImpl$Fragment$F2<TRes>
 }
 
 const fragmentDefinitionF2 = FragmentDefinitionNode(
-    name: NameNode(value: 'F2'),
-    typeCondition: TypeConditionNode(
-        on: NamedTypeNode(name: NameNode(value: 'T2'), isNonNull: false)),
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-          name: NameNode(value: 'value'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null)
-    ]));
+  name: NameNode(value: 'F2'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'T2'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'value'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    )
+  ]),
+);
 const documentNodeFragmentF2 = DocumentNode(definitions: [
   fragmentDefinitionF2,
 ]);

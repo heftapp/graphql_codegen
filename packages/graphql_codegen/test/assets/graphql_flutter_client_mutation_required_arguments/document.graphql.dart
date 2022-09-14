@@ -32,8 +32,10 @@ class Variables$Mutation$UpdateSRequired {
 
   CopyWith$Variables$Mutation$UpdateSRequired<
           Variables$Mutation$UpdateSRequired>
-      get copyWith =>
-          CopyWith$Variables$Mutation$UpdateSRequired(this, (i) => i);
+      get copyWith => CopyWith$Variables$Mutation$UpdateSRequired(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -60,9 +62,9 @@ class Variables$Mutation$UpdateSRequired {
 
 abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
   factory CopyWith$Variables$Mutation$UpdateSRequired(
-          Variables$Mutation$UpdateSRequired instance,
-          TRes Function(Variables$Mutation$UpdateSRequired) then) =
-      _CopyWithImpl$Variables$Mutation$UpdateSRequired;
+    Variables$Mutation$UpdateSRequired instance,
+    TRes Function(Variables$Mutation$UpdateSRequired) then,
+  ) = _CopyWithImpl$Variables$Mutation$UpdateSRequired;
 
   factory CopyWith$Variables$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateSRequired;
@@ -72,7 +74,10 @@ abstract class CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
 
 class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
     implements CopyWith$Variables$Mutation$UpdateSRequired<TRes> {
-  _CopyWithImpl$Variables$Mutation$UpdateSRequired(this._instance, this._then);
+  _CopyWithImpl$Variables$Mutation$UpdateSRequired(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Mutation$UpdateSRequired _instance;
 
@@ -140,13 +145,17 @@ class Mutation$UpdateSRequired {
 extension UtilityExtension$Mutation$UpdateSRequired
     on Mutation$UpdateSRequired {
   CopyWith$Mutation$UpdateSRequired<Mutation$UpdateSRequired> get copyWith =>
-      CopyWith$Mutation$UpdateSRequired(this, (i) => i);
+      CopyWith$Mutation$UpdateSRequired(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
-  factory CopyWith$Mutation$UpdateSRequired(Mutation$UpdateSRequired instance,
-          TRes Function(Mutation$UpdateSRequired) then) =
-      _CopyWithImpl$Mutation$UpdateSRequired;
+  factory CopyWith$Mutation$UpdateSRequired(
+    Mutation$UpdateSRequired instance,
+    TRes Function(Mutation$UpdateSRequired) then,
+  ) = _CopyWithImpl$Mutation$UpdateSRequired;
 
   factory CopyWith$Mutation$UpdateSRequired.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateSRequired;
@@ -156,7 +165,10 @@ abstract class CopyWith$Mutation$UpdateSRequired<TRes> {
 
 class _CopyWithImpl$Mutation$UpdateSRequired<TRes>
     implements CopyWith$Mutation$UpdateSRequired<TRes> {
-  _CopyWithImpl$Mutation$UpdateSRequired(this._instance, this._then);
+  _CopyWithImpl$Mutation$UpdateSRequired(
+    this._instance,
+    this._then,
+  );
 
   final Mutation$UpdateSRequired _instance;
 
@@ -179,69 +191,79 @@ class _CopyWithStubImpl$Mutation$UpdateSRequired<TRes>
 
 const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.mutation,
-      name: NameNode(value: 'UpdateSRequired'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'name')),
-            type:
-                NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 's'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: VariableNode(name: NameNode(value: 'name')))
-            ],
-            directives: [],
-            selectionSet: null)
-      ])),
+    type: OperationType.mutation,
+    name: NameNode(value: 'UpdateSRequired'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'name')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 's'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'name'),
+            value: VariableNode(name: NameNode(value: 'name')),
+          )
+        ],
+        directives: [],
+        selectionSet: null,
+      )
+    ]),
+  ),
 ]);
 Mutation$UpdateSRequired _parserFn$Mutation$UpdateSRequired(
         Map<String, dynamic> data) =>
     Mutation$UpdateSRequired.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSRequired = FutureOr<void> Function(
-    dynamic, Mutation$UpdateSRequired?);
+  dynamic,
+  Mutation$UpdateSRequired?,
+);
 
 class Options$Mutation$UpdateSRequired
     extends graphql.MutationOptions<Mutation$UpdateSRequired> {
-  Options$Mutation$UpdateSRequired(
-      {String? operationName,
-      required Variables$Mutation$UpdateSRequired variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      OnMutationCompleted$Mutation$UpdateSRequired? onCompleted,
-      graphql.OnMutationUpdate<Mutation$UpdateSRequired>? update,
-      graphql.OnError? onError})
-      : onCompletedWithParsed = onCompleted,
+  Options$Mutation$UpdateSRequired({
+    String? operationName,
+    required Variables$Mutation$UpdateSRequired variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$UpdateSRequired? onCompleted,
+    graphql.OnMutationUpdate<Mutation$UpdateSRequired>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
         super(
-            variables: variables.toJson(),
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            onCompleted: onCompleted == null
-                ? null
-                : (data) => onCompleted(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
                     data,
                     data == null
                         ? null
-                        : _parserFn$Mutation$UpdateSRequired(data)),
-            update: update,
-            onError: onError,
-            document: documentNodeMutationUpdateSRequired,
-            parserFn: _parserFn$Mutation$UpdateSRequired);
+                        : _parserFn$Mutation$UpdateSRequired(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationUpdateSRequired,
+          parserFn: _parserFn$Mutation$UpdateSRequired,
+        );
 
   final OnMutationCompleted$Mutation$UpdateSRequired? onCompletedWithParsed;
 
@@ -250,38 +272,39 @@ class Options$Mutation$UpdateSRequired
         ...super.onCompleted == null
             ? super.properties
             : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed
+        onCompletedWithParsed,
       ];
 }
 
 class WatchOptions$Mutation$UpdateSRequired
     extends graphql.WatchQueryOptions<Mutation$UpdateSRequired> {
-  WatchOptions$Mutation$UpdateSRequired(
-      {String? operationName,
-      required Variables$Mutation$UpdateSRequired variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables.toJson(),
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeMutationUpdateSRequired,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Mutation$UpdateSRequired);
+  WatchOptions$Mutation$UpdateSRequired({
+    String? operationName,
+    required Variables$Mutation$UpdateSRequired variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeMutationUpdateSRequired,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$UpdateSRequired,
+        );
 }
 
 extension ClientExtension$Mutation$UpdateSRequired on graphql.GraphQLClient {
@@ -295,7 +318,10 @@ extension ClientExtension$Mutation$UpdateSRequired on graphql.GraphQLClient {
 }
 
 class Mutation$UpdateSRequired$HookResult {
-  Mutation$UpdateSRequired$HookResult(this.runMutation, this.result);
+  Mutation$UpdateSRequired$HookResult(
+    this.runMutation,
+    this.result,
+  );
 
   final RunMutation$Mutation$UpdateSRequired runMutation;
 
@@ -322,35 +348,37 @@ graphql.ObservableQuery<Mutation$UpdateSRequired>
 
 class WidgetOptions$Mutation$UpdateSRequired
     extends graphql.MutationOptions<Mutation$UpdateSRequired> {
-  WidgetOptions$Mutation$UpdateSRequired(
-      {String? operationName,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      OnMutationCompleted$Mutation$UpdateSRequired? onCompleted,
-      graphql.OnMutationUpdate<Mutation$UpdateSRequired>? update,
-      graphql.OnError? onError})
-      : onCompletedWithParsed = onCompleted,
+  WidgetOptions$Mutation$UpdateSRequired({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$UpdateSRequired? onCompleted,
+    graphql.OnMutationUpdate<Mutation$UpdateSRequired>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
         super(
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            onCompleted: onCompleted == null
-                ? null
-                : (data) => onCompleted(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
                     data,
                     data == null
                         ? null
-                        : _parserFn$Mutation$UpdateSRequired(data)),
-            update: update,
-            onError: onError,
-            document: documentNodeMutationUpdateSRequired,
-            parserFn: _parserFn$Mutation$UpdateSRequired);
+                        : _parserFn$Mutation$UpdateSRequired(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationUpdateSRequired,
+          parserFn: _parserFn$Mutation$UpdateSRequired,
+        );
 
   final OnMutationCompleted$Mutation$UpdateSRequired? onCompletedWithParsed;
 
@@ -359,30 +387,45 @@ class WidgetOptions$Mutation$UpdateSRequired
         ...super.onCompleted == null
             ? super.properties
             : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed
+        onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$UpdateSRequired = graphql
-        .MultiSourceResult<Mutation$UpdateSRequired>
-    Function(Variables$Mutation$UpdateSRequired, {Object? optimisticResult});
+typedef RunMutation$Mutation$UpdateSRequired
+    = graphql.MultiSourceResult<Mutation$UpdateSRequired> Function(
+  Variables$Mutation$UpdateSRequired, {
+  Object? optimisticResult,
+});
 typedef Builder$Mutation$UpdateSRequired = widgets.Widget Function(
-    RunMutation$Mutation$UpdateSRequired,
-    graphql.QueryResult<Mutation$UpdateSRequired>?);
+  RunMutation$Mutation$UpdateSRequired,
+  graphql.QueryResult<Mutation$UpdateSRequired>?,
+);
 
 class Mutation$UpdateSRequired$Widget
     extends graphql_flutter.Mutation<Mutation$UpdateSRequired> {
-  Mutation$UpdateSRequired$Widget(
-      {widgets.Key? key,
-      WidgetOptions$Mutation$UpdateSRequired? options,
-      required Builder$Mutation$UpdateSRequired builder})
-      : super(
-            key: key,
-            options: options ?? WidgetOptions$Mutation$UpdateSRequired(),
-            builder: (run, result) => builder(
-                (variables, {optimisticResult}) =>
-                    run(variables.toJson(), optimisticResult: optimisticResult),
-                result));
+  Mutation$UpdateSRequired$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$UpdateSRequired? options,
+    required Builder$Mutation$UpdateSRequired builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$UpdateSRequired(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult: optimisticResult,
+            ),
+            result,
+          ),
+        );
 }
 
 const possibleTypesMap = {};
