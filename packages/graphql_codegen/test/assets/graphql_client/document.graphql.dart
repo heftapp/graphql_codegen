@@ -886,6 +886,9 @@ Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
     Query$FetchSOptional.fromJson(data);
 
+typedef _ParserFn<TParsed extends Object?> = TParsed Function(
+    Map<String, dynamic>)?;
+
 class Options$Query$FetchSOptional
     extends graphql.QueryOptions<Query$FetchSOptional> {
   Options$Query$FetchSOptional({
@@ -897,6 +900,7 @@ class Options$Query$FetchSOptional
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    _ParserFn<Query$FetchSOptional> parserFn,
   }) : super(
           variables: variables?.toJson() ?? {},
           operationName: operationName,
@@ -907,7 +911,7 @@ class Options$Query$FetchSOptional
           pollInterval: pollInterval,
           context: context,
           document: documentNodeQueryFetchSOptional,
-          parserFn: _parserFn$Query$FetchSOptional,
+          parserFn: parserFn ?? _parserFn$Query$FetchSOptional,
         );
 }
 
@@ -925,6 +929,7 @@ class WatchOptions$Query$FetchSOptional
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
+    _ParserFn<Query$FetchSOptional> parserFn,
   }) : super(
           variables: variables?.toJson() ?? {},
           operationName: operationName,
@@ -938,7 +943,7 @@ class WatchOptions$Query$FetchSOptional
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$FetchSOptional,
+          parserFn: parserFn ?? _parserFn$Query$FetchSOptional,
         );
 }
 
@@ -1217,6 +1222,7 @@ class Options$Query$FetchSRequired
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    _ParserFn<Query$FetchSRequired> parserFn,
   }) : super(
           variables: variables.toJson(),
           operationName: operationName,
@@ -1227,7 +1233,7 @@ class Options$Query$FetchSRequired
           pollInterval: pollInterval,
           context: context,
           document: documentNodeQueryFetchSRequired,
-          parserFn: _parserFn$Query$FetchSRequired,
+          parserFn: parserFn ?? _parserFn$Query$FetchSRequired,
         );
 }
 
@@ -1245,6 +1251,7 @@ class WatchOptions$Query$FetchSRequired
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
+    _ParserFn<Query$FetchSRequired> parserFn,
   }) : super(
           variables: variables.toJson(),
           operationName: operationName,
@@ -1258,7 +1265,7 @@ class WatchOptions$Query$FetchSRequired
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$FetchSRequired,
+          parserFn: parserFn ?? _parserFn$Query$FetchSRequired,
         );
 }
 
@@ -1435,6 +1442,7 @@ class Options$Query$FetchSNoVariables
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    _ParserFn<Query$FetchSNoVariables> parserFn,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -1444,7 +1452,7 @@ class Options$Query$FetchSNoVariables
           pollInterval: pollInterval,
           context: context,
           document: documentNodeQueryFetchSNoVariables,
-          parserFn: _parserFn$Query$FetchSNoVariables,
+          parserFn: parserFn ?? _parserFn$Query$FetchSNoVariables,
         );
 }
 
@@ -1461,6 +1469,7 @@ class WatchOptions$Query$FetchSNoVariables
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
+    _ParserFn<Query$FetchSNoVariables> parserFn,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -1473,7 +1482,7 @@ class WatchOptions$Query$FetchSNoVariables
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$FetchSNoVariables,
+          parserFn: parserFn ?? _parserFn$Query$FetchSNoVariables,
         );
 }
 
@@ -1762,6 +1771,7 @@ class Options$Mutation$UpdateSOptional
     OnMutationCompleted$Mutation$UpdateSOptional? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateSOptional>? update,
     graphql.OnError? onError,
+    _ParserFn<Mutation$UpdateSOptional> parserFn,
   })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables?.toJson() ?? {},
@@ -1782,7 +1792,7 @@ class Options$Mutation$UpdateSOptional
           update: update,
           onError: onError,
           document: documentNodeMutationUpdateSOptional,
-          parserFn: _parserFn$Mutation$UpdateSOptional,
+          parserFn: parserFn ?? _parserFn$Mutation$UpdateSOptional,
         );
 
   final OnMutationCompleted$Mutation$UpdateSOptional? onCompletedWithParsed;
@@ -1810,6 +1820,7 @@ class WatchOptions$Mutation$UpdateSOptional
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
+    _ParserFn<Mutation$UpdateSOptional> parserFn,
   }) : super(
           variables: variables?.toJson() ?? {},
           operationName: operationName,
@@ -1823,7 +1834,7 @@ class WatchOptions$Mutation$UpdateSOptional
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$UpdateSOptional,
+          parserFn: parserFn ?? _parserFn$Mutation$UpdateSOptional,
         );
 }
 
@@ -2075,6 +2086,7 @@ class Options$Mutation$UpdateSRequired
     OnMutationCompleted$Mutation$UpdateSRequired? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateSRequired>? update,
     graphql.OnError? onError,
+    _ParserFn<Mutation$UpdateSRequired> parserFn,
   })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables.toJson(),
@@ -2095,7 +2107,7 @@ class Options$Mutation$UpdateSRequired
           update: update,
           onError: onError,
           document: documentNodeMutationUpdateSRequired,
-          parserFn: _parserFn$Mutation$UpdateSRequired,
+          parserFn: parserFn ?? _parserFn$Mutation$UpdateSRequired,
         );
 
   final OnMutationCompleted$Mutation$UpdateSRequired? onCompletedWithParsed;
@@ -2123,6 +2135,7 @@ class WatchOptions$Mutation$UpdateSRequired
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
+    _ParserFn<Mutation$UpdateSRequired> parserFn,
   }) : super(
           variables: variables.toJson(),
           operationName: operationName,
@@ -2136,7 +2149,7 @@ class WatchOptions$Mutation$UpdateSRequired
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$UpdateSRequired,
+          parserFn: parserFn ?? _parserFn$Mutation$UpdateSRequired,
         );
 }
 
@@ -2284,6 +2297,7 @@ class Options$Mutation$UpdateSNoVariables
     OnMutationCompleted$Mutation$UpdateSNoVariables? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateSNoVariables>? update,
     graphql.OnError? onError,
+    _ParserFn<Mutation$UpdateSNoVariables> parserFn,
   })  : onCompletedWithParsed = onCompleted,
         super(
           operationName: operationName,
@@ -2303,7 +2317,7 @@ class Options$Mutation$UpdateSNoVariables
           update: update,
           onError: onError,
           document: documentNodeMutationUpdateSNoVariables,
-          parserFn: _parserFn$Mutation$UpdateSNoVariables,
+          parserFn: parserFn ?? _parserFn$Mutation$UpdateSNoVariables,
         );
 
   final OnMutationCompleted$Mutation$UpdateSNoVariables? onCompletedWithParsed;
@@ -2330,6 +2344,7 @@ class WatchOptions$Mutation$UpdateSNoVariables
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
+    _ParserFn<Mutation$UpdateSNoVariables> parserFn,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -2342,7 +2357,7 @@ class WatchOptions$Mutation$UpdateSNoVariables
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$UpdateSNoVariables,
+          parserFn: parserFn ?? _parserFn$Mutation$UpdateSNoVariables,
         );
 }
 
