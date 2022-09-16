@@ -76,6 +76,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 printOptionsParameter(
                   'parserFn',
                   '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                  defaultTo: printParserFnRef(c).code,
                 ),
               ],
             )
@@ -96,7 +97,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'context': refer('context'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
-                'parserFn': refer('parserFn').ifNullThen(printParserFnRef(c)),
+                'parserFn': refer('parserFn'),
               }).code,
             ]),
         ),
@@ -151,6 +152,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 printOptionsParameter(
                   'parserFn',
                   '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                  defaultTo: printParserFnRef(c).code,
                 ),
               ],
             )
@@ -170,7 +172,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 'context': refer('context'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
-                'parserFn': refer('parserFn').ifNullThen(printParserFnRef(c)),
+                'parserFn': refer('parserFn'),
               }).code,
             ]),
         ),
@@ -409,6 +411,11 @@ Spec printMutationOptions(
                     'onError',
                     "graphql.OnError",
                   ),
+                  printOptionsParameter(
+                    'parserFn',
+                    '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                    defaultTo: printParserFnRef(c).code,
+                  ),
                 ],
               )
               ..initializers = ListBuilder([
@@ -436,7 +443,7 @@ Spec printMutationOptions(
                   'onError': refer('onError'),
                   'document': refer(c.namePrinter
                       .printDocumentDefinitionNodeName(context.path)),
-                  'parserFn': printParserFnRef(c),
+                  'parserFn': refer('parserFn'),
                 }).code,
               ]),
           ),
@@ -512,6 +519,7 @@ Spec printWatchOptions(
                 printOptionsParameter(
                   'parserFn',
                   '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                  defaultTo: printParserFnRef(c).code,
                 ),
               ],
             )
@@ -537,7 +545,7 @@ Spec printWatchOptions(
                   'carryForwardDataOnException',
                 ),
                 'fetchResults': refer('fetchResults'),
-                'parserFn': refer('parserFn').ifNullThen(printParserFnRef(c)),
+                'parserFn': refer('parserFn'),
               }).code,
             ]),
         ),
