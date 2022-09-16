@@ -73,6 +73,10 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                   'context',
                   'graphql.Context',
                 ),
+                printOptionsParameter(
+                  'parserFn',
+                  '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                ),
               ],
             )
             ..initializers = ListBuilder([
@@ -92,7 +96,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'context': refer('context'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
-                'parserFn': printParserFnRef(c),
+                'parserFn': refer('parserFn').ifNullThen(printParserFnRef(c)),
               }).code,
             ]),
         ),
@@ -144,6 +148,10 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                   'context',
                   'graphql.Context',
                 ),
+                printOptionsParameter(
+                  'parserFn',
+                  '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                ),
               ],
             )
             ..initializers = ListBuilder([
@@ -162,7 +170,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 'context': refer('context'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
-                'parserFn': printParserFnRef(c),
+                'parserFn': refer('parserFn').ifNullThen(printParserFnRef(c)),
               }).code,
             ]),
         ),
@@ -501,6 +509,10 @@ Spec printWatchOptions(
                   "bool",
                   defaultTo: literalFalse.code,
                 ),
+                printOptionsParameter(
+                  'parserFn',
+                  '${c.namePrinter.printName(context.path)} Function(Map<String, dynamic>)',
+                ),
               ],
             )
             ..initializers = ListBuilder([
@@ -525,7 +537,7 @@ Spec printWatchOptions(
                   'carryForwardDataOnException',
                 ),
                 'fetchResults': refer('fetchResults'),
-                'parserFn': printParserFnRef(c),
+                'parserFn': refer('parserFn').ifNullThen(printParserFnRef(c)),
               }).code,
             ]),
         ),
