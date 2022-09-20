@@ -1,0 +1,13 @@
+
+type Person {
+  default: String
+}
+
+type Query {
+  p: Person
+}
+
+fragment F on Person {
+  default
+}
+
