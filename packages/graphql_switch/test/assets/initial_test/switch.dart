@@ -8,151 +8,197 @@ export 'package:graphql_switch/graphql_switch.dart' show graphql;
 
 Future<void> _initialzer(ClientInitializer initializer) async {
   const l$MyNestedWidget_person = FragmentDefinitionNode(
-      name: NameNode(value: 'MyNestedWidget_person'),
-      typeCondition: TypeConditionNode(
-          on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+    name: NameNode(value: 'MyNestedWidget_person'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(
+      name: NameNode(value: 'Person'),
+      isNonNull: false,
+    )),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: NameNode(value: 'name2'),
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'answer'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'question'),
+            value: VariableNode(name: NameNode(value: 'question')),
+          )
+        ],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'child'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
             name: NameNode(value: 'name'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'name'),
-            alias: NameNode(value: 'name2'),
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'answer'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'question'),
-                  value: VariableNode(name: NameNode(value: 'question')))
-            ],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'child'),
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'id'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ]));
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  );
   initializer
     ..registerOperation(
-        r'Query$MyWidgetQuery',
-        const DocumentNode(definitions: [
-          OperationDefinitionNode(
-              type: OperationType.query,
-              name: NameNode(value: 'MyWidgetQuery'),
-              variableDefinitions: [
-                VariableDefinitionNode(
-                    variable: VariableNode(name: NameNode(value: 'question')),
-                    type: NamedTypeNode(
-                        name: NameNode(value: 'String'), isNonNull: true),
-                    defaultValue: DefaultValueNode(value: null),
-                    directives: []),
-                VariableDefinitionNode(
-                    variable: VariableNode(name: NameNode(value: 'details')),
-                    type: NamedTypeNode(
-                        name: NameNode(value: 'Details'), isNonNull: true),
-                    defaultValue: DefaultValueNode(value: null),
-                    directives: [])
-              ],
+      r'Query$MyWidgetQuery',
+      const DocumentNode(definitions: [
+        OperationDefinitionNode(
+          type: OperationType.query,
+          name: NameNode(value: 'MyWidgetQuery'),
+          variableDefinitions: [
+            VariableDefinitionNode(
+              variable: VariableNode(name: NameNode(value: 'question')),
+              type: NamedTypeNode(
+                name: NameNode(value: 'String'),
+                isNonNull: true,
+              ),
+              defaultValue: DefaultValueNode(value: null),
+              directives: [],
+            ),
+            VariableDefinitionNode(
+              variable: VariableNode(name: NameNode(value: 'details')),
+              type: NamedTypeNode(
+                name: NameNode(value: 'Details'),
+                isNonNull: true,
+              ),
+              defaultValue: DefaultValueNode(value: null),
+              directives: [],
+            ),
+          ],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'name'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'child'),
+              alias: null,
+              arguments: [],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'name'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FragmentSpreadNode(
+                  name: NameNode(value: 'MyNestedWidget_person'),
+                  directives: [],
+                ),
                 FieldNode(
-                    name: NameNode(value: 'child'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'name'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FragmentSpreadNode(
-                          name: NameNode(value: 'MyNestedWidget_person'),
-                          directives: []),
-                      FieldNode(
-                          name: NameNode(value: '__typename'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'id'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
-              ])),
-          l$MyNestedWidget_person
-        ]));
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ]),
+            ),
+          ]),
+        ),
+        l$MyNestedWidget_person,
+      ]),
+    );
   await initializer.setup();
 }
 
 class SwitchClient extends InternalSwitchClient {
-  SwitchClient(
-      {required Widget child,
-      required InitializeResult initializeResult,
-      Key? key})
-      : super(child, initializeResult, key);
+  SwitchClient({
+    required Widget child,
+    required InitializeResult initializeResult,
+    Key? key,
+  }) : super(
+          child,
+          initializeResult,
+          key,
+        );
 
-  static Future<InitializeResult> initialize<TClientContext extends Object?>(
-          {required FetchFn<TClientContext> fetch,
-          required TClientContext clientContext}) =>
+  static Future<InitializeResult> initialize<TClientContext extends Object?>({
+    required FetchFn<TClientContext> fetch,
+    required TClientContext clientContext,
+  }) =>
       InternalSwitchClient.initialize<TClientContext>(
-          _initialzer, fetch, clientContext);
+        _initialzer,
+        fetch,
+        clientContext,
+      );
 }
 
 QueryResult<Query$MyWidgetQuery> useQuery$MyWidgetQuery(
-        DocumentNode document, Variables$Query$MyWidgetQuery variables,
-        {QueryOptions? options}) =>
-    useQuery(r'Query$MyWidgetQuery', Query$MyWidgetQuery.fromJson, options,
-        variables);
+  DocumentNode document,
+  Variables$Query$MyWidgetQuery variables, {
+  QueryOptions? options,
+}) =>
+    useQuery(
+      r'Query$MyWidgetQuery',
+      Query$MyWidgetQuery.fromJson,
+      options,
+      variables,
+    );
 Fragment$MyNestedWidget_person? useFragment$MyNestedWidget_person(
-        DocumentNode document, FragmentKey$MyNestedWidget_person? key) =>
-    useMaybeFragment(r'Fragment$MyNestedWidget_person', key,
-        Fragment$MyNestedWidget_person.fromJson);
+  DocumentNode document,
+  FragmentKey$MyNestedWidget_person? key,
+) =>
+    useMaybeFragment(
+      r'Fragment$MyNestedWidget_person',
+      key,
+      Fragment$MyNestedWidget_person.fromJson,
+    );
 
 abstract class FragmentKey$MyNestedWidget_person implements FragmentKey {}
 
@@ -160,7 +206,12 @@ abstract class FragmentKey$MyNestedWidget_person$child implements FragmentKey {}
 
 class Fragment$MyNestedWidget_person {
   Fragment$MyNestedWidget_person._(
-      this.$rawData, this.name, this.name2, this.answer, this.child);
+    this.$rawData,
+    this.name,
+    this.name2,
+    this.answer,
+    this.child,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -210,7 +261,12 @@ class Fragment$MyNestedWidget_person {
     final l$name2 = name2;
     final l$answer = answer;
     final l$child = child;
-    return Object.hashAll([l$name, l$name2, l$answer, l$child]);
+    return Object.hashAll([
+      l$name,
+      l$name2,
+      l$answer,
+      l$child,
+    ]);
   }
 
   static Fragment$MyNestedWidget_person fromJson(Map<String, dynamic> json) {
@@ -219,19 +275,23 @@ class Fragment$MyNestedWidget_person {
     final l$answer = json['answer'];
     final l$child = json['child'];
     return Fragment$MyNestedWidget_person._(
-        json,
-        (l$name as String?),
-        (l$name2 as String?),
-        (l$answer as String?),
-        l$child == null
-            ? null
-            : Fragment$MyNestedWidget_person$child.fromJson(
-                (l$child as Map<String, dynamic>)));
+      json,
+      (l$name as String?),
+      (l$name2 as String?),
+      (l$answer as String?),
+      l$child == null
+          ? null
+          : Fragment$MyNestedWidget_person$child.fromJson(
+              (l$child as Map<String, dynamic>)),
+    );
   }
 }
 
 class Fragment$MyNestedWidget_person$child {
-  Fragment$MyNestedWidget_person$child._(this.$rawData, this.name);
+  Fragment$MyNestedWidget_person$child._(
+    this.$rawData,
+    this.name,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -263,12 +323,19 @@ class Fragment$MyNestedWidget_person$child {
   static Fragment$MyNestedWidget_person$child fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
-    return Fragment$MyNestedWidget_person$child._(json, (l$name as String?));
+    return Fragment$MyNestedWidget_person$child._(
+      json,
+      (l$name as String?),
+    );
   }
 }
 
 class Query$MyWidgetQuery {
-  Query$MyWidgetQuery._(this.$rawData, this.name, this.child);
+  Query$MyWidgetQuery._(
+    this.$rawData,
+    this.name,
+    this.child,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -301,24 +368,31 @@ class Query$MyWidgetQuery {
   int get hashCode {
     final l$name = name;
     final l$child = child;
-    return Object.hashAll([l$name, l$child]);
+    return Object.hashAll([
+      l$name,
+      l$child,
+    ]);
   }
 
   static Query$MyWidgetQuery fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$child = json['child'];
     return Query$MyWidgetQuery._(
-        json,
-        (l$name as String?),
-        l$child == null
-            ? null
-            : Query$MyWidgetQuery$child.fromJson(
-                (l$child as Map<String, dynamic>)));
+      json,
+      (l$name as String?),
+      l$child == null
+          ? null
+          : Query$MyWidgetQuery$child.fromJson(
+              (l$child as Map<String, dynamic>)),
+    );
   }
 }
 
 class Query$MyWidgetQuery$child {
-  Query$MyWidgetQuery$child._(this.$rawData, this.name);
+  Query$MyWidgetQuery$child._(
+    this.$rawData,
+    this.name,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -354,15 +428,23 @@ class Query$MyWidgetQuery$child {
 
       default:
         final l$name = json['name'];
-        return Query$MyWidgetQuery$child._(json, (l$name as String?));
+        return Query$MyWidgetQuery$child._(
+          json,
+          (l$name as String?),
+        );
     }
   }
 }
 
 class Query$MyWidgetQuery$child$$Person extends Query$MyWidgetQuery$child
     implements FragmentKey$MyNestedWidget_person {
-  Query$MyWidgetQuery$child$$Person._(this.$rawData, String? name)
-      : super._($rawData, name);
+  Query$MyWidgetQuery$child$$Person._(
+    this.$rawData,
+    String? name,
+  ) : super._(
+          $rawData,
+          name,
+        );
 
   final Map<String, dynamic> $rawData;
 
@@ -391,7 +473,10 @@ class Query$MyWidgetQuery$child$$Person extends Query$MyWidgetQuery$child
 
   static Query$MyWidgetQuery$child$$Person fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
-    return Query$MyWidgetQuery$child$$Person._(json, (l$name as String?));
+    return Query$MyWidgetQuery$child$$Person._(
+      json,
+      (l$name as String?),
+    );
   }
 }
 
@@ -426,15 +511,20 @@ class Query$MyWidgetQuery$child$$Person$child
 
 typedef _BuilderVariables$Query$MyWidgetQuery
     = Variables$Query$MyWidgetQuery Function(
-        Variables$Query$MyWidgetQuery Function(
-            {required String question, required Input$Details details}));
+        Variables$Query$MyWidgetQuery Function({
+  required String question,
+  required Input$Details details,
+}));
 
 class Variables$Query$MyWidgetQuery implements Input {
   Variables$Query$MyWidgetQuery._(this._data);
 
   factory Variables$Query$MyWidgetQuery(
           _BuilderVariables$Query$MyWidgetQuery builder) =>
-      builder(({required Object question, required Object details}) =>
+      builder(({
+        required Object question,
+        required Object details,
+      }) =>
           Variables$Query$MyWidgetQuery._(
             {
               r"question": question,
@@ -470,7 +560,10 @@ class Variables$Query$MyWidgetQuery implements Input {
   int get hashCode {
     final l$question = question;
     final l$details = details;
-    return Object.hashAll([l$question, l$details]);
+    return Object.hashAll([
+      l$question,
+      l$details,
+    ]);
   }
 
   Map<String, dynamic> toJson() {
@@ -487,23 +580,27 @@ class Variables$Query$MyWidgetQuery implements Input {
 }
 
 typedef _BuilderInput$Details = Input$Details Function(
-    Input$Details Function(
-        {required String name, int? age, Input$Details? deeds}));
+    Input$Details Function({
+  required String name,
+  int? age,
+  Input$Details? deeds,
+}));
 
 class Input$Details implements Input {
   Input$Details._(this._data);
 
-  factory Input$Details(_BuilderInput$Details builder) => builder((
-          {required Object name,
-          Object? age = $undefined,
-          Object? deeds = $undefined}) =>
-      Input$Details._(
-        {
-          r"name": name,
-          if (age != $undefined) r"age": age,
-          if (deeds != $undefined) r"deeds": deeds,
-        },
-      ));
+  factory Input$Details(_BuilderInput$Details builder) => builder(({
+        required Object name,
+        Object? age = $undefined,
+        Object? deeds = $undefined,
+      }) =>
+          Input$Details._(
+            {
+              r"name": name,
+              if (age != $undefined) r"age": age,
+              if (deeds != $undefined) r"deeds": deeds,
+            },
+          ));
 
   Map<String, dynamic> _data;
 
@@ -547,7 +644,7 @@ class Input$Details implements Input {
     return Object.hashAll([
       l$name,
       _data.containsKey('age') ? l$age : const {},
-      _data.containsKey('deeds') ? l$deeds : const {}
+      _data.containsKey('deeds') ? l$deeds : const {},
     ]);
   }
 

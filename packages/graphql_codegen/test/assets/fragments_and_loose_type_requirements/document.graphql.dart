@@ -214,6 +214,8 @@ class Fragment$F$$T implements Fragment$F {
     final _resultData = <String, dynamic>{};
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$name = name;
+    _resultData['name'] = l$name;
     final l$t = t;
     _resultData['t'] = l$t?.toJson();
     return _resultData;

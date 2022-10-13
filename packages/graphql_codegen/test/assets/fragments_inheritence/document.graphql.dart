@@ -352,6 +352,8 @@ class Fragment$F$other$$T1 implements Fragment$F$other {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$other = other;
+    _resultData['other'] = l$other?.toJson();
     final l$b = b;
     _resultData['b'] = l$b;
     return _resultData;

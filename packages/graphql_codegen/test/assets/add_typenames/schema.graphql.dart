@@ -1032,10 +1032,10 @@ class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$title = title;
-    _resultData['title'] = l$title;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$title = title;
+    _resultData['title'] = l$title;
     return _resultData;
   }
 
@@ -1157,10 +1157,10 @@ class Query$Q$docsWithFragment$$Report
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$title = title;
-    _resultData['title'] = l$title;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$title = title;
+    _resultData['title'] = l$title;
     return _resultData;
   }
 

@@ -818,6 +818,12 @@ class Query$Q$field$$T1 implements Fragment$F1, Fragment$F2, Query$Q$field {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$name0 = name0;
+    _resultData['name0'] = l$name0;
+    final l$name01 = name01;
+    _resultData['name01'] = l$name01;
     final l$size = size;
     _resultData['size'] = l$size;
     final l$name = name;

@@ -752,6 +752,8 @@ class Query$FetchImplementations$interface$self$$ImplementationA
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$s = s;
     _resultData['s'] = l$s;
     final l$$_s = $_s;
@@ -902,6 +904,8 @@ class Query$FetchImplementations$interface$self$$ImplementationB
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$i = i;
     _resultData['i'] = l$i;
     return _resultData;
@@ -1055,8 +1059,12 @@ class Query$FetchImplementations$interface$$ImplementationA
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$typename = typename;
+    _resultData['typename'] = l$typename;
     final l$b = b;
     _resultData['b'] = l$b;
+    final l$self = self;
+    _resultData['self'] = l$self.toJson();
     final l$s = s;
     _resultData['s'] = l$s;
     final l$$_s = $_s;
@@ -1245,6 +1253,12 @@ class Query$FetchImplementations$interface$$ImplementationB
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$typename = typename;
+    _resultData['typename'] = l$typename;
+    final l$b = b;
+    _resultData['b'] = l$b;
+    final l$self = self;
+    _resultData['self'] = l$self.toJson();
     final l$i = i;
     _resultData['i'] = l$i;
     return _resultData;

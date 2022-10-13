@@ -205,24 +205,10 @@ class Schema<TKey extends Object> {
     return fragmentDef;
   }
 
-  String? lookupPathFromName(NameNode node) {
+  String? lookupPathFromDefinitionNode(DefinitionNode node) {
     for (final entry in entries.entries) {
-      for (final definition in entry.value.definitions) {
-        NameNode name;
-        if (definition is FragmentDefinitionNode) {
-          name = definition.name;
-        } else if (definition is OperationDefinitionNode) {
-          name = definition.name!;
-        } else if (definition is EnumTypeDefinitionNode) {
-          name = definition.name;
-        } else if (definition is InputObjectTypeDefinitionNode) {
-          name = definition.name;
-        } else {
-          continue;
-        }
-        if (name.value == node.value) {
-          return lookupPath(entry.key);
-        }
+      if (entry.value.definitions.contains(node)) {
+        return lookupPath(entry.key);
       }
     }
     return null;
@@ -958,11 +944,11 @@ class ContextOperation<TKey extends Object>
 
 class Name {
   final BuiltList<NameSegment> segments;
-  final NameSegment baseNameSegment;
+  final BaseNameSegment baseNameSegment;
 
   Name(this.segments, this.baseNameSegment);
 
-  factory Name.fromSegment(NameSegment segment) => Name(
+  factory Name.fromSegment(BaseNameSegment segment) => Name(
         BuiltList.of([segment]),
         segment,
       );
@@ -995,15 +981,21 @@ abstract class NameSegment {
   int get hashCode => _key.hashCode;
 }
 
-class EnumNameSegment extends NameSegment {
-  EnumNameSegment(EnumTypeDefinitionNode tpe) : super(tpe.name);
+abstract class BaseNameSegment<TDefinitionNode extends DefinitionNode>
+    extends NameSegment {
+  final TDefinitionNode node;
+  BaseNameSegment(NameNode name, this.node) : super(name);
+}
+
+class EnumNameSegment extends BaseNameSegment<EnumTypeDefinitionNode> {
+  EnumNameSegment(EnumTypeDefinitionNode tpe) : super(tpe.name, tpe);
 
   @override
   String get _key => "E${name.value}";
 }
 
-class InputNameSegment extends NameSegment {
-  InputNameSegment(InputObjectTypeDefinitionNode tpe) : super(tpe.name);
+class InputNameSegment extends BaseNameSegment<InputObjectTypeDefinitionNode> {
+  InputNameSegment(InputObjectTypeDefinitionNode tpe) : super(tpe.name, tpe);
 
   @override
   String get _key => "I${name.value}";
@@ -1023,11 +1015,8 @@ class TypeNameSegment extends NameSegment {
   String get _key => "t${name.value}";
 }
 
-class OperationNameSegment extends NameSegment {
-  final OperationDefinitionNode node;
-  OperationNameSegment(OperationDefinitionNode name)
-      : node = name,
-        super(name.name!);
+class OperationNameSegment extends BaseNameSegment<OperationDefinitionNode> {
+  OperationNameSegment(OperationDefinitionNode name) : super(name.name!, name);
 
   @override
   String get _key {
@@ -1042,8 +1031,8 @@ class OperationNameSegment extends NameSegment {
   }
 }
 
-class FragmentNameSegment extends NameSegment {
-  FragmentNameSegment(FragmentDefinitionNode node) : super(node.name);
+class FragmentNameSegment extends BaseNameSegment<FragmentDefinitionNode> {
+  FragmentNameSegment(FragmentDefinitionNode node) : super(node.name, node);
 
   @override
   String get _key => "F${name.value}";
