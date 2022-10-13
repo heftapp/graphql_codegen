@@ -762,14 +762,14 @@ class Fragment$CompositeCondition$$AndCondition
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$left = left;
-    _resultData['left'] = l$left.toJson();
-    final l$right = right;
-    _resultData['right'] = l$right.toJson();
     final l$name = name;
     _resultData['name'] = l$name;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$left = left;
+    _resultData['left'] = l$left.toJson();
+    final l$right = right;
+    _resultData['right'] = l$right.toJson();
     return _resultData;
   }
 

@@ -95,7 +95,7 @@ class PrintContext<TContext extends Context> {
 
   void addDependency(Name name) {
     final lookupPath =
-        context.schema.lookupPathFromName(name.baseNameSegment.name);
+        context.schema.lookupPathFromDefinitionNode(name.baseNameSegment.node);
     if (lookupPath == null) return;
     _dependencies.add(lookupPath);
   }

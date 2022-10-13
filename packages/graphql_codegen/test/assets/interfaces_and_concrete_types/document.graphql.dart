@@ -754,12 +754,12 @@ class Query$FetchI$i1$$T1 implements Query$FetchI$i1 {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$i2c = i2c;
-    _resultData['i2c'] = l$i2c?.toJson();
     final l$i2 = i2;
     _resultData['i2'] = l$i2?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$i2c = i2c;
+    _resultData['i2c'] = l$i2c?.toJson();
     return _resultData;
   }
 
@@ -1578,10 +1578,12 @@ class Query$FetchI$i1$$T1$i2$$T2$field implements Query$FetchI$i1$$T1$i2$field {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$age = age;
-    _resultData['age'] = l$age;
+    final l$name = name;
+    _resultData['name'] = l$name;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$age = age;
+    _resultData['age'] = l$age;
     return _resultData;
   }
 

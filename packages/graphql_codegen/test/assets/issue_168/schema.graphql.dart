@@ -828,6 +828,8 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$blockType = blockType;
@@ -836,8 +838,6 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     _resultData['caption'] = l$caption;
     final l$items = items;
     _resultData['items'] = l$items?.map((e) => e.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
@@ -1344,6 +1344,8 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$caption = caption;
@@ -1352,8 +1354,6 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     _resultData['imageURL'] = l$imageURL;
     final l$link = link;
     _resultData['link'] = l$link;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 

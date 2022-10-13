@@ -267,6 +267,8 @@ class Query$Q$u$$TA implements Query$Q$u {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$name = name;
     _resultData['name'] = l$name;
     return _resultData;
@@ -385,6 +387,8 @@ class Query$Q$u$$TB implements Query$Q$u {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$velocity = velocity;
     _resultData['velocity'] = l$velocity;
     return _resultData;

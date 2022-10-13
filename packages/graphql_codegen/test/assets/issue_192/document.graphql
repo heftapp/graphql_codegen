@@ -1,0 +1,23 @@
+
+type Query {
+    book: Book
+}
+
+interface Book {
+    author: String
+}
+
+type TextBook implements Book {
+    author: String
+    courses: Int
+}
+
+
+query Q {
+    book {
+        author
+        ... on TextBook {
+            courses
+        }
+    }
+}

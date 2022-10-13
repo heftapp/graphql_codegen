@@ -286,8 +286,8 @@ Iterable<Spec> _printHelpers(PrintContext<ContextRoot> pc) {
         ])
         ..body = Block.of([
           ...fragmentDependencies.map(
-            (e) => _printGql(e)
-                .assignConst(pc.namePrinter.printLocalPropertyName(e.name))
+            (e) => declareConst(pc.namePrinter.printLocalPropertyName(e.name))
+                .assign(_printGql(e))
                 .statement,
           ),
           pc.context.contextOperations.fold<Expression>(
@@ -405,11 +405,10 @@ Spec _printSerializer(PrintContext pc) {
   final propertiesAndParentProperties = [...properties, ...parentProperties];
   final selfFromJsonBlock = Block.of([
     ...propertiesAndParentProperties.map(
-      (prop) => refer('json')
-          .index(
+      (prop) => declareFinal(pc.namePrinter.printLocalPropertyName(prop.name))
+          .assign(refer('json').index(
             literalString(prop.name.value),
-          )
-          .assignFinal(pc.namePrinter.printLocalPropertyName(prop.name))
+          ))
           .statement,
     ),
     refer(pc.namePrinter.printClassName(pc.path))
@@ -709,12 +708,11 @@ Iterable<Spec> _printVariablesClass(PrintContext<Context> pc) {
               ..returns = dynamicMap
               ..body = Block.of([
                 for (final param in allProperties)
-                  refer('_data')
-                      .index(literalString(param.name.value))
-                      .asA(printClassPropertyType(pc, param))
-                      .assignFinal(
-                        pc.namePrinter.printLocalPropertyName(param.name),
-                      )
+                  declareFinal(
+                          pc.namePrinter.printLocalPropertyName(param.name))
+                      .assign(refer('_data')
+                          .index(literalString(param.name.value))
+                          .asA(printClassPropertyType(pc, param)))
                       .statement,
                 Code('return {'),
                 for (final param in requiredParameters) ...[

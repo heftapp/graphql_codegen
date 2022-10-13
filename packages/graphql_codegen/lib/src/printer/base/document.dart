@@ -196,7 +196,7 @@ Method _printToJsonMethod(
         declareFinal(resultDataVariable)
             .assign(literalMap({}, refer('String'), refer('dynamic')))
             .statement,
-        for (final property in c.context.properties) ...[
+        for (final property in properties) ...[
           declareFinal(c.namePrinter.printLocalPropertyName(property.name))
               .assign(refer(c.namePrinter.printPropertyName(property.name)))
               .statement,

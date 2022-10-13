@@ -1,3 +1,7 @@
+# 0.11.2
+
+* Fix broken `toJson` on fragment spreads.
+
 # 0.11.1
 
 * Fix enum serialization with keywords.
