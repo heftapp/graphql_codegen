@@ -24,39 +24,46 @@ Map<String, dynamic> _$GraphQLCodegenConfigScalarToJson(
       'toJsonFunctionName': instance.toJsonFunctionName,
     };
 
-GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
-        Map<String, dynamic> json) =>
-    GraphQLCodegenConfig(
-      clients: (json['clients'] as List<dynamic>?)
-              ?.map((e) => $enumDecode(_$GraphQLCodegenConfigClientEnumMap, e))
-              .toSet() ??
-          const {},
-      disableContextReplacement:
-          json['disableContextReplacement'] as bool? ?? false,
-      scalars: (json['scalars'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(k,
-                GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
-          ) ??
-          const {},
-      addTypename: json['addTypename'] as bool? ?? true,
-      assetsPath: json['assetsPath'] as String? ?? "lib/**{.graphql,.gql}",
-      scopes: (json['scopes'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const ["**{.graphql,.gql}"],
-      addTypenameExcludedPaths:
-          (json['addTypenameExcludedPaths'] as List<dynamic>?)
-                  ?.map((e) => e as String)
-                  .toList() ??
-              const [],
-      generatedFileHeader: json['generatedFileHeader'] as String? ?? "",
-      namingSeparator: json['namingSeparator'] as String? ?? r"$",
-      extraKeywords: (json['extraKeywords'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-      outputDirectory: json['outputDirectory'] as String? ?? '.',
-    );
+GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(Map<String, dynamic> json) {
+  GraphQLCodegenConfig config = GraphQLCodegenConfig(
+    clients: (json['clients'] as List<dynamic>?)
+        ?.map((e) => $enumDecode(_$GraphQLCodegenConfigClientEnumMap, e))
+        .toSet() ??
+        const {},
+    disableContextReplacement:
+    json['disableContextReplacement'] as bool? ?? false,
+    scalars: (json['scalars'] as Map<String, dynamic>?)?.map(
+          (k, e) =>
+          MapEntry(k,
+              GraphQLCodegenConfigScalar.fromJson(e as Map<String, dynamic>)),
+    ) ??
+        const {},
+    addTypename: json['addTypename'] as bool? ?? true,
+    assetsPath: json['assetsPath'] as String? ?? "lib/**{.graphql,.gql}",
+    scopes: (json['scopes'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList() ??
+        const ["**{.graphql,.gql}"],
+    addTypenameExcludedPaths:
+    (json['addTypenameExcludedPaths'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList() ??
+        const [],
+    generatedFileHeader: json['generatedFileHeader'] as String? ?? "",
+    namingSeparator: json['namingSeparator'] as String? ?? r"$",
+    extraKeywords: (json['extraKeywords'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList() ??
+        const [],
+    outputDirectory: json['outputDirectory'] as String? ?? '.',
+  );
+  if (config.clients.contains(GraphQLCodegenConfigClient.graphqlFlutter) &&
+      !config.clients.contains(GraphQLCodegenConfigClient.graphql)) {
+    config.clients.add(GraphQLCodegenConfigClient.graphql);
+    print('Adding graphql client as graphql_flutter requires it.');
+  }
+  return config;
+}
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
         GraphQLCodegenConfig instance) =>
