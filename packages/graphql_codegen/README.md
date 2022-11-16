@@ -364,6 +364,8 @@ the query methods work similarly.
 
 ### Client `graphql_flutter`
 
+The graphql_flutter client depends on graphql client and will auto it when loading the config if not present.
+
 Once you've set up your `graphql_flutter` client (see [pub.dev/packages/graphql_flutter](https://pub.dev/packages/graphql_flutter)),
 you can use GraphQL Codegen to generate new `Query` or `Mutation` widgets.
 
