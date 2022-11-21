@@ -14,7 +14,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  analyzer: '>=5.0.0 <6.0.0'
+  analyzer: '>=4.0.0 <6.0.0'
   gql: ^0.14.0
   equatable: ^2.0.0
   build: ^2.0.1
