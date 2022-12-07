@@ -5,7 +5,7 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: "4897882604d919befd350648c7f91926a9d5de99e67b455bf0917cc2362f4bb8"
+      sha256: "3444216bfd127af50bbe4862d8843ed44db946dd933554f0d7285e89f10e28ac"
       url: "https://pub.dev"
     source: hosted
     version: "50.0.0"
@@ -13,7 +13,7 @@ packages:
     dependency: "direct main"
     description:
       name: analyzer
-      sha256: "690e335554a8385bc9d787117d9eb52c0c03ee207a607e593de3c9d71b1cfe80"
+      sha256: "68796c31f510c8455a06fed75fc97d8e5ad04d324a830322ab3efc9feb6201c1"
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
@@ -242,7 +242,7 @@ packages:
     dependency: "direct main"
     description:
       name: gql
-      sha256: "7b4398b687334b4bf396e1e90b242db3475955ec1f9f2dbccd55b8b1339128b6"
+      sha256: ae29eaa2fa07f7879c487cbd1cf4d216af7d47bb30aefabf2005ba02fff8bd4c
       url: "https://pub.dev"
     source: hosted
     version: "0.14.1-alpha+1668374584022"
@@ -250,7 +250,7 @@ packages:
     dependency: "direct main"
     description:
       name: gql_code_builder
-      sha256: "7b4ead16971a2cec8746aaa2c18a430063fa4b5a42af152ad4e9cc68205736ad"
+      sha256: "654fc5f455938d721f88631ce2e0d9350058bc6e965a22df6dd5668c72cd19c0"
       url: "https://pub.dev"
     source: hosted
     version: "0.6.1-alpha+1667318637890"
@@ -258,7 +258,7 @@ packages:
     dependency: transitive
     description:
       name: gql_dedupe_link
-      sha256: "5c9e8a9204040a8eda3a1d871bbdfadc14a9c8a91f3013e02ba31aeba7d83fca"
+      sha256: "89681048cf956348e865da872a40081499b8c087fc84dd4d4b9c134bd70d27b3"
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3+1"
@@ -266,7 +266,7 @@ packages:
     dependency: transitive
     description:
       name: gql_error_link
-      sha256: "7cf06f36586bf095cd0669447746a31a16b8bcdee282d52ab8524c42e9342141"
+      sha256: e7bfdd2b6232f3e15861cd96c2ad6b7c9c94693843b3dea18295136a5fb5b534
       url: "https://pub.dev"
     source: hosted
     version: "0.2.3+1"
@@ -274,7 +274,7 @@ packages:
     dependency: transitive
     description:
       name: gql_exec
-      sha256: "021e03066d02353126480427e44f183e5312162873ddeb07ef6a6938ab33d050"
+      sha256: "0d1fdb2e4154efbfc1dcf3f35ec36d19c8428ff0d560eb4c45b354f8f871dc50"
       url: "https://pub.dev"
     source: hosted
     version: "0.4.3"
@@ -282,7 +282,7 @@ packages:
     dependency: transitive
     description:
       name: gql_http_link
-      sha256: "304e1686d95d8dad7e19800ff9233c1c67d05d28d7ac9e7a8d665f5a0a829491"
+      sha256: "89ef87b32947acf4189f564c095f1148b0ab9bb9996fe518716dbad66708b834"
       url: "https://pub.dev"
     source: hosted
     version: "0.4.5"
@@ -290,7 +290,7 @@ packages:
     dependency: transitive
     description:
       name: gql_link
-      sha256: "87bb87fb01f2db5e8e99bef3230192d940a0d7a0065df4ad87d88426c5d39ed0"
+      sha256: "9643b518aa2ed14ab2322ebccd561263fe29fc2812c443c0c2b2c849e25550ec"
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0+1"
@@ -298,7 +298,7 @@ packages:
     dependency: transitive
     description:
       name: gql_transform_link
-      sha256: "232f3b893a01bdb5d871ac6a682919b82ea732c04312a2f47ee114c8599d5d5e"
+      sha256: b1735a9a92d25a92960002a8b40dfaede95ec1e5ed848906125d69efd878661f
       url: "https://pub.dev"
     source: hosted
     version: "0.2.2+1"
@@ -306,7 +306,7 @@ packages:
     dependency: "direct main"
     description:
       name: graphql
-      sha256: de90b8a62ce0d1b3b2e8e229f0130e05848a10564f245fc60ecbfa137ca3ca0f
+      sha256: f4a91622de5f77e8df785e48286de57fed2efd8e8898d035409de07e530efc0d
       url: "https://pub.dev"
     source: hosted
     version: "5.1.2-beta.5"
@@ -457,7 +457,7 @@ packages:
     dependency: transitive
     description:
       name: normalize
-      sha256: "7d9b3cf6cc2366a858ca0b75c9f1a99d9dd69ac5aa7dbda01f0cf800a26687b2"
+      sha256: baf8caf2d8b745af5737cca6c24f7fe3cf3158897fdbcde9a909b9c8d3e2e5af
       url: "https://pub.dev"
     source: hosted
     version: "0.7.2"
