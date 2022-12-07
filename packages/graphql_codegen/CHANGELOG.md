@@ -1,3 +1,7 @@
+# 0.12.0
+
+* Fix naming separator issue
+
 # 0.11.2
 
 * Fix broken `toJson` on fragment spreads.
