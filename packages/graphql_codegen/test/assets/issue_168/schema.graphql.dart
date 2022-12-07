@@ -784,22 +784,21 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks<TRes>
 class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     implements Query$WalletGetContent$walletGetContent$blocks {
   Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList({
-    required this.$__typename,
     required this.id,
     required this.blockType,
     this.caption,
     this.items,
+    required this.$__typename,
   });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList.fromJson(
       Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
     final l$id = json['id'];
     final l$blockType = json['blockType'];
     final l$caption = json['caption'];
     final l$items = json['items'];
+    final l$$__typename = json['__typename'];
     return Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-      $__typename: (l$$__typename as String),
       id: (l$id as String),
       blockType:
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
@@ -810,10 +809,9 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
               Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items
                   .fromJson((e as Map<String, dynamic>)))
           .toList(),
+      $__typename: (l$$__typename as String),
     );
   }
-
-  final String $__typename;
 
   final String id;
 
@@ -826,10 +824,10 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
       items;
 
+  final String $__typename;
+
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$blockType = blockType;
@@ -838,22 +836,24 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     _resultData['caption'] = l$caption;
     final l$items = items;
     _resultData['items'] = l$items?.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
-    final l$$__typename = $__typename;
     final l$id = id;
     final l$blockType = blockType;
     final l$caption = caption;
     final l$items = items;
+    final l$$__typename = $__typename;
     return Object.hashAll([
-      l$$__typename,
       l$id,
       l$blockType,
       l$caption,
       l$items == null ? null : Object.hashAll(l$items.map((v) => v)),
+      l$$__typename,
     ]);
   }
 
@@ -865,11 +865,6 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     if (!(other
             is Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList) ||
         runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$id = id;
@@ -903,6 +898,11 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     } else if (l$items != lOther$items) {
       return false;
     }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
   }
 }
@@ -933,13 +933,13 @@ abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
       _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList;
 
   TRes call({
-    String? $__typename,
     String? id,
     Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType?
         blockType,
     String? caption,
     List<Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
         items,
+    String? $__typename,
   });
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
       TRes> get blockType;
@@ -971,17 +971,14 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
   static const _undefined = {};
 
   TRes call({
-    Object? $__typename = _undefined,
     Object? id = _undefined,
     Object? blockType = _undefined,
     Object? caption = _undefined,
     Object? items = _undefined,
+    Object? $__typename = _undefined,
   }) =>
       _then(
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
         id: id == _undefined || id == null ? _instance.id : (id as String),
         blockType: blockType == _undefined || blockType == null
             ? _instance.blockType
@@ -993,6 +990,9 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
             ? _instance.items
             : (items as List<
                 Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
       TRes> get blockType {
@@ -1026,13 +1026,13 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
   TRes _res;
 
   call({
-    String? $__typename,
     String? id,
     Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType?
         blockType,
     String? caption,
     List<Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items>?
         items,
+    String? $__typename,
   }) =>
       _res;
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
@@ -1309,30 +1309,28 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     implements
         Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items {
   Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview({
-    required this.$__typename,
     required this.id,
     this.caption,
     this.imageURL,
     this.link,
+    required this.$__typename,
   });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview.fromJson(
       Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
     final l$id = json['id'];
     final l$caption = json['caption'];
     final l$imageURL = json['imageURL'];
     final l$link = json['link'];
+    final l$$__typename = json['__typename'];
     return Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-      $__typename: (l$$__typename as String),
       id: (l$id as String),
       caption: (l$caption as String?),
       imageURL: (l$imageURL as String?),
       link: (l$link as String?),
+      $__typename: (l$$__typename as String),
     );
   }
-
-  final String $__typename;
 
   final String id;
 
@@ -1342,10 +1340,10 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
 
   final String? link;
 
+  final String $__typename;
+
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$caption = caption;
@@ -1354,22 +1352,24 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     _resultData['imageURL'] = l$imageURL;
     final l$link = link;
     _resultData['link'] = l$link;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
-    final l$$__typename = $__typename;
     final l$id = id;
     final l$caption = caption;
     final l$imageURL = imageURL;
     final l$link = link;
+    final l$$__typename = $__typename;
     return Object.hashAll([
-      l$$__typename,
       l$id,
       l$caption,
       l$imageURL,
       l$link,
+      l$$__typename,
     ]);
   }
 
@@ -1381,11 +1381,6 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     if (!(other
             is Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview) ||
         runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$id = id;
@@ -1406,6 +1401,11 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     final l$link = link;
     final lOther$link = other.link;
     if (l$link != lOther$link) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     return true;
@@ -1438,11 +1438,11 @@ abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
       _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview;
 
   TRes call({
-    String? $__typename,
     String? id,
     String? caption,
     String? imageURL,
     String? link,
+    String? $__typename,
   });
 }
 
@@ -1466,23 +1466,23 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
   static const _undefined = {};
 
   TRes call({
-    Object? $__typename = _undefined,
     Object? id = _undefined,
     Object? caption = _undefined,
     Object? imageURL = _undefined,
     Object? link = _undefined,
+    Object? $__typename = _undefined,
   }) =>
       _then(
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
         id: id == _undefined || id == null ? _instance.id : (id as String),
         caption:
             caption == _undefined ? _instance.caption : (caption as String?),
         imageURL:
             imageURL == _undefined ? _instance.imageURL : (imageURL as String?),
         link: link == _undefined ? _instance.link : (link as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
@@ -1497,11 +1497,11 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
   TRes _res;
 
   call({
-    String? $__typename,
     String? id,
     String? caption,
     String? imageURL,
     String? link,
+    String? $__typename,
   }) =>
       _res;
 }

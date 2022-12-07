@@ -202,8 +202,6 @@ Fragment$MyNestedWidget_person? useFragment$MyNestedWidget_person(
 
 abstract class FragmentKey$MyNestedWidget_person implements FragmentKey {}
 
-abstract class FragmentKey$MyNestedWidget_person$child implements FragmentKey {}
-
 class Fragment$MyNestedWidget_person {
   Fragment$MyNestedWidget_person._(
     this.$rawData,
@@ -322,8 +320,58 @@ class Fragment$MyNestedWidget_person$child {
 
   static Fragment$MyNestedWidget_person$child fromJson(
       Map<String, dynamic> json) {
+    switch (json["__typename"] as String) {
+      case "Person":
+        return Fragment$MyNestedWidget_person$child$$Person.fromJson(json);
+
+      default:
+        final l$name = json['name'];
+        return Fragment$MyNestedWidget_person$child._(
+          json,
+          (l$name as String?),
+        );
+    }
+  }
+}
+
+class Fragment$MyNestedWidget_person$child$$Person
+    implements Fragment$MyNestedWidget_person$child {
+  Fragment$MyNestedWidget_person$child$$Person._(
+    this.$rawData,
+    this.name,
+  );
+
+  final Map<String, dynamic> $rawData;
+
+  final String? name;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MyNestedWidget_person$child$$Person) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  static Fragment$MyNestedWidget_person$child$$Person fromJson(
+      Map<String, dynamic> json) {
     final l$name = json['name'];
-    return Fragment$MyNestedWidget_person$child._(
+    return Fragment$MyNestedWidget_person$child$$Person._(
       json,
       (l$name as String?),
     );
@@ -436,17 +484,16 @@ class Query$MyWidgetQuery$child {
   }
 }
 
-class Query$MyWidgetQuery$child$$Person extends Query$MyWidgetQuery$child
-    implements FragmentKey$MyNestedWidget_person {
+class Query$MyWidgetQuery$child$$Person
+    implements Query$MyWidgetQuery$child, FragmentKey$MyNestedWidget_person {
   Query$MyWidgetQuery$child$$Person._(
     this.$rawData,
-    String? name,
-  ) : super._(
-          $rawData,
-          name,
-        );
+    this.name,
+  );
 
   final Map<String, dynamic> $rawData;
+
+  final String? name;
 
   @override
   bool operator ==(Object other) {
@@ -481,7 +528,7 @@ class Query$MyWidgetQuery$child$$Person extends Query$MyWidgetQuery$child
 }
 
 class Query$MyWidgetQuery$child$$Person$child
-    implements FragmentKey$MyNestedWidget_person$child {
+    implements FragmentKey$MyNestedWidget_person {
   Query$MyWidgetQuery$child$$Person$child._(this.$rawData);
 
   final Map<String, dynamic> $rawData;
@@ -505,7 +552,44 @@ class Query$MyWidgetQuery$child$$Person$child
 
   static Query$MyWidgetQuery$child$$Person$child fromJson(
       Map<String, dynamic> json) {
-    return Query$MyWidgetQuery$child$$Person$child._(json);
+    switch (json["__typename"] as String) {
+      case "Person":
+        return Query$MyWidgetQuery$child$$Person$child$$Person.fromJson(json);
+
+      default:
+        return Query$MyWidgetQuery$child$$Person$child._(json);
+    }
+  }
+}
+
+class Query$MyWidgetQuery$child$$Person$child$$Person
+    implements
+        Query$MyWidgetQuery$child$$Person$child,
+        FragmentKey$MyNestedWidget_person {
+  Query$MyWidgetQuery$child$$Person$child$$Person._(this.$rawData);
+
+  final Map<String, dynamic> $rawData;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$MyWidgetQuery$child$$Person$child$$Person) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    return Object.hashAll([]);
+  }
+
+  static Query$MyWidgetQuery$child$$Person$child$$Person fromJson(
+      Map<String, dynamic> json) {
+    return Query$MyWidgetQuery$child$$Person$child$$Person._(json);
   }
 }
 

@@ -88,6 +88,8 @@ class ContextVisitor extends RecursiveVisitor {
     }
     final c = context.withFragmentAndType(node, type);
     node.visitChildren(ContextVisitor(context: c));
+
+    _buildConcreteTypeContexts(c, type, node);
   }
 
   @override
@@ -104,7 +106,10 @@ class ContextVisitor extends RecursiveVisitor {
     );
   }
 
-  void _visitInFragment(FragmentDefinitionNode node, Name name) {
+  void _visitInFragment(
+    FragmentDefinitionNode node,
+    Name name,
+  ) {
     context.visitInFragment(
       name,
       () {
@@ -144,7 +149,9 @@ class ContextVisitor extends RecursiveVisitor {
       _visitInFragment(fragmentDef, fragmentName);
       return;
     }
-
+    if (context.currentType is! ObjectTypeDefinitionNode) {
+      return;
+    }
     // Current type condition
     final typeCondition = fragmentDef.typeCondition;
 
@@ -154,71 +161,16 @@ class ContextVisitor extends RecursiveVisitor {
         .map((e) => e.name)
         .toSet();
 
-    // Find concrete types of the current type.
-    final currentTypeConcreteTypes = context.schema
-        .lookupConcreteTypes(context.currentType.name)
-        .map((e) => e.name)
-        .toSet();
-
-    // Look-up the intersection of concrete types.
-    final concreteIntersection =
-        typeConditionConcreteTypes.intersection(currentTypeConcreteTypes);
-
-    // If there's no intersection, return.
-    if (concreteIntersection.isEmpty) {
+    if (!typeConditionConcreteTypes.contains(context.currentType.name)) {
       return;
     }
-
-    // At this point, if the current type is an object, the intersection
-    // will be exactly one.
-    if (context.currentType is ObjectTypeDefinitionNode) {
-      final typedFragmentName = fragmentName.withSegment(
-        TypeNameSegment(context.currentType.name),
-      );
-      // If a fragment context with the current type as type condition
-      // exists, we'll visit the fragment of this instead of the
-      // general fragment.
-      //
-      // This happens when a fragment is on an abstract type but has
-      // itself a fragment spread on the relevant concrete type.
-      final existingFragmentName =
-          tempFragmentContext.contextFragmentNameOrFallback(
-        typedFragmentName,
-        fragmentName,
-      );
-      _visitInFragment(fragmentDef, existingFragmentName);
-      return;
-    }
-
-    // We'll now go through each concrete type in the type intersection and
-    // create a typed context.
-    for (final typeName in concreteIntersection) {
-      final typeNode = context.schema.lookupType(typeName);
-      if (typeNode == null) {
-        throw InvalidGraphQLDocumentError(
-            "Failed to find definition for type ${typeName.value}");
-      }
-      final typedFragmentName = fragmentName.withSegment(
-        TypeNameSegment(typeName),
-      );
-
-      final existingFragmentName =
-          tempFragmentContext.contextFragmentNameOrFallback(
-        typedFragmentName,
-        fragmentName,
-      );
-
-      final c = context.withNameAndType(
-        TypeNameSegment(typeName),
-        typeNode,
-        extendsName: context.path,
-        inFragment: existingFragmentName,
-      );
-      fragmentDef.visitChildren(
-        ContextVisitor(context: c),
-      );
-      context.addPossibleTypeName(c);
-    }
+    final typedFragmentName = fragmentName.withSegment(
+      TypeNameSegment(context.currentType.name),
+    );
+    _visitInFragment(
+      fragmentDef,
+      typedFragmentName,
+    );
   }
 
   @override
@@ -280,6 +232,25 @@ class ContextVisitor extends RecursiveVisitor {
     }
   }
 
+  void _buildConcreteTypeContexts(
+    Context context,
+    TypeDefinitionNode type,
+    Node node,
+  ) {
+    if (type is ObjectTypeDefinitionNode) {
+      return;
+    }
+    for (final concreteType in context.schema.lookupConcreteTypes(type.name)) {
+      final typedContext = context.withNameAndType(
+        TypeNameSegment(concreteType.name),
+        concreteType,
+        extendsName: context.path,
+      );
+      node.visitChildren(ContextVisitor(context: typedContext));
+      context.addPossibleTypeName(typedContext);
+    }
+  }
+
   @override
   void visitFieldNode(FieldNode node) {
     final currentType = context.currentType;
@@ -312,6 +283,8 @@ class ContextVisitor extends RecursiveVisitor {
         extendsName: context.extendsName?.withSegment(segment),
       );
       node.visitChildren(ContextVisitor(context: c));
+
+      _buildConcreteTypeContexts(c, fieldType, node);
       context.addProperty(ContextProperty.fromFieldNode(
         node,
         path: c.path,
@@ -326,10 +299,12 @@ class ContextVisitor extends RecursiveVisitor {
         ),
       );
     } else {
-      context.addProperty(ContextProperty.fromFieldNode(
-        node,
-        type: typeNodeForField,
-      ));
+      context.addProperty(
+        ContextProperty.fromFieldNode(
+          node,
+          type: typeNodeForField,
+        ),
+      );
     }
 
     for (final argument in node.arguments) {

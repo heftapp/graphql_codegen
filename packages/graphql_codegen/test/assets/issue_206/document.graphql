@@ -1,0 +1,43 @@
+schema {
+  mutation: Mutations
+}
+
+type Mutations {
+  bla: EventUnion
+}
+
+union EventUnion = EventPublic
+
+interface Event {
+  subscription: EventSubscription
+}
+
+type EventPublic implements Event {
+  owner: UserPublic!
+  subscription: EventSubscription
+}
+
+type EventSubscription {
+  notifyFor: String!
+}
+
+type UserPublic {
+  username: String!
+}
+
+fragment EventFragment on Event {
+ subscription {
+   notifyFor
+ }
+  ...on EventPublic {
+    owner { ...UserPublicFragment }
+  }
+}
+
+fragment UserPublicFragment on UserPublic {
+  username
+}
+
+mutation Bla {
+  bla { ...EventFragment }
+}
