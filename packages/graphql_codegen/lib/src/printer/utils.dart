@@ -84,45 +84,48 @@ class NamePrinter {
   String printClassName(Name name) => printName(name);
 
   String printClassExtensionName(Name name) =>
-      "UtilityExtension\$" + printName(name);
+      "UtilityExtension${separator}" + printName(name);
 
-  String printCopyWithClassName(String name) => 'CopyWith\$' + name;
+  String printCopyWithClassName(String name) => 'CopyWith${separator}' + name;
 
-  String printCopyWithImplClassName(String name) => '_CopyWithImpl\$' + name;
+  String printCopyWithImplClassName(String name) =>
+      '_CopyWithImpl${separator}' + name;
 
   String printCopyWithStubImplClassName(String name) =>
-      '_CopyWithStubImpl\$' + name;
+      '_CopyWithStubImpl${separator}' + name;
 
-  String printParserFnName(Name name) => "_parserFn\$${printName(name)}";
+  String printParserFnName(Name name) =>
+      "_parserFn${separator}${printName(name)}";
 
-  String printVariableClassName(Name name) => "Variables\$${printName(name)}";
+  String printVariableClassName(Name name) =>
+      "Variables${separator}${printName(name)}";
 
   String printGraphQLClientOptionsName(Name name) =>
-      "Options\$${printName(name)}";
+      "Options${separator}${printName(name)}";
 
   String printGraphQLClientWatchOptionsName(Name name) =>
-      "WatchOptions\$${printName(name)}";
+      "WatchOptions${separator}${printName(name)}";
 
   String printGraphQLClientFetchMoreOptionsName(Name name) =>
-      "FetchMoreOptions\$${printName(name)}";
+      "FetchMoreOptions${separator}${printName(name)}";
 
   String printGraphQLFlutterClientOptionsName(Name name) =>
-      "WidgetOptions\$${printName(name)}";
+      "WidgetOptions${separator}${printName(name)}";
 
   String printGraphQLFlutterClientRunMutationName(Name name) =>
-      "RunMutation\$${printName(name)}";
+      "RunMutation${separator}${printName(name)}";
 
   String printGraphQLFlutterClientBuilderName(Name name) =>
-      "Builder\$${printName(name)}";
+      "Builder${separator}${printName(name)}";
 
   String printLocalPropertyName(NameNode name, [String prefix = "l"]) =>
       "${prefix}\$" + printPropertyName(name);
 
   String printGraphQLFlutterClientOperationName(Name name) =>
-      "${printName(name)}\$Widget";
+      "${printName(name)}${separator}Widget";
 
   String printGraphQLFlutterClientMutationHookResultName(Name name) =>
-      "${printName(name)}\$HookResult";
+      "${printName(name)}${separator}HookResult";
 
   String printGraphQLFlutterClientMutationHookName(Name name) =>
       "use${printName(name)}";
@@ -140,13 +143,13 @@ class NamePrinter {
       "use${printName(name)}";
 
   String printGraphQLClientOnMutationCompleteName(Name name) =>
-      "OnMutationCompleted\$${printName(name)}";
+      "OnMutationCompleted${separator}${printName(name)}";
 
   String printGraphQLClientExtensionName(Name name) =>
-      "ClientExtension\$${printName(name)}";
+      "ClientExtension${separator}${printName(name)}";
 
   String printGraphQLClientResultExtensionName(Name name) =>
-      "ResultExtension\$${printName(name)}";
+      "ResultExtension${separator}${printName(name)}";
 
   String printGraphQLClientExtensionMethodName(Name name) =>
       printName(name, isAction: true);
@@ -163,15 +166,11 @@ class NamePrinter {
   String printGraphQLClientResultExtensionGetterName(Name name) =>
       "parsedData" + printName(name);
 
-  String printFromJsonFactoryName(String name) => "_\$${name}FromJson";
-
-  String printToJsonFactoryName(String name) => "_\$${name}ToJson";
-
   String printFromJsonConverterFunctionName(Name name) =>
-      "fromJson\$${printClassName(name)}";
+      "fromJson${separator}${printClassName(name)}";
 
   String printToJsonConverterFunctionName(Name name) =>
-      "toJson\$${printClassName(name)}";
+      "toJson${separator}${printClassName(name)}";
 
   String printKeywordSafe(String name) =>
       _keywords.contains(name) ? "\$${name}" : name;
