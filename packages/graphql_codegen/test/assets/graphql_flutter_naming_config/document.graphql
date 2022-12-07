@@ -1,0 +1,19 @@
+enum Status {
+    Pending
+    Successful
+    Failure
+    InProgress
+}
+
+type Query {
+    status(i: Input): Status
+}
+
+
+query Q {
+    status
+}
+
+input Input {
+    status: Status
+}
