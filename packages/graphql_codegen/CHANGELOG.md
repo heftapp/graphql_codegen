@@ -1,5 +1,6 @@
-# 0.12.0
+# 0.12.0-beta.1
 
+* Bump gql versions
 * Fix naming separator issue
 
 # 0.11.2
