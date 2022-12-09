@@ -89,16 +89,6 @@ Constructor _printConstructor(
   );
 }
 
-Iterable<ContextProperty> _mergeProperties(
-  PrintContext c,
-  Iterable<ContextProperty> ps1,
-  Iterable<ContextProperty> ps2,
-) {
-  return {
-    for (final v in [...ps1, ...ps2]) c.namePrinter.printPropertyName(v.name): v
-  }.values;
-}
-
 Class printContext(PrintContext c) {
   c.markAsJsonSerializable();
   final context = c.context;
@@ -110,11 +100,7 @@ Class printContext(PrintContext c) {
   if (extendContext != null) {
     c.addDependency(extendContext.path);
   }
-  final properties = _mergeProperties(
-    c,
-    extendContext?.properties ?? [],
-    c.context.properties,
-  );
+  final properties = c.context.properties;
 
   return Class(
     (b) => b
@@ -156,12 +142,7 @@ Class printContext(PrintContext c) {
 
 List<Spec> printContextExtension(PrintContext c) {
   final context = c.context;
-  final extendContext = context.extendsContext;
-  final properties = _mergeProperties(
-    c,
-    extendContext?.properties ?? [],
-    c.context.properties,
-  );
+  final properties = c.context.properties;
   return [
     Extension(
       (b) => b

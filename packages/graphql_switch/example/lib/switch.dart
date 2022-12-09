@@ -239,11 +239,6 @@ Iterable<Fragment$Characters> useFragment$Characters(
 
 abstract class FragmentKey$Movie_film implements FragmentKey {}
 
-abstract class FragmentKey$Movie_film$characters implements FragmentKey {}
-
-abstract class FragmentKey$Movie_film$characters$characters
-    implements FragmentKey {}
-
 abstract class FragmentKey$Characters implements FragmentKey {}
 
 class Fragment$Movie_film {
@@ -578,7 +573,7 @@ class Query$FetchAllFilms$allFilms$films implements FragmentKey$Movie_film {
 }
 
 class Query$FetchAllFilms$allFilms$films$characters
-    implements FragmentKey$Movie_film$characters {
+    implements FragmentKey$Movie_film {
   Query$FetchAllFilms$allFilms$films$characters._(this.$rawData);
 
   final Map<String, dynamic> $rawData;
@@ -607,9 +602,7 @@ class Query$FetchAllFilms$allFilms$films$characters
 }
 
 class Query$FetchAllFilms$allFilms$films$characters$characters
-    implements
-        FragmentKey$Movie_film$characters$characters,
-        FragmentKey$Characters {
+    implements FragmentKey$Movie_film, FragmentKey$Characters {
   Query$FetchAllFilms$allFilms$films$characters$characters._(this.$rawData);
 
   final Map<String, dynamic> $rawData;

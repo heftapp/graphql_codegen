@@ -329,43 +329,133 @@ class _CopyWithStubImpl$Fragment$F$other$other<TRes>
   call({String? name}) => _res;
 }
 
-class Fragment$F$other$$T1 implements Fragment$F$other {
-  Fragment$F$other$$T1({
-    this.other,
-    this.b,
-  });
+class Fragment$F$other$other$$T1
+    implements Fragment$F2$other$$T1, Fragment$F$other$other {
+  Fragment$F$other$other$$T1({this.name});
 
-  factory Fragment$F$other$$T1.fromJson(Map<String, dynamic> json) {
-    final l$other = json['other'];
-    final l$b = json['b'];
-    return Fragment$F$other$$T1(
-      other: l$other == null
-          ? null
-          : Fragment$F$other$other.fromJson((l$other as Map<String, dynamic>)),
-      b: (l$b as bool?),
-    );
+  factory Fragment$F$other$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$other$other$$T1(name: (l$name as String?));
   }
 
-  final Fragment$F$other$other? other;
-
-  final bool? b;
+  final String? name;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$other = other;
-    _resultData['other'] = l$other?.toJson();
-    final l$b = b;
-    _resultData['b'] = l$b;
+    final l$name = name;
+    _resultData['name'] = l$name;
     return _resultData;
   }
 
   @override
   int get hashCode {
-    final l$other = other;
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$other$other$$T1) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$other$other$$T1
+    on Fragment$F$other$other$$T1 {
+  CopyWith$Fragment$F$other$other$$T1<Fragment$F$other$other$$T1>
+      get copyWith => CopyWith$Fragment$F$other$other$$T1(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$other$other$$T1<TRes> {
+  factory CopyWith$Fragment$F$other$other$$T1(
+    Fragment$F$other$other$$T1 instance,
+    TRes Function(Fragment$F$other$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F$other$other$$T1;
+
+  factory CopyWith$Fragment$F$other$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$other$other$$T1;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$other$other$$T1<TRes>
+    implements CopyWith$Fragment$F$other$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F$other$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$other$other$$T1 _instance;
+
+  final TRes Function(Fragment$F$other$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$F$other$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$other$other$$T1<TRes>
+    implements CopyWith$Fragment$F$other$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F$other$other$$T1(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F$other$$T1 implements Fragment$F2$$T1, Fragment$F$other {
+  Fragment$F$other$$T1({
+    this.b,
+    this.other,
+  });
+
+  factory Fragment$F$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$b = json['b'];
+    final l$other = json['other'];
+    return Fragment$F$other$$T1(
+      b: (l$b as bool?),
+      other: l$other == null
+          ? null
+          : Fragment$F$other$$T1$other.fromJson(
+              (l$other as Map<String, dynamic>)),
+    );
+  }
+
+  final bool? b;
+
+  final Fragment$F$other$$T1$other? other;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
     final l$b = b;
+    _resultData['b'] = l$b;
+    final l$other = other;
+    _resultData['other'] = l$other?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$b = b;
+    final l$other = other;
     return Object.hashAll([
-      l$other,
       l$b,
+      l$other,
     ]);
   }
 
@@ -377,14 +467,14 @@ class Fragment$F$other$$T1 implements Fragment$F$other {
     if (!(other is Fragment$F$other$$T1) || runtimeType != other.runtimeType) {
       return false;
     }
-    final l$other = other;
-    final lOther$other = other.other;
-    if (l$other != lOther$other) {
-      return false;
-    }
     final l$b = b;
     final lOther$b = other.b;
     if (l$b != lOther$b) {
+      return false;
+    }
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) {
       return false;
     }
     return true;
@@ -409,10 +499,10 @@ abstract class CopyWith$Fragment$F$other$$T1<TRes> {
       _CopyWithStubImpl$Fragment$F$other$$T1;
 
   TRes call({
-    Fragment$F$other$other? other,
     bool? b,
+    Fragment$F$other$$T1$other? other,
   });
-  CopyWith$Fragment$F$other$other<TRes> get other;
+  CopyWith$Fragment$F$other$$T1$other<TRes> get other;
 }
 
 class _CopyWithImpl$Fragment$F$other$$T1<TRes>
@@ -429,20 +519,21 @@ class _CopyWithImpl$Fragment$F$other$$T1<TRes>
   static const _undefined = {};
 
   TRes call({
-    Object? other = _undefined,
     Object? b = _undefined,
+    Object? other = _undefined,
   }) =>
       _then(Fragment$F$other$$T1(
+        b: b == _undefined ? _instance.b : (b as bool?),
         other: other == _undefined
             ? _instance.other
-            : (other as Fragment$F$other$other?),
-        b: b == _undefined ? _instance.b : (b as bool?),
+            : (other as Fragment$F$other$$T1$other?),
       ));
-  CopyWith$Fragment$F$other$other<TRes> get other {
+  CopyWith$Fragment$F$other$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
-        ? CopyWith$Fragment$F$other$other.stub(_then(_instance))
-        : CopyWith$Fragment$F$other$other(local$other, (e) => call(other: e));
+        ? CopyWith$Fragment$F$other$$T1$other.stub(_then(_instance))
+        : CopyWith$Fragment$F$other$$T1$other(
+            local$other, (e) => call(other: e));
   }
 }
 
@@ -453,12 +544,891 @@ class _CopyWithStubImpl$Fragment$F$other$$T1<TRes>
   TRes _res;
 
   call({
-    Fragment$F$other$other? other,
     bool? b,
+    Fragment$F$other$$T1$other? other,
   }) =>
       _res;
-  CopyWith$Fragment$F$other$other<TRes> get other =>
-      CopyWith$Fragment$F$other$other.stub(_res);
+  CopyWith$Fragment$F$other$$T1$other<TRes> get other =>
+      CopyWith$Fragment$F$other$$T1$other.stub(_res);
+}
+
+class Fragment$F$other$$T1$other
+    implements Fragment$F2$$T1$other, Fragment$F$other$other {
+  Fragment$F$other$$T1$other({this.name});
+
+  factory Fragment$F$other$$T1$other.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$other$$T1$other(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$other$$T1$other) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$other$$T1$other
+    on Fragment$F$other$$T1$other {
+  CopyWith$Fragment$F$other$$T1$other<Fragment$F$other$$T1$other>
+      get copyWith => CopyWith$Fragment$F$other$$T1$other(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$other$$T1$other<TRes> {
+  factory CopyWith$Fragment$F$other$$T1$other(
+    Fragment$F$other$$T1$other instance,
+    TRes Function(Fragment$F$other$$T1$other) then,
+  ) = _CopyWithImpl$Fragment$F$other$$T1$other;
+
+  factory CopyWith$Fragment$F$other$$T1$other.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$other$$T1$other;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$other$$T1$other<TRes>
+    implements CopyWith$Fragment$F$other$$T1$other<TRes> {
+  _CopyWithImpl$Fragment$F$other$$T1$other(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$other$$T1$other _instance;
+
+  final TRes Function(Fragment$F$other$$T1$other) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$F$other$$T1$other(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$other$$T1$other<TRes>
+    implements CopyWith$Fragment$F$other$$T1$other<TRes> {
+  _CopyWithStubImpl$Fragment$F$other$$T1$other(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F$other$$T1$other$$T1
+    implements Fragment$F2$$T1$other$$T1, Fragment$F$other$$T1$other {
+  Fragment$F$other$$T1$other$$T1({this.name});
+
+  factory Fragment$F$other$$T1$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$other$$T1$other$$T1(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$other$$T1$other$$T1) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$other$$T1$other$$T1
+    on Fragment$F$other$$T1$other$$T1 {
+  CopyWith$Fragment$F$other$$T1$other$$T1<Fragment$F$other$$T1$other$$T1>
+      get copyWith => CopyWith$Fragment$F$other$$T1$other$$T1(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$other$$T1$other$$T1<TRes> {
+  factory CopyWith$Fragment$F$other$$T1$other$$T1(
+    Fragment$F$other$$T1$other$$T1 instance,
+    TRes Function(Fragment$F$other$$T1$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F$other$$T1$other$$T1;
+
+  factory CopyWith$Fragment$F$other$$T1$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$other$$T1$other$$T1;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$other$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F$other$$T1$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F$other$$T1$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$other$$T1$other$$T1 _instance;
+
+  final TRes Function(Fragment$F$other$$T1$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Fragment$F$other$$T1$other$$T1(
+          name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$other$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F$other$$T1$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F$other$$T1$other$$T1(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F$$T1 implements Fragment$F {
+  Fragment$F$$T1({this.other});
+
+  factory Fragment$F$$T1.fromJson(Map<String, dynamic> json) {
+    final l$other = json['other'];
+    return Fragment$F$$T1(
+        other: l$other == null
+            ? null
+            : Fragment$F$$T1$other.fromJson((l$other as Map<String, dynamic>)));
+  }
+
+  final Fragment$F$$T1$other? other;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$other = other;
+    _resultData['other'] = l$other?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$other = other;
+    return Object.hashAll([l$other]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1 on Fragment$F$$T1 {
+  CopyWith$Fragment$F$$T1<Fragment$F$$T1> get copyWith =>
+      CopyWith$Fragment$F$$T1(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F$$T1<TRes> {
+  factory CopyWith$Fragment$F$$T1(
+    Fragment$F$$T1 instance,
+    TRes Function(Fragment$F$$T1) then,
+  ) = _CopyWithImpl$Fragment$F$$T1;
+
+  factory CopyWith$Fragment$F$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1;
+
+  TRes call({Fragment$F$$T1$other? other});
+  CopyWith$Fragment$F$$T1$other<TRes> get other;
+}
+
+class _CopyWithImpl$Fragment$F$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1<TRes> {
+  _CopyWithImpl$Fragment$F$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1 _instance;
+
+  final TRes Function(Fragment$F$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? other = _undefined}) => _then(Fragment$F$$T1(
+      other: other == _undefined
+          ? _instance.other
+          : (other as Fragment$F$$T1$other?)));
+  CopyWith$Fragment$F$$T1$other<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F$$T1$other.stub(_then(_instance))
+        : CopyWith$Fragment$F$$T1$other(local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1(this._res);
+
+  TRes _res;
+
+  call({Fragment$F$$T1$other? other}) => _res;
+  CopyWith$Fragment$F$$T1$other<TRes> get other =>
+      CopyWith$Fragment$F$$T1$other.stub(_res);
+}
+
+class Fragment$F$$T1$other implements Fragment$F2, Fragment$F$other {
+  Fragment$F$$T1$other({this.other});
+
+  factory Fragment$F$$T1$other.fromJson(Map<String, dynamic> json) {
+    final l$other = json['other'];
+    return Fragment$F$$T1$other(
+        other: l$other == null
+            ? null
+            : Fragment$F$$T1$other$other.fromJson(
+                (l$other as Map<String, dynamic>)));
+  }
+
+  final Fragment$F$$T1$other$other? other;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$other = other;
+    _resultData['other'] = l$other?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$other = other;
+    return Object.hashAll([l$other]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1$other) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1$other on Fragment$F$$T1$other {
+  CopyWith$Fragment$F$$T1$other<Fragment$F$$T1$other> get copyWith =>
+      CopyWith$Fragment$F$$T1$other(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F$$T1$other<TRes> {
+  factory CopyWith$Fragment$F$$T1$other(
+    Fragment$F$$T1$other instance,
+    TRes Function(Fragment$F$$T1$other) then,
+  ) = _CopyWithImpl$Fragment$F$$T1$other;
+
+  factory CopyWith$Fragment$F$$T1$other.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1$other;
+
+  TRes call({Fragment$F$$T1$other$other? other});
+  CopyWith$Fragment$F$$T1$other$other<TRes> get other;
+}
+
+class _CopyWithImpl$Fragment$F$$T1$other<TRes>
+    implements CopyWith$Fragment$F$$T1$other<TRes> {
+  _CopyWithImpl$Fragment$F$$T1$other(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1$other _instance;
+
+  final TRes Function(Fragment$F$$T1$other) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? other = _undefined}) => _then(Fragment$F$$T1$other(
+      other: other == _undefined
+          ? _instance.other
+          : (other as Fragment$F$$T1$other$other?)));
+  CopyWith$Fragment$F$$T1$other$other<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F$$T1$other$other.stub(_then(_instance))
+        : CopyWith$Fragment$F$$T1$other$other(
+            local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1$other<TRes>
+    implements CopyWith$Fragment$F$$T1$other<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1$other(this._res);
+
+  TRes _res;
+
+  call({Fragment$F$$T1$other$other? other}) => _res;
+  CopyWith$Fragment$F$$T1$other$other<TRes> get other =>
+      CopyWith$Fragment$F$$T1$other$other.stub(_res);
+}
+
+class Fragment$F$$T1$other$other
+    implements Fragment$F2$other, Fragment$F$other$other {
+  Fragment$F$$T1$other$other({this.name});
+
+  factory Fragment$F$$T1$other$other.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$$T1$other$other(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1$other$other) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1$other$other
+    on Fragment$F$$T1$other$other {
+  CopyWith$Fragment$F$$T1$other$other<Fragment$F$$T1$other$other>
+      get copyWith => CopyWith$Fragment$F$$T1$other$other(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$$T1$other$other<TRes> {
+  factory CopyWith$Fragment$F$$T1$other$other(
+    Fragment$F$$T1$other$other instance,
+    TRes Function(Fragment$F$$T1$other$other) then,
+  ) = _CopyWithImpl$Fragment$F$$T1$other$other;
+
+  factory CopyWith$Fragment$F$$T1$other$other.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1$other$other;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$$T1$other$other<TRes>
+    implements CopyWith$Fragment$F$$T1$other$other<TRes> {
+  _CopyWithImpl$Fragment$F$$T1$other$other(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1$other$other _instance;
+
+  final TRes Function(Fragment$F$$T1$other$other) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$F$$T1$other$other(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1$other$other<TRes>
+    implements CopyWith$Fragment$F$$T1$other$other<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1$other$other(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F$$T1$other$other$$T1
+    implements Fragment$F2$other$$T1, Fragment$F$$T1$other$other {
+  Fragment$F$$T1$other$other$$T1({this.name});
+
+  factory Fragment$F$$T1$other$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$$T1$other$other$$T1(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1$other$other$$T1) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1$other$other$$T1
+    on Fragment$F$$T1$other$other$$T1 {
+  CopyWith$Fragment$F$$T1$other$other$$T1<Fragment$F$$T1$other$other$$T1>
+      get copyWith => CopyWith$Fragment$F$$T1$other$other$$T1(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$$T1$other$other$$T1<TRes> {
+  factory CopyWith$Fragment$F$$T1$other$other$$T1(
+    Fragment$F$$T1$other$other$$T1 instance,
+    TRes Function(Fragment$F$$T1$other$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F$$T1$other$other$$T1;
+
+  factory CopyWith$Fragment$F$$T1$other$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1$other$other$$T1;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$$T1$other$other$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1$other$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F$$T1$other$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1$other$other$$T1 _instance;
+
+  final TRes Function(Fragment$F$$T1$other$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Fragment$F$$T1$other$other$$T1(
+          name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1$other$other$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1$other$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1$other$other$$T1(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F$$T1$other$$T1
+    implements Fragment$F2$$T1, Fragment$F$$T1$other {
+  Fragment$F$$T1$other$$T1({
+    this.b,
+    this.other,
+  });
+
+  factory Fragment$F$$T1$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$b = json['b'];
+    final l$other = json['other'];
+    return Fragment$F$$T1$other$$T1(
+      b: (l$b as bool?),
+      other: l$other == null
+          ? null
+          : Fragment$F$$T1$other$$T1$other.fromJson(
+              (l$other as Map<String, dynamic>)),
+    );
+  }
+
+  final bool? b;
+
+  final Fragment$F$$T1$other$$T1$other? other;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$b = b;
+    _resultData['b'] = l$b;
+    final l$other = other;
+    _resultData['other'] = l$other?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$b = b;
+    final l$other = other;
+    return Object.hashAll([
+      l$b,
+      l$other,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1$other$$T1) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$b = b;
+    final lOther$b = other.b;
+    if (l$b != lOther$b) {
+      return false;
+    }
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1$other$$T1
+    on Fragment$F$$T1$other$$T1 {
+  CopyWith$Fragment$F$$T1$other$$T1<Fragment$F$$T1$other$$T1> get copyWith =>
+      CopyWith$Fragment$F$$T1$other$$T1(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F$$T1$other$$T1<TRes> {
+  factory CopyWith$Fragment$F$$T1$other$$T1(
+    Fragment$F$$T1$other$$T1 instance,
+    TRes Function(Fragment$F$$T1$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F$$T1$other$$T1;
+
+  factory CopyWith$Fragment$F$$T1$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1$other$$T1;
+
+  TRes call({
+    bool? b,
+    Fragment$F$$T1$other$$T1$other? other,
+  });
+  CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other;
+}
+
+class _CopyWithImpl$Fragment$F$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F$$T1$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1$other$$T1 _instance;
+
+  final TRes Function(Fragment$F$$T1$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? b = _undefined,
+    Object? other = _undefined,
+  }) =>
+      _then(Fragment$F$$T1$other$$T1(
+        b: b == _undefined ? _instance.b : (b as bool?),
+        other: other == _undefined
+            ? _instance.other
+            : (other as Fragment$F$$T1$other$$T1$other?),
+      ));
+  CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F$$T1$other$$T1$other.stub(_then(_instance))
+        : CopyWith$Fragment$F$$T1$other$$T1$other(
+            local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1$other$$T1(this._res);
+
+  TRes _res;
+
+  call({
+    bool? b,
+    Fragment$F$$T1$other$$T1$other? other,
+  }) =>
+      _res;
+  CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other =>
+      CopyWith$Fragment$F$$T1$other$$T1$other.stub(_res);
+}
+
+class Fragment$F$$T1$other$$T1$other
+    implements Fragment$F2$$T1$other, Fragment$F$$T1$other$other {
+  Fragment$F$$T1$other$$T1$other({this.name});
+
+  factory Fragment$F$$T1$other$$T1$other.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$$T1$other$$T1$other(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1$other$$T1$other) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1$other$$T1$other
+    on Fragment$F$$T1$other$$T1$other {
+  CopyWith$Fragment$F$$T1$other$$T1$other<Fragment$F$$T1$other$$T1$other>
+      get copyWith => CopyWith$Fragment$F$$T1$other$$T1$other(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$$T1$other$$T1$other<TRes> {
+  factory CopyWith$Fragment$F$$T1$other$$T1$other(
+    Fragment$F$$T1$other$$T1$other instance,
+    TRes Function(Fragment$F$$T1$other$$T1$other) then,
+  ) = _CopyWithImpl$Fragment$F$$T1$other$$T1$other;
+
+  factory CopyWith$Fragment$F$$T1$other$$T1$other.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$$T1$other$$T1$other<TRes>
+    implements CopyWith$Fragment$F$$T1$other$$T1$other<TRes> {
+  _CopyWithImpl$Fragment$F$$T1$other$$T1$other(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1$other$$T1$other _instance;
+
+  final TRes Function(Fragment$F$$T1$other$$T1$other) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Fragment$F$$T1$other$$T1$other(
+          name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other<TRes>
+    implements CopyWith$Fragment$F$$T1$other$$T1$other<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F$$T1$other$$T1$other$$T1
+    implements Fragment$F2$$T1$other$$T1, Fragment$F$$T1$other$$T1$other {
+  Fragment$F$$T1$other$$T1$other$$T1({this.name});
+
+  factory Fragment$F$$T1$other$$T1$other$$T1.fromJson(
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F$$T1$other$$T1$other$$T1(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F$$T1$other$$T1$other$$T1) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F$$T1$other$$T1$other$$T1
+    on Fragment$F$$T1$other$$T1$other$$T1 {
+  CopyWith$Fragment$F$$T1$other$$T1$other$$T1<
+          Fragment$F$$T1$other$$T1$other$$T1>
+      get copyWith => CopyWith$Fragment$F$$T1$other$$T1$other$$T1(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$F$$T1$other$$T1$other$$T1<TRes> {
+  factory CopyWith$Fragment$F$$T1$other$$T1$other$$T1(
+    Fragment$F$$T1$other$$T1$other$$T1 instance,
+    TRes Function(Fragment$F$$T1$other$$T1$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1;
+
+  factory CopyWith$Fragment$F$$T1$other$$T1$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other$$T1;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1$other$$T1$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F$$T1$other$$T1$other$$T1 _instance;
+
+  final TRes Function(Fragment$F$$T1$other$$T1$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Fragment$F$$T1$other$$T1$other$$T1(
+          name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F$$T1$other$$T1$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other$$T1(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
 }
 
 class Fragment$F2 {
@@ -668,6 +1638,367 @@ class _CopyWithImpl$Fragment$F2$other<TRes>
 class _CopyWithStubImpl$Fragment$F2$other<TRes>
     implements CopyWith$Fragment$F2$other<TRes> {
   _CopyWithStubImpl$Fragment$F2$other(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F2$other$$T1 implements Fragment$F2$other {
+  Fragment$F2$other$$T1({this.name});
+
+  factory Fragment$F2$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F2$other$$T1(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F2$other$$T1) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F2$other$$T1 on Fragment$F2$other$$T1 {
+  CopyWith$Fragment$F2$other$$T1<Fragment$F2$other$$T1> get copyWith =>
+      CopyWith$Fragment$F2$other$$T1(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F2$other$$T1<TRes> {
+  factory CopyWith$Fragment$F2$other$$T1(
+    Fragment$F2$other$$T1 instance,
+    TRes Function(Fragment$F2$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F2$other$$T1;
+
+  factory CopyWith$Fragment$F2$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F2$other$$T1;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F2$other$$T1<TRes>
+    implements CopyWith$Fragment$F2$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F2$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F2$other$$T1 _instance;
+
+  final TRes Function(Fragment$F2$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$F2$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F2$other$$T1<TRes>
+    implements CopyWith$Fragment$F2$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F2$other$$T1(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F2$$T1 implements Fragment$F2 {
+  Fragment$F2$$T1({this.other});
+
+  factory Fragment$F2$$T1.fromJson(Map<String, dynamic> json) {
+    final l$other = json['other'];
+    return Fragment$F2$$T1(
+        other: l$other == null
+            ? null
+            : Fragment$F2$$T1$other.fromJson(
+                (l$other as Map<String, dynamic>)));
+  }
+
+  final Fragment$F2$$T1$other? other;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$other = other;
+    _resultData['other'] = l$other?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$other = other;
+    return Object.hashAll([l$other]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F2$$T1) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$other = other;
+    final lOther$other = other.other;
+    if (l$other != lOther$other) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F2$$T1 on Fragment$F2$$T1 {
+  CopyWith$Fragment$F2$$T1<Fragment$F2$$T1> get copyWith =>
+      CopyWith$Fragment$F2$$T1(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F2$$T1<TRes> {
+  factory CopyWith$Fragment$F2$$T1(
+    Fragment$F2$$T1 instance,
+    TRes Function(Fragment$F2$$T1) then,
+  ) = _CopyWithImpl$Fragment$F2$$T1;
+
+  factory CopyWith$Fragment$F2$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F2$$T1;
+
+  TRes call({Fragment$F2$$T1$other? other});
+  CopyWith$Fragment$F2$$T1$other<TRes> get other;
+}
+
+class _CopyWithImpl$Fragment$F2$$T1<TRes>
+    implements CopyWith$Fragment$F2$$T1<TRes> {
+  _CopyWithImpl$Fragment$F2$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F2$$T1 _instance;
+
+  final TRes Function(Fragment$F2$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? other = _undefined}) => _then(Fragment$F2$$T1(
+      other: other == _undefined
+          ? _instance.other
+          : (other as Fragment$F2$$T1$other?)));
+  CopyWith$Fragment$F2$$T1$other<TRes> get other {
+    final local$other = _instance.other;
+    return local$other == null
+        ? CopyWith$Fragment$F2$$T1$other.stub(_then(_instance))
+        : CopyWith$Fragment$F2$$T1$other(local$other, (e) => call(other: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$F2$$T1<TRes>
+    implements CopyWith$Fragment$F2$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F2$$T1(this._res);
+
+  TRes _res;
+
+  call({Fragment$F2$$T1$other? other}) => _res;
+  CopyWith$Fragment$F2$$T1$other<TRes> get other =>
+      CopyWith$Fragment$F2$$T1$other.stub(_res);
+}
+
+class Fragment$F2$$T1$other implements Fragment$F2$other {
+  Fragment$F2$$T1$other({this.name});
+
+  factory Fragment$F2$$T1$other.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F2$$T1$other(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F2$$T1$other) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F2$$T1$other on Fragment$F2$$T1$other {
+  CopyWith$Fragment$F2$$T1$other<Fragment$F2$$T1$other> get copyWith =>
+      CopyWith$Fragment$F2$$T1$other(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F2$$T1$other<TRes> {
+  factory CopyWith$Fragment$F2$$T1$other(
+    Fragment$F2$$T1$other instance,
+    TRes Function(Fragment$F2$$T1$other) then,
+  ) = _CopyWithImpl$Fragment$F2$$T1$other;
+
+  factory CopyWith$Fragment$F2$$T1$other.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F2$$T1$other;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F2$$T1$other<TRes>
+    implements CopyWith$Fragment$F2$$T1$other<TRes> {
+  _CopyWithImpl$Fragment$F2$$T1$other(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F2$$T1$other _instance;
+
+  final TRes Function(Fragment$F2$$T1$other) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$F2$$T1$other(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F2$$T1$other<TRes>
+    implements CopyWith$Fragment$F2$$T1$other<TRes> {
+  _CopyWithStubImpl$Fragment$F2$$T1$other(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Fragment$F2$$T1$other$$T1 implements Fragment$F2$$T1$other {
+  Fragment$F2$$T1$other$$T1({this.name});
+
+  factory Fragment$F2$$T1$other$$T1.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    return Fragment$F2$$T1$other$$T1(name: (l$name as String?));
+  }
+
+  final String? name;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([l$name]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$F2$$T1$other$$T1) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$F2$$T1$other$$T1
+    on Fragment$F2$$T1$other$$T1 {
+  CopyWith$Fragment$F2$$T1$other$$T1<Fragment$F2$$T1$other$$T1> get copyWith =>
+      CopyWith$Fragment$F2$$T1$other$$T1(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$F2$$T1$other$$T1<TRes> {
+  factory CopyWith$Fragment$F2$$T1$other$$T1(
+    Fragment$F2$$T1$other$$T1 instance,
+    TRes Function(Fragment$F2$$T1$other$$T1) then,
+  ) = _CopyWithImpl$Fragment$F2$$T1$other$$T1;
+
+  factory CopyWith$Fragment$F2$$T1$other$$T1.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$F2$$T1$other$$T1;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Fragment$F2$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F2$$T1$other$$T1<TRes> {
+  _CopyWithImpl$Fragment$F2$$T1$other$$T1(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$F2$$T1$other$$T1 _instance;
+
+  final TRes Function(Fragment$F2$$T1$other$$T1) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? name = _undefined}) => _then(Fragment$F2$$T1$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?)));
+}
+
+class _CopyWithStubImpl$Fragment$F2$$T1$other$$T1<TRes>
+    implements CopyWith$Fragment$F2$$T1$other$$T1<TRes> {
+  _CopyWithStubImpl$Fragment$F2$$T1$other$$T1(this._res);
 
   TRes _res;
 

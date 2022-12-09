@@ -10,4 +10,8 @@ targets:
     builders:
       graphql_codegen:
         enabled: false
+      json_serializable:
+        enabled: true
+        generate_for:
+          - lib/**/*.dart
 

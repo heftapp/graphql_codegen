@@ -171,7 +171,7 @@ const documentNodeQueryFetchShouldRender = DocumentNode(definitions: [
   ),
   fragmentDefinitionCompositeCondition,
   fragmentDefinitionTimeCondition,
-  fragmentDefinitionCondition,
   fragmentDefinitionAndCondition,
+  fragmentDefinitionCondition,
   fragmentDefinitionNonCompositeCondition,
 ]);

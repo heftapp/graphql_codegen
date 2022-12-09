@@ -248,39 +248,39 @@ class _CopyWithStubImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
 
 class Query$Q$u$$TA implements Query$Q$u {
   Query$Q$u$$TA({
-    required this.$__typename,
     this.name,
+    required this.$__typename,
   });
 
   factory Query$Q$u$$TA.fromJson(Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
     final l$name = json['name'];
+    final l$$__typename = json['__typename'];
     return Query$Q$u$$TA(
-      $__typename: (l$$__typename as String),
       name: (l$name as String?),
+      $__typename: (l$$__typename as String),
     );
   }
 
-  final String $__typename;
-
   final String? name;
+
+  final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     final l$name = name;
     _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
-    final l$$__typename = $__typename;
     final l$name = name;
+    final l$$__typename = $__typename;
     return Object.hashAll([
-      l$$__typename,
       l$name,
+      l$$__typename,
     ]);
   }
 
@@ -292,14 +292,14 @@ class Query$Q$u$$TA implements Query$Q$u {
     if (!(other is Query$Q$u$$TA) || runtimeType != other.runtimeType) {
       return false;
     }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     return true;
@@ -323,8 +323,8 @@ abstract class CopyWith$Query$Q$u$$TA<TRes> {
       _CopyWithStubImpl$Query$Q$u$$TA;
 
   TRes call({
-    String? $__typename,
     String? name,
+    String? $__typename,
   });
 }
 
@@ -342,14 +342,14 @@ class _CopyWithImpl$Query$Q$u$$TA<TRes>
   static const _undefined = {};
 
   TRes call({
-    Object? $__typename = _undefined,
     Object? name = _undefined,
+    Object? $__typename = _undefined,
   }) =>
       _then(Query$Q$u$$TA(
+        name: name == _undefined ? _instance.name : (name as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
-        name: name == _undefined ? _instance.name : (name as String?),
       ));
 }
 
@@ -360,47 +360,47 @@ class _CopyWithStubImpl$Query$Q$u$$TA<TRes>
   TRes _res;
 
   call({
-    String? $__typename,
     String? name,
+    String? $__typename,
   }) =>
       _res;
 }
 
 class Query$Q$u$$TB implements Query$Q$u {
   Query$Q$u$$TB({
-    required this.$__typename,
     this.velocity,
+    required this.$__typename,
   });
 
   factory Query$Q$u$$TB.fromJson(Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
     final l$velocity = json['velocity'];
+    final l$$__typename = json['__typename'];
     return Query$Q$u$$TB(
-      $__typename: (l$$__typename as String),
       velocity: (l$velocity as int?),
+      $__typename: (l$$__typename as String),
     );
   }
 
-  final String $__typename;
-
   final int? velocity;
+
+  final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     final l$velocity = velocity;
     _resultData['velocity'] = l$velocity;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
-    final l$$__typename = $__typename;
     final l$velocity = velocity;
+    final l$$__typename = $__typename;
     return Object.hashAll([
-      l$$__typename,
       l$velocity,
+      l$$__typename,
     ]);
   }
 
@@ -412,14 +412,14 @@ class Query$Q$u$$TB implements Query$Q$u {
     if (!(other is Query$Q$u$$TB) || runtimeType != other.runtimeType) {
       return false;
     }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
     final l$velocity = velocity;
     final lOther$velocity = other.velocity;
     if (l$velocity != lOther$velocity) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     return true;
@@ -443,8 +443,8 @@ abstract class CopyWith$Query$Q$u$$TB<TRes> {
       _CopyWithStubImpl$Query$Q$u$$TB;
 
   TRes call({
-    String? $__typename,
     int? velocity,
+    String? $__typename,
   });
 }
 
@@ -462,15 +462,15 @@ class _CopyWithImpl$Query$Q$u$$TB<TRes>
   static const _undefined = {};
 
   TRes call({
-    Object? $__typename = _undefined,
     Object? velocity = _undefined,
+    Object? $__typename = _undefined,
   }) =>
       _then(Query$Q$u$$TB(
+        velocity:
+            velocity == _undefined ? _instance.velocity : (velocity as int?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
-        velocity:
-            velocity == _undefined ? _instance.velocity : (velocity as int?),
       ));
 }
 
@@ -481,8 +481,8 @@ class _CopyWithStubImpl$Query$Q$u$$TB<TRes>
   TRes _res;
 
   call({
-    String? $__typename,
     int? velocity,
+    String? $__typename,
   }) =>
       _res;
 }
