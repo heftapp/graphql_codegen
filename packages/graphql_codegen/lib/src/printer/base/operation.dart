@@ -20,6 +20,11 @@ List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
         elementContext,
         operation,
       ),
+    if (clients.contains(GraphQLCodegenConfigClient.graphqlFlutter) && 
+        !clients.contains(GraphQLCodegenConfigClient.graphql)) {
+      clients.add(GraphQLCodegenConfigClient.graphql);
+      print('Adding graphql client as graphql_flutter requires it.');
+    }
     if (clients.contains(GraphQLCodegenConfigClient.graphql))
       ...printGraphQLClientSpecs(elementContext),
     if (clients.contains(GraphQLCodegenConfigClient.graphqlFlutter))
