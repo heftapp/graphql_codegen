@@ -32,7 +32,10 @@ extension NamePrinterExtension on NamePrinter {
   }
 
   String printFragmentKeyClassName(Name name) {
-    return printName(name, prefix: 'FragmentKey');
+    return printName(
+      Name.fromSegment(name.baseNameSegment),
+      prefix: 'FragmentKey',
+    );
   }
 }
 
@@ -400,11 +403,8 @@ Spec _printSerializer(PrintContext pc) {
   final e = pc.context;
   final extendsC = pc.context.extendsContext;
   final properties = e.ownProperties.where(_shouldKeepField);
-  final parentProperties =
-      extendsC?.ownProperties.where(_shouldKeepField) ?? [];
-  final propertiesAndParentProperties = [...properties, ...parentProperties];
   final selfFromJsonBlock = Block.of([
-    ...propertiesAndParentProperties.map(
+    ...properties.map(
       (prop) => declareFinal(pc.namePrinter.printLocalPropertyName(prop.name))
           .assign(refer('json').index(
             literalString(prop.name.value),
@@ -415,7 +415,7 @@ Spec _printSerializer(PrintContext pc) {
         .property('_')
         .call([
           refer('json'),
-          ...propertiesAndParentProperties.map(
+          ...properties.map(
             (prop) => printFromJsonValue(
               pc,
               prop,
@@ -444,9 +444,6 @@ Spec _printSerializer(PrintContext pc) {
   }
   return Class(
     (b) => b
-      ..extend = extendsC == null
-          ? null
-          : refer(pc.namePrinter.printClassName(extendsC.path))
       ..name = pc.namePrinter.printClassName(e.path)
       ..fields = ListBuilder([
         Field(
@@ -462,9 +459,13 @@ Spec _printSerializer(PrintContext pc) {
           ),
         )
       ])
-      ..implements = ListBuilder(e.fragments.map(
-        (e) => refer(pc.namePrinter.printFragmentKeyClassName(e.path)),
-      ))
+      ..implements = ListBuilder([
+        if (extendsC != null)
+          refer(pc.namePrinter.printClassName(extendsC.path)),
+        ...e.fragments.map(
+          (e) => refer(pc.namePrinter.printFragmentKeyClassName(e.path)),
+        )
+      ])
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -483,34 +484,19 @@ Spec _printSerializer(PrintContext pc) {
                       ..toThis = true,
                   ),
                 ),
-                ...parentProperties.map(
-                  (e) => Parameter(
-                    (b) => b
-                      ..name = pc.namePrinter.printPropertyName(e.name)
-                      ..type = printClassPropertyType(pc, e),
-                  ),
-                )
               ],
-            )
-            ..initializers = ListBuilder([
-              if (extendsC != null)
-                refer('super').property('_').call([
-                  refer(kDataFieldName),
-                  ...parentProperties.map(
-                      (e) => refer(pc.namePrinter.printPropertyName(e.name)))
-                ]).code,
-            ]),
+            ),
         ),
       ])
       ..methods = ListBuilder([
         printEqualityOperator(
           pc,
           pc.namePrinter.printClassName(pc.path),
-          propertiesAndParentProperties,
+          properties,
         ),
         printHashCodeMethod(
           pc,
-          propertiesAndParentProperties,
+          properties,
         ),
         Method(
           (b) => b
@@ -532,14 +518,16 @@ Spec _printSerializer(PrintContext pc) {
 
 Iterable<Spec> _printSerializers(PrintContext<ContextRoot> pc) {
   return [
-    ...pc.context.contextFragments.map(
-      (e) => Class(
-        (b) => b
-          ..name = pc.namePrinter.printFragmentKeyClassName(e.path)
-          ..implements = ListBuilder([refer('FragmentKey')])
-          ..abstract = true,
-      ),
-    ),
+    ...pc.context.contextFragments
+        .where((element) => element.isDefinitionContext)
+        .map(
+          (e) => Class(
+            (b) => b
+              ..name = pc.namePrinter.printFragmentKeyClassName(e.path)
+              ..implements = ListBuilder([refer('FragmentKey')])
+              ..abstract = true,
+          ),
+        ),
     ...pc.context.contextFragments
         .map((c) => _printSerializer(pc.withContext(c))),
     ...pc.context.contextOperations

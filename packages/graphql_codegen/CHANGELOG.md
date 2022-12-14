@@ -1,3 +1,12 @@
+# 0.12.0-beta.2
+
+* Fix missing serializers for concrete types on fragments
+
+# 0.12.0-beta.1
+
+* Bump gql versions
+* Fix naming separator issue
+
 # 0.11.2
 
 * Fix broken `toJson` on fragment spreads.

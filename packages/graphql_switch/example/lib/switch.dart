@@ -8,188 +8,246 @@ export 'package:graphql_switch/graphql_switch.dart' show graphql;
 
 Future<void> _initialzer(ClientInitializer initializer) async {
   const l$Movie_film = FragmentDefinitionNode(
-      name: NameNode(value: 'Movie_film'),
-      typeCondition: TypeConditionNode(
-          on: NamedTypeNode(name: NameNode(value: 'Film'), isNonNull: false)),
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'title'),
+    name: NameNode(value: 'Movie_film'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(
+      name: NameNode(value: 'Film'),
+      isNonNull: false,
+    )),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'title'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'episodeID'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'characterConnection'),
+        alias: NameNode(value: 'characters'),
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'first'),
+            value: IntValueNode(value: '4'),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'characters'),
             alias: null,
             arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'episodeID'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'characterConnection'),
-            alias: NameNode(value: 'characters'),
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'first'),
-                  value: IntValueNode(value: '4'))
-            ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
+              FragmentSpreadNode(
+                name: NameNode(value: 'Characters'),
+                directives: [],
+              ),
               FieldNode(
-                  name: NameNode(value: 'characters'),
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  );
+  const l$Characters = FragmentDefinitionNode(
+    name: NameNode(value: 'Characters'),
+    typeCondition: TypeConditionNode(
+        on: NamedTypeNode(
+      name: NameNode(value: 'Person'),
+      isNonNull: false,
+    )),
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  );
+  initializer
+    ..registerOperation(
+      r'Query$FetchAllFilms',
+      const DocumentNode(definitions: [
+        OperationDefinitionNode(
+          type: OperationType.query,
+          name: NameNode(value: 'FetchAllFilms'),
+          variableDefinitions: [
+            VariableDefinitionNode(
+              variable: VariableNode(name: NameNode(value: 'count')),
+              type: NamedTypeNode(
+                name: NameNode(value: 'Int'),
+                isNonNull: true,
+              ),
+              defaultValue: DefaultValueNode(value: null),
+              directives: [],
+            )
+          ],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'allFilms'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                  name: NameNode(value: 'first'),
+                  value: VariableNode(name: NameNode(value: 'count')),
+                )
+              ],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                  name: NameNode(value: 'films'),
                   alias: null,
                   arguments: [],
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
                     FragmentSpreadNode(
-                        name: NameNode(value: 'Characters'), directives: []),
+                      name: NameNode(value: 'Movie_film'),
+                      directives: [],
+                    ),
                     FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
+                      name: NameNode(value: '__typename'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null,
+                    ),
                     FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
+                      name: NameNode(value: 'id'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null,
+                    ),
+                  ]),
+                ),
+                FieldNode(
                   name: NameNode(value: '__typename'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ]));
-  const l$Characters = FragmentDefinitionNode(
-      name: NameNode(value: 'Characters'),
-      typeCondition: TypeConditionNode(
-          on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false)),
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'name'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null),
-        FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null)
-      ]));
-  initializer
-    ..registerOperation(
-        r'Query$FetchAllFilms',
-        const DocumentNode(definitions: [
-          OperationDefinitionNode(
-              type: OperationType.query,
-              name: NameNode(value: 'FetchAllFilms'),
-              variableDefinitions: [
-                VariableDefinitionNode(
-                    variable: VariableNode(name: NameNode(value: 'count')),
-                    type: NamedTypeNode(
-                        name: NameNode(value: 'Int'), isNonNull: true),
-                    defaultValue: DefaultValueNode(value: null),
-                    directives: [])
-              ],
-              directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'allFilms'),
-                    alias: null,
-                    arguments: [
-                      ArgumentNode(
-                          name: NameNode(value: 'first'),
-                          value: VariableNode(name: NameNode(value: 'count')))
-                    ],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'films'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: SelectionSetNode(selections: [
-                            FragmentSpreadNode(
-                                name: NameNode(value: 'Movie_film'),
-                                directives: []),
-                            FieldNode(
-                                name: NameNode(value: '__typename'),
-                                alias: null,
-                                arguments: [],
-                                directives: [],
-                                selectionSet: null),
-                            FieldNode(
-                                name: NameNode(value: 'id'),
-                                alias: null,
-                                arguments: [],
-                                directives: [],
-                                selectionSet: null)
-                          ])),
-                      FieldNode(
-                          name: NameNode(value: '__typename'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
-              ])),
-          l$Movie_film,
-          l$Characters
-        ]));
+                  selectionSet: null,
+                ),
+              ]),
+            )
+          ]),
+        ),
+        l$Movie_film,
+        l$Characters,
+      ]),
+    );
   await initializer.setup();
 }
 
 class SwitchClient extends InternalSwitchClient {
-  SwitchClient(
-      {required Widget child,
-      required InitializeResult initializeResult,
-      Key? key})
-      : super(child, initializeResult, key);
+  SwitchClient({
+    required Widget child,
+    required InitializeResult initializeResult,
+    Key? key,
+  }) : super(
+          child,
+          initializeResult,
+          key,
+        );
 
-  static Future<InitializeResult> initialize<TClientContext extends Object?>(
-          {required FetchFn<TClientContext> fetch,
-          required TClientContext clientContext}) =>
+  static Future<InitializeResult> initialize<TClientContext extends Object?>({
+    required FetchFn<TClientContext> fetch,
+    required TClientContext clientContext,
+  }) =>
       InternalSwitchClient.initialize<TClientContext>(
-          _initialzer, fetch, clientContext);
+        _initialzer,
+        fetch,
+        clientContext,
+      );
 }
 
 QueryResult<Query$FetchAllFilms> useQuery$FetchAllFilms(
-        DocumentNode document, Variables$Query$FetchAllFilms variables,
-        {QueryOptions? options}) =>
-    useQuery(r'Query$FetchAllFilms', Query$FetchAllFilms.fromJson, options,
-        variables);
+  DocumentNode document,
+  Variables$Query$FetchAllFilms variables, {
+  QueryOptions? options,
+}) =>
+    useQuery(
+      r'Query$FetchAllFilms',
+      Query$FetchAllFilms.fromJson,
+      options,
+      variables,
+    );
 Fragment$Movie_film useFragment$Movie_film(
-        DocumentNode document, FragmentKey$Movie_film key) =>
-    useFragment(r'Fragment$Movie_film', key, Fragment$Movie_film.fromJson);
+  DocumentNode document,
+  FragmentKey$Movie_film key,
+) =>
+    useFragment(
+      r'Fragment$Movie_film',
+      key,
+      Fragment$Movie_film.fromJson,
+    );
 Iterable<Fragment$Characters> useFragment$Characters(
-        DocumentNode document, Iterable<FragmentKey$Characters> keys) =>
-    useFragments(r'Fragment$Characters', keys, Fragment$Characters.fromJson);
+  DocumentNode document,
+  Iterable<FragmentKey$Characters> keys,
+) =>
+    useFragments(
+      r'Fragment$Characters',
+      keys,
+      Fragment$Characters.fromJson,
+    );
 
 abstract class FragmentKey$Movie_film implements FragmentKey {}
-
-abstract class FragmentKey$Movie_film$characters implements FragmentKey {}
-
-abstract class FragmentKey$Movie_film$characters$characters
-    implements FragmentKey {}
 
 abstract class FragmentKey$Characters implements FragmentKey {}
 
 class Fragment$Movie_film {
   Fragment$Movie_film._(
-      this.$rawData, this.title, this.episodeID, this.characters);
+    this.$rawData,
+    this.title,
+    this.episodeID,
+    this.characters,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -230,7 +288,11 @@ class Fragment$Movie_film {
     final l$title = title;
     final l$episodeID = episodeID;
     final l$characters = characters;
-    return Object.hashAll([l$title, l$episodeID, l$characters]);
+    return Object.hashAll([
+      l$title,
+      l$episodeID,
+      l$characters,
+    ]);
   }
 
   static Fragment$Movie_film fromJson(Map<String, dynamic> json) {
@@ -238,18 +300,22 @@ class Fragment$Movie_film {
     final l$episodeID = json['episodeID'];
     final l$characters = json['characters'];
     return Fragment$Movie_film._(
-        json,
-        (l$title as String?),
-        (l$episodeID as int?),
-        l$characters == null
-            ? null
-            : Fragment$Movie_film$characters.fromJson(
-                (l$characters as Map<String, dynamic>)));
+      json,
+      (l$title as String?),
+      (l$episodeID as int?),
+      l$characters == null
+          ? null
+          : Fragment$Movie_film$characters.fromJson(
+              (l$characters as Map<String, dynamic>)),
+    );
   }
 }
 
 class Fragment$Movie_film$characters {
-  Fragment$Movie_film$characters._(this.$rawData, this.characters);
+  Fragment$Movie_film$characters._(
+    this.$rawData,
+    this.characters,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -294,13 +360,14 @@ class Fragment$Movie_film$characters {
   static Fragment$Movie_film$characters fromJson(Map<String, dynamic> json) {
     final l$characters = json['characters'];
     return Fragment$Movie_film$characters._(
-        json,
-        (l$characters as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Fragment$Movie_film$characters$characters.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList());
+      json,
+      (l$characters as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Fragment$Movie_film$characters$characters.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+    );
   }
 }
 
@@ -334,7 +401,10 @@ class Fragment$Movie_film$characters$characters
 }
 
 class Fragment$Characters {
-  Fragment$Characters._(this.$rawData, this.name);
+  Fragment$Characters._(
+    this.$rawData,
+    this.name,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -364,12 +434,18 @@ class Fragment$Characters {
 
   static Fragment$Characters fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
-    return Fragment$Characters._(json, (l$name as String?));
+    return Fragment$Characters._(
+      json,
+      (l$name as String?),
+    );
   }
 }
 
 class Query$FetchAllFilms {
-  Query$FetchAllFilms._(this.$rawData, this.allFilms);
+  Query$FetchAllFilms._(
+    this.$rawData,
+    this.allFilms,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -400,16 +476,20 @@ class Query$FetchAllFilms {
   static Query$FetchAllFilms fromJson(Map<String, dynamic> json) {
     final l$allFilms = json['allFilms'];
     return Query$FetchAllFilms._(
-        json,
-        l$allFilms == null
-            ? null
-            : Query$FetchAllFilms$allFilms.fromJson(
-                (l$allFilms as Map<String, dynamic>)));
+      json,
+      l$allFilms == null
+          ? null
+          : Query$FetchAllFilms$allFilms.fromJson(
+              (l$allFilms as Map<String, dynamic>)),
+    );
   }
 }
 
 class Query$FetchAllFilms$allFilms {
-  Query$FetchAllFilms$allFilms._(this.$rawData, this.films);
+  Query$FetchAllFilms$allFilms._(
+    this.$rawData,
+    this.films,
+  );
 
   final Map<String, dynamic> $rawData;
 
@@ -453,13 +533,14 @@ class Query$FetchAllFilms$allFilms {
   static Query$FetchAllFilms$allFilms fromJson(Map<String, dynamic> json) {
     final l$films = json['films'];
     return Query$FetchAllFilms$allFilms._(
-        json,
-        (l$films as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$FetchAllFilms$allFilms$films.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList());
+      json,
+      (l$films as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$FetchAllFilms$allFilms$films.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+    );
   }
 }
 
@@ -492,7 +573,7 @@ class Query$FetchAllFilms$allFilms$films implements FragmentKey$Movie_film {
 }
 
 class Query$FetchAllFilms$allFilms$films$characters
-    implements FragmentKey$Movie_film$characters {
+    implements FragmentKey$Movie_film {
   Query$FetchAllFilms$allFilms$films$characters._(this.$rawData);
 
   final Map<String, dynamic> $rawData;
@@ -521,9 +602,7 @@ class Query$FetchAllFilms$allFilms$films$characters
 }
 
 class Query$FetchAllFilms$allFilms$films$characters$characters
-    implements
-        FragmentKey$Movie_film$characters$characters,
-        FragmentKey$Characters {
+    implements FragmentKey$Movie_film, FragmentKey$Characters {
   Query$FetchAllFilms$allFilms$films$characters$characters._(this.$rawData);
 
   final Map<String, dynamic> $rawData;

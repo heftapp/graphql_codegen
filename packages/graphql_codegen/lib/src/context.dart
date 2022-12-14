@@ -480,9 +480,13 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   String get filePath => schema.lookupPath(key);
 
   Iterable<ContextFragment<TKey>> get fragments {
-    return _fragments
-        .map((e) => _allContexts[e]!)
-        .whereType<ContextFragment<TKey>>();
+    return _fragments.map((e) {
+      final context = _allContexts[e];
+      if (context == null) {
+        throw StateError('Failed to find context for fragment ${e._key}');
+      }
+      return context;
+    }).whereType<ContextFragment<TKey>>();
   }
 
   ContextOperation<TKey>? get extendsContextOperation {
@@ -706,7 +710,6 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
       final replacement = _lookupAllContext(newName);
       return replacement?.resolvedContext;
     }
-    if (extendsContext != null) return null;
     if (_selections.whereType<InlineFragmentNode>().isNotEmpty) {
       return null;
     }

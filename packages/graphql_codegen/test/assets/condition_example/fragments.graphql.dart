@@ -7,12 +7,21 @@ class Fragment$Condition {
   });
 
   factory Fragment$Condition.fromJson(Map<String, dynamic> json) {
-    final l$name = json['name'];
-    final l$$__typename = json['__typename'];
-    return Fragment$Condition(
-      name: (l$name as String),
-      $__typename: (l$$__typename as String),
-    );
+    switch (json["__typename"] as String) {
+      case "AndCondition":
+        return Fragment$Condition$$AndCondition.fromJson(json);
+
+      case "TimeCondition":
+        return Fragment$Condition$$TimeCondition.fromJson(json);
+
+      default:
+        final l$name = json['name'];
+        final l$$__typename = json['__typename'];
+        return Fragment$Condition(
+          name: (l$name as String),
+          $__typename: (l$$__typename as String),
+        );
+    }
   }
 
   final String name;
@@ -152,7 +161,258 @@ const documentNodeFragmentCondition = DocumentNode(definitions: [
   fragmentDefinitionCondition,
 ]);
 
-class Fragment$AndCondition implements Fragment$Condition {
+class Fragment$Condition$$AndCondition implements Fragment$Condition {
+  Fragment$Condition$$AndCondition({
+    required this.name,
+    required this.$__typename,
+  });
+
+  factory Fragment$Condition$$AndCondition.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$Condition$$AndCondition(
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$Condition$$AndCondition) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$Condition$$AndCondition
+    on Fragment$Condition$$AndCondition {
+  CopyWith$Fragment$Condition$$AndCondition<Fragment$Condition$$AndCondition>
+      get copyWith => CopyWith$Fragment$Condition$$AndCondition(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$Condition$$AndCondition<TRes> {
+  factory CopyWith$Fragment$Condition$$AndCondition(
+    Fragment$Condition$$AndCondition instance,
+    TRes Function(Fragment$Condition$$AndCondition) then,
+  ) = _CopyWithImpl$Fragment$Condition$$AndCondition;
+
+  factory CopyWith$Fragment$Condition$$AndCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$Condition$$AndCondition;
+
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$Condition$$AndCondition<TRes>
+    implements CopyWith$Fragment$Condition$$AndCondition<TRes> {
+  _CopyWithImpl$Fragment$Condition$$AndCondition(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$Condition$$AndCondition _instance;
+
+  final TRes Function(Fragment$Condition$$AndCondition) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$Condition$$AndCondition(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$Condition$$AndCondition<TRes>
+    implements CopyWith$Fragment$Condition$$AndCondition<TRes> {
+  _CopyWithStubImpl$Fragment$Condition$$AndCondition(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Fragment$Condition$$TimeCondition implements Fragment$Condition {
+  Fragment$Condition$$TimeCondition({
+    required this.name,
+    required this.$__typename,
+  });
+
+  factory Fragment$Condition$$TimeCondition.fromJson(
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$Condition$$TimeCondition(
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$Condition$$TimeCondition) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$Condition$$TimeCondition
+    on Fragment$Condition$$TimeCondition {
+  CopyWith$Fragment$Condition$$TimeCondition<Fragment$Condition$$TimeCondition>
+      get copyWith => CopyWith$Fragment$Condition$$TimeCondition(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$Condition$$TimeCondition<TRes> {
+  factory CopyWith$Fragment$Condition$$TimeCondition(
+    Fragment$Condition$$TimeCondition instance,
+    TRes Function(Fragment$Condition$$TimeCondition) then,
+  ) = _CopyWithImpl$Fragment$Condition$$TimeCondition;
+
+  factory CopyWith$Fragment$Condition$$TimeCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$Condition$$TimeCondition;
+
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$Condition$$TimeCondition<TRes>
+    implements CopyWith$Fragment$Condition$$TimeCondition<TRes> {
+  _CopyWithImpl$Fragment$Condition$$TimeCondition(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$Condition$$TimeCondition _instance;
+
+  final TRes Function(Fragment$Condition$$TimeCondition) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$Condition$$TimeCondition(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$Condition$$TimeCondition<TRes>
+    implements CopyWith$Fragment$Condition$$TimeCondition<TRes> {
+  _CopyWithStubImpl$Fragment$Condition$$TimeCondition(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Fragment$AndCondition implements Fragment$Condition$$AndCondition {
   Fragment$AndCondition({
     required this.left,
     required this.right,
@@ -409,11 +669,11 @@ class Fragment$CompositeCondition implements Fragment$Condition {
 
   factory Fragment$CompositeCondition.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
-      case "TimeCondition":
-        return Fragment$CompositeCondition$$TimeCondition.fromJson(json);
-
       case "AndCondition":
         return Fragment$CompositeCondition$$AndCondition.fromJson(json);
+
+      case "TimeCondition":
+        return Fragment$CompositeCondition$$TimeCondition.fromJson(json);
 
       default:
         final l$name = json['name'];
@@ -568,15 +828,205 @@ const fragmentDefinitionCompositeCondition = FragmentDefinitionNode(
 const documentNodeFragmentCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionCompositeCondition,
   fragmentDefinitionTimeCondition,
-  fragmentDefinitionCondition,
   fragmentDefinitionAndCondition,
+  fragmentDefinitionCondition,
   fragmentDefinitionNonCompositeCondition,
 ]);
+
+class Fragment$CompositeCondition$$AndCondition
+    implements
+        Fragment$AndCondition,
+        Fragment$Condition$$AndCondition,
+        Fragment$CompositeCondition {
+  Fragment$CompositeCondition$$AndCondition({
+    required this.left,
+    required this.right,
+    required this.name,
+    required this.$__typename,
+  });
+
+  factory Fragment$CompositeCondition$$AndCondition.fromJson(
+      Map<String, dynamic> json) {
+    final l$left = json['left'];
+    final l$right = json['right'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$CompositeCondition$$AndCondition(
+      left: Fragment$NonCompositeCondition.fromJson(
+          (l$left as Map<String, dynamic>)),
+      right: Fragment$NonCompositeCondition.fromJson(
+          (l$right as Map<String, dynamic>)),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$NonCompositeCondition left;
+
+  final Fragment$NonCompositeCondition right;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$left = left;
+    _resultData['left'] = l$left.toJson();
+    final l$right = right;
+    _resultData['right'] = l$right.toJson();
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$left = left;
+    final l$right = right;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$left,
+      l$right,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$CompositeCondition$$AndCondition) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$left = left;
+    final lOther$left = other.left;
+    if (l$left != lOther$left) {
+      return false;
+    }
+    final l$right = right;
+    final lOther$right = other.right;
+    if (l$right != lOther$right) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$CompositeCondition$$AndCondition
+    on Fragment$CompositeCondition$$AndCondition {
+  CopyWith$Fragment$CompositeCondition$$AndCondition<
+          Fragment$CompositeCondition$$AndCondition>
+      get copyWith => CopyWith$Fragment$CompositeCondition$$AndCondition(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
+  factory CopyWith$Fragment$CompositeCondition$$AndCondition(
+    Fragment$CompositeCondition$$AndCondition instance,
+    TRes Function(Fragment$CompositeCondition$$AndCondition) then,
+  ) = _CopyWithImpl$Fragment$CompositeCondition$$AndCondition;
+
+  factory CopyWith$Fragment$CompositeCondition$$AndCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition;
+
+  TRes call({
+    Fragment$NonCompositeCondition? left,
+    Fragment$NonCompositeCondition? right,
+    String? name,
+    String? $__typename,
+  });
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left;
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right;
+}
+
+class _CopyWithImpl$Fragment$CompositeCondition$$AndCondition<TRes>
+    implements CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
+  _CopyWithImpl$Fragment$CompositeCondition$$AndCondition(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$CompositeCondition$$AndCondition _instance;
+
+  final TRes Function(Fragment$CompositeCondition$$AndCondition) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? left = _undefined,
+    Object? right = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$CompositeCondition$$AndCondition(
+        left: left == _undefined || left == null
+            ? _instance.left
+            : (left as Fragment$NonCompositeCondition),
+        right: right == _undefined || right == null
+            ? _instance.right
+            : (right as Fragment$NonCompositeCondition),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left {
+    final local$left = _instance.left;
+    return CopyWith$Fragment$NonCompositeCondition(
+        local$left, (e) => call(left: e));
+  }
+
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right {
+    final local$right = _instance.right;
+    return CopyWith$Fragment$NonCompositeCondition(
+        local$right, (e) => call(right: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition<TRes>
+    implements CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
+  _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$NonCompositeCondition? left,
+    Fragment$NonCompositeCondition? right,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$NonCompositeCondition<TRes> get left =>
+      CopyWith$Fragment$NonCompositeCondition.stub(_res);
+  CopyWith$Fragment$NonCompositeCondition<TRes> get right =>
+      CopyWith$Fragment$NonCompositeCondition.stub(_res);
+}
 
 class Fragment$CompositeCondition$$TimeCondition
     implements
         Fragment$TimeCondition,
-        Fragment$Condition,
+        Fragment$Condition$$TimeCondition,
         Fragment$CompositeCondition {
   Fragment$CompositeCondition$$TimeCondition({
     required this.name,
@@ -724,196 +1174,6 @@ class _CopyWithStubImpl$Fragment$CompositeCondition$$TimeCondition<TRes>
       _res;
 }
 
-class Fragment$CompositeCondition$$AndCondition
-    implements
-        Fragment$AndCondition,
-        Fragment$Condition,
-        Fragment$CompositeCondition {
-  Fragment$CompositeCondition$$AndCondition({
-    required this.name,
-    required this.$__typename,
-    required this.left,
-    required this.right,
-  });
-
-  factory Fragment$CompositeCondition$$AndCondition.fromJson(
-      Map<String, dynamic> json) {
-    final l$name = json['name'];
-    final l$$__typename = json['__typename'];
-    final l$left = json['left'];
-    final l$right = json['right'];
-    return Fragment$CompositeCondition$$AndCondition(
-      name: (l$name as String),
-      $__typename: (l$$__typename as String),
-      left: Fragment$NonCompositeCondition.fromJson(
-          (l$left as Map<String, dynamic>)),
-      right: Fragment$NonCompositeCondition.fromJson(
-          (l$right as Map<String, dynamic>)),
-    );
-  }
-
-  final String name;
-
-  final String $__typename;
-
-  final Fragment$NonCompositeCondition left;
-
-  final Fragment$NonCompositeCondition right;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    final l$left = left;
-    _resultData['left'] = l$left.toJson();
-    final l$right = right;
-    _resultData['right'] = l$right.toJson();
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$name = name;
-    final l$$__typename = $__typename;
-    final l$left = left;
-    final l$right = right;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-      l$left,
-      l$right,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Fragment$CompositeCondition$$AndCondition) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    final l$left = left;
-    final lOther$left = other.left;
-    if (l$left != lOther$left) {
-      return false;
-    }
-    final l$right = right;
-    final lOther$right = other.right;
-    if (l$right != lOther$right) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$CompositeCondition$$AndCondition
-    on Fragment$CompositeCondition$$AndCondition {
-  CopyWith$Fragment$CompositeCondition$$AndCondition<
-          Fragment$CompositeCondition$$AndCondition>
-      get copyWith => CopyWith$Fragment$CompositeCondition$$AndCondition(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
-  factory CopyWith$Fragment$CompositeCondition$$AndCondition(
-    Fragment$CompositeCondition$$AndCondition instance,
-    TRes Function(Fragment$CompositeCondition$$AndCondition) then,
-  ) = _CopyWithImpl$Fragment$CompositeCondition$$AndCondition;
-
-  factory CopyWith$Fragment$CompositeCondition$$AndCondition.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition;
-
-  TRes call({
-    String? name,
-    String? $__typename,
-    Fragment$NonCompositeCondition? left,
-    Fragment$NonCompositeCondition? right,
-  });
-  CopyWith$Fragment$NonCompositeCondition<TRes> get left;
-  CopyWith$Fragment$NonCompositeCondition<TRes> get right;
-}
-
-class _CopyWithImpl$Fragment$CompositeCondition$$AndCondition<TRes>
-    implements CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
-  _CopyWithImpl$Fragment$CompositeCondition$$AndCondition(
-    this._instance,
-    this._then,
-  );
-
-  final Fragment$CompositeCondition$$AndCondition _instance;
-
-  final TRes Function(Fragment$CompositeCondition$$AndCondition) _then;
-
-  static const _undefined = {};
-
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-    Object? left = _undefined,
-    Object? right = _undefined,
-  }) =>
-      _then(Fragment$CompositeCondition$$AndCondition(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        left: left == _undefined || left == null
-            ? _instance.left
-            : (left as Fragment$NonCompositeCondition),
-        right: right == _undefined || right == null
-            ? _instance.right
-            : (right as Fragment$NonCompositeCondition),
-      ));
-  CopyWith$Fragment$NonCompositeCondition<TRes> get left {
-    final local$left = _instance.left;
-    return CopyWith$Fragment$NonCompositeCondition(
-        local$left, (e) => call(left: e));
-  }
-
-  CopyWith$Fragment$NonCompositeCondition<TRes> get right {
-    final local$right = _instance.right;
-    return CopyWith$Fragment$NonCompositeCondition(
-        local$right, (e) => call(right: e));
-  }
-}
-
-class _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition<TRes>
-    implements CopyWith$Fragment$CompositeCondition$$AndCondition<TRes> {
-  _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition(this._res);
-
-  TRes _res;
-
-  call({
-    String? name,
-    String? $__typename,
-    Fragment$NonCompositeCondition? left,
-    Fragment$NonCompositeCondition? right,
-  }) =>
-      _res;
-  CopyWith$Fragment$NonCompositeCondition<TRes> get left =>
-      CopyWith$Fragment$NonCompositeCondition.stub(_res);
-  CopyWith$Fragment$NonCompositeCondition<TRes> get right =>
-      CopyWith$Fragment$NonCompositeCondition.stub(_res);
-}
-
 class Fragment$NonCompositeCondition implements Fragment$Condition {
   Fragment$NonCompositeCondition({
     required this.name,
@@ -922,6 +1182,9 @@ class Fragment$NonCompositeCondition implements Fragment$Condition {
 
   factory Fragment$NonCompositeCondition.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
+      case "AndCondition":
+        return Fragment$NonCompositeCondition$$AndCondition.fromJson(json);
+
       case "TimeCondition":
         return Fragment$NonCompositeCondition$$TimeCondition.fromJson(json);
 
@@ -1077,10 +1340,140 @@ const documentNodeFragmentNonCompositeCondition = DocumentNode(definitions: [
   fragmentDefinitionTimeCondition,
 ]);
 
+class Fragment$NonCompositeCondition$$AndCondition
+    implements
+        Fragment$Condition$$AndCondition,
+        Fragment$NonCompositeCondition {
+  Fragment$NonCompositeCondition$$AndCondition({
+    required this.name,
+    required this.$__typename,
+  });
+
+  factory Fragment$NonCompositeCondition$$AndCondition.fromJson(
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$NonCompositeCondition$$AndCondition(
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$NonCompositeCondition$$AndCondition) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$NonCompositeCondition$$AndCondition
+    on Fragment$NonCompositeCondition$$AndCondition {
+  CopyWith$Fragment$NonCompositeCondition$$AndCondition<
+          Fragment$NonCompositeCondition$$AndCondition>
+      get copyWith => CopyWith$Fragment$NonCompositeCondition$$AndCondition(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$NonCompositeCondition$$AndCondition<TRes> {
+  factory CopyWith$Fragment$NonCompositeCondition$$AndCondition(
+    Fragment$NonCompositeCondition$$AndCondition instance,
+    TRes Function(Fragment$NonCompositeCondition$$AndCondition) then,
+  ) = _CopyWithImpl$Fragment$NonCompositeCondition$$AndCondition;
+
+  factory CopyWith$Fragment$NonCompositeCondition$$AndCondition.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$NonCompositeCondition$$AndCondition;
+
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$NonCompositeCondition$$AndCondition<TRes>
+    implements CopyWith$Fragment$NonCompositeCondition$$AndCondition<TRes> {
+  _CopyWithImpl$Fragment$NonCompositeCondition$$AndCondition(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$NonCompositeCondition$$AndCondition _instance;
+
+  final TRes Function(Fragment$NonCompositeCondition$$AndCondition) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$NonCompositeCondition$$AndCondition(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$NonCompositeCondition$$AndCondition<TRes>
+    implements CopyWith$Fragment$NonCompositeCondition$$AndCondition<TRes> {
+  _CopyWithStubImpl$Fragment$NonCompositeCondition$$AndCondition(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
 class Fragment$NonCompositeCondition$$TimeCondition
     implements
+        Fragment$Condition$$TimeCondition,
         Fragment$TimeCondition,
-        Fragment$Condition,
         Fragment$NonCompositeCondition {
   Fragment$NonCompositeCondition$$TimeCondition({
     required this.name,
@@ -1229,7 +1622,7 @@ class _CopyWithStubImpl$Fragment$NonCompositeCondition$$TimeCondition<TRes>
       _res;
 }
 
-class Fragment$TimeCondition implements Fragment$Condition {
+class Fragment$TimeCondition implements Fragment$Condition$$TimeCondition {
   Fragment$TimeCondition({
     required this.name,
     required this.$__typename,

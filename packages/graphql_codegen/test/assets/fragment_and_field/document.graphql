@@ -1,0 +1,24 @@
+
+type Query {
+    person: IPerson
+}
+
+interface IPerson {
+    name: String
+}
+
+type Person implements IPerson {
+    name: String
+    age: Int
+}
+
+query Q {
+    person {
+        name
+        ...FPerson
+    }
+}
+
+fragment FPerson on Person {
+    age
+}

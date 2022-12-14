@@ -43,7 +43,7 @@ For instance:
 Given schema
 
 ```graphql
-# schema.graphql
+# ./lib/schema.graphql
 
 type Query {
   fetch_person(id: ID!): Person
@@ -67,7 +67,7 @@ scalar URL
 and a query
 
 ```graphql
-# person.graphql
+# ./lib/person.graphql
 
 query FetchPerson($id: ID!) {
   fetch_person(id: $id) {

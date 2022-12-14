@@ -7,12 +7,18 @@ class Fragment$PersonSummary {
   });
 
   factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$$__typename = json['__typename'];
-    return Fragment$PersonSummary(
-      id: (l$id as String),
-      $__typename: (l$$__typename as String),
-    );
+    switch (json["__typename"] as String) {
+      case "Person":
+        return Fragment$PersonSummary$$Person.fromJson(json);
+
+      default:
+        final l$id = json['id'];
+        final l$$__typename = json['__typename'];
+        return Fragment$PersonSummary(
+          id: (l$id as String),
+          $__typename: (l$$__typename as String),
+        );
+    }
   }
 
   final String id;
@@ -150,6 +156,129 @@ const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
 const documentNodeFragmentPersonSummary = DocumentNode(definitions: [
   fragmentDefinitionPersonSummary,
 ]);
+
+class Fragment$PersonSummary$$Person implements Fragment$PersonSummary {
+  Fragment$PersonSummary$$Person({
+    required this.id,
+    required this.$__typename,
+  });
+
+  factory Fragment$PersonSummary$$Person.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$$__typename = json['__typename'];
+    return Fragment$PersonSummary$$Person(
+      id: (l$id as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$PersonSummary$$Person) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$PersonSummary$$Person
+    on Fragment$PersonSummary$$Person {
+  CopyWith$Fragment$PersonSummary$$Person<Fragment$PersonSummary$$Person>
+      get copyWith => CopyWith$Fragment$PersonSummary$$Person(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$PersonSummary$$Person<TRes> {
+  factory CopyWith$Fragment$PersonSummary$$Person(
+    Fragment$PersonSummary$$Person instance,
+    TRes Function(Fragment$PersonSummary$$Person) then,
+  ) = _CopyWithImpl$Fragment$PersonSummary$$Person;
+
+  factory CopyWith$Fragment$PersonSummary$$Person.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$PersonSummary$$Person;
+
+  TRes call({
+    String? id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$PersonSummary$$Person<TRes>
+    implements CopyWith$Fragment$PersonSummary$$Person<TRes> {
+  _CopyWithImpl$Fragment$PersonSummary$$Person(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$PersonSummary$$Person _instance;
+
+  final TRes Function(Fragment$PersonSummary$$Person) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$PersonSummary$$Person(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$PersonSummary$$Person<TRes>
+    implements CopyWith$Fragment$PersonSummary$$Person<TRes> {
+  _CopyWithStubImpl$Fragment$PersonSummary$$Person(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? $__typename,
+  }) =>
+      _res;
+}
 
 class Query$GetPerson {
   Query$GetPerson({
@@ -328,7 +457,7 @@ const documentNodeQueryGetPerson = DocumentNode(definitions: [
   fragmentDefinitionPersonSummary,
 ]);
 
-class Query$GetPerson$person implements Fragment$PersonSummary {
+class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
   Query$GetPerson$person({
     required this.id,
     required this.$__typename,
