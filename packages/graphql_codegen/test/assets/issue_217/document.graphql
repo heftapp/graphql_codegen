@@ -1,0 +1,47 @@
+type Query {
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUser(
+    name: String
+    email: String!
+    authType: String!
+    authSecret: String!
+  ): User
+
+  authUser(email: String!, authType: String!, authSecret: String!): User
+
+  refreshToken: User
+}
+
+type User {
+  _id: ID!
+  name: String
+  email: String!
+  authType: String!
+  plan: String!
+  authRes: AuthRes
+}
+
+type AuthRes {
+  token: String!
+  refreshToken: String!
+  expInSecs: Int!
+}
+
+mutation ($email: String!, $authType: String!, $authSecret: String!) {
+  authUser(email: $email, authType: $authType, authSecret: $authSecret) {
+    _id
+    email
+    authType
+    plan
+    name
+    plan
+    authRes {
+      token
+      expInSecs
+      refreshToken
+    }
+  }
+}

@@ -1,3 +1,7 @@
+# 0.12.0-beta.3
+
+* Remove operation definitions without name before codegen.
+
 # 0.12.0-beta.2
 
 * Fix missing serializers for concrete types on fragments
