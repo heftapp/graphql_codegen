@@ -1,3 +1,7 @@
+# 0.12.0-beta.5
+
+* Add custom enums.
+
 # 0.12.0-beta.4
 
 * Update SDK version and required code-builder version.
