@@ -1,3 +1,7 @@
+# 0.12.0-beta.4
+
+* Update SDK version and required code-builder version.
+
 # 0.12.0-beta.3
 
 * Remove operation definitions without name before codegen.
