@@ -83,6 +83,11 @@ class NamePrinter {
 
   String printClassName(Name name) => printName(name);
 
+  String printEnumImportAlias(Name name) => printName(
+        name,
+        prefix: "EnumImport",
+      );
+
   String printClassExtensionName(Name name) =>
       "UtilityExtension${separator}" + printName(name);
 

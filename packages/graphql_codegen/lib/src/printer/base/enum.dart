@@ -6,6 +6,9 @@ import 'package:graphql_codegen/src/printer/context.dart';
 
 List<Spec> printEnum(PrintContext<ContextEnum> context) {
   final typeDef = context.context.currentType;
+  if (context.context.config.enums.containsKey(typeDef.name.value)) {
+    return [];
+  }
   final values = {
     for (final v in typeDef.values)
       v.name.value: context.namePrinter.printEnumValueName(v.name),

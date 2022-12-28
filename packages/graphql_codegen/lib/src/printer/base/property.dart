@@ -90,17 +90,19 @@ TypeReference _printNamedTypeNode(
               ?.path ??
           propertyContext
       : null;
-  if (replacementContext != null) {
-    context.addDependency(replacementContext);
-  }
 
   TypeReference reference;
   if (typeDefinition is ScalarTypeDefinitionNode) {
+    context.maybeAddDependency(replacementContext);
     reference = _printScalarType(context, typeDefinition);
   } else if (typeDefinition is EnumTypeDefinitionNode &&
-      propertyContext != null) {
-    reference = _printEnumType(context, propertyContext);
+      replacementContext != null) {
+    if (!context.context.config.enums.containsKey(typeDefinition.name.value)) {
+      context.addDependency(replacementContext);
+    }
+    reference = _printEnumType(context, typeDefinition);
   } else if (replacementContext != null) {
+    context.addDependency(replacementContext);
     reference = TypeReference(
       (b) => b..symbol = context.namePrinter.printClassName(replacementContext),
     );
@@ -115,10 +117,27 @@ TypeReference _printNamedTypeNode(
 
 TypeReference _printEnumType(
   PrintContext context,
-  Name name,
+  EnumTypeDefinitionNode node,
 ) {
-  final typeName = context.namePrinter.printClassName(name);
-  return TypeReference((b) => b..symbol = typeName);
+  final enumConfig = context.context.config.enums[node.name.value];
+  final name = Name.fromSegment(
+    EnumNameSegment(node),
+  );
+  if (enumConfig == null) {
+    final typeName = context.namePrinter.printClassName(name);
+    return TypeReference((b) => b..symbol = typeName);
+  }
+  context.addPackage(
+    enumConfig.import,
+    context.namePrinter.printEnumImportAlias(
+      name,
+    ),
+  );
+  return TypeReference(
+    (b) => b
+      ..symbol =
+          "${context.namePrinter.printEnumImportAlias(name)}.${enumConfig.type}",
+  );
 }
 
 Map<String, GraphQLCodegenConfigScalar> scalarConfigs(PrintContext context) {

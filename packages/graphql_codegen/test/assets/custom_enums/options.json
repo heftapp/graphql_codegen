@@ -1,0 +1,10 @@
+{
+    "enums": {
+        "Enum": {
+            "type": "FancyEnum",
+            "import": "./enum.dart",
+            "fromJsonFunctionName": "fromJson",
+            "toJsonFunctionName": "toJson"
+        }
+    }
+}

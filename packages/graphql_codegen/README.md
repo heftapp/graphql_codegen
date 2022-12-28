@@ -261,6 +261,7 @@ targets:
 |---|---|---|---|
 | `clients` | {} | Graphql clients to generate helper functions for. Supported types are `graphql` and `graphql_flutter`   | [Clients](#clients) |
 | `scalars` | {} | Allows custom JSON-Dart transformations. Builder will warn if scalars are not recognized. Unless using primitive types, you will need `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-scalars) |
+| `enums` | {} | Allows custom enum implementation. You will need to define `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-enums) |
 | `addTypename` | true | Whether to automatically insert the `__typename` field in requests | [Add typename](#add-typename) |
 | `addTypenameExcludedPaths` | [] | When `addTypename` is true, the paths to exclude  | [Excluding typenames](#excluding-some-selections-from-adding-typename) |
 | `outputDirectory` | "." | Location where to output generated types relative to each `.graphql` file | [Change output directory](#change-output-directory) |
@@ -431,7 +432,7 @@ Out of the box, the standard scalars are supported and mapped to relevant dart t
 new mappings for your custom scalars or overwrite existing configurations.
 
 In the schema above, you can see that we have defined the `ISODateTime` scalar. In this example, it contains
-a string with an iso formatted date-time string. We would like to map this to a `String` type by
+a string with an ISO formatted date-time string. We would like to map this to a `String` type by
 adding the following configuration to the `build.yaml` file:
 
 ```yaml
@@ -501,6 +502,66 @@ dynamic customDateTimeToJson(CustomDateTime time) => time.dt.toIso8601String();
 ```
 
 and now all fields using `ISODateTime` will be a `CustomDateTime` instance.
+
+## Custom Enums
+
+Per default, the library will build enum serializers. If you want to provide your own implementation of an Enum, you can follow a similar pattern as [Custom scalars](#custom-scalars).
+
+
+Given the enum
+
+```graphql
+enum GraphQLEnum { FOO BAR BAZ }
+
+```
+
+the config
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          enums:
+            GraphQLEnum:
+              type: DartEnum
+              fromJsonFunctionName: fromJson
+              toJsonFunctionName: toJson
+              import: package:my_app/enum.dart
+
+```
+
+and the implementation
+
+```dart
+// enum.dart
+
+enum DartEnum {
+  foo, bar, baz
+}
+
+DartEnum fromJson(String v) {
+  switch(v) {
+    case 'FOO': return DartEnum.foo;
+    case 'BAR': return DartEnum.bar;
+    default: return DartEnum.baz;
+  }
+}
+
+String toJson(DartEnum v) {
+  switch(v) {
+    case DartEnum.foo: return 'FOO';
+    case DartEnum.bar: return 'BAR';
+    case DartEnum.baz: return 'BAZ';
+  }
+}
+
+```
+
+the generator will work as expected.
 
 ## Add typename
 By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
