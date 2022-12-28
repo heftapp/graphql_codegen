@@ -1,3 +1,7 @@
+# 0.12.0-beta.6
+
+* Add built-in types to keywords.
+
 # 0.12.0-beta.5
 
 * Add custom enums.
