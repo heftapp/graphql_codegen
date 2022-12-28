@@ -61,6 +61,15 @@ const staticKeywords = {
   "dynamic",
   "implements",
   "static",
+  // Built-in types
   "int",
-  "double"
+  "double",
+  "bool",
+  "List",
+  "Set",
+  "Map",
+  "Runes",
+  "Symbol",
+  "String",
+  "Null"
 };
