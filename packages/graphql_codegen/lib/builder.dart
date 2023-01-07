@@ -131,14 +131,14 @@ class GraphQLBuilder extends Builder {
       };
     }
     return {
-      path.join(_assetsPrefix, '{{dir}}', '{{file}}.graphql'): [
+      p.join(_assetsPrefix, '{{dir}}', '{{file}}.graphql'): [
         p.join(
           p.relative(config.outputDirectory, from: '/'),
           '{{dir}}',
           '{{file}}.graphql.dart',
         )
       ],
-      path.join(_assetsPrefix, '{{dir}}', '{{file}}.gql'): [
+      p.join(_assetsPrefix, '{{dir}}', '{{file}}.gql'): [
         p.join(
           p.relative(config.outputDirectory, from: '/'),
           '{{dir}}',

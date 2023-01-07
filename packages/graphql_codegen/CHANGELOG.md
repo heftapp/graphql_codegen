@@ -1,3 +1,7 @@
+# 0.12.0-beta.7
+
+* Fix absolute output dir paths on windows.
+
 # 0.12.0-beta.6
 
 * Add built-in types to keywords.

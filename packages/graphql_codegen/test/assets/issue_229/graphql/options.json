@@ -1,0 +1,9 @@
+{
+    "clients":
+    ["graphql"],
+  "assetsPath": "graphql/**",
+  "scopes":
+    ["graphql/schemaA/**",
+    "graphql/schemaB/**"],
+  "outputDirectory": "/lib/generated"
+}
