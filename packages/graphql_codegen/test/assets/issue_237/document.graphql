@@ -1,0 +1,52 @@
+query GetFullProfile($getId: ID!) {
+  profile {
+    get(id: $getId) {
+      ...FullProfile
+    }
+  }
+}
+
+fragment FullProfile on Profile {
+  id
+
+  featuredMedia {
+    ...Media
+  }
+}
+fragment Media on Media {
+  ... on Image {
+    id
+    src
+    thumbnailSrc
+  }
+  ... on Video {
+    id
+    src
+  }
+}
+
+type Image {
+    id: ID!    
+    src: String!
+    thumbnailSrc: String!
+}
+
+type Video {
+    id: ID!
+    src: String!
+}
+
+union Media = Image | Video
+
+type Profile {
+  id: ID!
+  featuredMedia: [Media!]!
+}
+
+type ProfileWrapper {
+    get(id: ID!): Profile
+}
+
+type Query {
+    profile: ProfileWrapper
+}
