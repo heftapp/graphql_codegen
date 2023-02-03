@@ -77,10 +77,13 @@ Constructor _printConstructor(
           ...properties.map<Parameter>(
             (p) => Parameter(
               (b) => b
-                ..required = p.isRequired
+                ..required = p.isRequired && !p.isTypenameField
                 ..named = true
                 ..toThis = true
-                ..name = c.namePrinter.printPropertyName(p.name),
+                ..name = c.namePrinter.printPropertyName(p.name)
+                ..defaultTo = p.isTypenameField
+                    ? Code('"${c.namePrinter.printPropertyName(c.context.currentTypeName)}"')
+                    : null,
             ),
           ),
         ],
