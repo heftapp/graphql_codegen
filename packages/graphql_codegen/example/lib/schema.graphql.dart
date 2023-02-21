@@ -149,7 +149,7 @@ class _CopyWithImpl$Input$UpdatePersonInput<TRes>
 
   final TRes Function(Input$UpdatePersonInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -181,4 +181,4 @@ class _CopyWithStubImpl$Input$UpdatePersonInput<TRes>
       _res;
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

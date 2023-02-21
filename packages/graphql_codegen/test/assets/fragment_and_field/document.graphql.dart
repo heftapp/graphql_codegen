@@ -94,7 +94,7 @@ class _CopyWithImpl$Fragment$FPerson<TRes>
 
   final TRes Function(Fragment$FPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? age = _undefined,
@@ -244,7 +244,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? person = _undefined,
@@ -425,7 +425,7 @@ class _CopyWithImpl$Query$Q$person<TRes>
 
   final TRes Function(Query$Q$person) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -562,7 +562,7 @@ class _CopyWithImpl$Query$Q$person$$Person<TRes>
 
   final TRes Function(Query$Q$person$$Person) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -592,6 +592,6 @@ class _CopyWithStubImpl$Query$Q$person$$Person<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'IPerson': {'Person'}
 };

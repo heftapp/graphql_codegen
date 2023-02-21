@@ -338,7 +338,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   final TRes Function(Input$I1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? s = _undefined,
@@ -504,7 +504,7 @@ class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
 
   final TRes Function(Input$I2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? foobar = _undefined}) => _then(Input$I2._({
         ..._instance._$data,

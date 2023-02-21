@@ -149,7 +149,7 @@ class _CopyWithImpl$Input$UpdatePersonInput<TRes>
 
   final TRes Function(Input$UpdatePersonInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -205,4 +205,4 @@ Enum$QueryMode fromJson$Enum$QueryMode(String value) {
   }
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

@@ -106,7 +106,7 @@ class _CopyWithImpl$Input$AddProjectToSecurityDashboardInput<TRes>
 
   final TRes Function(Input$AddProjectToSecurityDashboardInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -616,7 +616,7 @@ class _CopyWithImpl$Input$AdminSidekiqQueuesDeleteJobsInput<TRes>
 
   final TRes Function(Input$AdminSidekiqQueuesDeleteJobsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -852,7 +852,7 @@ class _CopyWithImpl$Input$AlertManagementPayloadAlertFieldInput<TRes>
 
   final TRes Function(Input$AlertManagementPayloadAlertFieldInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? fieldName = _undefined,
@@ -1061,7 +1061,7 @@ class _CopyWithImpl$Input$AlertSetAssigneesInput<TRes>
 
   final TRes Function(Input$AlertSetAssigneesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -1221,7 +1221,7 @@ class _CopyWithImpl$Input$AlertTodoCreateInput<TRes>
 
   final TRes Function(Input$AlertTodoCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -1476,7 +1476,7 @@ class _CopyWithImpl$Input$ApiFuzzingCiConfigurationCreateInput<TRes>
 
   final TRes Function(Input$ApiFuzzingCiConfigurationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -1665,7 +1665,7 @@ class _CopyWithImpl$Input$AuditEventsStreamingHeadersCreateInput<TRes>
 
   final TRes Function(Input$AuditEventsStreamingHeadersCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -1808,7 +1808,7 @@ class _CopyWithImpl$Input$AuditEventsStreamingHeadersDestroyInput<TRes>
 
   final TRes Function(Input$AuditEventsStreamingHeadersDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -1974,7 +1974,7 @@ class _CopyWithImpl$Input$AuditEventsStreamingHeadersUpdateInput<TRes>
 
   final TRes Function(Input$AuditEventsStreamingHeadersUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -2129,7 +2129,7 @@ class _CopyWithImpl$Input$AwardEmojiAddInput<TRes>
 
   final TRes Function(Input$AwardEmojiAddInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? awardableId = _undefined,
@@ -2281,7 +2281,7 @@ class _CopyWithImpl$Input$AwardEmojiRemoveInput<TRes>
 
   final TRes Function(Input$AwardEmojiRemoveInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? awardableId = _undefined,
@@ -2433,7 +2433,7 @@ class _CopyWithImpl$Input$AwardEmojiToggleInput<TRes>
 
   final TRes Function(Input$AwardEmojiToggleInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? awardableId = _undefined,
@@ -2615,7 +2615,7 @@ class _CopyWithImpl$Input$BoardEpicCreateInput<TRes>
 
   final TRes Function(Input$BoardEpicCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -3345,7 +3345,7 @@ class _CopyWithImpl$Input$BoardIssueInput<TRes>
 
   final TRes Function(Input$BoardIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? labelName = _undefined,
@@ -3670,7 +3670,7 @@ class _CopyWithImpl$Input$BoardListCreateInput<TRes>
 
   final TRes Function(Input$BoardListCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? backlog = _undefined,
@@ -3895,7 +3895,7 @@ class _CopyWithImpl$Input$BoardListUpdateLimitMetricsInput<TRes>
 
   final TRes Function(Input$BoardListUpdateLimitMetricsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -4078,7 +4078,7 @@ class _CopyWithImpl$Input$BulkEnableDevopsAdoptionNamespacesInput<TRes>
 
   final TRes Function(Input$BulkEnableDevopsAdoptionNamespacesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -4239,7 +4239,7 @@ class _CopyWithImpl$Input$BulkRunnerDeleteInput<TRes>
 
   final TRes Function(Input$BulkRunnerDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -4476,7 +4476,7 @@ class _CopyWithImpl$Input$CiCdSettingsUpdateInput<TRes>
 
   final TRes Function(Input$CiCdSettingsUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? fullPath = _undefined,
@@ -4643,7 +4643,7 @@ class _CopyWithImpl$Input$CiJobTokenScopeAddProjectInput<TRes>
 
   final TRes Function(Input$CiJobTokenScopeAddProjectInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -4798,7 +4798,7 @@ class _CopyWithImpl$Input$CiJobTokenScopeRemoveProjectInput<TRes>
 
   final TRes Function(Input$CiJobTokenScopeRemoveProjectInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -4927,7 +4927,7 @@ class _CopyWithImpl$Input$CiVariableInput<TRes>
 
   final TRes Function(Input$CiVariableInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? key = _undefined,
@@ -5059,7 +5059,7 @@ class _CopyWithImpl$Input$ClusterAgentDeleteInput<TRes>
 
   final TRes Function(Input$ClusterAgentDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -5232,7 +5232,7 @@ class _CopyWithImpl$Input$ClusterAgentTokenCreateInput<TRes>
 
   final TRes Function(Input$ClusterAgentTokenCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -5374,7 +5374,7 @@ class _CopyWithImpl$Input$ClusterAgentTokenRevokeInput<TRes>
 
   final TRes Function(Input$ClusterAgentTokenRevokeInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -5618,7 +5618,7 @@ class _CopyWithImpl$Input$CommitAction<TRes>
 
   final TRes Function(Input$CommitAction) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? action = _undefined,
@@ -5853,7 +5853,7 @@ class _CopyWithImpl$Input$CommitCreateInput<TRes>
 
   final TRes Function(Input$CommitCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -6073,7 +6073,7 @@ class _CopyWithImpl$Input$ComplianceFrameworkInput<TRes>
 
   final TRes Function(Input$ComplianceFrameworkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -6260,7 +6260,7 @@ class _CopyWithImpl$Input$ComplianceViolationInput<TRes>
 
   final TRes Function(Input$ComplianceViolationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectIds = _undefined,
@@ -6399,7 +6399,7 @@ class _CopyWithImpl$Input$ConfigureContainerScanningInput<TRes>
 
   final TRes Function(Input$ConfigureContainerScanningInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -6535,7 +6535,7 @@ class _CopyWithImpl$Input$ConfigureDependencyScanningInput<TRes>
 
   final TRes Function(Input$ConfigureDependencyScanningInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -6669,7 +6669,7 @@ class _CopyWithImpl$Input$ConfigureSastIacInput<TRes>
 
   final TRes Function(Input$ConfigureSastIacInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -6821,7 +6821,7 @@ class _CopyWithImpl$Input$ConfigureSastInput<TRes>
 
   final TRes Function(Input$ConfigureSastInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -6968,7 +6968,7 @@ class _CopyWithImpl$Input$ConfigureSecretDetectionInput<TRes>
 
   final TRes Function(Input$ConfigureSecretDetectionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -7117,7 +7117,7 @@ class _CopyWithImpl$Input$CorpusCreateInput<TRes>
 
   final TRes Function(Input$CorpusCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -7270,7 +7270,7 @@ class _CopyWithImpl$Input$CreateAlertIssueInput<TRes>
 
   final TRes Function(Input$CreateAlertIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -7506,7 +7506,7 @@ class _CopyWithImpl$Input$CreateAnnotationInput<TRes>
 
   final TRes Function(Input$CreateAnnotationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -7951,7 +7951,7 @@ class _CopyWithImpl$Input$CreateBoardInput<TRes>
 
   final TRes Function(Input$CreateBoardInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -8150,7 +8150,7 @@ class _CopyWithImpl$Input$CreateBranchInput<TRes>
 
   final TRes Function(Input$CreateBranchInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -8305,7 +8305,7 @@ class _CopyWithImpl$Input$CreateClusterAgentInput<TRes>
 
   final TRes Function(Input$CreateClusterAgentInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -8462,7 +8462,7 @@ class _CopyWithImpl$Input$CreateComplianceFrameworkInput<TRes>
 
   final TRes Function(Input$CreateComplianceFrameworkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -8637,7 +8637,7 @@ class _CopyWithImpl$Input$CreateCustomEmojiInput<TRes>
 
   final TRes Function(Input$CreateCustomEmojiInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -8833,7 +8833,7 @@ class _CopyWithImpl$Input$CreateDiffNoteInput<TRes>
 
   final TRes Function(Input$CreateDiffNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? noteableId = _undefined,
@@ -9284,7 +9284,7 @@ class _CopyWithImpl$Input$CreateEpicInput<TRes>
 
   final TRes Function(Input$CreateEpicInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -9513,7 +9513,7 @@ class _CopyWithImpl$Input$CreateImageDiffNoteInput<TRes>
 
   final TRes Function(Input$CreateImageDiffNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? noteableId = _undefined,
@@ -10238,7 +10238,7 @@ class _CopyWithImpl$Input$CreateIssueInput<TRes>
 
   final TRes Function(Input$CreateIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -10594,7 +10594,7 @@ class _CopyWithImpl$Input$CreateIterationInput<TRes>
 
   final TRes Function(Input$CreateIterationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -10834,7 +10834,7 @@ class _CopyWithImpl$Input$CreateNoteInput<TRes>
 
   final TRes Function(Input$CreateNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? noteableId = _undefined,
@@ -11027,7 +11027,7 @@ class _CopyWithImpl$Input$CreateRequirementInput<TRes>
 
   final TRes Function(Input$CreateRequirementInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -11320,7 +11320,7 @@ class _CopyWithImpl$Input$CreateSnippetInput<TRes>
 
   final TRes Function(Input$CreateSnippetInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -11562,7 +11562,7 @@ class _CopyWithImpl$Input$CreateTestCaseInput<TRes>
 
   final TRes Function(Input$CreateTestCaseInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -11827,7 +11827,7 @@ class _CopyWithImpl$Input$CustomerRelationsContactCreateInput<TRes>
 
   final TRes Function(Input$CustomerRelationsContactCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -12142,7 +12142,7 @@ class _CopyWithImpl$Input$CustomerRelationsContactUpdateInput<TRes>
 
   final TRes Function(Input$CustomerRelationsContactUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -12361,7 +12361,7 @@ class _CopyWithImpl$Input$CustomerRelationsOrganizationCreateInput<TRes>
 
   final TRes Function(Input$CustomerRelationsOrganizationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -12597,7 +12597,7 @@ class _CopyWithImpl$Input$CustomerRelationsOrganizationUpdateInput<TRes>
 
   final TRes Function(Input$CustomerRelationsOrganizationUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -12785,7 +12785,7 @@ class _CopyWithImpl$Input$DastOnDemandScanCreateInput<TRes>
 
   final TRes Function(Input$DastOnDemandScanCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -12938,7 +12938,7 @@ class _CopyWithImpl$Input$DastProfileCadenceInput<TRes>
 
   final TRes Function(Input$DastProfileCadenceInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? unit = _undefined,
@@ -13215,7 +13215,7 @@ class _CopyWithImpl$Input$DastProfileCreateInput<TRes>
 
   final TRes Function(Input$DastProfileCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -13384,7 +13384,7 @@ class _CopyWithImpl$Input$DastProfileDeleteInput<TRes>
 
   final TRes Function(Input$DastProfileDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -13517,7 +13517,7 @@ class _CopyWithImpl$Input$DastProfileRunInput<TRes>
 
   final TRes Function(Input$DastProfileRunInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -13707,7 +13707,7 @@ class _CopyWithImpl$Input$DastProfileScheduleInput<TRes>
 
   final TRes Function(Input$DastProfileScheduleInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? active = _undefined,
@@ -14027,7 +14027,7 @@ class _CopyWithImpl$Input$DastProfileUpdateInput<TRes>
 
   final TRes Function(Input$DastProfileUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -14331,7 +14331,7 @@ class _CopyWithImpl$Input$DastScannerProfileCreateInput<TRes>
 
   final TRes Function(Input$DastScannerProfileCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -14491,7 +14491,7 @@ class _CopyWithImpl$Input$DastScannerProfileDeleteInput<TRes>
 
   final TRes Function(Input$DastScannerProfileDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -14744,7 +14744,7 @@ class _CopyWithImpl$Input$DastScannerProfileUpdateInput<TRes>
 
   final TRes Function(Input$DastScannerProfileUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -15022,7 +15022,7 @@ class _CopyWithImpl$Input$DastSiteProfileAuthInput<TRes>
 
   final TRes Function(Input$DastSiteProfileAuthInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? enabled = _undefined,
@@ -15355,7 +15355,7 @@ class _CopyWithImpl$Input$DastSiteProfileCreateInput<TRes>
 
   final TRes Function(Input$DastSiteProfileCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -15525,7 +15525,7 @@ class _CopyWithImpl$Input$DastSiteProfileDeleteInput<TRes>
 
   final TRes Function(Input$DastSiteProfileDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -15842,7 +15842,7 @@ class _CopyWithImpl$Input$DastSiteProfileUpdateInput<TRes>
 
   final TRes Function(Input$DastSiteProfileUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -16034,7 +16034,7 @@ class _CopyWithImpl$Input$DastSiteTokenCreateInput<TRes>
 
   final TRes Function(Input$DastSiteTokenCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -16232,7 +16232,7 @@ class _CopyWithImpl$Input$DastSiteValidationCreateInput<TRes>
 
   final TRes Function(Input$DastSiteValidationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -16395,7 +16395,7 @@ class _CopyWithImpl$Input$DastSiteValidationRevokeInput<TRes>
 
   final TRes Function(Input$DastSiteValidationRevokeInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -16533,7 +16533,7 @@ class _CopyWithImpl$Input$DeleteAnnotationInput<TRes>
 
   final TRes Function(Input$DeleteAnnotationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -16684,7 +16684,7 @@ class _CopyWithImpl$Input$DeploymentsOrderByInput<TRes>
 
   final TRes Function(Input$DeploymentsOrderByInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? createdAt = _undefined,
@@ -16857,7 +16857,7 @@ class _CopyWithImpl$Input$DesignManagementDeleteInput<TRes>
 
   final TRes Function(Input$DesignManagementDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -17043,7 +17043,7 @@ class _CopyWithImpl$Input$DesignManagementMoveInput<TRes>
 
   final TRes Function(Input$DesignManagementMoveInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -17221,7 +17221,7 @@ class _CopyWithImpl$Input$DesignManagementUploadInput<TRes>
 
   final TRes Function(Input$DesignManagementUploadInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -17362,7 +17362,7 @@ class _CopyWithImpl$Input$DestroyBoardInput<TRes>
 
   final TRes Function(Input$DestroyBoardInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -17495,7 +17495,7 @@ class _CopyWithImpl$Input$DestroyBoardListInput<TRes>
 
   final TRes Function(Input$DestroyBoardListInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -17631,7 +17631,7 @@ class _CopyWithImpl$Input$DestroyComplianceFrameworkInput<TRes>
 
   final TRes Function(Input$DestroyComplianceFrameworkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -17766,7 +17766,7 @@ class _CopyWithImpl$Input$DestroyContainerRepositoryInput<TRes>
 
   final TRes Function(Input$DestroyContainerRepositoryInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -17924,7 +17924,7 @@ class _CopyWithImpl$Input$DestroyContainerRepositoryTagsInput<TRes>
 
   final TRes Function(Input$DestroyContainerRepositoryTagsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18061,7 +18061,7 @@ class _CopyWithImpl$Input$DestroyCustomEmojiInput<TRes>
 
   final TRes Function(Input$DestroyCustomEmojiInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18194,7 +18194,7 @@ class _CopyWithImpl$Input$DestroyEpicBoardInput<TRes>
 
   final TRes Function(Input$DestroyEpicBoardInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18327,7 +18327,7 @@ class _CopyWithImpl$Input$DestroyNoteInput<TRes>
 
   final TRes Function(Input$DestroyNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18460,7 +18460,7 @@ class _CopyWithImpl$Input$DestroyPackageFileInput<TRes>
 
   final TRes Function(Input$DestroyPackageFileInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18616,7 +18616,7 @@ class _CopyWithImpl$Input$DestroyPackageFilesInput<TRes>
 
   final TRes Function(Input$DestroyPackageFilesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18753,7 +18753,7 @@ class _CopyWithImpl$Input$DestroyPackageInput<TRes>
 
   final TRes Function(Input$DestroyPackageInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -18886,7 +18886,7 @@ class _CopyWithImpl$Input$DestroySnippetInput<TRes>
 
   final TRes Function(Input$DestroySnippetInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -19110,7 +19110,7 @@ class _CopyWithImpl$Input$DiffImagePositionInput<TRes>
 
   final TRes Function(Input$DiffImagePositionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? baseSha = _undefined,
@@ -19274,7 +19274,7 @@ class _CopyWithImpl$Input$DiffPathsInput<TRes>
 
   final TRes Function(Input$DiffPathsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? newPath = _undefined,
@@ -19481,7 +19481,7 @@ class _CopyWithImpl$Input$DiffPositionInput<TRes>
 
   final TRes Function(Input$DiffPositionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? baseSha = _undefined,
@@ -19644,7 +19644,7 @@ class _CopyWithImpl$Input$DisableDevopsAdoptionNamespaceInput<TRes>
 
   final TRes Function(Input$DisableDevopsAdoptionNamespaceInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -19794,7 +19794,7 @@ class _CopyWithImpl$Input$DiscussionToggleResolveInput<TRes>
 
   final TRes Function(Input$DiscussionToggleResolveInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -19992,7 +19992,7 @@ class _CopyWithImpl$Input$EchoCreateInput<TRes>
 
   final TRes Function(Input$EchoCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -20156,7 +20156,7 @@ class _CopyWithImpl$Input$EnableDevopsAdoptionNamespaceInput<TRes>
 
   final TRes Function(Input$EnableDevopsAdoptionNamespaceInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -20311,7 +20311,7 @@ class _CopyWithImpl$Input$EnvironmentsCanaryIngressUpdateInput<TRes>
 
   final TRes Function(Input$EnvironmentsCanaryIngressUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -20492,7 +20492,7 @@ class _CopyWithImpl$Input$EpicAddIssueInput<TRes>
 
   final TRes Function(Input$EpicAddIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? iid = _undefined,
@@ -20790,7 +20790,7 @@ class _CopyWithImpl$Input$EpicBoardCreateInput<TRes>
 
   final TRes Function(Input$EpicBoardCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -20984,7 +20984,7 @@ class _CopyWithImpl$Input$EpicBoardListCreateInput<TRes>
 
   final TRes Function(Input$EpicBoardListCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? backlog = _undefined,
@@ -21124,7 +21124,7 @@ class _CopyWithImpl$Input$EpicBoardListDestroyInput<TRes>
 
   final TRes Function(Input$EpicBoardListDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -21403,7 +21403,7 @@ class _CopyWithImpl$Input$EpicBoardUpdateInput<TRes>
 
   final TRes Function(Input$EpicBoardUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -21671,7 +21671,7 @@ class _CopyWithImpl$Input$EpicFilters<TRes>
 
   final TRes Function(Input$EpicFilters) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? labelName = _undefined,
@@ -21926,7 +21926,7 @@ class _CopyWithImpl$Input$EpicMoveListInput<TRes>
 
   final TRes Function(Input$EpicMoveListInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -22108,7 +22108,7 @@ class _CopyWithImpl$Input$EpicSetSubscriptionInput<TRes>
 
   final TRes Function(Input$EpicSetSubscriptionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? iid = _undefined,
@@ -22304,7 +22304,7 @@ class _CopyWithImpl$Input$EpicTreeNodeFieldsInputType<TRes>
 
   final TRes Function(Input$EpicTreeNodeFieldsInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -22462,7 +22462,7 @@ class _CopyWithImpl$Input$EpicTreeReorderInput<TRes>
 
   final TRes Function(Input$EpicTreeReorderInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -22678,7 +22678,7 @@ class _CopyWithImpl$Input$EscalationPolicyCreateInput<TRes>
 
   final TRes Function(Input$EscalationPolicyCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -22837,7 +22837,7 @@ class _CopyWithImpl$Input$EscalationPolicyDestroyInput<TRes>
 
   final TRes Function(Input$EscalationPolicyDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -23063,7 +23063,7 @@ class _CopyWithImpl$Input$EscalationPolicyUpdateInput<TRes>
 
   final TRes Function(Input$EscalationPolicyUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -23259,7 +23259,7 @@ class _CopyWithImpl$Input$EscalationRuleInput<TRes>
 
   final TRes Function(Input$EscalationRuleInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? oncallScheduleIid = _undefined,
@@ -23553,7 +23553,7 @@ class _CopyWithImpl$Input$ExportRequirementsInput<TRes>
 
   final TRes Function(Input$ExportRequirementsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -23745,7 +23745,7 @@ class _CopyWithImpl$Input$ExternalAuditEventDestinationCreateInput<TRes>
 
   final TRes Function(Input$ExternalAuditEventDestinationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -23890,7 +23890,7 @@ class _CopyWithImpl$Input$ExternalAuditEventDestinationDestroyInput<TRes>
 
   final TRes Function(Input$ExternalAuditEventDestinationDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -24049,7 +24049,7 @@ class _CopyWithImpl$Input$ExternalAuditEventDestinationUpdateInput<TRes>
 
   final TRes Function(Input$ExternalAuditEventDestinationUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -24188,7 +24188,7 @@ class _CopyWithImpl$Input$GitlabSubscriptionActivateInput<TRes>
 
   final TRes Function(Input$GitlabSubscriptionActivateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -24340,7 +24340,7 @@ class _CopyWithImpl$Input$GroupUpdateInput<TRes>
 
   final TRes Function(Input$GroupUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -24588,7 +24588,7 @@ class _CopyWithImpl$Input$HttpIntegrationCreateInput<TRes>
 
   final TRes Function(Input$HttpIntegrationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -24751,7 +24751,7 @@ class _CopyWithImpl$Input$HttpIntegrationDestroyInput<TRes>
 
   final TRes Function(Input$HttpIntegrationDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -24886,7 +24886,7 @@ class _CopyWithImpl$Input$HttpIntegrationResetTokenInput<TRes>
 
   final TRes Function(Input$HttpIntegrationResetTokenInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -25142,7 +25142,7 @@ class _CopyWithImpl$Input$HttpIntegrationUpdateInput<TRes>
 
   final TRes Function(Input$HttpIntegrationUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -25371,7 +25371,7 @@ class _CopyWithImpl$Input$IssuableResourceLinkCreateInput<TRes>
 
   final TRes Function(Input$IssuableResourceLinkCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -25516,7 +25516,7 @@ class _CopyWithImpl$Input$IssuableResourceLinkDestroyInput<TRes>
 
   final TRes Function(Input$IssuableResourceLinkDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -25678,7 +25678,7 @@ class _CopyWithImpl$Input$IssueMoveInput<TRes>
 
   final TRes Function(Input$IssueMoveInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -25963,7 +25963,7 @@ class _CopyWithImpl$Input$IssueMoveListInput<TRes>
 
   final TRes Function(Input$IssueMoveListInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -26189,7 +26189,7 @@ class _CopyWithImpl$Input$IssueSetAssigneesInput<TRes>
 
   final TRes Function(Input$IssueSetAssigneesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -26364,7 +26364,7 @@ class _CopyWithImpl$Input$IssueSetConfidentialInput<TRes>
 
   final TRes Function(Input$IssueSetConfidentialInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -26571,7 +26571,7 @@ class _CopyWithImpl$Input$IssueSetCrmContactsInput<TRes>
 
   final TRes Function(Input$IssueSetCrmContactsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -26753,7 +26753,7 @@ class _CopyWithImpl$Input$IssueSetDueDateInput<TRes>
 
   final TRes Function(Input$IssueSetDueDateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -26930,7 +26930,7 @@ class _CopyWithImpl$Input$IssueSetEpicInput<TRes>
 
   final TRes Function(Input$IssueSetEpicInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -27113,7 +27113,7 @@ class _CopyWithImpl$Input$IssueSetEscalationPolicyInput<TRes>
 
   final TRes Function(Input$IssueSetEscalationPolicyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -27288,7 +27288,7 @@ class _CopyWithImpl$Input$IssueSetEscalationStatusInput<TRes>
 
   final TRes Function(Input$IssueSetEscalationStatusInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -27467,7 +27467,7 @@ class _CopyWithImpl$Input$IssueSetIterationInput<TRes>
 
   final TRes Function(Input$IssueSetIterationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -27637,7 +27637,7 @@ class _CopyWithImpl$Input$IssueSetLockedInput<TRes>
 
   final TRes Function(Input$IssueSetLockedInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -27809,7 +27809,7 @@ class _CopyWithImpl$Input$IssueSetSeverityInput<TRes>
 
   final TRes Function(Input$IssueSetSeverityInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -27980,7 +27980,7 @@ class _CopyWithImpl$Input$IssueSetSubscriptionInput<TRes>
 
   final TRes Function(Input$IssueSetSubscriptionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -28158,7 +28158,7 @@ class _CopyWithImpl$Input$IssueSetWeightInput<TRes>
 
   final TRes Function(Input$IssueSetWeightInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -28469,7 +28469,7 @@ class _CopyWithImpl$Input$IterationCadenceCreateInput<TRes>
 
   final TRes Function(Input$IterationCadenceCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -28632,7 +28632,7 @@ class _CopyWithImpl$Input$IterationCadenceDestroyInput<TRes>
 
   final TRes Function(Input$IterationCadenceDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -28951,7 +28951,7 @@ class _CopyWithImpl$Input$IterationCadenceUpdateInput<TRes>
 
   final TRes Function(Input$IterationCadenceUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -29110,7 +29110,7 @@ class _CopyWithImpl$Input$IterationDeleteInput<TRes>
 
   final TRes Function(Input$IterationDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -29330,7 +29330,7 @@ class _CopyWithImpl$Input$JiraImportStartInput<TRes>
 
   final TRes Function(Input$JiraImportStartInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -29512,7 +29512,7 @@ class _CopyWithImpl$Input$JiraImportUsersInput<TRes>
 
   final TRes Function(Input$JiraImportUsersInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -29649,7 +29649,7 @@ class _CopyWithImpl$Input$JiraUsersMappingInputType<TRes>
 
   final TRes Function(Input$JiraUsersMappingInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? gitlabId = _undefined,
@@ -29781,7 +29781,7 @@ class _CopyWithImpl$Input$JobCancelInput<TRes>
 
   final TRes Function(Input$JobCancelInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -29913,7 +29913,7 @@ class _CopyWithImpl$Input$JobPlayInput<TRes>
 
   final TRes Function(Input$JobPlayInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -30091,7 +30091,7 @@ class _CopyWithImpl$Input$JobRetryInput<TRes>
 
   final TRes Function(Input$JobRetryInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -30240,7 +30240,7 @@ class _CopyWithImpl$Input$JobUnscheduleInput<TRes>
 
   final TRes Function(Input$JobUnscheduleInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -30464,7 +30464,7 @@ class _CopyWithImpl$Input$LabelCreateInput<TRes>
 
   final TRes Function(Input$LabelCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -30609,7 +30609,7 @@ class _CopyWithImpl$Input$MarkAsSpamSnippetInput<TRes>
 
   final TRes Function(Input$MarkAsSpamSnippetInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -30898,7 +30898,7 @@ class _CopyWithImpl$Input$MergeRequestAcceptInput<TRes>
 
   final TRes Function(Input$MergeRequestAcceptInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -31163,7 +31163,7 @@ class _CopyWithImpl$Input$MergeRequestCreateInput<TRes>
 
   final TRes Function(Input$MergeRequestCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -31346,7 +31346,7 @@ class _CopyWithImpl$Input$MergeRequestReviewerRereviewInput<TRes>
 
   final TRes Function(Input$MergeRequestReviewerRereviewInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -31558,7 +31558,7 @@ class _CopyWithImpl$Input$MergeRequestSetAssigneesInput<TRes>
 
   final TRes Function(Input$MergeRequestSetAssigneesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -31733,7 +31733,7 @@ class _CopyWithImpl$Input$MergeRequestSetDraftInput<TRes>
 
   final TRes Function(Input$MergeRequestSetDraftInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -31939,7 +31939,7 @@ class _CopyWithImpl$Input$MergeRequestSetLabelsInput<TRes>
 
   final TRes Function(Input$MergeRequestSetLabelsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -32114,7 +32114,7 @@ class _CopyWithImpl$Input$MergeRequestSetLockedInput<TRes>
 
   final TRes Function(Input$MergeRequestSetLockedInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -32294,7 +32294,7 @@ class _CopyWithImpl$Input$MergeRequestSetMilestoneInput<TRes>
 
   final TRes Function(Input$MergeRequestSetMilestoneInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -32505,7 +32505,7 @@ class _CopyWithImpl$Input$MergeRequestSetReviewersInput<TRes>
 
   final TRes Function(Input$MergeRequestSetReviewersInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -32682,7 +32682,7 @@ class _CopyWithImpl$Input$MergeRequestSetSubscriptionInput<TRes>
 
   final TRes Function(Input$MergeRequestSetSubscriptionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -32932,7 +32932,7 @@ class _CopyWithImpl$Input$MergeRequestUpdateInput<TRes>
 
   final TRes Function(Input$MergeRequestUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -33107,7 +33107,7 @@ class _CopyWithImpl$Input$MergeRequestsResolverNegatedParams<TRes>
 
   final TRes Function(Input$MergeRequestsResolverNegatedParams) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? labels = _undefined,
@@ -33240,7 +33240,7 @@ class _CopyWithImpl$Input$NamespaceBanDestroyInput<TRes>
 
   final TRes Function(Input$NamespaceBanDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -33403,7 +33403,7 @@ class _CopyWithImpl$Input$NamespaceCiCdSettingsUpdateInput<TRes>
 
   final TRes Function(Input$NamespaceCiCdSettingsUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -33544,7 +33544,7 @@ class _CopyWithImpl$Input$NamespaceIncreaseStorageTemporarilyInput<TRes>
 
   final TRes Function(Input$NamespaceIncreaseStorageTemporarilyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -34060,7 +34060,7 @@ class _CopyWithImpl$Input$NegatedBoardIssueInput<TRes>
 
   final TRes Function(Input$NegatedBoardIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? labelName = _undefined,
@@ -34285,7 +34285,7 @@ class _CopyWithImpl$Input$NegatedEpicBoardIssueInput<TRes>
 
   final TRes Function(Input$NegatedEpicBoardIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? labelName = _undefined,
@@ -34469,7 +34469,7 @@ class _CopyWithImpl$Input$NegatedEpicFilterInput<TRes>
 
   final TRes Function(Input$NegatedEpicFilterInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? labelName = _undefined,
@@ -35023,7 +35023,7 @@ class _CopyWithImpl$Input$NegatedIssueFilterInput<TRes>
 
   final TRes Function(Input$NegatedIssueFilterInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? assigneeId = _undefined,
@@ -35195,7 +35195,7 @@ class _CopyWithImpl$Input$OncallRotationActivePeriodInputType<TRes>
 
   final TRes Function(Input$OncallRotationActivePeriodInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? startTime = _undefined,
@@ -35484,7 +35484,7 @@ class _CopyWithImpl$Input$OncallRotationCreateInput<TRes>
 
   final TRes Function(Input$OncallRotationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -35690,7 +35690,7 @@ class _CopyWithImpl$Input$OncallRotationDateInputType<TRes>
 
   final TRes Function(Input$OncallRotationDateInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? date = _undefined,
@@ -35852,7 +35852,7 @@ class _CopyWithImpl$Input$OncallRotationDestroyInput<TRes>
 
   final TRes Function(Input$OncallRotationDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -35989,7 +35989,7 @@ class _CopyWithImpl$Input$OncallRotationLengthInputType<TRes>
 
   final TRes Function(Input$OncallRotationLengthInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? length = _undefined,
@@ -36304,7 +36304,7 @@ class _CopyWithImpl$Input$OncallRotationUpdateInput<TRes>
 
   final TRes Function(Input$OncallRotationUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -36569,7 +36569,7 @@ class _CopyWithImpl$Input$OncallScheduleCreateInput<TRes>
 
   final TRes Function(Input$OncallScheduleCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -36728,7 +36728,7 @@ class _CopyWithImpl$Input$OncallScheduleDestroyInput<TRes>
 
   final TRes Function(Input$OncallScheduleDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -36948,7 +36948,7 @@ class _CopyWithImpl$Input$OncallScheduleUpdateInput<TRes>
 
   final TRes Function(Input$OncallScheduleUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -37129,7 +37129,7 @@ class _CopyWithImpl$Input$OncallUserInputType<TRes>
 
   final TRes Function(Input$OncallUserInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? username = _undefined,
@@ -37269,7 +37269,7 @@ class _CopyWithImpl$Input$PagesMarkOnboardingCompleteInput<TRes>
 
   final TRes Function(Input$PagesMarkOnboardingCompleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -37403,7 +37403,7 @@ class _CopyWithImpl$Input$PipelineCancelInput<TRes>
 
   final TRes Function(Input$PipelineCancelInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -37536,7 +37536,7 @@ class _CopyWithImpl$Input$PipelineDestroyInput<TRes>
 
   final TRes Function(Input$PipelineDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -37669,7 +37669,7 @@ class _CopyWithImpl$Input$PipelineRetryInput<TRes>
 
   final TRes Function(Input$PipelineRetryInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -37908,7 +37908,7 @@ class _CopyWithImpl$Input$ProjectCiCdSettingsUpdateInput<TRes>
 
   final TRes Function(Input$ProjectCiCdSettingsUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -38088,7 +38088,7 @@ class _CopyWithImpl$Input$ProjectSetComplianceFrameworkInput<TRes>
 
   final TRes Function(Input$ProjectSetComplianceFrameworkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -38256,7 +38256,7 @@ class _CopyWithImpl$Input$ProjectSetLockedInput<TRes>
 
   final TRes Function(Input$ProjectSetLockedInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -38429,7 +38429,7 @@ class _CopyWithImpl$Input$PrometheusIntegrationCreateInput<TRes>
 
   final TRes Function(Input$PrometheusIntegrationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -38572,7 +38572,7 @@ class _CopyWithImpl$Input$PrometheusIntegrationResetTokenInput<TRes>
 
   final TRes Function(Input$PrometheusIntegrationResetTokenInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -38751,7 +38751,7 @@ class _CopyWithImpl$Input$PrometheusIntegrationUpdateInput<TRes>
 
   final TRes Function(Input$PrometheusIntegrationUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -38928,7 +38928,7 @@ class _CopyWithImpl$Input$PromoteToEpicInput<TRes>
 
   final TRes Function(Input$PromoteToEpicInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -39165,7 +39165,7 @@ class _CopyWithImpl$Input$ReleaseAssetLinkCreateInput<TRes>
 
   final TRes Function(Input$ReleaseAssetLinkCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -39318,7 +39318,7 @@ class _CopyWithImpl$Input$ReleaseAssetLinkDeleteInput<TRes>
 
   final TRes Function(Input$ReleaseAssetLinkDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -39494,7 +39494,7 @@ class _CopyWithImpl$Input$ReleaseAssetLinkInput<TRes>
 
   final TRes Function(Input$ReleaseAssetLinkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -39730,7 +39730,7 @@ class _CopyWithImpl$Input$ReleaseAssetLinkUpdateInput<TRes>
 
   final TRes Function(Input$ReleaseAssetLinkUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -39883,7 +39883,7 @@ class _CopyWithImpl$Input$ReleaseAssetsInput<TRes>
 
   final TRes Function(Input$ReleaseAssetsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? links = _undefined}) => _then(Input$ReleaseAssetsInput._({
         ..._instance._$data,
@@ -40214,7 +40214,7 @@ class _CopyWithImpl$Input$ReleaseCreateInput<TRes>
 
   final TRes Function(Input$ReleaseCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -40399,7 +40399,7 @@ class _CopyWithImpl$Input$ReleaseDeleteInput<TRes>
 
   final TRes Function(Input$ReleaseDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -40659,7 +40659,7 @@ class _CopyWithImpl$Input$ReleaseUpdateInput<TRes>
 
   final TRes Function(Input$ReleaseUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -40813,7 +40813,7 @@ class _CopyWithImpl$Input$RemoveProjectFromSecurityDashboardInput<TRes>
 
   final TRes Function(Input$RemoveProjectFromSecurityDashboardInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -40966,7 +40966,7 @@ class _CopyWithImpl$Input$RepositionImageDiffNoteInput<TRes>
 
   final TRes Function(Input$RepositionImageDiffNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -41110,7 +41110,7 @@ class _CopyWithImpl$Input$RunnerDeleteInput<TRes>
 
   final TRes Function(Input$RunnerDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -41510,7 +41510,7 @@ class _CopyWithImpl$Input$RunnerUpdateInput<TRes>
 
   final TRes Function(Input$RunnerUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -41704,7 +41704,7 @@ class _CopyWithImpl$Input$RunnersRegistrationTokenResetInput<TRes>
 
   final TRes Function(Input$RunnersRegistrationTokenResetInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -41884,7 +41884,7 @@ class _CopyWithImpl$Input$SastCiConfigurationAnalyzersEntityInput<TRes>
 
   final TRes Function(Input$SastCiConfigurationAnalyzersEntityInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -42044,7 +42044,7 @@ class _CopyWithImpl$Input$SastCiConfigurationEntityInput<TRes>
 
   final TRes Function(Input$SastCiConfigurationEntityInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -42286,7 +42286,7 @@ class _CopyWithImpl$Input$SastCiConfigurationInput<TRes>
 
   final TRes Function(Input$SastCiConfigurationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? global = _undefined,
@@ -42479,7 +42479,7 @@ class _CopyWithImpl$Input$SavedReplyCreateInput<TRes>
 
   final TRes Function(Input$SavedReplyCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -42616,7 +42616,7 @@ class _CopyWithImpl$Input$SavedReplyDestroyInput<TRes>
 
   final TRes Function(Input$SavedReplyDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -42779,7 +42779,7 @@ class _CopyWithImpl$Input$SavedReplyUpdateInput<TRes>
 
   final TRes Function(Input$SavedReplyUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -42984,7 +42984,7 @@ class _CopyWithImpl$Input$ScanExecutionPolicyCommitInput<TRes>
 
   final TRes Function(Input$ScanExecutionPolicyCommitInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -43145,7 +43145,7 @@ class _CopyWithImpl$Input$SecurityFindingCreateIssueInput<TRes>
 
   final TRes Function(Input$SecurityFindingCreateIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -43309,7 +43309,7 @@ class _CopyWithImpl$Input$SecurityPolicyProjectAssignInput<TRes>
 
   final TRes Function(Input$SecurityPolicyProjectAssignInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -43457,7 +43457,7 @@ class _CopyWithImpl$Input$SecurityPolicyProjectCreateInput<TRes>
 
   final TRes Function(Input$SecurityPolicyProjectCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -43600,7 +43600,7 @@ class _CopyWithImpl$Input$SecurityPolicyProjectUnassignInput<TRes>
 
   final TRes Function(Input$SecurityPolicyProjectUnassignInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -43787,7 +43787,7 @@ class _CopyWithImpl$Input$SecurityTrainingUpdateInput<TRes>
 
   final TRes Function(Input$SecurityTrainingUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -43971,7 +43971,7 @@ class _CopyWithImpl$Input$SnippetBlobActionInputType<TRes>
 
   final TRes Function(Input$SnippetBlobActionInputType) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? action = _undefined,
@@ -44112,7 +44112,7 @@ class _CopyWithImpl$Input$TerraformStateDeleteInput<TRes>
 
   final TRes Function(Input$TerraformStateDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -44245,7 +44245,7 @@ class _CopyWithImpl$Input$TerraformStateLockInput<TRes>
 
   final TRes Function(Input$TerraformStateLockInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -44378,7 +44378,7 @@ class _CopyWithImpl$Input$TerraformStateUnlockInput<TRes>
 
   final TRes Function(Input$TerraformStateUnlockInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -44502,7 +44502,7 @@ class _CopyWithImpl$Input$Timeframe<TRes>
 
   final TRes Function(Input$Timeframe) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? start = _undefined,
@@ -44664,7 +44664,7 @@ class _CopyWithImpl$Input$TimelineEventCreateInput<TRes>
 
   final TRes Function(Input$TimelineEventCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -44805,7 +44805,7 @@ class _CopyWithImpl$Input$TimelineEventDestroyInput<TRes>
 
   final TRes Function(Input$TimelineEventDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -44940,7 +44940,7 @@ class _CopyWithImpl$Input$TimelineEventPromoteFromNoteInput<TRes>
 
   final TRes Function(Input$TimelineEventPromoteFromNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45119,7 +45119,7 @@ class _CopyWithImpl$Input$TimelineEventUpdateInput<TRes>
 
   final TRes Function(Input$TimelineEventUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45303,7 +45303,7 @@ class _CopyWithImpl$Input$TimelogCreateInput<TRes>
 
   final TRes Function(Input$TimelogCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45449,7 +45449,7 @@ class _CopyWithImpl$Input$TimelogDeleteInput<TRes>
 
   final TRes Function(Input$TimelogDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45581,7 +45581,7 @@ class _CopyWithImpl$Input$TodoCreateInput<TRes>
 
   final TRes Function(Input$TodoCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45715,7 +45715,7 @@ class _CopyWithImpl$Input$TodoMarkDoneInput<TRes>
 
   final TRes Function(Input$TodoMarkDoneInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45848,7 +45848,7 @@ class _CopyWithImpl$Input$TodoRestoreInput<TRes>
 
   final TRes Function(Input$TodoRestoreInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -45989,7 +45989,7 @@ class _CopyWithImpl$Input$TodoRestoreManyInput<TRes>
 
   final TRes Function(Input$TodoRestoreManyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -46130,7 +46130,7 @@ class _CopyWithImpl$Input$TodosMarkAllDoneInput<TRes>
 
   final TRes Function(Input$TodosMarkAllDoneInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -46295,7 +46295,7 @@ class _CopyWithImpl$Input$UpdateAlertStatusInput<TRes>
 
   final TRes Function(Input$UpdateAlertStatusInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -46468,7 +46468,7 @@ class _CopyWithImpl$Input$UpdateBoardEpicUserPreferencesInput<TRes>
 
   final TRes Function(Input$UpdateBoardEpicUserPreferencesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -46872,7 +46872,7 @@ class _CopyWithImpl$Input$UpdateBoardInput<TRes>
 
   final TRes Function(Input$UpdateBoardInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -47084,7 +47084,7 @@ class _CopyWithImpl$Input$UpdateBoardListInput<TRes>
 
   final TRes Function(Input$UpdateBoardListInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? position = _undefined,
@@ -47244,7 +47244,7 @@ class _CopyWithImpl$Input$UpdateComplianceFrameworkInput<TRes>
 
   final TRes Function(Input$UpdateComplianceFrameworkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -47543,7 +47543,7 @@ class _CopyWithImpl$Input$UpdateContainerExpirationPolicyInput<TRes>
 
   final TRes Function(Input$UpdateContainerExpirationPolicyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -47751,7 +47751,7 @@ class _CopyWithImpl$Input$UpdateDependencyProxyImageTtlGroupPolicyInput<TRes>
   final TRes Function(Input$UpdateDependencyProxyImageTtlGroupPolicyInput)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -47918,7 +47918,7 @@ class _CopyWithImpl$Input$UpdateDependencyProxySettingsInput<TRes>
 
   final TRes Function(Input$UpdateDependencyProxySettingsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -48107,7 +48107,7 @@ class _CopyWithImpl$Input$UpdateDiffImagePositionInput<TRes>
 
   final TRes Function(Input$UpdateDiffImagePositionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? x = _undefined,
@@ -48291,7 +48291,7 @@ class _CopyWithImpl$Input$UpdateEpicBoardListInput<TRes>
 
   final TRes Function(Input$UpdateEpicBoardListInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? position = _undefined,
@@ -48814,7 +48814,7 @@ class _CopyWithImpl$Input$UpdateEpicInput<TRes>
 
   final TRes Function(Input$UpdateEpicInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? iid = _undefined,
@@ -49048,7 +49048,7 @@ class _CopyWithImpl$Input$UpdateImageDiffNoteInput<TRes>
 
   final TRes Function(Input$UpdateImageDiffNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -49590,7 +49590,7 @@ class _CopyWithImpl$Input$UpdateIssueInput<TRes>
 
   final TRes Function(Input$UpdateIssueInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? projectPath = _undefined,
@@ -49878,7 +49878,7 @@ class _CopyWithImpl$Input$UpdateIterationInput<TRes>
 
   final TRes Function(Input$UpdateIterationInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -50148,7 +50148,7 @@ class _CopyWithImpl$Input$UpdateNamespacePackageSettingsInput<TRes>
 
   final TRes Function(Input$UpdateNamespacePackageSettingsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -50321,7 +50321,7 @@ class _CopyWithImpl$Input$UpdateNoteInput<TRes>
 
   final TRes Function(Input$UpdateNoteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -50498,7 +50498,7 @@ class _CopyWithImpl$Input$UpdatePackagesCleanupPolicyInput<TRes>
 
   final TRes Function(Input$UpdatePackagesCleanupPolicyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -50755,7 +50755,7 @@ class _CopyWithImpl$Input$UpdateRequirementInput<TRes>
 
   final TRes Function(Input$UpdateRequirementInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -51027,7 +51027,7 @@ class _CopyWithImpl$Input$UpdateSnippetInput<TRes>
 
   final TRes Function(Input$UpdateSnippetInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -51249,7 +51249,7 @@ class _CopyWithImpl$Input$UploadDeleteInput<TRes>
 
   final TRes Function(Input$UploadDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -51393,7 +51393,7 @@ class _CopyWithImpl$Input$UserCalloutCreateInput<TRes>
 
   final TRes Function(Input$UserCalloutCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -51538,7 +51538,7 @@ class _CopyWithImpl$Input$UserPreferencesUpdateInput<TRes>
 
   final TRes Function(Input$UserPreferencesUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -51672,7 +51672,7 @@ class _CopyWithImpl$Input$VulnerabilityConfirmInput<TRes>
 
   final TRes Function(Input$VulnerabilityConfirmInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -52104,7 +52104,7 @@ class _CopyWithImpl$Input$VulnerabilityCreateInput<TRes>
 
   final TRes Function(Input$VulnerabilityCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -52355,7 +52355,7 @@ class _CopyWithImpl$Input$VulnerabilityDismissInput<TRes>
 
   final TRes Function(Input$VulnerabilityDismissInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -52538,7 +52538,7 @@ class _CopyWithImpl$Input$VulnerabilityExternalIssueLinkCreateInput<TRes>
 
   final TRes Function(Input$VulnerabilityExternalIssueLinkCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -52683,7 +52683,7 @@ class _CopyWithImpl$Input$VulnerabilityExternalIssueLinkDestroyInput<TRes>
 
   final TRes Function(Input$VulnerabilityExternalIssueLinkDestroyInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -52876,7 +52876,7 @@ class _CopyWithImpl$Input$VulnerabilityFindingDismissInput<TRes>
 
   final TRes Function(Input$VulnerabilityFindingDismissInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -53057,7 +53057,7 @@ class _CopyWithImpl$Input$VulnerabilityIdentifierInput<TRes>
 
   final TRes Function(Input$VulnerabilityIdentifierInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -53196,7 +53196,7 @@ class _CopyWithImpl$Input$VulnerabilityResolveInput<TRes>
 
   final TRes Function(Input$VulnerabilityResolveInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -53331,7 +53331,7 @@ class _CopyWithImpl$Input$VulnerabilityRevertToDetectedInput<TRes>
 
   final TRes Function(Input$VulnerabilityRevertToDetectedInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -53513,7 +53513,7 @@ class _CopyWithImpl$Input$VulnerabilityScannerInput<TRes>
 
   final TRes Function(Input$VulnerabilityScannerInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -53638,7 +53638,7 @@ class _CopyWithImpl$Input$VulnerabilityScannerVendorInput<TRes>
 
   final TRes Function(Input$VulnerabilityScannerVendorInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Input$VulnerabilityScannerVendorInput._({
@@ -53799,7 +53799,7 @@ class _CopyWithImpl$Input$WorkItemConvertTaskInput<TRes>
 
   final TRes Function(Input$WorkItemConvertTaskInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? lineNumberEnd = _undefined,
@@ -53963,7 +53963,7 @@ class _CopyWithImpl$Input$WorkItemCreateFromTaskInput<TRes>
 
   final TRes Function(Input$WorkItemCreateFromTaskInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -54211,7 +54211,7 @@ class _CopyWithImpl$Input$WorkItemCreateInput<TRes>
 
   final TRes Function(Input$WorkItemCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -54373,7 +54373,7 @@ class _CopyWithImpl$Input$WorkItemDeleteInput<TRes>
 
   final TRes Function(Input$WorkItemDeleteInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -54539,7 +54539,7 @@ class _CopyWithImpl$Input$WorkItemDeleteTaskInput<TRes>
 
   final TRes Function(Input$WorkItemDeleteTaskInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -54694,7 +54694,7 @@ class _CopyWithImpl$Input$WorkItemDeletedTaskInput<TRes>
 
   final TRes Function(Input$WorkItemDeletedTaskInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -55049,7 +55049,7 @@ class _CopyWithImpl$Input$WorkItemUpdateInput<TRes>
 
   final TRes Function(Input$WorkItemUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -55287,7 +55287,7 @@ class _CopyWithImpl$Input$WorkItemUpdateTaskInput<TRes>
 
   final TRes Function(Input$WorkItemUpdateTaskInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -55459,7 +55459,7 @@ class _CopyWithImpl$Input$WorkItemUpdateWidgetsInput<TRes>
 
   final TRes Function(Input$WorkItemUpdateWidgetsInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -55773,7 +55773,7 @@ class _CopyWithImpl$Input$WorkItemUpdatedTaskInput<TRes>
 
   final TRes Function(Input$WorkItemUpdatedTaskInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -55957,7 +55957,7 @@ class _CopyWithImpl$Input$WorkItemWidgetAssigneesInput<TRes>
 
   final TRes Function(Input$WorkItemWidgetAssigneesInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? assigneeIds = _undefined}) =>
       _then(Input$WorkItemWidgetAssigneesInput._({
@@ -56055,7 +56055,7 @@ class _CopyWithImpl$Input$WorkItemWidgetDescriptionInput<TRes>
 
   final TRes Function(Input$WorkItemWidgetDescriptionInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? description = _undefined}) =>
       _then(Input$WorkItemWidgetDescriptionInput._({
@@ -56162,7 +56162,7 @@ class _CopyWithImpl$Input$WorkItemWidgetHierarchyCreateInput<TRes>
 
   final TRes Function(Input$WorkItemWidgetHierarchyCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? parentId = _undefined}) =>
       _then(Input$WorkItemWidgetHierarchyCreateInput._({
@@ -56312,7 +56312,7 @@ class _CopyWithImpl$Input$WorkItemWidgetHierarchyUpdateInput<TRes>
 
   final TRes Function(Input$WorkItemWidgetHierarchyUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? parentId = _undefined,
@@ -56455,7 +56455,7 @@ class _CopyWithImpl$Input$WorkItemWidgetStartAndDueDateUpdateInput<TRes>
 
   final TRes Function(Input$WorkItemWidgetStartAndDueDateUpdateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? dueDate = _undefined,
@@ -56565,7 +56565,7 @@ class _CopyWithImpl$Input$WorkItemWidgetWeightInput<TRes>
 
   final TRes Function(Input$WorkItemWidgetWeightInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? weight = _undefined}) =>
       _then(Input$WorkItemWidgetWeightInput._({
@@ -56836,7 +56836,7 @@ class _CopyWithImpl$Input$iterationCreateInput<TRes>
 
   final TRes Function(Input$iterationCreateInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? clientMutationId = _undefined,
@@ -64089,7 +64089,7 @@ Enum$WorkItemWidgetType fromJson$Enum$WorkItemWidgetType(String value) {
   }
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'NoteableInterface': {
     'AlertManagementAlert',
     'BoardEpic',

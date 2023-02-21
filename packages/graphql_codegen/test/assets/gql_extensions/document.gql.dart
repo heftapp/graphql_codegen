@@ -94,7 +94,7 @@ class _CopyWithImpl$Query$FetchCount<TRes>
 
   final TRes Function(Query$FetchCount) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? fetchCount = _undefined,
@@ -147,4 +147,4 @@ const documentNodeQueryFetchCount = DocumentNode(definitions: [
     ]),
   ),
 ]);
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

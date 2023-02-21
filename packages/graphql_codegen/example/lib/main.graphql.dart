@@ -83,7 +83,7 @@ class _CopyWithImpl$Variables$Query$FetchPerson<TRes>
 
   final TRes Function(Variables$Query$FetchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? id = _undefined}) => _then(Variables$Query$FetchPerson._({
         ..._instance._$data,
@@ -198,7 +198,7 @@ class _CopyWithImpl$Query$FetchPerson<TRes>
 
   final TRes Function(Query$FetchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? fetchPerson = _undefined,
@@ -746,7 +746,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
 
   final TRes Function(Query$FetchPerson$fetchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? nickname = _undefined,
@@ -1103,7 +1103,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson$parents<TRes>
 
   final TRes Function(Query$FetchPerson$fetchPerson$parents) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1257,7 +1257,7 @@ class _CopyWithImpl$Variables$Mutation$UpdatePerson<TRes>
 
   final TRes Function(Variables$Mutation$UpdatePerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? id = _undefined}) =>
       _then(Variables$Mutation$UpdatePerson._({
@@ -1373,7 +1373,7 @@ class _CopyWithImpl$Mutation$UpdatePerson<TRes>
 
   final TRes Function(Mutation$UpdatePerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? updatePerson = _undefined,
@@ -1764,7 +1764,7 @@ class _CopyWithImpl$Mutation$UpdatePerson$updatePerson<TRes>
 
   final TRes Function(Mutation$UpdatePerson$updatePerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? full_name = _undefined,
@@ -1879,7 +1879,7 @@ class _CopyWithImpl$Variables$Subscription$WatchPerson<TRes>
 
   final TRes Function(Variables$Subscription$WatchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? id = _undefined}) =>
       _then(Variables$Subscription$WatchPerson._({
@@ -1997,7 +1997,7 @@ class _CopyWithImpl$Subscription$WatchPerson<TRes>
 
   final TRes Function(Subscription$WatchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? watchPerson = _undefined,
@@ -2288,7 +2288,7 @@ class _CopyWithImpl$Subscription$WatchPerson$watchPerson<TRes>
 
   final TRes Function(Subscription$WatchPerson$watchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? full_name = _undefined,

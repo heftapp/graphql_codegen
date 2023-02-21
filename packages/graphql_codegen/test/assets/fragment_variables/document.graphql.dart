@@ -81,7 +81,7 @@ class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
 
   final TRes Function(Input$Input) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? inputField = _undefined}) => _then(Input$Input._({
         ..._instance._$data,
@@ -202,7 +202,7 @@ class _CopyWithImpl$Variables$Fragment$F1<TRes>
 
   final TRes Function(Variables$Fragment$F1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? i = _undefined,
@@ -322,7 +322,7 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
 
   final TRes Function(Fragment$F1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level1 = _undefined,
@@ -551,7 +551,7 @@ class _CopyWithImpl$Fragment$F1$level1<TRes>
 
   final TRes Function(Fragment$F1$level1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level2 = _undefined,
@@ -689,7 +689,7 @@ class _CopyWithImpl$Fragment$F1$level1$level2<TRes>
 
   final TRes Function(Fragment$F1$level1$level2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level3 = _undefined,
@@ -823,7 +823,7 @@ class _CopyWithImpl$Fragment$F1$level1$level2$level3<TRes>
 
   final TRes Function(Fragment$F1$level1$level2$level3) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level4 = _undefined,
@@ -961,7 +961,7 @@ class _CopyWithImpl$Variables$Fragment$F2<TRes>
 
   final TRes Function(Variables$Fragment$F2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? i = _undefined,
@@ -1081,7 +1081,7 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   final TRes Function(Fragment$F2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level1 = _undefined,
@@ -1246,7 +1246,7 @@ class _CopyWithImpl$Variables$Fragment$F21<TRes>
 
   final TRes Function(Variables$Fragment$F21) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? i = _undefined}) => _then(Variables$Fragment$F21._({
         ..._instance._$data,
@@ -1357,7 +1357,7 @@ class _CopyWithImpl$Fragment$F21<TRes> implements CopyWith$Fragment$F21<TRes> {
 
   final TRes Function(Fragment$F21) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level2 = _undefined,
@@ -1569,7 +1569,7 @@ class _CopyWithImpl$Fragment$F21$level2<TRes>
 
   final TRes Function(Fragment$F21$level2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level3 = _undefined,
@@ -1703,7 +1703,7 @@ class _CopyWithImpl$Fragment$F21$level2$level3<TRes>
 
   final TRes Function(Fragment$F21$level2$level3) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? level4 = _undefined,
@@ -1730,4 +1730,4 @@ class _CopyWithStubImpl$Fragment$F21$level2$level3<TRes>
       _res;
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

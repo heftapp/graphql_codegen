@@ -108,7 +108,7 @@ class _CopyWithImpl$Input$Input<TRes> implements CopyWith$Input$Input<TRes> {
 
   final TRes Function(Input$Input) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -219,7 +219,7 @@ class _CopyWithImpl$Variables$Query$Q1<TRes>
 
   final TRes Function(Variables$Query$Q1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? input = _undefined}) => _then(Variables$Query$Q1._({
         ..._instance._$data,
@@ -334,7 +334,7 @@ class _CopyWithImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
 
   final TRes Function(Query$Q1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -399,4 +399,4 @@ const documentNodeQueryQ1 = DocumentNode(definitions: [
     ]),
   ),
 ]);
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

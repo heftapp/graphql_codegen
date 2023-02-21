@@ -161,7 +161,11 @@ List<Spec> printCopyWithClasses(
               ..name = _undefined
               ..static = true
               ..modifier = FieldModifier.constant
-              ..assignment = literalMap({}).code,
+              ..assignment = literalMap(
+                {},
+                refer('dynamic'),
+                refer('dynamic'),
+              ).code,
           )
         ])
         ..methods = ListBuilder(<Method>[

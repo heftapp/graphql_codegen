@@ -105,7 +105,7 @@ class _CopyWithImpl$Fragment$EventFragment<TRes>
 
   final TRes Function(Fragment$EventFragment) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? subscription = _undefined,
@@ -322,7 +322,7 @@ class _CopyWithImpl$Fragment$EventFragment$subscription<TRes>
 
   final TRes Function(Fragment$EventFragment$subscription) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? notifyFor = _undefined,
@@ -471,7 +471,7 @@ class _CopyWithImpl$Fragment$EventFragment$$EventPublic<TRes>
 
   final TRes Function(Fragment$EventFragment$$EventPublic) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? owner = _undefined,
@@ -626,7 +626,7 @@ class _CopyWithImpl$Fragment$EventFragment$$EventPublic$subscription<TRes>
 
   final TRes Function(Fragment$EventFragment$$EventPublic$subscription) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? notifyFor = _undefined,
@@ -751,7 +751,7 @@ class _CopyWithImpl$Fragment$UserPublicFragment<TRes>
 
   final TRes Function(Fragment$UserPublicFragment) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? username = _undefined,
@@ -903,7 +903,7 @@ class _CopyWithImpl$Mutation$Bla<TRes> implements CopyWith$Mutation$Bla<TRes> {
 
   final TRes Function(Mutation$Bla) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? bla = _undefined,
@@ -1054,7 +1054,7 @@ class _CopyWithImpl$Mutation$Bla$bla<TRes>
 
   final TRes Function(Mutation$Bla$bla) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) => _then(Mutation$Bla$bla(
       $__typename: $__typename == _undefined || $__typename == null
@@ -1189,7 +1189,7 @@ class _CopyWithImpl$Mutation$Bla$bla$$EventPublic<TRes>
 
   final TRes Function(Mutation$Bla$bla$$EventPublic) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? subscription = _undefined,
@@ -1340,7 +1340,7 @@ class _CopyWithImpl$Mutation$Bla$bla$$EventPublic$subscription<TRes>
 
   final TRes Function(Mutation$Bla$bla$$EventPublic$subscription) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? notifyFor = _undefined,
@@ -1369,7 +1369,7 @@ class _CopyWithStubImpl$Mutation$Bla$bla$$EventPublic$subscription<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'EventUnion': {'EventPublic'},
   'Event': {'EventPublic'},
 };

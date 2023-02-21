@@ -72,7 +72,7 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   final TRes Function(Fragment$F) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F(
       other: other == _undefined ? _instance.other : (other as Fragment$F2?)));
@@ -195,7 +195,7 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   final TRes Function(Fragment$F2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F2(
       other: other == _undefined ? _instance.other : (other as Fragment$F3?)));
@@ -318,7 +318,7 @@ class _CopyWithImpl$Fragment$F3<TRes> implements CopyWith$Fragment$F3<TRes> {
 
   final TRes Function(Fragment$F3) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F3(
       other: other == _undefined ? _instance.other : (other as Fragment$F4?)));
@@ -436,7 +436,7 @@ class _CopyWithImpl$Fragment$F4<TRes> implements CopyWith$Fragment$F4<TRes> {
 
   final TRes Function(Fragment$F4) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F4(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -545,7 +545,7 @@ class _CopyWithImpl$Query$Fetch<TRes> implements CopyWith$Query$Fetch<TRes> {
 
   final TRes Function(Query$Fetch) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Fetch(t: t == _undefined ? _instance.t : (t as Fragment$F?)));
@@ -593,4 +593,4 @@ const documentNodeQueryFetch = DocumentNode(definitions: [
   fragmentDefinitionF3,
   fragmentDefinitionF4,
 ]);
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

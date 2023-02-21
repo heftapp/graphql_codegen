@@ -30,4 +30,4 @@ Enum$Enum fromJson$Enum$Enum(String value) {
   }
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

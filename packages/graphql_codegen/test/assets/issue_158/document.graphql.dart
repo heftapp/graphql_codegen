@@ -101,7 +101,7 @@ class _CopyWithImpl$Fragment$PersonSummary<TRes>
 
   final TRes Function(Fragment$PersonSummary) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -253,7 +253,7 @@ class _CopyWithImpl$Fragment$PersonSummary$$Person<TRes>
 
   final TRes Function(Fragment$PersonSummary$$Person) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -377,7 +377,7 @@ class _CopyWithImpl$Query$GetPerson<TRes>
 
   final TRes Function(Query$GetPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? person = _undefined,
@@ -552,7 +552,7 @@ class _CopyWithImpl$Query$GetPerson$person<TRes>
 
   final TRes Function(Query$GetPerson$person) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -579,6 +579,6 @@ class _CopyWithStubImpl$Query$GetPerson$person<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'IPerson': {'Person'}
 };

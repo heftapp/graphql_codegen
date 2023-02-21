@@ -102,7 +102,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   final TRes Function(Input$I1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? s = _undefined,
@@ -134,4 +134,4 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
   CopyWith$Input$I1<TRes> get nested => CopyWith$Input$I1.stub(_res);
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

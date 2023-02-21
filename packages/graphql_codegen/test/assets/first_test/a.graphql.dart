@@ -76,7 +76,7 @@ class _CopyWithImpl$Query$FetchName<TRes>
 
   final TRes Function(Query$FetchName) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Query$FetchName(
       name: name == _undefined ? _instance.name : (name as Fragment$F?)));

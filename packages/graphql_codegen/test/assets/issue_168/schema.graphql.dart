@@ -84,7 +84,7 @@ class _CopyWithImpl$Input$WalletGetContentInput<TRes>
 
   final TRes Function(Input$WalletGetContentInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? id = _undefined}) => _then(Input$WalletGetContentInput._({
         ..._instance._$data,
@@ -182,7 +182,7 @@ class _CopyWithImpl$Variables$Query$WalletGetContent<TRes>
 
   final TRes Function(Variables$Query$WalletGetContent) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$WalletGetContent._({
@@ -305,7 +305,7 @@ class _CopyWithImpl$Query$WalletGetContent<TRes>
 
   final TRes Function(Query$WalletGetContent) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? walletGetContent = _undefined,
@@ -637,7 +637,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent<TRes>
 
   final TRes Function(Query$WalletGetContent$walletGetContent) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? blocks = _undefined,
@@ -763,7 +763,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks<TRes>
 
   final TRes Function(Query$WalletGetContent$walletGetContent$blocks) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$WalletGetContent$walletGetContent$blocks(
@@ -968,7 +968,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -1154,7 +1154,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -1283,7 +1283,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) => _then(
       Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items(
@@ -1463,7 +1463,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
           Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -1506,7 +1506,7 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'WalletContentBlock': {'WalletContentBlockList'},
   'WalletContentItem': {'WalletContentItemContentPreview'},
 };

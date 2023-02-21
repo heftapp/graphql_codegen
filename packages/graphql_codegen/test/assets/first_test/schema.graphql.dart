@@ -1,1 +1,1 @@
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

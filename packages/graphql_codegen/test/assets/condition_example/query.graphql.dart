@@ -98,7 +98,7 @@ class _CopyWithImpl$Query$FetchShouldRender<TRes>
 
   final TRes Function(Query$FetchShouldRender) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? shouldRender = _undefined,

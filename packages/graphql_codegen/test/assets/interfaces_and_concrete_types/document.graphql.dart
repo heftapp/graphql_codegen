@@ -94,7 +94,7 @@ class _CopyWithImpl$Query$FetchI<TRes> implements CopyWith$Query$FetchI<TRes> {
 
   final TRes Function(Query$FetchI) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? i1 = _undefined,
@@ -431,7 +431,7 @@ class _CopyWithImpl$Query$FetchI$i1<TRes>
 
   final TRes Function(Query$FetchI$i1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? i2 = _undefined,
@@ -570,7 +570,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2<TRes>
 
   final TRes Function(Query$FetchI$i1$i2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -709,7 +709,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2$field<TRes>
 
   final TRes Function(Query$FetchI$i1$i2$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -832,7 +832,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2$field$$TField<TRes>
 
   final TRes Function(Query$FetchI$i1$i2$field$$TField) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -958,7 +958,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2$$T2<TRes>
 
   final TRes Function(Query$FetchI$i1$i2$$T2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -1092,7 +1092,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2$$T2$field<TRes>
 
   final TRes Function(Query$FetchI$i1$i2$$T2$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1234,7 +1234,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? i2c = _undefined,
@@ -1382,7 +1382,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2c<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2c) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -1516,7 +1516,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2c$field<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2c$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? age = _undefined,
@@ -1648,7 +1648,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -1788,7 +1788,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2$field<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1914,7 +1914,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2$field$$TField<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2$field$$TField) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -2041,7 +2041,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2$$T2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? field = _undefined,
@@ -2190,7 +2190,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2$field<TRes>
 
   final TRes Function(Query$FetchI$i1$$T1$i2$$T2$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? age = _undefined,
@@ -2220,7 +2220,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$$T2$field<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'IField': {'TField'},
   'I1': {'T1'},
   'I2': {'T2'},

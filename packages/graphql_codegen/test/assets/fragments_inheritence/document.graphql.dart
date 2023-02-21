@@ -72,7 +72,7 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   final TRes Function(Fragment$F) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F(
       other: other == _undefined
@@ -217,7 +217,7 @@ class _CopyWithImpl$Fragment$F$other<TRes>
 
   final TRes Function(Fragment$F$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F$other(
       other: other == _undefined
@@ -314,7 +314,7 @@ class _CopyWithImpl$Fragment$F$other$other<TRes>
 
   final TRes Function(Fragment$F$other$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F$other$other(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -403,7 +403,7 @@ class _CopyWithImpl$Fragment$F$other$other$$T1<TRes>
 
   final TRes Function(Fragment$F$other$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F$other$other$$T1(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -516,7 +516,7 @@ class _CopyWithImpl$Fragment$F$other$$T1<TRes>
 
   final TRes Function(Fragment$F$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? b = _undefined,
@@ -626,7 +626,7 @@ class _CopyWithImpl$Fragment$F$other$$T1$other<TRes>
 
   final TRes Function(Fragment$F$other$$T1$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F$other$$T1$other(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -715,7 +715,7 @@ class _CopyWithImpl$Fragment$F$other$$T1$other$$T1<TRes>
 
   final TRes Function(Fragment$F$other$$T1$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Fragment$F$other$$T1$other$$T1(
@@ -806,7 +806,7 @@ class _CopyWithImpl$Fragment$F$$T1<TRes>
 
   final TRes Function(Fragment$F$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F$$T1(
       other: other == _undefined
@@ -907,7 +907,7 @@ class _CopyWithImpl$Fragment$F$$T1$other<TRes>
 
   final TRes Function(Fragment$F$$T1$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F$$T1$other(
       other: other == _undefined
@@ -1007,7 +1007,7 @@ class _CopyWithImpl$Fragment$F$$T1$other$other<TRes>
 
   final TRes Function(Fragment$F$$T1$other$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F$$T1$other$other(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -1096,7 +1096,7 @@ class _CopyWithImpl$Fragment$F$$T1$other$other$$T1<TRes>
 
   final TRes Function(Fragment$F$$T1$other$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Fragment$F$$T1$other$other$$T1(
@@ -1213,7 +1213,7 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1<TRes>
 
   final TRes Function(Fragment$F$$T1$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? b = _undefined,
@@ -1323,7 +1323,7 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1$other<TRes>
 
   final TRes Function(Fragment$F$$T1$other$$T1$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Fragment$F$$T1$other$$T1$other(
@@ -1415,7 +1415,7 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1<TRes>
 
   final TRes Function(Fragment$F$$T1$other$$T1$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Fragment$F$$T1$other$$T1$other$$T1(
@@ -1503,7 +1503,7 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   final TRes Function(Fragment$F2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F2(
       other: other == _undefined
@@ -1629,7 +1629,7 @@ class _CopyWithImpl$Fragment$F2$other<TRes>
 
   final TRes Function(Fragment$F2$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F2$other(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -1715,7 +1715,7 @@ class _CopyWithImpl$Fragment$F2$other$$T1<TRes>
 
   final TRes Function(Fragment$F2$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F2$other$$T1(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -1806,7 +1806,7 @@ class _CopyWithImpl$Fragment$F2$$T1<TRes>
 
   final TRes Function(Fragment$F2$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? other = _undefined}) => _then(Fragment$F2$$T1(
       other: other == _undefined
@@ -1902,7 +1902,7 @@ class _CopyWithImpl$Fragment$F2$$T1$other<TRes>
 
   final TRes Function(Fragment$F2$$T1$other) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F2$$T1$other(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -1990,7 +1990,7 @@ class _CopyWithImpl$Fragment$F2$$T1$other$$T1<TRes>
 
   final TRes Function(Fragment$F2$$T1$other$$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F2$$T1$other$$T1(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -2077,7 +2077,7 @@ class _CopyWithImpl$Query$Fetch<TRes> implements CopyWith$Query$Fetch<TRes> {
 
   final TRes Function(Query$Fetch) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Fetch(t: t == _undefined ? _instance.t : (t as Fragment$F?)));
@@ -2123,6 +2123,6 @@ const documentNodeQueryFetch = DocumentNode(definitions: [
   fragmentDefinitionF,
   fragmentDefinitionF2,
 ]);
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'Type': {'T1'}
 };

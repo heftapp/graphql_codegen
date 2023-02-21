@@ -259,7 +259,7 @@ class _CopyWithImpl$Fragment$PersonSummary<TRes>
 
   final TRes Function(Fragment$PersonSummary) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? nickname = _undefined,
@@ -561,7 +561,7 @@ class _CopyWithImpl$Fragment$PersonParent<TRes>
 
   final TRes Function(Fragment$PersonParent) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,

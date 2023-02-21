@@ -72,7 +72,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? u = _undefined}) =>
       _then(Query$Q(u: u == _undefined ? _instance.u : (u as Query$Q$u?)));
@@ -230,7 +230,7 @@ class _CopyWithImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
 
   final TRes Function(Query$Q$u) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) => _then(Query$Q$u(
       $__typename: $__typename == _undefined || $__typename == null
@@ -339,7 +339,7 @@ class _CopyWithImpl$Query$Q$u$$TA<TRes>
 
   final TRes Function(Query$Q$u$$TA) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -459,7 +459,7 @@ class _CopyWithImpl$Query$Q$u$$TB<TRes>
 
   final TRes Function(Query$Q$u$$TB) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? velocity = _undefined,
@@ -487,7 +487,7 @@ class _CopyWithStubImpl$Query$Q$u$$TB<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'U': {
     'TA',
     'TB',

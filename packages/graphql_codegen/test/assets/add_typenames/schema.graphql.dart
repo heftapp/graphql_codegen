@@ -94,7 +94,7 @@ class _CopyWithImpl$Fragment$FReport<TRes>
 
   final TRes Function(Fragment$FReport) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -388,7 +388,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? docsWithTypename = _undefined,
@@ -686,7 +686,7 @@ class _CopyWithImpl$Query$Q$docsWithTypename<TRes>
 
   final TRes Function(Query$Q$docsWithTypename) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithTypename(
@@ -780,7 +780,7 @@ class _CopyWithImpl$Query$Q$docsWithTypename$$Contract<TRes>
 
   final TRes Function(Query$Q$docsWithTypename$$Contract) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithTypename$$Contract(
@@ -872,7 +872,7 @@ class _CopyWithImpl$Query$Q$docsWithTypename$$Report<TRes>
 
   final TRes Function(Query$Q$docsWithTypename$$Report) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithTypename$$Report(
@@ -995,7 +995,7 @@ class _CopyWithImpl$Query$Q$docsWihtoutTypename<TRes>
 
   final TRes Function(Query$Q$docsWihtoutTypename) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -1121,7 +1121,7 @@ class _CopyWithImpl$Query$Q$docsWihtoutTypename$$Contract<TRes>
 
   final TRes Function(Query$Q$docsWihtoutTypename$$Contract) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -1247,7 +1247,7 @@ class _CopyWithImpl$Query$Q$docsWihtoutTypename$$Report<TRes>
 
   final TRes Function(Query$Q$docsWihtoutTypename$$Report) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -1348,7 +1348,7 @@ class _CopyWithImpl$Query$Q$docsWithAliasedTypename<TRes>
 
   final TRes Function(Query$Q$docsWithAliasedTypename) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithAliasedTypename(
@@ -1443,7 +1443,7 @@ class _CopyWithImpl$Query$Q$docsWithAliasedTypename$$Contract<TRes>
 
   final TRes Function(Query$Q$docsWithAliasedTypename$$Contract) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithAliasedTypename$$Contract(
@@ -1538,7 +1538,7 @@ class _CopyWithImpl$Query$Q$docsWithAliasedTypename$$Report<TRes>
 
   final TRes Function(Query$Q$docsWithAliasedTypename$$Report) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithAliasedTypename$$Report(
@@ -1638,7 +1638,7 @@ class _CopyWithImpl$Query$Q$docsWithFragment<TRes>
 
   final TRes Function(Query$Q$docsWithFragment) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$Q$docsWithFragment(
@@ -1754,7 +1754,7 @@ class _CopyWithImpl$Query$Q$docsWithFragment$$Contract<TRes>
 
   final TRes Function(Query$Q$docsWithFragment$$Contract) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -1878,7 +1878,7 @@ class _CopyWithImpl$Query$Q$docsWithFragment$$Report<TRes>
 
   final TRes Function(Query$Q$docsWithFragment$$Report) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? title = _undefined,
@@ -1905,7 +1905,7 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment$$Report<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'Document': {
     'Contract',
     'Report',
