@@ -263,16 +263,18 @@ class Schema<TKey extends Object> {
   }
 
   TypeDefinitionNode? lookupOperationType(OperationType operationType) {
-    final opNode = definitions
-        .whereType<SchemaDefinitionNode>()
-        .map<SchemaDefinitionNode?>((e) => e)
-        .firstWhere((element) => element != null, orElse: () => null)
-        ?.operationTypes
-        .map<OperationTypeDefinitionNode?>((e) => e)
-        .firstWhere(
-          (element) => element != null && element.operation == operationType,
-          orElse: () => null,
-        );
+    final opNode = definitions.expand<OperationTypeDefinitionNode?>((e) {
+      if (e is SchemaDefinitionNode) {
+        return e.operationTypes;
+      }
+      if (e is SchemaExtensionNode) {
+        return e.operationTypes;
+      }
+      return [];
+    }).firstWhere(
+      (element) => element != null && element.operation == operationType,
+      orElse: () => null,
+    );
 
     final typeName =
         opNode?.type.name ?? _operationTypeToDefaultClass(operationType);
@@ -298,13 +300,37 @@ class Schema<TKey extends Object> {
     return lookupFieldDefinitionNode(onType, node)?.type;
   }
 
+  List<FieldDefinitionNode> _listObjectTypeDefinitionFields(
+    ObjectTypeDefinitionNode node,
+  ) {
+    return [
+      ...node.fields,
+      ...definitions
+          .whereType<ObjectTypeExtensionNode>()
+          .expand((element) => element.fields)
+    ];
+  }
+
+  List<FieldDefinitionNode> _listInterfaceTypeDefinitionFields(
+    InterfaceTypeDefinitionNode node,
+  ) {
+    return [
+      ...node.fields,
+      ...definitions
+          .whereType<ObjectTypeExtensionNode>()
+          .expand((element) => element.fields)
+    ];
+  }
+
   FieldDefinitionNode? lookupFieldDefinitionNode(
-      TypeDefinitionNode onType, NameNode field) {
+    TypeDefinitionNode onType,
+    NameNode field,
+  ) {
     List<FieldDefinitionNode> fields;
     if (onType is ObjectTypeDefinitionNode) {
-      fields = onType.fields;
+      fields = _listObjectTypeDefinitionFields(onType);
     } else if (onType is InterfaceTypeDefinitionNode) {
-      fields = onType.fields;
+      fields = _listInterfaceTypeDefinitionFields(onType);
     } else if (onType is UnionTypeDefinitionNode) {
       fields = [];
     } else {
@@ -346,6 +372,16 @@ class Schema<TKey extends Object> {
       return type;
     }
     throw StateError("Invalid node type");
+  }
+
+  List<EnumValueDefinitionNode> lookupEnumValueDefinitions(
+      EnumTypeDefinitionNode node) {
+    return [
+      ...node.values,
+      ...definitions
+          .whereType<EnumTypeExtensionNode>()
+          .expand((element) => element.values)
+    ];
   }
 }
 
@@ -832,6 +868,9 @@ class ContextEnum<TKey extends Object>
   NameNode get currentTypeName => currentType.name;
 
   final bool isDefinitionContext = true;
+
+  List<EnumValueDefinitionNode> get values =>
+      schema.lookupEnumValueDefinitions(currentType);
 }
 
 class ContextInput<TKey extends Object>
