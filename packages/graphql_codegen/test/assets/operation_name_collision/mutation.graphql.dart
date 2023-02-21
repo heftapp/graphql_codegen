@@ -80,7 +80,7 @@ class _CopyWithImpl$Mutation$Operation<TRes>
 
   final TRes Function(Mutation$Operation) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? setName = _undefined}) => _then(Mutation$Operation(
       setName: setName == _undefined
@@ -403,7 +403,7 @@ class _CopyWithImpl$Mutation$Operation$setName<TRes>
 
   final TRes Function(Mutation$Operation$setName) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Mutation$Operation$setName(
       name: name == _undefined ? _instance.name : (name as String?)));

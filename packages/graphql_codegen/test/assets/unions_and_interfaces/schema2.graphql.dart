@@ -1,4 +1,4 @@
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'UA': {
     'T1',
     'T2',

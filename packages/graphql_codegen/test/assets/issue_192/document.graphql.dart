@@ -94,7 +94,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? book = _undefined,
@@ -288,7 +288,7 @@ class _CopyWithImpl$Query$Q$book<TRes> implements CopyWith$Query$Q$book<TRes> {
 
   final TRes Function(Query$Q$book) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? author = _undefined,
@@ -425,7 +425,7 @@ class _CopyWithImpl$Query$Q$book$$TextBook<TRes>
 
   final TRes Function(Query$Q$book$$TextBook) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? courses = _undefined,
@@ -455,6 +455,6 @@ class _CopyWithStubImpl$Query$Q$book$$TextBook<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'Book': {'TextBook'}
 };

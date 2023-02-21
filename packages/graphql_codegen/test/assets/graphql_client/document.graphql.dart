@@ -73,7 +73,7 @@ class _CopyWithImpl$Fragment$NoVariables<TRes>
 
   final TRes Function(Fragment$NoVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
       Fragment$NoVariables(s: s == _undefined ? _instance.s : (s as String?)));
@@ -239,7 +239,7 @@ class _CopyWithImpl$Variables$Fragment$WithOptionalVariables<TRes>
 
   final TRes Function(Variables$Fragment$WithOptionalVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Fragment$WithOptionalVariables._({
@@ -330,7 +330,7 @@ class _CopyWithImpl$Fragment$WithOptionalVariables<TRes>
 
   final TRes Function(Fragment$WithOptionalVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Fragment$WithOptionalVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
@@ -491,7 +491,7 @@ class _CopyWithImpl$Variables$Fragment$WithVariables<TRes>
 
   final TRes Function(Variables$Fragment$WithVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Fragment$WithVariables._({
@@ -581,7 +581,7 @@ class _CopyWithImpl$Fragment$WithVariables<TRes>
 
   final TRes Function(Fragment$WithVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s2 = _undefined}) => _then(Fragment$WithVariables(
       s2: s2 == _undefined ? _instance.s2 : (s2 as String?)));
@@ -746,7 +746,7 @@ class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
 
   final TRes Function(Variables$Query$FetchSOptional) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSOptional._({
@@ -835,7 +835,7 @@ class _CopyWithImpl$Query$FetchSOptional<TRes>
 
   final TRes Function(Query$FetchSOptional) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSOptional(s: s == _undefined ? _instance.s : (s as String?)));
@@ -1066,7 +1066,7 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
 
   final TRes Function(Variables$Query$FetchSRequired) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSRequired._({
@@ -1155,7 +1155,7 @@ class _CopyWithImpl$Query$FetchSRequired<TRes>
 
   final TRes Function(Query$FetchSRequired) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)));
@@ -1381,7 +1381,7 @@ class _CopyWithImpl$Query$FetchSNoVariables<TRes>
 
   final TRes Function(Query$FetchSNoVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Query$FetchSNoVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
@@ -1603,7 +1603,7 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
 
   final TRes Function(Variables$Mutation$UpdateSOptional) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Mutation$UpdateSOptional._({
@@ -1694,7 +1694,7 @@ class _CopyWithImpl$Mutation$UpdateSOptional<TRes>
 
   final TRes Function(Mutation$UpdateSOptional) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSOptional(
       s: s == _undefined ? _instance.s : (s as String?)));
@@ -1916,7 +1916,7 @@ class _CopyWithImpl$Variables$Mutation$UpdateSRequired<TRes>
 
   final TRes Function(Variables$Mutation$UpdateSRequired) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Mutation$UpdateSRequired._({
@@ -2007,7 +2007,7 @@ class _CopyWithImpl$Mutation$UpdateSRequired<TRes>
 
   final TRes Function(Mutation$UpdateSRequired) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSRequired(
       s: s == _undefined ? _instance.s : (s as String?)));
@@ -2223,7 +2223,7 @@ class _CopyWithImpl$Mutation$UpdateSNoVariables<TRes>
 
   final TRes Function(Mutation$UpdateSNoVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSNoVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
@@ -2357,4 +2357,4 @@ extension ClientExtension$Mutation$UpdateSNoVariables on graphql.GraphQLClient {
       this.watchMutation(options ?? WatchOptions$Mutation$UpdateSNoVariables());
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

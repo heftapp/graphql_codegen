@@ -99,7 +99,7 @@ class _CopyWithImpl$Query$FetchPerson<TRes>
 
   final TRes Function(Query$FetchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? fetchPerson = _undefined,
@@ -319,7 +319,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
 
   final TRes Function(Query$FetchPerson$fetchPerson) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? age = _undefined,

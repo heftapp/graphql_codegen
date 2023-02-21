@@ -102,7 +102,7 @@ class _CopyWithImpl$Subscription$NoArgs<TRes>
 
   final TRes Function(Subscription$NoArgs) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? listenForChange = _undefined,
@@ -368,7 +368,7 @@ class _CopyWithImpl$Subscription$NoArgs$listenForChange<TRes>
 
   final TRes Function(Subscription$NoArgs$listenForChange) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -476,7 +476,7 @@ class _CopyWithImpl$Variables$Subscription$RequiredArg<TRes>
 
   final TRes Function(Variables$Subscription$RequiredArg) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Subscription$RequiredArg._({
@@ -594,7 +594,7 @@ class _CopyWithImpl$Subscription$RequiredArg<TRes>
 
   final TRes Function(Subscription$RequiredArg) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? listenForChange = _undefined,
@@ -886,7 +886,7 @@ class _CopyWithImpl$Subscription$RequiredArg$listenForChange<TRes>
 
   final TRes Function(Subscription$RequiredArg$listenForChange) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1001,7 +1001,7 @@ class _CopyWithImpl$Variables$Subscription$OptionalArg<TRes>
 
   final TRes Function(Variables$Subscription$OptionalArg) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Subscription$OptionalArg._({
@@ -1119,7 +1119,7 @@ class _CopyWithImpl$Subscription$OptionalArg<TRes>
 
   final TRes Function(Subscription$OptionalArg) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? listenForChange = _undefined,
@@ -1411,7 +1411,7 @@ class _CopyWithImpl$Subscription$OptionalArg$listenForChange<TRes>
 
   final TRes Function(Subscription$OptionalArg$listenForChange) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1440,4 +1440,4 @@ class _CopyWithStubImpl$Subscription$OptionalArg$listenForChange<TRes>
       _res;
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

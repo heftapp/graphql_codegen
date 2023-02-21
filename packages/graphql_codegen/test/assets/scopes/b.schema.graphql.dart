@@ -22,4 +22,4 @@ Enum$Status fromJson$Enum$Status(String value) {
   }
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

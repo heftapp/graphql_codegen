@@ -109,7 +109,7 @@ class _CopyWithImpl$Fragment$FragmentA<TRes>
 
   final TRes Function(Fragment$FragmentA) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -273,7 +273,7 @@ class _CopyWithImpl$Fragment$FragmentI<TRes>
 
   final TRes Function(Fragment$FragmentI) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -425,7 +425,7 @@ class _CopyWithImpl$Fragment$FragmentI$$FieldA<TRes>
 
   final TRes Function(Fragment$FragmentI$$FieldA) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -549,7 +549,7 @@ class _CopyWithImpl$Query$FetchStuff<TRes>
 
   final TRes Function(Query$FetchStuff) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -781,7 +781,7 @@ class _CopyWithImpl$Query$FetchStuff$field<TRes>
 
   final TRes Function(Query$FetchStuff$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -923,7 +923,7 @@ class _CopyWithImpl$Query$FetchStuff$field$$FieldA<TRes>
 
   final TRes Function(Query$FetchStuff$field$$FieldA) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -953,6 +953,6 @@ class _CopyWithStubImpl$Query$FetchStuff$field$$FieldA<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'IField': {'FieldA'}
 };

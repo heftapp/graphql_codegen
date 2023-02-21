@@ -162,7 +162,7 @@ class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
 
   final TRes Function(Query$Foobar) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? ts = _undefined,
@@ -415,7 +415,7 @@ class _CopyWithImpl$Query$Foobar$ts<TRes>
 
   final TRes Function(Query$Foobar$ts) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? t = _undefined,
@@ -547,7 +547,7 @@ class _CopyWithImpl$Query$Foobar$ts$t<TRes>
 
   final TRes Function(Query$Foobar$ts$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -668,7 +668,7 @@ class _CopyWithImpl$Query$Foobar$tss<TRes>
 
   final TRes Function(Query$Foobar$tss) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? nameEnforced = _undefined,
@@ -697,4 +697,4 @@ class _CopyWithStubImpl$Query$Foobar$tss<TRes>
       _res;
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

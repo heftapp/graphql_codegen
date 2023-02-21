@@ -75,7 +75,7 @@ class _CopyWithImpl$Mutation$UpdateSNo<TRes>
 
   final TRes Function(Mutation$UpdateSNo) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
       Mutation$UpdateSNo(s: s == _undefined ? _instance.s : (s as String?)));
@@ -306,4 +306,4 @@ class Mutation$UpdateSNo$Widget
         );
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

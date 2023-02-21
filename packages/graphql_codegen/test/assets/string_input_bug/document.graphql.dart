@@ -110,7 +110,7 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   final TRes Function(Input$I) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $String = _undefined,

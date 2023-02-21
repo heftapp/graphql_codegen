@@ -80,7 +80,7 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
 
   final TRes Function(Variables$Query$FetchSRequired) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSRequired._({
@@ -169,7 +169,7 @@ class _CopyWithImpl$Query$FetchSRequired<TRes>
 
   final TRes Function(Query$FetchSRequired) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)));
@@ -343,4 +343,4 @@ class Query$FetchSRequired$Widget
         );
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

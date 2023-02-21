@@ -77,7 +77,7 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   final TRes Function(Input$I) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? title = _undefined}) => _then(Input$I._({
         ..._instance._$data,
@@ -172,7 +172,7 @@ class _CopyWithImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
 
   final TRes Function(Input$I_) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? value = _undefined}) => _then(Input$I_._({
         ..._instance._$data,
@@ -268,7 +268,7 @@ class _CopyWithImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
 
   final TRes Function(Input$i) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? enabled = _undefined}) => _then(Input$i._({
         ..._instance._$data,

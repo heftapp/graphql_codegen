@@ -1,3 +1,7 @@
+# 0.12.0-beta.8
+
+* Fix bug in generating wrong json methods.
+
 # 0.12.0-beta.7
 
 * Fix absolute output dir paths on windows.

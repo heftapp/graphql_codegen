@@ -87,7 +87,7 @@ class _CopyWithImpl$Variables$Query$FetchSOptional<TRes>
 
   final TRes Function(Variables$Query$FetchSOptional) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) =>
       _then(Variables$Query$FetchSOptional._({
@@ -176,7 +176,7 @@ class _CopyWithImpl$Query$FetchSOptional<TRes>
 
   final TRes Function(Query$FetchSOptional) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
       Query$FetchSOptional(s: s == _undefined ? _instance.s : (s as String?)));
@@ -351,4 +351,4 @@ class Query$FetchSOptional$Widget
         );
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

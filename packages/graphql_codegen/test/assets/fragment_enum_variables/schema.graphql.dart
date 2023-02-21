@@ -79,7 +79,7 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   final TRes Function(Input$I) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Input$I._({
         ..._instance._$data,
@@ -195,7 +195,7 @@ class _CopyWithImpl$Variables$Fragment$F1<TRes>
 
   final TRes Function(Variables$Fragment$F1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F1._({
         ..._instance._$data,
@@ -319,7 +319,7 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
 
   final TRes Function(Fragment$F1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? n2 = _undefined,
@@ -464,7 +464,7 @@ class _CopyWithImpl$Variables$Fragment$F2<TRes>
 
   final TRes Function(Variables$Fragment$F2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F2._({
         ..._instance._$data,
@@ -573,7 +573,7 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   final TRes Function(Fragment$F2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? n2 = _undefined,
@@ -711,7 +711,7 @@ class _CopyWithImpl$Variables$Fragment$F3<TRes>
 
   final TRes Function(Variables$Fragment$F3) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? i = _undefined}) => _then(Variables$Fragment$F3._({
         ..._instance._$data,
@@ -824,7 +824,7 @@ class _CopyWithImpl$Fragment$F3<TRes> implements CopyWith$Fragment$F3<TRes> {
 
   final TRes Function(Fragment$F3) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? test = _undefined,
@@ -961,7 +961,7 @@ class _CopyWithImpl$Variables$Fragment$F4<TRes>
 
   final TRes Function(Variables$Fragment$F4) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? locale = _undefined}) => _then(Variables$Fragment$F4._({
         ..._instance._$data,
@@ -1085,7 +1085,7 @@ class _CopyWithImpl$Fragment$F4<TRes> implements CopyWith$Fragment$F4<TRes> {
 
   final TRes Function(Fragment$F4) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? n1 = _undefined,

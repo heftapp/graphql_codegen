@@ -78,7 +78,7 @@ class _CopyWithImpl$Variables$Fragment$NameNode<TRes>
 
   final TRes Function(Variables$Fragment$NameNode) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? setting = _undefined}) =>
       _then(Variables$Fragment$NameNode._({
@@ -191,7 +191,7 @@ class _CopyWithImpl$Fragment$NameNode<TRes>
 
   final TRes Function(Fragment$NameNode) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -366,7 +366,7 @@ class _CopyWithImpl$Variables$Query$Q<TRes>
 
   final TRes Function(Variables$Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? setting = _undefined}) => _then(Variables$Query$Q._({
         ..._instance._$data,
@@ -478,7 +478,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? node = _undefined,
@@ -660,4 +660,4 @@ extension ClientExtension$Query$Q on graphql.GraphQLClient {
   }
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

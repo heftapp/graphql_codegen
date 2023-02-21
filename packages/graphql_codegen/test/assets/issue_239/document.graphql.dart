@@ -94,7 +94,7 @@ class _CopyWithImpl$Fragment$HotelBooking<TRes>
 
   final TRes Function(Fragment$HotelBooking) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -263,7 +263,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? booking = _undefined,
@@ -448,7 +448,7 @@ class _CopyWithImpl$Query$Q$booking<TRes>
 
   final TRes Function(Query$Q$booking) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) => _then(Query$Q$booking(
       $__typename: $__typename == _undefined || $__typename == null
@@ -562,7 +562,7 @@ class _CopyWithImpl$Query$Q$booking$$HotelBooking<TRes>
 
   final TRes Function(Query$Q$booking$$HotelBooking) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -589,6 +589,6 @@ class _CopyWithStubImpl$Query$Q$booking$$HotelBooking<TRes>
       _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'Booking': {'HotelBooking'}
 };

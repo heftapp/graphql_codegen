@@ -126,7 +126,7 @@ class _CopyWithImpl___Query___Q<TRes> implements CopyWith___Query___Q<TRes> {
 
   final TRes Function(Query___Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? status = _undefined,
@@ -179,4 +179,4 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

@@ -103,7 +103,7 @@ class _CopyWithImpl$Fragment$Condition<TRes>
 
   final TRes Function(Fragment$Condition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -257,7 +257,7 @@ class _CopyWithImpl$Fragment$Condition$$AndCondition<TRes>
 
   final TRes Function(Fragment$Condition$$AndCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -383,7 +383,7 @@ class _CopyWithImpl$Fragment$Condition$$TimeCondition<TRes>
 
   final TRes Function(Fragment$Condition$$TimeCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -540,7 +540,7 @@ class _CopyWithImpl$Fragment$AndCondition<TRes>
 
   final TRes Function(Fragment$AndCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? left = _undefined,
@@ -766,7 +766,7 @@ class _CopyWithImpl$Fragment$CompositeCondition<TRes>
 
   final TRes Function(Fragment$CompositeCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -969,7 +969,7 @@ class _CopyWithImpl$Fragment$CompositeCondition$$AndCondition<TRes>
 
   final TRes Function(Fragment$CompositeCondition$$AndCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? left = _undefined,
@@ -1140,7 +1140,7 @@ class _CopyWithImpl$Fragment$CompositeCondition$$TimeCondition<TRes>
 
   final TRes Function(Fragment$CompositeCondition$$TimeCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1279,7 +1279,7 @@ class _CopyWithImpl$Fragment$NonCompositeCondition<TRes>
 
   final TRes Function(Fragment$NonCompositeCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1441,7 +1441,7 @@ class _CopyWithImpl$Fragment$NonCompositeCondition$$AndCondition<TRes>
 
   final TRes Function(Fragment$NonCompositeCondition$$AndCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1588,7 +1588,7 @@ class _CopyWithImpl$Fragment$NonCompositeCondition$$TimeCondition<TRes>
 
   final TRes Function(Fragment$NonCompositeCondition$$TimeCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,
@@ -1732,7 +1732,7 @@ class _CopyWithImpl$Fragment$TimeCondition<TRes>
 
   final TRes Function(Fragment$TimeCondition) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? name = _undefined,

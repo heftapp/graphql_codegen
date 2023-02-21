@@ -94,7 +94,7 @@ class _CopyWithImpl$Fragment$FragmentA<TRes>
 
   final TRes Function(Fragment$FragmentA) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? s = _undefined,
@@ -219,7 +219,7 @@ class _CopyWithImpl$Fragment$FragmentB<TRes>
 
   final TRes Function(Fragment$FragmentB) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? i = _undefined}) =>
       _then(Fragment$FragmentB(i: i == _undefined ? _instance.i : (i as int?)));
@@ -334,7 +334,7 @@ class _CopyWithImpl$Query$FetchImplementations<TRes>
 
   final TRes Function(Query$FetchImplementations) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $interface = _undefined}) =>
       _then(Query$FetchImplementations(
@@ -580,7 +580,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface<TRes>
 
   final TRes Function(Query$FetchImplementations$interface) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? typename = _undefined,
@@ -706,7 +706,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self<TRes>
 
   final TRes Function(Query$FetchImplementations$interface$self) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
       _then(Query$FetchImplementations$interface$self(
@@ -847,7 +847,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationA<
   final TRes Function(
       Query$FetchImplementations$interface$self$$ImplementationA) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -989,7 +989,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationB<
   final TRes Function(
       Query$FetchImplementations$interface$self$$ImplementationB) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -1172,7 +1172,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA<TRes>
   final TRes Function(Query$FetchImplementations$interface$$ImplementationA)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? b = _undefined,
@@ -1361,7 +1361,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB<TRes>
   final TRes Function(Query$FetchImplementations$interface$$ImplementationB)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? i = _undefined,
@@ -1533,7 +1533,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA$self<
   final TRes Function(
       Query$FetchImplementations$interface$$ImplementationA$self) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -1675,7 +1675,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB$self<
   final TRes Function(
       Query$FetchImplementations$interface$$ImplementationB$self) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,

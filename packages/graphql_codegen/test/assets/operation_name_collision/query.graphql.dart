@@ -74,7 +74,7 @@ class _CopyWithImpl$Query$Operation<TRes>
 
   final TRes Function(Query$Operation) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Query$Operation(
       name: name == _undefined ? _instance.name : (name as String?)));

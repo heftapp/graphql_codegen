@@ -75,7 +75,7 @@ class _CopyWithImpl$Query$FetchSNoVariables<TRes>
 
   final TRes Function(Query$FetchSNoVariables) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(Query$FetchSNoVariables(
       s: s == _undefined ? _instance.s : (s as String?)));
@@ -233,4 +233,4 @@ class Query$FetchSNoVariables$Widget
         );
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

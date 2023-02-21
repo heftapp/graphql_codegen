@@ -77,7 +77,7 @@ class _CopyWithImpl$Variables$Query$HiBob<TRes>
 
   final TRes Function(Variables$Query$HiBob) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? i = _undefined}) => _then(Variables$Query$HiBob._({
         ..._instance._$data,
@@ -166,7 +166,7 @@ class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
 
   final TRes Function(Query$HiBob) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? field = _undefined}) => _then(Query$HiBob(
       field: field == _undefined
@@ -307,7 +307,7 @@ class _CopyWithImpl$Query$HiBob$field<TRes>
 
   final TRes Function(Query$HiBob$field) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? value = _undefined}) => _then(Query$HiBob$field(
       value: value == _undefined || value == null

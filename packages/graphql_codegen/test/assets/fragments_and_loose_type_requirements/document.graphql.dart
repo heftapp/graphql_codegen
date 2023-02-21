@@ -97,7 +97,7 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   final TRes Function(Fragment$F) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -295,7 +295,7 @@ class _CopyWithImpl$Fragment$F$$T<TRes>
 
   final TRes Function(Fragment$F$$T) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -403,7 +403,7 @@ class _CopyWithImpl$Fragment$F$$T$t<TRes>
 
   final TRes Function(Fragment$F$$T$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F$$T$t(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -490,7 +490,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q(t: t == _undefined ? _instance.t : (t as Query$Q$t?)));
@@ -651,7 +651,7 @@ class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
 
   final TRes Function(Query$Q$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? $__typename = _undefined,
@@ -755,7 +755,7 @@ class _CopyWithImpl$Query$Q$t$t<TRes> implements CopyWith$Query$Q$t$t<TRes> {
 
   final TRes Function(Query$Q$t$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Query$Q$t$t(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -770,6 +770,6 @@ class _CopyWithStubImpl$Query$Q$t$t<TRes>
   call({String? name}) => _res;
 }
 
-const possibleTypesMap = {
+const possibleTypesMap = <String, Set<String>>{
   'I': {'T'}
 };

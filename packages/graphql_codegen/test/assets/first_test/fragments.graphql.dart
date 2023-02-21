@@ -68,7 +68,7 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   final TRes Function(Fragment$F) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$F(
       name: name == _undefined || name == null

@@ -72,7 +72,7 @@ class _CopyWithImpl$Fragment$T1<TRes> implements CopyWith$Fragment$T1<TRes> {
 
   final TRes Function(Fragment$T1) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? t = _undefined}) => _then(
       Fragment$T1(t: t == _undefined ? _instance.t : (t as Fragment$T1$t?)));
@@ -194,7 +194,7 @@ class _CopyWithImpl$Fragment$T1$t<TRes>
 
   final TRes Function(Fragment$T1$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$T1$t(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -303,7 +303,7 @@ class _CopyWithImpl$Fragment$T2<TRes> implements CopyWith$Fragment$T2<TRes> {
 
   final TRes Function(Fragment$T2) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? t = _undefined,
@@ -442,7 +442,7 @@ class _CopyWithImpl$Fragment$T2$t<TRes>
 
   final TRes Function(Fragment$T2$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$T2$t(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -551,7 +551,7 @@ class _CopyWithImpl$Fragment$TC<TRes> implements CopyWith$Fragment$TC<TRes> {
 
   final TRes Function(Fragment$TC) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? t = _undefined,
@@ -678,7 +678,7 @@ class _CopyWithImpl$Fragment$TC$t<TRes>
 
   final TRes Function(Fragment$TC$t) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(Fragment$TC$t(
       name: name == _undefined ? _instance.name : (name as String?)));
@@ -765,7 +765,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   final TRes Function(Query$Q) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q(t: t == _undefined ? _instance.t : (t as Fragment$TC?)));
@@ -811,4 +811,4 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionT1,
   fragmentDefinitionT2,
 ]);
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};
