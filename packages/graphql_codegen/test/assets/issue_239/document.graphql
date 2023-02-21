@@ -1,0 +1,24 @@
+type HotelBooking {
+    name: String
+}
+
+union Booking = HotelBooking
+
+type Query {
+    booking: Booking
+    hotelBooking: HotelBooking
+}
+
+
+fragment HotelBooking on HotelBooking {
+    name
+}
+
+query Q {
+    booking {
+        ...HotelBooking
+    }
+    hotelBooking {
+        ...HotelBooking
+    }
+}

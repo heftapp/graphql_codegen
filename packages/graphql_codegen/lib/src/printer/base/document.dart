@@ -40,7 +40,7 @@ Constructor _printFromJson(
     final cases = possibleTypes.map(
       (t) => Code("""
         case "${t.currentType.name.value}": 
-            return ${context.namePrinter.printClassName((t.replacementContext ?? t).path)}.fromJson(json);
+            return ${context.namePrinter.printClassName(t.path)}.fromJson(json);
         """),
     );
     body = [

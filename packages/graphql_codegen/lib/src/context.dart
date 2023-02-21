@@ -500,7 +500,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   }
 
   Context<TKey, TypeDefinitionNode>? get extendsContext {
-    return (extendsContextOperation ?? extendsContextFragment)?.resolvedContext;
+    return extendsContextOperation ?? extendsContextFragment;
   }
 
   void _addContext(Context<TKey, TypeDefinitionNode> c) {
