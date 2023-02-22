@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Fragment$F {
   Fragment$F({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Fragment$F.fromJson(Map<String, dynamic> json) {

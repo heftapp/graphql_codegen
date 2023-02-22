@@ -162,7 +162,7 @@ class Query$Q {
     this.string,
     this.$int,
     this.i,
-    required this.$__typename,
+    this.$__typename = 'Q',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
@@ -492,7 +492,7 @@ class _CopyWithStubImpl$Query$Q$i<TRes> implements CopyWith$Query$Q$i<TRes> {
 class Mutation$M {
   Mutation$M({
     this.string,
-    required this.$__typename,
+    this.$__typename = 'M',
   });
 
   factory Mutation$M.fromJson(Map<String, dynamic> json) {

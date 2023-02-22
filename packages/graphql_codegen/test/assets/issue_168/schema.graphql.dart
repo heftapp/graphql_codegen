@@ -211,7 +211,7 @@ class _CopyWithStubImpl$Variables$Query$WalletGetContent<TRes>
 class Query$WalletGetContent {
   Query$WalletGetContent({
     required this.walletGetContent,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$WalletGetContent.fromJson(Map<String, dynamic> json) {
@@ -522,7 +522,7 @@ const documentNodeQueryWalletGetContent = DocumentNode(definitions: [
 class Query$WalletGetContent$walletGetContent {
   Query$WalletGetContent$walletGetContent({
     this.blocks,
-    required this.$__typename,
+    this.$__typename = 'WalletGetContentPayload',
   });
 
   factory Query$WalletGetContent$walletGetContent.fromJson(
@@ -788,7 +788,7 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     required this.blockType,
     this.caption,
     this.items,
-    required this.$__typename,
+    this.$__typename = 'WalletContentBlockList',
   });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList.fromJson(
@@ -1046,7 +1046,7 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
 class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType {
   Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType({
     required this.id,
-    required this.$__typename,
+    this.$__typename = 'WalletContentBlockType',
   });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType.fromJson(
@@ -1313,7 +1313,7 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     this.caption,
     this.imageURL,
     this.link,
-    required this.$__typename,
+    this.$__typename = 'WalletContentItemContentPreview',
   });
 
   factory Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview.fromJson(

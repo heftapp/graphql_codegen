@@ -227,7 +227,7 @@ const documentNodeFragmentEventFragment = DocumentNode(definitions: [
 class Fragment$EventFragment$subscription {
   Fragment$EventFragment$subscription({
     required this.notifyFor,
-    required this.$__typename,
+    this.$__typename = 'EventSubscription',
   });
 
   factory Fragment$EventFragment$subscription.fromJson(
@@ -354,7 +354,7 @@ class _CopyWithStubImpl$Fragment$EventFragment$subscription<TRes>
 class Fragment$EventFragment$$EventPublic implements Fragment$EventFragment {
   Fragment$EventFragment$$EventPublic({
     required this.owner,
-    required this.$__typename,
+    this.$__typename = 'EventPublic',
     this.subscription,
   });
 
@@ -530,7 +530,7 @@ class Fragment$EventFragment$$EventPublic$subscription
     implements Fragment$EventFragment$subscription {
   Fragment$EventFragment$$EventPublic$subscription({
     required this.notifyFor,
-    required this.$__typename,
+    this.$__typename = 'EventSubscription',
   });
 
   factory Fragment$EventFragment$$EventPublic$subscription.fromJson(
@@ -658,7 +658,7 @@ class _CopyWithStubImpl$Fragment$EventFragment$$EventPublic$subscription<TRes>
 class Fragment$UserPublicFragment {
   Fragment$UserPublicFragment({
     required this.username,
-    required this.$__typename,
+    this.$__typename = 'UserPublic',
   });
 
   factory Fragment$UserPublicFragment.fromJson(Map<String, dynamic> json) {
@@ -812,7 +812,7 @@ const documentNodeFragmentUserPublicFragment = DocumentNode(definitions: [
 class Mutation$Bla {
   Mutation$Bla({
     this.bla,
-    required this.$__typename,
+    this.$__typename = 'Mutations',
   });
 
   factory Mutation$Bla.fromJson(Map<String, dynamic> json) {
@@ -1076,7 +1076,7 @@ class Mutation$Bla$bla$$EventPublic
   Mutation$Bla$bla$$EventPublic({
     this.subscription,
     required this.owner,
-    required this.$__typename,
+    this.$__typename = 'EventPublic',
   });
 
   factory Mutation$Bla$bla$$EventPublic.fromJson(Map<String, dynamic> json) {
@@ -1245,7 +1245,7 @@ class Mutation$Bla$bla$$EventPublic$subscription
     implements Fragment$EventFragment$$EventPublic$subscription {
   Mutation$Bla$bla$$EventPublic$subscription({
     required this.notifyFor,
-    required this.$__typename,
+    this.$__typename = 'EventSubscription',
   });
 
   factory Mutation$Bla$bla$$EventPublic$subscription.fromJson(

@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Fragment$HotelBooking {
   Fragment$HotelBooking({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'HotelBooking',
   });
 
   factory Fragment$HotelBooking.fromJson(Map<String, dynamic> json) {
@@ -154,7 +154,7 @@ class Query$Q {
   Query$Q({
     this.booking,
     this.hotelBooking,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
@@ -469,7 +469,7 @@ class Query$Q$booking$$HotelBooking
     implements Fragment$HotelBooking, Query$Q$booking {
   Query$Q$booking$$HotelBooking({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'HotelBooking',
   });
 
   factory Query$Q$booking$$HotelBooking.fromJson(Map<String, dynamic> json) {

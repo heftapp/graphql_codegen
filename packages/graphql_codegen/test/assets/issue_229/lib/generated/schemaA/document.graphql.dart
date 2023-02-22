@@ -4,7 +4,7 @@ import 'package:graphql/client.dart' as graphql;
 class Query$Q {
   Query$Q({
     this.q,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {

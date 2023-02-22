@@ -160,7 +160,7 @@ const documentNodeFragmentPersonSummary = DocumentNode(definitions: [
 class Fragment$PersonSummary$$Person implements Fragment$PersonSummary {
   Fragment$PersonSummary$$Person({
     required this.id,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Fragment$PersonSummary$$Person.fromJson(Map<String, dynamic> json) {
@@ -283,7 +283,7 @@ class _CopyWithStubImpl$Fragment$PersonSummary$$Person<TRes>
 class Query$GetPerson {
   Query$GetPerson({
     this.person,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$GetPerson.fromJson(Map<String, dynamic> json) {
@@ -460,7 +460,7 @@ const documentNodeQueryGetPerson = DocumentNode(definitions: [
 class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
   Query$GetPerson$person({
     required this.id,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Query$GetPerson$person.fromJson(Map<String, dynamic> json) {

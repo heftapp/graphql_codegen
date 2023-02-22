@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Fragment$FReport {
   Fragment$FReport({
     this.title,
-    required this.$__typename,
+    this.$__typename = 'Report',
   });
 
   factory Fragment$FReport.fromJson(Map<String, dynamic> json) {
@@ -156,7 +156,7 @@ class Query$Q {
     this.docsWihtoutTypename,
     this.docsWithAliasedTypename,
     this.docsWithFragment,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
@@ -705,7 +705,7 @@ class _CopyWithStubImpl$Query$Q$docsWithTypename<TRes>
 }
 
 class Query$Q$docsWithTypename$$Contract implements Query$Q$docsWithTypename {
-  Query$Q$docsWithTypename$$Contract({required this.$__typename});
+  Query$Q$docsWithTypename$$Contract({this.$__typename = 'Contract'});
 
   factory Query$Q$docsWithTypename$$Contract.fromJson(
       Map<String, dynamic> json) {
@@ -799,7 +799,7 @@ class _CopyWithStubImpl$Query$Q$docsWithTypename$$Contract<TRes>
 }
 
 class Query$Q$docsWithTypename$$Report implements Query$Q$docsWithTypename {
-  Query$Q$docsWithTypename$$Report({required this.$__typename});
+  Query$Q$docsWithTypename$$Report({this.$__typename = 'Report'});
 
   factory Query$Q$docsWithTypename$$Report.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
@@ -1026,7 +1026,7 @@ class Query$Q$docsWihtoutTypename$$Contract
     implements Query$Q$docsWihtoutTypename {
   Query$Q$docsWihtoutTypename$$Contract({
     this.title,
-    required this.$__typename,
+    this.$__typename = 'Contract',
   });
 
   factory Query$Q$docsWihtoutTypename$$Contract.fromJson(
@@ -1152,7 +1152,7 @@ class Query$Q$docsWihtoutTypename$$Report
     implements Query$Q$docsWihtoutTypename {
   Query$Q$docsWihtoutTypename$$Report({
     this.title,
-    required this.$__typename,
+    this.$__typename = 'Report',
   });
 
   factory Query$Q$docsWihtoutTypename$$Report.fromJson(
@@ -1659,7 +1659,7 @@ class _CopyWithStubImpl$Query$Q$docsWithFragment<TRes>
 class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
   Query$Q$docsWithFragment$$Contract({
     this.title,
-    required this.$__typename,
+    this.$__typename = 'Contract',
   });
 
   factory Query$Q$docsWithFragment$$Contract.fromJson(
@@ -1785,7 +1785,7 @@ class Query$Q$docsWithFragment$$Report
     implements Fragment$FReport, Query$Q$docsWithFragment {
   Query$Q$docsWithFragment$$Report({
     this.title,
-    required this.$__typename,
+    this.$__typename = 'Report',
   });
 
   factory Query$Q$docsWithFragment$$Report.fromJson(Map<String, dynamic> json) {

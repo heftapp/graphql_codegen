@@ -4,7 +4,7 @@ import 'package:gql/ast.dart';
 class Query$FetchShouldRender {
   Query$FetchShouldRender({
     required this.shouldRender,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$FetchShouldRender.fromJson(Map<String, dynamic> json) {

@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Query$FetchCount {
   Query$FetchCount({
     this.fetchCount,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$FetchCount.fromJson(Map<String, dynamic> json) {

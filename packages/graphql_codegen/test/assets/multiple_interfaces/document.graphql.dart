@@ -949,7 +949,7 @@ class Query$Q$field$$T1
   Query$Q$field$$T1({
     this.size,
     this.name,
-    required this.$__typename,
+    this.$__typename = 'T1',
     this.name0,
     this.name01,
     this.size2,

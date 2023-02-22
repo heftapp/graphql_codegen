@@ -164,7 +164,7 @@ const documentNodeFragmentCondition = DocumentNode(definitions: [
 class Fragment$Condition$$AndCondition implements Fragment$Condition {
   Fragment$Condition$$AndCondition({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'AndCondition',
   });
 
   factory Fragment$Condition$$AndCondition.fromJson(Map<String, dynamic> json) {
@@ -289,7 +289,7 @@ class _CopyWithStubImpl$Fragment$Condition$$AndCondition<TRes>
 class Fragment$Condition$$TimeCondition implements Fragment$Condition {
   Fragment$Condition$$TimeCondition({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'TimeCondition',
   });
 
   factory Fragment$Condition$$TimeCondition.fromJson(
@@ -417,7 +417,7 @@ class Fragment$AndCondition implements Fragment$Condition$$AndCondition {
     required this.left,
     required this.right,
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'AndCondition',
   });
 
   factory Fragment$AndCondition.fromJson(Map<String, dynamic> json) {
@@ -842,7 +842,7 @@ class Fragment$CompositeCondition$$AndCondition
     required this.left,
     required this.right,
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'AndCondition',
   });
 
   factory Fragment$CompositeCondition$$AndCondition.fromJson(
@@ -1030,7 +1030,7 @@ class Fragment$CompositeCondition$$TimeCondition
         Fragment$CompositeCondition {
   Fragment$CompositeCondition$$TimeCondition({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'TimeCondition',
     required this.before,
   });
 
@@ -1346,7 +1346,7 @@ class Fragment$NonCompositeCondition$$AndCondition
         Fragment$NonCompositeCondition {
   Fragment$NonCompositeCondition$$AndCondition({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'AndCondition',
   });
 
   factory Fragment$NonCompositeCondition$$AndCondition.fromJson(
@@ -1477,7 +1477,7 @@ class Fragment$NonCompositeCondition$$TimeCondition
         Fragment$NonCompositeCondition {
   Fragment$NonCompositeCondition$$TimeCondition({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'TimeCondition',
     required this.before,
   });
 
@@ -1625,7 +1625,7 @@ class _CopyWithStubImpl$Fragment$NonCompositeCondition$$TimeCondition<TRes>
 class Fragment$TimeCondition implements Fragment$Condition$$TimeCondition {
   Fragment$TimeCondition({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'TimeCondition',
     required this.before,
   });
 

@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Query$FetchI {
   Query$FetchI({
     this.i1,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$FetchI.fromJson(Map<String, dynamic> json) {
@@ -739,7 +739,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2$field<TRes>
 class Query$FetchI$i1$i2$field$$TField implements Query$FetchI$i1$i2$field {
   Query$FetchI$i1$i2$field$$TField({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'TField',
   });
 
   factory Query$FetchI$i1$i2$field$$TField.fromJson(Map<String, dynamic> json) {
@@ -862,7 +862,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2$field$$TField<TRes>
 class Query$FetchI$i1$i2$$T2 implements Query$FetchI$i1$i2 {
   Query$FetchI$i1$i2$$T2({
     this.field,
-    required this.$__typename,
+    this.$__typename = 'T2',
   });
 
   factory Query$FetchI$i1$i2$$T2.fromJson(Map<String, dynamic> json) {
@@ -999,7 +999,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2$$T2<TRes>
 class Query$FetchI$i1$i2$$T2$field implements Query$FetchI$i1$i2$field {
   Query$FetchI$i1$i2$$T2$field({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'TField',
   });
 
   factory Query$FetchI$i1$i2$$T2$field.fromJson(Map<String, dynamic> json) {
@@ -1123,7 +1123,7 @@ class Query$FetchI$i1$$T1 implements Query$FetchI$i1 {
   Query$FetchI$i1$$T1({
     this.i2c,
     this.i2,
-    required this.$__typename,
+    this.$__typename = 'T1',
   });
 
   factory Query$FetchI$i1$$T1.fromJson(Map<String, dynamic> json) {
@@ -1286,7 +1286,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1<TRes>
 class Query$FetchI$i1$$T1$i2c {
   Query$FetchI$i1$$T1$i2c({
     this.field,
-    required this.$__typename,
+    this.$__typename = 'T2',
   });
 
   factory Query$FetchI$i1$$T1$i2c.fromJson(Map<String, dynamic> json) {
@@ -1423,7 +1423,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2c<TRes>
 class Query$FetchI$i1$$T1$i2c$field {
   Query$FetchI$i1$$T1$i2c$field({
     this.age,
-    required this.$__typename,
+    this.$__typename = 'TField',
   });
 
   factory Query$FetchI$i1$$T1$i2c$field.fromJson(Map<String, dynamic> json) {
@@ -1819,7 +1819,7 @@ class Query$FetchI$i1$$T1$i2$field$$TField
     implements Query$FetchI$i1$$T1$i2$field {
   Query$FetchI$i1$$T1$i2$field$$TField({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'TField',
   });
 
   factory Query$FetchI$i1$$T1$i2$field$$TField.fromJson(
@@ -1944,7 +1944,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$field$$TField<TRes>
 class Query$FetchI$i1$$T1$i2$$T2 implements Query$FetchI$i1$$T1$i2 {
   Query$FetchI$i1$$T1$i2$$T2({
     this.field,
-    required this.$__typename,
+    this.$__typename = 'T2',
   });
 
   factory Query$FetchI$i1$$T1$i2$$T2.fromJson(Map<String, dynamic> json) {
@@ -2082,7 +2082,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$$T2<TRes>
 class Query$FetchI$i1$$T1$i2$$T2$field implements Query$FetchI$i1$$T1$i2$field {
   Query$FetchI$i1$$T1$i2$$T2$field({
     this.age,
-    required this.$__typename,
+    this.$__typename = 'TField',
     this.name,
   });
 

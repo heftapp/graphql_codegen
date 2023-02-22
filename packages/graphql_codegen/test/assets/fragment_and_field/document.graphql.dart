@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Fragment$FPerson {
   Fragment$FPerson({
     this.age,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Fragment$FPerson.fromJson(Map<String, dynamic> json) {
@@ -153,7 +153,7 @@ const documentNodeFragmentFPerson = DocumentNode(definitions: [
 class Query$Q {
   Query$Q({
     this.person,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
@@ -456,7 +456,7 @@ class Query$Q$person$$Person implements Fragment$FPerson, Query$Q$person {
   Query$Q$person$$Person({
     this.name,
     this.age,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Query$Q$person$$Person.fromJson(Map<String, dynamic> json) {

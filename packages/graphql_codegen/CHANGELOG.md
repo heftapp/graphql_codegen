@@ -1,3 +1,7 @@
+# 0.12.0-beta.10
+
+* Provide default typename parameter to constructor
+
 # 0.12.0-beta.9
 
 * Support schema extensions.

@@ -140,7 +140,7 @@ Enum___Status fromJson___Enum___Status(String value) {
 class Query___Q {
   Query___Q({
     this.status,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query___Q.fromJson(Map<String, dynamic> json) {

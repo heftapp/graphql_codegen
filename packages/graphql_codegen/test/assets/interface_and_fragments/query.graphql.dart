@@ -727,7 +727,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$self<TRes>
 class Query$FetchImplementations$interface$self$$ImplementationA
     implements Fragment$FragmentA, Query$FetchImplementations$interface$self {
   Query$FetchImplementations$interface$self$$ImplementationA({
-    required this.$__typename,
+    this.$__typename = 'ImplementationA',
     this.s,
     this.$_s,
   });
@@ -884,7 +884,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$self$$Implementatio
 class Query$FetchImplementations$interface$self$$ImplementationB
     implements Fragment$FragmentB, Query$FetchImplementations$interface$self {
   Query$FetchImplementations$interface$self$$ImplementationB({
-    required this.$__typename,
+    this.$__typename = 'ImplementationB',
     this.i,
   });
 
@@ -1026,7 +1026,7 @@ class Query$FetchImplementations$interface$$ImplementationA
     this.b,
     this.s,
     this.$_s,
-    required this.typename,
+    this.typename = 'ImplementationA',
     required this.self,
   });
 
@@ -1228,7 +1228,7 @@ class Query$FetchImplementations$interface$$ImplementationB
     implements Fragment$FragmentB, Query$FetchImplementations$interface {
   Query$FetchImplementations$interface$$ImplementationB({
     this.i,
-    required this.typename,
+    this.typename = 'ImplementationB',
     this.b,
     required this.self,
   });
@@ -1413,7 +1413,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB<
 class Query$FetchImplementations$interface$$ImplementationA$self
     implements Fragment$FragmentA, Query$FetchImplementations$interface$self {
   Query$FetchImplementations$interface$$ImplementationA$self({
-    required this.$__typename,
+    this.$__typename = 'ImplementationA',
     this.s,
     this.$_s,
   });
@@ -1570,7 +1570,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA$se
 class Query$FetchImplementations$interface$$ImplementationB$self
     implements Fragment$FragmentB, Query$FetchImplementations$interface$self {
   Query$FetchImplementations$interface$$ImplementationB$self({
-    required this.$__typename,
+    this.$__typename = 'ImplementationB',
     this.i,
   });
 

@@ -226,7 +226,7 @@ class _CopyWithStubImpl$Fragment$F$t<TRes>
 }
 
 class Fragment$F$t$t {
-  Fragment$F$t$t({required this.$__typename});
+  Fragment$F$t$t({this.$__typename = 'T'});
 
   factory Fragment$F$t$t.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
@@ -655,7 +655,7 @@ class _CopyWithStubImpl$Query$Q$t$t<TRes>
 class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
   Query$Q$t$t$t({
     this.t,
-    required this.$__typename,
+    this.$__typename = 'T',
   });
 
   factory Query$Q$t$t$t.fromJson(Map<String, dynamic> json) {
@@ -783,7 +783,7 @@ class _CopyWithStubImpl$Query$Q$t$t$t<TRes>
 }
 
 class Query$Q$t$t$t$t implements Fragment$F$t$t {
-  Query$Q$t$t$t$t({required this.$__typename});
+  Query$Q$t$t$t$t({this.$__typename = 'T'});
 
   factory Query$Q$t$t$t$t.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
@@ -1211,7 +1211,7 @@ class _CopyWithStubImpl$Query$Q2$t$t<TRes>
 
 class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
   Query$Q2$t$t$t({
-    required this.$__typename,
+    this.$__typename = 'T',
     this.t,
   });
 
@@ -1341,7 +1341,7 @@ class _CopyWithStubImpl$Query$Q2$t$t$t<TRes>
 }
 
 class Query$Q2$t$t$t$t implements Fragment$F$t$t {
-  Query$Q2$t$t$t$t({required this.$__typename});
+  Query$Q2$t$t$t$t({this.$__typename = 'T'});
 
   factory Query$Q2$t$t$t$t.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
