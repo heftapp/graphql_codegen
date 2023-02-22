@@ -5,12 +5,13 @@ import 'package:graphql_codegen/src/printer/base/constants.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 
 List<Spec> printEnum(PrintContext<ContextEnum> context) {
-  final typeDef = context.context.currentType;
-  if (context.context.config.enums.containsKey(typeDef.name.value)) {
+  if (context.context.config.enums.containsKey(
+    context.context.currentTypeName.value,
+  )) {
     return [];
   }
   final values = {
-    for (final v in typeDef.values)
+    for (final v in context.context.values)
       v.name.value: context.namePrinter.printEnumValueName(v.name),
     kUnknowkEnumValue: kUnknowkEnumValue
   };

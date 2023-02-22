@@ -1,0 +1,57 @@
+type Q {
+    string: String
+    i: I
+}
+
+extend type Q {
+    int: Int
+}
+
+interface I {
+    string: String
+}
+
+extend interface I {
+    int: Int
+}
+query Q {
+    string
+    int
+    i {
+        int
+    }
+}
+
+enum E {
+    FOO
+}
+
+extend enum E {
+    BAR
+}
+
+
+input In {
+    string: String
+}
+
+extend input In {
+    int: Int
+}
+
+
+schema {
+    query: Q
+}
+
+extend schema {
+    mutation: M
+}
+
+type M {
+    string: String
+}
+
+mutation M {
+    string
+}

@@ -1,3 +1,7 @@
+# 0.12.0-beta.9
+
+* Support schema extensions.
+
 # 0.12.0-beta.8
 
 * Fix bug in generating wrong json methods.
