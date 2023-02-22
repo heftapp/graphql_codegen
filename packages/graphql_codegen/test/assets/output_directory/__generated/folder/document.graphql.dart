@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Query$Q {
   Query$Q({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {

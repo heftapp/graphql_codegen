@@ -2,7 +2,7 @@ import 'package:gql/ast.dart';
 
 class Fragment$FragmentA implements Fragment$FragmentI$$FieldA {
   Fragment$FragmentA({
-    required this.$__typename,
+    this.$__typename = 'FieldA',
     this.value,
     this.name,
   });
@@ -331,7 +331,7 @@ const documentNodeFragmentFragmentI = DocumentNode(definitions: [
 
 class Fragment$FragmentI$$FieldA implements Fragment$FragmentI {
   Fragment$FragmentI$$FieldA({
-    required this.$__typename,
+    this.$__typename = 'FieldA',
     this.name,
   });
 
@@ -454,7 +454,7 @@ class _CopyWithStubImpl$Fragment$FragmentI$$FieldA<TRes>
 
 class Query$FetchStuff {
   Query$FetchStuff({
-    required this.$__typename,
+    this.$__typename = 'Query',
     this.field,
   });
 
@@ -814,7 +814,7 @@ class Query$FetchStuff$field$$FieldA
         Fragment$FragmentI$$FieldA,
         Query$FetchStuff$field {
   Query$FetchStuff$field$$FieldA({
-    required this.$__typename,
+    this.$__typename = 'FieldA',
     this.value,
     this.name,
   });

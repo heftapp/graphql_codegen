@@ -4,7 +4,7 @@ class Query$Foobar {
   Query$Foobar({
     this.ts,
     this.tss,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Foobar.fromJson(Map<String, dynamic> json) {
@@ -307,7 +307,7 @@ class Query$Foobar$ts {
   Query$Foobar$ts({
     this.t,
     this.name,
-    required this.$__typename,
+    this.$__typename = 'TS',
   });
 
   factory Query$Foobar$ts.fromJson(Map<String, dynamic> json) {
@@ -456,7 +456,7 @@ class _CopyWithStubImpl$Query$Foobar$ts<TRes>
 class Query$Foobar$ts$t {
   Query$Foobar$ts$t({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'TS',
   });
 
   factory Query$Foobar$ts$t.fromJson(Map<String, dynamic> json) {
@@ -577,7 +577,7 @@ class _CopyWithStubImpl$Query$Foobar$ts$t<TRes>
 class Query$Foobar$tss {
   Query$Foobar$tss({
     required this.nameEnforced,
-    required this.$__typename,
+    this.$__typename = 'TS',
   });
 
   factory Query$Foobar$tss.fromJson(Map<String, dynamic> json) {

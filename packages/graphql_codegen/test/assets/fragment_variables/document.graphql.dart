@@ -231,7 +231,7 @@ class _CopyWithStubImpl$Variables$Fragment$F1<TRes>
 class Fragment$F1 {
   Fragment$F1({
     this.level1,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Fragment$F1.fromJson(Map<String, dynamic> json) {
@@ -456,7 +456,7 @@ const documentNodeFragmentF1 = DocumentNode(definitions: [
 class Fragment$F1$level1 {
   Fragment$F1$level1({
     this.level2,
-    required this.$__typename,
+    this.$__typename = 'Level1',
   });
 
   factory Fragment$F1$level1.fromJson(Map<String, dynamic> json) {
@@ -592,7 +592,7 @@ class _CopyWithStubImpl$Fragment$F1$level1<TRes>
 class Fragment$F1$level1$level2 {
   Fragment$F1$level1$level2({
     this.level3,
-    required this.$__typename,
+    this.$__typename = 'Level2',
   });
 
   factory Fragment$F1$level1$level2.fromJson(Map<String, dynamic> json) {
@@ -730,7 +730,7 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2<TRes>
 class Fragment$F1$level1$level2$level3 {
   Fragment$F1$level1$level2$level3({
     this.level4,
-    required this.$__typename,
+    this.$__typename = 'Level3',
   });
 
   factory Fragment$F1$level1$level2$level3.fromJson(Map<String, dynamic> json) {
@@ -990,7 +990,7 @@ class _CopyWithStubImpl$Variables$Fragment$F2<TRes>
 class Fragment$F2 {
   Fragment$F2({
     this.level1,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Fragment$F2.fromJson(Map<String, dynamic> json) {
@@ -1266,7 +1266,7 @@ class _CopyWithStubImpl$Variables$Fragment$F21<TRes>
 class Fragment$F21 {
   Fragment$F21({
     this.level2,
-    required this.$__typename,
+    this.$__typename = 'Level1',
   });
 
   factory Fragment$F21.fromJson(Map<String, dynamic> json) {
@@ -1474,7 +1474,7 @@ const documentNodeFragmentF21 = DocumentNode(definitions: [
 class Fragment$F21$level2 {
   Fragment$F21$level2({
     this.level3,
-    required this.$__typename,
+    this.$__typename = 'Level2',
   });
 
   factory Fragment$F21$level2.fromJson(Map<String, dynamic> json) {
@@ -1610,7 +1610,7 @@ class _CopyWithStubImpl$Fragment$F21$level2<TRes>
 class Fragment$F21$level2$level3 {
   Fragment$F21$level2$level3({
     this.level4,
-    required this.$__typename,
+    this.$__typename = 'Level3',
   });
 
   factory Fragment$F21$level2$level3.fromJson(Map<String, dynamic> json) {

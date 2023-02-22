@@ -8,7 +8,7 @@ class Query$Q {
     this.mInt,
     required this.dt,
     this.mDt,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {

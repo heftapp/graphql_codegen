@@ -11,7 +11,7 @@ class Fragment$PersonSummary {
     this.eventsOfEvents,
     this.parents,
     this.favParent,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) {
@@ -470,7 +470,7 @@ extension ClientExtension$Fragment$PersonSummary on graphql.GraphQLClient {
 class Fragment$PersonParent {
   Fragment$PersonParent({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Fragment$PersonParent.fromJson(Map<String, dynamic> json) {

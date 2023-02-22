@@ -103,7 +103,7 @@ class _CopyWithStubImpl$Variables$Query$FetchPerson<TRes>
 class Query$FetchPerson {
   Query$FetchPerson({
     this.fetchPerson,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$FetchPerson.fromJson(Map<String, dynamic> json) {
@@ -461,7 +461,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
     this.eventsOfEvents,
     this.parents,
     this.favParent,
-    required this.$__typename,
+    this.$__typename = 'Person',
     this.children,
   });
 
@@ -846,7 +846,7 @@ class Query$FetchPerson$fetchPerson$parents
     implements Fragment$PersonParent, Fragment$PersonSummary {
   Query$FetchPerson$fetchPerson$parents({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'Person',
     this.nickname,
     this.dob,
     this.events,
@@ -1278,7 +1278,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdatePerson<TRes>
 class Mutation$UpdatePerson {
   Mutation$UpdatePerson({
     this.updatePerson,
-    required this.$__typename,
+    this.$__typename = 'Mutation',
   });
 
   factory Mutation$UpdatePerson.fromJson(Map<String, dynamic> json) {
@@ -1669,7 +1669,7 @@ class Mutation$UpdatePerson$Widget
 class Mutation$UpdatePerson$updatePerson {
   Mutation$UpdatePerson$updatePerson({
     required this.full_name,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Mutation$UpdatePerson$updatePerson.fromJson(
@@ -1900,7 +1900,7 @@ class _CopyWithStubImpl$Variables$Subscription$WatchPerson<TRes>
 class Subscription$WatchPerson {
   Subscription$WatchPerson({
     this.watchPerson,
-    required this.$__typename,
+    this.$__typename = 'Subscription',
   });
 
   factory Subscription$WatchPerson.fromJson(Map<String, dynamic> json) {
@@ -2193,7 +2193,7 @@ class Subscription$WatchPerson$Widget
 class Subscription$WatchPerson$watchPerson {
   Subscription$WatchPerson$watchPerson({
     required this.full_name,
-    required this.$__typename,
+    this.$__typename = 'Person',
   });
 
   factory Subscription$WatchPerson$watchPerson.fromJson(

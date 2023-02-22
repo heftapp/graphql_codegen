@@ -76,11 +76,18 @@ Constructor _printConstructor(
         [
           ...properties.map<Parameter>(
             (p) => Parameter(
-              (b) => b
-                ..required = p.isRequired
-                ..named = true
-                ..toThis = true
-                ..name = c.namePrinter.printPropertyName(p.name),
+              (b) {
+                final defaultTo = p.isTypenameField &&
+                        c.context.currentType is ObjectTypeDefinitionNode
+                    ? literalString(c.context.currentTypeName.value).code
+                    : null;
+                b
+                  ..required = p.isRequired && defaultTo == null
+                  ..named = true
+                  ..toThis = true
+                  ..defaultTo = defaultTo
+                  ..name = c.namePrinter.printPropertyName(p.name);
+              },
             ),
           ),
         ],

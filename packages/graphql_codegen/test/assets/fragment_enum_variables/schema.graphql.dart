@@ -216,7 +216,7 @@ class _CopyWithStubImpl$Variables$Fragment$F1<TRes>
 class Fragment$F1 implements Fragment$F2 {
   Fragment$F1({
     this.n2,
-    required this.$__typename,
+    this.$__typename = 'Node',
     this.n1,
   });
 
@@ -485,7 +485,7 @@ class _CopyWithStubImpl$Variables$Fragment$F2<TRes>
 class Fragment$F2 {
   Fragment$F2({
     this.n2,
-    required this.$__typename,
+    this.$__typename = 'Node',
   });
 
   factory Fragment$F2.fromJson(Map<String, dynamic> json) {
@@ -736,7 +736,7 @@ class _CopyWithStubImpl$Variables$Fragment$F3<TRes>
 class Fragment$F3 {
   Fragment$F3({
     this.test,
-    required this.$__typename,
+    this.$__typename = 'Node',
   });
 
   factory Fragment$F3.fromJson(Map<String, dynamic> json) {
@@ -983,7 +983,7 @@ class Fragment$F4 {
   Fragment$F4({
     this.n1,
     this.n2,
-    required this.$__typename,
+    this.$__typename = 'Node',
   });
 
   factory Fragment$F4.fromJson(Map<String, dynamic> json) {

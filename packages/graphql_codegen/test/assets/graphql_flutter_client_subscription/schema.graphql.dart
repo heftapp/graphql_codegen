@@ -7,7 +7,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 class Subscription$NoArgs {
   Subscription$NoArgs({
     this.listenForChange,
-    required this.$__typename,
+    this.$__typename = 'Subscription',
   });
 
   factory Subscription$NoArgs.fromJson(Map<String, dynamic> json) {
@@ -273,7 +273,7 @@ class Subscription$NoArgs$Widget
 class Subscription$NoArgs$listenForChange {
   Subscription$NoArgs$listenForChange({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'Change',
   });
 
   factory Subscription$NoArgs$listenForChange.fromJson(
@@ -497,7 +497,7 @@ class _CopyWithStubImpl$Variables$Subscription$RequiredArg<TRes>
 class Subscription$RequiredArg {
   Subscription$RequiredArg({
     this.listenForChange,
-    required this.$__typename,
+    this.$__typename = 'Subscription',
   });
 
   factory Subscription$RequiredArg.fromJson(Map<String, dynamic> json) {
@@ -791,7 +791,7 @@ class Subscription$RequiredArg$Widget
 class Subscription$RequiredArg$listenForChange {
   Subscription$RequiredArg$listenForChange({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'Change',
   });
 
   factory Subscription$RequiredArg$listenForChange.fromJson(
@@ -1022,7 +1022,7 @@ class _CopyWithStubImpl$Variables$Subscription$OptionalArg<TRes>
 class Subscription$OptionalArg {
   Subscription$OptionalArg({
     this.listenForChange,
-    required this.$__typename,
+    this.$__typename = 'Subscription',
   });
 
   factory Subscription$OptionalArg.fromJson(Map<String, dynamic> json) {
@@ -1316,7 +1316,7 @@ class Subscription$OptionalArg$Widget
 class Subscription$OptionalArg$listenForChange {
   Subscription$OptionalArg$listenForChange({
     required this.name,
-    required this.$__typename,
+    this.$__typename = 'Change',
   });
 
   factory Subscription$OptionalArg$listenForChange.fromJson(

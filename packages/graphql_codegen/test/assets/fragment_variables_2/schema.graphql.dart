@@ -100,7 +100,7 @@ class _CopyWithStubImpl$Variables$Fragment$NameNode<TRes>
 class Fragment$NameNode {
   Fragment$NameNode({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'Node',
   });
 
   factory Fragment$NameNode.fromJson(Map<String, dynamic> json) {
@@ -387,7 +387,7 @@ class _CopyWithStubImpl$Variables$Query$Q<TRes>
 class Query$Q {
   Query$Q({
     this.node,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {

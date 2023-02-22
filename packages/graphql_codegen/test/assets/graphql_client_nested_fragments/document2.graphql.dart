@@ -4,7 +4,7 @@ import 'package:graphql/client.dart' as graphql;
 class Fragment$F2 {
   Fragment$F2({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'T1',
   });
 
   factory Fragment$F2.fromJson(Map<String, dynamic> json) {

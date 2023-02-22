@@ -246,7 +246,7 @@ class _CopyWithStubImpl$Variables$Query$Q1<TRes>
 class Query$Q1 {
   Query$Q1({
     this.field,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q1.fromJson(Map<String, dynamic> json) {

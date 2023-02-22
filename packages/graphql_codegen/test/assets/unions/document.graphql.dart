@@ -249,7 +249,7 @@ class _CopyWithStubImpl$Query$Q$u<TRes> implements CopyWith$Query$Q$u<TRes> {
 class Query$Q$u$$TA implements Query$Q$u {
   Query$Q$u$$TA({
     this.name,
-    required this.$__typename,
+    this.$__typename = 'TA',
   });
 
   factory Query$Q$u$$TA.fromJson(Map<String, dynamic> json) {
@@ -369,7 +369,7 @@ class _CopyWithStubImpl$Query$Q$u$$TA<TRes>
 class Query$Q$u$$TB implements Query$Q$u {
   Query$Q$u$$TB({
     this.velocity,
-    required this.$__typename,
+    this.$__typename = 'TB',
   });
 
   factory Query$Q$u$$TB.fromJson(Map<String, dynamic> json) {

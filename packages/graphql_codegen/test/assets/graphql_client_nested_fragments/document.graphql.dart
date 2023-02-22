@@ -6,7 +6,7 @@ class Fragment$F1 {
   Fragment$F1({
     this.name,
     this.field,
-    required this.$__typename,
+    this.$__typename = 'T1',
   });
 
   factory Fragment$F1.fromJson(Map<String, dynamic> json) {

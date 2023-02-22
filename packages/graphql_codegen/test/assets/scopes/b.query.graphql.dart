@@ -4,7 +4,7 @@ import 'package:gql/ast.dart';
 class Query$FetchPerson {
   Query$FetchPerson({
     this.fetchPerson,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$FetchPerson.fromJson(Map<String, dynamic> json) {
@@ -196,7 +196,7 @@ class Query$FetchPerson$fetchPerson {
     this.age,
     this.name,
     this.status,
-    required this.$__typename,
+    this.$__typename = 'Personz',
   });
 
   factory Query$FetchPerson$fetchPerson.fromJson(Map<String, dynamic> json) {

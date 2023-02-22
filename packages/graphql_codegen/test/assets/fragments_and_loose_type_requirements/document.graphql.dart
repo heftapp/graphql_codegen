@@ -186,7 +186,7 @@ const documentNodeFragmentF = DocumentNode(definitions: [
 
 class Fragment$F$$T implements Fragment$F {
   Fragment$F$$T({
-    required this.$__typename,
+    this.$__typename = 'T',
     this.t,
     this.name,
   });
@@ -544,7 +544,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 
 class Query$Q$t implements Fragment$F$$T {
   Query$Q$t({
-    required this.$__typename,
+    this.$__typename = 'T',
     this.name,
     this.t,
   });

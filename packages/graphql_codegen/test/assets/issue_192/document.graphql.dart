@@ -3,7 +3,7 @@ import 'package:gql/ast.dart';
 class Query$Q {
   Query$Q({
     this.book,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
@@ -318,7 +318,7 @@ class _CopyWithStubImpl$Query$Q$book<TRes>
 class Query$Q$book$$TextBook implements Query$Q$book {
   Query$Q$book$$TextBook({
     this.courses,
-    required this.$__typename,
+    this.$__typename = 'TextBook',
     this.author,
   });
 
