@@ -170,6 +170,9 @@ class Schema<TKey extends Object> {
   final BuiltMap<TKey, DocumentNode> entries;
   Iterable<DefinitionNode>? _cachedDefinitions;
   Map<String, TypeDefinitionNode>? _cachedTypeDefinitionsMap;
+  Map<DefinitionNode, TKey>? _cachedDefinitionNodeToKeyMap;
+  Map<String, Map<String, FieldDefinitionNode>> _cachedFields = {};
+
   final String Function(TKey) lookupPath;
 
   Schema(
@@ -206,12 +209,16 @@ class Schema<TKey extends Object> {
   }
 
   String? lookupPathFromDefinitionNode(DefinitionNode node) {
-    for (final entry in entries.entries) {
-      if (entry.value.definitions.contains(node)) {
-        return lookupPath(entry.key);
-      }
+    var lCached = _cachedDefinitionNodeToKeyMap;
+    if (lCached == null) {
+      lCached = _cachedDefinitionNodeToKeyMap = Map.identity();
+      lCached.addEntries(
+        entries.entries.expand((element) =>
+            element.value.definitions.map((e) => MapEntry(e, element.key))),
+      );
     }
-    return null;
+    final key = lCached[node];
+    return key == null ? null : lookupPath(key);
   }
 
   TType? lookupType<TType extends TypeDefinitionNode>(NameNode name) {
@@ -317,15 +324,17 @@ class Schema<TKey extends Object> {
     return [
       ...node.fields,
       ...definitions
-          .whereType<ObjectTypeExtensionNode>()
+          .whereType<InterfaceTypeExtensionNode>()
           .expand((element) => element.fields)
     ];
   }
 
-  FieldDefinitionNode? lookupFieldDefinitionNode(
+  Map<String, FieldDefinitionNode> _lookupFieldDefinitionsForTypeDefinitionNode(
     TypeDefinitionNode onType,
-    NameNode field,
   ) {
+    if (_cachedFields.containsKey(onType.name.value)) {
+      return _cachedFields[onType.name.value] ?? {};
+    }
     List<FieldDefinitionNode> fields;
     if (onType is ObjectTypeDefinitionNode) {
       fields = _listObjectTypeDefinitionFields(onType);
@@ -334,15 +343,22 @@ class Schema<TKey extends Object> {
     } else if (onType is UnionTypeDefinitionNode) {
       fields = [];
     } else {
-      return null;
+      return {};
     }
-    final currentFieldDefinition = [...fields, ..._INTROSPECTION_FIELDS]
-        .whereType<FieldDefinitionNode?>()
-        .firstWhere(
-          (element) => element != null && element.name.value == field.value,
-          orElse: () => null,
-        );
-    return currentFieldDefinition;
+    final fieldMap = Map.fromEntries(
+      [...fields, ..._INTROSPECTION_FIELDS].map(
+        (e) => MapEntry(e.name.value, e),
+      ),
+    );
+    _cachedFields[onType.name.value] = fieldMap;
+    return fieldMap;
+  }
+
+  FieldDefinitionNode? lookupFieldDefinitionNode(
+    TypeDefinitionNode onType,
+    NameNode field,
+  ) {
+    return _lookupFieldDefinitionsForTypeDefinitionNode(onType)[field.value];
   }
 
   TypeNode? lookupTypeNodeForArgument(

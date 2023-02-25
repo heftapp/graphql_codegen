@@ -1,3 +1,7 @@
+# 0.12.0-beta.11
+
+* Improve performance a bit.
+
 # 0.12.0-beta.10
 
 * Provide default typename parameter to constructor

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
@@ -42,38 +40,25 @@ class SchemaConfig<TKey> {
   });
 }
 
-/// Result of code generation.
-class GenerateResult<TKey extends Object> {
-  /// Generated libraries
-  final BuiltMap<TKey, Library> entries;
-
-  /// Self explainatory
-  GenerateResult(this.entries);
-}
-
 /// This is where the magic happens! It generates
 /// programs from GraphQL documents.
-FutureOr<GenerateResult<TKey>> generate<TKey extends Object>(
+Library generate<TKey extends Object>(
+  TKey key,
+
   /// Schema containing a mapping from TKey to graphql documents
   SchemaConfig<TKey> schemaConfig,
 
   /// Configrations containing e.g. clients and scalars.
   GraphQLCodegenConfig config,
-) async {
+) {
   final schema = Schema(
     schemaConfig.entries,
     schemaConfig.lookupPath,
   );
-  final entries = schema.entries.map(
-    (key, value) => MapEntry<TKey, Library>(
-      key,
-      _generateDocument<TKey>(
-        schema,
-        value,
-        key,
-        config,
-      ),
-    ),
+  return _generateDocument<TKey>(
+    schema,
+    schema.entries[key]!,
+    key,
+    config,
   );
-  return GenerateResult(entries);
 }
