@@ -67,7 +67,8 @@ class GraphQLBuilder extends Builder {
         )
         .map((event) => MapEntry(event.key, transform(config, event.value)))
         .toList();
-    final result = await generate<AssetId>(
+    final result = generate<AssetId>(
+      buildStep.inputId,
       SchemaConfig<AssetId>(
         entries: BuiltMap.of(Map.fromEntries(entries)),
         lookupPath: (id) => _resolveOutputDir(
@@ -88,7 +89,7 @@ class GraphQLBuilder extends Builder {
           p.basename(targetAsset.path),
         ),
       ),
-      result.entries[buildStep.inputId]!,
+      result,
     );
   }
 
