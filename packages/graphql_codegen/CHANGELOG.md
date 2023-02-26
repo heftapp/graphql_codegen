@@ -1,3 +1,7 @@
+# 0.12.0-beta.12
+
+* Cache schema parsing, further improving performance.
+
 # 0.12.0-beta.11
 
 * Improve performance a bit.

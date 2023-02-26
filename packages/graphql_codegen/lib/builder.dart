@@ -6,12 +6,35 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:glob/glob.dart';
+import 'package:gql/ast.dart';
 import 'package:gql/language.dart';
 import 'package:graphql_codegen/graphql_codegen.dart';
-import 'package:graphql_codegen/src/transform/transform.dart';
+import 'package:graphql_codegen/src/transform/transform.dart' as transform;
 import 'package:path/path.dart' as path;
 
 final p = path.Context(style: path.Style.posix);
+
+class _GraphQLParserResource {
+  Map<AssetId, DocumentNode> _fileCache = {};
+  Future<DocumentNode> readFile(BuildStep step, AssetId id) async {
+    final cachedDocument = _fileCache[id];
+    if (cachedDocument != null && await step.canRead(id)) {
+      return cachedDocument;
+    }
+    final result = parseString(await step.readAsString(id));
+    _fileCache[id] = result;
+    return result;
+  }
+
+  void dispose() {
+    _fileCache = {};
+  }
+}
+
+final _graphqlParserResource = Resource<_GraphQLParserResource>(
+  () => _GraphQLParserResource(),
+  dispose: (instance) => instance.dispose(),
+);
 
 /// The builder class.
 class GraphQLBuilder extends Builder {
@@ -57,15 +80,24 @@ class GraphQLBuilder extends Builder {
     }
     final assets = buildStep.findAssets(Glob(scope));
     final assetsPathGlob = Glob(config.assetsPath);
+    final parseResource = await buildStep.fetchResource(_graphqlParserResource);
     final entries = await assets
         .where((asset) => assetsPathGlob.matches(asset.path))
         .asyncMap(
           (event) async => MapEntry(
             event,
-            parseString(await buildStep.readAsString(event)),
+            await parseResource.readFile(buildStep, event),
           ),
         )
-        .map((event) => MapEntry(event.key, transform(config, event.value)))
+        .map(
+          (event) => MapEntry(
+            event.key,
+            transform.transform(
+              config,
+              event.value,
+            ),
+          ),
+        )
         .toList();
     final result = generate<AssetId>(
       buildStep.inputId,
