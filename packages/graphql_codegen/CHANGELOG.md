@@ -1,3 +1,7 @@
+# 0.12.0-beta.13
+
+* Update dev deps.
+
 # 0.12.0-beta.12
 
 * Cache schema parsing, further improving performance.
