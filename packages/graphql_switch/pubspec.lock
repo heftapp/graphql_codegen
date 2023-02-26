@@ -250,10 +250,10 @@ packages:
     dependency: "direct main"
     description:
       name: gql_code_builder
-      sha256: "654fc5f455938d721f88631ce2e0d9350058bc6e965a22df6dd5668c72cd19c0"
+      sha256: "66fc942416d9703e59ac732b2cb4e8442261fc90e1fcf89881b5b796d0803d02"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.1-alpha+1667318637890"
+    version: "0.7.1"
   gql_dedupe_link:
     dependency: transitive
     description:
@@ -316,7 +316,7 @@ packages:
       path: "../graphql_codegen"
       relative: true
     source: path
-    version: "0.12.0-beta.8"
+    version: "0.12.0-beta.13"
   graphs:
     dependency: transitive
     description:
