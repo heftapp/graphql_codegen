@@ -897,6 +897,8 @@ class Options$Query$FetchSOptional
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           variables: variables?.toJson() ?? {},
           operationName: operationName,
@@ -906,6 +908,8 @@ class Options$Query$FetchSOptional
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryFetchSOptional,
           parserFn: _parserFn$Query$FetchSOptional,
         );
@@ -1217,6 +1221,8 @@ class Options$Query$FetchSRequired
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           variables: variables.toJson(),
           operationName: operationName,
@@ -1226,6 +1232,8 @@ class Options$Query$FetchSRequired
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryFetchSRequired,
           parserFn: _parserFn$Query$FetchSRequired,
         );
@@ -1435,6 +1443,8 @@ class Options$Query$FetchSNoVariables
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -1443,6 +1453,8 @@ class Options$Query$FetchSNoVariables
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryFetchSNoVariables,
           parserFn: _parserFn$Query$FetchSNoVariables,
         );

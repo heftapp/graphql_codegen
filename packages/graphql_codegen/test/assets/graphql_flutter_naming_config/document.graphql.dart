@@ -296,6 +296,8 @@ class Options___Query___Q extends graphql.QueryOptions<Query___Q> {
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -304,6 +306,8 @@ class Options___Query___Q extends graphql.QueryOptions<Query___Q> {
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryQ,
           parserFn: _parserFn___Query___Q,
         );

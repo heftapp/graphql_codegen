@@ -73,6 +73,14 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                   'context',
                   'graphql.Context',
                 ),
+                printOptionsParameter(
+                  'onComplete',
+                  'graphql.OnQueryComplete',
+                ),
+                printOptionsParameter(
+                  'onError',
+                  'graphql.OnQueryError',
+                ),
               ],
             )
             ..initializers = ListBuilder([
@@ -90,6 +98,8 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'optimisticResult': refer('optimisticResult'),
                 'pollInterval': refer('pollInterval'),
                 'context': refer('context'),
+                'onComplete': refer('onComplete'),
+                'onError': refer('onError'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
                 'parserFn': printParserFnRef(c),

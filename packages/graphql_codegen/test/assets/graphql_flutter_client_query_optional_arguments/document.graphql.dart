@@ -238,6 +238,8 @@ class Options$Query$FetchSOptional
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           variables: variables?.toJson() ?? {},
           operationName: operationName,
@@ -247,6 +249,8 @@ class Options$Query$FetchSOptional
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryFetchSOptional,
           parserFn: _parserFn$Query$FetchSOptional,
         );

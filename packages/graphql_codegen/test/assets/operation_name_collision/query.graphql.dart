@@ -118,6 +118,8 @@ class Options$Query$Operation extends graphql.QueryOptions<Query$Operation> {
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -126,6 +128,8 @@ class Options$Query$Operation extends graphql.QueryOptions<Query$Operation> {
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryOperation,
           parserFn: _parserFn$Query$Operation,
         );

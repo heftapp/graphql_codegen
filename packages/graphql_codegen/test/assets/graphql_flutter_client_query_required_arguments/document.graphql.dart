@@ -231,6 +231,8 @@ class Options$Query$FetchSRequired
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           variables: variables.toJson(),
           operationName: operationName,
@@ -240,6 +242,8 @@ class Options$Query$FetchSRequired
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryFetchSRequired,
           parserFn: _parserFn$Query$FetchSRequired,
         );

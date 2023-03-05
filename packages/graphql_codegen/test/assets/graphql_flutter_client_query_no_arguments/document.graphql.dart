@@ -129,6 +129,8 @@ class Options$Query$FetchSNoVariables
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
+    graphql.OnQueryComplete? onComplete,
+    graphql.OnQueryError? onError,
   }) : super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -137,6 +139,8 @@ class Options$Query$FetchSNoVariables
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete,
+          onError: onError,
           document: documentNodeQueryFetchSNoVariables,
           parserFn: _parserFn$Query$FetchSNoVariables,
         );
