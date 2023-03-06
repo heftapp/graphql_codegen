@@ -25,6 +25,25 @@ Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
     ).toTypeDef(context.namePrinter
         .printGraphQLClientOnMutationCompleteName(context.path));
 
+Spec printOnQueryComplete(PrintContext<ContextOperation> context) =>
+    FunctionType(
+      (b) => b
+        ..requiredParameters = ListBuilder([
+          refer('dynamic'),
+          TypeReference(
+            (b) => b
+              ..symbol = context.namePrinter.printClassName(context.path)
+              ..isNullable = true,
+          )
+        ])
+        ..returnType = TypeReference(
+          (b) => b
+            ..symbol = 'FutureOr'
+            ..types = ListBuilder([refer("void")]),
+        ),
+    ).toTypeDef(context.namePrinter
+        .printGraphQLClientOnQueryCompleteName(context.path));
+
 Spec printQueryOptions(PrintContext<ContextOperation> c) {
   final context = c.context;
   return Class(
@@ -34,6 +53,61 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
         ..symbol = "graphql.QueryOptions"
         ..types =
             ListBuilder([refer(c.namePrinter.printClassName(context.path))]))
+      ..fields = ListBuilder([
+        Field(
+          (b) => b
+            ..name = 'onCompleteWithParsed'
+            ..type = TypeReference(
+              (b) => b
+                ..symbol = c.namePrinter
+                    .printGraphQLClientOnQueryCompleteName(context.path)
+                ..isNullable = true,
+            )
+            ..modifier = FieldModifier.final$,
+        ),
+      ])
+      ..methods = ListBuilder([
+        Method(
+          (b) => b
+            ..type = MethodType.getter
+            ..name = 'properties'
+            ..returns = TypeReference((b) => b
+              ..symbol = 'List'
+              ..types = ListBuilder([
+                TypeReference(
+                  (b) => b
+                    ..symbol = 'Object'
+                    ..isNullable = true,
+                )
+              ]))
+            ..annotations = ListBuilder([refer('override')])
+            ..lambda = true
+            ..body = literalList([
+              refer('super')
+                  .property('onComplete')
+                  .equalTo(literalNull)
+                  .conditional(
+                      refer('super').property('properties'),
+                      refer('super')
+                          .property('properties')
+                          .property('where')
+                          .call([
+                        Method(
+                          (b) => b
+                            ..lambda = true
+                            ..requiredParameters = ListBuilder(
+                              [Parameter((b) => b..name = 'property')],
+                            )
+                            ..body = refer('property')
+                                .notEqualTo(refer('onComplete'))
+                                .code,
+                        ).closure
+                      ]))
+                  .spread,
+              refer('onCompleteWithParsed')
+            ]).code,
+        )
+      ])
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -75,7 +149,8 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 ),
                 printOptionsParameter(
                   'onComplete',
-                  'graphql.OnQueryComplete',
+                  c.namePrinter
+                      .printGraphQLClientOnQueryCompleteName(context.path),
                 ),
                 printOptionsParameter(
                   'onError',
@@ -84,6 +159,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
               ],
             )
             ..initializers = ListBuilder([
+              refer('onCompleteWithParsed').assign(refer('onComplete')).code,
               refer('super').call([], {
                 if (context.hasVariables && context.isVariablesRequired)
                   'variables': refer('variables').property('toJson').call([])
@@ -98,7 +174,10 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'optimisticResult': refer('optimisticResult'),
                 'pollInterval': refer('pollInterval'),
                 'context': refer('context'),
-                'onComplete': refer('onComplete'),
+                'onComplete': printNullCheck(
+                  refer('onComplete'),
+                  printOnQueryCompleteFn(c),
+                ),
                 'onError': refer('onError'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
@@ -199,7 +278,8 @@ Spec printParserFn(PrintContext context) => Method(
 Expression printParserFnRef(PrintContext<ContextOperation> context) =>
     refer(context.namePrinter.printParserFnName(context.path));
 
-Expression printOnCompletedFn(PrintContext<ContextOperation> context) => Method(
+Expression printOnMutationCompletedFn(PrintContext<ContextOperation> context) =>
+    Method(
       (b) => b
         ..lambda = true
         ..returns = refer(context.namePrinter.printClassName(context.path))
@@ -207,6 +287,25 @@ Expression printOnCompletedFn(PrintContext<ContextOperation> context) => Method(
           Parameter((b) => b..name = 'data'),
         ])
         ..body = refer('onCompleted').call([
+          refer('data'),
+          printNullCheck(
+            refer('data'),
+            refer(context.namePrinter.printParserFnName(context.path)).call(
+              [refer('data')],
+            ),
+          )
+        ]).code,
+    ).closure;
+
+Expression printOnQueryCompleteFn(PrintContext<ContextOperation> context) =>
+    Method(
+      (b) => b
+        ..lambda = true
+        ..returns = refer(context.namePrinter.printClassName(context.path))
+        ..requiredParameters = ListBuilder([
+          Parameter((b) => b..name = 'data'),
+        ])
+        ..body = refer('onComplete').call([
           refer('data'),
           printNullCheck(
             refer('data'),
@@ -432,7 +531,7 @@ Spec printMutationOptions(
                   'context': refer('context'),
                   'onCompleted': printNullCheck(
                     refer('onCompleted'),
-                    printOnCompletedFn(c),
+                    printOnMutationCompletedFn(c),
                   ),
                   'update': refer('update'),
                   'onError': refer('onError'),
@@ -1101,12 +1200,14 @@ Iterable<Spec> printSubscription(PrintContext<ContextOperation> context) {
 }
 
 Iterable<Spec> printQuery(PrintContext<ContextOperation> context) {
+  context.addPackage('dart:async');
   context.addPackage(
     'package:graphql/client.dart',
     'graphql',
   );
   return [
     printParserFn(context),
+    printOnQueryComplete(context),
     printQueryOptions(context),
     printWatchOptions(context),
     printFetchMoreOptions(context),

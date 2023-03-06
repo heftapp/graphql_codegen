@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -118,6 +119,10 @@ const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
 Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
         Map<String, dynamic> data) =>
     Query$FetchSNoVariables.fromJson(data);
+typedef OnQueryComplete$Query$FetchSNoVariables = FutureOr<void> Function(
+  dynamic,
+  Query$FetchSNoVariables?,
+);
 
 class Options$Query$FetchSNoVariables
     extends graphql.QueryOptions<Query$FetchSNoVariables> {
@@ -129,9 +134,10 @@ class Options$Query$FetchSNoVariables
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    graphql.OnQueryComplete? onComplete,
+    OnQueryComplete$Query$FetchSNoVariables? onComplete,
     graphql.OnQueryError? onError,
-  }) : super(
+  })  : onCompleteWithParsed = onComplete,
+        super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -139,11 +145,28 @@ class Options$Query$FetchSNoVariables
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
-          onComplete: onComplete,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$FetchSNoVariables(data),
+                  ),
           onError: onError,
           document: documentNodeQueryFetchSNoVariables,
           parserFn: _parserFn$Query$FetchSNoVariables,
         );
+
+  final OnQueryComplete$Query$FetchSNoVariables? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$FetchSNoVariables

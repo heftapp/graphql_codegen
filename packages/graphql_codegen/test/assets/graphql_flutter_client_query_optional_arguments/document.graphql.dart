@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -226,6 +227,10 @@ const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
 Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
     Query$FetchSOptional.fromJson(data);
+typedef OnQueryComplete$Query$FetchSOptional = FutureOr<void> Function(
+  dynamic,
+  Query$FetchSOptional?,
+);
 
 class Options$Query$FetchSOptional
     extends graphql.QueryOptions<Query$FetchSOptional> {
@@ -238,9 +243,10 @@ class Options$Query$FetchSOptional
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    graphql.OnQueryComplete? onComplete,
+    OnQueryComplete$Query$FetchSOptional? onComplete,
     graphql.OnQueryError? onError,
-  }) : super(
+  })  : onCompleteWithParsed = onComplete,
+        super(
           variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -249,11 +255,26 @@ class Options$Query$FetchSOptional
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
-          onComplete: onComplete,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn$Query$FetchSOptional(data),
+                  ),
           onError: onError,
           document: documentNodeQueryFetchSOptional,
           parserFn: _parserFn$Query$FetchSOptional,
         );
+
+  final OnQueryComplete$Query$FetchSOptional? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$FetchSOptional
