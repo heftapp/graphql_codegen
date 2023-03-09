@@ -1,3 +1,5 @@
+* Add `onError` and `onComplete` callbacks to query options.
+
 # 0.12.0-beta.13
 
 * Update dev deps.

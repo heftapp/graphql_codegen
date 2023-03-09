@@ -138,7 +138,7 @@ class Options$Query$Operation extends graphql.QueryOptions<Query$Operation> {
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$Operation(data),
+                    _parserFn$Query$Operation(data),
                   ),
           onError: onError,
           document: documentNodeQueryOperation,

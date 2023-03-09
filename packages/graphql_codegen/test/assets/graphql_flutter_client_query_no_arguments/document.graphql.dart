@@ -149,9 +149,7 @@ class Options$Query$FetchSNoVariables
               ? null
               : (data) => onComplete(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$FetchSNoVariables(data),
+                    _parserFn$Query$FetchSNoVariables(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSNoVariables,

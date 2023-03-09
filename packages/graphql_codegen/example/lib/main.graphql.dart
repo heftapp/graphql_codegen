@@ -329,6 +329,10 @@ const documentNodeQueryFetchPerson = DocumentNode(definitions: [
 ]);
 Query$FetchPerson _parserFn$Query$FetchPerson(Map<String, dynamic> data) =>
     Query$FetchPerson.fromJson(data);
+typedef OnQueryComplete$Query$FetchPerson = FutureOr<void> Function(
+  dynamic,
+  Query$FetchPerson?,
+);
 
 class Options$Query$FetchPerson
     extends graphql.QueryOptions<Query$FetchPerson> {
@@ -341,7 +345,10 @@ class Options$Query$FetchPerson
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-  }) : super(
+    OnQueryComplete$Query$FetchPerson? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
           variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -350,9 +357,26 @@ class Options$Query$FetchPerson
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    _parserFn$Query$FetchPerson(data),
+                  ),
+          onError: onError,
           document: documentNodeQueryFetchPerson,
           parserFn: _parserFn$Query$FetchPerson,
         );
+
+  final OnQueryComplete$Query$FetchPerson? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$FetchPerson

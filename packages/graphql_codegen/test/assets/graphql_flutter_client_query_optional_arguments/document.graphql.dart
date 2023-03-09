@@ -259,7 +259,7 @@ class Options$Query$FetchSOptional
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$FetchSOptional(data),
+                    _parserFn$Query$FetchSOptional(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSOptional,
