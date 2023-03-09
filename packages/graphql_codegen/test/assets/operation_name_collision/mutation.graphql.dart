@@ -154,6 +154,7 @@ class Options$Mutation$Operation
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$Operation? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$Operation? onCompleted,
     graphql.OnMutationUpdate<Mutation$Operation>? update,
@@ -164,7 +165,7 @@ class Options$Mutation$Operation
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -197,6 +198,7 @@ class WatchOptions$Mutation$Operation
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$Operation? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -207,7 +209,7 @@ class WatchOptions$Mutation$Operation
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeMutationOperation,
           pollInterval: pollInterval,
@@ -243,9 +245,9 @@ Mutation$Operation$HookResult useMutation$Operation(
   final result = graphql_flutter
       .useMutation(options ?? WidgetOptions$Mutation$Operation());
   return Mutation$Operation$HookResult(
-    ({optimisticResult}) => result.runMutation(
+    ({optimisticResult, typedOptimisticResult}) => result.runMutation(
       const {},
-      optimisticResult: optimisticResult,
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
     result.result,
   );
@@ -264,6 +266,7 @@ class WidgetOptions$Mutation$Operation
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$Operation? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$Operation? onCompleted,
     graphql.OnMutationUpdate<Mutation$Operation>? update,
@@ -274,7 +277,7 @@ class WidgetOptions$Mutation$Operation
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -300,8 +303,10 @@ class WidgetOptions$Mutation$Operation
 }
 
 typedef RunMutation$Mutation$Operation
-    = graphql.MultiSourceResult<Mutation$Operation> Function(
-        {Object? optimisticResult});
+    = graphql.MultiSourceResult<Mutation$Operation> Function({
+  Object? optimisticResult,
+  Mutation$Operation? typedOptimisticResult,
+});
 typedef Builder$Mutation$Operation = widgets.Widget Function(
   RunMutation$Mutation$Operation,
   graphql.QueryResult<Mutation$Operation>?,
@@ -321,9 +326,14 @@ class Mutation$Operation$Widget
             result,
           ) =>
               builder(
-            ({optimisticResult}) => run(
+            ({
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
               const {},
-              optimisticResult: optimisticResult,
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),

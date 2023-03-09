@@ -1,4 +1,7 @@
+# 0.12.0-beta.14
+
 * Add `onError` and `onComplete` callbacks to query options.
+* Add `typedOptimisticResult` as an typed alternative to `optimistcResult`
 
 # 0.12.0-beta.13
 

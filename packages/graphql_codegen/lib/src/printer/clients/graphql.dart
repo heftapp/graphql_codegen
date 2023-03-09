@@ -140,6 +140,10 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                   'Object',
                 ),
                 printOptionsParameter(
+                  'typedOptimisticResult',
+                  c.namePrinter.printClassName(context.path),
+                ),
+                printOptionsParameter(
                   'pollInterval',
                   'Duration',
                 ),
@@ -171,7 +175,10 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
-                'optimisticResult': refer('optimisticResult'),
+                'optimisticResult': refer('optimisticResult')
+                    .ifNullThen(refer('typedOptimisticResult'))
+                    .nullSafeProperty('toJson')
+                    .call([]),
                 'pollInterval': refer('pollInterval'),
                 'context': refer('context'),
                 'onComplete': printNullCheck(
@@ -230,6 +237,10 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                   'Object',
                 ),
                 printOptionsParameter(
+                  'typedOptimisticResult',
+                  c.namePrinter.printClassName(context.path),
+                ),
+                printOptionsParameter(
                   'context',
                   'graphql.Context',
                 ),
@@ -247,7 +258,10 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
-                'optimisticResult': refer('optimisticResult'),
+                'optimisticResult': refer('optimisticResult')
+                    .ifNullThen(refer('typedOptimisticResult'))
+                    .nullSafeProperty('toJson')
+                    .call([]),
                 'context': refer('context'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),
@@ -490,6 +504,10 @@ Spec printMutationOptions(
                     'Object',
                   ),
                   printOptionsParameter(
+                    'typedOptimisticResult',
+                    c.namePrinter.printClassName(context.path),
+                  ),
+                  printOptionsParameter(
                     'context',
                     'graphql.Context',
                   ),
@@ -524,7 +542,10 @@ Spec printMutationOptions(
                   'fetchPolicy': refer('fetchPolicy'),
                   'errorPolicy': refer('errorPolicy'),
                   'cacheRereadPolicy': refer('cacheRereadPolicy'),
-                  'optimisticResult': refer('optimisticResult'),
+                  'optimisticResult': refer('optimisticResult')
+                      .ifNullThen(refer('typedOptimisticResult'))
+                      .nullSafeProperty('toJson')
+                      .call([]),
                   'context': refer('context'),
                   'onCompleted': printNullCheck(
                     refer('onCompleted'),
@@ -586,6 +607,10 @@ Spec printWatchOptions(
                   'Object',
                 ),
                 printOptionsParameter(
+                  'typedOptimisticResult',
+                  c.namePrinter.printClassName(context.path),
+                ),
+                printOptionsParameter(
                   'context',
                   'graphql.Context',
                 ),
@@ -621,7 +646,10 @@ Spec printWatchOptions(
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
-                'optimisticResult': refer('optimisticResult'),
+                'optimisticResult': refer('optimisticResult')
+                    .ifNullThen(refer('typedOptimisticResult'))
+                    .nullSafeProperty('toJson')
+                    .call([]),
                 'context': refer('context'),
                 'document': refer(c.namePrinter
                     .printDocumentDefinitionNodeName(context.path)),

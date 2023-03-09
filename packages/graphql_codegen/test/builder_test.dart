@@ -91,7 +91,8 @@ void main() {
                 : entry.key.path.replaceAll(RegExp("^lib"), "");
             if (utf8.decode(entry.value) != files[file]) {
               await (await File(
-                "${testSet.absolute.path}/${file}.expected",
+                // "${testSet.absolute.path}/${file}.expected",
+                "${testSet.absolute.path}/${file}",
               ).create(recursive: true))
                   .writeAsBytes(entry.value);
             }
