@@ -343,6 +343,7 @@ class Options$Query$FetchPerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Query$FetchPerson? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
     OnQueryComplete$Query$FetchPerson? onComplete,
@@ -354,7 +355,7 @@ class Options$Query$FetchPerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           pollInterval: pollInterval,
           context: context,
           onComplete: onComplete == null
@@ -388,6 +389,7 @@ class WatchOptions$Query$FetchPerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Query$FetchPerson? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -399,7 +401,7 @@ class WatchOptions$Query$FetchPerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeQueryFetchPerson,
           pollInterval: pollInterval,
@@ -1506,6 +1508,7 @@ class Options$Mutation$UpdatePerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdatePerson? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$UpdatePerson? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdatePerson>? update,
@@ -1517,7 +1520,7 @@ class Options$Mutation$UpdatePerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -1551,6 +1554,7 @@ class WatchOptions$Mutation$UpdatePerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdatePerson? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -1562,7 +1566,7 @@ class WatchOptions$Mutation$UpdatePerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeMutationUpdatePerson,
           pollInterval: pollInterval,
@@ -1598,9 +1602,10 @@ Mutation$UpdatePerson$HookResult useMutation$UpdatePerson(
   final result = graphql_flutter
       .useMutation(options ?? WidgetOptions$Mutation$UpdatePerson());
   return Mutation$UpdatePerson$HookResult(
-    (variables, {optimisticResult}) => result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
       variables.toJson(),
-      optimisticResult: optimisticResult,
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
     result.result,
   );
@@ -1618,6 +1623,7 @@ class WidgetOptions$Mutation$UpdatePerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdatePerson? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$UpdatePerson? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdatePerson>? update,
@@ -1628,7 +1634,7 @@ class WidgetOptions$Mutation$UpdatePerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -1657,6 +1663,7 @@ typedef RunMutation$Mutation$UpdatePerson
     = graphql.MultiSourceResult<Mutation$UpdatePerson> Function(
   Variables$Mutation$UpdatePerson, {
   Object? optimisticResult,
+  Mutation$UpdatePerson? typedOptimisticResult,
 });
 typedef Builder$Mutation$UpdatePerson = widgets.Widget Function(
   RunMutation$Mutation$UpdatePerson,
@@ -1680,10 +1687,12 @@ class Mutation$UpdatePerson$Widget
             (
               variables, {
               optimisticResult,
+              typedOptimisticResult,
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult: optimisticResult,
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),
@@ -2126,6 +2135,7 @@ class Options$Subscription$WatchPerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Subscription$WatchPerson? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
           variables: variables?.toJson() ?? {},
@@ -2133,7 +2143,7 @@ class Options$Subscription$WatchPerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeSubscriptionWatchPerson,
           parserFn: _parserFn$Subscription$WatchPerson,
@@ -2149,6 +2159,7 @@ class WatchOptions$Subscription$WatchPerson
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Subscription$WatchPerson? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -2160,7 +2171,7 @@ class WatchOptions$Subscription$WatchPerson
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeSubscriptionWatchPerson,
           pollInterval: pollInterval,
