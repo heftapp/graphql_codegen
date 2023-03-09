@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -286,6 +287,10 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 ]);
 Query___Q _parserFn___Query___Q(Map<String, dynamic> data) =>
     Query___Q.fromJson(data);
+typedef OnQueryComplete___Query___Q = FutureOr<void> Function(
+  dynamic,
+  Query___Q?,
+);
 
 class Options___Query___Q extends graphql.QueryOptions<Query___Q> {
   Options___Query___Q({
@@ -296,7 +301,10 @@ class Options___Query___Q extends graphql.QueryOptions<Query___Q> {
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-  }) : super(
+    OnQueryComplete___Query___Q? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -304,9 +312,26 @@ class Options___Query___Q extends graphql.QueryOptions<Query___Q> {
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn___Query___Q(data),
+                  ),
+          onError: onError,
           document: documentNodeQueryQ,
           parserFn: _parserFn___Query___Q,
         );
+
+  final OnQueryComplete___Query___Q? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions___Query___Q extends graphql.WatchQueryOptions<Query___Q> {

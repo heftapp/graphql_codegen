@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -561,6 +562,10 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionNameNode,
 ]);
 Query$Q _parserFn$Query$Q(Map<String, dynamic> data) => Query$Q.fromJson(data);
+typedef OnQueryComplete$Query$Q = FutureOr<void> Function(
+  dynamic,
+  Query$Q?,
+);
 
 class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
   Options$Query$Q({
@@ -572,7 +577,10 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
     Object? optimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-  }) : super(
+    OnQueryComplete$Query$Q? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
           variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
@@ -581,9 +589,26 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
           optimisticResult: optimisticResult,
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn$Query$Q(data),
+                  ),
+          onError: onError,
           document: documentNodeQueryQ,
           parserFn: _parserFn$Query$Q,
         );
+
+  final OnQueryComplete$Query$Q? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {

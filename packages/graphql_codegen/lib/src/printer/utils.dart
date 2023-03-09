@@ -150,6 +150,9 @@ class NamePrinter {
   String printGraphQLClientOnMutationCompleteName(Name name) =>
       "OnMutationCompleted${separator}${printName(name)}";
 
+  String printGraphQLClientOnQueryCompleteName(Name name) =>
+      "OnQueryComplete${separator}${printName(name)}";
+
   String printGraphQLClientExtensionName(Name name) =>
       "ClientExtension${separator}${printName(name)}";
 
