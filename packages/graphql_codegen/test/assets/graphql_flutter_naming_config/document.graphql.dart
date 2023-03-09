@@ -316,7 +316,7 @@ class Options___Query___Q extends graphql.QueryOptions<Query___Q> {
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn___Query___Q(data),
+                    _parserFn___Query___Q(data),
                   ),
           onError: onError,
           document: documentNodeQueryQ,

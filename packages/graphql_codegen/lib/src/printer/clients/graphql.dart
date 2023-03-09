@@ -307,12 +307,9 @@ Expression printOnQueryCompleteFn(PrintContext<ContextOperation> context) =>
         ])
         ..body = refer('onComplete').call([
           refer('data'),
-          printNullCheck(
-            refer('data'),
-            refer(context.namePrinter.printParserFnName(context.path)).call(
-              [refer('data')],
-            ),
-          )
+          refer(context.namePrinter.printParserFnName(context.path)).call(
+            [refer('data')],
+          ),
         ]).code,
     ).closure;
 

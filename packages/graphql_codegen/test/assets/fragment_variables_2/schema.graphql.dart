@@ -593,7 +593,7 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$Q(data),
+                    _parserFn$Query$Q(data),
                   ),
           onError: onError,
           document: documentNodeQueryQ,
