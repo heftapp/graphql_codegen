@@ -330,7 +330,7 @@ const documentNodeQueryFetchPerson = DocumentNode(definitions: [
 Query$FetchPerson _parserFn$Query$FetchPerson(Map<String, dynamic> data) =>
     Query$FetchPerson.fromJson(data);
 typedef OnQueryComplete$Query$FetchPerson = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchPerson?,
 );
 
@@ -362,7 +362,7 @@ class Options$Query$FetchPerson
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchPerson(data),
+                    data == null ? null : _parserFn$Query$FetchPerson(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchPerson,
@@ -1495,7 +1495,7 @@ Mutation$UpdatePerson _parserFn$Mutation$UpdatePerson(
         Map<String, dynamic> data) =>
     Mutation$UpdatePerson.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdatePerson = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdatePerson?,
 );
 

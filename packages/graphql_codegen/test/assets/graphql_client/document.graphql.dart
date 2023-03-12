@@ -886,7 +886,7 @@ Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
     Query$FetchSOptional.fromJson(data);
 typedef OnQueryComplete$Query$FetchSOptional = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchSOptional?,
 );
 
@@ -918,7 +918,7 @@ class Options$Query$FetchSOptional
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchSOptional(data),
+                    data == null ? null : _parserFn$Query$FetchSOptional(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSOptional,
@@ -1232,7 +1232,7 @@ Query$FetchSRequired _parserFn$Query$FetchSRequired(
         Map<String, dynamic> data) =>
     Query$FetchSRequired.fromJson(data);
 typedef OnQueryComplete$Query$FetchSRequired = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchSRequired?,
 );
 
@@ -1264,7 +1264,7 @@ class Options$Query$FetchSRequired
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchSRequired(data),
+                    data == null ? null : _parserFn$Query$FetchSRequired(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSRequired,
@@ -1477,7 +1477,7 @@ Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
         Map<String, dynamic> data) =>
     Query$FetchSNoVariables.fromJson(data);
 typedef OnQueryComplete$Query$FetchSNoVariables = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchSNoVariables?,
 );
 
@@ -1507,7 +1507,9 @@ class Options$Query$FetchSNoVariables
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchSNoVariables(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$FetchSNoVariables(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSNoVariables,
@@ -1823,7 +1825,7 @@ Mutation$UpdateSOptional _parserFn$Mutation$UpdateSOptional(
         Map<String, dynamic> data) =>
     Mutation$UpdateSOptional.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSOptional = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdateSOptional?,
 );
 
@@ -2138,7 +2140,7 @@ Mutation$UpdateSRequired _parserFn$Mutation$UpdateSRequired(
         Map<String, dynamic> data) =>
     Mutation$UpdateSRequired.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSRequired = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdateSRequired?,
 );
 
@@ -2350,7 +2352,7 @@ Mutation$UpdateSNoVariables _parserFn$Mutation$UpdateSNoVariables(
     Mutation$UpdateSNoVariables.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSNoVariables = FutureOr<void>
     Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdateSNoVariables?,
 );
 

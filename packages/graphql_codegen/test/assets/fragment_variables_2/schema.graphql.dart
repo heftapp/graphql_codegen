@@ -563,7 +563,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
 ]);
 Query$Q _parserFn$Query$Q(Map<String, dynamic> data) => Query$Q.fromJson(data);
 typedef OnQueryComplete$Query$Q = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$Q?,
 );
 
@@ -594,7 +594,7 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$Q(data),
+                    data == null ? null : _parserFn$Query$Q(data),
                   ),
           onError: onError,
           document: documentNodeQueryQ,

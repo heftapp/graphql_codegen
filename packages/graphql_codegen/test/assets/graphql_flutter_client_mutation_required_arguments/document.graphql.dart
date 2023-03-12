@@ -225,7 +225,7 @@ Mutation$UpdateSRequired _parserFn$Mutation$UpdateSRequired(
         Map<String, dynamic> data) =>
     Mutation$UpdateSRequired.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSRequired = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdateSRequired?,
 );
 
