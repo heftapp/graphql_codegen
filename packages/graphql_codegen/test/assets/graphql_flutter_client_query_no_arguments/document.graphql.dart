@@ -120,7 +120,7 @@ Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
         Map<String, dynamic> data) =>
     Query$FetchSNoVariables.fromJson(data);
 typedef OnQueryComplete$Query$FetchSNoVariables = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchSNoVariables?,
 );
 
@@ -150,7 +150,9 @@ class Options$Query$FetchSNoVariables
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchSNoVariables(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$FetchSNoVariables(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSNoVariables,

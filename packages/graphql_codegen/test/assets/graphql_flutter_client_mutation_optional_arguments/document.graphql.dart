@@ -232,7 +232,7 @@ Mutation$UpdateSOptional _parserFn$Mutation$UpdateSOptional(
         Map<String, dynamic> data) =>
     Mutation$UpdateSOptional.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSOptional = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdateSOptional?,
 );
 

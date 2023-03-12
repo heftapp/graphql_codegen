@@ -13,7 +13,7 @@ jobs:
         with:
           channel: stable
       - name: Activate melos
-        run: dart pub global activate melos
+        run: dart pub global activate melos 2.9.0
       - name: Login pub
         run: |
           echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > "$PUB_CACHE/credentials.json"

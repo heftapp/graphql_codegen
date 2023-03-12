@@ -118,7 +118,7 @@ const documentNodeMutationUpdateSNo = DocumentNode(definitions: [
 Mutation$UpdateSNo _parserFn$Mutation$UpdateSNo(Map<String, dynamic> data) =>
     Mutation$UpdateSNo.fromJson(data);
 typedef OnMutationCompleted$Mutation$UpdateSNo = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$UpdateSNo?,
 );
 

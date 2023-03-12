@@ -10,7 +10,7 @@ Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
     FunctionType(
       (b) => b
         ..requiredParameters = ListBuilder([
-          refer('dynamic'),
+          nullableDynamicMap,
           TypeReference(
             (b) => b
               ..symbol = context.namePrinter.printClassName(context.path)
@@ -29,7 +29,7 @@ Spec printOnQueryComplete(PrintContext<ContextOperation> context) =>
     FunctionType(
       (b) => b
         ..requiredParameters = ListBuilder([
-          refer('dynamic'),
+          nullableDynamicMap,
           TypeReference(
             (b) => b
               ..symbol = context.namePrinter.printClassName(context.path)
@@ -41,8 +41,11 @@ Spec printOnQueryComplete(PrintContext<ContextOperation> context) =>
             ..symbol = 'FutureOr'
             ..types = ListBuilder([refer("void")]),
         ),
-    ).toTypeDef(context.namePrinter
-        .printGraphQLClientOnQueryCompleteName(context.path));
+    ).toTypeDef(
+      context.namePrinter.printGraphQLClientOnQueryCompleteName(
+        context.path,
+      ),
+    );
 
 Spec printQueryOptions(PrintContext<ContextOperation> c) {
   final context = c.context;
@@ -321,8 +324,11 @@ Expression printOnQueryCompleteFn(PrintContext<ContextOperation> context) =>
         ])
         ..body = refer('onComplete').call([
           refer('data'),
-          refer(context.namePrinter.printParserFnName(context.path)).call(
-            [refer('data')],
+          printNullCheck(
+            refer('data'),
+            refer(context.namePrinter.printParserFnName(context.path)).call(
+              [refer('data')],
+            ),
           ),
         ]).code,
     ).closure;

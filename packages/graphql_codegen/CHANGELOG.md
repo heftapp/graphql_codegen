@@ -1,3 +1,7 @@
+# 0.12.0-beta.15
+
+* Fix `onComplete`
+
 # 0.12.0-beta.14
 
 * Add `onError` and `onComplete` callbacks to query options.

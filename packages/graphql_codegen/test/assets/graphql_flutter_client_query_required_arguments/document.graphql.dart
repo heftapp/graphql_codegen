@@ -221,7 +221,7 @@ Query$FetchSRequired _parserFn$Query$FetchSRequired(
         Map<String, dynamic> data) =>
     Query$FetchSRequired.fromJson(data);
 typedef OnQueryComplete$Query$FetchSRequired = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchSRequired?,
 );
 
@@ -253,7 +253,7 @@ class Options$Query$FetchSRequired
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchSRequired(data),
+                    data == null ? null : _parserFn$Query$FetchSRequired(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSRequired,

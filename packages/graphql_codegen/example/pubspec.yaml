@@ -5,8 +5,7 @@ environment:
 
 dependencies:
   graphql_flutter: 5.1.1
-  graphql: 5.1.2
-  web_socket_channel: 2.2.0
+  graphql: 5.2.0-beta.1
   flutter:
     sdk: flutter
 

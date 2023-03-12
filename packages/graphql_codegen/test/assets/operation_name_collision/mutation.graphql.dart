@@ -142,7 +142,7 @@ const documentNodeMutationOperation = DocumentNode(definitions: [
 Mutation$Operation _parserFn$Mutation$Operation(Map<String, dynamic> data) =>
     Mutation$Operation.fromJson(data);
 typedef OnMutationCompleted$Mutation$Operation = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Mutation$Operation?,
 );
 

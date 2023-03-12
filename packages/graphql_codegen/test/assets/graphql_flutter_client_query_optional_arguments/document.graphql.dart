@@ -228,7 +228,7 @@ Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
     Query$FetchSOptional.fromJson(data);
 typedef OnQueryComplete$Query$FetchSOptional = FutureOr<void> Function(
-  dynamic,
+  Map<String, dynamic>?,
   Query$FetchSOptional?,
 );
 
@@ -260,7 +260,7 @@ class Options$Query$FetchSOptional
               ? null
               : (data) => onComplete(
                     data,
-                    _parserFn$Query$FetchSOptional(data),
+                    data == null ? null : _parserFn$Query$FetchSOptional(data),
                   ),
           onError: onError,
           document: documentNodeQueryFetchSOptional,
