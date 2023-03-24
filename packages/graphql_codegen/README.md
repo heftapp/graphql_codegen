@@ -573,7 +573,7 @@ You can select an existing enum value to be the fallback enum value. This is don
 
 ```graphql
 enum MyEnum { FIRST LAST OTHER }
-```graphql
+```
 
 and the configuration
 
