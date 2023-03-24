@@ -120,23 +120,27 @@ TypeReference _printEnumType(
   EnumTypeDefinitionNode node,
 ) {
   final enumConfig = context.context.config.enums[node.name.value];
+  final enumConfigImport = enumConfig?.import;
+  final enumConfigType = enumConfig?.type;
   final name = Name.fromSegment(
     EnumNameSegment(node),
   );
-  if (enumConfig == null) {
+  if (enumConfigType == null) {
     final typeName = context.namePrinter.printClassName(name);
     return TypeReference((b) => b..symbol = typeName);
   }
-  context.addPackage(
-    enumConfig.import,
-    context.namePrinter.printEnumImportAlias(
-      name,
-    ),
-  );
+  if (enumConfigImport != null) {
+    context.addPackage(
+      enumConfigImport,
+      context.namePrinter.printEnumImportAlias(
+        name,
+      ),
+    );
+  }
   return TypeReference(
     (b) => b
       ..symbol =
-          "${context.namePrinter.printEnumImportAlias(name)}.${enumConfig.type}",
+          "${context.namePrinter.printEnumImportAlias(name)}.${enumConfigType}",
   );
 }
 

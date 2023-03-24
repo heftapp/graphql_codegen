@@ -1,3 +1,7 @@
+# 0.12.0-beta.16
+
+* Support custom enum fallback values
+
 # 0.12.0-beta.15
 
 * Fix `onComplete`

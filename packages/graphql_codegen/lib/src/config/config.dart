@@ -31,16 +31,18 @@ class GraphQLCodegenConfigScalar {
 
 @JsonSerializable()
 class GraphQLCodegenConfigEnum {
-  final String type;
-  final String import;
-  final String fromJsonFunctionName;
-  final String toJsonFunctionName;
+  final String? type;
+  final String? import;
+  final String? fromJsonFunctionName;
+  final String? toJsonFunctionName;
+  final String? fallbackEnumValue;
 
   const GraphQLCodegenConfigEnum({
     required this.type,
     required this.import,
     required this.fromJsonFunctionName,
     required this.toJsonFunctionName,
+    required this.fallbackEnumValue,
   });
 
   @override

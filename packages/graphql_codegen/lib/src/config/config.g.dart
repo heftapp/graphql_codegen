@@ -27,10 +27,11 @@ Map<String, dynamic> _$GraphQLCodegenConfigScalarToJson(
 GraphQLCodegenConfigEnum _$GraphQLCodegenConfigEnumFromJson(
         Map<String, dynamic> json) =>
     GraphQLCodegenConfigEnum(
-      type: json['type'] as String,
-      import: json['import'] as String,
-      fromJsonFunctionName: json['fromJsonFunctionName'] as String,
-      toJsonFunctionName: json['toJsonFunctionName'] as String,
+      type: json['type'] as String?,
+      import: json['import'] as String?,
+      fromJsonFunctionName: json['fromJsonFunctionName'] as String?,
+      toJsonFunctionName: json['toJsonFunctionName'] as String?,
+      fallbackEnumValue: json['fallbackEnumValue'] as String?,
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigEnumToJson(
@@ -40,6 +41,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigEnumToJson(
       'import': instance.import,
       'fromJsonFunctionName': instance.fromJsonFunctionName,
       'toJsonFunctionName': instance.toJsonFunctionName,
+      'fallbackEnumValue': instance.fallbackEnumValue,
     };
 
 GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
