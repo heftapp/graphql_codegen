@@ -120,7 +120,8 @@ Expression _printFromJsonValue(
   }
 
   if (typeDefinition is EnumTypeDefinitionNode && replacementContext != null) {
-    final config = context.context.config.enums[typeDefinition.name.value];
+    final config = context
+        .context.config.enums[typeDefinition.name.value]?.fromJsonFunctionName;
     if (config == null) {
       context.addDependency(replacementContext);
     }
@@ -132,7 +133,7 @@ Expression _printFromJsonValue(
               )
             : refer(
                 context.namePrinter.printEnumImportAlias(replacementContext),
-              ).property(config.fromJsonFunctionName))
+              ).property(config))
         .call([valueRef.asA(refer('String'))]);
     return type.isNonNull ? inner : printNullCheck(valueRef, inner);
   }
@@ -219,7 +220,8 @@ Expression _printToJsonValue(
   }
 
   if (typeDefinition is EnumTypeDefinitionNode && replacementContext != null) {
-    final config = context.context.config.enums[typeDefinition.name.value];
+    final config = context
+        .context.config.enums[typeDefinition.name.value]?.toJsonFunctionName;
     if (config == null) {
       context.addDependency(replacementContext);
     }
@@ -231,7 +233,7 @@ Expression _printToJsonValue(
               )
             : refer(
                 context.namePrinter.printEnumImportAlias(replacementContext),
-              ).property(config.toJsonFunctionName))
+              ).property(config))
         .call([valueRef]);
     return type.isNonNull ? inner : printNullCheck(valueRef, inner);
   }
