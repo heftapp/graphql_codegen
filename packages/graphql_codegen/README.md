@@ -261,7 +261,7 @@ targets:
 |---|---|---|---|
 | `clients` | {} | Graphql clients to generate helper functions for. Supported types are `graphql` and `graphql_flutter`   | [Clients](#clients) |
 | `scalars` | {} | Allows custom JSON-Dart transformations. Builder will warn if scalars are not recognized. Unless using primitive types, you will need `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-scalars) |
-| `enums` | {} | Allows custom enum implementation. You will need to define `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom scalars](#custom-enums) |
+| `enums` | {} | Allows custom enum implementation. You can define `fromJsonFunctionName`, `toJsonFunctionName`, `type`, and `import` | [Custom enums](#custom-enums) |
 | `addTypename` | true | Whether to automatically insert the `__typename` field in requests | [Add typename](#add-typename) |
 | `addTypenameExcludedPaths` | [] | When `addTypename` is true, the paths to exclude  | [Excluding typenames](#excluding-some-selections-from-adding-typename) |
 | `outputDirectory` | "." | Location where to output generated types relative to each `.graphql` file | [Change output directory](#change-output-directory) |
@@ -562,6 +562,36 @@ String toJson(DartEnum v) {
 ```
 
 the generator will work as expected.
+
+
+### Use a custom fallback value
+
+Per default, the code-generator provides a default fallback value called `$unknown`. This is used to handle any 
+new enum values when parsing the enum. Without a fallback value, your app would break when you add a new enum value.
+
+You can select an existing enum value to be the fallback enum value. This is done by specifying the `fallbackEnumValue` option on the enum. So given the GraphQL:
+
+```graphql
+enum MyEnum { FIRST LAST OTHER }
+```graphql
+
+and the configuration
+
+```yaml
+# build.yaml
+
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          enums:
+            MyEnum:
+              fallbackEnumValue: OTHER
+
+```
+
+no `$unknown` value will be added to your enum and all new values will be mapped to `MyEnum.OTHER`.
 
 ## Add typename
 By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
