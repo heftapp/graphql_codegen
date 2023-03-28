@@ -136,12 +136,8 @@ class ContextVisitor extends RecursiveVisitor {
 
     // Lookup the `ContextFragment` of the current fragment.
     // If it doesn't exists, create it!
-    Context tempFragmentContext;
-    if (context.hasContextFragment(fragmentName)) {
-      tempFragmentContext = context;
-    } else {
-      tempFragmentContext = context.rootContext();
-      ContextVisitor(context: tempFragmentContext)
+    if (!context.hasContextFragment(fragmentName)) {
+      ContextVisitor(context: context.rootContext())
           .visitFragmentDefinitionNode(fragmentDef);
     }
 

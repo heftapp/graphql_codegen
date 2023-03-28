@@ -561,10 +561,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     _childContexts[c.path] = c;
   }
 
-  bool hasContextFragment(Name name) => _lookupContextFragment(name) != null;
-
-  Name contextFragmentNameOrFallback(Name name, Name fallback) =>
-      hasContextFragment(name) ? name : fallback;
+  bool hasContextFragment(Name name) => _lookupAllContextFragment(name) != null;
 
   ContextRoot<TKey> rootContext() => ContextRoot<TKey>(
         key: key,

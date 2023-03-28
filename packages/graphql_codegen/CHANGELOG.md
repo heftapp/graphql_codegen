@@ -1,3 +1,7 @@
+# 0.12.0-beta.17
+
+* Major performance improvement with many fragments
+
 # 0.12.0-beta.16
 
 * Support custom enum fallback values
