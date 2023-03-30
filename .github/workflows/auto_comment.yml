@@ -1,0 +1,15 @@
+name: Auto Comment
+on: [issues]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wow-actions/auto-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issuesOpened: |
+            👋 @{{ author }}
+            Thank you for raising an issue. I will investigate the issue and get back to you as soon as possible.
+            Please make sure you have given us as much context as possible.
+            
+            This library is created and maintained by me, @budde377. Please consider supporting our work and ensure our survival by donating [here](https://github.com/sponsors/heftapp).
