@@ -1,3 +1,7 @@
+# 0.12.0-beta.18
+
+* Update documentation
+
 # 0.12.0-beta.17
 
 * Major performance improvement with many fragments
