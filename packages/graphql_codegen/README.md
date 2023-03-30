@@ -1,5 +1,7 @@
 # GraphQL Codegen
 
+## HELP US SURVIVE, BECOME A [SPONSOR](https://github.com/sponsors/heftapp)!
+
 This is an opinionated code-generation tool from GraphQL to Dart/Flutter.
 
 It'll allow you to generate Dart serializers and client helpers with minimal config.
