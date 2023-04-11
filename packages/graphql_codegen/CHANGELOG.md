@@ -1,3 +1,24 @@
+# 0.12.0
+
+* Update documentation
+* Major performance improvement with many fragments
+* Support custom enum fallback values
+* Add `onError` and `onComplete` callbacks to query options.
+* Add `typedOptimisticResult` as an typed alternative to `optimistcResult`
+* Update dev deps.
+* Improve performance a bit.
+* Provide default typename parameter to constructor
+* Support schema extensions.
+* Fix bug in generating wrong json methods.
+* Fix absolute output dir paths on windows.
+* Add built-in types to keywords.
+* Add custom enums.
+* Update SDK version and required code-builder version.
+* Remove operation definitions without name before codegen.
+* Fix missing serializers for concrete types on fragments
+* Bump gql versions
+* Fix naming separator issue
+
 # 0.12.0-beta.18
 
 * Update documentation
