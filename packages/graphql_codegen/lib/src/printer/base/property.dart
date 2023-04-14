@@ -107,7 +107,7 @@ TypeReference _printNamedTypeNode(
       (b) => b..symbol = context.namePrinter.printClassName(replacementContext),
     );
   } else {
-    throw StateError("Failed to generate type.");
+    throw StateError("Failed to generate type for ${typeNode.name.value}.");
   }
   if (typeNode.isNonNull) {
     return reference;
