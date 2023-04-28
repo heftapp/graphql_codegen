@@ -750,6 +750,26 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(
+            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList)?
+        walletContentBlockList,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "WalletContentBlockList":
+        if (walletContentBlockList != null) {
+          return walletContentBlockList(this
+              as Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks<TRes> {
@@ -1271,6 +1291,26 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks$$Walle
 
       default:
         throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(
+            Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview)?
+        walletContentItemContentPreview,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "WalletContentItemContentPreview":
+        if (walletContentItemContentPreview != null) {
+          return walletContentItemContentPreview(this
+              as Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
     }
   }
 }

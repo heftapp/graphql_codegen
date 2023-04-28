@@ -254,6 +254,23 @@ extension UtilityExtension$Fragment$FragmentI on Fragment$FragmentI {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$FragmentI$$FieldA)? fieldA,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "FieldA":
+        if (fieldA != null) {
+          return fieldA(this as Fragment$FragmentI$$FieldA);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$FragmentI<TRes> {
@@ -769,6 +786,23 @@ extension UtilityExtension$Query$FetchStuff$field on Query$FetchStuff$field {
 
       default:
         throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchStuff$field$$FieldA)? fieldA,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "FieldA":
+        if (fieldA != null) {
+          return fieldA(this as Query$FetchStuff$field$$FieldA);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
     }
   }
 }

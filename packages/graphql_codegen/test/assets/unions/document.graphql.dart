@@ -222,6 +222,31 @@ extension UtilityExtension$Query$Q$u on Query$Q$u {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$u$$TA)? tA,
+    _T Function(Query$Q$u$$TB)? tB,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TA":
+        if (tA != null) {
+          return tA(this as Query$Q$u$$TA);
+        } else {
+          return orElse();
+        }
+
+      case "TB":
+        if (tB != null) {
+          return tB(this as Query$Q$u$$TB);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$u<TRes> {

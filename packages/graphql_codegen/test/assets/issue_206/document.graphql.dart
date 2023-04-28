@@ -86,6 +86,23 @@ extension UtilityExtension$Fragment$EventFragment on Fragment$EventFragment {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$EventFragment$$EventPublic)? eventPublic,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "EventPublic":
+        if (eventPublic != null) {
+          return eventPublic(this as Fragment$EventFragment$$EventPublic);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$EventFragment<TRes> {
@@ -1047,6 +1064,23 @@ extension UtilityExtension$Mutation$Bla$bla on Mutation$Bla$bla {
 
       default:
         throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Mutation$Bla$bla$$EventPublic)? eventPublic,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "EventPublic":
+        if (eventPublic != null) {
+          return eventPublic(this as Mutation$Bla$bla$$EventPublic);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
     }
   }
 }

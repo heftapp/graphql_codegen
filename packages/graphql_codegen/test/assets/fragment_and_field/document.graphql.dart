@@ -406,6 +406,23 @@ extension UtilityExtension$Query$Q$person on Query$Q$person {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$person$$Person)? person,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Person":
+        if (person != null) {
+          return person(this as Query$Q$person$$Person);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$person<TRes> {

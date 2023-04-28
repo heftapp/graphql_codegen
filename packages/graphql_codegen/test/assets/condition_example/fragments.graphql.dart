@@ -90,6 +90,31 @@ extension UtilityExtension$Fragment$Condition on Fragment$Condition {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$Condition$$AndCondition)? andCondition,
+    _T Function(Fragment$Condition$$TimeCondition)? timeCondition,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "AndCondition":
+        if (andCondition != null) {
+          return andCondition(this as Fragment$Condition$$AndCondition);
+        } else {
+          return orElse();
+        }
+
+      case "TimeCondition":
+        if (timeCondition != null) {
+          return timeCondition(this as Fragment$Condition$$TimeCondition);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$Condition<TRes> {
@@ -771,6 +796,33 @@ extension UtilityExtension$Fragment$CompositeCondition
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$CompositeCondition$$AndCondition)? andCondition,
+    _T Function(Fragment$CompositeCondition$$TimeCondition)? timeCondition,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "AndCondition":
+        if (andCondition != null) {
+          return andCondition(
+              this as Fragment$CompositeCondition$$AndCondition);
+        } else {
+          return orElse();
+        }
+
+      case "TimeCondition":
+        if (timeCondition != null) {
+          return timeCondition(
+              this as Fragment$CompositeCondition$$TimeCondition);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$CompositeCondition<TRes> {
@@ -1301,6 +1353,33 @@ extension UtilityExtension$Fragment$NonCompositeCondition
 
       default:
         throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$NonCompositeCondition$$AndCondition)? andCondition,
+    _T Function(Fragment$NonCompositeCondition$$TimeCondition)? timeCondition,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "AndCondition":
+        if (andCondition != null) {
+          return andCondition(
+              this as Fragment$NonCompositeCondition$$AndCondition);
+        } else {
+          return orElse();
+        }
+
+      case "TimeCondition":
+        if (timeCondition != null) {
+          return timeCondition(
+              this as Fragment$NonCompositeCondition$$TimeCondition);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
     }
   }
 }

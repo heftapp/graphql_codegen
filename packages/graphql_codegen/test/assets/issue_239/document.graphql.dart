@@ -433,6 +433,23 @@ extension UtilityExtension$Query$Q$booking on Query$Q$booking {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$booking$$HotelBooking)? hotelBooking,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "HotelBooking":
+        if (hotelBooking != null) {
+          return hotelBooking(this as Query$Q$booking$$HotelBooking);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$booking<TRes> {

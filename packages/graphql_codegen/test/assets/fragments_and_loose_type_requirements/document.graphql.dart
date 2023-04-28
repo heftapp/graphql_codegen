@@ -80,6 +80,23 @@ extension UtilityExtension$Fragment$F on Fragment$F {
         throw Exception("Unknown typename '${$__typename}'");
     }
   }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$F$$T)? t,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T":
+        if (t != null) {
+          return t(this as Fragment$F$$T);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$F<TRes> {
