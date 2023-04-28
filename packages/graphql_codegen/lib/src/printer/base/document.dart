@@ -157,6 +157,12 @@ List<Spec> printContextExtension(PrintContext c) {
     context.possibleTypes,
   );
 
+  final maybeWhenMethod = _printMaybeWhen(
+    c,
+    context.typenameProperty,
+    context.possibleTypes,
+  );
+
   return [
     Extension(
       (b) => b
@@ -167,7 +173,8 @@ List<Spec> printContextExtension(PrintContext c) {
             c.namePrinter.printClassName(context.path),
             c,
           ),
-          if (whenMethod != null) whenMethod
+          if (whenMethod != null) whenMethod,
+          if (maybeWhenMethod != null) maybeWhenMethod,
         ]),
     ),
     ...printCopyWithClasses(
@@ -306,6 +313,69 @@ Method? _printWhen(
           ..named = true
           ..required = true),
       ),
+    )
+    ..body = Block.of(body));
+}
+
+Method? _printMaybeWhen(
+  PrintContext context,
+  ContextProperty? typenameProperty,
+  Iterable<Context> possibleTypes,
+) {
+  if (typenameProperty == null || possibleTypes.isEmpty) {
+    return null;
+  }
+
+  String getParameterName(Context<Object, TypeDefinitionNode> type) {
+    return uncapitalize(type.currentType.name.value);
+  }
+
+  String getGeneratedTypeName(Context<Object, TypeDefinitionNode> type) {
+    return context.namePrinter.printClassName(type.path);
+  }
+
+  final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
+
+  final cases = possibleTypes.map(
+    (t) => Code("""
+        case "${t.currentType.name.value}":
+            if (${getParameterName(t)} != null) {
+              return ${getParameterName(t)}(this as ${getGeneratedTypeName(t)});
+            } else {
+              return orElse();
+            }
+        """),
+  );
+  List<Code> body = [
+    Code('switch(\$${typenameProperty.name.value}) {'),
+    ...cases,
+    Code('default:'),
+    Code('return orElse();'),
+    Code('}')
+  ];
+
+  return Method((m) => m
+    ..name = "maybeWhen"
+    ..returns = _genericTypeParam
+    ..types.add(_genericTypeParam)
+    ..optionalParameters.addAll(
+      possibleTypes.map(
+        (t) => Parameter((p) => p
+          ..name = getParameterName(t)
+          ..type = FunctionType((b) => b
+            ..isNullable = true
+            ..returnType = _genericTypeParam
+            ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
+          ..named = true
+          ..required = false),
+      ),
+    )
+    ..optionalParameters.add(
+      Parameter((p) => p
+        ..name = 'orElse'
+        ..type = FunctionType((b) => b..returnType = _genericTypeParam)
+        ..named = true
+        ..required = true),
     )
     ..body = Block.of(body));
 }
