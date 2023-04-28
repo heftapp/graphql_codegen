@@ -71,6 +71,15 @@ extension UtilityExtension$Fragment$F on Fragment$F {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Fragment$F$$T) t}) {
+    switch ($__typename) {
+      case "T":
+        return t(this as Fragment$F$$T);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$F<TRes> {

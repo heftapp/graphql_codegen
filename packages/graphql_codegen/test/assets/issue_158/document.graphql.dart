@@ -73,6 +73,15 @@ extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Fragment$PersonSummary$$Person) person}) {
+    switch ($__typename) {
+      case "Person":
+        return person(this as Fragment$PersonSummary$$Person);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$PersonSummary<TRes> {

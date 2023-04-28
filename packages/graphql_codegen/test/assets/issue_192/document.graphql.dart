@@ -262,6 +262,15 @@ extension UtilityExtension$Query$Q$book on Query$Q$book {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$Q$book$$TextBook) textBook}) {
+    switch ($__typename) {
+      case "TextBook":
+        return textBook(this as Query$Q$book$$TextBook);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$book<TRes> {

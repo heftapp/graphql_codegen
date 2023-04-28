@@ -661,6 +661,21 @@ extension UtilityExtension$Query$Q$docsWithTypename
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$docsWithTypename$$Contract) contract,
+    required _T Function(Query$Q$docsWithTypename$$Report) report,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        return contract(this as Query$Q$docsWithTypename$$Contract);
+
+      case "Report":
+        return report(this as Query$Q$docsWithTypename$$Report);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$docsWithTypename<TRes> {
@@ -967,6 +982,21 @@ extension UtilityExtension$Query$Q$docsWihtoutTypename
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Query$Q$docsWihtoutTypename$$Contract) contract,
+    required _T Function(Query$Q$docsWihtoutTypename$$Report) report,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        return contract(this as Query$Q$docsWihtoutTypename$$Contract);
+
+      case "Report":
+        return report(this as Query$Q$docsWihtoutTypename$$Report);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$docsWihtoutTypename<TRes> {
@@ -1613,6 +1643,21 @@ extension UtilityExtension$Query$Q$docsWithFragment
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$docsWithFragment$$Contract) contract,
+    required _T Function(Query$Q$docsWithFragment$$Report) report,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        return contract(this as Query$Q$docsWithFragment$$Contract);
+
+      case "Report":
+        return report(this as Query$Q$docsWithFragment$$Report);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$docsWithFragment<TRes> {

@@ -397,6 +397,15 @@ extension UtilityExtension$Query$Q$person on Query$Q$person {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$Q$person$$Person) person}) {
+    switch ($__typename) {
+      case "Person":
+        return person(this as Query$Q$person$$Person);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$person<TRes> {

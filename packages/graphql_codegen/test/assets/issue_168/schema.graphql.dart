@@ -737,6 +737,19 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks
             this,
             (i) => i,
           );
+  _T when<_T>(
+      {required _T Function(
+              Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList)
+          walletContentBlockList}) {
+    switch ($__typename) {
+      case "WalletContentBlockList":
+        return walletContentBlockList(this
+            as Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks<TRes> {
@@ -1247,6 +1260,19 @@ extension UtilityExtension$Query$WalletGetContent$walletGetContent$blocks$$Walle
             this,
             (i) => i,
           );
+  _T when<_T>(
+      {required _T Function(
+              Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview)
+          walletContentItemContentPreview}) {
+    switch ($__typename) {
+      case "WalletContentItemContentPreview":
+        return walletContentItemContentPreview(this
+            as Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items<

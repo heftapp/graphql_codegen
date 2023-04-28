@@ -885,6 +885,15 @@ extension UtilityExtension$Query$Q$field on Query$Q$field {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$Q$field$$T1) t1}) {
+    switch ($__typename) {
+      case "T1":
+        return t1(this as Query$Q$field$$T1);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$field<TRes> {

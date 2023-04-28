@@ -550,6 +550,25 @@ extension UtilityExtension$Query$FetchImplementations$interface
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Query$FetchImplementations$interface$$ImplementationA)
+        implementationA,
+    required _T Function(Query$FetchImplementations$interface$$ImplementationB)
+        implementationB,
+  }) {
+    switch ($typename) {
+      case "ImplementationA":
+        return implementationA(
+            this as Query$FetchImplementations$interface$$ImplementationA);
+
+      case "ImplementationB":
+        return implementationB(
+            this as Query$FetchImplementations$interface$$ImplementationB);
+
+      default:
+        throw Exception("Unknown typename '${$typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface<TRes> {
@@ -681,6 +700,27 @@ extension UtilityExtension$Query$FetchImplementations$interface$self
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(
+            Query$FetchImplementations$interface$self$$ImplementationA)
+        implementationA,
+    required _T Function(
+            Query$FetchImplementations$interface$self$$ImplementationB)
+        implementationB,
+  }) {
+    switch ($__typename) {
+      case "ImplementationA":
+        return implementationA(
+            this as Query$FetchImplementations$interface$self$$ImplementationA);
+
+      case "ImplementationB":
+        return implementationB(
+            this as Query$FetchImplementations$interface$self$$ImplementationB);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$self<TRes> {

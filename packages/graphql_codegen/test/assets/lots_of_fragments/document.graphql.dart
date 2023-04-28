@@ -245,6 +245,15 @@ extension UtilityExtension$Fragment$FragmentI on Fragment$FragmentI {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Fragment$FragmentI$$FieldA) fieldA}) {
+    switch ($__typename) {
+      case "FieldA":
+        return fieldA(this as Fragment$FragmentI$$FieldA);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$FragmentI<TRes> {
@@ -753,6 +762,15 @@ extension UtilityExtension$Query$FetchStuff$field on Query$FetchStuff$field {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$FetchStuff$field$$FieldA) fieldA}) {
+    switch ($__typename) {
+      case "FieldA":
+        return fieldA(this as Query$FetchStuff$field$$FieldA);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchStuff$field<TRes> {

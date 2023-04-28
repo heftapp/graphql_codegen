@@ -75,6 +75,21 @@ extension UtilityExtension$Fragment$Condition on Fragment$Condition {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Fragment$Condition$$AndCondition) andCondition,
+    required _T Function(Fragment$Condition$$TimeCondition) timeCondition,
+  }) {
+    switch ($__typename) {
+      case "AndCondition":
+        return andCondition(this as Fragment$Condition$$AndCondition);
+
+      case "TimeCondition":
+        return timeCondition(this as Fragment$Condition$$TimeCondition);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$Condition<TRes> {
@@ -738,6 +753,24 @@ extension UtilityExtension$Fragment$CompositeCondition
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Fragment$CompositeCondition$$AndCondition)
+        andCondition,
+    required _T Function(Fragment$CompositeCondition$$TimeCondition)
+        timeCondition,
+  }) {
+    switch ($__typename) {
+      case "AndCondition":
+        return andCondition(this as Fragment$CompositeCondition$$AndCondition);
+
+      case "TimeCondition":
+        return timeCondition(
+            this as Fragment$CompositeCondition$$TimeCondition);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$CompositeCondition<TRes> {
@@ -1251,6 +1284,25 @@ extension UtilityExtension$Fragment$NonCompositeCondition
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Fragment$NonCompositeCondition$$AndCondition)
+        andCondition,
+    required _T Function(Fragment$NonCompositeCondition$$TimeCondition)
+        timeCondition,
+  }) {
+    switch ($__typename) {
+      case "AndCondition":
+        return andCondition(
+            this as Fragment$NonCompositeCondition$$AndCondition);
+
+      case "TimeCondition":
+        return timeCondition(
+            this as Fragment$NonCompositeCondition$$TimeCondition);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$NonCompositeCondition<TRes> {

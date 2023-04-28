@@ -402,6 +402,15 @@ extension UtilityExtension$Query$FetchI$i1 on Query$FetchI$i1 {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$FetchI$i1$$T1) t1}) {
+    switch ($__typename) {
+      case "T1":
+        return t1(this as Query$FetchI$i1$$T1);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1<TRes> {
@@ -541,6 +550,15 @@ extension UtilityExtension$Query$FetchI$i1$i2 on Query$FetchI$i1$i2 {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$FetchI$i1$i2$$T2) t2}) {
+    switch ($__typename) {
+      case "T2":
+        return t2(this as Query$FetchI$i1$i2$$T2);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$i2<TRes> {
@@ -681,6 +699,15 @@ extension UtilityExtension$Query$FetchI$i1$i2$field
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$FetchI$i1$i2$field$$TField) tField}) {
+    switch ($__typename) {
+      case "TField":
+        return tField(this as Query$FetchI$i1$i2$field$$TField);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$i2$field<TRes> {
@@ -1619,6 +1646,15 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2 on Query$FetchI$i1$$T1$i2 {
         this,
         (i) => i,
       );
+  _T when<_T>({required _T Function(Query$FetchI$i1$$T1$i2$$T2) t2}) {
+    switch ($__typename) {
+      case "T2":
+        return t2(this as Query$FetchI$i1$$T1$i2$$T2);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$$T1$i2<TRes> {
@@ -1760,6 +1796,16 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2$field
             this,
             (i) => i,
           );
+  _T when<_T>(
+      {required _T Function(Query$FetchI$i1$$T1$i2$field$$TField) tField}) {
+    switch ($__typename) {
+      case "TField":
+        return tField(this as Query$FetchI$i1$$T1$i2$field$$TField);
+
+      default:
+        throw Exception("Unknown typename '${$__typename}'");
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$$T1$i2$field<TRes> {
