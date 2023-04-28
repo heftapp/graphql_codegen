@@ -109,12 +109,6 @@ Class printContext(PrintContext c) {
     c.addDependency(extendContext.path);
   }
   final properties = c.context.properties;
-  final whenMethod = _printWhen(
-    c,
-    context.typenameProperty,
-    context.possibleTypes,
-  );
-
   return Class(
     (b) => b
       ..name = c.namePrinter.printClassName(context.path)
@@ -149,7 +143,6 @@ Class printContext(PrintContext c) {
           c.namePrinter.printClassName(context.path),
           properties,
         ),
-        if (whenMethod != null) whenMethod
       ]),
   );
 }
@@ -157,6 +150,13 @@ Class printContext(PrintContext c) {
 List<Spec> printContextExtension(PrintContext c) {
   final context = c.context;
   final properties = c.context.properties;
+
+  final whenMethod = _printWhen(
+    c,
+    context.typenameProperty,
+    context.possibleTypes,
+  );
+
   return [
     Extension(
       (b) => b
@@ -167,6 +167,7 @@ List<Spec> printContextExtension(PrintContext c) {
             c.namePrinter.printClassName(context.path),
             c,
           ),
+          if (whenMethod != null) whenMethod
         ]),
     ),
     ...printCopyWithClasses(
@@ -283,11 +284,11 @@ Method? _printWhen(
         """),
   );
   List<Code> body = [
-    Code('switch(json["${typenameProperty.name.value}"] as String) {'),
+    Code('switch(\$${typenameProperty.name.value}) {'),
     ...cases,
     Code('default:'),
     Code(
-        'throw Exception("Unknown typename \'\${json["${typenameProperty.name.value}"]}\'");'),
+        'throw Exception("Unknown typename \'\${\$${typenameProperty.name.value}}\'");'),
     Code('}')
   ];
 
