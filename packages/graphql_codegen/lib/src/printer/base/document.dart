@@ -1,14 +1,15 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:gql_code_builder/src/ast.dart' as gql_builder;
+import "package:gql_code_builder/src/utils/uncapitalize.dart";
+import 'package:graphql_codegen/src/context.dart';
 import 'package:graphql_codegen/src/printer/base/copy.dart';
 import 'package:graphql_codegen/src/printer/base/equality.dart';
 import 'package:graphql_codegen/src/printer/base/json.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
-import 'package:graphql_codegen/src/context.dart';
-import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 import 'package:graphql_codegen/src/printer/utils.dart';
 
 Constructor _printFromJson(
@@ -39,7 +40,7 @@ Constructor _printFromJson(
   if (typenameProperty != null && possibleTypes.isNotEmpty) {
     final cases = possibleTypes.map(
       (t) => Code("""
-        case "${t.currentType.name.value}": 
+        case "${t.currentType.name.value}":
             return ${context.namePrinter.printClassName(t.path)}.fromJson(json);
         """),
     );
@@ -108,6 +109,11 @@ Class printContext(PrintContext c) {
     c.addDependency(extendContext.path);
   }
   final properties = c.context.properties;
+  final whenMethod = _printWhen(
+    c,
+    context.typenameProperty,
+    context.possibleTypes,
+  );
 
   return Class(
     (b) => b
@@ -143,6 +149,7 @@ Class printContext(PrintContext c) {
           c.namePrinter.printClassName(context.path),
           properties,
         ),
+        if (whenMethod != null) whenMethod
       ]),
   );
 }
@@ -248,4 +255,56 @@ Method _printCopyWithMethod(
         printIdentityFunction().closure,
       ],
     ).code);
+}
+
+Method? _printWhen(
+  PrintContext context,
+  ContextProperty? typenameProperty,
+  Iterable<Context> possibleTypes,
+) {
+  if (typenameProperty == null || possibleTypes.isEmpty) {
+    return null;
+  }
+
+  String getParameterName(Context<Object, TypeDefinitionNode> type) {
+    return uncapitalize(type.currentType.name.value);
+  }
+
+  String getGeneratedTypeName(Context<Object, TypeDefinitionNode> type) {
+    return context.namePrinter.printClassName(type.path);
+  }
+
+  final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
+
+  final cases = possibleTypes.map(
+    (t) => Code("""
+        case "${t.currentType.name.value}":
+            return ${getParameterName(t)}(this as ${getGeneratedTypeName(t)});
+        """),
+  );
+  List<Code> body = [
+    Code('switch(json["${typenameProperty.name.value}"] as String) {'),
+    ...cases,
+    Code('default:'),
+    Code(
+        'throw Exception("Unknown typename \'\${json["${typenameProperty.name.value}"]}\'");'),
+    Code('}')
+  ];
+
+  return Method((m) => m
+    ..name = "when"
+    ..returns = _genericTypeParam
+    ..types.add(_genericTypeParam)
+    ..optionalParameters.addAll(
+      possibleTypes.map(
+        (t) => Parameter((p) => p
+          ..name = getParameterName(t)
+          ..type = FunctionType((b) => b
+            ..returnType = _genericTypeParam
+            ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
+          ..named = true
+          ..required = true),
+      ),
+    )
+    ..body = Block.of(body));
 }
