@@ -10,6 +10,6 @@ jobs:
           issuesOpened: |
             👋 @{{ author }}
             Thank you for raising an issue. I will investigate the issue and get back to you as soon as possible.
-            Please make sure you have given us as much context as possible.
+            Please make sure you have provided enough context.
             
-            This library is created and maintained by me, @budde377. Please consider supporting our work and ensure our survival by donating [here](https://github.com/sponsors/heftapp).
+            This library is created and maintained by me, @budde377. Please consider supporting my work and ensure our survival by donating [here](https://github.com/sponsors/heftapp).
