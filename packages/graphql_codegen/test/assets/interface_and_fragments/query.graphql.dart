@@ -556,7 +556,7 @@ extension UtilityExtension$Query$FetchImplementations$interface
     required _T Function(Query$FetchImplementations$interface$$ImplementationB)
         implementationB,
   }) {
-    switch ($typename) {
+    switch (typename) {
       case "ImplementationA":
         return implementationA(
             this as Query$FetchImplementations$interface$$ImplementationA);
@@ -566,7 +566,7 @@ extension UtilityExtension$Query$FetchImplementations$interface
             this as Query$FetchImplementations$interface$$ImplementationB);
 
       default:
-        throw Exception("Unknown typename '${$typename}'");
+        throw Exception("Unknown typename '${typename}'");
     }
   }
 
@@ -577,7 +577,7 @@ extension UtilityExtension$Query$FetchImplementations$interface
         implementationB,
     required _T Function() orElse,
   }) {
-    switch ($typename) {
+    switch (typename) {
       case "ImplementationA":
         if (implementationA != null) {
           return implementationA(

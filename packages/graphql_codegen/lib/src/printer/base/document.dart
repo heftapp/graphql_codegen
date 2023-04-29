@@ -283,6 +283,8 @@ Method? _printWhen(
   }
 
   final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
+  final _typenamePropertyName =
+      context.namePrinter.printPropertyName(typenameProperty.name);
 
   final cases = possibleTypes.map(
     (t) => Code("""
@@ -291,11 +293,11 @@ Method? _printWhen(
         """),
   );
   List<Code> body = [
-    Code('switch(\$${typenameProperty.name.value}) {'),
+    Code('switch(${_typenamePropertyName}) {'),
     ...cases,
     Code('default:'),
     Code(
-        'throw Exception("Unknown typename \'\${\$${typenameProperty.name.value}}\'");'),
+        'throw Exception("Unknown typename \'\${${_typenamePropertyName}}\'");'),
     Code('}')
   ];
 
@@ -335,6 +337,8 @@ Method? _printMaybeWhen(
   }
 
   final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
+  final _typenamePropertyName =
+      context.namePrinter.printPropertyName(typenameProperty.name);
 
   final cases = possibleTypes.map(
     (t) => Code("""
@@ -347,7 +351,7 @@ Method? _printMaybeWhen(
         """),
   );
   List<Code> body = [
-    Code('switch(\$${typenameProperty.name.value}) {'),
+    Code('switch(${_typenamePropertyName}) {'),
     ...cases,
     Code('default:'),
     Code('return orElse();'),
