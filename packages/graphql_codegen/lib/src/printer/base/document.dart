@@ -296,8 +296,7 @@ Method? _printWhen(
     Code('switch(${_typenamePropertyName}) {'),
     ...cases,
     Code('default:'),
-    Code(
-        'throw Exception("Unknown typename \'\${${_typenamePropertyName}}\'");'),
+    Code('return orElse();'),
     Code('}')
   ];
 
@@ -305,16 +304,21 @@ Method? _printWhen(
     ..name = "when"
     ..returns = _genericTypeParam
     ..types.add(_genericTypeParam)
-    ..optionalParameters.addAll(
-      possibleTypes.map(
-        (t) => Parameter((p) => p
-          ..name = getParameterName(t)
-          ..type = FunctionType((b) => b
-            ..returnType = _genericTypeParam
-            ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
-          ..named = true
-          ..required = true),
-      ),
+    ..optionalParameters.addAll(possibleTypes.map(
+      (t) => Parameter((p) => p
+        ..name = getParameterName(t)
+        ..type = FunctionType((b) => b
+          ..returnType = _genericTypeParam
+          ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
+        ..named = true
+        ..required = true),
+    ))
+    ..optionalParameters.add(
+      Parameter((p) => p
+        ..name = 'orElse'
+        ..type = FunctionType((b) => b..returnType = _genericTypeParam)
+        ..named = true
+        ..required = true),
     )
     ..body = Block.of(body));
 }
