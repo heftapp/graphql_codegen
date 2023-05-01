@@ -78,6 +78,7 @@ extension UtilityExtension$Fragment$Condition on Fragment$Condition {
   _T when<_T>({
     required _T Function(Fragment$Condition$$AndCondition) andCondition,
     required _T Function(Fragment$Condition$$TimeCondition) timeCondition,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "AndCondition":
@@ -87,7 +88,7 @@ extension UtilityExtension$Fragment$Condition on Fragment$Condition {
         return timeCondition(this as Fragment$Condition$$TimeCondition);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
@@ -783,6 +784,7 @@ extension UtilityExtension$Fragment$CompositeCondition
         andCondition,
     required _T Function(Fragment$CompositeCondition$$TimeCondition)
         timeCondition,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "AndCondition":
@@ -793,7 +795,7 @@ extension UtilityExtension$Fragment$CompositeCondition
             this as Fragment$CompositeCondition$$TimeCondition);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
@@ -1341,6 +1343,7 @@ extension UtilityExtension$Fragment$NonCompositeCondition
         andCondition,
     required _T Function(Fragment$NonCompositeCondition$$TimeCondition)
         timeCondition,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "AndCondition":
@@ -1352,7 +1355,7 @@ extension UtilityExtension$Fragment$NonCompositeCondition
             this as Fragment$NonCompositeCondition$$TimeCondition);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 

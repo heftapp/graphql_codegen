@@ -76,14 +76,16 @@ extension UtilityExtension$Fragment$EventFragment on Fragment$EventFragment {
         this,
         (i) => i,
       );
-  _T when<_T>(
-      {required _T Function(Fragment$EventFragment$$EventPublic) eventPublic}) {
+  _T when<_T>({
+    required _T Function(Fragment$EventFragment$$EventPublic) eventPublic,
+    required _T Function() orElse,
+  }) {
     switch ($__typename) {
       case "EventPublic":
         return eventPublic(this as Fragment$EventFragment$$EventPublic);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
@@ -1056,14 +1058,16 @@ extension UtilityExtension$Mutation$Bla$bla on Mutation$Bla$bla {
         this,
         (i) => i,
       );
-  _T when<_T>(
-      {required _T Function(Mutation$Bla$bla$$EventPublic) eventPublic}) {
+  _T when<_T>({
+    required _T Function(Mutation$Bla$bla$$EventPublic) eventPublic,
+    required _T Function() orElse,
+  }) {
     switch ($__typename) {
       case "EventPublic":
         return eventPublic(this as Mutation$Bla$bla$$EventPublic);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 

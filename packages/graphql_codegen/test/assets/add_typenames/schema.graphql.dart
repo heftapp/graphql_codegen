@@ -664,6 +664,7 @@ extension UtilityExtension$Query$Q$docsWithTypename
   _T when<_T>({
     required _T Function(Query$Q$docsWithTypename$$Contract) contract,
     required _T Function(Query$Q$docsWithTypename$$Report) report,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "Contract":
@@ -673,7 +674,7 @@ extension UtilityExtension$Query$Q$docsWithTypename
         return report(this as Query$Q$docsWithTypename$$Report);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
@@ -1010,6 +1011,7 @@ extension UtilityExtension$Query$Q$docsWihtoutTypename
   _T when<_T>({
     required _T Function(Query$Q$docsWihtoutTypename$$Contract) contract,
     required _T Function(Query$Q$docsWihtoutTypename$$Report) report,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "Contract":
@@ -1019,7 +1021,7 @@ extension UtilityExtension$Query$Q$docsWihtoutTypename
         return report(this as Query$Q$docsWihtoutTypename$$Report);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
@@ -1696,6 +1698,7 @@ extension UtilityExtension$Query$Q$docsWithFragment
   _T when<_T>({
     required _T Function(Query$Q$docsWithFragment$$Contract) contract,
     required _T Function(Query$Q$docsWithFragment$$Report) report,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "Contract":
@@ -1705,7 +1708,7 @@ extension UtilityExtension$Query$Q$docsWithFragment
         return report(this as Query$Q$docsWithFragment$$Report);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 

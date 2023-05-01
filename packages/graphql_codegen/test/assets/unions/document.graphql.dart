@@ -210,6 +210,7 @@ extension UtilityExtension$Query$Q$u on Query$Q$u {
   _T when<_T>({
     required _T Function(Query$Q$u$$TA) tA,
     required _T Function(Query$Q$u$$TB) tB,
+    required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TA":
@@ -219,7 +220,7 @@ extension UtilityExtension$Query$Q$u on Query$Q$u {
         return tB(this as Query$Q$u$$TB);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 

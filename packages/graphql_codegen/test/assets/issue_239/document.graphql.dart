@@ -423,14 +423,16 @@ extension UtilityExtension$Query$Q$booking on Query$Q$booking {
         this,
         (i) => i,
       );
-  _T when<_T>(
-      {required _T Function(Query$Q$booking$$HotelBooking) hotelBooking}) {
+  _T when<_T>({
+    required _T Function(Query$Q$booking$$HotelBooking) hotelBooking,
+    required _T Function() orElse,
+  }) {
     switch ($__typename) {
       case "HotelBooking":
         return hotelBooking(this as Query$Q$booking$$HotelBooking);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 

@@ -245,13 +245,16 @@ extension UtilityExtension$Fragment$FragmentI on Fragment$FragmentI {
         this,
         (i) => i,
       );
-  _T when<_T>({required _T Function(Fragment$FragmentI$$FieldA) fieldA}) {
+  _T when<_T>({
+    required _T Function(Fragment$FragmentI$$FieldA) fieldA,
+    required _T Function() orElse,
+  }) {
     switch ($__typename) {
       case "FieldA":
         return fieldA(this as Fragment$FragmentI$$FieldA);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
@@ -779,13 +782,16 @@ extension UtilityExtension$Query$FetchStuff$field on Query$FetchStuff$field {
         this,
         (i) => i,
       );
-  _T when<_T>({required _T Function(Query$FetchStuff$field$$FieldA) fieldA}) {
+  _T when<_T>({
+    required _T Function(Query$FetchStuff$field$$FieldA) fieldA,
+    required _T Function() orElse,
+  }) {
     switch ($__typename) {
       case "FieldA":
         return fieldA(this as Query$FetchStuff$field$$FieldA);
 
       default:
-        throw Exception("Unknown typename '${$__typename}'");
+        return orElse();
     }
   }
 
