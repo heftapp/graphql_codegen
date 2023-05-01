@@ -251,9 +251,17 @@ Additionally, you can use the `when` and `maybeWhen` methods to avoid `is` type 
 ```dart
 
 void printAccount(Query$FetchAccount$account account) {
+  // specify all the cases (and an else in case there's a new type in the response that wasn't previously known)
   account.when(
     personalAccount: (personalAccount) => print(personalAccount.personName),
     businessAccount: (businessAccount) => print(businessAccount.businessName),
+    orElse: () => print('Some other unexpected type'),
+  )
+
+  // specify only the cases you want to handle (and an else)
+  account.maybeWhen(
+    personalAccount: (personalAccount) => print(personalAccount.personName),
+    orElse: () => print('Anything else, including BusinessAccount'),
   )
 }
 
