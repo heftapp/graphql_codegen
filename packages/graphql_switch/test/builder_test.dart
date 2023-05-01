@@ -5,8 +5,8 @@ import 'package:build/build.dart';
 import 'package:build_test/build_test.dart';
 import 'package:graphql_switch/builder.dart';
 import 'package:path/path.dart';
-import 'package:test/scaffolding.dart';
 import 'package:path/path.dart' as path;
+import 'package:test/scaffolding.dart';
 
 final p = path.Context(style: path.Style.posix);
 
