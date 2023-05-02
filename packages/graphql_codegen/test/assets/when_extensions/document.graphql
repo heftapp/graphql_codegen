@@ -1,0 +1,25 @@
+type Query {
+  u: U
+}
+
+union U = TA | TB
+
+type TA {
+  name: String
+}
+
+type TB {
+  velocity: Int
+}
+
+query Query {
+  u {
+    typename: __typename
+    ... on TA {
+      name
+    }
+    ... on TB {
+      velocity
+    }
+  }
+}

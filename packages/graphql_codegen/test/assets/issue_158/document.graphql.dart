@@ -73,6 +73,35 @@ extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Fragment$PersonSummary$$Person) person,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Person":
+        return person(this as Fragment$PersonSummary$$Person);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Fragment$PersonSummary$$Person)? person,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Person":
+        if (person != null) {
+          return person(this as Fragment$PersonSummary$$Person);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Fragment$PersonSummary<TRes> {

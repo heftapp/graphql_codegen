@@ -661,6 +661,47 @@ extension UtilityExtension$Query$Q$docsWithTypename
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$docsWithTypename$$Contract) contract,
+    required _T Function(Query$Q$docsWithTypename$$Report) report,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        return contract(this as Query$Q$docsWithTypename$$Contract);
+
+      case "Report":
+        return report(this as Query$Q$docsWithTypename$$Report);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$docsWithTypename$$Contract)? contract,
+    _T Function(Query$Q$docsWithTypename$$Report)? report,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        if (contract != null) {
+          return contract(this as Query$Q$docsWithTypename$$Contract);
+        } else {
+          return orElse();
+        }
+
+      case "Report":
+        if (report != null) {
+          return report(this as Query$Q$docsWithTypename$$Report);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$docsWithTypename<TRes> {
@@ -967,6 +1008,47 @@ extension UtilityExtension$Query$Q$docsWihtoutTypename
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Query$Q$docsWihtoutTypename$$Contract) contract,
+    required _T Function(Query$Q$docsWihtoutTypename$$Report) report,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        return contract(this as Query$Q$docsWihtoutTypename$$Contract);
+
+      case "Report":
+        return report(this as Query$Q$docsWihtoutTypename$$Report);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$docsWihtoutTypename$$Contract)? contract,
+    _T Function(Query$Q$docsWihtoutTypename$$Report)? report,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        if (contract != null) {
+          return contract(this as Query$Q$docsWihtoutTypename$$Contract);
+        } else {
+          return orElse();
+        }
+
+      case "Report":
+        if (report != null) {
+          return report(this as Query$Q$docsWihtoutTypename$$Report);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$docsWihtoutTypename<TRes> {
@@ -1613,6 +1695,47 @@ extension UtilityExtension$Query$Q$docsWithFragment
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$docsWithFragment$$Contract) contract,
+    required _T Function(Query$Q$docsWithFragment$$Report) report,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        return contract(this as Query$Q$docsWithFragment$$Contract);
+
+      case "Report":
+        return report(this as Query$Q$docsWithFragment$$Report);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$docsWithFragment$$Contract)? contract,
+    _T Function(Query$Q$docsWithFragment$$Report)? report,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "Contract":
+        if (contract != null) {
+          return contract(this as Query$Q$docsWithFragment$$Contract);
+        } else {
+          return orElse();
+        }
+
+      case "Report":
+        if (report != null) {
+          return report(this as Query$Q$docsWithFragment$$Report);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$docsWithFragment<TRes> {

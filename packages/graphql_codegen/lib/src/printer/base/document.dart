@@ -1,14 +1,15 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
+import 'package:gql_code_builder/src/ast.dart' as gql_builder;
+import "package:gql_code_builder/src/utils/uncapitalize.dart";
+import 'package:graphql_codegen/src/context.dart';
 import 'package:graphql_codegen/src/printer/base/copy.dart';
 import 'package:graphql_codegen/src/printer/base/equality.dart';
 import 'package:graphql_codegen/src/printer/base/json.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
-import 'package:graphql_codegen/src/context.dart';
-import 'package:gql_code_builder/src/ast.dart' as gql_builder;
 import 'package:graphql_codegen/src/printer/utils.dart';
 
 Constructor _printFromJson(
@@ -39,7 +40,7 @@ Constructor _printFromJson(
   if (typenameProperty != null && possibleTypes.isNotEmpty) {
     final cases = possibleTypes.map(
       (t) => Code("""
-        case "${t.currentType.name.value}": 
+        case "${t.currentType.name.value}":
             return ${context.namePrinter.printClassName(t.path)}.fromJson(json);
         """),
     );
@@ -108,7 +109,6 @@ Class printContext(PrintContext c) {
     c.addDependency(extendContext.path);
   }
   final properties = c.context.properties;
-
   return Class(
     (b) => b
       ..name = c.namePrinter.printClassName(context.path)
@@ -150,6 +150,19 @@ Class printContext(PrintContext c) {
 List<Spec> printContextExtension(PrintContext c) {
   final context = c.context;
   final properties = c.context.properties;
+
+  final whenMethod = _printWhen(
+    c,
+    context.typenameProperty,
+    context.possibleTypes,
+  );
+
+  final maybeWhenMethod = _printMaybeWhen(
+    c,
+    context.typenameProperty,
+    context.possibleTypes,
+  );
+
   return [
     Extension(
       (b) => b
@@ -160,6 +173,8 @@ List<Spec> printContextExtension(PrintContext c) {
             c.namePrinter.printClassName(context.path),
             c,
           ),
+          if (whenMethod != null) whenMethod,
+          if (maybeWhenMethod != null) maybeWhenMethod,
         ]),
     ),
     ...printCopyWithClasses(
@@ -248,4 +263,127 @@ Method _printCopyWithMethod(
         printIdentityFunction().closure,
       ],
     ).code);
+}
+
+Method? _printWhen(
+  PrintContext context,
+  ContextProperty? typenameProperty,
+  Iterable<Context> possibleTypes,
+) {
+  if (typenameProperty == null || possibleTypes.isEmpty) {
+    return null;
+  }
+
+  String getParameterName(Context<Object, TypeDefinitionNode> type) {
+    return uncapitalize(type.currentType.name.value);
+  }
+
+  String getGeneratedTypeName(Context<Object, TypeDefinitionNode> type) {
+    return context.namePrinter.printClassName(type.path);
+  }
+
+  final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
+  final _typenamePropertyName =
+      context.namePrinter.printPropertyName(typenameProperty.name);
+
+  final cases = possibleTypes.map(
+    (t) => Code("""
+        case "${t.currentType.name.value}":
+            return ${getParameterName(t)}(this as ${getGeneratedTypeName(t)});
+        """),
+  );
+  List<Code> body = [
+    Code('switch(${_typenamePropertyName}) {'),
+    ...cases,
+    Code('default:'),
+    Code('return orElse();'),
+    Code('}')
+  ];
+
+  return Method((m) => m
+    ..name = "when"
+    ..returns = _genericTypeParam
+    ..types.add(_genericTypeParam)
+    ..optionalParameters.addAll(possibleTypes.map(
+      (t) => Parameter((p) => p
+        ..name = getParameterName(t)
+        ..type = FunctionType((b) => b
+          ..returnType = _genericTypeParam
+          ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
+        ..named = true
+        ..required = true),
+    ))
+    ..optionalParameters.add(
+      Parameter((p) => p
+        ..name = 'orElse'
+        ..type = FunctionType((b) => b..returnType = _genericTypeParam)
+        ..named = true
+        ..required = true),
+    )
+    ..body = Block.of(body));
+}
+
+Method? _printMaybeWhen(
+  PrintContext context,
+  ContextProperty? typenameProperty,
+  Iterable<Context> possibleTypes,
+) {
+  if (typenameProperty == null || possibleTypes.isEmpty) {
+    return null;
+  }
+
+  String getParameterName(Context<Object, TypeDefinitionNode> type) {
+    return uncapitalize(type.currentType.name.value);
+  }
+
+  String getGeneratedTypeName(Context<Object, TypeDefinitionNode> type) {
+    return context.namePrinter.printClassName(type.path);
+  }
+
+  final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
+  final _typenamePropertyName =
+      context.namePrinter.printPropertyName(typenameProperty.name);
+
+  final cases = possibleTypes.map(
+    (t) => Code("""
+        case "${t.currentType.name.value}":
+            if (${getParameterName(t)} != null) {
+              return ${getParameterName(t)}(this as ${getGeneratedTypeName(t)});
+            } else {
+              return orElse();
+            }
+        """),
+  );
+  List<Code> body = [
+    Code('switch(${_typenamePropertyName}) {'),
+    ...cases,
+    Code('default:'),
+    Code('return orElse();'),
+    Code('}')
+  ];
+
+  return Method((m) => m
+    ..name = "maybeWhen"
+    ..returns = _genericTypeParam
+    ..types.add(_genericTypeParam)
+    ..optionalParameters.addAll(
+      possibleTypes.map(
+        (t) => Parameter((p) => p
+          ..name = getParameterName(t)
+          ..type = FunctionType((b) => b
+            ..isNullable = true
+            ..returnType = _genericTypeParam
+            ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
+          ..named = true
+          ..required = false),
+      ),
+    )
+    ..optionalParameters.add(
+      Parameter((p) => p
+        ..name = 'orElse'
+        ..type = FunctionType((b) => b..returnType = _genericTypeParam)
+        ..named = true
+        ..required = true),
+    )
+    ..body = Block.of(body));
 }

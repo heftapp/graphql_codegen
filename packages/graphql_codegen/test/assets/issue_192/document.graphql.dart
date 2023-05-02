@@ -262,6 +262,35 @@ extension UtilityExtension$Query$Q$book on Query$Q$book {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$book$$TextBook) textBook,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TextBook":
+        return textBook(this as Query$Q$book$$TextBook);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$book$$TextBook)? textBook,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TextBook":
+        if (textBook != null) {
+          return textBook(this as Query$Q$book$$TextBook);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$book<TRes> {

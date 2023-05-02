@@ -402,6 +402,35 @@ extension UtilityExtension$Query$FetchI$i1 on Query$FetchI$i1 {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$FetchI$i1$$T1) t1,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T1":
+        return t1(this as Query$FetchI$i1$$T1);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchI$i1$$T1)? t1,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T1":
+        if (t1 != null) {
+          return t1(this as Query$FetchI$i1$$T1);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1<TRes> {
@@ -541,6 +570,35 @@ extension UtilityExtension$Query$FetchI$i1$i2 on Query$FetchI$i1$i2 {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$FetchI$i1$i2$$T2) t2,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T2":
+        return t2(this as Query$FetchI$i1$i2$$T2);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchI$i1$i2$$T2)? t2,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T2":
+        if (t2 != null) {
+          return t2(this as Query$FetchI$i1$i2$$T2);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$i2<TRes> {
@@ -681,6 +739,35 @@ extension UtilityExtension$Query$FetchI$i1$i2$field
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$FetchI$i1$i2$field$$TField) tField,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TField":
+        return tField(this as Query$FetchI$i1$i2$field$$TField);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchI$i1$i2$field$$TField)? tField,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TField":
+        if (tField != null) {
+          return tField(this as Query$FetchI$i1$i2$field$$TField);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$i2$field<TRes> {
@@ -1619,6 +1706,35 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2 on Query$FetchI$i1$$T1$i2 {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$FetchI$i1$$T1$i2$$T2) t2,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T2":
+        return t2(this as Query$FetchI$i1$$T1$i2$$T2);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchI$i1$$T1$i2$$T2)? t2,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T2":
+        if (t2 != null) {
+          return t2(this as Query$FetchI$i1$$T1$i2$$T2);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$$T1$i2<TRes> {
@@ -1760,6 +1876,35 @@ extension UtilityExtension$Query$FetchI$i1$$T1$i2$field
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Query$FetchI$i1$$T1$i2$field$$TField) tField,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TField":
+        return tField(this as Query$FetchI$i1$$T1$i2$field$$TField);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchI$i1$$T1$i2$field$$TField)? tField,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "TField":
+        if (tField != null) {
+          return tField(this as Query$FetchI$i1$$T1$i2$field$$TField);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchI$i1$$T1$i2$field<TRes> {

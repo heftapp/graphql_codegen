@@ -885,6 +885,35 @@ extension UtilityExtension$Query$Q$field on Query$Q$field {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$field$$T1) t1,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T1":
+        return t1(this as Query$Q$field$$T1);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$field$$T1)? t1,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "T1":
+        if (t1 != null) {
+          return t1(this as Query$Q$field$$T1);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$field<TRes> {

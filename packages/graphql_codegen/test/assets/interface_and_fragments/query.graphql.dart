@@ -550,6 +550,55 @@ extension UtilityExtension$Query$FetchImplementations$interface
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(Query$FetchImplementations$interface$$ImplementationA)
+        implementationA,
+    required _T Function(Query$FetchImplementations$interface$$ImplementationB)
+        implementationB,
+    required _T Function() orElse,
+  }) {
+    switch (typename) {
+      case "ImplementationA":
+        return implementationA(
+            this as Query$FetchImplementations$interface$$ImplementationA);
+
+      case "ImplementationB":
+        return implementationB(
+            this as Query$FetchImplementations$interface$$ImplementationB);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchImplementations$interface$$ImplementationA)?
+        implementationA,
+    _T Function(Query$FetchImplementations$interface$$ImplementationB)?
+        implementationB,
+    required _T Function() orElse,
+  }) {
+    switch (typename) {
+      case "ImplementationA":
+        if (implementationA != null) {
+          return implementationA(
+              this as Query$FetchImplementations$interface$$ImplementationA);
+        } else {
+          return orElse();
+        }
+
+      case "ImplementationB":
+        if (implementationB != null) {
+          return implementationB(
+              this as Query$FetchImplementations$interface$$ImplementationB);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface<TRes> {
@@ -681,6 +730,57 @@ extension UtilityExtension$Query$FetchImplementations$interface$self
             this,
             (i) => i,
           );
+  _T when<_T>({
+    required _T Function(
+            Query$FetchImplementations$interface$self$$ImplementationA)
+        implementationA,
+    required _T Function(
+            Query$FetchImplementations$interface$self$$ImplementationB)
+        implementationB,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "ImplementationA":
+        return implementationA(
+            this as Query$FetchImplementations$interface$self$$ImplementationA);
+
+      case "ImplementationB":
+        return implementationB(
+            this as Query$FetchImplementations$interface$self$$ImplementationB);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchImplementations$interface$self$$ImplementationA)?
+        implementationA,
+    _T Function(Query$FetchImplementations$interface$self$$ImplementationB)?
+        implementationB,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "ImplementationA":
+        if (implementationA != null) {
+          return implementationA(this
+              as Query$FetchImplementations$interface$self$$ImplementationA);
+        } else {
+          return orElse();
+        }
+
+      case "ImplementationB":
+        if (implementationB != null) {
+          return implementationB(this
+              as Query$FetchImplementations$interface$self$$ImplementationB);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$self<TRes> {

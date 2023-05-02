@@ -423,6 +423,35 @@ extension UtilityExtension$Query$Q$booking on Query$Q$booking {
         this,
         (i) => i,
       );
+  _T when<_T>({
+    required _T Function(Query$Q$booking$$HotelBooking) hotelBooking,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "HotelBooking":
+        return hotelBooking(this as Query$Q$booking$$HotelBooking);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$Q$booking$$HotelBooking)? hotelBooking,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "HotelBooking":
+        if (hotelBooking != null) {
+          return hotelBooking(this as Query$Q$booking$$HotelBooking);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
 }
 
 abstract class CopyWith$Query$Q$booking<TRes> {
