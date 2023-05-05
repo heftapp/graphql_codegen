@@ -252,18 +252,37 @@ class ContextVisitor extends RecursiveVisitor {
     }
   }
 
+  TypeNode _makeTypeNodeNullable(TypeNode node) {
+    if (node is NamedTypeNode) {
+      return NamedTypeNode(
+        isNonNull: false,
+        span: node.span,
+        name: node.name,
+      );
+    } else if (node is ListTypeNode) {
+      return ListTypeNode(isNonNull: false, span: node.span, type: node.type);
+    } else {
+      throw UnsupportedError('Unsupported type node');
+    }
+  }
+
   @override
   void visitFieldNode(FieldNode node) {
     final currentType = context.currentType;
-    final typeNodeForField = context.schema.lookupTypeNodeFromField(
+    final typeNodeForFieldName = context.schema.lookupTypeNodeFromField(
       currentType,
       node.name,
     );
-    if (typeNodeForField == null) {
+    if (typeNodeForFieldName == null) {
       throw InvalidGraphQLDocumentError(
         "Failed to find type for field ${node.name.value} on ${currentType.name.value}",
       );
     }
+    final typeNodeForField = node.directives
+            .any((element) => ['include', 'skip'].contains(element.name.value))
+        ? _makeTypeNodeNullable(typeNodeForFieldName)
+        : typeNodeForFieldName;
+
     final fieldType = context.schema.lookupTypeDefinitionFromTypeNode(
       typeNodeForField,
     );
