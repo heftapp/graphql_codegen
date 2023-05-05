@@ -1,0 +1,17 @@
+type Query {
+  foo: Foo
+}
+
+type Foo {
+  foo: String!
+  bar: String!
+  list: [Int!]!
+}
+
+query Q1 {
+  foo {
+    foo
+    bar @include(if: false)
+    list @skip(if: true)
+  }
+}
