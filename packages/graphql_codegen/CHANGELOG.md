@@ -1,3 +1,7 @@
+# 0.12.2
+
+- Support `include` and `skip` directives on fields (not fragments yet)
+
 # 0.12.1
 
 - Add `when` and `maybeWhen` utility methods!
