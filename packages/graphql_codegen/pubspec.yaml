@@ -11,7 +11,7 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  gql: ^0.14.0
+  gql: ^1.0.0
   build: ^2.0.1
   glob: ^2.0.1
   code_builder: ^4.2.0
