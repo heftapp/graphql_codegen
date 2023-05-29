@@ -4,8 +4,8 @@ environment:
   sdk: '>=2.14.0 <3.0.0'
 
 dependencies:
-  graphql_flutter: 5.1.1
-  graphql: 5.2.0-beta.1
+  graphql_flutter: 5.2.0-beta.3
+  graphql: 5.2.0-beta.3
   flutter:
     sdk: flutter
 
