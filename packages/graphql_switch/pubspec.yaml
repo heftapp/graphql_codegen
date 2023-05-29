@@ -15,7 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   analyzer: '>=4.0.0 <6.0.0'
-  gql: ^0.14.0
+  gql: ^1.0.0
   equatable: ^2.0.0
   build: ^2.0.1
   glob: ^2.0.1
@@ -23,11 +23,11 @@ dependencies:
   dart_style: ^2.0.1
   built_collection: ^5.0.0
   path: ^1.8.0
-  gql_code_builder: ^0.6.0
+  gql_code_builder: ^0.7.2
   recase: ^4.0.0
   json_annotation: ^4.6.0
   graphql_codegen: "^0.11.0-beta.1"
-  graphql: "^5.1.2-beta.2"
+  graphql: "^5.2.0-beta.3"
   flutter_hooks: ^0.18.0
 
 dev_dependencies:
