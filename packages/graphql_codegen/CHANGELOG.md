@@ -1,3 +1,6 @@
+# 0.13.0
+- Upgrade `gql` version.
+
 # 0.12.2
 
 - Support `include` and `skip` directives on fields (not fragments yet)
