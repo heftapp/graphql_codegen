@@ -8,7 +8,7 @@ homepage: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_
 repository: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.17.0 <4.0.0'
 
 dependencies:
   gql: ^1.0.0
