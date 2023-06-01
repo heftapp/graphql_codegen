@@ -1,0 +1,57 @@
+scalar Sex
+
+type User {
+  username: String!
+  email: String
+  sex: Sex
+  age: Int
+  notifications: [Notification!]
+}
+union Notification = FriendRequestNotification | NewsNotification
+
+type FriendRequestNotification {
+  requesterUsername: String!
+}
+
+type NewsNotification {
+  newsId: String!
+}
+
+type Query {
+	getUser(username: String!): User
+}
+fragment FullFriendRequestNotification on FriendRequestNotification {
+  requesterUsername
+}
+
+fragment FullNewsNotification on NewsNotification {
+  newsId
+}
+
+fragment FullUser on User {
+  username
+  email
+  sex
+  age
+  notifications {
+    ...FullFriendRequestNotification
+    ...FullNewsNotification
+  }
+}
+
+query GetUser($username: String!) {
+  getUser(username: $username) {
+    ...FullUser
+  }
+}
+
+query GetNotifications($username: String!) {
+  getUser(username: $username) {
+    __typename
+    username
+    notifications {
+      ...FullFriendRequestNotification
+      ...FullNewsNotification
+    }
+  }
+}
