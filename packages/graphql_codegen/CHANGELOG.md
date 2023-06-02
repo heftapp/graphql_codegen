@@ -1,3 +1,6 @@
+# 0.13.1
+- Support introspection queries
+
 # 0.13.0
 - Upgrade `gql` version.
 
