@@ -5,7 +5,7 @@ import 'package:graphql_codegen/src/printer/base/operation.dart';
 import 'package:graphql_codegen/src/printer/base/enum.dart';
 import 'package:graphql_codegen/src/printer/base/input.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 
 import 'base/schema.dart';
 

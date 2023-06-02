@@ -2,7 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 
 import '../context.dart';

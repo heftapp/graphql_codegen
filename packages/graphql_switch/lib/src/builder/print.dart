@@ -1,7 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/name.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
 import 'package:graphql_codegen/src/printer/utils.dart' show NamePrinter;
 export 'package:graphql_codegen/src/printer/context.dart' show PrintContext;

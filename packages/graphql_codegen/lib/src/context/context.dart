@@ -1,10 +1,12 @@
 import 'dart:collection';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:gql/ast.dart';
+import 'package:graphql_codegen/src/context/schema.dart';
 import 'package:graphql_codegen/src/config/config.dart';
 import 'package:graphql_codegen/src/errors.dart';
 import 'package:graphql_codegen/src/transform/add_typename_transforming_visitor.dart';
+
+import 'name.dart';
 
 class ContextFragment<TKey extends Object>
     extends Context<TKey, TypeDefinitionNode> {
@@ -148,259 +150,6 @@ class ContextFragment<TKey extends Object>
   bool get isDefinitionContext => fragment != null;
 }
 
-const _BUILT_IN_SCALARS = const DocumentNode(definitions: [
-  ScalarTypeDefinitionNode(name: NameNode(value: 'Int')),
-  ScalarTypeDefinitionNode(name: NameNode(value: 'String')),
-  ScalarTypeDefinitionNode(name: NameNode(value: 'Float')),
-  ScalarTypeDefinitionNode(name: NameNode(value: 'Boolean')),
-  ScalarTypeDefinitionNode(name: NameNode(value: 'ID')),
-]);
-
-const _INTROSPECTION_FIELDS = const <FieldDefinitionNode>[
-  FieldDefinitionNode(
-    name: NameNode(value: "__typename"),
-    type: NamedTypeNode(
-      name: NameNode(value: "String"),
-      isNonNull: true,
-    ),
-  ),
-];
-
-class Schema<TKey extends Object> {
-  final BuiltMap<TKey, DocumentNode> entries;
-  Iterable<DefinitionNode>? _cachedDefinitions;
-  Map<String, TypeDefinitionNode>? _cachedTypeDefinitionsMap;
-  Map<DefinitionNode, TKey>? _cachedDefinitionNodeToKeyMap;
-  Map<String, Map<String, FieldDefinitionNode>> _cachedFields = {};
-
-  final String Function(TKey) lookupPath;
-
-  Schema(
-    this.entries,
-    this.lookupPath,
-  );
-
-  Iterable<DefinitionNode> get definitions {
-    final lCached = _cachedDefinitions;
-    if (lCached != null) return lCached;
-    final defs = [
-      ...entries.values.expand((element) => element.definitions),
-      ..._BUILT_IN_SCALARS.definitions,
-    ];
-    _cachedDefinitions = defs;
-    return defs;
-  }
-
-  FragmentDefinitionNode? lookupFragment(NameNode name) {
-    return definitions.whereType<FragmentDefinitionNode?>().firstWhere(
-          (element) => element != null && element.name.value == name.value,
-          orElse: () => null,
-        );
-  }
-
-  FragmentDefinitionNode lookupFragmentEnforced(NameNode name) {
-    final fragmentDef = lookupFragment(name);
-    if (fragmentDef == null) {
-      throw InvalidGraphQLDocumentError(
-        "Failed to find fragment definition for ${name.value}",
-      );
-    }
-    return fragmentDef;
-  }
-
-  String? lookupPathFromDefinitionNode(DefinitionNode node) {
-    var lCached = _cachedDefinitionNodeToKeyMap;
-    if (lCached == null) {
-      lCached = _cachedDefinitionNodeToKeyMap = Map.identity();
-      lCached.addEntries(
-        entries.entries.expand((element) =>
-            element.value.definitions.map((e) => MapEntry(e, element.key))),
-      );
-    }
-    final key = lCached[node];
-    return key == null ? null : lookupPath(key);
-  }
-
-  TType? lookupType<TType extends TypeDefinitionNode>(NameNode name) {
-    var defs = _cachedTypeDefinitionsMap;
-    if (defs == null) {
-      defs = _cachedTypeDefinitionsMap = Map.fromEntries(
-        definitions
-            .whereType<TypeDefinitionNode>()
-            .map((e) => MapEntry(e.name.value, e)),
-      );
-    }
-
-    final def = defs[name.value];
-    if (def == null || !(def is TType)) {
-      return null;
-    }
-    return def;
-  }
-
-  Iterable<ObjectTypeDefinitionNode> lookupConcreteTypes(NameNode name) {
-    final typeDefinition = lookupType(name);
-    if (typeDefinition is ObjectTypeDefinitionNode) {
-      return [typeDefinition];
-    }
-    if (typeDefinition is UnionTypeDefinitionNode) {
-      return typeDefinition.types.expand((e) => lookupConcreteTypes(e.name));
-    }
-
-    if (typeDefinition is InterfaceTypeDefinitionNode) {
-      return definitions.whereType<ObjectTypeDefinitionNode>().where(
-            (element) => element.interfaces
-                .where((element) => element.name.value == name.value)
-                .isNotEmpty,
-          );
-    }
-
-    return [];
-  }
-
-  NameNode _operationTypeToDefaultClass(OperationType operationType) {
-    switch (operationType) {
-      case OperationType.mutation:
-        return const NameNode(value: 'Mutation');
-      case OperationType.subscription:
-        return const NameNode(value: 'Subscription');
-      case OperationType.query:
-        return const NameNode(value: 'Query');
-    }
-  }
-
-  TypeDefinitionNode? lookupOperationType(OperationType operationType) {
-    final opNode = definitions.expand<OperationTypeDefinitionNode?>((e) {
-      if (e is SchemaDefinitionNode) {
-        return e.operationTypes;
-      }
-      if (e is SchemaExtensionNode) {
-        return e.operationTypes;
-      }
-      return [];
-    }).firstWhere(
-      (element) => element != null && element.operation == operationType,
-      orElse: () => null,
-    );
-
-    final typeName =
-        opNode?.type.name ?? _operationTypeToDefaultClass(operationType);
-
-    return lookupType(typeName);
-  }
-
-  TypeDefinitionNode? lookupTypeDefinitionNodeFromField(
-    TypeDefinitionNode onType,
-    NameNode node,
-  ) {
-    final type = lookupTypeNodeFromField(onType, node);
-    if (type == null) {
-      return null;
-    }
-    return lookupTypeDefinitionFromTypeNode(type);
-  }
-
-  TypeNode? lookupTypeNodeFromField(
-    TypeDefinitionNode onType,
-    NameNode node,
-  ) {
-    return lookupFieldDefinitionNode(onType, node)?.type;
-  }
-
-  List<FieldDefinitionNode> _listObjectTypeDefinitionFields(
-    ObjectTypeDefinitionNode node,
-  ) {
-    return [
-      ...node.fields,
-      ...definitions
-          .whereType<ObjectTypeExtensionNode>()
-          .expand((element) => element.fields)
-    ];
-  }
-
-  List<FieldDefinitionNode> _listInterfaceTypeDefinitionFields(
-    InterfaceTypeDefinitionNode node,
-  ) {
-    return [
-      ...node.fields,
-      ...definitions
-          .whereType<InterfaceTypeExtensionNode>()
-          .expand((element) => element.fields)
-    ];
-  }
-
-  Map<String, FieldDefinitionNode> _lookupFieldDefinitionsForTypeDefinitionNode(
-    TypeDefinitionNode onType,
-  ) {
-    if (_cachedFields.containsKey(onType.name.value)) {
-      return _cachedFields[onType.name.value] ?? {};
-    }
-    List<FieldDefinitionNode> fields;
-    if (onType is ObjectTypeDefinitionNode) {
-      fields = _listObjectTypeDefinitionFields(onType);
-    } else if (onType is InterfaceTypeDefinitionNode) {
-      fields = _listInterfaceTypeDefinitionFields(onType);
-    } else if (onType is UnionTypeDefinitionNode) {
-      fields = [];
-    } else {
-      return {};
-    }
-    final fieldMap = Map.fromEntries(
-      [...fields, ..._INTROSPECTION_FIELDS].map(
-        (e) => MapEntry(e.name.value, e),
-      ),
-    );
-    _cachedFields[onType.name.value] = fieldMap;
-    return fieldMap;
-  }
-
-  FieldDefinitionNode? lookupFieldDefinitionNode(
-    TypeDefinitionNode onType,
-    NameNode field,
-  ) {
-    return _lookupFieldDefinitionsForTypeDefinitionNode(onType)[field.value];
-  }
-
-  TypeNode? lookupTypeNodeForArgument(
-    TypeDefinitionNode onType,
-    NameNode field,
-    ArgumentNode argument,
-  ) {
-    final fieldDefinition = lookupFieldDefinitionNode(onType, field);
-    if (fieldDefinition == null) {
-      return null;
-    }
-    return fieldDefinition.args
-        .whereType<InputValueDefinitionNode?>()
-        .firstWhere(
-          (element) => element?.name.value == argument.name.value,
-          orElse: () => null,
-        )
-        ?.type;
-  }
-
-  TypeDefinitionNode? lookupTypeDefinitionFromTypeNode(TypeNode node) {
-    if (node is ListTypeNode) {
-      return lookupTypeDefinitionFromTypeNode(node.type);
-    }
-    if (node is NamedTypeNode) {
-      final type = lookupType(node.name);
-      return type;
-    }
-    throw StateError("Invalid node type");
-  }
-
-  List<EnumValueDefinitionNode> lookupEnumValueDefinitions(
-      EnumTypeDefinitionNode node) {
-    return [
-      ...node.values,
-      ...definitions
-          .whereType<EnumTypeExtensionNode>()
-          .expand((element) => element.values)
-    ];
-  }
-}
-
 class ContextProperty {
   final TypeNode type;
   final NameNode _name;
@@ -535,7 +284,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     return _fragments.map((e) {
       final context = _allContexts[e];
       if (context == null) {
-        throw StateError('Failed to find context for fragment ${e._key}');
+        throw StateError('Failed to find context for fragment ${e}');
       }
       return context;
     }).whereType<ContextFragment<TKey>>();
@@ -816,15 +565,14 @@ class ContextRoot<TKey extends Object>
       _contexts.values.whereType<ContextInput>();
 
   Iterable<OperationDefinitionNode> get operations =>
-      schema.entries[key]?.definitions.whereType<OperationDefinitionNode>() ??
+      schema
+          .lookupDocument(key)
+          ?.definitions
+          .whereType<OperationDefinitionNode>() ??
       <OperationDefinitionNode>[];
 
   bool get isMainContext {
-    final definingOperation = schema.lookupOperationType(OperationType.query) ??
-        schema.lookupOperationType(OperationType.mutation) ??
-        schema.lookupOperationType(OperationType.subscription);
-    return schema.entries[key]?.definitions.contains(definingOperation) ??
-        false;
+    return schema.mainKey == key;
   }
 
   final bool isDefinitionContext = false;
@@ -995,100 +743,4 @@ class ContextOperation<TKey extends Object>
   NameNode get currentTypeName => currentType.name;
 
   bool get isDefinitionContext => operation != null;
-}
-
-class Name {
-  final BuiltList<NameSegment> segments;
-  final BaseNameSegment baseNameSegment;
-
-  Name(this.segments, this.baseNameSegment);
-
-  factory Name.fromSegment(BaseNameSegment segment) => Name(
-        BuiltList.of([segment]),
-        segment,
-      );
-
-  String get _key => segments.map((e) => e._key).join(r"$");
-
-  Name withSegment(NameSegment segment) => Name(
-        (segments.toBuilder()..add(segment)).build(),
-        baseNameSegment,
-      );
-
-  bool get isRoot => segments.length == 1;
-
-  bool operator ==(Object other) => other is Name && other._key == _key;
-
-  @override
-  int get hashCode => _key.hashCode;
-}
-
-abstract class NameSegment {
-  final NameNode name;
-
-  NameSegment(this.name);
-
-  String get _key;
-
-  bool operator ==(Object other) => other is NameSegment && other._key == _key;
-
-  @override
-  int get hashCode => _key.hashCode;
-}
-
-abstract class BaseNameSegment<TDefinitionNode extends DefinitionNode>
-    extends NameSegment {
-  final TDefinitionNode node;
-  BaseNameSegment(NameNode name, this.node) : super(name);
-}
-
-class EnumNameSegment extends BaseNameSegment<EnumTypeDefinitionNode> {
-  EnumNameSegment(EnumTypeDefinitionNode tpe) : super(tpe.name, tpe);
-
-  @override
-  String get _key => "E${name.value}";
-}
-
-class InputNameSegment extends BaseNameSegment<InputObjectTypeDefinitionNode> {
-  InputNameSegment(InputObjectTypeDefinitionNode tpe) : super(tpe.name, tpe);
-
-  @override
-  String get _key => "I${name.value}";
-}
-
-class FieldNameSegment extends NameSegment {
-  FieldNameSegment(FieldNode name) : super(name.alias ?? name.name);
-
-  @override
-  String get _key => "f${name.value}";
-}
-
-class TypeNameSegment extends NameSegment {
-  TypeNameSegment(NameNode typeCondition) : super(typeCondition);
-
-  @override
-  String get _key => "t${name.value}";
-}
-
-class OperationNameSegment extends BaseNameSegment<OperationDefinitionNode> {
-  OperationNameSegment(OperationDefinitionNode name) : super(name.name!, name);
-
-  @override
-  String get _key {
-    switch (node.type) {
-      case OperationType.mutation:
-        return "M${name.value}";
-      case OperationType.query:
-        return "Q${name.value}";
-      case OperationType.subscription:
-        return "S${name.value}";
-    }
-  }
-}
-
-class FragmentNameSegment extends BaseNameSegment<FragmentDefinitionNode> {
-  FragmentNameSegment(FragmentDefinitionNode node) : super(node.name, node);
-
-  @override
-  String get _key => "F${name.value}";
 }

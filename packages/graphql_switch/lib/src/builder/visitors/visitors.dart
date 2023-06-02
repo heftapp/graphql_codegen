@@ -1,7 +1,7 @@
 import 'package:gql/ast.dart';
 export 'package:graphql_codegen/src/printer/context.dart' show PrintContext;
 import 'package:graphql_codegen/src/transform/transforming_visitor.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/schema.dart';
 
 class RemoveDirectivesVisitor extends RecursiveTransformingVisitor {
   @override

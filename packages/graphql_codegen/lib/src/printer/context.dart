@@ -1,7 +1,9 @@
 import 'package:code_builder/code_builder.dart';
+import 'package:graphql_codegen/src/context/context.dart';
+import 'package:graphql_codegen/src/context/name.dart';
+import 'package:graphql_codegen/src/context/schema.dart';
 import 'package:graphql_codegen/src/printer/utils.dart';
 import 'package:path/path.dart' as path;
-import '../context.dart';
 
 final p = path.Context(style: path.Style.posix);
 
