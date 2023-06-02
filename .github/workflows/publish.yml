@@ -16,7 +16,7 @@ jobs:
         run: dart pub global activate melos 2.9.0
       - name: Login pub
         run: |
-          echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > "$PUB_CACHE/credentials.json"
+          echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > "$XDG_CONFIG_HOME/dart/pub-credentials.json"
       - name: Validate publish
         run: melos publish --dry-run --yes
       - name: Publish
