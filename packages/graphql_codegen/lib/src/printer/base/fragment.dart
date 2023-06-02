@@ -1,7 +1,7 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/config/config.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/base/document.dart';
 import 'package:graphql_codegen/src/printer/base/input.dart';
 import 'package:graphql_codegen/src/printer/clients/graphql.dart';

@@ -4,7 +4,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 import 'package:graphql_codegen/src/printer/utils.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 
 Spec printOnMutationCompleted(PrintContext<ContextOperation> context) =>
     FunctionType(

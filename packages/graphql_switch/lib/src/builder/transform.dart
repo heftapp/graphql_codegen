@@ -1,6 +1,6 @@
 import 'package:gql/ast.dart';
 import 'package:graphql_switch/src/builder/visitors/visitors.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/schema.dart';
 
 TNode preProcessNode<TNode extends Node>(Schema schema, TNode node) =>
     node.accept(AddTypenameAndDataId(definitionNode: null, schema: schema))

@@ -4,8 +4,10 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/config/config.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 import 'package:graphql_codegen/src/printer/printer.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/visitor/context_visitor.dart';
+
+import 'src/context/schema.dart';
 
 export 'src/errors.dart';
 export 'src/config/config.dart';
@@ -38,6 +40,63 @@ class SchemaConfig<TKey> {
     required this.entries,
     required this.lookupPath,
   });
+
+  TKey get mainKey {
+    final defaultOperationDefinitionMap = {
+      OperationType.query: 'Query',
+      OperationType.mutation: 'Mutation',
+      OperationType.subscription: 'Subscription',
+    };
+    final operationDefinitionMap = Map.fromEntries(
+      entries.entries.expand(
+        (element) =>
+            element.value.definitions.expand<MapEntry<OperationType, String>>(
+          (element) {
+            if (element is SchemaDefinitionNode) {
+              return element.operationTypes.map(
+                (e) => MapEntry(
+                  e.operation,
+                  e.type.name.value,
+                ),
+              );
+            }
+            if (element is SchemaExtensionNode) {
+              return element.operationTypes.map(
+                (e) => MapEntry(
+                  e.operation,
+                  e.type.name.value,
+                ),
+              );
+            }
+            return [];
+          },
+        ),
+      ),
+    );
+    return [
+          OperationType.query,
+          OperationType.mutation,
+          OperationType.subscription
+        ].expand<TKey?>((e) {
+          final name =
+              operationDefinitionMap[e] ?? defaultOperationDefinitionMap[e];
+          if (name == null) {
+            return [];
+          }
+          return entries.entries
+              .where(
+                (element) => element.value.definitions
+                    .whereType<ObjectTypeDefinitionNode>()
+                    .where((element) => element.name.value == name)
+                    .isNotEmpty,
+              )
+              .map<TKey>((documentEntry) => documentEntry.key);
+        }).firstWhere(
+          (element) => true,
+          orElse: () => null,
+        ) ??
+        entries.keys.last;
+  }
 }
 
 /// This is where the magic happens! It generates
@@ -52,12 +111,13 @@ Library generate<TKey extends Object>(
   GraphQLCodegenConfig config,
 ) {
   final schema = Schema(
+    schemaConfig.mainKey,
     schemaConfig.entries,
     schemaConfig.lookupPath,
   );
   return _generateDocument<TKey>(
     schema,
-    schema.entries[key]!,
+    schema.lookupDocument(key)!,
     key,
     config,
   );

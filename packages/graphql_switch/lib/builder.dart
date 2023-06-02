@@ -11,7 +11,8 @@ import 'package:dart_style/dart_style.dart';
 import 'package:glob/glob.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql_codegen/graphql_codegen.dart';
-import 'package:graphql_codegen/src/context.dart';
+import 'package:graphql_codegen/src/context/schema.dart';
+import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/visitor/context_visitor.dart';
 import 'package:graphql_switch/src/builder/builder_options.dart';
 import 'package:gql/language.dart' as gql;
@@ -67,11 +68,13 @@ class SwitchBuilder extends Builder {
       definitions: definitions,
     );
     final schema1 = Schema(
+      buildStep.inputId,
       BuiltMap.of({buildStep.inputId: schemaDocument}),
       (id) => 'lib/switch.dart',
     );
     schemaDocument = preProcessNode(schema1, schemaDocument);
     final schema = Schema(
+      buildStep.inputId,
       BuiltMap.of({buildStep.inputId: schemaDocument}),
       (id) => 'lib/switch.dart',
     );
