@@ -1,0 +1,13 @@
+type Query {
+    deprecatedField: E @deprecated(reason: "Please don't")
+}
+
+enum E {
+    A
+    B
+    DEPRECATED @deprecated(reason: "Please don't")
+}
+
+query Q {
+    deprecatedField
+}

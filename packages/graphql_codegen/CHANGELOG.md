@@ -1,3 +1,6 @@
+# 0.13.2
+- Support deprecated directive on fields and enum values.
+
 # 0.13.1
 - Support introspection queries
 

@@ -596,9 +596,9 @@ class Query$MyWidgetQuery$child$$Person$child$$Person
 typedef _BuilderVariables$Query$MyWidgetQuery
     = Variables$Query$MyWidgetQuery Function(
         Variables$Query$MyWidgetQuery Function({
-  required String question,
-  required Input$Details details,
-}));
+          required String question,
+          required Input$Details details,
+        }));
 
 class Variables$Query$MyWidgetQuery implements Input {
   Variables$Query$MyWidgetQuery._(this._data);
@@ -665,10 +665,10 @@ class Variables$Query$MyWidgetQuery implements Input {
 
 typedef _BuilderInput$Details = Input$Details Function(
     Input$Details Function({
-  required String name,
-  int? age,
-  Input$Details? deeds,
-}));
+      required String name,
+      int? age,
+      Input$Details? deeds,
+    }));
 
 class Input$Details implements Input {
   Input$Details._(this._data);
