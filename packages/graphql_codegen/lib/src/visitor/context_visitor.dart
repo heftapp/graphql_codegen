@@ -270,11 +270,12 @@ class ContextVisitor extends RecursiveVisitor {
   @override
   void visitFieldNode(FieldNode node) {
     final currentType = context.currentType;
-    final typeNodeForFieldName = context.schema.lookupTypeNodeFromField(
+    final fieldDefinition = context.schema.lookupFieldDefinitionNode(
       currentType,
       node.name,
     );
-    if (typeNodeForFieldName == null) {
+    final typeNodeForFieldName = fieldDefinition?.type;
+    if (fieldDefinition == null || typeNodeForFieldName == null) {
       throw InvalidGraphQLDocumentError(
         "Failed to find type for field ${node.name.value} on ${currentType.name.value}",
       );
@@ -306,17 +307,21 @@ class ContextVisitor extends RecursiveVisitor {
       node.visitChildren(ContextVisitor(context: c));
 
       _buildConcreteTypeContexts(c, fieldType, node);
-      context.addProperty(ContextProperty.fromFieldNode(
-        node,
-        path: c.path,
-        type: typeNodeForField,
-      ));
+      context.addProperty(
+        ContextProperty.fromFieldNode(
+          node,
+          path: c.path,
+          type: typeNodeForField,
+          fieldDefinition: fieldDefinition,
+        ),
+      );
     } else if (fieldType is EnumTypeDefinitionNode) {
       context.addProperty(
         ContextProperty.fromFieldNode(
           node,
           path: Name.fromSegment(EnumNameSegment(fieldType)),
           type: typeNodeForField,
+          fieldDefinition: fieldDefinition,
         ),
       );
     } else {
@@ -324,6 +329,7 @@ class ContextVisitor extends RecursiveVisitor {
         ContextProperty.fromFieldNode(
           node,
           type: typeNodeForField,
+          fieldDefinition: fieldDefinition,
         ),
       );
     }

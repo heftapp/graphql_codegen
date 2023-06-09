@@ -106,6 +106,7 @@ class ContextFragment<TKey extends Object>
         name: argument.name,
         path: path,
         directives: [],
+        fieldDirectives: [],
       ),
     );
   }
@@ -156,6 +157,7 @@ class ContextProperty {
   final NameNode? alias;
   final Name? path;
   final List<DirectiveNode> directives;
+  final List<DirectiveNode> fieldDirectives;
 
   NameNode get name => alias ?? _name;
 
@@ -165,15 +167,18 @@ class ContextProperty {
     required this.type,
     required NameNode name,
     required this.directives,
+    required this.fieldDirectives,
   }) : _name = name;
 
   ContextProperty.fromFieldNode(
     FieldNode node, {
     this.path,
     required this.type,
+    required FieldDefinitionNode fieldDefinition,
   })  : _name = node.name,
         alias = node.alias,
-        directives = node.directives;
+        directives = node.directives,
+        fieldDirectives = fieldDefinition.directives;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
@@ -181,7 +186,8 @@ class ContextProperty {
   })  : _name = node.name,
         type = node.type,
         alias = null,
-        directives = node.directives;
+        directives = node.directives,
+        fieldDirectives = [];
 
   ContextProperty.fromVariableDefinitionNode(
     VariableDefinitionNode node, {
@@ -189,13 +195,15 @@ class ContextProperty {
   })  : _name = node.variable.name,
         type = node.type,
         alias = null,
-        directives = node.directives;
+        directives = node.directives,
+        fieldDirectives = [];
 
   ContextProperty merge(ContextProperty other) => ContextProperty(
         type: _mergeTypes(type, other.type),
         name: name,
         path: path,
         directives: directives,
+        fieldDirectives: fieldDirectives,
       );
 
   String get _key => name.value;

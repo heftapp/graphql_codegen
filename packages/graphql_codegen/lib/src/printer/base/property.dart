@@ -5,6 +5,7 @@ import 'package:graphql_codegen/src/context/name.dart';
 import 'package:graphql_codegen/src/config/config.dart';
 import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/errors.dart';
+import 'package:graphql_codegen/src/printer/base/deprecation.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 
 Field printClassProperty(
@@ -15,11 +16,18 @@ Field printClassProperty(
     context,
     property,
   );
+  final deprecationReason = extractDeprecatedReason(property.fieldDirectives);
   return Field(
     (b) => b
       ..modifier = FieldModifier.final$
       ..name = context.namePrinter.printPropertyName(property.name)
-      ..type = classPropertyTypeT,
+      ..type = classPropertyTypeT
+      ..annotations = ListBuilder([
+        if (deprecationReason != null)
+          refer('Deprecated').call([
+            literalString(deprecationReason),
+          ])
+      ]),
   );
 }
 

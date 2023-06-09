@@ -4,7 +4,20 @@ import 'package:gql/schema.dart' as gql;
 import 'package:graphql_codegen/graphql_codegen.dart';
 import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/base/constants.dart';
+import 'package:graphql_codegen/src/printer/base/deprecation.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
+
+class _EnumMappedValue {
+  final String graphQLName;
+  final String dartName;
+  final String? deprecatedReason;
+
+  _EnumMappedValue({
+    required this.graphQLName,
+    required this.dartName,
+    required this.deprecatedReason,
+  });
+}
 
 List<Spec> printEnum(PrintContext<ContextEnum> context) {
   final config =
@@ -25,18 +38,42 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
     );
   }
 
-  final values = {
+  final values = [
     for (final v in context.context.values)
-      v.name.value: context.namePrinter.printEnumValueName(v.name),
-    if (fallbackEnumValue == null) kUnknowkEnumValue: kUnknowkEnumValue
-  };
+      _EnumMappedValue(
+        graphQLName: v.name.value,
+        dartName: context.namePrinter.printEnumValueName(v.name),
+        deprecatedReason: extractDeprecatedReason(v.directives),
+      ),
+    if (fallbackEnumValue == null)
+      _EnumMappedValue(
+          graphQLName: kUnknowkEnumValue,
+          dartName: kUnknowkEnumValue,
+          deprecatedReason: null),
+  ];
   final className = context.namePrinter.printClassName(context.path);
   final specs = <Spec>[
     Enum(
       (b) => b
         ..name = className
         ..values = ListBuilder<EnumValue>(
-          values.entries.map((e) => EnumValue((b) => b..name = e.value)),
+          values.map(
+            (e) {
+              final reason = e.deprecatedReason;
+              return EnumValue(
+                (b) => b
+                  ..name = e.dartName
+                  ..annotations = ListBuilder(
+                    [
+                      if (reason != null)
+                        refer(
+                          'Deprecated(\'${reason.replaceAll("'", r"\'")}\')',
+                        ),
+                    ],
+                  ),
+              );
+            },
+          ).toList(growable: false),
         ),
     ),
     Method(
@@ -53,8 +90,9 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
         ])
         ..body = Block.of([
           Code('switch(e) {'),
-          for (final value in values.entries)
-            Code('case ${className}.${value.value}: return r\'${value.key}\';'),
+          for (final value in values)
+            Code(
+                'case ${className}.${value.dartName}: return r\'${value.graphQLName}\';'),
           Code('}')
         ]),
     ),
@@ -72,10 +110,10 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
         ])
         ..body = Block.of([
           Code('switch(value) {'),
-          for (final value in values.entries)
-            if (value.key != kUnknowkEnumValue)
+          for (final value in values)
+            if (value.graphQLName != kUnknowkEnumValue)
               Code(
-                  'case r\'${value.key}\': return ${className}.${value.value};'),
+                  'case r\'${value.graphQLName}\': return ${className}.${value.dartName};'),
           Code(
               'default: return ${className}.${fallbackEnumValue ?? kUnknowkEnumValue};'),
           Code('}')
