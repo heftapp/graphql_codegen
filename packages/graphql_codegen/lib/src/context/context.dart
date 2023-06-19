@@ -107,6 +107,7 @@ class ContextFragment<TKey extends Object>
         path: path,
         directives: [],
         fieldDirectives: [],
+        hasDefaultValue: false,
       ),
     );
   }
@@ -158,6 +159,7 @@ class ContextProperty {
   final Name? path;
   final List<DirectiveNode> directives;
   final List<DirectiveNode> fieldDirectives;
+  final bool hasDefaultValue;
 
   NameNode get name => alias ?? _name;
 
@@ -168,6 +170,7 @@ class ContextProperty {
     required NameNode name,
     required this.directives,
     required this.fieldDirectives,
+    required this.hasDefaultValue,
   }) : _name = name;
 
   ContextProperty.fromFieldNode(
@@ -178,7 +181,8 @@ class ContextProperty {
   })  : _name = node.name,
         alias = node.alias,
         directives = node.directives,
-        fieldDirectives = fieldDefinition.directives;
+        fieldDirectives = fieldDefinition.directives,
+        hasDefaultValue = false;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
@@ -187,7 +191,8 @@ class ContextProperty {
         type = node.type,
         alias = null,
         directives = node.directives,
-        fieldDirectives = [];
+        fieldDirectives = [],
+        hasDefaultValue = node.defaultValue != null;
 
   ContextProperty.fromVariableDefinitionNode(
     VariableDefinitionNode node, {
@@ -196,7 +201,8 @@ class ContextProperty {
         type = node.type,
         alias = null,
         directives = node.directives,
-        fieldDirectives = [];
+        fieldDirectives = [],
+        hasDefaultValue = node.defaultValue?.value != null;
 
   ContextProperty merge(ContextProperty other) => ContextProperty(
         type: _mergeTypes(type, other.type),
@@ -204,13 +210,16 @@ class ContextProperty {
         path: path,
         directives: directives,
         fieldDirectives: fieldDirectives,
+        hasDefaultValue: hasDefaultValue,
       );
 
   String get _key => name.value;
 
   bool get isTypenameField => _name.value == "__typename";
 
-  bool get isRequired => type.isNonNull;
+  bool get isRequired => isNonNull && !hasDefaultValue;
+
+  bool get isNonNull => type.isNonNull;
 
   static TypeNode _mergeTypes(TypeNode t1, TypeNode t2) {
     if (t1 is ListTypeNode && t2 is ListTypeNode) {

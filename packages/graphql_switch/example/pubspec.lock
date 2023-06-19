@@ -266,10 +266,10 @@ packages:
     dependency: transitive
     description:
       name: gql_http_link
-      sha256: "365c0e72da7e29e007c4a0ed7a470f6c03af1ef00acd2af3c22157c8bb47f314"
+      sha256: "0789d397d46ce274942fcc73e18a080cd2584296dadc33d8ae53d0666d7fe981"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   gql_link:
     dependency: transitive
     description:
@@ -300,7 +300,7 @@ packages:
       path: "../../graphql_codegen"
       relative: true
     source: path
-    version: "0.13.2"
+    version: "0.13.3"
   graphql_switch:
     dependency: "direct main"
     description:

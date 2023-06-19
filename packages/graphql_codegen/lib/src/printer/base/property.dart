@@ -75,7 +75,7 @@ TypeReference _printListTypeNode(
     typeNode.type,
     propertyContext: propertyContext,
   ));
-  return typeNode.isNonNull ? innerRef : _asNullable(innerRef);
+  return typeNode.isNonNull ? innerRef : asNullable(innerRef);
 }
 
 TypeReference _printNamedTypeNode(
@@ -121,7 +121,7 @@ TypeReference _printNamedTypeNode(
   if (typeNode.isNonNull) {
     return reference;
   }
-  return _asNullable(reference);
+  return asNullable(reference);
 }
 
 TypeReference _printEnumType(
@@ -190,7 +190,7 @@ TypeReference _printScalarType(
   return TypeReference((b) => b..symbol = ref.type);
 }
 
-TypeReference _asNullable(TypeReference reference) => TypeReference(
+TypeReference asNullable(TypeReference reference) => TypeReference(
       (b) => b
         ..isNullable = true
         ..symbol = reference.symbol
