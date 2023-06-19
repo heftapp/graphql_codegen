@@ -1,10 +1,17 @@
+# 0.13.3
+
+- Support non-null input with a default value.
+
 # 0.13.2
+
 - Support deprecated directive on fields and enum values.
 
 # 0.13.1
+
 - Support introspection queries
 
 # 0.13.0
+
 - Upgrade `gql` version.
 
 # 0.12.2

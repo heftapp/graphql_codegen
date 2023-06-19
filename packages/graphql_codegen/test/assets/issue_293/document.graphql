@@ -1,0 +1,25 @@
+type Query {
+  field(arg: Boolean): Int
+  inputField(arg: I): Int
+}
+
+input I {
+  nonNull: Boolean!
+  nonNullWithDefault: Boolean! = false
+  nullable: Boolean
+  nullableWithDefault: Boolean = false
+}
+
+query Q(
+  $nonNull: Boolean!
+  $nonNullWithDefault: Boolean! = false
+  $nullable: Boolean
+  $nullableWithDefault: Boolean = false
+  $i: I
+) {
+  fNonNull: field(arg: $nonNull)
+  fNonNullWithDefault: field(arg: $nonNullWithDefault)
+  fNullable: field(arg: $nullable)
+  fNullableWithDefault: field(arg: $nullableWithDefault)
+  inputField(arg: $i)
+}

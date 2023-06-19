@@ -32,13 +32,17 @@ List<Spec> _printInputClasses(
   final factoryParameters = ListBuilder<Parameter>(
     properties.map(
       (property) => Parameter(
-        (b) => b
-          ..named = true
-          ..required = property.isRequired
-          ..type = printClassPropertyType(context, property)
-          ..name = context.namePrinter.printPropertyName(
-            property.name,
-          ),
+        (b) {
+          final innerType = printClassPropertyType(context, property);
+          b
+            ..named = true
+            ..required = property.isRequired
+            ..type =
+                property.hasDefaultValue ? asNullable(innerType) : innerType
+            ..name = context.namePrinter.printPropertyName(
+              property.name,
+            );
+        },
       ),
     ),
   );
@@ -108,14 +112,19 @@ List<Spec> _printInputClasses(
         ])
         ..methods = ListBuilder([
           ...properties.map((e) => Method(
-                (b) => b
-                  ..name = context.namePrinter.printPropertyName(e.name)
-                  ..returns = printClassPropertyType(context, e)
-                  ..type = MethodType.getter
-                  ..body = refer(kDataVariableName)
-                      .index(literalString(e.name.value))
-                      .asA(printClassPropertyType(context, e))
-                      .code,
+                (b) {
+                  final innerType = printClassPropertyType(context, e);
+                  final returnType =
+                      e.hasDefaultValue ? asNullable(innerType) : innerType;
+                  b
+                    ..name = context.namePrinter.printPropertyName(e.name)
+                    ..returns = returnType
+                    ..type = MethodType.getter
+                    ..body = refer(kDataVariableName)
+                        .index(literalString(e.name.value))
+                        .asA(returnType)
+                        .code;
+                },
               )),
           Method(
             (b) => b
@@ -162,7 +171,7 @@ List<Spec> _printInputClasses(
           ...properties.expand((prop) {
             final propName = context.namePrinter.printPropertyName(prop.name);
             return [
-              if (prop.isRequired)
+              if (prop.isNonNull)
                 Code('if(${propName} != _undefined && ${propName} != null)')
               else
                 Code('if(${propName} != _undefined)'),
