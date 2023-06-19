@@ -56,6 +56,7 @@ Method printEqualityOperator(
                   e.type,
                   localThisName,
                   localOtherName,
+                  hasDefaultValue: e.hasDefaultValue,
                 )
               ];
             },
@@ -66,8 +67,9 @@ Method printEqualityOperator(
 Code _printPropertyEqualityCheck(
   TypeNode type,
   String self,
-  String other,
-) {
+  String other, {
+  bool hasDefaultValue = false,
+}) {
   if (type is NamedTypeNode) {
     return Code(
       "if (${self} != ${other}) {return false;}",
@@ -89,7 +91,7 @@ Code _printPropertyEqualityCheck(
       innerCheck,
       Code("}")
     ]);
-    if (type.isNonNull) return listCheck;
+    if (type.isNonNull && !hasDefaultValue) return listCheck;
     return Block.of([
       Code("if (${self} != null && ${other} != null) {"),
       listCheck,
@@ -129,6 +131,7 @@ Method printHashCodeMethod(
                         final hash = _printPropertyHash(
                           property.type,
                           refer(localProp),
+                          hasDefaultValue: property.hasDefaultValue,
                         );
                         if (dataObjectCheckResolver != null &&
                             !property.isRequired) {
@@ -150,7 +153,11 @@ Method printHashCodeMethod(
             ])),
     );
 
-Expression _printPropertyHash(TypeNode type, Expression name) {
+Expression _printPropertyHash(
+  TypeNode type,
+  Expression name, {
+  bool hasDefaultValue = false,
+}) {
   if (type is NamedTypeNode) {
     return name;
   }
@@ -166,7 +173,7 @@ Expression _printPropertyHash(TypeNode type, Expression name) {
         ).closure,
       ]),
     ]);
-    if (type.isNonNull) {
+    if (type.isNonNull && !hasDefaultValue) {
       return inner;
     }
     return name.equalTo(literalNull).conditional(literalNull, inner);
