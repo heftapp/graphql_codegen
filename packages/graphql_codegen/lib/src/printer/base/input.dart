@@ -208,11 +208,21 @@ Code _printToJson(PrintContext context, Iterable<ContextProperty> properties) {
       refer(resultDataVariableName)
           .index(literalString(property.name.value))
           .assign(
-            printToJsonValue(
-              context,
-              property,
-              context.namePrinter.printLocalPropertyName(property.name),
-            ),
+            property.hasDefaultValue && property.isNonNull
+                ? printNullCheck(
+                    refer(
+                      context.namePrinter.printLocalPropertyName(property.name),
+                    ),
+                    printToJsonValue(
+                      context,
+                      property,
+                      context.namePrinter.printLocalPropertyName(property.name),
+                    ))
+                : printToJsonValue(
+                    context,
+                    property,
+                    context.namePrinter.printLocalPropertyName(property.name),
+                  ),
           )
           .statement,
       if (!property.isRequired) Code('}'),

@@ -1,3 +1,7 @@
+# 0.13.4
+
+- Fix poor handling of complex non-null types with defalt values
+
 # 0.13.3
 
 - Support non-null input with a default value.

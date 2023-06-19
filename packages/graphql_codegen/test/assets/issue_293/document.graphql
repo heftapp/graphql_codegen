@@ -1,6 +1,12 @@
 type Query {
   field(arg: Boolean): Int
   inputField(arg: I): Int
+  enumField(arg: E): Int
+  listField(arg: [E]): Int
+}
+
+enum E {
+  V1
 }
 
 input I {
@@ -15,11 +21,27 @@ query Q(
   $nonNullWithDefault: Boolean! = false
   $nullable: Boolean
   $nullableWithDefault: Boolean = false
+  $nonNullEnum: E!
+  $nonNullEnumWithDefault: E! = false
+  $nullableEnum: E
+  $nullableEnumWithDefault: E = false
+  $nonNullList: [E]!
+  $nonNullListWithDefault: [E]! = false
+  $nullableList: [E]
+  $nullableListWithDefault: [E] = false
   $i: I
 ) {
   fNonNull: field(arg: $nonNull)
   fNonNullWithDefault: field(arg: $nonNullWithDefault)
   fNullable: field(arg: $nullable)
   fNullableWithDefault: field(arg: $nullableWithDefault)
+  eNonNull: enumField(arg: $nonNullEnum)
+  eNonNullWithDefault: enumField(arg: $nonNullEnumWithDefault)
+  eNullable: enumField(arg: $nullableEnum)
+  eNullableWithDefault: enumField(arg: $nullableEnumWithDefault)
+  lNonNull: listField(arg: $nonNullList)
+  lNonNullWithDefault: listField(arg: $nonNullListWithDefault)
+  lNullable: listField(arg: $nullableList)
+  lNullableWithDefault: listField(arg: $nullableListWithDefault)
   inputField(arg: $i)
 }
