@@ -204,3 +204,6 @@ Method printIdentityFunction() => Method(
         ..requiredParameters = ListBuilder([Parameter((b) => b..name = 'i')])
         ..body = refer('i').code,
     );
+
+Expression printMaybeAddCast(Expression exp, bool condition, Expression asA) =>
+    condition ? exp.asA(asA) : exp;

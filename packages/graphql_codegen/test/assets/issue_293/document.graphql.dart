@@ -49,8 +49,7 @@ class Input$I {
     result$data['nonNull'] = l$nonNull;
     if (_$data.containsKey('nonNullWithDefault')) {
       final l$nonNullWithDefault = nonNullWithDefault;
-      result$data['nonNullWithDefault'] =
-          l$nonNullWithDefault == null ? null : l$nonNullWithDefault;
+      result$data['nonNullWithDefault'] = (l$nonNullWithDefault as bool);
     }
     if (_$data.containsKey('nullable')) {
       final l$nullable = nullable;
@@ -512,8 +511,7 @@ class Variables$Query$Q {
     result$data['nonNull'] = l$nonNull;
     if (_$data.containsKey('nonNullWithDefault')) {
       final l$nonNullWithDefault = nonNullWithDefault;
-      result$data['nonNullWithDefault'] =
-          l$nonNullWithDefault == null ? null : l$nonNullWithDefault;
+      result$data['nonNullWithDefault'] = (l$nonNullWithDefault as bool);
     }
     if (_$data.containsKey('nullable')) {
       final l$nullable = nullable;
@@ -527,9 +525,8 @@ class Variables$Query$Q {
     result$data['nonNullEnum'] = toJson$Enum$E(l$nonNullEnum);
     if (_$data.containsKey('nonNullEnumWithDefault')) {
       final l$nonNullEnumWithDefault = nonNullEnumWithDefault;
-      result$data['nonNullEnumWithDefault'] = l$nonNullEnumWithDefault == null
-          ? null
-          : toJson$Enum$E(l$nonNullEnumWithDefault);
+      result$data['nonNullEnumWithDefault'] =
+          toJson$Enum$E((l$nonNullEnumWithDefault as Enum$E));
     }
     if (_$data.containsKey('nullableEnum')) {
       final l$nullableEnum = nullableEnum;
@@ -547,9 +544,8 @@ class Variables$Query$Q {
         l$nonNullList.map((e) => e == null ? null : toJson$Enum$E(e)).toList();
     if (_$data.containsKey('nonNullListWithDefault')) {
       final l$nonNullListWithDefault = nonNullListWithDefault;
-      result$data['nonNullListWithDefault'] = l$nonNullListWithDefault == null
-          ? null
-          : l$nonNullListWithDefault
+      result$data['nonNullListWithDefault'] =
+          (l$nonNullListWithDefault as List<Enum$E?>)
               .map((e) => e == null ? null : toJson$Enum$E(e))
               .toList();
     }

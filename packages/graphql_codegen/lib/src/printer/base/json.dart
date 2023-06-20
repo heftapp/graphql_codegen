@@ -164,6 +164,18 @@ Expression printToJsonValue(
     _printToJsonValue(
       context,
       property.type,
+      refer(value),
+      property.path,
+    );
+
+Expression printToJsonValueOnExpression(
+  PrintContext context,
+  ContextProperty property,
+  Expression value,
+) =>
+    _printToJsonValue(
+      context,
+      property.type,
       value,
       property.path,
     );
@@ -171,10 +183,9 @@ Expression printToJsonValue(
 Expression _printToJsonValue(
   PrintContext context,
   TypeNode type,
-  String value,
+  Expression valueRef,
   Name? propertyContext,
 ) {
-  final valueRef = refer(value);
   if (type is ListTypeNode) {
     final mappedAccess = (type.isNonNull
             ? valueRef.property('map')
@@ -187,7 +198,7 @@ Expression _printToJsonValue(
               ..body = _printToJsonValue(
                 context,
                 type.type,
-                'e',
+                refer('e'),
                 propertyContext,
               ).code,
           ).closure
