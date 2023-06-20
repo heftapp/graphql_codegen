@@ -6,6 +6,25 @@ import 'package:graphql_codegen/src/printer/context.dart';
 
 typedef DataObjResolver = Expression Function();
 
+TypeNode _typeNodeAsNullable(TypeNode node) {
+  if (!node.isNonNull) {
+    return node;
+  }
+  if (node is ListTypeNode) {
+    return ListTypeNode(
+      type: node.type,
+      isNonNull: false,
+    );
+  }
+  if (node is NamedTypeNode) {
+    return NamedTypeNode(
+      name: node.name,
+      isNonNull: false,
+    );
+  }
+  return node;
+}
+
 Method printEqualityOperator(
   PrintContext c,
   String name,
@@ -53,10 +72,9 @@ Method printEqualityOperator(
                   ),
                 ],
                 _printPropertyEqualityCheck(
-                  e.type,
+                  e.hasDefaultValue ? _typeNodeAsNullable(e.type) : e.type,
                   localThisName,
                   localOtherName,
-                  hasDefaultValue: e.hasDefaultValue,
                 )
               ];
             },
@@ -64,12 +82,7 @@ Method printEqualityOperator(
           literalTrue.returned.statement,
         ])));
 
-Code _printPropertyEqualityCheck(
-  TypeNode type,
-  String self,
-  String other, {
-  bool hasDefaultValue = false,
-}) {
+Code _printPropertyEqualityCheck(TypeNode type, String self, String other) {
   if (type is NamedTypeNode) {
     return Code(
       "if (${self} != ${other}) {return false;}",
@@ -91,7 +104,7 @@ Code _printPropertyEqualityCheck(
       innerCheck,
       Code("}")
     ]);
-    if (type.isNonNull && !hasDefaultValue) return listCheck;
+    if (type.isNonNull) return listCheck;
     return Block.of([
       Code("if (${self} != null && ${other} != null) {"),
       listCheck,
@@ -129,9 +142,10 @@ Method printHashCodeMethod(
                         final localProp = context.namePrinter
                             .printLocalPropertyName(property.name);
                         final hash = _printPropertyHash(
-                          property.type,
+                          property.hasDefaultValue
+                              ? _typeNodeAsNullable(property.type)
+                              : property.type,
                           refer(localProp),
-                          hasDefaultValue: property.hasDefaultValue,
                         );
                         if (dataObjectCheckResolver != null &&
                             !property.isRequired) {
@@ -155,9 +169,8 @@ Method printHashCodeMethod(
 
 Expression _printPropertyHash(
   TypeNode type,
-  Expression name, {
-  bool hasDefaultValue = false,
-}) {
+  Expression name,
+) {
   if (type is NamedTypeNode) {
     return name;
   }
@@ -173,7 +186,7 @@ Expression _printPropertyHash(
         ).closure,
       ]),
     ]);
-    if (type.isNonNull && !hasDefaultValue) {
+    if (type.isNonNull) {
       return inner;
     }
     return name.equalTo(literalNull).conditional(literalNull, inner);
