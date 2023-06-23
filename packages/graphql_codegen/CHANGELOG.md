@@ -1,3 +1,7 @@
+# 0.13.5
+
+- Run builder before `json_serializable`
+
 # 0.13.4
 
 - Fix poor handling of complex non-null types with defalt values
