@@ -5,3 +5,5 @@ builders:
     build_extensions: {'$lib$': ['.graphql.dart']}
     auto_apply: dependents
     build_to: source
+    runs_before:
+      - json_serializable:json_serializable
