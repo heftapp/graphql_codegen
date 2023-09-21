@@ -14,6 +14,8 @@ import 'package:path/path.dart' as path;
 
 final p = path.Context(style: path.Style.posix);
 
+const kGraphQLFileExtensions = ['graphql', 'graphqls', 'gql'];
+
 class _GraphQLParserResource {
   Map<AssetId, DocumentNode> _fileCache = {};
   Future<DocumentNode> readFile(BuildStep step, AssetId id) async {
@@ -154,30 +156,34 @@ class GraphQLBuilder extends Builder {
   @override
   Map<String, List<String>> get buildExtensions {
     if (p.isRelative(config.outputDirectory)) {
-      return {
-        '{{dir}}/{{file}}.graphql': [
-          p.join('{{dir}}', config.outputDirectory, '{{file}}.graphql.dart')
-        ],
-        '{{dir}}/{{file}}.gql': [
-          p.join('{{dir}}', config.outputDirectory, '{{file}}.gql.dart')
-        ]
-      };
+      return Map.fromEntries(
+        kGraphQLFileExtensions.map(
+          (extension) => MapEntry(
+            '{{dir}}/{{file}}.${extension}',
+            [
+              p.join(
+                '{{dir}}',
+                config.outputDirectory,
+                '{{file}}.${extension}.dart',
+              ),
+            ],
+          ),
+        ),
+      );
     }
-    return {
-      p.join(_assetsPrefix, '{{dir}}', '{{file}}.graphql'): [
-        p.join(
-          p.relative(config.outputDirectory, from: '/'),
-          '{{dir}}',
-          '{{file}}.graphql.dart',
-        )
-      ],
-      p.join(_assetsPrefix, '{{dir}}', '{{file}}.gql'): [
-        p.join(
-          p.relative(config.outputDirectory, from: '/'),
-          '{{dir}}',
-          '{{file}}.gql.dart',
-        )
-      ],
-    };
+    return Map.fromEntries(
+      kGraphQLFileExtensions.map(
+        (e) => MapEntry(
+          p.join(_assetsPrefix, '{{dir}}', '{{file}}.${e}'),
+          [
+            p.join(
+              p.relative(config.outputDirectory, from: '/'),
+              '{{dir}}',
+              '{{file}}.${e}.dart',
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

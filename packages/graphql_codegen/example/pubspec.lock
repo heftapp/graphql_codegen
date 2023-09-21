@@ -329,7 +329,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.13.6"
+    version: "0.13.7"
   graphql_flutter:
     dependency: "direct main"
     description:
