@@ -1,0 +1,7 @@
+type Query {
+  status: String
+}
+
+query Q {
+  status
+}

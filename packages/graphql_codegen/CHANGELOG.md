@@ -1,3 +1,7 @@
+# 0.13.7
+
+- Support `.graphqls` files
+
 # 0.13.6
 
 - Fix bad copy class on list with default value.

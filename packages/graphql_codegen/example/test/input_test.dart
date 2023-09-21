@@ -1,4 +1,4 @@
-import 'package:graphql_codegen_example/schema.graphql.dart';
+import 'package:graphql_codegen_example/schema.graphqls.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
