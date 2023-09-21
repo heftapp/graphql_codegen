@@ -300,7 +300,7 @@ packages:
       path: "../../graphql_codegen"
       relative: true
     source: path
-    version: "0.13.5"
+    version: "0.13.6"
   graphql_switch:
     dependency: "direct main"
     description:

@@ -1,3 +1,7 @@
+# 0.13.6
+
+- Fix bad copy class on list with default value.
+
 # 0.13.5
 
 - Run builder before `json_serializable`
