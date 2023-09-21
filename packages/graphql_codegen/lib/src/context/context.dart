@@ -4,6 +4,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql_codegen/src/context/schema.dart';
 import 'package:graphql_codegen/src/config/config.dart';
 import 'package:graphql_codegen/src/errors.dart';
+import 'package:graphql_codegen/src/printer/base/utils.dart';
 import 'package:graphql_codegen/src/transform/add_typename_transforming_visitor.dart';
 
 import 'name.dart';
@@ -160,6 +161,9 @@ class ContextProperty {
   final List<DirectiveNode> directives;
   final List<DirectiveNode> fieldDirectives;
   final bool hasDefaultValue;
+
+  TypeNode get nullableTypeOnDefaultValue =>
+      hasDefaultValue ? typeNodeAsNullable(type) : type;
 
   NameNode get name => alias ?? _name;
 

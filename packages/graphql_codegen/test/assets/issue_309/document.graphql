@@ -1,0 +1,19 @@
+input TemplateDisciplineTopicContentInput {
+  howStudyIt: String!
+  infoContentBlocks: [I1!]!
+  taskContentBlocks: [I2!]
+  testContentBlocks: [I3!]! = []
+  whyStudyIt: String!
+}
+
+input I1 {
+  data: String
+}
+
+input I2 {
+  data: String
+}
+
+input I3 {
+  data: String
+}

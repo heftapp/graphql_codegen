@@ -72,7 +72,7 @@ Method? _printDeepCopyTypeNode(
   ContextProperty property,
   bool abstract,
 ) {
-  final node = property.type;
+  final node = property.nullableTypeOnDefaultValue;
   final namePrinter = printContext.namePrinter;
   final propertyName = namePrinter.printPropertyName(property.name);
   final copyClassName = namePrinter.printCopyWithClassName(

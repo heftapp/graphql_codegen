@@ -6,25 +6,6 @@ import 'package:graphql_codegen/src/printer/context.dart';
 
 typedef DataObjResolver = Expression Function();
 
-TypeNode _typeNodeAsNullable(TypeNode node) {
-  if (!node.isNonNull) {
-    return node;
-  }
-  if (node is ListTypeNode) {
-    return ListTypeNode(
-      type: node.type,
-      isNonNull: false,
-    );
-  }
-  if (node is NamedTypeNode) {
-    return NamedTypeNode(
-      name: node.name,
-      isNonNull: false,
-    );
-  }
-  return node;
-}
-
 Method printEqualityOperator(
   PrintContext c,
   String name,
@@ -72,7 +53,7 @@ Method printEqualityOperator(
                   ),
                 ],
                 _printPropertyEqualityCheck(
-                  e.hasDefaultValue ? _typeNodeAsNullable(e.type) : e.type,
+                  e.nullableTypeOnDefaultValue,
                   localThisName,
                   localOtherName,
                 )
@@ -142,9 +123,7 @@ Method printHashCodeMethod(
                         final localProp = context.namePrinter
                             .printLocalPropertyName(property.name);
                         final hash = _printPropertyHash(
-                          property.hasDefaultValue
-                              ? _typeNodeAsNullable(property.type)
-                              : property.type,
+                          property.nullableTypeOnDefaultValue,
                           refer(localProp),
                         );
                         if (dataObjectCheckResolver != null &&
