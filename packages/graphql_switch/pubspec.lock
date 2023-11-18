@@ -316,7 +316,7 @@ packages:
       path: "../graphql_codegen"
       relative: true
     source: path
-    version: "0.13.7"
+    version: "0.13.8"
   graphs:
     dependency: transitive
     description:
