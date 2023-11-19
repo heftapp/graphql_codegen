@@ -171,19 +171,34 @@ class GraphQLBuilder extends Builder {
         ),
       );
     }
-    return Map.fromEntries(
-      kGraphQLFileExtensions.map(
-        (e) => MapEntry(
-          p.join(_assetsPrefix, '{{dir}}', '{{file}}.${e}'),
-          [
-            p.join(
-              p.relative(config.outputDirectory, from: '/'),
-              '{{dir}}',
-              '{{file}}.${e}.dart',
-            )
-          ],
+    return {
+      ...Map.fromEntries(
+        kGraphQLFileExtensions.map(
+          (e) => MapEntry(
+            p.join(_assetsPrefix, '{{dir}}', '{{file}}.${e}'),
+            [
+              p.join(
+                p.relative(config.outputDirectory, from: '/'),
+                '{{dir}}',
+                '{{file}}.${e}.dart',
+              )
+            ],
+          ),
         ),
       ),
-    );
+      ...Map.fromEntries(
+        kGraphQLFileExtensions.map(
+          (e) => MapEntry(
+            p.join(_assetsPrefix, '{{file}}.${e}'),
+            [
+              p.join(
+                p.relative(config.outputDirectory, from: '/'),
+                '{{file}}.${e}.dart',
+              )
+            ],
+          ),
+        ),
+      )
+    };
   }
 }

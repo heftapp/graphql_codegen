@@ -1,3 +1,7 @@
+# 0.13.8
+
+- Fix bug in asset path resolution.
+
 # 0.13.7
 
 - Support `.graphqls` files
