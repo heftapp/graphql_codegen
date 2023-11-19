@@ -2094,11 +2094,10 @@ extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<Mutation$UpdateSOptional>> mutate$UpdateSOptional(
           [Options$Mutation$UpdateSOptional? options]) async =>
       await this.mutate(options ?? Options$Mutation$UpdateSOptional());
-  graphql.ObservableQuery<Mutation$UpdateSOptional>
-      watchMutation$UpdateSOptional(
-              [WatchOptions$Mutation$UpdateSOptional? options]) =>
-          this.watchMutation(
-              options ?? WatchOptions$Mutation$UpdateSOptional());
+  graphql.ObservableQuery<
+      Mutation$UpdateSOptional> watchMutation$UpdateSOptional(
+          [WatchOptions$Mutation$UpdateSOptional? options]) =>
+      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
 }
 
 class Variables$Mutation$UpdateSRequired {
@@ -2621,11 +2620,10 @@ extension ClientExtension$Mutation$UpdateSNoVariables on graphql.GraphQLClient {
       mutate$UpdateSNoVariables(
               [Options$Mutation$UpdateSNoVariables? options]) async =>
           await this.mutate(options ?? Options$Mutation$UpdateSNoVariables());
-  graphql.ObservableQuery<Mutation$UpdateSNoVariables>
-      watchMutation$UpdateSNoVariables(
-              [WatchOptions$Mutation$UpdateSNoVariables? options]) =>
-          this.watchMutation(
-              options ?? WatchOptions$Mutation$UpdateSNoVariables());
+  graphql.ObservableQuery<
+      Mutation$UpdateSNoVariables> watchMutation$UpdateSNoVariables(
+          [WatchOptions$Mutation$UpdateSNoVariables? options]) =>
+      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSNoVariables());
 }
 
 const possibleTypesMap = <String, Set<String>>{};
