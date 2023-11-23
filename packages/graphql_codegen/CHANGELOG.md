@@ -1,3 +1,8 @@
+# 0.13.9
+
+- Fix bug in asset path resolution
+- Support analyzer 6.0
+
 # 0.13.8
 
 - Fix bug in asset path resolution.
