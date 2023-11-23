@@ -196,6 +196,7 @@ class Variables$Mutation$UpdateSOptional {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -211,6 +212,7 @@ class Variables$Mutation$UpdateSOptional {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -491,10 +493,11 @@ extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<Mutation$UpdateSOptional>> mutate$UpdateSOptional(
           [Options$Mutation$UpdateSOptional? options]) async =>
       await this.mutate(options ?? Options$Mutation$UpdateSOptional());
-  graphql
-      .ObservableQuery<Mutation$UpdateSOptional> watchMutation$UpdateSOptional(
-          [WatchOptions$Mutation$UpdateSOptional? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
+  graphql.ObservableQuery<Mutation$UpdateSOptional>
+      watchMutation$UpdateSOptional(
+              [WatchOptions$Mutation$UpdateSOptional? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$UpdateSOptional());
 }
 
 class Mutation$UpdateSOptional$HookResult {

@@ -603,6 +603,7 @@ class _CopyWithImpl$Fragment$AndCondition<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$NonCompositeCondition<TRes> get left {
     final local$left = _instance.left;
     return CopyWith$Fragment$NonCompositeCondition(
@@ -629,8 +630,10 @@ class _CopyWithStubImpl$Fragment$AndCondition<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$NonCompositeCondition<TRes> get left =>
       CopyWith$Fragment$NonCompositeCondition.stub(_res);
+
   CopyWith$Fragment$NonCompositeCondition<TRes> get right =>
       CopyWith$Fragment$NonCompositeCondition.stub(_res);
 }
@@ -1078,6 +1081,7 @@ class _CopyWithImpl$Fragment$CompositeCondition$$AndCondition<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$NonCompositeCondition<TRes> get left {
     final local$left = _instance.left;
     return CopyWith$Fragment$NonCompositeCondition(
@@ -1104,8 +1108,10 @@ class _CopyWithStubImpl$Fragment$CompositeCondition$$AndCondition<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$NonCompositeCondition<TRes> get left =>
       CopyWith$Fragment$NonCompositeCondition.stub(_res);
+
   CopyWith$Fragment$NonCompositeCondition<TRes> get right =>
       CopyWith$Fragment$NonCompositeCondition.stub(_res);
 }

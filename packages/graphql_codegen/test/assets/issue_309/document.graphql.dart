@@ -45,13 +45,18 @@ class Input$TemplateDisciplineTopicContentInput {
   Map<String, dynamic> _$data;
 
   String get howStudyIt => (_$data['howStudyIt'] as String);
+
   List<Input$I1> get infoContentBlocks =>
       (_$data['infoContentBlocks'] as List<Input$I1>);
+
   List<Input$I2>? get taskContentBlocks =>
       (_$data['taskContentBlocks'] as List<Input$I2>?);
+
   List<Input$I3>? get testContentBlocks =>
       (_$data['testContentBlocks'] as List<Input$I3>?);
+
   String get whyStudyIt => (_$data['whyStudyIt'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$howStudyIt = howStudyIt;
@@ -81,6 +86,7 @@ class Input$TemplateDisciplineTopicContentInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -237,6 +243,7 @@ class _CopyWithImpl$Input$TemplateDisciplineTopicContentInput<TRes>
         if (whyStudyIt != _undefined && whyStudyIt != null)
           'whyStudyIt': (whyStudyIt as String),
       }));
+
   TRes infoContentBlocks(
           Iterable<Input$I1> Function(Iterable<CopyWith$Input$I1<Input$I1>>)
               _fn) =>
@@ -246,6 +253,7 @@ class _CopyWithImpl$Input$TemplateDisciplineTopicContentInput<TRes>
                     e,
                     (i) => i,
                   ))).toList());
+
   TRes taskContentBlocks(
           Iterable<Input$I2>? Function(Iterable<CopyWith$Input$I2<Input$I2>>?)
               _fn) =>
@@ -255,6 +263,7 @@ class _CopyWithImpl$Input$TemplateDisciplineTopicContentInput<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes testContentBlocks(
           Iterable<Input$I3>? Function(Iterable<CopyWith$Input$I3<Input$I3>>?)
               _fn) =>
@@ -280,8 +289,11 @@ class _CopyWithStubImpl$Input$TemplateDisciplineTopicContentInput<TRes>
     String? whyStudyIt,
   }) =>
       _res;
+
   infoContentBlocks(_fn) => _res;
+
   taskContentBlocks(_fn) => _res;
+
   testContentBlocks(_fn) => _res;
 }
 
@@ -304,6 +316,7 @@ class Input$I1 {
   Map<String, dynamic> _$data;
 
   String? get data => (_$data['data'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('data')) {
@@ -317,6 +330,7 @@ class Input$I1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -399,6 +413,7 @@ class Input$I2 {
   Map<String, dynamic> _$data;
 
   String? get data => (_$data['data'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('data')) {
@@ -412,6 +427,7 @@ class Input$I2 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -494,6 +510,7 @@ class Input$I3 {
   Map<String, dynamic> _$data;
 
   String? get data => (_$data['data'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('data')) {
@@ -507,6 +524,7 @@ class Input$I3 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

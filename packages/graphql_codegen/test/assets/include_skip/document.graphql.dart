@@ -277,6 +277,7 @@ class _CopyWithImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$Q1$foo<TRes> get foo {
     final local$foo = _instance.foo;
     return local$foo == null
@@ -295,6 +296,7 @@ class _CopyWithStubImpl$Query$Q1<TRes> implements CopyWith$Query$Q1<TRes> {
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$Q1$foo<TRes> get foo => CopyWith$Query$Q1$foo.stub(_res);
 }
 

@@ -20,6 +20,7 @@ class Input$WalletGetContentInput {
   Map<String, dynamic> _$data;
 
   String? get id => (_$data['id'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('id')) {
@@ -34,6 +35,7 @@ class Input$WalletGetContentInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -293,6 +295,7 @@ class Variables$Query$WalletGetContent {
 
   Input$WalletGetContentInput get input =>
       (_$data['input'] as Input$WalletGetContentInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$input = input;
@@ -305,6 +308,7 @@ class Variables$Query$WalletGetContent {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -361,6 +365,7 @@ class _CopyWithImpl$Variables$Query$WalletGetContent<TRes>
         if (input != _undefined && input != null)
           'input': (input as Input$WalletGetContentInput),
       }));
+
   CopyWith$Input$WalletGetContentInput<TRes> get input {
     final local$input = _instance.input;
     return CopyWith$Input$WalletGetContentInput(
@@ -375,6 +380,7 @@ class _CopyWithStubImpl$Variables$Query$WalletGetContent<TRes>
   TRes _res;
 
   call({Input$WalletGetContentInput? input}) => _res;
+
   CopyWith$Input$WalletGetContentInput<TRes> get input =>
       CopyWith$Input$WalletGetContentInput.stub(_res);
 }
@@ -491,6 +497,7 @@ class _CopyWithImpl$Query$WalletGetContent<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$WalletGetContent$walletGetContent<TRes> get walletGetContent {
     final local$walletGetContent = _instance.walletGetContent;
     return CopyWith$Query$WalletGetContent$walletGetContent(
@@ -509,6 +516,7 @@ class _CopyWithStubImpl$Query$WalletGetContent<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$WalletGetContent$walletGetContent<TRes> get walletGetContent =>
       CopyWith$Query$WalletGetContent$walletGetContent.stub(_res);
 }
@@ -822,6 +830,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes blocks(
           Iterable<Query$WalletGetContent$walletGetContent$blocks>? Function(
                   Iterable<
@@ -847,6 +856,7 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent<TRes>
     String? $__typename,
   }) =>
       _res;
+
   blocks(_fn) => _res;
 }
 
@@ -1200,6 +1210,7 @@ class _CopyWithImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletConten
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
       TRes> get blockType {
     final local$blockType = _instance.blockType;
@@ -1241,11 +1252,13 @@ class _CopyWithStubImpl$Query$WalletGetContent$walletGetContent$blocks$$WalletCo
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType<
           TRes>
       get blockType =>
           CopyWith$Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType
               .stub(_res);
+
   items(_fn) => _res;
 }
 

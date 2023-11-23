@@ -684,6 +684,7 @@ class _CopyWithImpl$Fragment$FullUser<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes notifications(
           Iterable<Fragment$FullUser$notifications>? Function(
                   Iterable<
@@ -713,6 +714,7 @@ class _CopyWithStubImpl$Fragment$FullUser<TRes>
     String? $__typename,
   }) =>
       _res;
+
   notifications(_fn) => _res;
 }
 
@@ -1239,6 +1241,7 @@ class Variables$Query$GetUser {
   Map<String, dynamic> _$data;
 
   String get username => (_$data['username'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$username = username;
@@ -1251,6 +1254,7 @@ class Variables$Query$GetUser {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1427,6 +1431,7 @@ class _CopyWithImpl$Query$GetUser<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$FullUser<TRes> get getUser {
     final local$getUser = _instance.getUser;
     return local$getUser == null
@@ -1446,6 +1451,7 @@ class _CopyWithStubImpl$Query$GetUser<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$FullUser<TRes> get getUser =>
       CopyWith$Fragment$FullUser.stub(_res);
 }
@@ -1523,6 +1529,7 @@ class Variables$Query$GetNotifications {
   Map<String, dynamic> _$data;
 
   String get username => (_$data['username'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$username = username;
@@ -1535,6 +1542,7 @@ class Variables$Query$GetNotifications {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1714,6 +1722,7 @@ class _CopyWithImpl$Query$GetNotifications<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$GetNotifications$getUser<TRes> get getUser {
     final local$getUser = _instance.getUser;
     return local$getUser == null
@@ -1734,6 +1743,7 @@ class _CopyWithStubImpl$Query$GetNotifications<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$GetNotifications$getUser<TRes> get getUser =>
       CopyWith$Query$GetNotifications$getUser.stub(_res);
 }
@@ -1971,6 +1981,7 @@ class _CopyWithImpl$Query$GetNotifications$getUser<TRes>
             : (notifications
                 as List<Query$GetNotifications$getUser$notifications>?),
       ));
+
   TRes notifications(
           Iterable<Query$GetNotifications$getUser$notifications>? Function(
                   Iterable<
@@ -1997,6 +2008,7 @@ class _CopyWithStubImpl$Query$GetNotifications$getUser<TRes>
     List<Query$GetNotifications$getUser$notifications>? notifications,
   }) =>
       _res;
+
   notifications(_fn) => _res;
 }
 

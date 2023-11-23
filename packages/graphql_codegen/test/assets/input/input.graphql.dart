@@ -83,16 +83,26 @@ class Input$I1 {
   Map<String, dynamic> _$data;
 
   String get s => (_$data['s'] as String);
+
   String? get sMaybe => (_$data['sMaybe'] as String?);
+
   Input$I1? get nested_input => (_$data['nested_input'] as Input$I1?);
+
   List<Input$I1>? get children => (_$data['children'] as List<Input$I1>?);
+
   List<List<Input$I1?>?>? get children2 =>
       (_$data['children2'] as List<List<Input$I1?>?>?);
+
   int? get $_min => (_$data['_min'] as int?);
+
   Enum$E? get eMaybe => (_$data['eMaybe'] as Enum$E?);
+
   Enum$E get e => (_$data['e'] as Enum$E);
+
   List<Enum$E> get es => (_$data['es'] as List<Enum$E>);
+
   Input$I2? get i2 => (_$data['i2'] as Input$I2?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$s = s;
@@ -137,6 +147,7 @@ class Input$I1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -367,6 +378,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
         if (es != _undefined && es != null) 'es': (es as List<Enum$E>),
         if (i2 != _undefined) 'i2': (i2 as Input$I2?),
       }));
+
   CopyWith$Input$I1<TRes> get nested_input {
     final local$nested_input = _instance.nested_input;
     return local$nested_input == null
@@ -382,6 +394,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
                 e,
                 (i) => i,
               )))?.toList());
+
   TRes children2(
           Iterable<Iterable<Input$I1?>?>? Function(
                   Iterable<Iterable<CopyWith$Input$I1<Input$I1>?>?>?)
@@ -393,6 +406,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
                   e,
                   (i) => i,
                 ))))?.map((e) => e?.toList()).toList());
+
   CopyWith$Input$I2<TRes> get i2 {
     final local$i2 = _instance.i2;
     return local$i2 == null
@@ -419,9 +433,13 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
     Input$I2? i2,
   }) =>
       _res;
+
   CopyWith$Input$I1<TRes> get nested_input => CopyWith$Input$I1.stub(_res);
+
   children(_fn) => _res;
+
   children2(_fn) => _res;
+
   CopyWith$Input$I2<TRes> get i2 => CopyWith$Input$I2.stub(_res);
 }
 
@@ -444,6 +462,7 @@ class Input$I2 {
   Map<String, dynamic> _$data;
 
   String? get foobar => (_$data['foobar'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('foobar')) {
@@ -457,6 +476,7 @@ class Input$I2 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

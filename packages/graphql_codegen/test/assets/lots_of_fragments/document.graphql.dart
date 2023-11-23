@@ -763,6 +763,7 @@ class _CopyWithImpl$Query$FetchStuff<TRes>
             ? _instance.field
             : (field as Query$FetchStuff$field?),
       ));
+
   CopyWith$Query$FetchStuff$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -782,6 +783,7 @@ class _CopyWithStubImpl$Query$FetchStuff<TRes>
     Query$FetchStuff$field? field,
   }) =>
       _res;
+
   CopyWith$Query$FetchStuff$field<TRes> get field =>
       CopyWith$Query$FetchStuff$field.stub(_res);
 }

@@ -17,6 +17,7 @@ class Input$I {
   Map<String, dynamic> _$data;
 
   String? get title => (_$data['title'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('title')) {
@@ -30,6 +31,7 @@ class Input$I {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -112,6 +114,7 @@ class Input$I_ {
   Map<String, dynamic> _$data;
 
   double? get value => (_$data['value'] as double?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('value')) {
@@ -125,6 +128,7 @@ class Input$I_ {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -207,6 +211,7 @@ class Input$i {
   Map<String, dynamic> _$data;
 
   bool? get enabled => (_$data['enabled'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('enabled')) {
@@ -220,6 +225,7 @@ class Input$i {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

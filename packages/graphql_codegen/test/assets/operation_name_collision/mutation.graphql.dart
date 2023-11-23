@@ -86,6 +86,7 @@ class _CopyWithImpl$Mutation$Operation<TRes>
       setName: setName == _undefined
           ? _instance.setName
           : (setName as Mutation$Operation$setName?)));
+
   CopyWith$Mutation$Operation$setName<TRes> get setName {
     final local$setName = _instance.setName;
     return local$setName == null
@@ -102,6 +103,7 @@ class _CopyWithStubImpl$Mutation$Operation<TRes>
   TRes _res;
 
   call({Mutation$Operation$setName? setName}) => _res;
+
   CopyWith$Mutation$Operation$setName<TRes> get setName =>
       CopyWith$Mutation$Operation$setName.stub(_res);
 }

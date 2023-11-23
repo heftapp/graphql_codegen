@@ -1,3 +1,7 @@
+# 0.13.9
+
+- Fix bug in asset path resolution, again.
+
 # 0.13.8
 
 - Fix bug in asset path resolution.

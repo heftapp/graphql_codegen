@@ -341,6 +341,7 @@ class _CopyWithImpl$Query$FetchImplementations<TRes>
           $interface: $interface == _undefined
               ? _instance.$interface
               : ($interface as Query$FetchImplementations$interface?)));
+
   CopyWith$Query$FetchImplementations$interface<TRes> get $interface {
     final local$$interface = _instance.$interface;
     return local$$interface == null
@@ -357,6 +358,7 @@ class _CopyWithStubImpl$Query$FetchImplementations<TRes>
   TRes _res;
 
   call({Query$FetchImplementations$interface? $interface}) => _res;
+
   CopyWith$Query$FetchImplementations$interface<TRes> get $interface =>
       CopyWith$Query$FetchImplementations$interface.stub(_res);
 }
@@ -645,6 +647,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface<TRes>
             ? _instance.self
             : (self as Query$FetchImplementations$interface$self),
       ));
+
   CopyWith$Query$FetchImplementations$interface$self<TRes> get self {
     final local$self = _instance.self;
     return CopyWith$Query$FetchImplementations$interface$self(
@@ -664,6 +667,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface<TRes>
     Query$FetchImplementations$interface$self? self,
   }) =>
       _res;
+
   CopyWith$Query$FetchImplementations$interface$self<TRes> get self =>
       CopyWith$Query$FetchImplementations$interface$self.stub(_res);
 }
@@ -1293,6 +1297,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA<TRes>
             : (self
                 as Query$FetchImplementations$interface$$ImplementationA$self),
       ));
+
   CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<TRes>
       get self {
     final local$self = _instance.self;
@@ -1318,6 +1323,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA<
     Query$FetchImplementations$interface$$ImplementationA$self? self,
   }) =>
       _res;
+
   CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<TRes>
       get self =>
           CopyWith$Query$FetchImplementations$interface$$ImplementationA$self
@@ -1480,6 +1486,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB<TRes>
             : (self
                 as Query$FetchImplementations$interface$$ImplementationB$self),
       ));
+
   CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<TRes>
       get self {
     final local$self = _instance.self;
@@ -1504,6 +1511,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB<
     Query$FetchImplementations$interface$$ImplementationB$self? self,
   }) =>
       _res;
+
   CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<TRes>
       get self =>
           CopyWith$Query$FetchImplementations$interface$$ImplementationB$self

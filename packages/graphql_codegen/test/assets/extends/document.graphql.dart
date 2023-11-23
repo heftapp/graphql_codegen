@@ -28,7 +28,9 @@ class Input$In {
   Map<String, dynamic> _$data;
 
   String? get string => (_$data['string'] as String?);
+
   int? get $int => (_$data['int'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('string')) {
@@ -46,6 +48,7 @@ class Input$In {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -476,6 +479,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$Q$i<TRes> get i {
     final local$i = _instance.i;
     return local$i == null
@@ -496,6 +500,7 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$Q$i<TRes> get i => CopyWith$Query$Q$i.stub(_res);
 }
 

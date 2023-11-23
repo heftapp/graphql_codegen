@@ -345,6 +345,7 @@ class Variables$Fragment$WithOptionalVariables {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -360,6 +361,7 @@ class Variables$Fragment$WithOptionalVariables {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -603,6 +605,7 @@ class Variables$Fragment$WithVariables {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -615,6 +618,7 @@ class Variables$Fragment$WithVariables {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -853,6 +857,7 @@ class Variables$Query$FetchSOptional {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -867,6 +872,7 @@ class Variables$Query$FetchSOptional {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1204,6 +1210,7 @@ class Variables$Query$FetchSRequired {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -1216,6 +1223,7 @@ class Variables$Query$FetchSRequired {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1789,6 +1797,7 @@ class Variables$Mutation$UpdateSOptional {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -1804,6 +1813,7 @@ class Variables$Mutation$UpdateSOptional {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2084,10 +2094,11 @@ extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
   Future<graphql.QueryResult<Mutation$UpdateSOptional>> mutate$UpdateSOptional(
           [Options$Mutation$UpdateSOptional? options]) async =>
       await this.mutate(options ?? Options$Mutation$UpdateSOptional());
-  graphql
-      .ObservableQuery<Mutation$UpdateSOptional> watchMutation$UpdateSOptional(
-          [WatchOptions$Mutation$UpdateSOptional? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
+  graphql.ObservableQuery<Mutation$UpdateSOptional>
+      watchMutation$UpdateSOptional(
+              [WatchOptions$Mutation$UpdateSOptional? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$UpdateSOptional());
 }
 
 class Variables$Mutation$UpdateSRequired {
@@ -2109,6 +2120,7 @@ class Variables$Mutation$UpdateSRequired {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -2122,6 +2134,7 @@ class Variables$Mutation$UpdateSRequired {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2608,10 +2621,11 @@ extension ClientExtension$Mutation$UpdateSNoVariables on graphql.GraphQLClient {
       mutate$UpdateSNoVariables(
               [Options$Mutation$UpdateSNoVariables? options]) async =>
           await this.mutate(options ?? Options$Mutation$UpdateSNoVariables());
-  graphql.ObservableQuery<
-      Mutation$UpdateSNoVariables> watchMutation$UpdateSNoVariables(
-          [WatchOptions$Mutation$UpdateSNoVariables? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSNoVariables());
+  graphql.ObservableQuery<Mutation$UpdateSNoVariables>
+      watchMutation$UpdateSNoVariables(
+              [WatchOptions$Mutation$UpdateSNoVariables? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$UpdateSNoVariables());
 }
 
 const possibleTypesMap = <String, Set<String>>{};

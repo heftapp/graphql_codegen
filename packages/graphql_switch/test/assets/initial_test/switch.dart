@@ -660,6 +660,7 @@ class Variables$Query$MyWidgetQuery implements Input {
   }
 
   String get question => (_data['question'] as String);
+
   Input$Details get details => (_data['details'] as Input$Details);
 }
 
@@ -744,6 +745,8 @@ class Input$Details implements Input {
   }
 
   String get name => (_data['name'] as String);
+
   int? get age => (_data['age'] as int?);
+
   Input$Details? get deeds => (_data['deeds'] as Input$Details?);
 }

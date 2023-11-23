@@ -7,6 +7,10 @@ builders:
     build_to: source
 targets:
   $default:
+    sources:
+      exclude:
+        # Exclude symlinks for the IOS build
+        - example
     builders:
       graphql_codegen:
         enabled: false

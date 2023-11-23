@@ -1,7 +1,3 @@
 type Query {
-    hello: String
-}
-
-query FetchHello {
-    hello
+  hello: String
 }

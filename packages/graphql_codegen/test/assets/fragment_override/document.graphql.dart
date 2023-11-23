@@ -247,6 +247,7 @@ class _CopyWithImpl$Fragment$T1<TRes> implements CopyWith$Fragment$T1<TRes> {
 
   TRes call({Object? t = _undefined}) => _then(
       Fragment$T1(t: t == _undefined ? _instance.t : (t as Fragment$T1$t?)));
+
   CopyWith$Fragment$T1$t<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -262,6 +263,7 @@ class _CopyWithStubImpl$Fragment$T1<TRes>
   TRes _res;
 
   call({Fragment$T1$t? t}) => _res;
+
   CopyWith$Fragment$T1$t<TRes> get t => CopyWith$Fragment$T1$t.stub(_res);
 }
 
@@ -484,6 +486,7 @@ class _CopyWithImpl$Fragment$T2<TRes> implements CopyWith$Fragment$T2<TRes> {
         t: t == _undefined ? _instance.t : (t as Fragment$T2$t?),
         name: name == _undefined ? _instance.name : (name as String?),
       ));
+
   CopyWith$Fragment$T2$t<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -503,6 +506,7 @@ class _CopyWithStubImpl$Fragment$T2<TRes>
     String? name,
   }) =>
       _res;
+
   CopyWith$Fragment$T2$t<TRes> get t => CopyWith$Fragment$T2$t.stub(_res);
 }
 
@@ -732,6 +736,7 @@ class _CopyWithImpl$Fragment$TC<TRes> implements CopyWith$Fragment$TC<TRes> {
         t: t == _undefined ? _instance.t : (t as Fragment$TC$t?),
         name: name == _undefined ? _instance.name : (name as String?),
       ));
+
   CopyWith$Fragment$TC$t<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -751,6 +756,7 @@ class _CopyWithStubImpl$Fragment$TC<TRes>
     String? name,
   }) =>
       _res;
+
   CopyWith$Fragment$TC$t<TRes> get t => CopyWith$Fragment$TC$t.stub(_res);
 }
 
@@ -940,6 +946,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Q(t: t == _undefined ? _instance.t : (t as Fragment$TC?)));
+
   CopyWith$Fragment$TC<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -954,6 +961,7 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
   TRes _res;
 
   call({Fragment$TC? t}) => _res;
+
   CopyWith$Fragment$TC<TRes> get t => CopyWith$Fragment$TC.stub(_res);
 }
 
