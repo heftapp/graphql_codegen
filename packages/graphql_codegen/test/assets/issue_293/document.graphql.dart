@@ -40,9 +40,13 @@ class Input$I {
   Map<String, dynamic> _$data;
 
   bool get nonNull => (_$data['nonNull'] as bool);
+
   bool? get nonNullWithDefault => (_$data['nonNullWithDefault'] as bool?);
+
   bool? get nullable => (_$data['nullable'] as bool?);
+
   bool? get nullableWithDefault => (_$data['nullableWithDefault'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$nonNull = nonNull;
@@ -66,6 +70,7 @@ class Input$I {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -489,22 +494,35 @@ class Variables$Query$Q {
   Map<String, dynamic> _$data;
 
   bool get nonNull => (_$data['nonNull'] as bool);
+
   bool? get nonNullWithDefault => (_$data['nonNullWithDefault'] as bool?);
+
   bool? get nullable => (_$data['nullable'] as bool?);
+
   bool? get nullableWithDefault => (_$data['nullableWithDefault'] as bool?);
+
   Enum$E get nonNullEnum => (_$data['nonNullEnum'] as Enum$E);
+
   Enum$E? get nonNullEnumWithDefault =>
       (_$data['nonNullEnumWithDefault'] as Enum$E?);
+
   Enum$E? get nullableEnum => (_$data['nullableEnum'] as Enum$E?);
+
   Enum$E? get nullableEnumWithDefault =>
       (_$data['nullableEnumWithDefault'] as Enum$E?);
+
   List<Enum$E?> get nonNullList => (_$data['nonNullList'] as List<Enum$E?>);
+
   List<Enum$E?>? get nonNullListWithDefault =>
       (_$data['nonNullListWithDefault'] as List<Enum$E?>?);
+
   List<Enum$E?>? get nullableList => (_$data['nullableList'] as List<Enum$E?>?);
+
   List<Enum$E?>? get nullableListWithDefault =>
       (_$data['nullableListWithDefault'] as List<Enum$E?>?);
+
   Input$I? get i => (_$data['i'] as Input$I?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$nonNull = nonNull;
@@ -573,6 +591,7 @@ class Variables$Query$Q {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -874,6 +893,7 @@ class _CopyWithImpl$Variables$Query$Q<TRes>
               (nullableListWithDefault as List<Enum$E?>?),
         if (i != _undefined) 'i': (i as Input$I?),
       }));
+
   CopyWith$Input$I<TRes> get i {
     final local$i = _instance.i;
     return local$i == null
@@ -904,6 +924,7 @@ class _CopyWithStubImpl$Variables$Query$Q<TRes>
     Input$I? i,
   }) =>
       _res;
+
   CopyWith$Input$I<TRes> get i => CopyWith$Input$I.stub(_res);
 }
 

@@ -19,6 +19,7 @@ class Input$Input {
   Map<String, dynamic> _$data;
 
   bool? get inputField => (_$data['inputField'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('inputField')) {
@@ -32,6 +33,7 @@ class Input$Input {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -295,7 +297,9 @@ class Variables$Fragment$F1 {
   Map<String, dynamic> _$data;
 
   bool? get i => (_$data['i'] as bool?);
+
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('i')) {
@@ -312,6 +316,7 @@ class Variables$Fragment$F1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -507,6 +512,7 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F1$level1<TRes> get level1 {
     final local$level1 = _instance.level1;
     return local$level1 == null
@@ -526,6 +532,7 @@ class _CopyWithStubImpl$Fragment$F1<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F1$level1<TRes> get level1 =>
       CopyWith$Fragment$F1$level1.stub(_res);
 }
@@ -736,6 +743,7 @@ class _CopyWithImpl$Fragment$F1$level1<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F1$level1$level2<TRes> get level2 {
     final local$level2 = _instance.level2;
     return local$level2 == null
@@ -756,6 +764,7 @@ class _CopyWithStubImpl$Fragment$F1$level1<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F1$level1$level2<TRes> get level2 =>
       CopyWith$Fragment$F1$level1$level2.stub(_res);
 }
@@ -874,6 +883,7 @@ class _CopyWithImpl$Fragment$F1$level1$level2<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F1$level1$level2$level3<TRes> get level3 {
     final local$level3 = _instance.level3;
     return local$level3 == null
@@ -894,6 +904,7 @@ class _CopyWithStubImpl$Fragment$F1$level1$level2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F1$level1$level2$level3<TRes> get level3 =>
       CopyWith$Fragment$F1$level1$level2$level3.stub(_res);
 }
@@ -1049,7 +1060,9 @@ class Variables$Fragment$F2 {
   Map<String, dynamic> _$data;
 
   bool? get i => (_$data['i'] as bool?);
+
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('i')) {
@@ -1068,6 +1081,7 @@ class Variables$Fragment$F2 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1265,6 +1279,7 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F21<TRes> get level1 {
     final local$level1 = _instance.level1;
     return local$level1 == null
@@ -1284,6 +1299,7 @@ class _CopyWithStubImpl$Fragment$F2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F21<TRes> get level1 => CopyWith$Fragment$F21.stub(_res);
 }
 
@@ -1353,6 +1369,7 @@ class Variables$Fragment$F21 {
   Map<String, dynamic> _$data;
 
   bool? get i => (_$data['i'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('i')) {
@@ -1367,6 +1384,7 @@ class Variables$Fragment$F21 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1542,6 +1560,7 @@ class _CopyWithImpl$Fragment$F21<TRes> implements CopyWith$Fragment$F21<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F21$level2<TRes> get level2 {
     final local$level2 = _instance.level2;
     return local$level2 == null
@@ -1561,6 +1580,7 @@ class _CopyWithStubImpl$Fragment$F21<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F21$level2<TRes> get level2 =>
       CopyWith$Fragment$F21$level2.stub(_res);
 }
@@ -1754,6 +1774,7 @@ class _CopyWithImpl$Fragment$F21$level2<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F21$level2$level3<TRes> get level3 {
     final local$level3 = _instance.level3;
     return local$level3 == null
@@ -1774,6 +1795,7 @@ class _CopyWithStubImpl$Fragment$F21$level2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F21$level2$level3<TRes> get level3 =>
       CopyWith$Fragment$F21$level2$level3.stub(_res);
 }

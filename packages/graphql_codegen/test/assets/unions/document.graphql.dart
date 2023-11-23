@@ -247,6 +247,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes call({Object? u = _undefined}) =>
       _then(Query$Q(u: u == _undefined ? _instance.u : (u as Query$Q$u?)));
+
   CopyWith$Query$Q$u<TRes> get u {
     final local$u = _instance.u;
     return local$u == null
@@ -261,6 +262,7 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
   TRes _res;
 
   call({Query$Q$u? u}) => _res;
+
   CopyWith$Query$Q$u<TRes> get u => CopyWith$Query$Q$u.stub(_res);
 }
 

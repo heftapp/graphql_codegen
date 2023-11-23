@@ -28,7 +28,9 @@ class Input$Input {
   Map<String, dynamic> _$data;
 
   String? get field => (_$data['field'] as String?);
+
   bool? get flag => (_$data['flag'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('field')) {
@@ -46,6 +48,7 @@ class Input$Input {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -326,6 +329,7 @@ class Variables$Query$Q1 {
   Map<String, dynamic> _$data;
 
   Input$Input? get input => (_$data['input'] as Input$Input?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('input')) {
@@ -340,6 +344,7 @@ class Variables$Query$Q1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -396,6 +401,7 @@ class _CopyWithImpl$Variables$Query$Q1<TRes>
         ..._instance._$data,
         if (input != _undefined) 'input': (input as Input$Input?),
       }));
+
   CopyWith$Input$Input<TRes> get input {
     final local$input = _instance.input;
     return local$input == null
@@ -411,6 +417,7 @@ class _CopyWithStubImpl$Variables$Query$Q1<TRes>
   TRes _res;
 
   call({Input$Input? input}) => _res;
+
   CopyWith$Input$Input<TRes> get input => CopyWith$Input$Input.stub(_res);
 }
 

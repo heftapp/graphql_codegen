@@ -27,7 +27,9 @@ class Input$I {
   Map<String, dynamic> _$data;
 
   String? get $String => (_$data['String'] as String?);
+
   int? get $OtherReservedKeyword => (_$data['OtherReservedKeyword'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('String')) {
@@ -45,6 +47,7 @@ class Input$I {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

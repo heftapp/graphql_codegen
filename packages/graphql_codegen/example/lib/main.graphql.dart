@@ -24,6 +24,7 @@ class Variables$Query$FetchPerson {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -36,6 +37,7 @@ class Variables$Query$FetchPerson {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -212,6 +214,7 @@ class _CopyWithImpl$Query$FetchPerson<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson {
     final local$fetchPerson = _instance.fetchPerson;
     return local$fetchPerson == null
@@ -232,6 +235,7 @@ class _CopyWithStubImpl$Query$FetchPerson<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchPerson$fetchPerson<TRes> get fetchPerson =>
       CopyWith$Query$FetchPerson$fetchPerson.stub(_res);
 }
@@ -811,6 +815,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
             ? _instance.children
             : (children as List<Fragment$PersonSummary>?),
       ));
+
   TRes parents(
           Iterable<Query$FetchPerson$fetchPerson$parents>? Function(
                   Iterable<
@@ -823,6 +828,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   CopyWith$Fragment$PersonParent<TRes> get favParent {
     final local$favParent = _instance.favParent;
     return local$favParent == null
@@ -862,9 +868,12 @@ class _CopyWithStubImpl$Query$FetchPerson$fetchPerson<TRes>
     List<Fragment$PersonSummary>? children,
   }) =>
       _res;
+
   parents(_fn) => _res;
+
   CopyWith$Fragment$PersonParent<TRes> get favParent =>
       CopyWith$Fragment$PersonParent.stub(_res);
+
   children(_fn) => _res;
 }
 
@@ -1164,6 +1173,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson$parents<TRes>
             ? _instance.favParent
             : (favParent as Fragment$PersonParent?),
       ));
+
   TRes parents(
           Iterable<Fragment$PersonParent>? Function(
                   Iterable<
@@ -1175,6 +1185,7 @@ class _CopyWithImpl$Query$FetchPerson$fetchPerson$parents<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   CopyWith$Fragment$PersonParent<TRes> get favParent {
     final local$favParent = _instance.favParent;
     return local$favParent == null
@@ -1201,7 +1212,9 @@ class _CopyWithStubImpl$Query$FetchPerson$fetchPerson$parents<TRes>
     Fragment$PersonParent? favParent,
   }) =>
       _res;
+
   parents(_fn) => _res;
+
   CopyWith$Fragment$PersonParent<TRes> get favParent =>
       CopyWith$Fragment$PersonParent.stub(_res);
 }
@@ -1224,6 +1237,7 @@ class Variables$Mutation$UpdatePerson {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -1236,6 +1250,7 @@ class Variables$Mutation$UpdatePerson {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1413,6 +1428,7 @@ class _CopyWithImpl$Mutation$UpdatePerson<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Mutation$UpdatePerson$updatePerson<TRes> get updatePerson {
     final local$updatePerson = _instance.updatePerson;
     return local$updatePerson == null
@@ -1433,6 +1449,7 @@ class _CopyWithStubImpl$Mutation$UpdatePerson<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Mutation$UpdatePerson$updatePerson<TRes> get updatePerson =>
       CopyWith$Mutation$UpdatePerson$updatePerson.stub(_res);
 }
@@ -1847,6 +1864,7 @@ class Variables$Subscription$WatchPerson {
   Map<String, dynamic> _$data;
 
   String? get id => (_$data['id'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('id')) {
@@ -1862,6 +1880,7 @@ class Variables$Subscription$WatchPerson {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2044,6 +2063,7 @@ class _CopyWithImpl$Subscription$WatchPerson<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Subscription$WatchPerson$watchPerson<TRes> get watchPerson {
     final local$watchPerson = _instance.watchPerson;
     return local$watchPerson == null
@@ -2064,6 +2084,7 @@ class _CopyWithStubImpl$Subscription$WatchPerson<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Subscription$WatchPerson$watchPerson<TRes> get watchPerson =>
       CopyWith$Subscription$WatchPerson$watchPerson.stub(_res);
 }

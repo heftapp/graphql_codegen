@@ -26,7 +26,9 @@ class Input$I1 {
   Map<String, dynamic> _$data;
 
   String get s => (_$data['s'] as String);
+
   Input$I1? get nested => (_$data['nested'] as Input$I1?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$s = s;
@@ -42,6 +44,7 @@ class Input$I1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -113,6 +116,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
         if (s != _undefined && s != null) 's': (s as String),
         if (nested != _undefined) 'nested': (nested as Input$I1?),
       }));
+
   CopyWith$Input$I1<TRes> get nested {
     final local$nested = _instance.nested;
     return local$nested == null
@@ -131,6 +135,7 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
     Input$I1? nested,
   }) =>
       _res;
+
   CopyWith$Input$I1<TRes> get nested => CopyWith$Input$I1.stub(_res);
 }
 

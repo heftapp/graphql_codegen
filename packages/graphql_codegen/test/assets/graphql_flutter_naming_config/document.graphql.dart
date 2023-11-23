@@ -25,6 +25,7 @@ class Input___Input {
   Map<String, dynamic> _$data;
 
   Enum___Status? get status => (_$data['status'] as Enum___Status?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('status')) {
@@ -40,6 +41,7 @@ class Input___Input {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

@@ -336,6 +336,7 @@ class _CopyWithImpl$Fragment$FullType<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes fields(
           Iterable<Fragment$FullType$fields>? Function(
                   Iterable<
@@ -348,6 +349,7 @@ class _CopyWithImpl$Fragment$FullType<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes inputFields(
           Iterable<Fragment$InputValue>? Function(
                   Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>?)
@@ -358,6 +360,7 @@ class _CopyWithImpl$Fragment$FullType<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes interfaces(
           Iterable<Fragment$TypeRef>? Function(
                   Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?)
@@ -368,6 +371,7 @@ class _CopyWithImpl$Fragment$FullType<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes enumValues(
           Iterable<Fragment$FullType$enumValues>? Function(
                   Iterable<
@@ -380,6 +384,7 @@ class _CopyWithImpl$Fragment$FullType<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes possibleTypes(
           Iterable<Fragment$TypeRef>? Function(
                   Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?)
@@ -410,10 +415,15 @@ class _CopyWithStubImpl$Fragment$FullType<TRes>
     String? $__typename,
   }) =>
       _res;
+
   fields(_fn) => _res;
+
   inputFields(_fn) => _res;
+
   interfaces(_fn) => _res;
+
   enumValues(_fn) => _res;
+
   possibleTypes(_fn) => _res;
 }
 
@@ -872,6 +882,7 @@ class _CopyWithImpl$Fragment$FullType$fields<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes args(
           Iterable<Fragment$InputValue> Function(
                   Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>)
@@ -881,6 +892,7 @@ class _CopyWithImpl$Fragment$FullType$fields<TRes>
                 e,
                 (i) => i,
               ))).toList());
+
   CopyWith$Fragment$TypeRef<TRes> get type {
     final local$type = _instance.type;
     return CopyWith$Fragment$TypeRef(local$type, (e) => call(type: e));
@@ -903,7 +915,9 @@ class _CopyWithStubImpl$Fragment$FullType$fields<TRes>
     String? $__typename,
   }) =>
       _res;
+
   args(_fn) => _res;
+
   CopyWith$Fragment$TypeRef<TRes> get type =>
       CopyWith$Fragment$TypeRef.stub(_res);
 }
@@ -1436,6 +1450,7 @@ class _CopyWithImpl$Fragment$InputValue<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$TypeRef<TRes> get type {
     final local$type = _instance.type;
     return CopyWith$Fragment$TypeRef(local$type, (e) => call(type: e));
@@ -1456,6 +1471,7 @@ class _CopyWithStubImpl$Fragment$InputValue<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$TypeRef<TRes> get type =>
       CopyWith$Fragment$TypeRef.stub(_res);
 }
@@ -1797,6 +1813,7 @@ class _CopyWithImpl$Query$Introspection<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$Introspection$__schema<TRes> get $__schema {
     final local$$__schema = _instance.$__schema;
     return CopyWith$Query$Introspection$__schema(
@@ -1823,8 +1840,10 @@ class _CopyWithStubImpl$Query$Introspection<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$Introspection$__schema<TRes> get $__schema =>
       CopyWith$Query$Introspection$__schema.stub(_res);
+
   CopyWith$Fragment$FullType<TRes> get $__type =>
       CopyWith$Fragment$FullType.stub(_res);
 }
@@ -2259,6 +2278,7 @@ class _CopyWithImpl$Query$Introspection$__schema<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$Introspection$__schema$queryType<TRes> get queryType {
     final local$queryType = _instance.queryType;
     return CopyWith$Query$Introspection$__schema$queryType(
@@ -2293,6 +2313,7 @@ class _CopyWithImpl$Query$Introspection$__schema<TRes>
                 e,
                 (i) => i,
               ))).toList());
+
   TRes directives(
           Iterable<Query$Introspection$__schema$directives> Function(
                   Iterable<
@@ -2322,14 +2343,19 @@ class _CopyWithStubImpl$Query$Introspection$__schema<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$Introspection$__schema$queryType<TRes> get queryType =>
       CopyWith$Query$Introspection$__schema$queryType.stub(_res);
+
   CopyWith$Query$Introspection$__schema$mutationType<TRes> get mutationType =>
       CopyWith$Query$Introspection$__schema$mutationType.stub(_res);
+
   CopyWith$Query$Introspection$__schema$subscriptionType<TRes>
       get subscriptionType =>
           CopyWith$Query$Introspection$__schema$subscriptionType.stub(_res);
+
   types(_fn) => _res;
+
   directives(_fn) => _res;
 }
 
@@ -2901,6 +2927,7 @@ class _CopyWithImpl$Query$Introspection$__schema$directives<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes args(
           Iterable<Fragment$InputValue> Function(
                   Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>)
@@ -2926,5 +2953,6 @@ class _CopyWithStubImpl$Query$Introspection$__schema$directives<TRes>
     String? $__typename,
   }) =>
       _res;
+
   args(_fn) => _res;
 }

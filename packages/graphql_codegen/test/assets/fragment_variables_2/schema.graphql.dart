@@ -191,6 +191,7 @@ class Variables$Fragment$NameNode {
   Map<String, dynamic> _$data;
 
   String get setting => (_$data['setting'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$setting = setting;
@@ -203,6 +204,7 @@ class Variables$Fragment$NameNode {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -480,6 +482,7 @@ class Variables$Query$Q {
   Map<String, dynamic> _$data;
 
   String get setting => (_$data['setting'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$setting = setting;
@@ -492,6 +495,7 @@ class Variables$Query$Q {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -663,6 +667,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$NameNode<TRes> get node {
     final local$node = _instance.node;
     return local$node == null
@@ -681,6 +686,7 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$NameNode<TRes> get node =>
       CopyWith$Fragment$NameNode.stub(_res);
 }

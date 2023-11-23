@@ -591,6 +591,7 @@ class _CopyWithImpl$Query$GetPerson<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$GetPerson$person<TRes> get person {
     final local$person = _instance.person;
     return local$person == null
@@ -610,6 +611,7 @@ class _CopyWithStubImpl$Query$GetPerson<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$GetPerson$person<TRes> get person =>
       CopyWith$Query$GetPerson$person.stub(_res);
 }

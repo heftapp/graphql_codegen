@@ -25,7 +25,9 @@ class Input$AddProjectToSecurityDashboardInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -43,6 +45,7 @@ class Input$AddProjectToSecurityDashboardInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -260,25 +263,43 @@ class Input$AdminSidekiqQueuesDeleteJobsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get user => (_$data['user'] as String?);
+
   String? get project => (_$data['project'] as String?);
+
   String? get rootNamespace => (_$data['rootNamespace'] as String?);
+
   String? get clientId => (_$data['clientId'] as String?);
+
   String? get callerId => (_$data['callerId'] as String?);
+
   String? get remoteIp => (_$data['remoteIp'] as String?);
+
   String? get jobId => (_$data['jobId'] as String?);
+
   String? get pipelineId => (_$data['pipelineId'] as String?);
+
   String? get relatedClass => (_$data['relatedClass'] as String?);
+
   String? get featureCategory => (_$data['featureCategory'] as String?);
+
   String? get artifactSize => (_$data['artifactSize'] as String?);
+
   String? get artifactsDependenciesSize =>
       (_$data['artifactsDependenciesSize'] as String?);
+
   String? get artifactsDependenciesCount =>
       (_$data['artifactsDependenciesCount'] as String?);
+
   String? get rootCallerId => (_$data['rootCallerId'] as String?);
+
   String? get subscriptionPlan => (_$data['subscriptionPlan'] as String?);
+
   String? get workerClass => (_$data['workerClass'] as String?);
+
   String get queueName => (_$data['queueName'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -360,6 +381,7 @@ class Input$AdminSidekiqQueuesDeleteJobsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -740,10 +762,14 @@ class Input$AlertManagementPayloadAlertFieldInput {
 
   Enum$AlertManagementPayloadAlertFieldName get fieldName =>
       (_$data['fieldName'] as Enum$AlertManagementPayloadAlertFieldName);
+
   List<String> get path => (_$data['path'] as List<String>);
+
   String? get label => (_$data['label'] as String?);
+
   Enum$AlertManagementPayloadAlertFieldType get type =>
       (_$data['type'] as Enum$AlertManagementPayloadAlertFieldType);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$fieldName = fieldName;
@@ -767,6 +793,7 @@ class Input$AlertManagementPayloadAlertFieldInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -930,12 +957,17 @@ class Input$AlertSetAssigneesInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get assigneeUsernames =>
       (_$data['assigneeUsernames'] as List<String>);
+
   Enum$MutationOperationMode? get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -963,6 +995,7 @@ class Input$AlertSetAssigneesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1130,8 +1163,11 @@ class Input$AlertTodoCreateInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -1150,6 +1186,7 @@ class Input$AlertTodoCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1310,14 +1347,22 @@ class Input$ApiFuzzingCiConfigurationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get apiSpecificationFile => (_$data['apiSpecificationFile'] as String);
+
   String? get authPassword => (_$data['authPassword'] as String?);
+
   String? get authUsername => (_$data['authUsername'] as String?);
+
   Enum$ApiFuzzingScanMode get scanMode =>
       (_$data['scanMode'] as Enum$ApiFuzzingScanMode);
+
   String? get scanProfile => (_$data['scanProfile'] as String?);
+
   String get target => (_$data['target'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -1353,6 +1398,7 @@ class Input$ApiFuzzingCiConfigurationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1562,9 +1608,13 @@ class Input$AuditEventsStreamingHeadersCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get key => (_$data['key'] as String);
+
   String get value => (_$data['value'] as String);
+
   String get destinationId => (_$data['destinationId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -1586,6 +1636,7 @@ class Input$AuditEventsStreamingHeadersCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1726,7 +1777,9 @@ class Input$AuditEventsStreamingHeadersDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get headerId => (_$data['headerId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -1744,6 +1797,7 @@ class Input$AuditEventsStreamingHeadersDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1871,9 +1925,13 @@ class Input$AuditEventsStreamingHeadersUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get headerId => (_$data['headerId'] as String);
+
   String get key => (_$data['key'] as String);
+
   String get value => (_$data['value'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -1895,6 +1953,7 @@ class Input$AuditEventsStreamingHeadersUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2038,8 +2097,11 @@ class Input$AwardEmojiAddInput {
   Map<String, dynamic> _$data;
 
   String get awardableId => (_$data['awardableId'] as String);
+
   String get name => (_$data['name'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$awardableId = awardableId;
@@ -2058,6 +2120,7 @@ class Input$AwardEmojiAddInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2190,8 +2253,11 @@ class Input$AwardEmojiRemoveInput {
   Map<String, dynamic> _$data;
 
   String get awardableId => (_$data['awardableId'] as String);
+
   String get name => (_$data['name'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$awardableId = awardableId;
@@ -2210,6 +2276,7 @@ class Input$AwardEmojiRemoveInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2342,8 +2409,11 @@ class Input$AwardEmojiToggleInput {
   Map<String, dynamic> _$data;
 
   String get awardableId => (_$data['awardableId'] as String);
+
   String get name => (_$data['name'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$awardableId = awardableId;
@@ -2362,6 +2432,7 @@ class Input$AwardEmojiToggleInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2502,10 +2573,15 @@ class Input$BoardEpicCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String get boardId => (_$data['boardId'] as String);
+
   String get listId => (_$data['listId'] as String);
+
   String get title => (_$data['title'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -2528,6 +2604,7 @@ class Input$BoardEpicCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2825,34 +2902,55 @@ class Input$BoardIssueInput {
   Map<String, dynamic> _$data;
 
   List<String?>? get labelName => (_$data['labelName'] as List<String?>?);
+
   String? get authorUsername => (_$data['authorUsername'] as String?);
+
   String? get myReactionEmoji => (_$data['myReactionEmoji'] as String?);
+
   List<String>? get iids => (_$data['iids'] as List<String>?);
+
   String? get milestoneTitle => (_$data['milestoneTitle'] as String?);
+
   List<String?>? get assigneeUsername =>
       (_$data['assigneeUsername'] as List<String?>?);
+
   String? get releaseTag => (_$data['releaseTag'] as String?);
+
   List<Enum$IssueType>? get types => (_$data['types'] as List<Enum$IssueType>?);
+
   Enum$MilestoneWildcardId? get milestoneWildcardId =>
       (_$data['milestoneWildcardId'] as Enum$MilestoneWildcardId?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   String? get iterationTitle => (_$data['iterationTitle'] as String?);
+
   String? get weight => (_$data['weight'] as String?);
+
   List<String>? get iterationId => (_$data['iterationId'] as List<String>?);
+
   Input$NegatedBoardIssueInput? get not =>
       (_$data['not'] as Input$NegatedBoardIssueInput?);
+
   String? get search => (_$data['search'] as String?);
+
   Enum$AssigneeWildcardId? get assigneeWildcardId =>
       (_$data['assigneeWildcardId'] as Enum$AssigneeWildcardId?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   Enum$EpicWildcardId? get epicWildcardId =>
       (_$data['epicWildcardId'] as Enum$EpicWildcardId?);
+
   Enum$IterationWildcardId? get iterationWildcardId =>
       (_$data['iterationWildcardId'] as Enum$IterationWildcardId?);
+
   List<String>? get iterationCadenceId =>
       (_$data['iterationCadenceId'] as List<String>?);
+
   Enum$WeightWildcardId? get weightWildcardId =>
       (_$data['weightWildcardId'] as Enum$WeightWildcardId?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('labelName')) {
@@ -2960,6 +3058,7 @@ class Input$BoardIssueInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -3409,6 +3508,7 @@ class _CopyWithImpl$Input$BoardIssueInput<TRes>
         if (weightWildcardId != _undefined)
           'weightWildcardId': (weightWildcardId as Enum$WeightWildcardId?),
       }));
+
   CopyWith$Input$NegatedBoardIssueInput<TRes> get not {
     final local$not = _instance.not;
     return local$not == null
@@ -3447,6 +3547,7 @@ class _CopyWithStubImpl$Input$BoardIssueInput<TRes>
     Enum$WeightWildcardId? weightWildcardId,
   }) =>
       _res;
+
   CopyWith$Input$NegatedBoardIssueInput<TRes> get not =>
       CopyWith$Input$NegatedBoardIssueInput.stub(_res);
 }
@@ -3507,12 +3608,19 @@ class Input$BoardListCreateInput {
   Map<String, dynamic> _$data;
 
   bool? get backlog => (_$data['backlog'] as bool?);
+
   String? get labelId => (_$data['labelId'] as String?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get boardId => (_$data['boardId'] as String);
+
   String? get milestoneId => (_$data['milestoneId'] as String?);
+
   String? get iterationId => (_$data['iterationId'] as String?);
+
   String? get assigneeId => (_$data['assigneeId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('backlog')) {
@@ -3549,6 +3657,7 @@ class Input$BoardListCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -3760,11 +3869,16 @@ class Input$BoardListUpdateLimitMetricsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get listId => (_$data['listId'] as String);
+
   Enum$ListLimitMetric? get limitMetric =>
       (_$data['limitMetric'] as Enum$ListLimitMetric?);
+
   int? get maxIssueCount => (_$data['maxIssueCount'] as int?);
+
   int? get maxIssueWeight => (_$data['maxIssueWeight'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -3796,6 +3910,7 @@ class Input$BoardListUpdateLimitMetricsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -3970,8 +4085,11 @@ class Input$BulkEnableDevopsAdoptionNamespacesInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get namespaceIds => (_$data['namespaceIds'] as List<String>);
+
   String? get displayNamespaceId => (_$data['displayNamespaceId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -3993,6 +4111,7 @@ class Input$BulkEnableDevopsAdoptionNamespacesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -4139,7 +4258,9 @@ class Input$BulkRunnerDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String>? get ids => (_$data['ids'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -4158,6 +4279,7 @@ class Input$BulkRunnerDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -4320,11 +4442,17 @@ class Input$CiCdSettingsUpdateInput {
   Map<String, dynamic> _$data;
 
   String get fullPath => (_$data['fullPath'] as String);
+
   bool? get keepLatestArtifact => (_$data['keepLatestArtifact'] as bool?);
+
   bool? get jobTokenScopeEnabled => (_$data['jobTokenScopeEnabled'] as bool?);
+
   bool? get mergePipelinesEnabled => (_$data['mergePipelinesEnabled'] as bool?);
+
   bool? get mergeTrainsEnabled => (_$data['mergeTrainsEnabled'] as bool?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$fullPath = fullPath;
@@ -4357,6 +4485,7 @@ class Input$CiCdSettingsUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -4551,8 +4680,11 @@ class Input$CiJobTokenScopeAddProjectInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get targetProjectPath => (_$data['targetProjectPath'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -4572,6 +4704,7 @@ class Input$CiJobTokenScopeAddProjectInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -4706,8 +4839,11 @@ class Input$CiJobTokenScopeRemoveProjectInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get targetProjectPath => (_$data['targetProjectPath'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -4727,6 +4863,7 @@ class Input$CiJobTokenScopeRemoveProjectInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -4854,7 +4991,9 @@ class Input$CiVariableInput {
   Map<String, dynamic> _$data;
 
   String get key => (_$data['key'] as String);
+
   String get value => (_$data['value'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$key = key;
@@ -4869,6 +5008,7 @@ class Input$CiVariableInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -4979,7 +5119,9 @@ class Input$ClusterAgentDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -4996,6 +5138,7 @@ class Input$ClusterAgentDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -5123,9 +5266,13 @@ class Input$ClusterAgentTokenCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get clusterAgentId => (_$data['clusterAgentId'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -5149,6 +5296,7 @@ class Input$ClusterAgentTokenCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -5293,7 +5441,9 @@ class Input$ClusterAgentTokenRevokeInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -5311,6 +5461,7 @@ class Input$ClusterAgentTokenRevokeInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -5459,13 +5610,20 @@ class Input$CommitAction {
 
   Enum$CommitActionMode get action =>
       (_$data['action'] as Enum$CommitActionMode);
+
   String? get content => (_$data['content'] as String?);
+
   Enum$CommitEncoding? get encoding =>
       (_$data['encoding'] as Enum$CommitEncoding?);
+
   bool? get executeFilemode => (_$data['executeFilemode'] as bool?);
+
   String get filePath => (_$data['filePath'] as String);
+
   String? get lastCommitId => (_$data['lastCommitId'] as String?);
+
   String? get previousPath => (_$data['previousPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$action = action;
@@ -5501,6 +5659,7 @@ class Input$CommitAction {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -5711,12 +5870,18 @@ class Input$CommitCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get branch => (_$data['branch'] as String);
+
   String? get startBranch => (_$data['startBranch'] as String?);
+
   String get message => (_$data['message'] as String);
+
   List<Input$CommitAction> get actions =>
       (_$data['actions'] as List<Input$CommitAction>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -5743,6 +5908,7 @@ class Input$CommitCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -5877,6 +6043,7 @@ class _CopyWithImpl$Input$CommitCreateInput<TRes>
         if (actions != _undefined && actions != null)
           'actions': (actions as List<Input$CommitAction>),
       }));
+
   TRes actions(
           Iterable<Input$CommitAction> Function(
                   Iterable<CopyWith$Input$CommitAction<Input$CommitAction>>)
@@ -5903,6 +6070,7 @@ class _CopyWithStubImpl$Input$CommitCreateInput<TRes>
     List<Input$CommitAction>? actions,
   }) =>
       _res;
+
   actions(_fn) => _res;
 }
 
@@ -5949,10 +6117,14 @@ class Input$ComplianceFrameworkInput {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get color => (_$data['color'] as String?);
+
   String? get pipelineConfigurationFullPath =>
       (_$data['pipelineConfigurationFullPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -5980,6 +6152,7 @@ class Input$ComplianceFrameworkInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -6142,8 +6315,11 @@ class Input$ComplianceViolationInput {
   Map<String, dynamic> _$data;
 
   List<String>? get projectIds => (_$data['projectIds'] as List<String>?);
+
   String? get mergedBefore => (_$data['mergedBefore'] as String?);
+
   String? get mergedAfter => (_$data['mergedAfter'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('projectIds')) {
@@ -6166,6 +6342,7 @@ class Input$ComplianceViolationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -6318,7 +6495,9 @@ class Input$ConfigureContainerScanningInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -6336,6 +6515,7 @@ class Input$ConfigureContainerScanningInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -6454,7 +6634,9 @@ class Input$ConfigureDependencyScanningInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -6472,6 +6654,7 @@ class Input$ConfigureDependencyScanningInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -6589,7 +6772,9 @@ class Input$ConfigureSastIacInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -6606,6 +6791,7 @@ class Input$ConfigureSastIacInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -6728,9 +6914,12 @@ class Input$ConfigureSastInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Input$SastCiConfigurationInput get configuration =>
       (_$data['configuration'] as Input$SastCiConfigurationInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -6749,6 +6938,7 @@ class Input$ConfigureSastInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -6837,6 +7027,7 @@ class _CopyWithImpl$Input$ConfigureSastInput<TRes>
         if (configuration != _undefined && configuration != null)
           'configuration': (configuration as Input$SastCiConfigurationInput),
       }));
+
   CopyWith$Input$SastCiConfigurationInput<TRes> get configuration {
     final local$configuration = _instance.configuration;
     return CopyWith$Input$SastCiConfigurationInput(
@@ -6856,6 +7047,7 @@ class _CopyWithStubImpl$Input$ConfigureSastInput<TRes>
     Input$SastCiConfigurationInput? configuration,
   }) =>
       _res;
+
   CopyWith$Input$SastCiConfigurationInput<TRes> get configuration =>
       CopyWith$Input$SastCiConfigurationInput.stub(_res);
 }
@@ -6887,7 +7079,9 @@ class Input$ConfigureSecretDetectionInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -6905,6 +7099,7 @@ class Input$ConfigureSecretDetectionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -7026,8 +7221,11 @@ class Input$CorpusCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get packageId => (_$data['packageId'] as String);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -7046,6 +7244,7 @@ class Input$CorpusCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -7179,8 +7378,11 @@ class Input$CreateAlertIssueInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -7199,6 +7401,7 @@ class Input$CreateAlertIssueInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -7353,12 +7556,19 @@ class Input$CreateAnnotationInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get environmentId => (_$data['environmentId'] as String?);
+
   String? get clusterId => (_$data['clusterId'] as String?);
+
   String get startingAt => (_$data['startingAt'] as String);
+
   String? get endingAt => (_$data['endingAt'] as String?);
+
   String get dashboardPath => (_$data['dashboardPath'] as String);
+
   String get description => (_$data['description'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -7391,6 +7601,7 @@ class Input$CreateAnnotationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -7649,18 +7860,31 @@ class Input$CreateBoardInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get projectPath => (_$data['projectPath'] as String?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   String? get name => (_$data['name'] as String?);
+
   bool? get hideBacklogList => (_$data['hideBacklogList'] as bool?);
+
   bool? get hideClosedList => (_$data['hideClosedList'] as bool?);
+
   String? get assigneeId => (_$data['assigneeId'] as String?);
+
   String? get milestoneId => (_$data['milestoneId'] as String?);
+
   String? get iterationId => (_$data['iterationId'] as String?);
+
   String? get iterationCadenceId => (_$data['iterationCadenceId'] as String?);
+
   int? get weight => (_$data['weight'] as int?);
+
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -7723,6 +7947,7 @@ class Input$CreateBoardInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -8048,9 +8273,13 @@ class Input$CreateBranchInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get name => (_$data['name'] as String);
+
   String get ref => (_$data['ref'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -8071,6 +8300,7 @@ class Input$CreateBranchInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -8214,8 +8444,11 @@ class Input$CreateClusterAgentInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -8234,6 +8467,7 @@ class Input$CreateClusterAgentInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -8368,9 +8602,12 @@ class Input$CreateComplianceFrameworkInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get namespacePath => (_$data['namespacePath'] as String);
+
   Input$ComplianceFrameworkInput get params =>
       (_$data['params'] as Input$ComplianceFrameworkInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -8390,6 +8627,7 @@ class Input$CreateComplianceFrameworkInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -8478,6 +8716,7 @@ class _CopyWithImpl$Input$CreateComplianceFrameworkInput<TRes>
         if (params != _undefined && params != null)
           'params': (params as Input$ComplianceFrameworkInput),
       }));
+
   CopyWith$Input$ComplianceFrameworkInput<TRes> get params {
     final local$params = _instance.params;
     return CopyWith$Input$ComplianceFrameworkInput(
@@ -8497,6 +8736,7 @@ class _CopyWithStubImpl$Input$CreateComplianceFrameworkInput<TRes>
     Input$ComplianceFrameworkInput? params,
   }) =>
       _res;
+
   CopyWith$Input$ComplianceFrameworkInput<TRes> get params =>
       CopyWith$Input$ComplianceFrameworkInput.stub(_res);
 }
@@ -8535,9 +8775,13 @@ class Input$CreateCustomEmojiInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String get name => (_$data['name'] as String);
+
   String get url => (_$data['url'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -8558,6 +8802,7 @@ class Input$CreateCustomEmojiInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -8712,11 +8957,16 @@ class Input$CreateDiffNoteInput {
   Map<String, dynamic> _$data;
 
   String get noteableId => (_$data['noteableId'] as String);
+
   String get body => (_$data['body'] as String);
+
   bool? get internal => (_$data['internal'] as bool?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Input$DiffPositionInput get position =>
       (_$data['position'] as Input$DiffPositionInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$noteableId = noteableId;
@@ -8741,6 +8991,7 @@ class Input$CreateDiffNoteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -8853,6 +9104,7 @@ class _CopyWithImpl$Input$CreateDiffNoteInput<TRes>
         if (position != _undefined && position != null)
           'position': (position as Input$DiffPositionInput),
       }));
+
   CopyWith$Input$DiffPositionInput<TRes> get position {
     final local$position = _instance.position;
     return CopyWith$Input$DiffPositionInput(
@@ -8874,6 +9126,7 @@ class _CopyWithStubImpl$Input$CreateDiffNoteInput<TRes>
     Input$DiffPositionInput? position,
   }) =>
       _res;
+
   CopyWith$Input$DiffPositionInput<TRes> get position =>
       CopyWith$Input$DiffPositionInput.stub(_res);
 }
@@ -8974,19 +9227,32 @@ class Input$CreateEpicInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   String? get startDateFixed => (_$data['startDateFixed'] as String?);
+
   String? get dueDateFixed => (_$data['dueDateFixed'] as String?);
+
   bool? get startDateIsFixed => (_$data['startDateIsFixed'] as bool?);
+
   bool? get dueDateIsFixed => (_$data['dueDateIsFixed'] as bool?);
+
   List<String>? get addLabelIds => (_$data['addLabelIds'] as List<String>?);
+
   List<String>? get removeLabelIds =>
       (_$data['removeLabelIds'] as List<String>?);
+
   List<String>? get addLabels => (_$data['addLabels'] as List<String>?);
+
   String? get color => (_$data['color'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -9047,6 +9313,7 @@ class Input$CreateEpicInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -9392,11 +9659,16 @@ class Input$CreateImageDiffNoteInput {
   Map<String, dynamic> _$data;
 
   String get noteableId => (_$data['noteableId'] as String);
+
   String get body => (_$data['body'] as String);
+
   bool? get internal => (_$data['internal'] as bool?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Input$DiffImagePositionInput get position =>
       (_$data['position'] as Input$DiffImagePositionInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$noteableId = noteableId;
@@ -9421,6 +9693,7 @@ class Input$CreateImageDiffNoteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -9533,6 +9806,7 @@ class _CopyWithImpl$Input$CreateImageDiffNoteInput<TRes>
         if (position != _undefined && position != null)
           'position': (position as Input$DiffImagePositionInput),
       }));
+
   CopyWith$Input$DiffImagePositionInput<TRes> get position {
     final local$position = _instance.position;
     return CopyWith$Input$DiffImagePositionInput(
@@ -9554,6 +9828,7 @@ class _CopyWithStubImpl$Input$CreateImageDiffNoteInput<TRes>
     Input$DiffImagePositionInput? position,
   }) =>
       _res;
+
   CopyWith$Input$DiffImagePositionInput<TRes> get position =>
       CopyWith$Input$DiffImagePositionInput.stub(_res);
 }
@@ -9730,32 +10005,56 @@ class Input$CreateIssueInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get dueDate => (_$data['dueDate'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   bool? get locked => (_$data['locked'] as bool?);
+
   Enum$IssueType? get type => (_$data['type'] as Enum$IssueType?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   int? get iid => (_$data['iid'] as int?);
+
   String get title => (_$data['title'] as String);
+
   String? get milestoneId => (_$data['milestoneId'] as String?);
+
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   String? get createdAt => (_$data['createdAt'] as String?);
+
   String? get mergeRequestToResolveDiscussionsOf =>
       (_$data['mergeRequestToResolveDiscussionsOf'] as String?);
+
   String? get discussionToResolve => (_$data['discussionToResolve'] as String?);
+
   List<String>? get assigneeIds => (_$data['assigneeIds'] as List<String>?);
+
   String? get moveBeforeId => (_$data['moveBeforeId'] as String?);
+
   String? get moveAfterId => (_$data['moveAfterId'] as String?);
+
   Enum$HealthStatus? get healthStatus =>
       (_$data['healthStatus'] as Enum$HealthStatus?);
+
   int? get weight => (_$data['weight'] as int?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   String? get iterationId => (_$data['iterationId'] as String?);
+
   Enum$IssueCreationIterationWildcardId? get iterationWildcardId =>
       (_$data['iterationWildcardId'] as Enum$IssueCreationIterationWildcardId?);
+
   String? get iterationCadenceId => (_$data['iterationCadenceId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -9865,6 +10164,7 @@ class Input$CreateIssueInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -10406,13 +10706,21 @@ class Input$CreateIterationInput {
   Map<String, dynamic> _$data;
 
   String? get projectPath => (_$data['projectPath'] as String?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   String? get iterationsCadenceId => (_$data['iterationsCadenceId'] as String?);
+
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get startDate => (_$data['startDate'] as String?);
+
   String? get dueDate => (_$data['dueDate'] as String?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('projectPath')) {
@@ -10455,6 +10763,7 @@ class Input$CreateIterationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -10690,12 +10999,18 @@ class Input$CreateNoteInput {
   Map<String, dynamic> _$data;
 
   String get noteableId => (_$data['noteableId'] as String);
+
   String get body => (_$data['body'] as String);
+
   bool? get internal => (_$data['internal'] as bool?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get discussionId => (_$data['discussionId'] as String?);
+
   String? get mergeRequestDiffHeadSha =>
       (_$data['mergeRequestDiffHeadSha'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$noteableId = noteableId;
@@ -10726,6 +11041,7 @@ class Input$CreateNoteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -10914,9 +11230,13 @@ class Input$CreateRequirementInput {
   Map<String, dynamic> _$data;
 
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('title')) {
@@ -10941,6 +11261,7 @@ class Input$CreateRequirementInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -11121,14 +11442,21 @@ class Input$CreateSnippetInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get title => (_$data['title'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   Enum$VisibilityLevelsEnum get visibilityLevel =>
       (_$data['visibilityLevel'] as Enum$VisibilityLevelsEnum);
+
   String? get projectPath => (_$data['projectPath'] as String?);
+
   List<String>? get uploadedFiles => (_$data['uploadedFiles'] as List<String>?);
+
   List<Input$SnippetBlobActionInputType>? get blobActions =>
       (_$data['blobActions'] as List<Input$SnippetBlobActionInputType>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -11165,6 +11493,7 @@ class Input$CreateSnippetInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -11346,6 +11675,7 @@ class _CopyWithImpl$Input$CreateSnippetInput<TRes>
           'blobActions':
               (blobActions as List<Input$SnippetBlobActionInputType>?),
       }));
+
   TRes blobActions(
           Iterable<Input$SnippetBlobActionInputType>? Function(
                   Iterable<
@@ -11376,6 +11706,7 @@ class _CopyWithStubImpl$Input$CreateSnippetInput<TRes>
     List<Input$SnippetBlobActionInputType>? blobActions,
   }) =>
       _res;
+
   blobActions(_fn) => _res;
 }
 
@@ -11422,10 +11753,15 @@ class Input$CreateTestCaseInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get title => (_$data['title'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -11452,6 +11788,7 @@ class Input$CreateTestCaseInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -11658,13 +11995,21 @@ class Input$CustomerRelationsContactCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupId => (_$data['groupId'] as String);
+
   String? get organizationId => (_$data['organizationId'] as String?);
+
   String get firstName => (_$data['firstName'] as String);
+
   String get lastName => (_$data['lastName'] as String);
+
   String? get phone => (_$data['phone'] as String?);
+
   String? get email => (_$data['email'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -11702,6 +12047,7 @@ class Input$CustomerRelationsContactCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -11945,14 +12291,23 @@ class Input$CustomerRelationsContactUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get organizationId => (_$data['organizationId'] as String?);
+
   String? get firstName => (_$data['firstName'] as String?);
+
   String? get lastName => (_$data['lastName'] as String?);
+
   String? get phone => (_$data['phone'] as String?);
+
   String? get email => (_$data['email'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   bool? get active => (_$data['active'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -11998,6 +12353,7 @@ class Input$CustomerRelationsContactUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -12234,10 +12590,15 @@ class Input$CustomerRelationsOrganizationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupId => (_$data['groupId'] as String);
+
   String get name => (_$data['name'] as String);
+
   double? get defaultRate => (_$data['defaultRate'] as double?);
+
   String? get description => (_$data['description'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -12265,6 +12626,7 @@ class Input$CustomerRelationsOrganizationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -12449,11 +12811,17 @@ class Input$CustomerRelationsOrganizationUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   double? get defaultRate => (_$data['defaultRate'] as double?);
+
   String? get description => (_$data['description'] as String?);
+
   bool? get active => (_$data['active'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -12487,6 +12855,7 @@ class Input$CustomerRelationsOrganizationUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -12674,10 +13043,14 @@ class Input$DastOnDemandScanCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   String get dastSiteProfileId => (_$data['dastSiteProfileId'] as String);
+
   String? get dastScannerProfileId =>
       (_$data['dastScannerProfileId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -12700,6 +13073,7 @@ class Input$DastOnDemandScanCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -12852,7 +13226,9 @@ class Input$DastProfileCadenceInput {
 
   Enum$DastProfileCadenceUnit? get unit =>
       (_$data['unit'] as Enum$DastProfileCadenceUnit?);
+
   int? get duration => (_$data['duration'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('unit')) {
@@ -12872,6 +13248,7 @@ class Input$DastProfileCadenceInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -13030,15 +13407,24 @@ class Input$DastProfileCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   Input$DastProfileScheduleInput? get dastProfileSchedule =>
       (_$data['dastProfileSchedule'] as Input$DastProfileScheduleInput?);
+
   String get name => (_$data['name'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   String? get branchName => (_$data['branchName'] as String?);
+
   String get dastSiteProfileId => (_$data['dastSiteProfileId'] as String);
+
   String get dastScannerProfileId => (_$data['dastScannerProfileId'] as String);
+
   bool? get runAfterCreate => (_$data['runAfterCreate'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -13077,6 +13463,7 @@ class Input$DastProfileCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -13247,6 +13634,7 @@ class _CopyWithImpl$Input$DastProfileCreateInput<TRes>
         if (runAfterCreate != _undefined)
           'runAfterCreate': (runAfterCreate as bool?),
       }));
+
   CopyWith$Input$DastProfileScheduleInput<TRes> get dastProfileSchedule {
     final local$dastProfileSchedule = _instance.dastProfileSchedule;
     return local$dastProfileSchedule == null
@@ -13274,6 +13662,7 @@ class _CopyWithStubImpl$Input$DastProfileCreateInput<TRes>
     bool? runAfterCreate,
   }) =>
       _res;
+
   CopyWith$Input$DastProfileScheduleInput<TRes> get dastProfileSchedule =>
       CopyWith$Input$DastProfileScheduleInput.stub(_res);
 }
@@ -13304,7 +13693,9 @@ class Input$DastProfileDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -13321,6 +13712,7 @@ class Input$DastProfileDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -13437,7 +13829,9 @@ class Input$DastProfileRunInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -13454,6 +13848,7 @@ class Input$DastProfileRunInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -13587,10 +13982,14 @@ class Input$DastProfileScheduleInput {
   Map<String, dynamic> _$data;
 
   bool? get active => (_$data['active'] as bool?);
+
   String? get startsAt => (_$data['startsAt'] as String?);
+
   String? get timezone => (_$data['timezone'] as String?);
+
   Input$DastProfileCadenceInput? get cadence =>
       (_$data['cadence'] as Input$DastProfileCadenceInput?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('active')) {
@@ -13617,6 +14016,7 @@ class Input$DastProfileScheduleInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -13723,6 +14123,7 @@ class _CopyWithImpl$Input$DastProfileScheduleInput<TRes>
         if (cadence != _undefined)
           'cadence': (cadence as Input$DastProfileCadenceInput?),
       }));
+
   CopyWith$Input$DastProfileCadenceInput<TRes> get cadence {
     final local$cadence = _instance.cadence;
     return local$cadence == null
@@ -13745,6 +14146,7 @@ class _CopyWithStubImpl$Input$DastProfileScheduleInput<TRes>
     Input$DastProfileCadenceInput? cadence,
   }) =>
       _res;
+
   CopyWith$Input$DastProfileCadenceInput<TRes> get cadence =>
       CopyWith$Input$DastProfileCadenceInput.stub(_res);
 }
@@ -13822,16 +14224,25 @@ class Input$DastProfileUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Input$DastProfileScheduleInput? get dastProfileSchedule =>
       (_$data['dastProfileSchedule'] as Input$DastProfileScheduleInput?);
+
   String? get name => (_$data['name'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get branchName => (_$data['branchName'] as String?);
+
   String? get dastSiteProfileId => (_$data['dastSiteProfileId'] as String?);
+
   String? get dastScannerProfileId =>
       (_$data['dastScannerProfileId'] as String?);
+
   bool? get runAfterUpdate => (_$data['runAfterUpdate'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -13876,6 +14287,7 @@ class Input$DastProfileUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -14058,6 +14470,7 @@ class _CopyWithImpl$Input$DastProfileUpdateInput<TRes>
         if (runAfterUpdate != _undefined)
           'runAfterUpdate': (runAfterUpdate as bool?),
       }));
+
   CopyWith$Input$DastProfileScheduleInput<TRes> get dastProfileSchedule {
     final local$dastProfileSchedule = _instance.dastProfileSchedule;
     return local$dastProfileSchedule == null
@@ -14085,6 +14498,7 @@ class _CopyWithStubImpl$Input$DastProfileUpdateInput<TRes>
     bool? runAfterUpdate,
   }) =>
       _res;
+
   CopyWith$Input$DastProfileScheduleInput<TRes> get dastProfileSchedule =>
       CopyWith$Input$DastProfileScheduleInput.stub(_res);
 }
@@ -14152,14 +14566,22 @@ class Input$DastScannerProfileCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   String get profileName => (_$data['profileName'] as String);
+
   int? get spiderTimeout => (_$data['spiderTimeout'] as int?);
+
   int? get targetTimeout => (_$data['targetTimeout'] as int?);
+
   Enum$DastScanTypeEnum? get scanType =>
       (_$data['scanType'] as Enum$DastScanTypeEnum?);
+
   bool? get useAjaxSpider => (_$data['useAjaxSpider'] as bool?);
+
   bool? get showDebugMessages => (_$data['showDebugMessages'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -14200,6 +14622,7 @@ class Input$DastScannerProfileCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -14410,7 +14833,9 @@ class Input$DastScannerProfileDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -14428,6 +14853,7 @@ class Input$DastScannerProfileDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -14577,14 +15003,22 @@ class Input$DastScannerProfileUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String get profileName => (_$data['profileName'] as String);
+
   int get spiderTimeout => (_$data['spiderTimeout'] as int);
+
   int get targetTimeout => (_$data['targetTimeout'] as int);
+
   Enum$DastScanTypeEnum? get scanType =>
       (_$data['scanType'] as Enum$DastScanTypeEnum?);
+
   bool? get useAjaxSpider => (_$data['useAjaxSpider'] as bool?);
+
   bool? get showDebugMessages => (_$data['showDebugMessages'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -14621,6 +15055,7 @@ class Input$DastScannerProfileUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -14853,12 +15288,19 @@ class Input$DastSiteProfileAuthInput {
   Map<String, dynamic> _$data;
 
   bool? get enabled => (_$data['enabled'] as bool?);
+
   String? get url => (_$data['url'] as String?);
+
   String? get usernameField => (_$data['usernameField'] as String?);
+
   String? get passwordField => (_$data['passwordField'] as String?);
+
   String? get username => (_$data['username'] as String?);
+
   String? get password => (_$data['password'] as String?);
+
   String? get submitField => (_$data['submitField'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('enabled')) {
@@ -14897,6 +15339,7 @@ class Input$DastSiteProfileAuthInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -15140,17 +15583,26 @@ class Input$DastSiteProfileCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get profileName => (_$data['profileName'] as String);
+
   String? get targetUrl => (_$data['targetUrl'] as String?);
+
   Enum$DastTargetTypeEnum? get targetType =>
       (_$data['targetType'] as Enum$DastTargetTypeEnum?);
+
   Enum$DastScanMethodType? get scanMethod =>
       (_$data['scanMethod'] as Enum$DastScanMethodType?);
+
   String? get requestHeaders => (_$data['requestHeaders'] as String?);
+
   Input$DastSiteProfileAuthInput? get auth =>
       (_$data['auth'] as Input$DastSiteProfileAuthInput?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   List<String>? get excludedUrls => (_$data['excludedUrls'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -15197,6 +15649,7 @@ class Input$DastSiteProfileCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -15388,6 +15841,7 @@ class _CopyWithImpl$Input$DastSiteProfileCreateInput<TRes>
         if (excludedUrls != _undefined)
           'excludedUrls': (excludedUrls as List<String>?),
       }));
+
   CopyWith$Input$DastSiteProfileAuthInput<TRes> get auth {
     final local$auth = _instance.auth;
     return local$auth == null
@@ -15415,6 +15869,7 @@ class _CopyWithStubImpl$Input$DastSiteProfileCreateInput<TRes>
     List<String>? excludedUrls,
   }) =>
       _res;
+
   CopyWith$Input$DastSiteProfileAuthInput<TRes> get auth =>
       CopyWith$Input$DastSiteProfileAuthInput.stub(_res);
 }
@@ -15445,7 +15900,9 @@ class Input$DastSiteProfileDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -15462,6 +15919,7 @@ class Input$DastSiteProfileDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -15627,17 +16085,26 @@ class Input$DastSiteProfileUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get profileName => (_$data['profileName'] as String);
+
   String? get targetUrl => (_$data['targetUrl'] as String?);
+
   Enum$DastTargetTypeEnum? get targetType =>
       (_$data['targetType'] as Enum$DastTargetTypeEnum?);
+
   Enum$DastScanMethodType? get scanMethod =>
       (_$data['scanMethod'] as Enum$DastScanMethodType?);
+
   String? get requestHeaders => (_$data['requestHeaders'] as String?);
+
   Input$DastSiteProfileAuthInput? get auth =>
       (_$data['auth'] as Input$DastSiteProfileAuthInput?);
+
   String get id => (_$data['id'] as String);
+
   List<String>? get excludedUrls => (_$data['excludedUrls'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -15684,6 +16151,7 @@ class Input$DastSiteProfileUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -15874,6 +16342,7 @@ class _CopyWithImpl$Input$DastSiteProfileUpdateInput<TRes>
         if (excludedUrls != _undefined)
           'excludedUrls': (excludedUrls as List<String>?),
       }));
+
   CopyWith$Input$DastSiteProfileAuthInput<TRes> get auth {
     final local$auth = _instance.auth;
     return local$auth == null
@@ -15901,6 +16370,7 @@ class _CopyWithStubImpl$Input$DastSiteProfileUpdateInput<TRes>
     List<String>? excludedUrls,
   }) =>
       _res;
+
   CopyWith$Input$DastSiteProfileAuthInput<TRes> get auth =>
       CopyWith$Input$DastSiteProfileAuthInput.stub(_res);
 }
@@ -15937,8 +16407,11 @@ class Input$DastSiteTokenCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   String? get targetUrl => (_$data['targetUrl'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -15959,6 +16432,7 @@ class Input$DastSiteTokenCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -16109,11 +16583,16 @@ class Input$DastSiteValidationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   String get dastSiteTokenId => (_$data['dastSiteTokenId'] as String);
+
   String get validationPath => (_$data['validationPath'] as String);
+
   Enum$DastSiteValidationStrategyEnum? get strategy =>
       (_$data['strategy'] as Enum$DastSiteValidationStrategyEnum?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -16141,6 +16620,7 @@ class Input$DastSiteValidationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -16303,8 +16783,11 @@ class Input$DastSiteValidationRevokeInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   String get normalizedTargetUrl => (_$data['normalizedTargetUrl'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -16324,6 +16807,7 @@ class Input$DastSiteValidationRevokeInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -16453,7 +16937,9 @@ class Input$DeleteAnnotationInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -16470,6 +16956,7 @@ class Input$DeleteAnnotationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -16593,8 +17080,10 @@ class Input$DeploymentsOrderByInput {
 
   Enum$SortDirectionEnum? get createdAt =>
       (_$data['createdAt'] as Enum$SortDirectionEnum?);
+
   Enum$SortDirectionEnum? get finishedAt =>
       (_$data['finishedAt'] as Enum$SortDirectionEnum?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('createdAt')) {
@@ -16617,6 +17106,7 @@ class Input$DeploymentsOrderByInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -16748,9 +17238,13 @@ class Input$DesignManagementDeleteInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get filenames => (_$data['filenames'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -16771,6 +17265,7 @@ class Input$DesignManagementDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -16930,9 +17425,13 @@ class Input$DesignManagementMoveInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get previous => (_$data['previous'] as String?);
+
   String? get next => (_$data['next'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -16957,6 +17456,7 @@ class Input$DesignManagementMoveInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17112,9 +17612,13 @@ class Input$DesignManagementUploadInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get files => (_$data['files'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -17135,6 +17639,7 @@ class Input$DesignManagementUploadInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17282,7 +17787,9 @@ class Input$DestroyBoardInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -17299,6 +17806,7 @@ class Input$DestroyBoardInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17415,7 +17923,9 @@ class Input$DestroyBoardListInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get listId => (_$data['listId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -17432,6 +17942,7 @@ class Input$DestroyBoardListInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17550,7 +18061,9 @@ class Input$DestroyComplianceFrameworkInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -17568,6 +18081,7 @@ class Input$DestroyComplianceFrameworkInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17685,7 +18199,9 @@ class Input$DestroyContainerRepositoryInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -17703,6 +18219,7 @@ class Input$DestroyContainerRepositoryInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17825,8 +18342,11 @@ class Input$DestroyContainerRepositoryTagsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   List<String> get tagNames => (_$data['tagNames'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -17846,6 +18366,7 @@ class Input$DestroyContainerRepositoryTagsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -17981,7 +18502,9 @@ class Input$DestroyCustomEmojiInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -17998,6 +18521,7 @@ class Input$DestroyCustomEmojiInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18114,7 +18638,9 @@ class Input$DestroyEpicBoardInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -18131,6 +18657,7 @@ class Input$DestroyEpicBoardInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18247,7 +18774,9 @@ class Input$DestroyNoteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -18264,6 +18793,7 @@ class Input$DestroyNoteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18380,7 +18910,9 @@ class Input$DestroyPackageFileInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -18397,6 +18929,7 @@ class Input$DestroyPackageFileInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18518,8 +19051,11 @@ class Input$DestroyPackageFilesInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   List<String> get ids => (_$data['ids'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -18538,6 +19074,7 @@ class Input$DestroyPackageFilesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18673,7 +19210,9 @@ class Input$DestroyPackageInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -18690,6 +19229,7 @@ class Input$DestroyPackageInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18806,7 +19346,9 @@ class Input$DestroySnippetInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -18823,6 +19365,7 @@ class Input$DestroySnippetInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -18964,13 +19507,21 @@ class Input$DiffImagePositionInput {
   Map<String, dynamic> _$data;
 
   String? get baseSha => (_$data['baseSha'] as String?);
+
   String get headSha => (_$data['headSha'] as String);
+
   String get startSha => (_$data['startSha'] as String);
+
   Input$DiffPathsInput get paths => (_$data['paths'] as Input$DiffPathsInput);
+
   int get height => (_$data['height'] as int);
+
   int get width => (_$data['width'] as int);
+
   int get x => (_$data['x'] as int);
+
   int get y => (_$data['y'] as int);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('baseSha')) {
@@ -18999,6 +19550,7 @@ class Input$DiffImagePositionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -19136,6 +19688,7 @@ class _CopyWithImpl$Input$DiffImagePositionInput<TRes>
         if (x != _undefined && x != null) 'x': (x as int),
         if (y != _undefined && y != null) 'y': (y as int),
       }));
+
   CopyWith$Input$DiffPathsInput<TRes> get paths {
     final local$paths = _instance.paths;
     return CopyWith$Input$DiffPathsInput(local$paths, (e) => call(paths: e));
@@ -19159,6 +19712,7 @@ class _CopyWithStubImpl$Input$DiffImagePositionInput<TRes>
     int? y,
   }) =>
       _res;
+
   CopyWith$Input$DiffPathsInput<TRes> get paths =>
       CopyWith$Input$DiffPathsInput.stub(_res);
 }
@@ -19191,7 +19745,9 @@ class Input$DiffPathsInput {
   Map<String, dynamic> _$data;
 
   String? get newPath => (_$data['newPath'] as String?);
+
   String? get oldPath => (_$data['oldPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('newPath')) {
@@ -19210,6 +19766,7 @@ class Input$DiffPathsInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -19347,11 +19904,17 @@ class Input$DiffPositionInput {
   Map<String, dynamic> _$data;
 
   String? get baseSha => (_$data['baseSha'] as String?);
+
   String get headSha => (_$data['headSha'] as String);
+
   String get startSha => (_$data['startSha'] as String);
+
   Input$DiffPathsInput get paths => (_$data['paths'] as Input$DiffPathsInput);
+
   int? get newLine => (_$data['newLine'] as int?);
+
   int? get oldLine => (_$data['oldLine'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('baseSha')) {
@@ -19380,6 +19943,7 @@ class Input$DiffPositionInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -19503,6 +20067,7 @@ class _CopyWithImpl$Input$DiffPositionInput<TRes>
         if (newLine != _undefined) 'newLine': (newLine as int?),
         if (oldLine != _undefined) 'oldLine': (oldLine as int?),
       }));
+
   CopyWith$Input$DiffPathsInput<TRes> get paths {
     final local$paths = _instance.paths;
     return CopyWith$Input$DiffPathsInput(local$paths, (e) => call(paths: e));
@@ -19524,6 +20089,7 @@ class _CopyWithStubImpl$Input$DiffPositionInput<TRes>
     int? oldLine,
   }) =>
       _res;
+
   CopyWith$Input$DiffPathsInput<TRes> get paths =>
       CopyWith$Input$DiffPathsInput.stub(_res);
 }
@@ -19556,7 +20122,9 @@ class Input$DisableDevopsAdoptionNamespaceInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get id => (_$data['id'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -19574,6 +20142,7 @@ class Input$DisableDevopsAdoptionNamespaceInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -19702,8 +20271,11 @@ class Input$DiscussionToggleResolveInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   bool get resolve => (_$data['resolve'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -19723,6 +20295,7 @@ class Input$DiscussionToggleResolveInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -19861,8 +20434,11 @@ class Input$EchoCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String>? get errors => (_$data['errors'] as List<String>?);
+
   List<String>? get messages => (_$data['messages'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -19885,6 +20461,7 @@ class Input$EchoCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -20056,8 +20633,11 @@ class Input$EnableDevopsAdoptionNamespaceInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get namespaceId => (_$data['namespaceId'] as String);
+
   String? get displayNamespaceId => (_$data['displayNamespaceId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -20079,6 +20659,7 @@ class Input$EnableDevopsAdoptionNamespaceInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -20219,8 +20800,11 @@ class Input$EnvironmentsCanaryIngressUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   int get weight => (_$data['weight'] as int);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -20240,6 +20824,7 @@ class Input$EnvironmentsCanaryIngressUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -20379,10 +20964,15 @@ class Input$EpicAddIssueInput {
   Map<String, dynamic> _$data;
 
   String get iid => (_$data['iid'] as String);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get issueIid => (_$data['issueIid'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$iid = iid;
@@ -20405,6 +20995,7 @@ class Input$EpicAddIssueInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -20591,12 +21182,19 @@ class Input$EpicBoardCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get name => (_$data['name'] as String?);
+
   bool? get hideBacklogList => (_$data['hideBacklogList'] as bool?);
+
   bool? get hideClosedList => (_$data['hideClosedList'] as bool?);
+
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -20635,6 +21233,7 @@ class Input$EpicBoardCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -20872,9 +21471,13 @@ class Input$EpicBoardListCreateInput {
   Map<String, dynamic> _$data;
 
   bool? get backlog => (_$data['backlog'] as bool?);
+
   String? get labelId => (_$data['labelId'] as String?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get boardId => (_$data['boardId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('backlog')) {
@@ -20899,6 +21502,7 @@ class Input$EpicBoardListCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -21044,7 +21648,9 @@ class Input$EpicBoardListDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get listId => (_$data['listId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -21061,6 +21667,7 @@ class Input$EpicBoardListDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -21210,12 +21817,19 @@ class Input$EpicBoardUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get name => (_$data['name'] as String?);
+
   bool? get hideBacklogList => (_$data['hideBacklogList'] as bool?);
+
   bool? get hideClosedList => (_$data['hideClosedList'] as bool?);
+
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -21252,6 +21866,7 @@ class Input$EpicBoardUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -21503,12 +22118,18 @@ class Input$EpicFilters {
   Map<String, dynamic> _$data;
 
   List<String?>? get labelName => (_$data['labelName'] as List<String?>?);
+
   String? get authorUsername => (_$data['authorUsername'] as String?);
+
   String? get myReactionEmoji => (_$data['myReactionEmoji'] as String?);
+
   Input$NegatedEpicBoardIssueInput? get not =>
       (_$data['not'] as Input$NegatedEpicBoardIssueInput?);
+
   String? get search => (_$data['search'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('labelName')) {
@@ -21543,6 +22164,7 @@ class Input$EpicFilters {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -21693,6 +22315,7 @@ class _CopyWithImpl$Input$EpicFilters<TRes>
         if (search != _undefined) 'search': (search as String?),
         if (confidential != _undefined) 'confidential': (confidential as bool?),
       }));
+
   CopyWith$Input$NegatedEpicBoardIssueInput<TRes> get not {
     final local$not = _instance.not;
     return local$not == null
@@ -21717,6 +22340,7 @@ class _CopyWithStubImpl$Input$EpicFilters<TRes>
     bool? confidential,
   }) =>
       _res;
+
   CopyWith$Input$NegatedEpicBoardIssueInput<TRes> get not =>
       CopyWith$Input$NegatedEpicBoardIssueInput.stub(_res);
 }
@@ -21773,12 +22397,19 @@ class Input$EpicMoveListInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get boardId => (_$data['boardId'] as String);
+
   String get epicId => (_$data['epicId'] as String);
+
   String? get fromListId => (_$data['fromListId'] as String?);
+
   String get toListId => (_$data['toListId'] as String);
+
   String? get moveBeforeId => (_$data['moveBeforeId'] as String?);
+
   String? get moveAfterId => (_$data['moveAfterId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -21811,6 +22442,7 @@ class Input$EpicMoveListInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -22006,9 +22638,13 @@ class Input$EpicSetSubscriptionInput {
   Map<String, dynamic> _$data;
 
   String get iid => (_$data['iid'] as String);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get subscribedState => (_$data['subscribedState'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$iid = iid;
@@ -22029,6 +22665,7 @@ class Input$EpicSetSubscriptionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -22185,10 +22822,14 @@ class Input$EpicTreeNodeFieldsInputType {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get adjacentReferenceId => (_$data['adjacentReferenceId'] as String?);
+
   Enum$MoveType? get relativePosition =>
       (_$data['relativePosition'] as Enum$MoveType?);
+
   String? get newParentId => (_$data['newParentId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -22215,6 +22856,7 @@ class Input$EpicTreeNodeFieldsInputType {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -22369,9 +23011,12 @@ class Input$EpicTreeReorderInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get baseEpicId => (_$data['baseEpicId'] as String);
+
   Input$EpicTreeNodeFieldsInputType get moved =>
       (_$data['moved'] as Input$EpicTreeNodeFieldsInputType);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -22390,6 +23035,7 @@ class Input$EpicTreeReorderInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -22478,6 +23124,7 @@ class _CopyWithImpl$Input$EpicTreeReorderInput<TRes>
         if (moved != _undefined && moved != null)
           'moved': (moved as Input$EpicTreeNodeFieldsInputType),
       }));
+
   CopyWith$Input$EpicTreeNodeFieldsInputType<TRes> get moved {
     final local$moved = _instance.moved;
     return CopyWith$Input$EpicTreeNodeFieldsInputType(
@@ -22497,6 +23144,7 @@ class _CopyWithStubImpl$Input$EpicTreeReorderInput<TRes>
     Input$EpicTreeNodeFieldsInputType? moved,
   }) =>
       _res;
+
   CopyWith$Input$EpicTreeNodeFieldsInputType<TRes> get moved =>
       CopyWith$Input$EpicTreeNodeFieldsInputType.stub(_res);
 }
@@ -22545,11 +23193,16 @@ class Input$EscalationPolicyCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get name => (_$data['name'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   List<Input$EscalationRuleInput> get rules =>
       (_$data['rules'] as List<Input$EscalationRuleInput>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -22574,6 +23227,7 @@ class Input$EscalationPolicyCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -22698,6 +23352,7 @@ class _CopyWithImpl$Input$EscalationPolicyCreateInput<TRes>
         if (rules != _undefined && rules != null)
           'rules': (rules as List<Input$EscalationRuleInput>),
       }));
+
   TRes rules(
           Iterable<Input$EscalationRuleInput> Function(
                   Iterable<
@@ -22726,6 +23381,7 @@ class _CopyWithStubImpl$Input$EscalationPolicyCreateInput<TRes>
     List<Input$EscalationRuleInput>? rules,
   }) =>
       _res;
+
   rules(_fn) => _res;
 }
 
@@ -22756,7 +23412,9 @@ class Input$EscalationPolicyDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -22774,6 +23432,7 @@ class Input$EscalationPolicyDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -22912,11 +23571,16 @@ class Input$EscalationPolicyUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   List<Input$EscalationRuleInput>? get rules =>
       (_$data['rules'] as List<Input$EscalationRuleInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -22945,6 +23609,7 @@ class Input$EscalationPolicyUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -23082,6 +23747,7 @@ class _CopyWithImpl$Input$EscalationPolicyUpdateInput<TRes>
         if (rules != _undefined)
           'rules': (rules as List<Input$EscalationRuleInput>?),
       }));
+
   TRes rules(
           Iterable<Input$EscalationRuleInput>? Function(
                   Iterable<
@@ -23110,6 +23776,7 @@ class _CopyWithStubImpl$Input$EscalationPolicyUpdateInput<TRes>
     List<Input$EscalationRuleInput>? rules,
   }) =>
       _res;
+
   rules(_fn) => _res;
 }
 
@@ -23150,10 +23817,14 @@ class Input$EscalationRuleInput {
   Map<String, dynamic> _$data;
 
   String? get oncallScheduleIid => (_$data['oncallScheduleIid'] as String?);
+
   String? get username => (_$data['username'] as String?);
+
   int get elapsedTimeSeconds => (_$data['elapsedTimeSeconds'] as int);
+
   Enum$EscalationRuleStatus get status =>
       (_$data['status'] as Enum$EscalationRuleStatus);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('oncallScheduleIid')) {
@@ -23176,6 +23847,7 @@ class Input$EscalationRuleInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -23357,15 +24029,22 @@ class Input$ExportRequirementsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$Sort? get sort => (_$data['sort'] as Enum$Sort?);
+
   Enum$RequirementState? get state =>
       (_$data['state'] as Enum$RequirementState?);
+
   String? get search => (_$data['search'] as String?);
+
   List<String>? get authorUsername =>
       (_$data['authorUsername'] as List<String>?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   List<String>? get selectedFields =>
       (_$data['selectedFields'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -23403,6 +24082,7 @@ class Input$ExportRequirementsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -23635,9 +24315,13 @@ class Input$ExternalAuditEventDestinationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get destinationUrl => (_$data['destinationUrl'] as String);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String? get verificationToken => (_$data['verificationToken'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -23661,6 +24345,7 @@ class Input$ExternalAuditEventDestinationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -23808,7 +24493,9 @@ class Input$ExternalAuditEventDestinationDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -23826,6 +24513,7 @@ class Input$ExternalAuditEventDestinationDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -23950,8 +24638,11 @@ class Input$ExternalAuditEventDestinationUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get destinationUrl => (_$data['destinationUrl'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -23973,6 +24664,7 @@ class Input$ExternalAuditEventDestinationUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -24107,7 +24799,9 @@ class Input$GitlabSubscriptionActivateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get activationCode => (_$data['activationCode'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -24125,6 +24819,7 @@ class Input$GitlabSubscriptionActivateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -24247,9 +24942,12 @@ class Input$GroupUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   Enum$SharedRunnersSetting get sharedRunnersSetting =>
       (_$data['sharedRunnersSetting'] as Enum$SharedRunnersSetting);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -24269,6 +24967,7 @@ class Input$GroupUpdateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -24424,13 +25123,19 @@ class Input$HttpIntegrationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get name => (_$data['name'] as String);
+
   bool get active => (_$data['active'] as bool);
+
   String? get payloadExample => (_$data['payloadExample'] as String?);
+
   List<Input$AlertManagementPayloadAlertFieldInput>?
       get payloadAttributeMappings => (_$data['payloadAttributeMappings']
           as List<Input$AlertManagementPayloadAlertFieldInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -24460,6 +25165,7 @@ class Input$HttpIntegrationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -24612,6 +25318,7 @@ class _CopyWithImpl$Input$HttpIntegrationCreateInput<TRes>
           'payloadAttributeMappings': (payloadAttributeMappings
               as List<Input$AlertManagementPayloadAlertFieldInput>?),
       }));
+
   TRes payloadAttributeMappings(
           Iterable<Input$AlertManagementPayloadAlertFieldInput>? Function(
                   Iterable<
@@ -24641,6 +25348,7 @@ class _CopyWithStubImpl$Input$HttpIntegrationCreateInput<TRes>
     List<Input$AlertManagementPayloadAlertFieldInput>? payloadAttributeMappings,
   }) =>
       _res;
+
   payloadAttributeMappings(_fn) => _res;
 }
 
@@ -24671,7 +25379,9 @@ class Input$HttpIntegrationDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -24688,6 +25398,7 @@ class Input$HttpIntegrationDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -24805,7 +25516,9 @@ class Input$HttpIntegrationResetTokenInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -24823,6 +25536,7 @@ class Input$HttpIntegrationResetTokenInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -24968,13 +25682,19 @@ class Input$HttpIntegrationUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   bool? get active => (_$data['active'] as bool?);
+
   String? get payloadExample => (_$data['payloadExample'] as String?);
+
   List<Input$AlertManagementPayloadAlertFieldInput>?
       get payloadAttributeMappings => (_$data['payloadAttributeMappings']
           as List<Input$AlertManagementPayloadAlertFieldInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -25008,6 +25728,7 @@ class Input$HttpIntegrationUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -25165,6 +25886,7 @@ class _CopyWithImpl$Input$HttpIntegrationUpdateInput<TRes>
           'payloadAttributeMappings': (payloadAttributeMappings
               as List<Input$AlertManagementPayloadAlertFieldInput>?),
       }));
+
   TRes payloadAttributeMappings(
           Iterable<Input$AlertManagementPayloadAlertFieldInput>? Function(
                   Iterable<
@@ -25194,6 +25916,7 @@ class _CopyWithStubImpl$Input$HttpIntegrationUpdateInput<TRes>
     List<Input$AlertManagementPayloadAlertFieldInput>? payloadAttributeMappings,
   }) =>
       _res;
+
   payloadAttributeMappings(_fn) => _res;
 }
 
@@ -25242,11 +25965,16 @@ class Input$IssuableResourceLinkCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String get link => (_$data['link'] as String);
+
   String? get linkText => (_$data['linkText'] as String?);
+
   Enum$IssuableResourceLinkType? get linkType =>
       (_$data['linkType'] as Enum$IssuableResourceLinkType?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -25276,6 +26004,7 @@ class Input$IssuableResourceLinkCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -25435,7 +26164,9 @@ class Input$IssuableResourceLinkDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -25453,6 +26184,7 @@ class Input$IssuableResourceLinkDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -25577,9 +26309,13 @@ class Input$IssueMoveInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get targetProjectPath => (_$data['targetProjectPath'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -25600,6 +26336,7 @@ class Input$IssueMoveInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -25777,14 +26514,23 @@ class Input$IssueMoveListInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get boardId => (_$data['boardId'] as String);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get fromListId => (_$data['fromListId'] as String?);
+
   String? get toListId => (_$data['toListId'] as String?);
+
   String? get moveBeforeId => (_$data['moveBeforeId'] as String?);
+
   String? get moveAfterId => (_$data['moveAfterId'] as String?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -25825,6 +26571,7 @@ class Input$IssueMoveListInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -26058,12 +26805,17 @@ class Input$IssueSetAssigneesInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get assigneeUsernames =>
       (_$data['assigneeUsernames'] as List<String>);
+
   Enum$MutationOperationMode? get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -26091,6 +26843,7 @@ class Input$IssueSetAssigneesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -26262,9 +27015,13 @@ class Input$IssueSetConfidentialInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get confidential => (_$data['confidential'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -26285,6 +27042,7 @@ class Input$IssueSetConfidentialInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -26442,11 +27200,16 @@ class Input$IssueSetCrmContactsInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get contactIds => (_$data['contactIds'] as List<String>);
+
   Enum$MutationOperationMode? get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -26473,6 +27236,7 @@ class Input$IssueSetCrmContactsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -26646,9 +27410,13 @@ class Input$IssueSetDueDateInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get dueDate => (_$data['dueDate'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -26671,6 +27439,7 @@ class Input$IssueSetDueDateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -26823,9 +27592,13 @@ class Input$IssueSetEpicInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -26848,6 +27621,7 @@ class Input$IssueSetEpicInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -27002,9 +27776,13 @@ class Input$IssueSetEscalationPolicyInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get escalationPolicyId => (_$data['escalationPolicyId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -27028,6 +27806,7 @@ class Input$IssueSetEscalationPolicyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -27184,10 +27963,14 @@ class Input$IssueSetEscalationStatusInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$IssueEscalationStatus get status =>
       (_$data['status'] as Enum$IssueEscalationStatus);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -27209,6 +27992,7 @@ class Input$IssueSetEscalationStatusInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -27359,9 +28143,13 @@ class Input$IssueSetIterationInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get iterationId => (_$data['iterationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -27384,6 +28172,7 @@ class Input$IssueSetIterationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -27535,9 +28324,13 @@ class Input$IssueSetLockedInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get locked => (_$data['locked'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -27558,6 +28351,7 @@ class Input$IssueSetLockedInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -27706,10 +28500,14 @@ class Input$IssueSetSeverityInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$IssuableSeverity get severity =>
       (_$data['severity'] as Enum$IssuableSeverity);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -27730,6 +28528,7 @@ class Input$IssueSetSeverityInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -27878,9 +28677,13 @@ class Input$IssueSetSubscriptionInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get subscribedState => (_$data['subscribedState'] as bool);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -27901,6 +28704,7 @@ class Input$IssueSetSubscriptionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -28051,9 +28855,13 @@ class Input$IssueSetWeightInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   int? get weight => (_$data['weight'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -28076,6 +28884,7 @@ class Input$IssueSetWeightInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -28264,15 +29073,25 @@ class Input$IterationCadenceCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String? get title => (_$data['title'] as String?);
+
   int? get durationInWeeks => (_$data['durationInWeeks'] as int?);
+
   int? get iterationsInAdvance => (_$data['iterationsInAdvance'] as int?);
+
   String? get startDate => (_$data['startDate'] as String?);
+
   bool get automatic => (_$data['automatic'] as bool);
+
   bool get active => (_$data['active'] as bool);
+
   bool? get rollOver => (_$data['rollOver'] as bool?);
+
   String? get description => (_$data['description'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -28317,6 +29136,7 @@ class Input$IterationCadenceCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -28551,7 +29371,9 @@ class Input$IterationCadenceDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -28569,6 +29391,7 @@ class Input$IterationCadenceDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -28735,15 +29558,25 @@ class Input$IterationCadenceUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get title => (_$data['title'] as String?);
+
   int? get durationInWeeks => (_$data['durationInWeeks'] as int?);
+
   int? get iterationsInAdvance => (_$data['iterationsInAdvance'] as int?);
+
   String? get startDate => (_$data['startDate'] as String?);
+
   bool? get automatic => (_$data['automatic'] as bool?);
+
   bool? get active => (_$data['active'] as bool?);
+
   bool? get rollOver => (_$data['rollOver'] as bool?);
+
   String? get description => (_$data['description'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -28792,6 +29625,7 @@ class Input$IterationCadenceUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29030,7 +29864,9 @@ class Input$IterationDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -29047,6 +29883,7 @@ class Input$IterationDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29182,11 +30019,16 @@ class Input$JiraImportStartInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get jiraProjectKey => (_$data['jiraProjectKey'] as String);
+
   String? get jiraProjectName => (_$data['jiraProjectName'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   List<Input$JiraUsersMappingInputType>? get usersMapping =>
       (_$data['usersMapping'] as List<Input$JiraUsersMappingInputType>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -29214,6 +30056,7 @@ class Input$JiraImportStartInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29353,6 +30196,7 @@ class _CopyWithImpl$Input$JiraImportStartInput<TRes>
           'usersMapping':
               (usersMapping as List<Input$JiraUsersMappingInputType>?),
       }));
+
   TRes usersMapping(
           Iterable<Input$JiraUsersMappingInputType>? Function(
                   Iterable<
@@ -29381,6 +30225,7 @@ class _CopyWithStubImpl$Input$JiraImportStartInput<TRes>
     List<Input$JiraUsersMappingInputType>? usersMapping,
   }) =>
       _res;
+
   usersMapping(_fn) => _res;
 }
 
@@ -29416,8 +30261,11 @@ class Input$JiraImportUsersInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   int? get startAt => (_$data['startAt'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -29438,6 +30286,7 @@ class Input$JiraImportUsersInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29569,7 +30418,9 @@ class Input$JiraUsersMappingInputType {
   Map<String, dynamic> _$data;
 
   int? get gitlabId => (_$data['gitlabId'] as int?);
+
   String get jiraAccountId => (_$data['jiraAccountId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('gitlabId')) {
@@ -29586,6 +30437,7 @@ class Input$JiraUsersMappingInputType {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29702,7 +30554,9 @@ class Input$JobCancelInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -29719,6 +30573,7 @@ class Input$JobCancelInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29834,7 +30689,9 @@ class Input$JobPlayInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -29851,6 +30708,7 @@ class Input$JobPlayInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -29975,9 +30833,12 @@ class Input$JobRetryInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<Input$CiVariableInput>? get variables =>
       (_$data['variables'] as List<Input$CiVariableInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -29998,6 +30859,7 @@ class Input$JobRetryInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -30106,6 +30968,7 @@ class _CopyWithImpl$Input$JobRetryInput<TRes>
         if (variables != _undefined)
           'variables': (variables as List<Input$CiVariableInput>?),
       }));
+
   TRes variables(
           Iterable<Input$CiVariableInput>? Function(
                   Iterable<
@@ -30131,6 +30994,7 @@ class _CopyWithStubImpl$Input$JobRetryInput<TRes>
     List<Input$CiVariableInput>? variables,
   }) =>
       _res;
+
   variables(_fn) => _res;
 }
 
@@ -30160,7 +31024,9 @@ class Input$JobUnscheduleInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -30177,6 +31043,7 @@ class Input$JobUnscheduleInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -30317,11 +31184,17 @@ class Input$LabelCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get projectPath => (_$data['projectPath'] as String?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   String get title => (_$data['title'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   String? get color => (_$data['color'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -30354,6 +31227,7 @@ class Input$LabelCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -30529,7 +31403,9 @@ class Input$MarkAsSpamSnippetInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -30546,6 +31422,7 @@ class Input$MarkAsSpamSnippetInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -30705,16 +31582,25 @@ class Input$MergeRequestAcceptInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$MergeStrategyEnum? get strategy =>
       (_$data['strategy'] as Enum$MergeStrategyEnum?);
+
   String? get commitMessage => (_$data['commitMessage'] as String?);
+
   String get sha => (_$data['sha'] as String);
+
   String? get squashCommitMessage => (_$data['squashCommitMessage'] as String?);
+
   bool? get shouldRemoveSourceBranch =>
       (_$data['shouldRemoveSourceBranch'] as bool?);
+
   bool? get squash => (_$data['squash'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -30756,6 +31642,7 @@ class Input$MergeRequestAcceptInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -31002,12 +31889,19 @@ class Input$MergeRequestCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get title => (_$data['title'] as String);
+
   String get sourceBranch => (_$data['sourceBranch'] as String);
+
   String get targetBranch => (_$data['targetBranch'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -31038,6 +31932,7 @@ class Input$MergeRequestCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -31243,9 +32138,13 @@ class Input$MergeRequestReviewerRereviewInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get userId => (_$data['userId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -31267,6 +32166,7 @@ class Input$MergeRequestReviewerRereviewInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -31426,12 +32326,17 @@ class Input$MergeRequestSetAssigneesInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get assigneeUsernames =>
       (_$data['assigneeUsernames'] as List<String>);
+
   Enum$MutationOperationMode? get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -31460,6 +32365,7 @@ class Input$MergeRequestSetAssigneesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -31631,9 +32537,13 @@ class Input$MergeRequestSetDraftInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get draft => (_$data['draft'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -31654,6 +32564,7 @@ class Input$MergeRequestSetDraftInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -31810,11 +32721,16 @@ class Input$MergeRequestSetLabelsInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get labelIds => (_$data['labelIds'] as List<String>);
+
   Enum$MutationOperationMode? get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -31841,6 +32757,7 @@ class Input$MergeRequestSetLabelsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -32012,9 +32929,13 @@ class Input$MergeRequestSetLockedInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get locked => (_$data['locked'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -32035,6 +32956,7 @@ class Input$MergeRequestSetLockedInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -32185,9 +33107,13 @@ class Input$MergeRequestSetMilestoneInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get milestoneId => (_$data['milestoneId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -32211,6 +33137,7 @@ class Input$MergeRequestSetMilestoneInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -32373,12 +33300,17 @@ class Input$MergeRequestSetReviewersInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get reviewerUsernames =>
       (_$data['reviewerUsernames'] as List<String>);
+
   Enum$MutationOperationMode? get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -32407,6 +33339,7 @@ class Input$MergeRequestSetReviewersInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -32579,9 +33512,13 @@ class Input$MergeRequestSetSubscriptionInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool get subscribedState => (_$data['subscribedState'] as bool);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -32603,6 +33540,7 @@ class Input$MergeRequestSetSubscriptionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -32773,13 +33711,20 @@ class Input$MergeRequestUpdateInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get title => (_$data['title'] as String?);
+
   String? get targetBranch => (_$data['targetBranch'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   Enum$MergeRequestNewState? get state =>
       (_$data['state'] as Enum$MergeRequestNewState?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -32815,6 +33760,7 @@ class Input$MergeRequestUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -33006,7 +33952,9 @@ class Input$MergeRequestsResolverNegatedParams {
   Map<String, dynamic> _$data;
 
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   String? get milestoneTitle => (_$data['milestoneTitle'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('labels')) {
@@ -33026,6 +33974,7 @@ class Input$MergeRequestsResolverNegatedParams {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -33160,7 +34109,9 @@ class Input$NamespaceBanDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -33177,6 +34128,7 @@ class Input$NamespaceBanDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -33302,9 +34254,12 @@ class Input$NamespaceCiCdSettingsUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool? get allowStaleRunnerPruning =>
       (_$data['allowStaleRunnerPruning'] as bool?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -33326,6 +34281,7 @@ class Input$NamespaceCiCdSettingsUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -33462,7 +34418,9 @@ class Input$NamespaceIncreaseStorageTemporarilyInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -33480,6 +34438,7 @@ class Input$NamespaceIncreaseStorageTemporarilyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -33686,22 +34645,36 @@ class Input$NegatedBoardIssueInput {
   Map<String, dynamic> _$data;
 
   List<String?>? get labelName => (_$data['labelName'] as List<String?>?);
+
   String? get authorUsername => (_$data['authorUsername'] as String?);
+
   String? get myReactionEmoji => (_$data['myReactionEmoji'] as String?);
+
   List<String>? get iids => (_$data['iids'] as List<String>?);
+
   String? get milestoneTitle => (_$data['milestoneTitle'] as String?);
+
   List<String?>? get assigneeUsername =>
       (_$data['assigneeUsername'] as List<String?>?);
+
   String? get releaseTag => (_$data['releaseTag'] as String?);
+
   List<Enum$IssueType>? get types => (_$data['types'] as List<Enum$IssueType>?);
+
   Enum$MilestoneWildcardId? get milestoneWildcardId =>
       (_$data['milestoneWildcardId'] as Enum$MilestoneWildcardId?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   String? get iterationTitle => (_$data['iterationTitle'] as String?);
+
   String? get weight => (_$data['weight'] as String?);
+
   List<String>? get iterationId => (_$data['iterationId'] as List<String>?);
+
   Enum$NegatedIterationWildcardId? get iterationWildcardId =>
       (_$data['iterationWildcardId'] as Enum$NegatedIterationWildcardId?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('labelName')) {
@@ -33774,6 +34747,7 @@ class Input$NegatedBoardIssueInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -34167,8 +35141,11 @@ class Input$NegatedEpicBoardIssueInput {
   Map<String, dynamic> _$data;
 
   List<String?>? get labelName => (_$data['labelName'] as List<String?>?);
+
   String? get authorUsername => (_$data['authorUsername'] as String?);
+
   String? get myReactionEmoji => (_$data['myReactionEmoji'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('labelName')) {
@@ -34191,6 +35168,7 @@ class Input$NegatedEpicBoardIssueInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -34351,8 +35329,11 @@ class Input$NegatedEpicFilterInput {
   Map<String, dynamic> _$data;
 
   List<String?>? get labelName => (_$data['labelName'] as List<String?>?);
+
   String? get authorUsername => (_$data['authorUsername'] as String?);
+
   String? get myReactionEmoji => (_$data['myReactionEmoji'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('labelName')) {
@@ -34375,6 +35356,7 @@ class Input$NegatedEpicFilterInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -34618,23 +35600,37 @@ class Input$NegatedIssueFilterInput {
   Map<String, dynamic> _$data;
 
   String? get assigneeId => (_$data['assigneeId'] as String?);
+
   List<String>? get assigneeUsernames =>
       (_$data['assigneeUsernames'] as List<String>?);
+
   String? get authorUsername => (_$data['authorUsername'] as String?);
+
   List<String>? get iids => (_$data['iids'] as List<String>?);
+
   List<String>? get labelName => (_$data['labelName'] as List<String>?);
+
   List<String>? get milestoneTitle =>
       (_$data['milestoneTitle'] as List<String>?);
+
   Enum$NegatedMilestoneWildcardId? get milestoneWildcardId =>
       (_$data['milestoneWildcardId'] as Enum$NegatedMilestoneWildcardId?);
+
   String? get myReactionEmoji => (_$data['myReactionEmoji'] as String?);
+
   List<String>? get releaseTag => (_$data['releaseTag'] as List<String>?);
+
   List<Enum$IssueType>? get types => (_$data['types'] as List<Enum$IssueType>?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   String? get weight => (_$data['weight'] as String?);
+
   List<String>? get iterationId => (_$data['iterationId'] as List<String>?);
+
   Enum$IterationWildcardId? get iterationWildcardId =>
       (_$data['iterationWildcardId'] as Enum$IterationWildcardId?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('assigneeId')) {
@@ -34707,6 +35703,7 @@ class Input$NegatedIssueFilterInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -35120,7 +36117,9 @@ class Input$OncallRotationActivePeriodInputType {
   Map<String, dynamic> _$data;
 
   String get startTime => (_$data['startTime'] as String);
+
   String get endTime => (_$data['endTime'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$startTime = startTime;
@@ -35136,6 +36135,7 @@ class Input$OncallRotationActivePeriodInputType {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -35293,19 +36293,28 @@ class Input$OncallRotationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get scheduleIid => (_$data['scheduleIid'] as String);
+
   String get name => (_$data['name'] as String);
+
   Input$OncallRotationDateInputType get startsAt =>
       (_$data['startsAt'] as Input$OncallRotationDateInputType);
+
   Input$OncallRotationDateInputType? get endsAt =>
       (_$data['endsAt'] as Input$OncallRotationDateInputType?);
+
   Input$OncallRotationLengthInputType get rotationLength =>
       (_$data['rotationLength'] as Input$OncallRotationLengthInputType);
+
   Input$OncallRotationActivePeriodInputType? get activePeriod =>
       (_$data['activePeriod'] as Input$OncallRotationActivePeriodInputType?);
+
   List<Input$OncallUserInputType> get participants =>
       (_$data['participants'] as List<Input$OncallUserInputType>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -35341,6 +36350,7 @@ class Input$OncallRotationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -35519,6 +36529,7 @@ class _CopyWithImpl$Input$OncallRotationCreateInput<TRes>
         if (participants != _undefined && participants != null)
           'participants': (participants as List<Input$OncallUserInputType>),
       }));
+
   CopyWith$Input$OncallRotationDateInputType<TRes> get startsAt {
     final local$startsAt = _instance.startsAt;
     return CopyWith$Input$OncallRotationDateInputType(
@@ -35580,14 +36591,19 @@ class _CopyWithStubImpl$Input$OncallRotationCreateInput<TRes>
     List<Input$OncallUserInputType>? participants,
   }) =>
       _res;
+
   CopyWith$Input$OncallRotationDateInputType<TRes> get startsAt =>
       CopyWith$Input$OncallRotationDateInputType.stub(_res);
+
   CopyWith$Input$OncallRotationDateInputType<TRes> get endsAt =>
       CopyWith$Input$OncallRotationDateInputType.stub(_res);
+
   CopyWith$Input$OncallRotationLengthInputType<TRes> get rotationLength =>
       CopyWith$Input$OncallRotationLengthInputType.stub(_res);
+
   CopyWith$Input$OncallRotationActivePeriodInputType<TRes> get activePeriod =>
       CopyWith$Input$OncallRotationActivePeriodInputType.stub(_res);
+
   participants(_fn) => _res;
 }
 
@@ -35616,7 +36632,9 @@ class Input$OncallRotationDateInputType {
   Map<String, dynamic> _$data;
 
   String get date => (_$data['date'] as String);
+
   String get time => (_$data['time'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$date = date;
@@ -35631,6 +36649,7 @@ class Input$OncallRotationDateInputType {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -35750,9 +36769,13 @@ class Input$OncallRotationDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get scheduleIid => (_$data['scheduleIid'] as String);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -35773,6 +36796,7 @@ class Input$OncallRotationDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -35913,8 +36937,10 @@ class Input$OncallRotationLengthInputType {
   Map<String, dynamic> _$data;
 
   int get length => (_$data['length'] as int);
+
   Enum$OncallRotationUnitEnum get unit =>
       (_$data['unit'] as Enum$OncallRotationUnitEnum);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$length = length;
@@ -35930,6 +36956,7 @@ class Input$OncallRotationLengthInputType {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -36093,18 +37120,26 @@ class Input$OncallRotationUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   Input$OncallRotationDateInputType? get startsAt =>
       (_$data['startsAt'] as Input$OncallRotationDateInputType?);
+
   Input$OncallRotationDateInputType? get endsAt =>
       (_$data['endsAt'] as Input$OncallRotationDateInputType?);
+
   Input$OncallRotationLengthInputType? get rotationLength =>
       (_$data['rotationLength'] as Input$OncallRotationLengthInputType?);
+
   Input$OncallRotationActivePeriodInputType? get activePeriod =>
       (_$data['activePeriod'] as Input$OncallRotationActivePeriodInputType?);
+
   List<Input$OncallUserInputType>? get participants =>
       (_$data['participants'] as List<Input$OncallUserInputType>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -36146,6 +37181,7 @@ class Input$OncallRotationUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -36335,6 +37371,7 @@ class _CopyWithImpl$Input$OncallRotationUpdateInput<TRes>
         if (participants != _undefined)
           'participants': (participants as List<Input$OncallUserInputType>?),
       }));
+
   CopyWith$Input$OncallRotationDateInputType<TRes> get startsAt {
     final local$startsAt = _instance.startsAt;
     return local$startsAt == null
@@ -36399,14 +37436,19 @@ class _CopyWithStubImpl$Input$OncallRotationUpdateInput<TRes>
     List<Input$OncallUserInputType>? participants,
   }) =>
       _res;
+
   CopyWith$Input$OncallRotationDateInputType<TRes> get startsAt =>
       CopyWith$Input$OncallRotationDateInputType.stub(_res);
+
   CopyWith$Input$OncallRotationDateInputType<TRes> get endsAt =>
       CopyWith$Input$OncallRotationDateInputType.stub(_res);
+
   CopyWith$Input$OncallRotationLengthInputType<TRes> get rotationLength =>
       CopyWith$Input$OncallRotationLengthInputType.stub(_res);
+
   CopyWith$Input$OncallRotationActivePeriodInputType<TRes> get activePeriod =>
       CopyWith$Input$OncallRotationActivePeriodInputType.stub(_res);
+
   participants(_fn) => _res;
 }
 
@@ -36450,10 +37492,15 @@ class Input$OncallScheduleCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get name => (_$data['name'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   String get timezone => (_$data['timezone'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -36478,6 +37525,7 @@ class Input$OncallScheduleCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -36637,8 +37685,11 @@ class Input$OncallScheduleDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -36657,6 +37708,7 @@ class Input$OncallScheduleDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -36807,11 +37859,17 @@ class Input$OncallScheduleUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get timezone => (_$data['timezone'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -36842,6 +37900,7 @@ class Input$OncallScheduleUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37026,10 +38085,13 @@ class Input$OncallUserInputType {
   Map<String, dynamic> _$data;
 
   String get username => (_$data['username'] as String);
+
   Enum$DataVisualizationColorEnum? get colorPalette =>
       (_$data['colorPalette'] as Enum$DataVisualizationColorEnum?);
+
   Enum$DataVisualizationWeightEnum? get colorWeight =>
       (_$data['colorWeight'] as Enum$DataVisualizationWeightEnum?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$username = username;
@@ -37054,6 +38116,7 @@ class Input$OncallUserInputType {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37188,7 +38251,9 @@ class Input$PagesMarkOnboardingCompleteInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -37206,6 +38271,7 @@ class Input$PagesMarkOnboardingCompleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37323,7 +38389,9 @@ class Input$PipelineCancelInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -37340,6 +38408,7 @@ class Input$PipelineCancelInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37456,7 +38525,9 @@ class Input$PipelineDestroyInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -37473,6 +38544,7 @@ class Input$PipelineDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37589,7 +38661,9 @@ class Input$PipelineRetryInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -37606,6 +38680,7 @@ class Input$PipelineRetryInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37751,11 +38826,17 @@ class Input$ProjectCiCdSettingsUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get fullPath => (_$data['fullPath'] as String);
+
   bool? get keepLatestArtifact => (_$data['keepLatestArtifact'] as bool?);
+
   bool? get jobTokenScopeEnabled => (_$data['jobTokenScopeEnabled'] as bool?);
+
   bool? get mergePipelinesEnabled => (_$data['mergePipelinesEnabled'] as bool?);
+
   bool? get mergeTrainsEnabled => (_$data['mergeTrainsEnabled'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -37789,6 +38870,7 @@ class Input$ProjectCiCdSettingsUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -37987,9 +39069,12 @@ class Input$ProjectSetComplianceFrameworkInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectId => (_$data['projectId'] as String);
+
   String? get complianceFrameworkId =>
       (_$data['complianceFrameworkId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -38011,6 +39096,7 @@ class Input$ProjectSetComplianceFrameworkInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -38154,9 +39240,13 @@ class Input$ProjectSetLockedInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get filePath => (_$data['filePath'] as String);
+
   bool get lock => (_$data['lock'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -38177,6 +39267,7 @@ class Input$ProjectSetLockedInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -38326,9 +39417,13 @@ class Input$PrometheusIntegrationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   bool get active => (_$data['active'] as bool);
+
   String get apiUrl => (_$data['apiUrl'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -38350,6 +39445,7 @@ class Input$PrometheusIntegrationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -38491,7 +39587,9 @@ class Input$PrometheusIntegrationResetTokenInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -38509,6 +39607,7 @@ class Input$PrometheusIntegrationResetTokenInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -38638,9 +39737,13 @@ class Input$PrometheusIntegrationUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   bool? get active => (_$data['active'] as bool?);
+
   String? get apiUrl => (_$data['apiUrl'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -38666,6 +39769,7 @@ class Input$PrometheusIntegrationUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -38820,9 +39924,13 @@ class Input$PromoteToEpicInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -38845,6 +39953,7 @@ class Input$PromoteToEpicInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -39015,13 +40124,20 @@ class Input$ReleaseAssetLinkCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get name => (_$data['name'] as String);
+
   String get url => (_$data['url'] as String);
+
   String? get directAssetPath => (_$data['directAssetPath'] as String?);
+
   Enum$ReleaseAssetLinkType? get linkType =>
       (_$data['linkType'] as Enum$ReleaseAssetLinkType?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get tagName => (_$data['tagName'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -39054,6 +40170,7 @@ class Input$ReleaseAssetLinkCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -39238,7 +40355,9 @@ class Input$ReleaseAssetLinkDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -39255,6 +40374,7 @@ class Input$ReleaseAssetLinkDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -39383,10 +40503,14 @@ class Input$ReleaseAssetLinkInput {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   String get url => (_$data['url'] as String);
+
   String? get directAssetPath => (_$data['directAssetPath'] as String?);
+
   Enum$ReleaseAssetLinkType? get linkType =>
       (_$data['linkType'] as Enum$ReleaseAssetLinkType?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -39411,6 +40535,7 @@ class Input$ReleaseAssetLinkInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -39581,12 +40706,18 @@ class Input$ReleaseAssetLinkUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   String? get url => (_$data['url'] as String?);
+
   String? get directAssetPath => (_$data['directAssetPath'] as String?);
+
   Enum$ReleaseAssetLinkType? get linkType =>
       (_$data['linkType'] as Enum$ReleaseAssetLinkType?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -39621,6 +40752,7 @@ class Input$ReleaseAssetLinkUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -39796,6 +40928,7 @@ class Input$ReleaseAssetsInput {
 
   List<Input$ReleaseAssetLinkInput>? get links =>
       (_$data['links'] as List<Input$ReleaseAssetLinkInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('links')) {
@@ -39810,6 +40943,7 @@ class Input$ReleaseAssetsInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -39890,6 +41024,7 @@ class _CopyWithImpl$Input$ReleaseAssetsInput<TRes>
         if (links != _undefined)
           'links': (links as List<Input$ReleaseAssetLinkInput>?),
       }));
+
   TRes links(
           Iterable<Input$ReleaseAssetLinkInput>? Function(
                   Iterable<
@@ -39911,6 +41046,7 @@ class _CopyWithStubImpl$Input$ReleaseAssetsInput<TRes>
   TRes _res;
 
   call({List<Input$ReleaseAssetLinkInput>? links}) => _res;
+
   links(_fn) => _res;
 }
 
@@ -39990,16 +41126,26 @@ class Input$ReleaseCreateInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get tagName => (_$data['tagName'] as String);
+
   String? get tagMessage => (_$data['tagMessage'] as String?);
+
   String? get ref => (_$data['ref'] as String?);
+
   String? get name => (_$data['name'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get releasedAt => (_$data['releasedAt'] as String?);
+
   List<String>? get milestones => (_$data['milestones'] as List<String>?);
+
   Input$ReleaseAssetsInput? get assets =>
       (_$data['assets'] as Input$ReleaseAssetsInput?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -40046,6 +41192,7 @@ class Input$ReleaseCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -40246,6 +41393,7 @@ class _CopyWithImpl$Input$ReleaseCreateInput<TRes>
         if (assets != _undefined)
           'assets': (assets as Input$ReleaseAssetsInput?),
       }));
+
   CopyWith$Input$ReleaseAssetsInput<TRes> get assets {
     final local$assets = _instance.assets;
     return local$assets == null
@@ -40274,6 +41422,7 @@ class _CopyWithStubImpl$Input$ReleaseCreateInput<TRes>
     Input$ReleaseAssetsInput? assets,
   }) =>
       _res;
+
   CopyWith$Input$ReleaseAssetsInput<TRes> get assets =>
       CopyWith$Input$ReleaseAssetsInput.stub(_res);
 }
@@ -40308,8 +41457,11 @@ class Input$ReleaseDeleteInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get tagName => (_$data['tagName'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -40328,6 +41480,7 @@ class Input$ReleaseDeleteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -40486,12 +41639,19 @@ class Input$ReleaseUpdateInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get tagName => (_$data['tagName'] as String);
+
   String? get name => (_$data['name'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get releasedAt => (_$data['releasedAt'] as String?);
+
   List<String>? get milestones => (_$data['milestones'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -40526,6 +41686,7 @@ class Input$ReleaseUpdateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -40731,7 +41892,9 @@ class Input$RemoveProjectFromSecurityDashboardInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -40749,6 +41912,7 @@ class Input$RemoveProjectFromSecurityDashboardInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -40872,9 +42036,12 @@ class Input$RepositionImageDiffNoteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Input$UpdateDiffImagePositionInput get position =>
       (_$data['position'] as Input$UpdateDiffImagePositionInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -40894,6 +42061,7 @@ class Input$RepositionImageDiffNoteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -40981,6 +42149,7 @@ class _CopyWithImpl$Input$RepositionImageDiffNoteInput<TRes>
         if (position != _undefined && position != null)
           'position': (position as Input$UpdateDiffImagePositionInput),
       }));
+
   CopyWith$Input$UpdateDiffImagePositionInput<TRes> get position {
     final local$position = _instance.position;
     return CopyWith$Input$UpdateDiffImagePositionInput(
@@ -41000,6 +42169,7 @@ class _CopyWithStubImpl$Input$RepositionImageDiffNoteInput<TRes>
     Input$UpdateDiffImagePositionInput? position,
   }) =>
       _res;
+
   CopyWith$Input$UpdateDiffImagePositionInput<TRes> get position =>
       CopyWith$Input$UpdateDiffImagePositionInput.stub(_res);
 }
@@ -41030,7 +42200,9 @@ class Input$RunnerDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -41047,6 +42219,7 @@ class Input$RunnerDeleteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -41232,20 +42405,32 @@ class Input$RunnerUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get description => (_$data['description'] as String?);
+
   String? get maintenanceNote => (_$data['maintenanceNote'] as String?);
+
   int? get maximumTimeout => (_$data['maximumTimeout'] as int?);
+
   Enum$CiRunnerAccessLevel? get accessLevel =>
       (_$data['accessLevel'] as Enum$CiRunnerAccessLevel?);
+
   bool? get paused => (_$data['paused'] as bool?);
+
   bool? get locked => (_$data['locked'] as bool?);
+
   bool? get runUntagged => (_$data['runUntagged'] as bool?);
+
   List<String>? get tagList => (_$data['tagList'] as List<String>?);
+
   double? get publicProjectsMinutesCostFactor =>
       (_$data['publicProjectsMinutesCostFactor'] as double?);
+
   double? get privateProjectsMinutesCostFactor =>
       (_$data['privateProjectsMinutesCostFactor'] as double?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -41307,6 +42492,7 @@ class Input$RunnerUpdateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -41607,8 +42793,11 @@ class Input$RunnersRegistrationTokenResetInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$CiRunnerType get type => (_$data['type'] as Enum$CiRunnerType);
+
   String? get id => (_$data['id'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -41630,6 +42819,7 @@ class Input$RunnersRegistrationTokenResetInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -41769,9 +42959,12 @@ class Input$SastCiConfigurationAnalyzersEntityInput {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   bool get enabled => (_$data['enabled'] as bool);
+
   List<Input$SastCiConfigurationEntityInput>? get variables =>
       (_$data['variables'] as List<Input$SastCiConfigurationEntityInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -41791,6 +42984,7 @@ class Input$SastCiConfigurationAnalyzersEntityInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -41900,6 +43094,7 @@ class _CopyWithImpl$Input$SastCiConfigurationAnalyzersEntityInput<TRes>
           'variables':
               (variables as List<Input$SastCiConfigurationEntityInput>?),
       }));
+
   TRes variables(
           Iterable<Input$SastCiConfigurationEntityInput>? Function(
                   Iterable<
@@ -41926,6 +43121,7 @@ class _CopyWithStubImpl$Input$SastCiConfigurationAnalyzersEntityInput<TRes>
     List<Input$SastCiConfigurationEntityInput>? variables,
   }) =>
       _res;
+
   variables(_fn) => _res;
 }
 
@@ -41958,8 +43154,11 @@ class Input$SastCiConfigurationEntityInput {
   Map<String, dynamic> _$data;
 
   String get field => (_$data['field'] as String);
+
   String get defaultValue => (_$data['defaultValue'] as String);
+
   String get value => (_$data['value'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$field = field;
@@ -41977,6 +43176,7 @@ class Input$SastCiConfigurationEntityInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -42118,11 +43318,14 @@ class Input$SastCiConfigurationInput {
 
   List<Input$SastCiConfigurationEntityInput>? get global =>
       (_$data['global'] as List<Input$SastCiConfigurationEntityInput>?);
+
   List<Input$SastCiConfigurationEntityInput>? get pipeline =>
       (_$data['pipeline'] as List<Input$SastCiConfigurationEntityInput>?);
+
   List<Input$SastCiConfigurationAnalyzersEntityInput>? get analyzers =>
       (_$data['analyzers']
           as List<Input$SastCiConfigurationAnalyzersEntityInput>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('global')) {
@@ -42145,6 +43348,7 @@ class Input$SastCiConfigurationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -42303,6 +43507,7 @@ class _CopyWithImpl$Input$SastCiConfigurationInput<TRes>
           'analyzers': (analyzers
               as List<Input$SastCiConfigurationAnalyzersEntityInput>?),
       }));
+
   TRes global(
           Iterable<Input$SastCiConfigurationEntityInput>? Function(
                   Iterable<
@@ -42315,6 +43520,7 @@ class _CopyWithImpl$Input$SastCiConfigurationInput<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes pipeline(
           Iterable<Input$SastCiConfigurationEntityInput>? Function(
                   Iterable<
@@ -42327,6 +43533,7 @@ class _CopyWithImpl$Input$SastCiConfigurationInput<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   TRes analyzers(
           Iterable<Input$SastCiConfigurationAnalyzersEntityInput>? Function(
                   Iterable<
@@ -42353,8 +43560,11 @@ class _CopyWithStubImpl$Input$SastCiConfigurationInput<TRes>
     List<Input$SastCiConfigurationAnalyzersEntityInput>? analyzers,
   }) =>
       _res;
+
   global(_fn) => _res;
+
   pipeline(_fn) => _res;
+
   analyzers(_fn) => _res;
 }
 
@@ -42388,8 +43598,11 @@ class Input$SavedReplyCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get name => (_$data['name'] as String);
+
   String get content => (_$data['content'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -42408,6 +43621,7 @@ class Input$SavedReplyCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -42536,7 +43750,9 @@ class Input$SavedReplyDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -42553,6 +43769,7 @@ class Input$SavedReplyDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -42677,9 +43894,13 @@ class Input$SavedReplyUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String get name => (_$data['name'] as String);
+
   String get content => (_$data['content'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -42700,6 +43921,7 @@ class Input$SavedReplyUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -42857,11 +44079,16 @@ class Input$ScanExecutionPolicyCommitInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get fullPath => (_$data['fullPath'] as String?);
+
   String get policyYaml => (_$data['policyYaml'] as String);
+
   Enum$MutationOperationMode get operationMode =>
       (_$data['operationMode'] as Enum$MutationOperationMode);
+
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -42890,6 +44117,7 @@ class Input$ScanExecutionPolicyCommitInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -43053,8 +44281,11 @@ class Input$SecurityFindingCreateIssueInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get uuid => (_$data['uuid'] as String);
+
   String get project => (_$data['project'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -43074,6 +44305,7 @@ class Input$SecurityFindingCreateIssueInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -43210,9 +44442,12 @@ class Input$SecurityPolicyProjectAssignInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get fullPath => (_$data['fullPath'] as String?);
+
   String get securityPolicyProjectId =>
       (_$data['securityPolicyProjectId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -43234,6 +44469,7 @@ class Input$SecurityPolicyProjectAssignInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -43370,7 +44606,9 @@ class Input$SecurityPolicyProjectCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get fullPath => (_$data['fullPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -43390,6 +44628,7 @@ class Input$SecurityPolicyProjectCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -43513,7 +44752,9 @@ class Input$SecurityPolicyProjectUnassignInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get fullPath => (_$data['fullPath'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -43533,6 +44774,7 @@ class Input$SecurityPolicyProjectUnassignInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -43668,10 +44910,15 @@ class Input$SecurityTrainingUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get providerId => (_$data['providerId'] as String);
+
   bool get isEnabled => (_$data['isEnabled'] as bool);
+
   bool? get isPrimary => (_$data['isPrimary'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -43696,6 +44943,7 @@ class Input$SecurityTrainingUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -43864,9 +45112,13 @@ class Input$SnippetBlobActionInputType {
 
   Enum$SnippetBlobActionEnum get action =>
       (_$data['action'] as Enum$SnippetBlobActionEnum);
+
   String? get previousPath => (_$data['previousPath'] as String?);
+
   String get filePath => (_$data['filePath'] as String);
+
   String? get content => (_$data['content'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$action = action;
@@ -43889,6 +45141,7 @@ class Input$SnippetBlobActionInputType {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44032,7 +45285,9 @@ class Input$TerraformStateDeleteInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -44049,6 +45304,7 @@ class Input$TerraformStateDeleteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44165,7 +45421,9 @@ class Input$TerraformStateLockInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -44182,6 +45440,7 @@ class Input$TerraformStateLockInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44298,7 +45557,9 @@ class Input$TerraformStateUnlockInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -44315,6 +45576,7 @@ class Input$TerraformStateUnlockInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44429,7 +45691,9 @@ class Input$Timeframe {
   Map<String, dynamic> _$data;
 
   String get start => (_$data['start'] as String);
+
   String get end => (_$data['end'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$start = start;
@@ -44444,6 +45708,7 @@ class Input$Timeframe {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44562,9 +45827,13 @@ class Input$TimelineEventCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get incidentId => (_$data['incidentId'] as String);
+
   String get note => (_$data['note'] as String);
+
   String get occurredAt => (_$data['occurredAt'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -44585,6 +45854,7 @@ class Input$TimelineEventCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44725,7 +45995,9 @@ class Input$TimelineEventDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -44742,6 +46014,7 @@ class Input$TimelineEventDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -44859,7 +46132,9 @@ class Input$TimelineEventPromoteFromNoteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get noteId => (_$data['noteId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -44877,6 +46152,7 @@ class Input$TimelineEventPromoteFromNoteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45006,9 +46282,13 @@ class Input$TimelineEventUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get note => (_$data['note'] as String?);
+
   String? get occurredAt => (_$data['occurredAt'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45033,6 +46313,7 @@ class Input$TimelineEventUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45190,10 +46471,15 @@ class Input$TimelogCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get timeSpent => (_$data['timeSpent'] as String);
+
   String get spentAt => (_$data['spentAt'] as String);
+
   String get summary => (_$data['summary'] as String);
+
   String get issuableId => (_$data['issuableId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45216,6 +46502,7 @@ class Input$TimelogCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45369,7 +46656,9 @@ class Input$TimelogDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45386,6 +46675,7 @@ class Input$TimelogDeleteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45502,7 +46792,9 @@ class Input$TodoCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get targetId => (_$data['targetId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45519,6 +46811,7 @@ class Input$TodoCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45635,7 +46928,9 @@ class Input$TodoMarkDoneInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45652,6 +46947,7 @@ class Input$TodoMarkDoneInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45768,7 +47064,9 @@ class Input$TodoRestoreInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45785,6 +47083,7 @@ class Input$TodoRestoreInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -45902,7 +47201,9 @@ class Input$TodoRestoreManyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   List<String> get ids => (_$data['ids'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -45919,6 +47220,7 @@ class Input$TodoRestoreManyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -46044,7 +47346,9 @@ class Input$TodosMarkAllDoneInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get targetId => (_$data['targetId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -46063,6 +47367,7 @@ class Input$TodosMarkAllDoneInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -46192,10 +47497,14 @@ class Input$UpdateAlertStatusInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$AlertManagementStatus get status =>
       (_$data['status'] as Enum$AlertManagementStatus);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -46216,6 +47525,7 @@ class Input$UpdateAlertStatusInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -46365,9 +47675,13 @@ class Input$UpdateBoardEpicUserPreferencesInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get boardId => (_$data['boardId'] as String);
+
   String get epicId => (_$data['epicId'] as String);
+
   bool get collapsed => (_$data['collapsed'] as bool);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -46389,6 +47703,7 @@ class Input$UpdateBoardEpicUserPreferencesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -46593,17 +47908,29 @@ class Input$UpdateBoardInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get name => (_$data['name'] as String?);
+
   bool? get hideBacklogList => (_$data['hideBacklogList'] as bool?);
+
   bool? get hideClosedList => (_$data['hideClosedList'] as bool?);
+
   String get id => (_$data['id'] as String);
+
   String? get assigneeId => (_$data['assigneeId'] as String?);
+
   String? get milestoneId => (_$data['milestoneId'] as String?);
+
   String? get iterationId => (_$data['iterationId'] as String?);
+
   String? get iterationCadenceId => (_$data['iterationCadenceId'] as String?);
+
   int? get weight => (_$data['weight'] as int?);
+
   List<String>? get labels => (_$data['labels'] as List<String>?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -46660,6 +47987,7 @@ class Input$UpdateBoardInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -46970,9 +48298,13 @@ class Input$UpdateBoardListInput {
   Map<String, dynamic> _$data;
 
   int? get position => (_$data['position'] as int?);
+
   bool? get collapsed => (_$data['collapsed'] as bool?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get listId => (_$data['listId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('position')) {
@@ -46997,6 +48329,7 @@ class Input$UpdateBoardListInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -47150,9 +48483,12 @@ class Input$UpdateComplianceFrameworkInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Input$ComplianceFrameworkInput get params =>
       (_$data['params'] as Input$ComplianceFrameworkInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -47172,6 +48508,7 @@ class Input$UpdateComplianceFrameworkInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -47259,6 +48596,7 @@ class _CopyWithImpl$Input$UpdateComplianceFrameworkInput<TRes>
         if (params != _undefined && params != null)
           'params': (params as Input$ComplianceFrameworkInput),
       }));
+
   CopyWith$Input$ComplianceFrameworkInput<TRes> get params {
     final local$params = _instance.params;
     return CopyWith$Input$ComplianceFrameworkInput(
@@ -47278,6 +48616,7 @@ class _CopyWithStubImpl$Input$UpdateComplianceFrameworkInput<TRes>
     Input$ComplianceFrameworkInput? params,
   }) =>
       _res;
+
   CopyWith$Input$ComplianceFrameworkInput<TRes> get params =>
       CopyWith$Input$ComplianceFrameworkInput.stub(_res);
 }
@@ -47354,16 +48693,24 @@ class Input$UpdateContainerExpirationPolicyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   bool? get enabled => (_$data['enabled'] as bool?);
+
   Enum$ContainerExpirationPolicyCadenceEnum? get cadence =>
       (_$data['cadence'] as Enum$ContainerExpirationPolicyCadenceEnum?);
+
   Enum$ContainerExpirationPolicyOlderThanEnum? get olderThan =>
       (_$data['olderThan'] as Enum$ContainerExpirationPolicyOlderThanEnum?);
+
   Enum$ContainerExpirationPolicyKeepEnum? get keepN =>
       (_$data['keepN'] as Enum$ContainerExpirationPolicyKeepEnum?);
+
   String? get nameRegex => (_$data['nameRegex'] as String?);
+
   String? get nameRegexKeep => (_$data['nameRegexKeep'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -47411,6 +48758,7 @@ class Input$UpdateContainerExpirationPolicyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -47633,9 +48981,13 @@ class Input$UpdateDependencyProxyImageTtlGroupPolicyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   bool? get enabled => (_$data['enabled'] as bool?);
+
   int? get ttl => (_$data['ttl'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -47662,6 +49014,7 @@ class Input$UpdateDependencyProxyImageTtlGroupPolicyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -47821,8 +49174,11 @@ class Input$UpdateDependencyProxySettingsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   bool? get enabled => (_$data['enabled'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -47844,6 +49200,7 @@ class Input$UpdateDependencyProxySettingsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -47990,9 +49347,13 @@ class Input$UpdateDiffImagePositionInput {
   Map<String, dynamic> _$data;
 
   int? get x => (_$data['x'] as int?);
+
   int? get y => (_$data['y'] as int?);
+
   int? get width => (_$data['width'] as int?);
+
   int? get height => (_$data['height'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('x')) {
@@ -48020,6 +49381,7 @@ class Input$UpdateDiffImagePositionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -48177,9 +49539,13 @@ class Input$UpdateEpicBoardListInput {
   Map<String, dynamic> _$data;
 
   int? get position => (_$data['position'] as int?);
+
   bool? get collapsed => (_$data['collapsed'] as bool?);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get listId => (_$data['listId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('position')) {
@@ -48204,6 +49570,7 @@ class Input$UpdateEpicBoardListInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -48441,23 +49808,39 @@ class Input$UpdateEpicInput {
   Map<String, dynamic> _$data;
 
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   String? get startDateFixed => (_$data['startDateFixed'] as String?);
+
   String? get dueDateFixed => (_$data['dueDateFixed'] as String?);
+
   bool? get startDateIsFixed => (_$data['startDateIsFixed'] as bool?);
+
   bool? get dueDateIsFixed => (_$data['dueDateIsFixed'] as bool?);
+
   List<String>? get addLabelIds => (_$data['addLabelIds'] as List<String>?);
+
   List<String>? get removeLabelIds =>
       (_$data['removeLabelIds'] as List<String>?);
+
   List<String>? get addLabels => (_$data['addLabels'] as List<String>?);
+
   String? get color => (_$data['color'] as String?);
+
   Enum$EpicStateEvent? get stateEvent =>
       (_$data['stateEvent'] as Enum$EpicStateEvent?);
+
   List<String>? get removeLabels => (_$data['removeLabels'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$iid = iid;
@@ -48530,6 +49913,7 @@ class Input$UpdateEpicInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -48933,10 +50317,14 @@ class Input$UpdateImageDiffNoteInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get body => (_$data['body'] as String?);
+
   Input$UpdateDiffImagePositionInput? get position =>
       (_$data['position'] as Input$UpdateDiffImagePositionInput?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -48961,6 +50349,7 @@ class Input$UpdateImageDiffNoteInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -49065,6 +50454,7 @@ class _CopyWithImpl$Input$UpdateImageDiffNoteInput<TRes>
         if (position != _undefined)
           'position': (position as Input$UpdateDiffImagePositionInput?),
       }));
+
   CopyWith$Input$UpdateDiffImagePositionInput<TRes> get position {
     final local$position = _instance.position;
     return local$position == null
@@ -49087,6 +50477,7 @@ class _CopyWithStubImpl$Input$UpdateImageDiffNoteInput<TRes>
     Input$UpdateDiffImagePositionInput? position,
   }) =>
       _res;
+
   CopyWith$Input$UpdateDiffImagePositionInput<TRes> get position =>
       CopyWith$Input$UpdateDiffImagePositionInput.stub(_res);
 }
@@ -49214,25 +50605,42 @@ class Input$UpdateIssueInput {
   Map<String, dynamic> _$data;
 
   String get projectPath => (_$data['projectPath'] as String);
+
   String get iid => (_$data['iid'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get dueDate => (_$data['dueDate'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   bool? get locked => (_$data['locked'] as bool?);
+
   Enum$IssueType? get type => (_$data['type'] as Enum$IssueType?);
+
   String? get title => (_$data['title'] as String?);
+
   String? get milestoneId => (_$data['milestoneId'] as String?);
+
   List<String>? get addLabelIds => (_$data['addLabelIds'] as List<String>?);
+
   List<String>? get removeLabelIds =>
       (_$data['removeLabelIds'] as List<String>?);
+
   List<String>? get labelIds => (_$data['labelIds'] as List<String>?);
+
   Enum$IssueStateEvent? get stateEvent =>
       (_$data['stateEvent'] as Enum$IssueStateEvent?);
+
   Enum$HealthStatus? get healthStatus =>
       (_$data['healthStatus'] as Enum$HealthStatus?);
+
   int? get weight => (_$data['weight'] as int?);
+
   String? get epicId => (_$data['epicId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$projectPath = projectPath;
@@ -49312,6 +50720,7 @@ class Input$UpdateIssueInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -49721,12 +51130,19 @@ class Input$UpdateIterationInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get groupPath => (_$data['groupPath'] as String);
+
   String get id => (_$data['id'] as String);
+
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get startDate => (_$data['startDate'] as String?);
+
   String? get dueDate => (_$data['dueDate'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -49761,6 +51177,7 @@ class Input$UpdateIterationInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -49982,15 +51399,21 @@ class Input$UpdateNamespacePackageSettingsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get namespacePath => (_$data['namespacePath'] as String);
+
   bool? get mavenDuplicatesAllowed =>
       (_$data['mavenDuplicatesAllowed'] as bool?);
+
   String? get mavenDuplicateExceptionRegex =>
       (_$data['mavenDuplicateExceptionRegex'] as String?);
+
   bool? get genericDuplicatesAllowed =>
       (_$data['genericDuplicatesAllowed'] as bool?);
+
   String? get genericDuplicateExceptionRegex =>
       (_$data['genericDuplicateExceptionRegex'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -50026,6 +51449,7 @@ class Input$UpdateNamespacePackageSettingsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -50226,8 +51650,11 @@ class Input$UpdateNoteInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get body => (_$data['body'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -50248,6 +51675,7 @@ class Input$UpdateNoteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -50390,10 +51818,13 @@ class Input$UpdatePackagesCleanupPolicyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum?
       get keepNDuplicatedPackageFiles => (_$data['keepNDuplicatedPackageFiles']
           as Enum$PackagesCleanupKeepDuplicatedPackageFilesEnum?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -50419,6 +51850,7 @@ class Input$UpdatePackagesCleanupPolicyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -50591,14 +52023,21 @@ class Input$UpdateRequirementInput {
   Map<String, dynamic> _$data;
 
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$RequirementState? get state =>
       (_$data['state'] as Enum$RequirementState?);
+
   String get iid => (_$data['iid'] as String);
+
   Enum$TestReportState? get lastTestReportState =>
       (_$data['lastTestReportState'] as Enum$TestReportState?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('title')) {
@@ -50636,6 +52075,7 @@ class Input$UpdateRequirementInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -50854,13 +52294,19 @@ class Input$UpdateSnippetInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   Enum$VisibilityLevelsEnum? get visibilityLevel =>
       (_$data['visibilityLevel'] as Enum$VisibilityLevelsEnum?);
+
   List<Input$SnippetBlobActionInputType>? get blobActions =>
       (_$data['blobActions'] as List<Input$SnippetBlobActionInputType>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -50896,6 +52342,7 @@ class Input$UpdateSnippetInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -51050,6 +52497,7 @@ class _CopyWithImpl$Input$UpdateSnippetInput<TRes>
           'blobActions':
               (blobActions as List<Input$SnippetBlobActionInputType>?),
       }));
+
   TRes blobActions(
           Iterable<Input$SnippetBlobActionInputType>? Function(
                   Iterable<
@@ -51079,6 +52527,7 @@ class _CopyWithStubImpl$Input$UpdateSnippetInput<TRes>
     List<Input$SnippetBlobActionInputType>? blobActions,
   }) =>
       _res;
+
   blobActions(_fn) => _res;
 }
 
@@ -51124,10 +52573,15 @@ class Input$UploadDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get projectPath => (_$data['projectPath'] as String?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   String get secret => (_$data['secret'] as String);
+
   String get filename => (_$data['filename'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -51154,6 +52608,7 @@ class Input$UploadDeleteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -51313,7 +52768,9 @@ class Input$UserCalloutCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get featureName => (_$data['featureName'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -51330,6 +52787,7 @@ class Input$UserCalloutCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -51451,7 +52909,9 @@ class Input$UserPreferencesUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   Enum$IssueSort? get issuesSort => (_$data['issuesSort'] as Enum$IssueSort?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -51471,6 +52931,7 @@ class Input$UserPreferencesUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -51592,7 +53053,9 @@ class Input$VulnerabilityConfirmInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -51609,6 +53072,7 @@ class Input$VulnerabilityConfirmInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -51805,25 +53269,40 @@ class Input$VulnerabilityCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get project => (_$data['project'] as String);
+
   String get name => (_$data['name'] as String);
+
   String get description => (_$data['description'] as String);
+
   Input$VulnerabilityScannerInput get scanner =>
       (_$data['scanner'] as Input$VulnerabilityScannerInput);
+
   List<Input$VulnerabilityIdentifierInput> get identifiers =>
       (_$data['identifiers'] as List<Input$VulnerabilityIdentifierInput>);
+
   Enum$VulnerabilityState? get state =>
       (_$data['state'] as Enum$VulnerabilityState?);
+
   Enum$VulnerabilitySeverity? get severity =>
       (_$data['severity'] as Enum$VulnerabilitySeverity?);
+
   Enum$VulnerabilityConfidence? get confidence =>
       (_$data['confidence'] as Enum$VulnerabilityConfidence?);
+
   String? get solution => (_$data['solution'] as String?);
+
   String? get message => (_$data['message'] as String?);
+
   String? get detectedAt => (_$data['detectedAt'] as String?);
+
   String? get confirmedAt => (_$data['confirmedAt'] as String?);
+
   String? get resolvedAt => (_$data['resolvedAt'] as String?);
+
   String? get dismissedAt => (_$data['dismissedAt'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -51889,6 +53368,7 @@ class Input$VulnerabilityCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -52149,6 +53629,7 @@ class _CopyWithImpl$Input$VulnerabilityCreateInput<TRes>
         if (resolvedAt != _undefined) 'resolvedAt': (resolvedAt as String?),
         if (dismissedAt != _undefined) 'dismissedAt': (dismissedAt as String?),
       }));
+
   CopyWith$Input$VulnerabilityScannerInput<TRes> get scanner {
     final local$scanner = _instance.scanner;
     return CopyWith$Input$VulnerabilityScannerInput(
@@ -52193,8 +53674,10 @@ class _CopyWithStubImpl$Input$VulnerabilityCreateInput<TRes>
     String? dismissedAt,
   }) =>
       _res;
+
   CopyWith$Input$VulnerabilityScannerInput<TRes> get scanner =>
       CopyWith$Input$VulnerabilityScannerInput.stub(_res);
+
   identifiers(_fn) => _res;
 }
 
@@ -52239,10 +53722,14 @@ class Input$VulnerabilityDismissInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   String? get comment => (_$data['comment'] as String?);
+
   Enum$VulnerabilityDismissalReason? get dismissalReason =>
       (_$data['dismissalReason'] as Enum$VulnerabilityDismissalReason?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -52269,6 +53756,7 @@ class Input$VulnerabilityDismissInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -52428,12 +53916,16 @@ class Input$VulnerabilityExternalIssueLinkCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Enum$VulnerabilityExternalIssueLinkType get linkType =>
       (_$data['linkType'] as Enum$VulnerabilityExternalIssueLinkType);
+
   Enum$VulnerabilityExternalIssueLinkExternalTracker get externalTracker =>
       (_$data['externalTracker']
           as Enum$VulnerabilityExternalIssueLinkExternalTracker);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -52458,6 +53950,7 @@ class Input$VulnerabilityExternalIssueLinkCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -52601,7 +54094,9 @@ class Input$VulnerabilityExternalIssueLinkDestroyInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -52619,6 +54114,7 @@ class Input$VulnerabilityExternalIssueLinkDestroyInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -52754,10 +54250,14 @@ class Input$VulnerabilityFindingDismissInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get uuid => (_$data['uuid'] as String?);
+
   String? get comment => (_$data['comment'] as String?);
+
   Enum$VulnerabilityDismissalReason? get dismissalReason =>
       (_$data['dismissalReason'] as Enum$VulnerabilityDismissalReason?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -52787,6 +54287,7 @@ class Input$VulnerabilityFindingDismissInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -52948,9 +54449,13 @@ class Input$VulnerabilityIdentifierInput {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   String get url => (_$data['url'] as String);
+
   String? get externalType => (_$data['externalType'] as String?);
+
   String? get externalId => (_$data['externalId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -52974,6 +54479,7 @@ class Input$VulnerabilityIdentifierInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53116,7 +54622,9 @@ class Input$VulnerabilityResolveInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -53133,6 +54641,7 @@ class Input$VulnerabilityResolveInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53250,7 +54759,9 @@ class Input$VulnerabilityRevertToDetectedInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -53268,6 +54779,7 @@ class Input$VulnerabilityRevertToDetectedInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53399,11 +54911,16 @@ class Input$VulnerabilityScannerInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String get name => (_$data['name'] as String);
+
   String get url => (_$data['url'] as String);
+
   Input$VulnerabilityScannerVendorInput? get vendor =>
       (_$data['vendor'] as Input$VulnerabilityScannerVendorInput?);
+
   String get version => (_$data['version'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -53426,6 +54943,7 @@ class Input$VulnerabilityScannerInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53532,6 +55050,7 @@ class _CopyWithImpl$Input$VulnerabilityScannerInput<TRes>
         if (version != _undefined && version != null)
           'version': (version as String),
       }));
+
   CopyWith$Input$VulnerabilityScannerVendorInput<TRes> get vendor {
     final local$vendor = _instance.vendor;
     return local$vendor == null
@@ -53555,6 +55074,7 @@ class _CopyWithStubImpl$Input$VulnerabilityScannerInput<TRes>
     String? version,
   }) =>
       _res;
+
   CopyWith$Input$VulnerabilityScannerVendorInput<TRes> get vendor =>
       CopyWith$Input$VulnerabilityScannerVendorInput.stub(_res);
 }
@@ -53578,6 +55098,7 @@ class Input$VulnerabilityScannerVendorInput {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -53591,6 +55112,7 @@ class Input$VulnerabilityScannerVendorInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53692,10 +55214,15 @@ class Input$WorkItemConvertTaskInput {
   Map<String, dynamic> _$data;
 
   int get lineNumberEnd => (_$data['lineNumberEnd'] as int);
+
   int get lineNumberStart => (_$data['lineNumberStart'] as int);
+
   int get lockVersion => (_$data['lockVersion'] as int);
+
   String get title => (_$data['title'] as String);
+
   String get workItemTypeId => (_$data['workItemTypeId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$lineNumberEnd = lineNumberEnd;
@@ -53716,6 +55243,7 @@ class Input$WorkItemConvertTaskInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53870,9 +55398,12 @@ class Input$WorkItemCreateFromTaskInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Input$WorkItemConvertTaskInput get workItemData =>
       (_$data['workItemData'] as Input$WorkItemConvertTaskInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -53891,6 +55422,7 @@ class Input$WorkItemCreateFromTaskInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -53978,6 +55510,7 @@ class _CopyWithImpl$Input$WorkItemCreateFromTaskInput<TRes>
         if (workItemData != _undefined && workItemData != null)
           'workItemData': (workItemData as Input$WorkItemConvertTaskInput),
       }));
+
   CopyWith$Input$WorkItemConvertTaskInput<TRes> get workItemData {
     final local$workItemData = _instance.workItemData;
     return CopyWith$Input$WorkItemConvertTaskInput(
@@ -53997,6 +55530,7 @@ class _CopyWithStubImpl$Input$WorkItemCreateFromTaskInput<TRes>
     Input$WorkItemConvertTaskInput? workItemData,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemConvertTaskInput<TRes> get workItemData =>
       CopyWith$Input$WorkItemConvertTaskInput.stub(_res);
 }
@@ -54056,13 +55590,20 @@ class Input$WorkItemCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   String? get description => (_$data['description'] as String?);
+
   Input$WorkItemWidgetHierarchyCreateInput? get hierarchyWidget =>
       (_$data['hierarchyWidget'] as Input$WorkItemWidgetHierarchyCreateInput?);
+
   String get projectPath => (_$data['projectPath'] as String);
+
   String get title => (_$data['title'] as String);
+
   String get workItemTypeId => (_$data['workItemTypeId'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -54095,6 +55636,7 @@ class Input$WorkItemCreateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -54237,6 +55779,7 @@ class _CopyWithImpl$Input$WorkItemCreateInput<TRes>
         if (workItemTypeId != _undefined && workItemTypeId != null)
           'workItemTypeId': (workItemTypeId as String),
       }));
+
   CopyWith$Input$WorkItemWidgetHierarchyCreateInput<TRes> get hierarchyWidget {
     final local$hierarchyWidget = _instance.hierarchyWidget;
     return local$hierarchyWidget == null
@@ -54263,6 +55806,7 @@ class _CopyWithStubImpl$Input$WorkItemCreateInput<TRes>
     String? workItemTypeId,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemWidgetHierarchyCreateInput<TRes> get hierarchyWidget =>
       CopyWith$Input$WorkItemWidgetHierarchyCreateInput.stub(_res);
 }
@@ -54293,7 +55837,9 @@ class Input$WorkItemDeleteInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -54310,6 +55856,7 @@ class Input$WorkItemDeleteInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -54435,10 +55982,14 @@ class Input$WorkItemDeleteTaskInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   int get lockVersion => (_$data['lockVersion'] as int);
+
   Input$WorkItemDeletedTaskInput get taskData =>
       (_$data['taskData'] as Input$WorkItemDeletedTaskInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -54459,6 +56010,7 @@ class Input$WorkItemDeleteTaskInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -54557,6 +56109,7 @@ class _CopyWithImpl$Input$WorkItemDeleteTaskInput<TRes>
         if (taskData != _undefined && taskData != null)
           'taskData': (taskData as Input$WorkItemDeletedTaskInput),
       }));
+
   CopyWith$Input$WorkItemDeletedTaskInput<TRes> get taskData {
     final local$taskData = _instance.taskData;
     return CopyWith$Input$WorkItemDeletedTaskInput(
@@ -54577,6 +56130,7 @@ class _CopyWithStubImpl$Input$WorkItemDeleteTaskInput<TRes>
     Input$WorkItemDeletedTaskInput? taskData,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemDeletedTaskInput<TRes> get taskData =>
       CopyWith$Input$WorkItemDeletedTaskInput.stub(_res);
 }
@@ -54609,8 +56163,11 @@ class Input$WorkItemDeletedTaskInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   int get lineNumberEnd => (_$data['lineNumberEnd'] as int);
+
   int get lineNumberStart => (_$data['lineNumberStart'] as int);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -54627,6 +56184,7 @@ class Input$WorkItemDeletedTaskInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -54817,22 +56375,32 @@ class Input$WorkItemUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Enum$WorkItemStateEvent? get stateEvent =>
       (_$data['stateEvent'] as Enum$WorkItemStateEvent?);
+
   String? get title => (_$data['title'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   Input$WorkItemWidgetDescriptionInput? get descriptionWidget =>
       (_$data['descriptionWidget'] as Input$WorkItemWidgetDescriptionInput?);
+
   Input$WorkItemWidgetAssigneesInput? get assigneesWidget =>
       (_$data['assigneesWidget'] as Input$WorkItemWidgetAssigneesInput?);
+
   Input$WorkItemWidgetHierarchyUpdateInput? get hierarchyWidget =>
       (_$data['hierarchyWidget'] as Input$WorkItemWidgetHierarchyUpdateInput?);
+
   Input$WorkItemWidgetStartAndDueDateUpdateInput? get startAndDueDateWidget =>
       (_$data['startAndDueDateWidget']
           as Input$WorkItemWidgetStartAndDueDateUpdateInput?);
+
   Input$WorkItemWidgetWeightInput? get weightWidget =>
       (_$data['weightWidget'] as Input$WorkItemWidgetWeightInput?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -54883,6 +56451,7 @@ class Input$WorkItemUpdateInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -55087,6 +56656,7 @@ class _CopyWithImpl$Input$WorkItemUpdateInput<TRes>
         if (weightWidget != _undefined)
           'weightWidget': (weightWidget as Input$WorkItemWidgetWeightInput?),
       }));
+
   CopyWith$Input$WorkItemWidgetDescriptionInput<TRes> get descriptionWidget {
     final local$descriptionWidget = _instance.descriptionWidget;
     return local$descriptionWidget == null
@@ -55150,15 +56720,20 @@ class _CopyWithStubImpl$Input$WorkItemUpdateInput<TRes>
     Input$WorkItemWidgetWeightInput? weightWidget,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemWidgetDescriptionInput<TRes> get descriptionWidget =>
       CopyWith$Input$WorkItemWidgetDescriptionInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetAssigneesInput<TRes> get assigneesWidget =>
       CopyWith$Input$WorkItemWidgetAssigneesInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetHierarchyUpdateInput<TRes> get hierarchyWidget =>
       CopyWith$Input$WorkItemWidgetHierarchyUpdateInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetStartAndDueDateUpdateInput<TRes>
       get startAndDueDateWidget =>
           CopyWith$Input$WorkItemWidgetStartAndDueDateUpdateInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetWeightInput<TRes> get weightWidget =>
       CopyWith$Input$WorkItemWidgetWeightInput.stub(_res);
 }
@@ -55194,9 +56769,12 @@ class Input$WorkItemUpdateTaskInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Input$WorkItemUpdatedTaskInput get taskData =>
       (_$data['taskData'] as Input$WorkItemUpdatedTaskInput);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -55215,6 +56793,7 @@ class Input$WorkItemUpdateTaskInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -55302,6 +56881,7 @@ class _CopyWithImpl$Input$WorkItemUpdateTaskInput<TRes>
         if (taskData != _undefined && taskData != null)
           'taskData': (taskData as Input$WorkItemUpdatedTaskInput),
       }));
+
   CopyWith$Input$WorkItemUpdatedTaskInput<TRes> get taskData {
     final local$taskData = _instance.taskData;
     return CopyWith$Input$WorkItemUpdatedTaskInput(
@@ -55321,6 +56901,7 @@ class _CopyWithStubImpl$Input$WorkItemUpdateTaskInput<TRes>
     Input$WorkItemUpdatedTaskInput? taskData,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemUpdatedTaskInput<TRes> get taskData =>
       CopyWith$Input$WorkItemUpdatedTaskInput.stub(_res);
 }
@@ -55360,9 +56941,12 @@ class Input$WorkItemUpdateWidgetsInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String get id => (_$data['id'] as String);
+
   Input$WorkItemWidgetDescriptionInput? get descriptionWidget =>
       (_$data['descriptionWidget'] as Input$WorkItemWidgetDescriptionInput?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -55383,6 +56967,7 @@ class Input$WorkItemUpdateWidgetsInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -55475,6 +57060,7 @@ class _CopyWithImpl$Input$WorkItemUpdateWidgetsInput<TRes>
           'descriptionWidget':
               (descriptionWidget as Input$WorkItemWidgetDescriptionInput?),
       }));
+
   CopyWith$Input$WorkItemWidgetDescriptionInput<TRes> get descriptionWidget {
     final local$descriptionWidget = _instance.descriptionWidget;
     return local$descriptionWidget == null
@@ -55496,6 +57082,7 @@ class _CopyWithStubImpl$Input$WorkItemUpdateWidgetsInput<TRes>
     Input$WorkItemWidgetDescriptionInput? descriptionWidget,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemWidgetDescriptionInput<TRes> get descriptionWidget =>
       CopyWith$Input$WorkItemWidgetDescriptionInput.stub(_res);
 }
@@ -55577,19 +57164,27 @@ class Input$WorkItemUpdatedTaskInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   Enum$WorkItemStateEvent? get stateEvent =>
       (_$data['stateEvent'] as Enum$WorkItemStateEvent?);
+
   String? get title => (_$data['title'] as String?);
+
   bool? get confidential => (_$data['confidential'] as bool?);
+
   Input$WorkItemWidgetDescriptionInput? get descriptionWidget =>
       (_$data['descriptionWidget'] as Input$WorkItemWidgetDescriptionInput?);
+
   Input$WorkItemWidgetAssigneesInput? get assigneesWidget =>
       (_$data['assigneesWidget'] as Input$WorkItemWidgetAssigneesInput?);
+
   Input$WorkItemWidgetHierarchyUpdateInput? get hierarchyWidget =>
       (_$data['hierarchyWidget'] as Input$WorkItemWidgetHierarchyUpdateInput?);
+
   Input$WorkItemWidgetStartAndDueDateUpdateInput? get startAndDueDateWidget =>
       (_$data['startAndDueDateWidget']
           as Input$WorkItemWidgetStartAndDueDateUpdateInput?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -55632,6 +57227,7 @@ class Input$WorkItemUpdatedTaskInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -55805,6 +57401,7 @@ class _CopyWithImpl$Input$WorkItemUpdatedTaskInput<TRes>
           'startAndDueDateWidget': (startAndDueDateWidget
               as Input$WorkItemWidgetStartAndDueDateUpdateInput?),
       }));
+
   CopyWith$Input$WorkItemWidgetDescriptionInput<TRes> get descriptionWidget {
     final local$descriptionWidget = _instance.descriptionWidget;
     return local$descriptionWidget == null
@@ -55858,12 +57455,16 @@ class _CopyWithStubImpl$Input$WorkItemUpdatedTaskInput<TRes>
     Input$WorkItemWidgetStartAndDueDateUpdateInput? startAndDueDateWidget,
   }) =>
       _res;
+
   CopyWith$Input$WorkItemWidgetDescriptionInput<TRes> get descriptionWidget =>
       CopyWith$Input$WorkItemWidgetDescriptionInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetAssigneesInput<TRes> get assigneesWidget =>
       CopyWith$Input$WorkItemWidgetAssigneesInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetHierarchyUpdateInput<TRes> get hierarchyWidget =>
       CopyWith$Input$WorkItemWidgetHierarchyUpdateInput.stub(_res);
+
   CopyWith$Input$WorkItemWidgetStartAndDueDateUpdateInput<TRes>
       get startAndDueDateWidget =>
           CopyWith$Input$WorkItemWidgetStartAndDueDateUpdateInput.stub(_res);
@@ -55890,6 +57491,7 @@ class Input$WorkItemWidgetAssigneesInput {
   Map<String, dynamic> _$data;
 
   List<String> get assigneeIds => (_$data['assigneeIds'] as List<String>);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$assigneeIds = assigneeIds;
@@ -55903,6 +57505,7 @@ class Input$WorkItemWidgetAssigneesInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -55995,6 +57598,7 @@ class Input$WorkItemWidgetDescriptionInput {
   Map<String, dynamic> _$data;
 
   String get description => (_$data['description'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$description = description;
@@ -56008,6 +57612,7 @@ class Input$WorkItemWidgetDescriptionInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -56095,6 +57700,7 @@ class Input$WorkItemWidgetHierarchyCreateInput {
   Map<String, dynamic> _$data;
 
   String? get parentId => (_$data['parentId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('parentId')) {
@@ -56110,6 +57716,7 @@ class Input$WorkItemWidgetHierarchyCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -56210,7 +57817,9 @@ class Input$WorkItemWidgetHierarchyUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get parentId => (_$data['parentId'] as String?);
+
   List<String>? get childrenIds => (_$data['childrenIds'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('parentId')) {
@@ -56230,6 +57839,7 @@ class Input$WorkItemWidgetHierarchyUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -56368,7 +57978,9 @@ class Input$WorkItemWidgetStartAndDueDateUpdateInput {
   Map<String, dynamic> _$data;
 
   String? get dueDate => (_$data['dueDate'] as String?);
+
   String? get startDate => (_$data['startDate'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('dueDate')) {
@@ -56388,6 +58000,7 @@ class Input$WorkItemWidgetStartAndDueDateUpdateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -56501,6 +58114,7 @@ class Input$WorkItemWidgetWeightInput {
   Map<String, dynamic> _$data;
 
   int? get weight => (_$data['weight'] as int?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('weight')) {
@@ -56515,6 +58129,7 @@ class Input$WorkItemWidgetWeightInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -56648,13 +58263,21 @@ class Input$iterationCreateInput {
   Map<String, dynamic> _$data;
 
   String? get clientMutationId => (_$data['clientMutationId'] as String?);
+
   String? get projectPath => (_$data['projectPath'] as String?);
+
   String? get groupPath => (_$data['groupPath'] as String?);
+
   String? get iterationsCadenceId => (_$data['iterationsCadenceId'] as String?);
+
   String? get title => (_$data['title'] as String?);
+
   String? get description => (_$data['description'] as String?);
+
   String? get startDate => (_$data['startDate'] as String?);
+
   String? get dueDate => (_$data['dueDate'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('clientMutationId')) {
@@ -56697,6 +58320,7 @@ class Input$iterationCreateInput {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

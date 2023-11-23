@@ -586,6 +586,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes docsWithTypename(
           Iterable<Query$Q$docsWithTypename?>? Function(
                   Iterable<
@@ -599,6 +600,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
                   e,
                   (i) => i,
                 )))?.toList());
+
   TRes docsWihtoutTypename(
           Iterable<Query$Q$docsWihtoutTypename?>? Function(
                   Iterable<
@@ -613,6 +615,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
                       e,
                       (i) => i,
                     )))?.toList());
+
   TRes docsWithAliasedTypename(
           Iterable<Query$Q$docsWithAliasedTypename?>? Function(
                   Iterable<
@@ -627,6 +630,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
                       e,
                       (i) => i,
                     )))?.toList());
+
   TRes docsWithFragment(
           Iterable<Query$Q$docsWithFragment?>? Function(
                   Iterable<
@@ -655,9 +659,13 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     String? $__typename,
   }) =>
       _res;
+
   docsWithTypename(_fn) => _res;
+
   docsWihtoutTypename(_fn) => _res;
+
   docsWithAliasedTypename(_fn) => _res;
+
   docsWithFragment(_fn) => _res;
 }
 

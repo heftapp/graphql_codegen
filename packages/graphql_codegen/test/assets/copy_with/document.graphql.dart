@@ -349,6 +349,7 @@ class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes ts(
           Iterable<Query$Foobar$ts?>? Function(
                   Iterable<CopyWith$Query$Foobar$ts<Query$Foobar$ts>?>?)
@@ -360,6 +361,7 @@ class _CopyWithImpl$Query$Foobar<TRes> implements CopyWith$Query$Foobar<TRes> {
                   e,
                   (i) => i,
                 )))?.toList());
+
   TRes tss(
           Iterable<Iterable<Query$Foobar$tss?>?>? Function(
                   Iterable<
@@ -386,7 +388,9 @@ class _CopyWithStubImpl$Query$Foobar<TRes>
     String? $__typename,
   }) =>
       _res;
+
   ts(_fn) => _res;
+
   tss(_fn) => _res;
 }
 
@@ -600,6 +604,7 @@ class _CopyWithImpl$Query$Foobar$ts<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$Foobar$ts$t<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -620,6 +625,7 @@ class _CopyWithStubImpl$Query$Foobar$ts<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$Foobar$ts$t<TRes> get t =>
       CopyWith$Query$Foobar$ts$t.stub(_res);
 }

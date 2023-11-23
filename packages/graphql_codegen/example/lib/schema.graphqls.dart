@@ -36,9 +36,13 @@ class Input$UpdatePersonInput {
   Map<String, dynamic> _$data;
 
   String get id => (_$data['id'] as String);
+
   String? get full_name => (_$data['full_name'] as String?);
+
   String? get nickname => (_$data['nickname'] as String?);
+
   String? get website => (_$data['website'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -63,6 +67,7 @@ class Input$UpdatePersonInput {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
