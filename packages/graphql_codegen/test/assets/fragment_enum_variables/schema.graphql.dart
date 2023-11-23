@@ -19,6 +19,7 @@ class Input$I {
   Map<String, dynamic> _$data;
 
   String? get s => (_$data['s'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('s')) {
@@ -32,6 +33,7 @@ class Input$I {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -308,6 +310,7 @@ class Variables$Fragment$F1 {
   Map<String, dynamic> _$data;
 
   Enum$Locale get locale => (_$data['locale'] as Enum$Locale);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$locale = locale;
@@ -320,6 +323,7 @@ class Variables$Fragment$F1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -577,6 +581,7 @@ class Variables$Fragment$F2 {
   Map<String, dynamic> _$data;
 
   Enum$Locale get locale => (_$data['locale'] as Enum$Locale);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$locale = locale;
@@ -589,6 +594,7 @@ class Variables$Fragment$F2 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -823,6 +829,7 @@ class Variables$Fragment$F3 {
   Map<String, dynamic> _$data;
 
   Input$I get i => (_$data['i'] as Input$I);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$i = i;
@@ -835,6 +842,7 @@ class Variables$Fragment$F3 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -888,6 +896,7 @@ class _CopyWithImpl$Variables$Fragment$F3<TRes>
         ..._instance._$data,
         if (i != _undefined && i != null) 'i': (i as Input$I),
       }));
+
   CopyWith$Input$I<TRes> get i {
     final local$i = _instance.i;
     return CopyWith$Input$I(local$i, (e) => call(i: e));
@@ -901,6 +910,7 @@ class _CopyWithStubImpl$Variables$Fragment$F3<TRes>
   TRes _res;
 
   call({Input$I? i}) => _res;
+
   CopyWith$Input$I<TRes> get i => CopyWith$Input$I.stub(_res);
 }
 
@@ -1074,6 +1084,7 @@ class Variables$Fragment$F4 {
   Map<String, dynamic> _$data;
 
   Enum$Locale get locale => (_$data['locale'] as Enum$Locale);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$locale = locale;
@@ -1086,6 +1097,7 @@ class Variables$Fragment$F4 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

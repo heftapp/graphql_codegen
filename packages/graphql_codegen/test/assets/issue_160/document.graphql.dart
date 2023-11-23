@@ -37,8 +37,10 @@ class Input$I1 {
 
   List<List<Input$I2>>? get nested =>
       (_$data['nested'] as List<List<Input$I2>>?);
+
   List<List<Input$I2?>?>? get maybe_nested =>
       (_$data['maybe_nested'] as List<List<Input$I2?>?>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('nested')) {
@@ -59,6 +61,7 @@ class Input$I1 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -193,6 +196,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
         if (maybe_nested != _undefined)
           'maybe_nested': (maybe_nested as List<List<Input$I2?>?>?),
       }));
+
   TRes nested(
           Iterable<Iterable<Input$I2>>? Function(
                   Iterable<Iterable<CopyWith$Input$I2<Input$I2>>>?)
@@ -203,6 +207,7 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
                     e,
                     (i) => i,
                   ))))?.map((e) => e.toList()).toList());
+
   TRes maybe_nested(
           Iterable<Iterable<Input$I2?>?>? Function(
                   Iterable<Iterable<CopyWith$Input$I2<Input$I2>?>?>?)
@@ -227,7 +232,9 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
     List<List<Input$I2?>?>? maybe_nested,
   }) =>
       _res;
+
   nested(_fn) => _res;
+
   maybe_nested(_fn) => _res;
 }
 
@@ -250,6 +257,7 @@ class Input$I2 {
   Map<String, dynamic> _$data;
 
   String? get str => (_$data['str'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('str')) {
@@ -263,6 +271,7 @@ class Input$I2 {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

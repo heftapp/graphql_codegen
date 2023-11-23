@@ -319,6 +319,7 @@ class _CopyWithImpl$Fragment$EventFragment<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$EventFragment$subscription<TRes> get subscription {
     final local$subscription = _instance.subscription;
     return local$subscription == null
@@ -339,6 +340,7 @@ class _CopyWithStubImpl$Fragment$EventFragment<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$EventFragment$subscription<TRes> get subscription =>
       CopyWith$Fragment$EventFragment$subscription.stub(_res);
 }
@@ -690,6 +692,7 @@ class _CopyWithImpl$Fragment$EventFragment$$EventPublic<TRes>
             : (subscription
                 as Fragment$EventFragment$$EventPublic$subscription?),
       ));
+
   CopyWith$Fragment$UserPublicFragment<TRes> get owner {
     final local$owner = _instance.owner;
     return CopyWith$Fragment$UserPublicFragment(
@@ -719,8 +722,10 @@ class _CopyWithStubImpl$Fragment$EventFragment$$EventPublic<TRes>
     Fragment$EventFragment$$EventPublic$subscription? subscription,
   }) =>
       _res;
+
   CopyWith$Fragment$UserPublicFragment<TRes> get owner =>
       CopyWith$Fragment$UserPublicFragment.stub(_res);
+
   CopyWith$Fragment$EventFragment$$EventPublic$subscription<TRes>
       get subscription =>
           CopyWith$Fragment$EventFragment$$EventPublic$subscription.stub(_res);
@@ -1115,6 +1120,7 @@ class _CopyWithImpl$Mutation$Bla<TRes> implements CopyWith$Mutation$Bla<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Mutation$Bla$bla<TRes> get bla {
     final local$bla = _instance.bla;
     return local$bla == null
@@ -1134,6 +1140,7 @@ class _CopyWithStubImpl$Mutation$Bla<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Mutation$Bla$bla<TRes> get bla =>
       CopyWith$Mutation$Bla$bla.stub(_res);
 }
@@ -1436,6 +1443,7 @@ class _CopyWithImpl$Mutation$Bla$bla$$EventPublic<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Mutation$Bla$bla$$EventPublic$subscription<TRes> get subscription {
     final local$subscription = _instance.subscription;
     return local$subscription == null
@@ -1464,8 +1472,10 @@ class _CopyWithStubImpl$Mutation$Bla$bla$$EventPublic<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Mutation$Bla$bla$$EventPublic$subscription<TRes> get subscription =>
       CopyWith$Mutation$Bla$bla$$EventPublic$subscription.stub(_res);
+
   CopyWith$Fragment$UserPublicFragment<TRes> get owner =>
       CopyWith$Fragment$UserPublicFragment.stub(_res);
 }

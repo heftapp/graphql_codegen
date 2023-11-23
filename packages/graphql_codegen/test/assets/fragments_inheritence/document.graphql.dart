@@ -249,6 +249,7 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
       other: other == _undefined
           ? _instance.other
           : (other as Fragment$F$other?)));
+
   CopyWith$Fragment$F$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -263,6 +264,7 @@ class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
   TRes _res;
 
   call({Fragment$F$other? other}) => _res;
+
   CopyWith$Fragment$F$other<TRes> get other =>
       CopyWith$Fragment$F$other.stub(_res);
 }
@@ -394,6 +396,7 @@ class _CopyWithImpl$Fragment$F$other<TRes>
       other: other == _undefined
           ? _instance.other
           : (other as Fragment$F$other$other?)));
+
   CopyWith$Fragment$F$other$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -409,6 +412,7 @@ class _CopyWithStubImpl$Fragment$F$other<TRes>
   TRes _res;
 
   call({Fragment$F$other$other? other}) => _res;
+
   CopyWith$Fragment$F$other$other<TRes> get other =>
       CopyWith$Fragment$F$other$other.stub(_res);
 }
@@ -699,6 +703,7 @@ class _CopyWithImpl$Fragment$F$other$$T1<TRes>
             ? _instance.other
             : (other as Fragment$F$other$$T1$other?),
       ));
+
   CopyWith$Fragment$F$other$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -719,6 +724,7 @@ class _CopyWithStubImpl$Fragment$F$other$$T1<TRes>
     Fragment$F$other$$T1$other? other,
   }) =>
       _res;
+
   CopyWith$Fragment$F$other$$T1$other<TRes> get other =>
       CopyWith$Fragment$F$other$$T1$other.stub(_res);
 }
@@ -983,6 +989,7 @@ class _CopyWithImpl$Fragment$F$$T1<TRes>
       other: other == _undefined
           ? _instance.other
           : (other as Fragment$F$$T1$other?)));
+
   CopyWith$Fragment$F$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -998,6 +1005,7 @@ class _CopyWithStubImpl$Fragment$F$$T1<TRes>
   TRes _res;
 
   call({Fragment$F$$T1$other? other}) => _res;
+
   CopyWith$Fragment$F$$T1$other<TRes> get other =>
       CopyWith$Fragment$F$$T1$other.stub(_res);
 }
@@ -1084,6 +1092,7 @@ class _CopyWithImpl$Fragment$F$$T1$other<TRes>
       other: other == _undefined
           ? _instance.other
           : (other as Fragment$F$$T1$other$other?)));
+
   CopyWith$Fragment$F$$T1$other$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -1100,6 +1109,7 @@ class _CopyWithStubImpl$Fragment$F$$T1$other<TRes>
   TRes _res;
 
   call({Fragment$F$$T1$other$other? other}) => _res;
+
   CopyWith$Fragment$F$$T1$other$other<TRes> get other =>
       CopyWith$Fragment$F$$T1$other$other.stub(_res);
 }
@@ -1396,6 +1406,7 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1<TRes>
             ? _instance.other
             : (other as Fragment$F$$T1$other$$T1$other?),
       ));
+
   CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -1416,6 +1427,7 @@ class _CopyWithStubImpl$Fragment$F$$T1$other$$T1<TRes>
     Fragment$F$$T1$other$$T1$other? other,
   }) =>
       _res;
+
   CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other =>
       CopyWith$Fragment$F$$T1$other$$T1$other.stub(_res);
 }
@@ -1680,6 +1692,7 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
       other: other == _undefined
           ? _instance.other
           : (other as Fragment$F2$other?)));
+
   CopyWith$Fragment$F2$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -1695,6 +1708,7 @@ class _CopyWithStubImpl$Fragment$F2<TRes>
   TRes _res;
 
   call({Fragment$F2$other? other}) => _res;
+
   CopyWith$Fragment$F2$other<TRes> get other =>
       CopyWith$Fragment$F2$other.stub(_res);
 }
@@ -1983,6 +1997,7 @@ class _CopyWithImpl$Fragment$F2$$T1<TRes>
       other: other == _undefined
           ? _instance.other
           : (other as Fragment$F2$$T1$other?)));
+
   CopyWith$Fragment$F2$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
@@ -1998,6 +2013,7 @@ class _CopyWithStubImpl$Fragment$F2$$T1<TRes>
   TRes _res;
 
   call({Fragment$F2$$T1$other? other}) => _res;
+
   CopyWith$Fragment$F2$$T1$other<TRes> get other =>
       CopyWith$Fragment$F2$$T1$other.stub(_res);
 }
@@ -2252,6 +2268,7 @@ class _CopyWithImpl$Query$Fetch<TRes> implements CopyWith$Query$Fetch<TRes> {
 
   TRes call({Object? t = _undefined}) =>
       _then(Query$Fetch(t: t == _undefined ? _instance.t : (t as Fragment$F?)));
+
   CopyWith$Fragment$F<TRes> get t {
     final local$t = _instance.t;
     return local$t == null
@@ -2267,6 +2284,7 @@ class _CopyWithStubImpl$Query$Fetch<TRes>
   TRes _res;
 
   call({Fragment$F? t}) => _res;
+
   CopyWith$Fragment$F<TRes> get t => CopyWith$Fragment$F.stub(_res);
 }
 

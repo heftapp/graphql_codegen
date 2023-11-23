@@ -80,6 +80,7 @@ class _CopyWithImpl$Query$FetchName<TRes>
 
   TRes call({Object? name = _undefined}) => _then(Query$FetchName(
       name: name == _undefined ? _instance.name : (name as Fragment$F?)));
+
   CopyWith$Fragment$F<TRes> get name {
     final local$name = _instance.name;
     return local$name == null
@@ -95,6 +96,7 @@ class _CopyWithStubImpl$Query$FetchName<TRes>
   TRes _res;
 
   call({Fragment$F? name}) => _res;
+
   CopyWith$Fragment$F<TRes> get name => CopyWith$Fragment$F.stub(_res);
 }
 

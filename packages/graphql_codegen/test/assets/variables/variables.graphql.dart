@@ -19,6 +19,7 @@ class Variables$Query$HiBob {
   Map<String, dynamic> _$data;
 
   Input$I1 get i => (_$data['i'] as Input$I1);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$i = i;
@@ -31,6 +32,7 @@ class Variables$Query$HiBob {
         this,
         (i) => i,
       );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -172,6 +174,7 @@ class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
       field: field == _undefined
           ? _instance.field
           : (field as Query$HiBob$field?)));
+
   CopyWith$Query$HiBob$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -187,6 +190,7 @@ class _CopyWithStubImpl$Query$HiBob<TRes>
   TRes _res;
 
   call({Query$HiBob$field? field}) => _res;
+
   CopyWith$Query$HiBob$field<TRes> get field =>
       CopyWith$Query$HiBob$field.stub(_res);
 }

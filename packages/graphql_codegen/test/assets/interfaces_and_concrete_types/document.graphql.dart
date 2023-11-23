@@ -277,6 +277,7 @@ class _CopyWithImpl$Query$FetchI<TRes> implements CopyWith$Query$FetchI<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1<TRes> get i1 {
     final local$i1 = _instance.i1;
     return local$i1 == null
@@ -296,6 +297,7 @@ class _CopyWithStubImpl$Query$FetchI<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1<TRes> get i1 => CopyWith$Query$FetchI$i1.stub(_res);
 }
 
@@ -643,6 +645,7 @@ class _CopyWithImpl$Query$FetchI$i1<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$i2<TRes> get i2 {
     final local$i2 = _instance.i2;
     return local$i2 == null
@@ -662,6 +665,7 @@ class _CopyWithStubImpl$Query$FetchI$i1<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$i2<TRes> get i2 =>
       CopyWith$Query$FetchI$i1$i2.stub(_res);
 }
@@ -813,6 +817,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$i2$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -832,6 +837,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$i2$field<TRes> get field =>
       CopyWith$Query$FetchI$i1$i2$field.stub(_res);
 }
@@ -1230,6 +1236,7 @@ class _CopyWithImpl$Query$FetchI$i1$i2$$T2<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$i2$$T2$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -1250,6 +1257,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$i2$$T2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$i2$$T2$field<TRes> get field =>
       CopyWith$Query$FetchI$i1$i2$$T2$field.stub(_res);
 }
@@ -1508,6 +1516,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$$T1$i2c<TRes> get i2c {
     final local$i2c = _instance.i2c;
     return local$i2c == null
@@ -1535,8 +1544,10 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$$T1$i2c<TRes> get i2c =>
       CopyWith$Query$FetchI$i1$$T1$i2c.stub(_res);
+
   CopyWith$Query$FetchI$i1$$T1$i2<TRes> get i2 =>
       CopyWith$Query$FetchI$i1$$T1$i2.stub(_res);
 }
@@ -1654,6 +1665,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2c<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$$T1$i2c$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -1674,6 +1686,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2c<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$$T1$i2c$field<TRes> get field =>
       CopyWith$Query$FetchI$i1$$T1$i2c$field.stub(_res);
 }
@@ -1949,6 +1962,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$$T1$i2$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -1969,6 +1983,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$$T1$i2$field<TRes> get field =>
       CopyWith$Query$FetchI$i1$$T1$i2$field.stub(_res);
 }
@@ -2371,6 +2386,7 @@ class _CopyWithImpl$Query$FetchI$i1$$T1$i2$$T2<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$FetchI$i1$$T1$i2$$T2$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -2391,6 +2407,7 @@ class _CopyWithStubImpl$Query$FetchI$i1$$T1$i2$$T2<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$FetchI$i1$$T1$i2$$T2$field<TRes> get field =>
       CopyWith$Query$FetchI$i1$$T1$i2$$T2$field.stub(_res);
 }

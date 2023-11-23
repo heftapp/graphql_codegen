@@ -195,6 +195,7 @@ class Variables$Query$FetchSOptional {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -209,6 +210,7 @@ class Variables$Query$FetchSOptional {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

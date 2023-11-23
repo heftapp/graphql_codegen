@@ -294,6 +294,7 @@ class _CopyWithImpl$Fragment$PersonSummary<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   TRes parents(
           Iterable<Fragment$PersonParent>? Function(
                   Iterable<
@@ -305,6 +306,7 @@ class _CopyWithImpl$Fragment$PersonSummary<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+
   CopyWith$Fragment$PersonParent<TRes> get favParent {
     final local$favParent = _instance.favParent;
     return local$favParent == null
@@ -331,7 +333,9 @@ class _CopyWithStubImpl$Fragment$PersonSummary<TRes>
     String? $__typename,
   }) =>
       _res;
+
   parents(_fn) => _res;
+
   CopyWith$Fragment$PersonParent<TRes> get favParent =>
       CopyWith$Fragment$PersonParent.stub(_res);
 }

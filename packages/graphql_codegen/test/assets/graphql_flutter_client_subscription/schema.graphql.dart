@@ -287,6 +287,7 @@ class _CopyWithImpl$Subscription$NoArgs<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Subscription$NoArgs$listenForChange<TRes> get listenForChange {
     final local$listenForChange = _instance.listenForChange;
     return local$listenForChange == null
@@ -307,6 +308,7 @@ class _CopyWithStubImpl$Subscription$NoArgs<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Subscription$NoArgs$listenForChange<TRes> get listenForChange =>
       CopyWith$Subscription$NoArgs$listenForChange.stub(_res);
 }
@@ -589,6 +591,7 @@ class Variables$Subscription$RequiredArg {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -602,6 +605,7 @@ class Variables$Subscription$RequiredArg {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -781,6 +785,7 @@ class _CopyWithImpl$Subscription$RequiredArg<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Subscription$RequiredArg$listenForChange<TRes> get listenForChange {
     final local$listenForChange = _instance.listenForChange;
     return local$listenForChange == null
@@ -802,6 +807,7 @@ class _CopyWithStubImpl$Subscription$RequiredArg<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Subscription$RequiredArg$listenForChange<TRes> get listenForChange =>
       CopyWith$Subscription$RequiredArg$listenForChange.stub(_res);
 }
@@ -1111,6 +1117,7 @@ class Variables$Subscription$OptionalArg {
   Map<String, dynamic> _$data;
 
   String? get name => (_$data['name'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('name')) {
@@ -1126,6 +1133,7 @@ class Variables$Subscription$OptionalArg {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1308,6 +1316,7 @@ class _CopyWithImpl$Subscription$OptionalArg<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Subscription$OptionalArg$listenForChange<TRes> get listenForChange {
     final local$listenForChange = _instance.listenForChange;
     return local$listenForChange == null
@@ -1329,6 +1338,7 @@ class _CopyWithStubImpl$Subscription$OptionalArg<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Subscription$OptionalArg$listenForChange<TRes> get listenForChange =>
       CopyWith$Subscription$OptionalArg$listenForChange.stub(_res);
 }

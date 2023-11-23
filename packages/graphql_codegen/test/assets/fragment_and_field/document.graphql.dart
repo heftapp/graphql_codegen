@@ -429,6 +429,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Query$Q$person<TRes> get person {
     final local$person = _instance.person;
     return local$person == null
@@ -447,6 +448,7 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Query$Q$person<TRes> get person =>
       CopyWith$Query$Q$person.stub(_res);
 }

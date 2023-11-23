@@ -194,6 +194,7 @@ class Variables$Mutation$UpdateSRequired {
   Map<String, dynamic> _$data;
 
   String get name => (_$data['name'] as String);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$name = name;
@@ -207,6 +208,7 @@ class Variables$Mutation$UpdateSRequired {
             this,
             (i) => i,
           );
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {

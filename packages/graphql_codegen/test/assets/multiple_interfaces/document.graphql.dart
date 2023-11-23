@@ -840,6 +840,7 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
   TRes call({Object? field = _undefined}) => _then(Query$Q(
       field:
           field == _undefined ? _instance.field : (field as Query$Q$field?)));
+
   CopyWith$Query$Q$field<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -854,6 +855,7 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
   TRes _res;
 
   call({Query$Q$field? field}) => _res;
+
   CopyWith$Query$Q$field<TRes> get field => CopyWith$Query$Q$field.stub(_res);
 }
 

@@ -112,6 +112,7 @@ class _CopyWithImpl$Query$FetchShouldRender<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$CompositeCondition<TRes> get shouldRender {
     final local$shouldRender = _instance.shouldRender;
     return CopyWith$Fragment$CompositeCondition(
@@ -130,6 +131,7 @@ class _CopyWithStubImpl$Query$FetchShouldRender<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$CompositeCondition<TRes> get shouldRender =>
       CopyWith$Fragment$CompositeCondition.stub(_res);
 }

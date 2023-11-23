@@ -296,6 +296,7 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
   CopyWith$Fragment$F2<TRes> get field {
     final local$field = _instance.field;
     return local$field == null
@@ -316,6 +317,7 @@ class _CopyWithStubImpl$Fragment$F1<TRes>
     String? $__typename,
   }) =>
       _res;
+
   CopyWith$Fragment$F2<TRes> get field => CopyWith$Fragment$F2.stub(_res);
 }
 
