@@ -1,3 +1,7 @@
+# 0.13.10
+
+- Support enum value names starting with `_`.
+
 # 0.13.9
 
 - Fix bug in asset path resolution
