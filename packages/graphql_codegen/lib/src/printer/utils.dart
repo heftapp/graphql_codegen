@@ -182,7 +182,8 @@ class NamePrinter {
   String printKeywordSafe(String name) =>
       _keywords.contains(name) ? "\$${name}" : name;
 
-  String printEnumValueName(NameNode name) => printKeywordSafe(name.value);
+  String printEnumValueName(NameNode name) =>
+      _printPropertyNameString(name.value);
 
   String printPropertyName(NameNode name) =>
       _printPropertyNameString(name.value);

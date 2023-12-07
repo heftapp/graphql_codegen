@@ -1,0 +1,4 @@
+enum CustomEnum {
+    nonPrivateLiteral
+    _privateLiteral
+}
