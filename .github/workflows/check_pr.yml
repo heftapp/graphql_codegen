@@ -29,7 +29,9 @@ jobs:
         with:
           channel: stable
       - name: Activate melos
-        run: dart pub global activate melos 2.9.0
+        run: | 
+          dart pub get
+          dart pub global activate melos
       - name: Validate publish
         run: melos publish --dry-run --yes | tee ./out
       - name: Test if changed
@@ -58,7 +60,9 @@ jobs:
         with:
           channel: ${{ matrix.channel }}
       - name: Activate melos
-        run: dart pub global activate melos 2.9.0
+        run: | 
+          dart pub get
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Analyze package
@@ -80,7 +84,9 @@ jobs:
         with:
           channel: ${{ matrix.channel }}
       - name: Activate melos
-        run: dart pub global activate melos 2.9.0
+        run: | 
+          dart pub get
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Build dart
@@ -107,7 +113,9 @@ jobs:
         with:
           channel: ${{ matrix.channel }}
       - name: Activate melos
-        run: dart pub global activate melos 2.9.0
+        run: | 
+          dart pub get
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Run tests dart

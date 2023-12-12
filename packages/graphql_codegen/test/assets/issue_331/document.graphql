@@ -1,0 +1,26 @@
+# query.graphql
+type Query {
+}
+
+# (1)
+extend type Query {
+    foo: FooResponse!
+}
+
+type FooResponse {
+    foo: FooCore!
+}
+
+type FooCore {
+    bar: String!
+}
+
+query FooQuery {
+    foo {
+        # (2)
+        foo {
+            # (3)
+            bar
+        }
+    }
+}

@@ -1,3 +1,7 @@
+# 0.13.11
+
+- Fix bug on bad type extension.
+
 # 0.13.10
 
 - Support enum value names starting with `_`.

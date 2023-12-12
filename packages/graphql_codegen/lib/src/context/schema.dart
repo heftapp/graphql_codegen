@@ -313,6 +313,7 @@ class Schema<TKey extends Object> {
       ...node.fields,
       ...definitions
           .whereType<ObjectTypeExtensionNode>()
+          .where((element) => element.name.value == node.name.value)
           .expand((element) => element.fields)
     ];
   }
@@ -324,6 +325,7 @@ class Schema<TKey extends Object> {
       ...node.fields,
       ...definitions
           .whereType<InterfaceTypeExtensionNode>()
+          .where((element) => element.name.value == node.name.value)
           .expand((element) => element.fields)
     ];
   }
