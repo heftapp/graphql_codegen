@@ -8,21 +8,21 @@ scripts:
     run: melos exec -- "dart analyze --fatal-infos ."
   test_dart:
     exec: dart test
-    select-package:
+    packageFilters:
       flutter: false
-      dir-exists: "test"
+      dirExists: "test"
   test_flutter:
     exec: flutter test
-    select-package:
+    packageFilters:
       flutter: true  
-      dir-exists: "test"
+      dirExists: "test"
   build_dart:
     exec: dart run build_runner build --delete-conflicting-outputs
-    select-package:
+    packageFilters:
       flutter: false
   build_flutter:
     exec: flutter pub run build_runner build --delete-conflicting-outputs
-    select-package:
+    packageFilters:
       flutter: true
   format:
     exec: dart format

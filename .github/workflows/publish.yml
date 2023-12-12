@@ -13,12 +13,14 @@ jobs:
         with:
           channel: stable
       - name: Activate melos
-        run: dart pub global activate melos 2.9.0
+        run: | 
+          dart pub get
+          dart pub global activate melos
       - name: Login pub
         run: |
           mkdir -p "$XDG_CONFIG_HOME/dart/"
           echo "${{ secrets.PUB_CREDENTIALS}}" | base64 -d > "$XDG_CONFIG_HOME/dart/pub-credentials.json"
       - name: Validate publish
-        run: melos publish --dry-run --yes
+        run: dart run melos publish --dry-run --yes
       - name: Publish
-        run: melos publish --no-dry-run --yes
+        run: dart run melos publish --no-dry-run --yes
