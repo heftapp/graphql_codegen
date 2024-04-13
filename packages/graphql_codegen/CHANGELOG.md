@@ -1,3 +1,7 @@
+# 0.14.0
+
+- Add new JSON serialization constructors and methods to enum
+
 # 0.13.11
 
 - Fix bug on bad type extension.

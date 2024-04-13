@@ -540,7 +540,16 @@ class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
   call({String? foobar}) => _res;
 }
 
-enum Enum$E { FOO, BAR, BAZ, $unknown }
+enum Enum$E {
+  FOO,
+  BAR,
+  BAZ,
+  $unknown;
+
+  factory Enum$E.fromJson(String value) => fromJson$Enum$E(value);
+
+  String toJson() => toJson$Enum$E(this);
+}
 
 String toJson$Enum$E(Enum$E e) {
   switch (e) {
@@ -577,7 +586,12 @@ enum Enum$__TypeKind {
   INPUT_OBJECT,
   LIST,
   NON_NULL,
-  $unknown
+  $unknown;
+
+  factory Enum$__TypeKind.fromJson(String value) =>
+      fromJson$Enum$__TypeKind(value);
+
+  String toJson() => toJson$Enum$__TypeKind(this);
 }
 
 String toJson$Enum$__TypeKind(Enum$__TypeKind e) {
@@ -646,7 +660,12 @@ enum Enum$__DirectiveLocation {
   ENUM_VALUE,
   INPUT_OBJECT,
   INPUT_FIELD_DEFINITION,
-  $unknown
+  $unknown;
+
+  factory Enum$__DirectiveLocation.fromJson(String value) =>
+      fromJson$Enum$__DirectiveLocation(value);
+
+  String toJson() => toJson$Enum$__DirectiveLocation(this);
 }
 
 String toJson$Enum$__DirectiveLocation(Enum$__DirectiveLocation e) {
