@@ -1,4 +1,12 @@
-enum Enum$MyEnum { FIRST, LAST, OTHER }
+enum Enum$MyEnum {
+  FIRST,
+  LAST,
+  OTHER;
+
+  factory Enum$MyEnum.fromJson(String value) => fromJson$Enum$MyEnum(value);
+
+  String toJson() => toJson$Enum$MyEnum(this);
+}
 
 String toJson$Enum$MyEnum(Enum$MyEnum e) {
   switch (e) {
@@ -33,7 +41,12 @@ enum Enum$__TypeKind {
   INPUT_OBJECT,
   LIST,
   NON_NULL,
-  $unknown
+  $unknown;
+
+  factory Enum$__TypeKind.fromJson(String value) =>
+      fromJson$Enum$__TypeKind(value);
+
+  String toJson() => toJson$Enum$__TypeKind(this);
 }
 
 String toJson$Enum$__TypeKind(Enum$__TypeKind e) {
@@ -102,7 +115,12 @@ enum Enum$__DirectiveLocation {
   ENUM_VALUE,
   INPUT_OBJECT,
   INPUT_FIELD_DEFINITION,
-  $unknown
+  $unknown;
+
+  factory Enum$__DirectiveLocation.fromJson(String value) =>
+      fromJson$Enum$__DirectiveLocation(value);
+
+  String toJson() => toJson$Enum$__DirectiveLocation(this);
 }
 
 String toJson$Enum$__DirectiveLocation(Enum$__DirectiveLocation e) {

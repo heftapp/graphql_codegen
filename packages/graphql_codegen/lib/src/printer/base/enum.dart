@@ -56,6 +56,45 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
     Enum(
       (b) => b
         ..name = className
+        ..constructors = ListBuilder<Constructor>(
+          [
+            Constructor(
+              (b) => b
+                ..name = 'fromJson'
+                ..factory = true
+                ..requiredParameters = ListBuilder(
+                  [
+                    Parameter(
+                      (b) => b
+                        ..name = 'value'
+                        ..type = refer('String'),
+                    )
+                  ],
+                )
+                ..body = refer(
+                  context.namePrinter.printFromJsonConverterFunctionName(
+                    context.path,
+                  ),
+                ).call([refer('value')]).code
+                ..lambda = true,
+            ),
+          ],
+        )
+        ..methods = ListBuilder<Method>(
+          [
+            Method(
+              (b) => b
+                ..name = 'toJson'
+                ..returns = refer('String')
+                ..body = refer(
+                  context.namePrinter.printToJsonConverterFunctionName(
+                    context.path,
+                  ),
+                ).call([refer('this')]).code
+                ..lambda = true,
+            ),
+          ],
+        )
         ..values = ListBuilder<EnumValue>(
           values.map(
             (e) {

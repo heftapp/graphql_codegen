@@ -1,6 +1,17 @@
 import 'package:gql/ast.dart';
 
-enum Enum___Status { Pending, Successful, Failure, InProgress, $unknown }
+enum Enum___Status {
+  Pending,
+  Successful,
+  Failure,
+  InProgress,
+  $unknown;
+
+  factory Enum___Status.fromJson(String value) =>
+      fromJson___Enum___Status(value);
+
+  String toJson() => toJson___Enum___Status(this);
+}
 
 String toJson___Enum___Status(Enum___Status e) {
   switch (e) {
@@ -41,7 +52,12 @@ enum Enum_____TypeKind {
   INPUT_OBJECT,
   LIST,
   NON_NULL,
-  $unknown
+  $unknown;
+
+  factory Enum_____TypeKind.fromJson(String value) =>
+      fromJson___Enum_____TypeKind(value);
+
+  String toJson() => toJson___Enum_____TypeKind(this);
 }
 
 String toJson___Enum_____TypeKind(Enum_____TypeKind e) {
@@ -110,7 +126,12 @@ enum Enum_____DirectiveLocation {
   ENUM_VALUE,
   INPUT_OBJECT,
   INPUT_FIELD_DEFINITION,
-  $unknown
+  $unknown;
+
+  factory Enum_____DirectiveLocation.fromJson(String value) =>
+      fromJson___Enum_____DirectiveLocation(value);
+
+  String toJson() => toJson___Enum_____DirectiveLocation(this);
 }
 
 String toJson___Enum_____DirectiveLocation(Enum_____DirectiveLocation e) {
