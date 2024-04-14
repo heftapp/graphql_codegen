@@ -1,0 +1,9 @@
+scalar DateTime
+
+type Query {
+  time: DateTime
+}
+
+query FetchScalars {
+  time
+}

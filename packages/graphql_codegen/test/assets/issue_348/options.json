@@ -1,0 +1,11 @@
+{
+  "scalars": {
+    "DateTime": {
+      "type": "DateTime",
+      "fromJsonFunctionName": "customDateTimeFromJson",
+      "toJsonFunctionName": "customDateTimeToJson",
+      "import": "scalar_import.dart"
+    }
+  },
+  "addTypename": false
+}
