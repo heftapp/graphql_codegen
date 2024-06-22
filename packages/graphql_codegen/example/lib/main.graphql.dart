@@ -388,7 +388,7 @@ class WatchOptions$Query$FetchPerson
     extends graphql.WatchQueryOptions<Query$FetchPerson> {
   WatchOptions$Query$FetchPerson({
     String? operationName,
-    required Variables$Query$FetchPerson variables,
+    Variables$Query$FetchPerson? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -400,7 +400,7 @@ class WatchOptions$Query$FetchPerson
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -466,8 +466,8 @@ graphql_flutter.QueryHookResult<Query$FetchPerson> useQuery$FetchPerson(
         Options$Query$FetchPerson options) =>
     graphql_flutter.useQuery(options);
 graphql.ObservableQuery<Query$FetchPerson> useWatchQuery$FetchPerson(
-        WatchOptions$Query$FetchPerson options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$FetchPerson? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$FetchPerson());
 
 class Query$FetchPerson$Widget
     extends graphql_flutter.Query<Query$FetchPerson> {
@@ -1566,7 +1566,7 @@ class WatchOptions$Mutation$UpdatePerson
     extends graphql.WatchQueryOptions<Mutation$UpdatePerson> {
   WatchOptions$Mutation$UpdatePerson({
     String? operationName,
-    required Variables$Mutation$UpdatePerson variables,
+    Variables$Mutation$UpdatePerson? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1578,7 +1578,7 @@ class WatchOptions$Mutation$UpdatePerson
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
