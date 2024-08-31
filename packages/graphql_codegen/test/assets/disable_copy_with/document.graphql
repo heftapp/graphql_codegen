@@ -1,0 +1,13 @@
+scalar DateTime
+
+type Query {
+  time: DateTime
+}
+
+query FetchScalars {
+  time
+}
+
+input CreateScalar {
+  time: DateTime
+}

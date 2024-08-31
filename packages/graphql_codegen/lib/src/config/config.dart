@@ -66,6 +66,7 @@ class GraphQLCodegenConfig {
   final List<String> extraKeywords;
   final String outputDirectory;
   final bool disableContextReplacement;
+  final bool disableCopyWithGeneration;
 
   GraphQLCodegenConfig({
     this.clients = const {},
@@ -80,6 +81,7 @@ class GraphQLCodegenConfig {
     this.namingSeparator = r"$",
     this.extraKeywords = const [],
     this.outputDirectory = '.',
+    this.disableCopyWithGeneration = false,
   });
 
   @override

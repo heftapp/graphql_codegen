@@ -150,6 +150,11 @@ Class printContext(PrintContext c) {
 
 List<Spec> printContextExtension(PrintContext c) {
   final context = c.context;
+
+  if (context.config.disableCopyWithGeneration) {
+    return [];
+  }
+
   final properties = c.context.properties;
 
   final whenMethod = _printWhen(

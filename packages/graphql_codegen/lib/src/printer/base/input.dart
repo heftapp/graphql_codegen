@@ -132,21 +132,23 @@ List<Spec> _printInputClasses(
               ..returns = dynamicMap
               ..body = _printToJson(context, properties),
           ),
-          Method(
-            (b) => b
-              ..name = 'copyWith'
-              ..type = MethodType.getter
-              ..returns = generic(
-                context.namePrinter.printCopyWithClassName(name(context.path)),
-                refer(name(context.path)),
-              )
-              ..body = refer(context.namePrinter
-                      .printCopyWithClassName(name(context.path)))
-                  .call([
-                refer('this'),
-                printIdentityFunction().closure,
-              ]).code,
-          ),
+          if (!context.context.config.disableCopyWithGeneration)
+            Method(
+              (b) => b
+                ..name = 'copyWith'
+                ..type = MethodType.getter
+                ..returns = generic(
+                  context.namePrinter
+                      .printCopyWithClassName(name(context.path)),
+                  refer(name(context.path)),
+                )
+                ..body = refer(context.namePrinter
+                        .printCopyWithClassName(name(context.path)))
+                    .call([
+                  refer('this'),
+                  printIdentityFunction().closure,
+                ]).code,
+            ),
           printEqualityOperator(
             context,
             name(context.path),
@@ -160,31 +162,32 @@ List<Spec> _printInputClasses(
           ),
         ]),
     ),
-    ...printCopyWithClasses(
-      context,
-      name(context.path),
-      properties,
-      refer(name(context.path)).property('_').call([
-        CodeExpression(Block.of([
-          Code('{'),
-          Code('..._instance.${kDataVariableName},'),
-          ...properties.expand((prop) {
-            final propName = context.namePrinter.printPropertyName(prop.name);
-            return [
-              if (prop.isNonNull)
-                Code('if(${propName} != _undefined && ${propName} != null)')
-              else
-                Code('if(${propName} != _undefined)'),
-              literalString(prop.name.value).code,
-              Code(':'),
-              refer(propName).asA(printClassPropertyType(context, prop)).code,
-              Code(','),
-            ];
-          }),
-          Code('}'),
-        ])),
-      ]),
-    )
+    if (!context.context.config.disableCopyWithGeneration)
+      ...printCopyWithClasses(
+        context,
+        name(context.path),
+        properties,
+        refer(name(context.path)).property('_').call([
+          CodeExpression(Block.of([
+            Code('{'),
+            Code('..._instance.${kDataVariableName},'),
+            ...properties.expand((prop) {
+              final propName = context.namePrinter.printPropertyName(prop.name);
+              return [
+                if (prop.isNonNull)
+                  Code('if(${propName} != _undefined && ${propName} != null)')
+                else
+                  Code('if(${propName} != _undefined)'),
+                literalString(prop.name.value).code,
+                Code(':'),
+                refer(propName).asA(printClassPropertyType(context, prop)).code,
+                Code(','),
+              ];
+            }),
+            Code('}'),
+          ])),
+        ]),
+      )
   ];
 }
 
