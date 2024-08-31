@@ -491,6 +491,8 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
           ) !=
       null;
 
+  bool get isOneOf => false;
+
   Name get path => throw StateError("Path not available");
 
   Context withNameAndType(
@@ -680,6 +682,17 @@ class ContextInput<TKey extends Object>
   NameNode get currentTypeName => currentType.name;
 
   final bool isDefinitionContext = true;
+
+  bool get isOneOf {
+    final hasOneOfDirective = currentType.directives
+        .any((directive) => directive.name.value == 'oneOf');
+
+    final allFieldsAreNullable = currentType.fields.every(
+      (field) => !field.type.isNonNull,
+    );
+
+    return hasOneOfDirective && allFieldsAreNullable;
+  }
 }
 
 class ContextOperation<TKey extends Object>

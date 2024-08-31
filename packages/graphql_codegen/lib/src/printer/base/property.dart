@@ -197,6 +197,13 @@ TypeReference asNullable(TypeReference reference) => TypeReference(
         ..types = reference.types.toBuilder(),
     );
 
+TypeReference asNonNullable(TypeReference reference) => TypeReference(
+      (b) => b
+        ..isNullable = false
+        ..symbol = reference.symbol
+        ..types = reference.types.toBuilder(),
+    );
+
 TypeReference _asList(TypeReference reference) => TypeReference(
       (b) => b
         ..symbol = 'List'

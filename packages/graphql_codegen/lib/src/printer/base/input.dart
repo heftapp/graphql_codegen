@@ -13,22 +13,22 @@ import 'package:graphql_codegen/src/printer/utils.dart';
 
 List<Spec> printInputClasses(PrintContext<ContextInput> context) =>
     _printInputClasses(
-      context,
-      context.namePrinter.printClassName,
-      context.context.properties,
+      context: context,
+      name: context.namePrinter.printClassName,
+      properties: context.context.properties,
     );
 
 List<Spec> printVariableClasses(PrintContext context) => _printInputClasses(
-      context,
-      context.namePrinter.printVariableClassName,
-      context.context.variables,
+      context: context,
+      name: context.namePrinter.printVariableClassName,
+      properties: context.context.variables,
     );
 
-List<Spec> _printInputClasses(
-  PrintContext context,
-  String Function(Name) name,
-  Iterable<ContextProperty> properties,
-) {
+List<Spec> _printInputClasses({
+  required PrintContext context,
+  required String Function(Name) name,
+  required Iterable<ContextProperty> properties,
+}) {
   final factoryParameters = ListBuilder<Parameter>(
     properties.map(
       (property) => Parameter(
@@ -51,31 +51,65 @@ List<Spec> _printInputClasses(
       (b) => b
         ..name = name(context.path)
         ..constructors = ListBuilder([
-          Constructor(
-            (b) => b
-              ..factory = true
-              ..optionalParameters = factoryParameters
-              ..body = refer(name(context.path)).property('_').call([
-                CodeExpression(Code(
-                  """
+          if (context.context.isOneOf)
+            ...properties.map(
+              (property) => Constructor(
+                (b) => b
+                  ..requiredParameters = ListBuilder([
+                    Parameter(
+                      (b) => b
+                        ..name = context.namePrinter.printPropertyName(
+                          property.name,
+                        )
+                        ..type = asNonNullable(
+                          printClassPropertyType(
+                            context,
+                            property,
+                          ),
+                        ),
+                    )
+                  ])
+                  ..factory = true
+                  ..name = context.namePrinter.printPropertyName(property.name)
+                  ..body = refer(name(context.path)).property('_').call([
+                    literalMap(
+                      {
+                        property.name.value: refer(
+                          context.namePrinter.printPropertyName(
+                            property.name,
+                          ),
+                        ),
+                      },
+                    ),
+                  ]).code,
+              ),
+            )
+          else
+            Constructor(
+              (b) => b
+                ..factory = true
+                ..optionalParameters = factoryParameters
+                ..body = refer(name(context.path)).property('_').call([
+                  CodeExpression(Code(
+                    """
                   {
                     ${properties.map((property) {
-                    final key = property.name.value;
-                    final value =
-                        context.namePrinter.printPropertyName(property.name);
-                    final entry = "r'${key}': ${value},";
-                    if (property.isRequired) {
-                      return entry;
-                    }
-                    return """
+                      final key = property.name.value;
+                      final value =
+                          context.namePrinter.printPropertyName(property.name);
+                      final entry = "r'${key}': ${value},";
+                      if (property.isRequired) {
+                        return entry;
+                      }
+                      return """
                     if (${value} != null) ${entry}
                     """;
-                  }).join()}
+                    }).join()}
                   }
                   """,
-                )),
-              ]).code,
-          ),
+                  )),
+                ]).code,
+            ),
           Constructor((b) => b
             ..name = '_'
             ..requiredParameters = ListBuilder([
