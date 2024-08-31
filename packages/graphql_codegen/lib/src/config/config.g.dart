@@ -82,6 +82,8 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
               .toList() ??
           const [],
       outputDirectory: json['outputDirectory'] as String? ?? '.',
+      disableCopyWithGeneration:
+          json['disableCopyWithGeneration'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -101,6 +103,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'extraKeywords': instance.extraKeywords,
       'outputDirectory': instance.outputDirectory,
       'disableContextReplacement': instance.disableContextReplacement,
+      'disableCopyWithGeneration': instance.disableCopyWithGeneration,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {
