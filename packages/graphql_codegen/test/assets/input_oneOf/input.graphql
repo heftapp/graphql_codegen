@@ -1,0 +1,11 @@
+input I1 @oneOf {
+    v1: Int
+    v2: Int
+    v3: Int
+}
+
+input I2 @oneOf {
+    v1: Int
+    v2: Int
+    v3: Int!
+}
