@@ -1,3 +1,8 @@
+# 1.0.0
+
+- Supports `@oneOf` directive on input.
+- Allows disabling copy-with class generation.
+
 # 0.14.0
 
 - Add new JSON serialization constructors and methods to enum
