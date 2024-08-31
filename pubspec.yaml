@@ -5,4 +5,4 @@ environment:
 
 
 dev_dependencies:
-  melos: 3.4.0
+  melos: 6.1.0
