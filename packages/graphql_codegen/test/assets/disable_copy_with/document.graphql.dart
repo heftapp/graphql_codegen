@@ -1,19 +1,19 @@
 import 'package:gql/ast.dart';
 
-class Input$CreateScalar {
-  factory Input$CreateScalar({String? time}) => Input$CreateScalar._({
+class Input$DataQuery {
+  factory Input$DataQuery({String? time}) => Input$DataQuery._({
         if (time != null) r'time': time,
       });
 
-  Input$CreateScalar._(this._$data);
+  Input$DataQuery._(this._$data);
 
-  factory Input$CreateScalar.fromJson(Map<String, dynamic> data) {
+  factory Input$DataQuery.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('time')) {
       final l$time = data['time'];
       result$data['time'] = (l$time as String?);
     }
-    return Input$CreateScalar._(result$data);
+    return Input$DataQuery._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -34,7 +34,7 @@ class Input$CreateScalar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateScalar) || runtimeType != other.runtimeType) {
+    if (!(other is Input$DataQuery) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$time = time;
@@ -236,29 +236,29 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
   }
 }
 
-class Query$FetchScalars {
-  Query$FetchScalars({
-    this.time,
-    this.$__typename = 'Query',
+class Fragment$FA {
+  Fragment$FA({
+    this.value,
+    this.$__typename = 'A',
   });
 
-  factory Query$FetchScalars.fromJson(Map<String, dynamic> json) {
-    final l$time = json['time'];
+  factory Fragment$FA.fromJson(Map<String, dynamic> json) {
+    final l$value = json['value'];
     final l$$__typename = json['__typename'];
-    return Query$FetchScalars(
-      time: (l$time as String?),
+    return Fragment$FA(
+      value: (l$value as String?),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final String? time;
+  final String? value;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$time = time;
-    _resultData['time'] = l$time;
+    final l$value = value;
+    _resultData['value'] = l$value;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -266,10 +266,190 @@ class Query$FetchScalars {
 
   @override
   int get hashCode {
-    final l$time = time;
+    final l$value = value;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$time,
+      l$value,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$FA) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$value = value;
+    final lOther$value = other.value;
+    if (l$value != lOther$value) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+const fragmentDefinitionFA = FragmentDefinitionNode(
+  name: NameNode(value: 'FA'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'A'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'value'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentFA = DocumentNode(definitions: [
+  fragmentDefinitionFA,
+]);
+
+class Fragment$FB {
+  Fragment$FB({
+    this.value,
+    this.$__typename = 'B',
+  });
+
+  factory Fragment$FB.fromJson(Map<String, dynamic> json) {
+    final l$value = json['value'];
+    final l$$__typename = json['__typename'];
+    return Fragment$FB(
+      value: (l$value as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? value;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$value = value;
+    _resultData['value'] = l$value;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$value = value;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$value,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$FB) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$value = value;
+    final lOther$value = other.value;
+    if (l$value != lOther$value) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+const fragmentDefinitionFB = FragmentDefinitionNode(
+  name: NameNode(value: 'FB'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'B'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'value'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentFB = DocumentNode(definitions: [
+  fragmentDefinitionFB,
+]);
+
+class Query$FetchScalars {
+  Query$FetchScalars({
+    this.data,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$FetchScalars.fromJson(Map<String, dynamic> json) {
+    final l$data = json['data'];
+    final l$$__typename = json['__typename'];
+    return Query$FetchScalars(
+      data: l$data == null
+          ? null
+          : Query$FetchScalars$data.fromJson((l$data as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$FetchScalars$data? data;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$data = data;
+    _resultData['data'] = l$data?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$data,
       l$$__typename,
     ]);
   }
@@ -282,9 +462,9 @@ class Query$FetchScalars {
     if (!(other is Query$FetchScalars) || runtimeType != other.runtimeType) {
       return false;
     }
-    final l$time = time;
-    final lOther$time = other.time;
-    if (l$time != lOther$time) {
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -304,11 +484,27 @@ const documentNodeQueryFetchScalars = DocumentNode(definitions: [
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
-        name: NameNode(value: 'time'),
+        name: NameNode(value: 'data'),
         alias: null,
         arguments: [],
         directives: [],
-        selectionSet: null,
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'FA'),
+            directives: [],
+          ),
+          FragmentSpreadNode(
+            name: NameNode(value: 'FB'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
       ),
       FieldNode(
         name: NameNode(value: '__typename'),
@@ -319,5 +515,231 @@ const documentNodeQueryFetchScalars = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionFA,
+  fragmentDefinitionFB,
 ]);
-const possibleTypesMap = <String, Set<String>>{};
+
+class Query$FetchScalars$data {
+  Query$FetchScalars$data({required this.$__typename});
+
+  factory Query$FetchScalars$data.fromJson(Map<String, dynamic> json) {
+    switch (json["__typename"] as String) {
+      case "A":
+        return Query$FetchScalars$data$$A.fromJson(json);
+
+      case "B":
+        return Query$FetchScalars$data$$B.fromJson(json);
+
+      default:
+        final l$$__typename = json['__typename'];
+        return Query$FetchScalars$data($__typename: (l$$__typename as String));
+    }
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchScalars$data) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$FetchScalars$data on Query$FetchScalars$data {
+  _T when<_T>({
+    required _T Function(Query$FetchScalars$data$$A) a,
+    required _T Function(Query$FetchScalars$data$$B) b,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "A":
+        return a(this as Query$FetchScalars$data$$A);
+
+      case "B":
+        return b(this as Query$FetchScalars$data$$B);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(Query$FetchScalars$data$$A)? a,
+    _T Function(Query$FetchScalars$data$$B)? b,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "A":
+        if (a != null) {
+          return a(this as Query$FetchScalars$data$$A);
+        } else {
+          return orElse();
+        }
+
+      case "B":
+        if (b != null) {
+          return b(this as Query$FetchScalars$data$$B);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
+}
+
+class Query$FetchScalars$data$$A
+    implements Fragment$FA, Query$FetchScalars$data {
+  Query$FetchScalars$data$$A({
+    this.value,
+    this.$__typename = 'A',
+  });
+
+  factory Query$FetchScalars$data$$A.fromJson(Map<String, dynamic> json) {
+    final l$value = json['value'];
+    final l$$__typename = json['__typename'];
+    return Query$FetchScalars$data$$A(
+      value: (l$value as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? value;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$value = value;
+    _resultData['value'] = l$value;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$value = value;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$value,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchScalars$data$$A) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$value = value;
+    final lOther$value = other.value;
+    if (l$value != lOther$value) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+class Query$FetchScalars$data$$B
+    implements Fragment$FB, Query$FetchScalars$data {
+  Query$FetchScalars$data$$B({
+    this.value,
+    this.$__typename = 'B',
+  });
+
+  factory Query$FetchScalars$data$$B.fromJson(Map<String, dynamic> json) {
+    final l$value = json['value'];
+    final l$$__typename = json['__typename'];
+    return Query$FetchScalars$data$$B(
+      value: (l$value as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? value;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$value = value;
+    _resultData['value'] = l$value;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$value = value;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$value,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$FetchScalars$data$$B) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$value = value;
+    final lOther$value = other.value;
+    if (l$value != lOther$value) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+const possibleTypesMap = <String, Set<String>>{
+  'I': {
+    'A',
+    'B',
+  }
+};

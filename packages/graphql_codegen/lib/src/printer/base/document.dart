@@ -151,10 +151,6 @@ Class printContext(PrintContext c) {
 List<Spec> printContextExtension(PrintContext c) {
   final context = c.context;
 
-  if (context.config.disableCopyWithGeneration) {
-    return [];
-  }
-
   final properties = c.context.properties;
 
   final whenMethod = _printWhen(
@@ -168,26 +164,29 @@ List<Spec> printContextExtension(PrintContext c) {
     context.typenameProperty,
     context.possibleTypes,
   );
-
+  final methods = [
+    if (!context.config.disableCopyWithGeneration)
+      _printCopyWithMethod(
+        c.namePrinter.printClassName(context.path),
+        c,
+      ),
+    if (whenMethod != null) whenMethod,
+    if (maybeWhenMethod != null) maybeWhenMethod,
+  ];
   return [
-    Extension(
-      (b) => b
-        ..name = c.namePrinter.printClassExtensionName(context.path)
-        ..on = refer(c.namePrinter.printClassName(context.path))
-        ..methods = ListBuilder([
-          _printCopyWithMethod(
-            c.namePrinter.printClassName(context.path),
-            c,
-          ),
-          if (whenMethod != null) whenMethod,
-          if (maybeWhenMethod != null) maybeWhenMethod,
-        ]),
-    ),
-    ...printCopyWithClasses(
-      c,
-      c.namePrinter.printClassName(context.path),
-      properties,
-    ),
+    if (methods.isNotEmpty)
+      Extension(
+        (b) => b
+          ..name = c.namePrinter.printClassExtensionName(context.path)
+          ..on = refer(c.namePrinter.printClassName(context.path))
+          ..methods = ListBuilder(methods),
+      ),
+    if (!context.config.disableCopyWithGeneration)
+      ...printCopyWithClasses(
+        c,
+        c.namePrinter.printClassName(context.path),
+        properties,
+      ),
   ];
 }
 
