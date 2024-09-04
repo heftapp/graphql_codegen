@@ -1,13 +1,39 @@
 scalar DateTime
 
-type Query {
+input DataQuery {
   time: DateTime
+}
+
+type Query {
+  data(input: DataQuery): I
+}
+
+
+interface I {
+  value: String
+}
+
+type A implements I {
+  value: String
+}
+
+type B implements I {
+  value: String
+}
+
+
+fragment FA on A {
+  value
+}
+
+fragment FB on B {
+  value
 }
 
 query FetchScalars {
-  time
+  data {
+    ...FA
+    ...FB
+  }
 }
 
-input CreateScalar {
-  time: DateTime
-}

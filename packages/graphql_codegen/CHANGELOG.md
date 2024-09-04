@@ -1,3 +1,7 @@
+# 1.0.1
+
+- Don't remove `when` and `maybeWhen` when `disableCopyWithGeneration = true`.
+
 # 1.0.0
 
 - Supports `@oneOf` directive on input.
