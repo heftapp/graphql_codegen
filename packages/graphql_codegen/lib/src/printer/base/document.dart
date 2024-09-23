@@ -110,6 +110,17 @@ Class printContext(PrintContext c) {
     c.addDependency(extendContext.path);
   }
   final properties = c.context.properties;
+
+  final typeImplements =
+      context.config.typeImplements[c.namePrinter.printClassName(context.path)];
+  if (typeImplements != null) {
+    for (final t in typeImplements) {
+      if (t.import != null) {
+        c.addPackage(t.import!);
+      }
+    }
+  }
+
   return Class(
     (b) => b
       ..name = c.namePrinter.printClassName(context.path)
@@ -120,6 +131,8 @@ Class printContext(PrintContext c) {
             .map(refer),
         if (extendContext != null)
           refer(c.namePrinter.printClassName(extendContext.path)),
+        if (typeImplements != null)
+          ...typeImplements.map((e) => Reference(e.parent, e.import))
       ])
       ..constructors = ListBuilder([
         _printConstructor(c, properties),
