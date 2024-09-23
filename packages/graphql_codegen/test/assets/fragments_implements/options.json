@@ -1,0 +1,18 @@
+{
+    "typeImplements": {
+        "Fragment$F": [
+            {
+                "parent": "Parent",
+                "import": "implements_import.dart"
+            },
+            {
+                "parent": "Parent2",
+                "import": "implements_import.dart"
+            },
+            {
+                "parent": "Other",
+                "import": "implements_import2.dart"
+            }
+        ]
+    }
+}

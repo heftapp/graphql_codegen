@@ -44,6 +44,20 @@ Map<String, dynamic> _$GraphQLCodegenConfigEnumToJson(
       'fallbackEnumValue': instance.fallbackEnumValue,
     };
 
+GraphQLCodegenConfigImplements _$GraphQLCodegenConfigImplementsFromJson(
+        Map<String, dynamic> json) =>
+    GraphQLCodegenConfigImplements(
+      parent: json['parent'] as String,
+      import: json['import'] as String?,
+    );
+
+Map<String, dynamic> _$GraphQLCodegenConfigImplementsToJson(
+        GraphQLCodegenConfigImplements instance) =>
+    <String, dynamic>{
+      'parent': instance.parent,
+      'import': instance.import,
+    };
+
 GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
         Map<String, dynamic> json) =>
     GraphQLCodegenConfig(
@@ -84,6 +98,16 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
       outputDirectory: json['outputDirectory'] as String? ?? '.',
       disableCopyWithGeneration:
           json['disableCopyWithGeneration'] as bool? ?? false,
+      typeImplements:
+          (json['typeImplements'] as Map<String, dynamic>?)?.map(
+                (k, e) => MapEntry(
+                    k,
+                    (e as List<dynamic>)
+                        .map((e) => GraphQLCodegenConfigImplements.fromJson(
+                            e as Map<String, dynamic>))
+                        .toList()),
+              ) ??
+              const {},
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -104,6 +128,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'outputDirectory': instance.outputDirectory,
       'disableContextReplacement': instance.disableContextReplacement,
       'disableCopyWithGeneration': instance.disableCopyWithGeneration,
+      'typeImplements': instance.typeImplements,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {

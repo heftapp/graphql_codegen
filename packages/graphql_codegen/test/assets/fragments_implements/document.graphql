@@ -1,0 +1,19 @@
+type Query {
+  t: T
+}
+
+type T {
+  id: String!
+  name: String
+}
+
+fragment F on T {
+  id
+  name
+}
+
+query Q {
+  t {
+    ...F
+  }
+}
