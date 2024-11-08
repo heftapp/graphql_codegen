@@ -71,5 +71,6 @@ const staticKeywords = {
   "Runes",
   "Symbol",
   "String",
-  "Null"
+  "Null",
+  "num"
 };
