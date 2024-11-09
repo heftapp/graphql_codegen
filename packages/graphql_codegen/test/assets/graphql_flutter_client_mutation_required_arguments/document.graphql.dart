@@ -464,7 +464,7 @@ class WatchOptions$Mutation$UpdateSRequired
     extends graphql.WatchQueryOptions<Mutation$UpdateSRequired> {
   WatchOptions$Mutation$UpdateSRequired({
     String? operationName,
-    required Variables$Mutation$UpdateSRequired variables,
+    Variables$Mutation$UpdateSRequired? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -476,7 +476,7 @@ class WatchOptions$Mutation$UpdateSRequired
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -529,8 +529,9 @@ Mutation$UpdateSRequired$HookResult useMutation$UpdateSRequired(
 
 graphql.ObservableQuery<Mutation$UpdateSRequired>
     useWatchMutation$UpdateSRequired(
-            WatchOptions$Mutation$UpdateSRequired options) =>
-        graphql_flutter.useWatchMutation(options);
+            [WatchOptions$Mutation$UpdateSRequired? options]) =>
+        graphql_flutter.useWatchMutation(
+            options ?? WatchOptions$Mutation$UpdateSRequired());
 
 class WidgetOptions$Mutation$UpdateSRequired
     extends graphql.MutationOptions<Mutation$UpdateSRequired> {

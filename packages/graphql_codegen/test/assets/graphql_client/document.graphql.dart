@@ -1475,7 +1475,7 @@ class WatchOptions$Query$FetchSRequired
     extends graphql.WatchQueryOptions<Query$FetchSRequired> {
   WatchOptions$Query$FetchSRequired({
     String? operationName,
-    required Variables$Query$FetchSRequired variables,
+    Variables$Query$FetchSRequired? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1487,7 +1487,7 @@ class WatchOptions$Query$FetchSRequired
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -2389,7 +2389,7 @@ class WatchOptions$Mutation$UpdateSRequired
     extends graphql.WatchQueryOptions<Mutation$UpdateSRequired> {
   WatchOptions$Mutation$UpdateSRequired({
     String? operationName,
-    required Variables$Mutation$UpdateSRequired variables,
+    Variables$Mutation$UpdateSRequired? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -2401,7 +2401,7 @@ class WatchOptions$Mutation$UpdateSRequired
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
