@@ -53,6 +53,23 @@ class GraphQLCodegenConfigEnum {
 }
 
 @JsonSerializable()
+class GraphQLCodegenConfigImplements {
+  final String parent;
+  final String? import;
+
+  const GraphQLCodegenConfigImplements({
+    required this.parent,
+    this.import,
+  });
+
+  @override
+  factory GraphQLCodegenConfigImplements.fromJson(Map<String, dynamic> json) =>
+      _$GraphQLCodegenConfigImplementsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GraphQLCodegenConfigImplementsToJson(this);
+}
+
+@JsonSerializable()
 class GraphQLCodegenConfig {
   final Set<GraphQLCodegenConfigClient> clients;
   final Map<String, GraphQLCodegenConfigScalar> scalars;
@@ -67,6 +84,7 @@ class GraphQLCodegenConfig {
   final String outputDirectory;
   final bool disableContextReplacement;
   final bool disableCopyWithGeneration;
+  final Map<String, List<GraphQLCodegenConfigImplements>> typeImplements;
 
   GraphQLCodegenConfig({
     this.clients = const {},
@@ -82,6 +100,7 @@ class GraphQLCodegenConfig {
     this.extraKeywords = const [],
     this.outputDirectory = '.',
     this.disableCopyWithGeneration = false,
+    this.typeImplements = const {},
   });
 
   @override
