@@ -1,0 +1,23 @@
+input I1 {
+    s: String!
+    sMaybe: String
+    nested_input: I1
+    children: [I1!]
+    children2: [[I1]]
+    _min: Int
+    eMaybe: E
+    e: E!
+    es: [E!]!
+    i2: I2
+}
+
+input I2 {
+    foobar: Foobar
+}
+
+enum E {
+    FOO
+    BAR
+    BAZ
+}
+scalar Foobar

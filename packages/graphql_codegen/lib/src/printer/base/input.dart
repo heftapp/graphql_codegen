@@ -7,6 +7,7 @@ import 'package:graphql_codegen/src/printer/base/copy.dart';
 import 'package:graphql_codegen/src/printer/base/equality.dart';
 import 'package:graphql_codegen/src/printer/base/json.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
+import 'package:graphql_codegen/src/printer/base/undefined.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 import 'package:graphql_codegen/src/printer/utils.dart';
@@ -84,6 +85,12 @@ List<Spec> _printInputClasses({
                   ]).code,
               ),
             )
+          else if (context.context.config.enableInputBuilders)
+            _printInputBuilderConstructor(
+              context: context,
+              properties: properties,
+              name: name,
+            )
           else
             Constructor(
               (b) => b
@@ -142,7 +149,10 @@ List<Spec> _printInputClasses({
             (b) => b
               ..name = kDataVariableName
               ..type = dynamicMap,
-          )
+          ),
+          if (context.context.config.enableInputBuilders &&
+              !context.context.isOneOf)
+            printUndefinedField(),
         ])
         ..methods = ListBuilder([
           ...properties.map((e) => Method(
@@ -209,9 +219,10 @@ List<Spec> _printInputClasses({
               final propName = context.namePrinter.printPropertyName(prop.name);
               return [
                 if (prop.isNonNull)
-                  Code('if(${propName} != _undefined && ${propName} != null)')
+                  Code(
+                      'if(${propName} != ${kUndefinedFieldName} && ${propName} != null)')
                 else
-                  Code('if(${propName} != _undefined)'),
+                  Code('if(${propName} != ${kUndefinedFieldName})'),
                 literalString(prop.name.value).code,
                 Code(':'),
                 refer(propName).asA(printClassPropertyType(context, prop)).code,
@@ -223,6 +234,115 @@ List<Spec> _printInputClasses({
         ]),
       )
   ];
+}
+
+Constructor _printInputBuilderConstructor(
+    {required PrintContext context,
+    required String Function(Name) name,
+    required Iterable<ContextProperty> properties}) {
+  final buildPropertyMapEntry = (ContextProperty property) => MapEntry(
+        context.namePrinter.printPropertyName(
+          property.name,
+        ),
+        property.hasDefaultValue
+            ? asNullable(
+                printClassPropertyType(
+                  context,
+                  property,
+                ),
+              )
+            : printClassPropertyType(
+                context,
+                property,
+              ),
+      );
+  final fnName = 'fn';
+  return Constructor(
+    (b) => b
+      ..factory = true
+      ..requiredParameters = ListBuilder<Parameter>(
+        [
+          Parameter(
+            (b) => b
+              ..name = fnName
+              ..type = FunctionType(
+                (b) => b
+                  ..returnType = refer(name(context.path))
+                  ..requiredParameters = ListBuilder<Reference>(
+                    [
+                      FunctionType(
+                        (b) => b
+                          ..namedParameters = MapBuilder(
+                            Map.fromEntries(
+                              properties
+                                  .where((property) => !property.isRequired)
+                                  .map(buildPropertyMapEntry),
+                            ),
+                          )
+                          ..namedRequiredParameters = MapBuilder(
+                            Map.fromEntries(
+                              properties
+                                  .where((property) => property.isRequired)
+                                  .map(buildPropertyMapEntry),
+                            ),
+                          )
+                          ..returnType = refer(
+                            name(context.path),
+                          ),
+                      )
+                    ],
+                  ),
+              ),
+          )
+        ],
+      )
+      ..body = refer(fnName).call(
+        [
+          Method(
+            (b) => b
+              ..optionalParameters = ListBuilder(
+                properties.map(
+                  (property) => Parameter(
+                    (b) => b
+                      ..name = context.namePrinter.printPropertyName(
+                        property.name,
+                      )
+                      ..named = true
+                      ..required = property.isRequired
+                      ..defaultTo = property.isRequired
+                          ? null
+                          : refer(kUndefinedFieldName).code
+                      ..type = property.isRequired
+                          ? printClassPropertyType(context, property)
+                          : refer('Object?'),
+                  ),
+                ),
+              )
+              ..body = refer(name(context.path)).property('_').call([
+                CodeExpression(Code(
+                  """
+                  {
+                    ${properties.map((property) {
+                    final key = property.name.value;
+                    final value = context.namePrinter.printPropertyName(
+                      property.name,
+                    );
+                    final entry = "r'${key}': ${value},";
+                    if (property.isRequired) {
+                      return entry;
+                    }
+                    return """
+                    if (${value} != ${kUndefinedFieldName}) ${entry}
+                    """;
+                  }).join()}
+                  }
+                  """,
+                )),
+              ]).code,
+          ).closure
+        ],
+      ).code,
+  );
 }
 
 Code _printToJson(PrintContext context, Iterable<ContextProperty> properties) {
