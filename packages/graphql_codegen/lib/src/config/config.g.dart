@@ -84,6 +84,8 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
       outputDirectory: json['outputDirectory'] as String? ?? '.',
       disableCopyWithGeneration:
           json['disableCopyWithGeneration'] as bool? ?? false,
+      enableInputBuilders:
+          json['EXPERIMENTAL_enable_input_builders'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -104,6 +106,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'outputDirectory': instance.outputDirectory,
       'disableContextReplacement': instance.disableContextReplacement,
       'disableCopyWithGeneration': instance.disableCopyWithGeneration,
+      'EXPERIMENTAL_enable_input_builders': instance.enableInputBuilders,
     };
 
 const _$GraphQLCodegenConfigClientEnumMap = {

@@ -3,10 +3,9 @@ import 'package:code_builder/code_builder.dart';
 import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/base/deep_copy.dart';
 import 'package:graphql_codegen/src/printer/base/property.dart';
+import 'package:graphql_codegen/src/printer/base/undefined.dart';
 import 'package:graphql_codegen/src/printer/clients/utils.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
-
-const _undefined = '_undefined';
 
 Expression _printDefaultConstructor(
   PrintContext c,
@@ -20,9 +19,9 @@ Expression _printDefaultConstructor(
         property.name,
         (property.isRequired
                 ? refer(parameterName)
-                    .equalTo(refer(_undefined))
+                    .equalTo(refer(kUndefinedFieldName))
                     .or(refer(parameterName).equalTo(literalNull))
-                : refer(parameterName).equalTo(refer(_undefined)))
+                : refer(parameterName).equalTo(refer(kUndefinedFieldName)))
             .conditional(refer('_instance').property(parameterName),
                 refer(parameterName).asA(propertyType)));
   }));
@@ -156,17 +155,7 @@ List<Spec> printCopyWithClasses(
               )
               ..modifier = FieldModifier.final$,
           ),
-          Field(
-            (b) => b
-              ..name = _undefined
-              ..static = true
-              ..modifier = FieldModifier.constant
-              ..assignment = literalMap(
-                {},
-                refer('dynamic'),
-                refer('dynamic'),
-              ).code,
-          )
+          printUndefinedField(),
         ])
         ..methods = ListBuilder(<Method>[
           Method(
@@ -179,7 +168,7 @@ List<Spec> printCopyWithClasses(
                     (b) => b
                       ..name = c.namePrinter.printPropertyName(property.name)
                       ..named = true
-                      ..defaultTo = refer(_undefined).code
+                      ..defaultTo = refer(kUndefinedFieldName).code
                       ..type = refer('Object?'),
                   );
                 }),

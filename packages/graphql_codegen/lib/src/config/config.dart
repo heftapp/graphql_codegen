@@ -68,6 +68,9 @@ class GraphQLCodegenConfig {
   final bool disableContextReplacement;
   final bool disableCopyWithGeneration;
 
+  @JsonKey(name: 'EXPERIMENTAL_enable_input_builders')
+  final bool enableInputBuilders;
+
   GraphQLCodegenConfig({
     this.clients = const {},
     this.disableContextReplacement = false,
@@ -82,6 +85,7 @@ class GraphQLCodegenConfig {
     this.extraKeywords = const [],
     this.outputDirectory = '.',
     this.disableCopyWithGeneration = false,
+    this.enableInputBuilders = false,
   });
 
   @override
