@@ -1,0 +1,48 @@
+type Media {
+    id: ID
+    type: String
+    title: MediaTitle
+    coverImage: MediaCoverImage
+    nextEpisode: Int
+}
+
+type MediaTitle {
+    romaji: String
+    userPreferred: String
+}
+
+type MediaCoverImage {
+    large: String
+    medium: String
+}
+
+type Query {
+    Media(id: Int, search: String): Media
+}
+
+
+fragment MediaMinimalFrag on Media {
+  id
+  type
+  title {
+    romaji
+    userPreferred
+  }
+  coverImage {
+    large
+    medium
+  }
+}
+
+query MediaMinimal($id: Int, $search: String) {
+  Media(id: $id, search: $search) {
+    ...MediaMinimalFrag
+  }
+}
+
+query MediaFull($id: Int, $search: String) {
+  Media(id: $id, search: $search) {
+    ...MediaMinimalFrag
+    nextEpisode
+  }
+}
