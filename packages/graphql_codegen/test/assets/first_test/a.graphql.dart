@@ -32,7 +32,7 @@ class Query$FetchName {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchName) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchName || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

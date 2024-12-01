@@ -32,7 +32,7 @@ class Query$Operation {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Operation) || runtimeType != other.runtimeType) {
+    if (other is! Query$Operation || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

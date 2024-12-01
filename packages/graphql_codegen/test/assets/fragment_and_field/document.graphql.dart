@@ -224,7 +224,7 @@ class Fragment$FPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FPerson) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FPerson || runtimeType != other.runtimeType) {
       return false;
     }
     final l$age = age;
@@ -376,7 +376,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$person = person;
@@ -557,7 +557,7 @@ class Query$Q$person {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$person) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$person || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -716,8 +716,7 @@ class Query$Q$person$$Person implements Fragment$FPerson, Query$Q$person {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$person$$Person) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$Q$person$$Person || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

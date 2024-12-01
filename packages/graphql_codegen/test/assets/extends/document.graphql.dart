@@ -54,7 +54,7 @@ class Input$In {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$In) || runtimeType != other.runtimeType) {
+    if (other is! Input$In || runtimeType != other.runtimeType) {
       return false;
     }
     final l$string = string;
@@ -420,7 +420,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$string = string;
@@ -619,7 +619,7 @@ class Query$Q$i {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$i) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$i || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$int = $int;
@@ -736,7 +736,7 @@ class Mutation$M {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$M) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$M || runtimeType != other.runtimeType) {
       return false;
     }
     final l$string = string;

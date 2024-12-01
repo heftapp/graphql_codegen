@@ -257,7 +257,7 @@ class Fragment$MediaMinimalFrag {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$MediaMinimalFrag) ||
+    if (other is! Fragment$MediaMinimalFrag ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -538,7 +538,7 @@ class Fragment$MediaMinimalFrag$title {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$MediaMinimalFrag$title) ||
+    if (other is! Fragment$MediaMinimalFrag$title ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -682,7 +682,7 @@ class Fragment$MediaMinimalFrag$coverImage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$MediaMinimalFrag$coverImage) ||
+    if (other is! Fragment$MediaMinimalFrag$coverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -827,7 +827,7 @@ class Variables$Query$MediaMinimal {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$MediaMinimal) ||
+    if (other is! Variables$Query$MediaMinimal ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -959,7 +959,7 @@ class Query$MediaMinimal {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$MediaMinimal) || runtimeType != other.runtimeType) {
+    if (other is! Query$MediaMinimal || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Media = Media;
@@ -1172,7 +1172,7 @@ class Variables$Query$MediaFull {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$MediaFull) ||
+    if (other is! Variables$Query$MediaFull ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1303,7 +1303,7 @@ class Query$MediaFull {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$MediaFull) || runtimeType != other.runtimeType) {
+    if (other is! Query$MediaFull || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Media = Media;
@@ -1552,7 +1552,7 @@ class Query$MediaFull$Media implements Fragment$MediaMinimalFrag {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$MediaFull$Media) || runtimeType != other.runtimeType) {
+    if (other is! Query$MediaFull$Media || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1748,7 +1748,7 @@ class Query$MediaFull$Media$title implements Fragment$MediaMinimalFrag$title {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$MediaFull$Media$title) ||
+    if (other is! Query$MediaFull$Media$title ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1892,7 +1892,7 @@ class Query$MediaFull$Media$coverImage
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$MediaFull$Media$coverImage) ||
+    if (other is! Query$MediaFull$Media$coverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }

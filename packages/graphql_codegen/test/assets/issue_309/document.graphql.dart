@@ -92,7 +92,7 @@ class Input$TemplateDisciplineTopicContentInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TemplateDisciplineTopicContentInput) ||
+    if (other is! Input$TemplateDisciplineTopicContentInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -336,7 +336,7 @@ class Input$I1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I1) || runtimeType != other.runtimeType) {
+    if (other is! Input$I1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;
@@ -433,7 +433,7 @@ class Input$I2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I2) || runtimeType != other.runtimeType) {
+    if (other is! Input$I2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;
@@ -530,7 +530,7 @@ class Input$I3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I3) || runtimeType != other.runtimeType) {
+    if (other is! Input$I3 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;

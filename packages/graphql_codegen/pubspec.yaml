@@ -3,7 +3,7 @@ description: |
   Simple, opinionated, codegen library for GraphQL. It allows you to
   generate serializers and client helpers to easily call and parse your data.
 
-version: 1.1.0
+version: 1.1.1
 homepage: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
 repository: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
 

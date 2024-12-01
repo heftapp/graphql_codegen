@@ -220,7 +220,7 @@ class Variables$Fragment$NameNode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$NameNode) ||
+    if (other is! Variables$Fragment$NameNode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -324,7 +324,7 @@ class Fragment$NameNode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$NameNode) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$NameNode || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -511,7 +511,7 @@ class Variables$Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$setting = setting;
@@ -615,7 +615,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$node = node;

@@ -224,7 +224,7 @@ class Query$FooQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FooQuery) || runtimeType != other.runtimeType) {
+    if (other is! Query$FooQuery || runtimeType != other.runtimeType) {
       return false;
     }
     final l$foo = foo;
@@ -411,7 +411,7 @@ class Query$FooQuery$foo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FooQuery$foo) || runtimeType != other.runtimeType) {
+    if (other is! Query$FooQuery$foo || runtimeType != other.runtimeType) {
       return false;
     }
     final l$foo = foo;
@@ -543,8 +543,7 @@ class Query$FooQuery$foo$foo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FooQuery$foo$foo) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FooQuery$foo$foo || runtimeType != other.runtimeType) {
       return false;
     }
     final l$bar = bar;

@@ -226,7 +226,7 @@ class Query$Query {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Query) || runtimeType != other.runtimeType) {
+    if (other is! Query$Query || runtimeType != other.runtimeType) {
       return false;
     }
     final l$u = u;
@@ -451,7 +451,7 @@ class Query$Query$u {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Query$u) || runtimeType != other.runtimeType) {
+    if (other is! Query$Query$u || runtimeType != other.runtimeType) {
       return false;
     }
     final l$typename = typename;
@@ -623,7 +623,7 @@ class Query$Query$u$$TA implements Query$Query$u {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Query$u$$TA) || runtimeType != other.runtimeType) {
+    if (other is! Query$Query$u$$TA || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -764,7 +764,7 @@ class Query$Query$u$$TB implements Query$Query$u {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Query$u$$TB) || runtimeType != other.runtimeType) {
+    if (other is! Query$Query$u$$TB || runtimeType != other.runtimeType) {
       return false;
     }
     final l$velocity = velocity;

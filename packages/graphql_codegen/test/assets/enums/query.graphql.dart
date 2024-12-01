@@ -46,7 +46,7 @@ class Query$Foobar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Foobar) || runtimeType != other.runtimeType) {
+    if (other is! Query$Foobar || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;

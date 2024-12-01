@@ -226,7 +226,7 @@ class Query$FetchI {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i1 = i1;
@@ -562,7 +562,7 @@ class Query$FetchI$i1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI$i1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i2 = i2;
@@ -732,7 +732,7 @@ class Query$FetchI$i1$i2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$i2) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI$i1$i2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -901,7 +901,7 @@ class Query$FetchI$i1$i2$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$i2$field) ||
+    if (other is! Query$FetchI$i1$i2$field ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1053,7 +1053,7 @@ class Query$FetchI$i1$i2$field$$TField implements Query$FetchI$i1$i2$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$i2$field$$TField) ||
+    if (other is! Query$FetchI$i1$i2$field$$TField ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1179,8 +1179,7 @@ class Query$FetchI$i1$i2$$T2 implements Query$FetchI$i1$i2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$i2$$T2) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI$i1$i2$$T2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -1315,7 +1314,7 @@ class Query$FetchI$i1$i2$$T2$field implements Query$FetchI$i1$i2$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$i2$$T2$field) ||
+    if (other is! Query$FetchI$i1$i2$$T2$field ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1451,7 +1450,7 @@ class Query$FetchI$i1$$T1 implements Query$FetchI$i1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI$i1$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i2c = i2c;
@@ -1608,8 +1607,7 @@ class Query$FetchI$i1$$T1$i2c {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2c) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI$i1$$T1$i2c || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -1744,7 +1742,7 @@ class Query$FetchI$i1$$T1$i2c$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2c$field) ||
+    if (other is! Query$FetchI$i1$$T1$i2c$field ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1876,8 +1874,7 @@ class Query$FetchI$i1$$T1$i2 implements Query$FetchI$i1$i2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchI$i1$$T1$i2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -2047,7 +2044,7 @@ class Query$FetchI$i1$$T1$i2$field implements Query$FetchI$i1$i2$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2$field) ||
+    if (other is! Query$FetchI$i1$$T1$i2$field ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2201,7 +2198,7 @@ class Query$FetchI$i1$$T1$i2$field$$TField
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2$field$$TField) ||
+    if (other is! Query$FetchI$i1$$T1$i2$field$$TField ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2328,7 +2325,7 @@ class Query$FetchI$i1$$T1$i2$$T2 implements Query$FetchI$i1$$T1$i2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2$$T2) ||
+    if (other is! Query$FetchI$i1$$T1$i2$$T2 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2474,7 +2471,7 @@ class Query$FetchI$i1$$T1$i2$$T2$field implements Query$FetchI$i1$$T1$i2$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchI$i1$$T1$i2$$T2$field) ||
+    if (other is! Query$FetchI$i1$$T1$i2$$T2$field ||
         runtimeType != other.runtimeType) {
       return false;
     }

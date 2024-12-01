@@ -224,7 +224,7 @@ class Fragment$HotelBooking {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$HotelBooking) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$HotelBooking || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -388,7 +388,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$booking = booking;
@@ -589,7 +589,7 @@ class Query$Q$booking {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$booking) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$booking || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -722,7 +722,7 @@ class Query$Q$booking$$HotelBooking
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$booking$$HotelBooking) ||
+    if (other is! Query$Q$booking$$HotelBooking ||
         runtimeType != other.runtimeType) {
       return false;
     }

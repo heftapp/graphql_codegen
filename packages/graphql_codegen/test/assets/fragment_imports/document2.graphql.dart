@@ -29,7 +29,7 @@ class Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -137,7 +137,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -258,7 +258,7 @@ class Query$Q$t implements Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

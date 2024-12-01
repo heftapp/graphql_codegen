@@ -228,7 +228,7 @@ class Variables$Mutation$UpdateSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$UpdateSOptional) ||
+    if (other is! Variables$Mutation$UpdateSOptional ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -319,7 +319,7 @@ class Mutation$UpdateSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateSOptional) ||
+    if (other is! Mutation$UpdateSOptional ||
         runtimeType != other.runtimeType) {
       return false;
     }

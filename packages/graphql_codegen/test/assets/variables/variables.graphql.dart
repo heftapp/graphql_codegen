@@ -38,7 +38,7 @@ class Variables$Query$HiBob {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$HiBob) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$HiBob || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -127,7 +127,7 @@ class Query$HiBob {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$HiBob) || runtimeType != other.runtimeType) {
+    if (other is! Query$HiBob || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -268,7 +268,7 @@ class Query$HiBob$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$HiBob$field) || runtimeType != other.runtimeType) {
+    if (other is! Query$HiBob$field || runtimeType != other.runtimeType) {
       return false;
     }
     final l$value = value;

@@ -225,7 +225,7 @@ class Fragment$FullFriendRequestNotification {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullFriendRequestNotification) ||
+    if (other is! Fragment$FullFriendRequestNotification ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -382,7 +382,7 @@ class Fragment$FullNewsNotification {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullNewsNotification) ||
+    if (other is! Fragment$FullNewsNotification ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -578,7 +578,7 @@ class Fragment$FullUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullUser) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FullUser || runtimeType != other.runtimeType) {
       return false;
     }
     final l$username = username;
@@ -842,7 +842,7 @@ class Fragment$FullUser$notifications {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullUser$notifications) ||
+    if (other is! Fragment$FullUser$notifications ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1002,8 +1002,7 @@ class Fragment$FullUser$notifications$$FriendRequestNotification
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Fragment$FullUser$notifications$$FriendRequestNotification) ||
+    if (other is! Fragment$FullUser$notifications$$FriendRequestNotification ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1144,7 +1143,7 @@ class Fragment$FullUser$notifications$$NewsNotification
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullUser$notifications$$NewsNotification) ||
+    if (other is! Fragment$FullUser$notifications$$NewsNotification ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1270,8 +1269,7 @@ class Variables$Query$GetUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetUser) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$GetUser || runtimeType != other.runtimeType) {
       return false;
     }
     final l$username = username;
@@ -1376,7 +1374,7 @@ class Query$GetUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetUser) || runtimeType != other.runtimeType) {
+    if (other is! Query$GetUser || runtimeType != other.runtimeType) {
       return false;
     }
     final l$getUser = getUser;
@@ -1558,7 +1556,7 @@ class Variables$Query$GetNotifications {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetNotifications) ||
+    if (other is! Variables$Query$GetNotifications ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1665,8 +1663,7 @@ class Query$GetNotifications {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetNotifications) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$GetNotifications || runtimeType != other.runtimeType) {
       return false;
     }
     final l$getUser = getUser;
@@ -1896,7 +1893,7 @@ class Query$GetNotifications$getUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetNotifications$getUser) ||
+    if (other is! Query$GetNotifications$getUser ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2063,7 +2060,7 @@ class Query$GetNotifications$getUser$notifications {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetNotifications$getUser$notifications) ||
+    if (other is! Query$GetNotifications$getUser$notifications ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2226,8 +2223,8 @@ class Query$GetNotifications$getUser$notifications$$FriendRequestNotification
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$GetNotifications$getUser$notifications$$FriendRequestNotification) ||
+    if (other
+            is! Query$GetNotifications$getUser$notifications$$FriendRequestNotification ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2375,8 +2372,8 @@ class Query$GetNotifications$getUser$notifications$$NewsNotification
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$GetNotifications$getUser$notifications$$NewsNotification) ||
+    if (other
+            is! Query$GetNotifications$getUser$notifications$$NewsNotification ||
         runtimeType != other.runtimeType) {
       return false;
     }

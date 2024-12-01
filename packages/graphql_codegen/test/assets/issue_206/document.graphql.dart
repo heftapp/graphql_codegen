@@ -233,8 +233,7 @@ class Fragment$EventFragment {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$EventFragment) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$EventFragment || runtimeType != other.runtimeType) {
       return false;
     }
     final l$subscription = subscription;
@@ -480,7 +479,7 @@ class Fragment$EventFragment$subscription {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$EventFragment$subscription) ||
+    if (other is! Fragment$EventFragment$subscription ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -620,7 +619,7 @@ class Fragment$EventFragment$$EventPublic implements Fragment$EventFragment {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$EventFragment$$EventPublic) ||
+    if (other is! Fragment$EventFragment$$EventPublic ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -786,7 +785,7 @@ class Fragment$EventFragment$$EventPublic$subscription
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$EventFragment$$EventPublic$subscription) ||
+    if (other is! Fragment$EventFragment$$EventPublic$subscription ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -913,7 +912,7 @@ class Fragment$UserPublicFragment {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$UserPublicFragment) ||
+    if (other is! Fragment$UserPublicFragment ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1069,7 +1068,7 @@ class Mutation$Bla {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$Bla) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$Bla || runtimeType != other.runtimeType) {
       return false;
     }
     final l$bla = bla;
@@ -1228,7 +1227,7 @@ class Mutation$Bla$bla {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$Bla$bla) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$Bla$bla || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1374,7 +1373,7 @@ class Mutation$Bla$bla$$EventPublic
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$Bla$bla$$EventPublic) ||
+    if (other is! Mutation$Bla$bla$$EventPublic ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1535,7 +1534,7 @@ class Mutation$Bla$bla$$EventPublic$subscription
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$Bla$bla$$EventPublic$subscription) ||
+    if (other is! Mutation$Bla$bla$$EventPublic$subscription ||
         runtimeType != other.runtimeType) {
       return false;
     }

@@ -211,7 +211,7 @@ class Fragment$NoVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$NoVariables) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$NoVariables || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -377,7 +377,7 @@ class Variables$Fragment$WithOptionalVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$WithOptionalVariables) ||
+    if (other is! Variables$Fragment$WithOptionalVariables ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -468,7 +468,7 @@ class Fragment$WithOptionalVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$WithOptionalVariables) ||
+    if (other is! Fragment$WithOptionalVariables ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -634,7 +634,7 @@ class Variables$Fragment$WithVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$WithVariables) ||
+    if (other is! Variables$Fragment$WithVariables ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -722,8 +722,7 @@ class Fragment$WithVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$WithVariables) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$WithVariables || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s2 = s2;
@@ -888,7 +887,7 @@ class Variables$Query$FetchSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$FetchSOptional) ||
+    if (other is! Variables$Query$FetchSOptional ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -979,7 +978,7 @@ class Query$FetchSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchSOptional) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchSOptional || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -1239,7 +1238,7 @@ class Variables$Query$FetchSRequired {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$FetchSRequired) ||
+    if (other is! Variables$Query$FetchSRequired ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1327,7 +1326,7 @@ class Query$FetchSRequired {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchSRequired || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -1578,8 +1577,7 @@ class Query$FetchSNoVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchSNoVariables) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchSNoVariables || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -1829,7 +1827,7 @@ class Variables$Mutation$UpdateSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$UpdateSOptional) ||
+    if (other is! Variables$Mutation$UpdateSOptional ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1920,7 +1918,7 @@ class Mutation$UpdateSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateSOptional) ||
+    if (other is! Mutation$UpdateSOptional ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2149,7 +2147,7 @@ class Variables$Mutation$UpdateSRequired {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$UpdateSRequired) ||
+    if (other is! Variables$Mutation$UpdateSRequired ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2237,7 +2235,7 @@ class Mutation$UpdateSRequired {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateSRequired) ||
+    if (other is! Mutation$UpdateSRequired ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2455,7 +2453,7 @@ class Mutation$UpdateSNoVariables {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateSNoVariables) ||
+    if (other is! Mutation$UpdateSNoVariables ||
         runtimeType != other.runtimeType) {
       return false;
     }

@@ -226,7 +226,7 @@ class Variables$Query$FetchSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$FetchSOptional) ||
+    if (other is! Variables$Query$FetchSOptional ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -317,7 +317,7 @@ class Query$FetchSOptional {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchSOptional) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchSOptional || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;

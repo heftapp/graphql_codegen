@@ -43,7 +43,7 @@ class Fragment$FragmentA {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FragmentA) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FragmentA || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -176,7 +176,7 @@ class Fragment$FragmentB {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FragmentB) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FragmentB || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -288,7 +288,7 @@ class Query$FetchImplementations {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchImplementations) ||
+    if (other is! Query$FetchImplementations ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -521,7 +521,7 @@ class Query$FetchImplementations$interface {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchImplementations$interface) ||
+    if (other is! Query$FetchImplementations$interface ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -713,7 +713,7 @@ class Query$FetchImplementations$interface$self {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchImplementations$interface$self) ||
+    if (other is! Query$FetchImplementations$interface$self ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -882,8 +882,7 @@ class Query$FetchImplementations$interface$self$$ImplementationA
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$FetchImplementations$interface$self$$ImplementationA) ||
+    if (other is! Query$FetchImplementations$interface$self$$ImplementationA ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1030,8 +1029,7 @@ class Query$FetchImplementations$interface$self$$ImplementationB
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$FetchImplementations$interface$self$$ImplementationB) ||
+    if (other is! Query$FetchImplementations$interface$self$$ImplementationB ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1197,7 +1195,7 @@ class Query$FetchImplementations$interface$$ImplementationA
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchImplementations$interface$$ImplementationA) ||
+    if (other is! Query$FetchImplementations$interface$$ImplementationA ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1394,7 +1392,7 @@ class Query$FetchImplementations$interface$$ImplementationB
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchImplementations$interface$$ImplementationB) ||
+    if (other is! Query$FetchImplementations$interface$$ImplementationB ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1572,8 +1570,7 @@ class Query$FetchImplementations$interface$$ImplementationA$self
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$FetchImplementations$interface$$ImplementationA$self) ||
+    if (other is! Query$FetchImplementations$interface$$ImplementationA$self ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1720,8 +1717,7 @@ class Query$FetchImplementations$interface$$ImplementationB$self
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$FetchImplementations$interface$$ImplementationB$self) ||
+    if (other is! Query$FetchImplementations$interface$$ImplementationB$self ||
         runtimeType != other.runtimeType) {
       return false;
     }

@@ -47,7 +47,7 @@ class Query$FetchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchPerson || runtimeType != other.runtimeType) {
       return false;
     }
     final l$fetchPerson = fetchPerson;
@@ -256,7 +256,7 @@ class Query$FetchPerson$fetchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchPerson$fetchPerson) ||
+    if (other is! Query$FetchPerson$fetchPerson ||
         runtimeType != other.runtimeType) {
       return false;
     }

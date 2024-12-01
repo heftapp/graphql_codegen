@@ -226,7 +226,7 @@ class Query$Q1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q1) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$foo = foo;
@@ -445,7 +445,7 @@ class Query$Q1$foo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q1$foo) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q1$foo || runtimeType != other.runtimeType) {
       return false;
     }
     final l$foo = foo;

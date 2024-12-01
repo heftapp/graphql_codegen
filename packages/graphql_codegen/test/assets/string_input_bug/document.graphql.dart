@@ -53,7 +53,7 @@ class Input$I {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I) || runtimeType != other.runtimeType) {
+    if (other is! Input$I || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$String = $String;

@@ -36,7 +36,7 @@ class Mutation$Operation {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$Operation) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$Operation || runtimeType != other.runtimeType) {
       return false;
     }
     final l$setName = setName;
@@ -370,7 +370,7 @@ class Mutation$Operation$setName {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$Operation$setName) ||
+    if (other is! Mutation$Operation$setName ||
         runtimeType != other.runtimeType) {
       return false;
     }

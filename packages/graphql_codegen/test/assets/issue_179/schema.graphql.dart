@@ -51,7 +51,7 @@ class Input$AddProjectToSecurityDashboardInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AddProjectToSecurityDashboardInput) ||
+    if (other is! Input$AddProjectToSecurityDashboardInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -387,7 +387,7 @@ class Input$AdminSidekiqQueuesDeleteJobsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AdminSidekiqQueuesDeleteJobsInput) ||
+    if (other is! Input$AdminSidekiqQueuesDeleteJobsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -799,7 +799,7 @@ class Input$AlertManagementPayloadAlertFieldInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AlertManagementPayloadAlertFieldInput) ||
+    if (other is! Input$AlertManagementPayloadAlertFieldInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1001,7 +1001,7 @@ class Input$AlertSetAssigneesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AlertSetAssigneesInput) ||
+    if (other is! Input$AlertSetAssigneesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1192,7 +1192,7 @@ class Input$AlertTodoCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AlertTodoCreateInput) ||
+    if (other is! Input$AlertTodoCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1404,7 +1404,7 @@ class Input$ApiFuzzingCiConfigurationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ApiFuzzingCiConfigurationCreateInput) ||
+    if (other is! Input$ApiFuzzingCiConfigurationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1642,7 +1642,7 @@ class Input$AuditEventsStreamingHeadersCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AuditEventsStreamingHeadersCreateInput) ||
+    if (other is! Input$AuditEventsStreamingHeadersCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1803,7 +1803,7 @@ class Input$AuditEventsStreamingHeadersDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AuditEventsStreamingHeadersDestroyInput) ||
+    if (other is! Input$AuditEventsStreamingHeadersDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1959,7 +1959,7 @@ class Input$AuditEventsStreamingHeadersUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AuditEventsStreamingHeadersUpdateInput) ||
+    if (other is! Input$AuditEventsStreamingHeadersUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2126,7 +2126,7 @@ class Input$AwardEmojiAddInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AwardEmojiAddInput) ||
+    if (other is! Input$AwardEmojiAddInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2282,7 +2282,7 @@ class Input$AwardEmojiRemoveInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AwardEmojiRemoveInput) ||
+    if (other is! Input$AwardEmojiRemoveInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2438,7 +2438,7 @@ class Input$AwardEmojiToggleInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$AwardEmojiToggleInput) ||
+    if (other is! Input$AwardEmojiToggleInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2610,7 +2610,7 @@ class Input$BoardEpicCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$BoardEpicCreateInput) ||
+    if (other is! Input$BoardEpicCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3064,7 +3064,7 @@ class Input$BoardIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$BoardIssueInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$BoardIssueInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$labelName = labelName;
@@ -3663,7 +3663,7 @@ class Input$BoardListCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$BoardListCreateInput) ||
+    if (other is! Input$BoardListCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3916,7 +3916,7 @@ class Input$BoardListUpdateLimitMetricsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$BoardListUpdateLimitMetricsInput) ||
+    if (other is! Input$BoardListUpdateLimitMetricsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4117,7 +4117,7 @@ class Input$BulkEnableDevopsAdoptionNamespacesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$BulkEnableDevopsAdoptionNamespacesInput) ||
+    if (other is! Input$BulkEnableDevopsAdoptionNamespacesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4285,7 +4285,7 @@ class Input$BulkRunnerDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$BulkRunnerDeleteInput) ||
+    if (other is! Input$BulkRunnerDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4491,7 +4491,7 @@ class Input$CiCdSettingsUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CiCdSettingsUpdateInput) ||
+    if (other is! Input$CiCdSettingsUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4710,7 +4710,7 @@ class Input$CiJobTokenScopeAddProjectInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CiJobTokenScopeAddProjectInput) ||
+    if (other is! Input$CiJobTokenScopeAddProjectInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4869,7 +4869,7 @@ class Input$CiJobTokenScopeRemoveProjectInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CiJobTokenScopeRemoveProjectInput) ||
+    if (other is! Input$CiJobTokenScopeRemoveProjectInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5014,7 +5014,7 @@ class Input$CiVariableInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CiVariableInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$CiVariableInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$key = key;
@@ -5144,7 +5144,7 @@ class Input$ClusterAgentDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ClusterAgentDeleteInput) ||
+    if (other is! Input$ClusterAgentDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5302,7 +5302,7 @@ class Input$ClusterAgentTokenCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ClusterAgentTokenCreateInput) ||
+    if (other is! Input$ClusterAgentTokenCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5467,7 +5467,7 @@ class Input$ClusterAgentTokenRevokeInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ClusterAgentTokenRevokeInput) ||
+    if (other is! Input$ClusterAgentTokenRevokeInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5665,7 +5665,7 @@ class Input$CommitAction {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CommitAction) || runtimeType != other.runtimeType) {
+    if (other is! Input$CommitAction || runtimeType != other.runtimeType) {
       return false;
     }
     final l$action = action;
@@ -5914,8 +5914,7 @@ class Input$CommitCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CommitCreateInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$CommitCreateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -6158,7 +6157,7 @@ class Input$ComplianceFrameworkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ComplianceFrameworkInput) ||
+    if (other is! Input$ComplianceFrameworkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6348,7 +6347,7 @@ class Input$ComplianceViolationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ComplianceViolationInput) ||
+    if (other is! Input$ComplianceViolationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6521,7 +6520,7 @@ class Input$ConfigureContainerScanningInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ConfigureContainerScanningInput) ||
+    if (other is! Input$ConfigureContainerScanningInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6660,7 +6659,7 @@ class Input$ConfigureDependencyScanningInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ConfigureDependencyScanningInput) ||
+    if (other is! Input$ConfigureDependencyScanningInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6797,7 +6796,7 @@ class Input$ConfigureSastIacInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ConfigureSastIacInput) ||
+    if (other is! Input$ConfigureSastIacInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6944,7 +6943,7 @@ class Input$ConfigureSastInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ConfigureSastInput) ||
+    if (other is! Input$ConfigureSastInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7105,7 +7104,7 @@ class Input$ConfigureSecretDetectionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ConfigureSecretDetectionInput) ||
+    if (other is! Input$ConfigureSecretDetectionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7250,8 +7249,7 @@ class Input$CorpusCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CorpusCreateInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$CorpusCreateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -7407,7 +7405,7 @@ class Input$CreateAlertIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateAlertIssueInput) ||
+    if (other is! Input$CreateAlertIssueInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7607,7 +7605,7 @@ class Input$CreateAnnotationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateAnnotationInput) ||
+    if (other is! Input$CreateAnnotationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7953,8 +7951,7 @@ class Input$CreateBoardInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateBoardInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$CreateBoardInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -8306,8 +8303,7 @@ class Input$CreateBranchInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateBranchInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$CreateBranchInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -8473,7 +8469,7 @@ class Input$CreateClusterAgentInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateClusterAgentInput) ||
+    if (other is! Input$CreateClusterAgentInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8633,7 +8629,7 @@ class Input$CreateComplianceFrameworkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateComplianceFrameworkInput) ||
+    if (other is! Input$CreateComplianceFrameworkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8808,7 +8804,7 @@ class Input$CreateCustomEmojiInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateCustomEmojiInput) ||
+    if (other is! Input$CreateCustomEmojiInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8997,7 +8993,7 @@ class Input$CreateDiffNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateDiffNoteInput) ||
+    if (other is! Input$CreateDiffNoteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -9319,7 +9315,7 @@ class Input$CreateEpicInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateEpicInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$CreateEpicInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -9699,7 +9695,7 @@ class Input$CreateImageDiffNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateImageDiffNoteInput) ||
+    if (other is! Input$CreateImageDiffNoteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -10170,8 +10166,7 @@ class Input$CreateIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateIssueInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$CreateIssueInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -10769,7 +10764,7 @@ class Input$CreateIterationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateIterationInput) ||
+    if (other is! Input$CreateIterationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -11047,7 +11042,7 @@ class Input$CreateNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateNoteInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$CreateNoteInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$noteableId = noteableId;
@@ -11267,7 +11262,7 @@ class Input$CreateRequirementInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateRequirementInput) ||
+    if (other is! Input$CreateRequirementInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -11499,7 +11494,7 @@ class Input$CreateSnippetInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateSnippetInput) ||
+    if (other is! Input$CreateSnippetInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -11794,7 +11789,7 @@ class Input$CreateTestCaseInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CreateTestCaseInput) ||
+    if (other is! Input$CreateTestCaseInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -12053,7 +12048,7 @@ class Input$CustomerRelationsContactCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CustomerRelationsContactCreateInput) ||
+    if (other is! Input$CustomerRelationsContactCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -12359,7 +12354,7 @@ class Input$CustomerRelationsContactUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CustomerRelationsContactUpdateInput) ||
+    if (other is! Input$CustomerRelationsContactUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -12632,7 +12627,7 @@ class Input$CustomerRelationsOrganizationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CustomerRelationsOrganizationCreateInput) ||
+    if (other is! Input$CustomerRelationsOrganizationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -12861,7 +12856,7 @@ class Input$CustomerRelationsOrganizationUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$CustomerRelationsOrganizationUpdateInput) ||
+    if (other is! Input$CustomerRelationsOrganizationUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -13079,7 +13074,7 @@ class Input$DastOnDemandScanCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastOnDemandScanCreateInput) ||
+    if (other is! Input$DastOnDemandScanCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -13254,7 +13249,7 @@ class Input$DastProfileCadenceInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastProfileCadenceInput) ||
+    if (other is! Input$DastProfileCadenceInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -13469,7 +13464,7 @@ class Input$DastProfileCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastProfileCreateInput) ||
+    if (other is! Input$DastProfileCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -13718,7 +13713,7 @@ class Input$DastProfileDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastProfileDeleteInput) ||
+    if (other is! Input$DastProfileDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -13854,7 +13849,7 @@ class Input$DastProfileRunInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastProfileRunInput) ||
+    if (other is! Input$DastProfileRunInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14022,7 +14017,7 @@ class Input$DastProfileScheduleInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastProfileScheduleInput) ||
+    if (other is! Input$DastProfileScheduleInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14293,7 +14288,7 @@ class Input$DastProfileUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastProfileUpdateInput) ||
+    if (other is! Input$DastProfileUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14628,7 +14623,7 @@ class Input$DastScannerProfileCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastScannerProfileCreateInput) ||
+    if (other is! Input$DastScannerProfileCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14859,7 +14854,7 @@ class Input$DastScannerProfileDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastScannerProfileDeleteInput) ||
+    if (other is! Input$DastScannerProfileDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -15061,7 +15056,7 @@ class Input$DastScannerProfileUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastScannerProfileUpdateInput) ||
+    if (other is! Input$DastScannerProfileUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -15345,7 +15340,7 @@ class Input$DastSiteProfileAuthInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteProfileAuthInput) ||
+    if (other is! Input$DastSiteProfileAuthInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -15655,7 +15650,7 @@ class Input$DastSiteProfileCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteProfileCreateInput) ||
+    if (other is! Input$DastSiteProfileCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -15925,7 +15920,7 @@ class Input$DastSiteProfileDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteProfileDeleteInput) ||
+    if (other is! Input$DastSiteProfileDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -16157,7 +16152,7 @@ class Input$DastSiteProfileUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteProfileUpdateInput) ||
+    if (other is! Input$DastSiteProfileUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -16438,7 +16433,7 @@ class Input$DastSiteTokenCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteTokenCreateInput) ||
+    if (other is! Input$DastSiteTokenCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -16626,7 +16621,7 @@ class Input$DastSiteValidationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteValidationCreateInput) ||
+    if (other is! Input$DastSiteValidationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -16813,7 +16808,7 @@ class Input$DastSiteValidationRevokeInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DastSiteValidationRevokeInput) ||
+    if (other is! Input$DastSiteValidationRevokeInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -16962,7 +16957,7 @@ class Input$DeleteAnnotationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DeleteAnnotationInput) ||
+    if (other is! Input$DeleteAnnotationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -17112,7 +17107,7 @@ class Input$DeploymentsOrderByInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DeploymentsOrderByInput) ||
+    if (other is! Input$DeploymentsOrderByInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -17271,7 +17266,7 @@ class Input$DesignManagementDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DesignManagementDeleteInput) ||
+    if (other is! Input$DesignManagementDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -17462,7 +17457,7 @@ class Input$DesignManagementMoveInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DesignManagementMoveInput) ||
+    if (other is! Input$DesignManagementMoveInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -17645,7 +17640,7 @@ class Input$DesignManagementUploadInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DesignManagementUploadInput) ||
+    if (other is! Input$DesignManagementUploadInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -17812,8 +17807,7 @@ class Input$DestroyBoardInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyBoardInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$DestroyBoardInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -17948,7 +17942,7 @@ class Input$DestroyBoardListInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyBoardListInput) ||
+    if (other is! Input$DestroyBoardListInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -18087,7 +18081,7 @@ class Input$DestroyComplianceFrameworkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyComplianceFrameworkInput) ||
+    if (other is! Input$DestroyComplianceFrameworkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -18225,7 +18219,7 @@ class Input$DestroyContainerRepositoryInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyContainerRepositoryInput) ||
+    if (other is! Input$DestroyContainerRepositoryInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -18372,7 +18366,7 @@ class Input$DestroyContainerRepositoryTagsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyContainerRepositoryTagsInput) ||
+    if (other is! Input$DestroyContainerRepositoryTagsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -18527,7 +18521,7 @@ class Input$DestroyCustomEmojiInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyCustomEmojiInput) ||
+    if (other is! Input$DestroyCustomEmojiInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -18663,7 +18657,7 @@ class Input$DestroyEpicBoardInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyEpicBoardInput) ||
+    if (other is! Input$DestroyEpicBoardInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -18799,8 +18793,7 @@ class Input$DestroyNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyNoteInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$DestroyNoteInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -18935,7 +18928,7 @@ class Input$DestroyPackageFileInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyPackageFileInput) ||
+    if (other is! Input$DestroyPackageFileInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -19080,7 +19073,7 @@ class Input$DestroyPackageFilesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyPackageFilesInput) ||
+    if (other is! Input$DestroyPackageFilesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -19235,7 +19228,7 @@ class Input$DestroyPackageInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroyPackageInput) ||
+    if (other is! Input$DestroyPackageInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -19371,7 +19364,7 @@ class Input$DestroySnippetInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DestroySnippetInput) ||
+    if (other is! Input$DestroySnippetInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -19556,7 +19549,7 @@ class Input$DiffImagePositionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DiffImagePositionInput) ||
+    if (other is! Input$DiffImagePositionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -19772,7 +19765,7 @@ class Input$DiffPathsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DiffPathsInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$DiffPathsInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$newPath = newPath;
@@ -19949,8 +19942,7 @@ class Input$DiffPositionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DiffPositionInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$DiffPositionInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$baseSha = baseSha;
@@ -20148,7 +20140,7 @@ class Input$DisableDevopsAdoptionNamespaceInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DisableDevopsAdoptionNamespaceInput) ||
+    if (other is! Input$DisableDevopsAdoptionNamespaceInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -20301,7 +20293,7 @@ class Input$DiscussionToggleResolveInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DiscussionToggleResolveInput) ||
+    if (other is! Input$DiscussionToggleResolveInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -20467,7 +20459,7 @@ class Input$EchoCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EchoCreateInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$EchoCreateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -20665,7 +20657,7 @@ class Input$EnableDevopsAdoptionNamespaceInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EnableDevopsAdoptionNamespaceInput) ||
+    if (other is! Input$EnableDevopsAdoptionNamespaceInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -20830,7 +20822,7 @@ class Input$EnvironmentsCanaryIngressUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EnvironmentsCanaryIngressUpdateInput) ||
+    if (other is! Input$EnvironmentsCanaryIngressUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -21001,8 +20993,7 @@ class Input$EpicAddIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicAddIssueInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$EpicAddIssueInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$iid = iid;
@@ -21239,7 +21230,7 @@ class Input$EpicBoardCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicBoardCreateInput) ||
+    if (other is! Input$EpicBoardCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -21508,7 +21499,7 @@ class Input$EpicBoardListCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicBoardListCreateInput) ||
+    if (other is! Input$EpicBoardListCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -21673,7 +21664,7 @@ class Input$EpicBoardListDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicBoardListDestroyInput) ||
+    if (other is! Input$EpicBoardListDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -21872,7 +21863,7 @@ class Input$EpicBoardUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicBoardUpdateInput) ||
+    if (other is! Input$EpicBoardUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -22170,7 +22161,7 @@ class Input$EpicFilters {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicFilters) || runtimeType != other.runtimeType) {
+    if (other is! Input$EpicFilters || runtimeType != other.runtimeType) {
       return false;
     }
     final l$labelName = labelName;
@@ -22448,8 +22439,7 @@ class Input$EpicMoveListInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicMoveListInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$EpicMoveListInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -22671,7 +22661,7 @@ class Input$EpicSetSubscriptionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicSetSubscriptionInput) ||
+    if (other is! Input$EpicSetSubscriptionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -22862,7 +22852,7 @@ class Input$EpicTreeNodeFieldsInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicTreeNodeFieldsInputType) ||
+    if (other is! Input$EpicTreeNodeFieldsInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -23041,7 +23031,7 @@ class Input$EpicTreeReorderInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EpicTreeReorderInput) ||
+    if (other is! Input$EpicTreeReorderInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -23233,7 +23223,7 @@ class Input$EscalationPolicyCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EscalationPolicyCreateInput) ||
+    if (other is! Input$EscalationPolicyCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -23438,7 +23428,7 @@ class Input$EscalationPolicyDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EscalationPolicyDestroyInput) ||
+    if (other is! Input$EscalationPolicyDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -23615,7 +23605,7 @@ class Input$EscalationPolicyUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EscalationPolicyUpdateInput) ||
+    if (other is! Input$EscalationPolicyUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -23853,7 +23843,7 @@ class Input$EscalationRuleInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$EscalationRuleInput) ||
+    if (other is! Input$EscalationRuleInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -24088,7 +24078,7 @@ class Input$ExportRequirementsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ExportRequirementsInput) ||
+    if (other is! Input$ExportRequirementsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -24351,7 +24341,7 @@ class Input$ExternalAuditEventDestinationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ExternalAuditEventDestinationCreateInput) ||
+    if (other is! Input$ExternalAuditEventDestinationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -24519,7 +24509,7 @@ class Input$ExternalAuditEventDestinationDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ExternalAuditEventDestinationDestroyInput) ||
+    if (other is! Input$ExternalAuditEventDestinationDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -24670,7 +24660,7 @@ class Input$ExternalAuditEventDestinationUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ExternalAuditEventDestinationUpdateInput) ||
+    if (other is! Input$ExternalAuditEventDestinationUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -24825,7 +24815,7 @@ class Input$GitlabSubscriptionActivateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$GitlabSubscriptionActivateInput) ||
+    if (other is! Input$GitlabSubscriptionActivateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -24973,8 +24963,7 @@ class Input$GroupUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$GroupUpdateInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$GroupUpdateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -25171,7 +25160,7 @@ class Input$HttpIntegrationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$HttpIntegrationCreateInput) ||
+    if (other is! Input$HttpIntegrationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -25404,7 +25393,7 @@ class Input$HttpIntegrationDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$HttpIntegrationDestroyInput) ||
+    if (other is! Input$HttpIntegrationDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -25542,7 +25531,7 @@ class Input$HttpIntegrationResetTokenInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$HttpIntegrationResetTokenInput) ||
+    if (other is! Input$HttpIntegrationResetTokenInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -25734,7 +25723,7 @@ class Input$HttpIntegrationUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$HttpIntegrationUpdateInput) ||
+    if (other is! Input$HttpIntegrationUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -26010,7 +25999,7 @@ class Input$IssuableResourceLinkCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssuableResourceLinkCreateInput) ||
+    if (other is! Input$IssuableResourceLinkCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -26190,7 +26179,7 @@ class Input$IssuableResourceLinkDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssuableResourceLinkDestroyInput) ||
+    if (other is! Input$IssuableResourceLinkDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -26342,7 +26331,7 @@ class Input$IssueMoveInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueMoveInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$IssueMoveInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$projectPath = projectPath;
@@ -26577,7 +26566,7 @@ class Input$IssueMoveListInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueMoveListInput) ||
+    if (other is! Input$IssueMoveListInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -26849,7 +26838,7 @@ class Input$IssueSetAssigneesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetAssigneesInput) ||
+    if (other is! Input$IssueSetAssigneesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -27048,7 +27037,7 @@ class Input$IssueSetConfidentialInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetConfidentialInput) ||
+    if (other is! Input$IssueSetConfidentialInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -27242,7 +27231,7 @@ class Input$IssueSetCrmContactsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetCrmContactsInput) ||
+    if (other is! Input$IssueSetCrmContactsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -27445,7 +27434,7 @@ class Input$IssueSetDueDateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetDueDateInput) ||
+    if (other is! Input$IssueSetDueDateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -27627,8 +27616,7 @@ class Input$IssueSetEpicInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetEpicInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$IssueSetEpicInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$projectPath = projectPath;
@@ -27812,7 +27800,7 @@ class Input$IssueSetEscalationPolicyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetEscalationPolicyInput) ||
+    if (other is! Input$IssueSetEscalationPolicyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -27998,7 +27986,7 @@ class Input$IssueSetEscalationStatusInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetEscalationStatusInput) ||
+    if (other is! Input$IssueSetEscalationStatusInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -28178,7 +28166,7 @@ class Input$IssueSetIterationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetIterationInput) ||
+    if (other is! Input$IssueSetIterationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -28357,7 +28345,7 @@ class Input$IssueSetLockedInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetLockedInput) ||
+    if (other is! Input$IssueSetLockedInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -28534,7 +28522,7 @@ class Input$IssueSetSeverityInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetSeverityInput) ||
+    if (other is! Input$IssueSetSeverityInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -28710,7 +28698,7 @@ class Input$IssueSetSubscriptionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetSubscriptionInput) ||
+    if (other is! Input$IssueSetSubscriptionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -28890,7 +28878,7 @@ class Input$IssueSetWeightInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IssueSetWeightInput) ||
+    if (other is! Input$IssueSetWeightInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -29142,7 +29130,7 @@ class Input$IterationCadenceCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IterationCadenceCreateInput) ||
+    if (other is! Input$IterationCadenceCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -29397,7 +29385,7 @@ class Input$IterationCadenceDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IterationCadenceDestroyInput) ||
+    if (other is! Input$IterationCadenceDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -29631,7 +29619,7 @@ class Input$IterationCadenceUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IterationCadenceUpdateInput) ||
+    if (other is! Input$IterationCadenceUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -29889,7 +29877,7 @@ class Input$IterationDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$IterationDeleteInput) ||
+    if (other is! Input$IterationDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -30062,7 +30050,7 @@ class Input$JiraImportStartInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JiraImportStartInput) ||
+    if (other is! Input$JiraImportStartInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -30292,7 +30280,7 @@ class Input$JiraImportUsersInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JiraImportUsersInput) ||
+    if (other is! Input$JiraImportUsersInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -30443,7 +30431,7 @@ class Input$JiraUsersMappingInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JiraUsersMappingInputType) ||
+    if (other is! Input$JiraUsersMappingInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -30579,7 +30567,7 @@ class Input$JobCancelInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JobCancelInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$JobCancelInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -30714,7 +30702,7 @@ class Input$JobPlayInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JobPlayInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$JobPlayInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -30865,7 +30853,7 @@ class Input$JobRetryInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JobRetryInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$JobRetryInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -31049,7 +31037,7 @@ class Input$JobUnscheduleInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$JobUnscheduleInput) ||
+    if (other is! Input$JobUnscheduleInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -31233,8 +31221,7 @@ class Input$LabelCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$LabelCreateInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$LabelCreateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -31428,7 +31415,7 @@ class Input$MarkAsSpamSnippetInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MarkAsSpamSnippetInput) ||
+    if (other is! Input$MarkAsSpamSnippetInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -31648,7 +31635,7 @@ class Input$MergeRequestAcceptInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestAcceptInput) ||
+    if (other is! Input$MergeRequestAcceptInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -31938,7 +31925,7 @@ class Input$MergeRequestCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestCreateInput) ||
+    if (other is! Input$MergeRequestCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -32172,7 +32159,7 @@ class Input$MergeRequestReviewerRereviewInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestReviewerRereviewInput) ||
+    if (other is! Input$MergeRequestReviewerRereviewInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -32371,7 +32358,7 @@ class Input$MergeRequestSetAssigneesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetAssigneesInput) ||
+    if (other is! Input$MergeRequestSetAssigneesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -32570,7 +32557,7 @@ class Input$MergeRequestSetDraftInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetDraftInput) ||
+    if (other is! Input$MergeRequestSetDraftInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -32763,7 +32750,7 @@ class Input$MergeRequestSetLabelsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetLabelsInput) ||
+    if (other is! Input$MergeRequestSetLabelsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -32962,7 +32949,7 @@ class Input$MergeRequestSetLockedInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetLockedInput) ||
+    if (other is! Input$MergeRequestSetLockedInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -33143,7 +33130,7 @@ class Input$MergeRequestSetMilestoneInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetMilestoneInput) ||
+    if (other is! Input$MergeRequestSetMilestoneInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -33345,7 +33332,7 @@ class Input$MergeRequestSetReviewersInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetReviewersInput) ||
+    if (other is! Input$MergeRequestSetReviewersInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -33546,7 +33533,7 @@ class Input$MergeRequestSetSubscriptionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestSetSubscriptionInput) ||
+    if (other is! Input$MergeRequestSetSubscriptionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -33766,7 +33753,7 @@ class Input$MergeRequestUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestUpdateInput) ||
+    if (other is! Input$MergeRequestUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -33980,7 +33967,7 @@ class Input$MergeRequestsResolverNegatedParams {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$MergeRequestsResolverNegatedParams) ||
+    if (other is! Input$MergeRequestsResolverNegatedParams ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -34134,7 +34121,7 @@ class Input$NamespaceBanDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NamespaceBanDestroyInput) ||
+    if (other is! Input$NamespaceBanDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -34287,7 +34274,7 @@ class Input$NamespaceCiCdSettingsUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NamespaceCiCdSettingsUpdateInput) ||
+    if (other is! Input$NamespaceCiCdSettingsUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -34444,7 +34431,7 @@ class Input$NamespaceIncreaseStorageTemporarilyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NamespaceIncreaseStorageTemporarilyInput) ||
+    if (other is! Input$NamespaceIncreaseStorageTemporarilyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -34753,7 +34740,7 @@ class Input$NegatedBoardIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NegatedBoardIssueInput) ||
+    if (other is! Input$NegatedBoardIssueInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -35174,7 +35161,7 @@ class Input$NegatedEpicBoardIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NegatedEpicBoardIssueInput) ||
+    if (other is! Input$NegatedEpicBoardIssueInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -35362,7 +35349,7 @@ class Input$NegatedEpicFilterInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NegatedEpicFilterInput) ||
+    if (other is! Input$NegatedEpicFilterInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -35709,7 +35696,7 @@ class Input$NegatedIssueFilterInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$NegatedIssueFilterInput) ||
+    if (other is! Input$NegatedIssueFilterInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -36141,7 +36128,7 @@ class Input$OncallRotationActivePeriodInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallRotationActivePeriodInputType) ||
+    if (other is! Input$OncallRotationActivePeriodInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -36356,7 +36343,7 @@ class Input$OncallRotationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallRotationCreateInput) ||
+    if (other is! Input$OncallRotationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -36655,7 +36642,7 @@ class Input$OncallRotationDateInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallRotationDateInputType) ||
+    if (other is! Input$OncallRotationDateInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -36802,7 +36789,7 @@ class Input$OncallRotationDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallRotationDestroyInput) ||
+    if (other is! Input$OncallRotationDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -36962,7 +36949,7 @@ class Input$OncallRotationLengthInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallRotationLengthInputType) ||
+    if (other is! Input$OncallRotationLengthInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -37187,7 +37174,7 @@ class Input$OncallRotationUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallRotationUpdateInput) ||
+    if (other is! Input$OncallRotationUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -37531,7 +37518,7 @@ class Input$OncallScheduleCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallScheduleCreateInput) ||
+    if (other is! Input$OncallScheduleCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -37714,7 +37701,7 @@ class Input$OncallScheduleDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallScheduleDestroyInput) ||
+    if (other is! Input$OncallScheduleDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -37906,7 +37893,7 @@ class Input$OncallScheduleUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallScheduleUpdateInput) ||
+    if (other is! Input$OncallScheduleUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -38122,7 +38109,7 @@ class Input$OncallUserInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$OncallUserInputType) ||
+    if (other is! Input$OncallUserInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -38277,7 +38264,7 @@ class Input$PagesMarkOnboardingCompleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PagesMarkOnboardingCompleteInput) ||
+    if (other is! Input$PagesMarkOnboardingCompleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -38414,7 +38401,7 @@ class Input$PipelineCancelInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PipelineCancelInput) ||
+    if (other is! Input$PipelineCancelInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -38550,7 +38537,7 @@ class Input$PipelineDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PipelineDestroyInput) ||
+    if (other is! Input$PipelineDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -38686,7 +38673,7 @@ class Input$PipelineRetryInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PipelineRetryInput) ||
+    if (other is! Input$PipelineRetryInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -38876,7 +38863,7 @@ class Input$ProjectCiCdSettingsUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ProjectCiCdSettingsUpdateInput) ||
+    if (other is! Input$ProjectCiCdSettingsUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -39102,7 +39089,7 @@ class Input$ProjectSetComplianceFrameworkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ProjectSetComplianceFrameworkInput) ||
+    if (other is! Input$ProjectSetComplianceFrameworkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -39273,7 +39260,7 @@ class Input$ProjectSetLockedInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ProjectSetLockedInput) ||
+    if (other is! Input$ProjectSetLockedInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -39451,7 +39438,7 @@ class Input$PrometheusIntegrationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PrometheusIntegrationCreateInput) ||
+    if (other is! Input$PrometheusIntegrationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -39613,7 +39600,7 @@ class Input$PrometheusIntegrationResetTokenInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PrometheusIntegrationResetTokenInput) ||
+    if (other is! Input$PrometheusIntegrationResetTokenInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -39775,7 +39762,7 @@ class Input$PrometheusIntegrationUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PrometheusIntegrationUpdateInput) ||
+    if (other is! Input$PrometheusIntegrationUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -39959,7 +39946,7 @@ class Input$PromoteToEpicInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$PromoteToEpicInput) ||
+    if (other is! Input$PromoteToEpicInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -40176,7 +40163,7 @@ class Input$ReleaseAssetLinkCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseAssetLinkCreateInput) ||
+    if (other is! Input$ReleaseAssetLinkCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -40380,7 +40367,7 @@ class Input$ReleaseAssetLinkDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseAssetLinkDeleteInput) ||
+    if (other is! Input$ReleaseAssetLinkDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -40541,7 +40528,7 @@ class Input$ReleaseAssetLinkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseAssetLinkInput) ||
+    if (other is! Input$ReleaseAssetLinkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -40758,7 +40745,7 @@ class Input$ReleaseAssetLinkUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseAssetLinkUpdateInput) ||
+    if (other is! Input$ReleaseAssetLinkUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -40949,7 +40936,7 @@ class Input$ReleaseAssetsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseAssetsInput) ||
+    if (other is! Input$ReleaseAssetsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -41198,7 +41185,7 @@ class Input$ReleaseCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseCreateInput) ||
+    if (other is! Input$ReleaseCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -41486,7 +41473,7 @@ class Input$ReleaseDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseDeleteInput) ||
+    if (other is! Input$ReleaseDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -41692,7 +41679,7 @@ class Input$ReleaseUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ReleaseUpdateInput) ||
+    if (other is! Input$ReleaseUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -41918,7 +41905,7 @@ class Input$RemoveProjectFromSecurityDashboardInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$RemoveProjectFromSecurityDashboardInput) ||
+    if (other is! Input$RemoveProjectFromSecurityDashboardInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -42067,7 +42054,7 @@ class Input$RepositionImageDiffNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$RepositionImageDiffNoteInput) ||
+    if (other is! Input$RepositionImageDiffNoteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -42225,8 +42212,7 @@ class Input$RunnerDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$RunnerDeleteInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$RunnerDeleteInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -42498,8 +42484,7 @@ class Input$RunnerUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$RunnerUpdateInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$RunnerUpdateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -42825,7 +42810,7 @@ class Input$RunnersRegistrationTokenResetInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$RunnersRegistrationTokenResetInput) ||
+    if (other is! Input$RunnersRegistrationTokenResetInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -42990,7 +42975,7 @@ class Input$SastCiConfigurationAnalyzersEntityInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SastCiConfigurationAnalyzersEntityInput) ||
+    if (other is! Input$SastCiConfigurationAnalyzersEntityInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -43182,7 +43167,7 @@ class Input$SastCiConfigurationEntityInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SastCiConfigurationEntityInput) ||
+    if (other is! Input$SastCiConfigurationEntityInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -43354,7 +43339,7 @@ class Input$SastCiConfigurationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SastCiConfigurationInput) ||
+    if (other is! Input$SastCiConfigurationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -43627,7 +43612,7 @@ class Input$SavedReplyCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SavedReplyCreateInput) ||
+    if (other is! Input$SavedReplyCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -43775,7 +43760,7 @@ class Input$SavedReplyDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SavedReplyDestroyInput) ||
+    if (other is! Input$SavedReplyDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -43927,7 +43912,7 @@ class Input$SavedReplyUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SavedReplyUpdateInput) ||
+    if (other is! Input$SavedReplyUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -44123,7 +44108,7 @@ class Input$ScanExecutionPolicyCommitInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$ScanExecutionPolicyCommitInput) ||
+    if (other is! Input$ScanExecutionPolicyCommitInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -44311,7 +44296,7 @@ class Input$SecurityFindingCreateIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SecurityFindingCreateIssueInput) ||
+    if (other is! Input$SecurityFindingCreateIssueInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -44475,7 +44460,7 @@ class Input$SecurityPolicyProjectAssignInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SecurityPolicyProjectAssignInput) ||
+    if (other is! Input$SecurityPolicyProjectAssignInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -44634,7 +44619,7 @@ class Input$SecurityPolicyProjectCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SecurityPolicyProjectCreateInput) ||
+    if (other is! Input$SecurityPolicyProjectCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -44780,7 +44765,7 @@ class Input$SecurityPolicyProjectUnassignInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SecurityPolicyProjectUnassignInput) ||
+    if (other is! Input$SecurityPolicyProjectUnassignInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -44949,7 +44934,7 @@ class Input$SecurityTrainingUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SecurityTrainingUpdateInput) ||
+    if (other is! Input$SecurityTrainingUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -45147,7 +45132,7 @@ class Input$SnippetBlobActionInputType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$SnippetBlobActionInputType) ||
+    if (other is! Input$SnippetBlobActionInputType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -45310,7 +45295,7 @@ class Input$TerraformStateDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TerraformStateDeleteInput) ||
+    if (other is! Input$TerraformStateDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -45446,7 +45431,7 @@ class Input$TerraformStateLockInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TerraformStateLockInput) ||
+    if (other is! Input$TerraformStateLockInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -45582,7 +45567,7 @@ class Input$TerraformStateUnlockInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TerraformStateUnlockInput) ||
+    if (other is! Input$TerraformStateUnlockInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -45714,7 +45699,7 @@ class Input$Timeframe {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$Timeframe) || runtimeType != other.runtimeType) {
+    if (other is! Input$Timeframe || runtimeType != other.runtimeType) {
       return false;
     }
     final l$start = start;
@@ -45860,7 +45845,7 @@ class Input$TimelineEventCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TimelineEventCreateInput) ||
+    if (other is! Input$TimelineEventCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -46020,7 +46005,7 @@ class Input$TimelineEventDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TimelineEventDestroyInput) ||
+    if (other is! Input$TimelineEventDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -46158,7 +46143,7 @@ class Input$TimelineEventPromoteFromNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TimelineEventPromoteFromNoteInput) ||
+    if (other is! Input$TimelineEventPromoteFromNoteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -46319,7 +46304,7 @@ class Input$TimelineEventUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TimelineEventUpdateInput) ||
+    if (other is! Input$TimelineEventUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -46508,7 +46493,7 @@ class Input$TimelogCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TimelogCreateInput) ||
+    if (other is! Input$TimelogCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -46681,7 +46666,7 @@ class Input$TimelogDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TimelogDeleteInput) ||
+    if (other is! Input$TimelogDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -46817,7 +46802,7 @@ class Input$TodoCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TodoCreateInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$TodoCreateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -46953,8 +46938,7 @@ class Input$TodoMarkDoneInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TodoMarkDoneInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$TodoMarkDoneInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -47089,8 +47073,7 @@ class Input$TodoRestoreInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TodoRestoreInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$TodoRestoreInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -47226,7 +47209,7 @@ class Input$TodoRestoreManyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TodoRestoreManyInput) ||
+    if (other is! Input$TodoRestoreManyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -47373,7 +47356,7 @@ class Input$TodosMarkAllDoneInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$TodosMarkAllDoneInput) ||
+    if (other is! Input$TodosMarkAllDoneInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -47531,7 +47514,7 @@ class Input$UpdateAlertStatusInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateAlertStatusInput) ||
+    if (other is! Input$UpdateAlertStatusInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -47709,7 +47692,7 @@ class Input$UpdateBoardEpicUserPreferencesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateBoardEpicUserPreferencesInput) ||
+    if (other is! Input$UpdateBoardEpicUserPreferencesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -47993,8 +47976,7 @@ class Input$UpdateBoardInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateBoardInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$UpdateBoardInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -48335,7 +48317,7 @@ class Input$UpdateBoardListInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateBoardListInput) ||
+    if (other is! Input$UpdateBoardListInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -48514,7 +48496,7 @@ class Input$UpdateComplianceFrameworkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateComplianceFrameworkInput) ||
+    if (other is! Input$UpdateComplianceFrameworkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -48764,7 +48746,7 @@ class Input$UpdateContainerExpirationPolicyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateContainerExpirationPolicyInput) ||
+    if (other is! Input$UpdateContainerExpirationPolicyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -49020,7 +49002,7 @@ class Input$UpdateDependencyProxyImageTtlGroupPolicyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateDependencyProxyImageTtlGroupPolicyInput) ||
+    if (other is! Input$UpdateDependencyProxyImageTtlGroupPolicyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -49206,7 +49188,7 @@ class Input$UpdateDependencyProxySettingsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateDependencyProxySettingsInput) ||
+    if (other is! Input$UpdateDependencyProxySettingsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -49387,7 +49369,7 @@ class Input$UpdateDiffImagePositionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateDiffImagePositionInput) ||
+    if (other is! Input$UpdateDiffImagePositionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -49576,7 +49558,7 @@ class Input$UpdateEpicBoardListInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateEpicBoardListInput) ||
+    if (other is! Input$UpdateEpicBoardListInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -49919,7 +49901,7 @@ class Input$UpdateEpicInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateEpicInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$UpdateEpicInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$iid = iid;
@@ -50355,7 +50337,7 @@ class Input$UpdateImageDiffNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateImageDiffNoteInput) ||
+    if (other is! Input$UpdateImageDiffNoteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -50726,8 +50708,7 @@ class Input$UpdateIssueInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateIssueInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$UpdateIssueInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$projectPath = projectPath;
@@ -51183,7 +51164,7 @@ class Input$UpdateIterationInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateIterationInput) ||
+    if (other is! Input$UpdateIterationInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -51455,7 +51436,7 @@ class Input$UpdateNamespacePackageSettingsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateNamespacePackageSettingsInput) ||
+    if (other is! Input$UpdateNamespacePackageSettingsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -51681,7 +51662,7 @@ class Input$UpdateNoteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateNoteInput) || runtimeType != other.runtimeType) {
+    if (other is! Input$UpdateNoteInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -51856,7 +51837,7 @@ class Input$UpdatePackagesCleanupPolicyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdatePackagesCleanupPolicyInput) ||
+    if (other is! Input$UpdatePackagesCleanupPolicyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -52081,7 +52062,7 @@ class Input$UpdateRequirementInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateRequirementInput) ||
+    if (other is! Input$UpdateRequirementInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -52348,7 +52329,7 @@ class Input$UpdateSnippetInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdateSnippetInput) ||
+    if (other is! Input$UpdateSnippetInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -52614,8 +52595,7 @@ class Input$UploadDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UploadDeleteInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$UploadDeleteInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$clientMutationId = clientMutationId;
@@ -52793,7 +52773,7 @@ class Input$UserCalloutCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UserCalloutCreateInput) ||
+    if (other is! Input$UserCalloutCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -52937,7 +52917,7 @@ class Input$UserPreferencesUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UserPreferencesUpdateInput) ||
+    if (other is! Input$UserPreferencesUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -53078,7 +53058,7 @@ class Input$VulnerabilityConfirmInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityConfirmInput) ||
+    if (other is! Input$VulnerabilityConfirmInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -53374,7 +53354,7 @@ class Input$VulnerabilityCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityCreateInput) ||
+    if (other is! Input$VulnerabilityCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -53762,7 +53742,7 @@ class Input$VulnerabilityDismissInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityDismissInput) ||
+    if (other is! Input$VulnerabilityDismissInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -53956,7 +53936,7 @@ class Input$VulnerabilityExternalIssueLinkCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityExternalIssueLinkCreateInput) ||
+    if (other is! Input$VulnerabilityExternalIssueLinkCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -54120,7 +54100,7 @@ class Input$VulnerabilityExternalIssueLinkDestroyInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityExternalIssueLinkDestroyInput) ||
+    if (other is! Input$VulnerabilityExternalIssueLinkDestroyInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -54293,7 +54273,7 @@ class Input$VulnerabilityFindingDismissInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityFindingDismissInput) ||
+    if (other is! Input$VulnerabilityFindingDismissInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -54485,7 +54465,7 @@ class Input$VulnerabilityIdentifierInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityIdentifierInput) ||
+    if (other is! Input$VulnerabilityIdentifierInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -54647,7 +54627,7 @@ class Input$VulnerabilityResolveInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityResolveInput) ||
+    if (other is! Input$VulnerabilityResolveInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -54785,7 +54765,7 @@ class Input$VulnerabilityRevertToDetectedInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityRevertToDetectedInput) ||
+    if (other is! Input$VulnerabilityRevertToDetectedInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -54949,7 +54929,7 @@ class Input$VulnerabilityScannerInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityScannerInput) ||
+    if (other is! Input$VulnerabilityScannerInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -55118,7 +55098,7 @@ class Input$VulnerabilityScannerVendorInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$VulnerabilityScannerVendorInput) ||
+    if (other is! Input$VulnerabilityScannerVendorInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -55249,7 +55229,7 @@ class Input$WorkItemConvertTaskInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemConvertTaskInput) ||
+    if (other is! Input$WorkItemConvertTaskInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -55428,7 +55408,7 @@ class Input$WorkItemCreateFromTaskInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemCreateFromTaskInput) ||
+    if (other is! Input$WorkItemCreateFromTaskInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -55642,7 +55622,7 @@ class Input$WorkItemCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemCreateInput) ||
+    if (other is! Input$WorkItemCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -55862,7 +55842,7 @@ class Input$WorkItemDeleteInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemDeleteInput) ||
+    if (other is! Input$WorkItemDeleteInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -56016,7 +55996,7 @@ class Input$WorkItemDeleteTaskInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemDeleteTaskInput) ||
+    if (other is! Input$WorkItemDeleteTaskInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -56190,7 +56170,7 @@ class Input$WorkItemDeletedTaskInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemDeletedTaskInput) ||
+    if (other is! Input$WorkItemDeletedTaskInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -56457,7 +56437,7 @@ class Input$WorkItemUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemUpdateInput) ||
+    if (other is! Input$WorkItemUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -56799,7 +56779,7 @@ class Input$WorkItemUpdateTaskInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemUpdateTaskInput) ||
+    if (other is! Input$WorkItemUpdateTaskInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -56973,7 +56953,7 @@ class Input$WorkItemUpdateWidgetsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemUpdateWidgetsInput) ||
+    if (other is! Input$WorkItemUpdateWidgetsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -57233,7 +57213,7 @@ class Input$WorkItemUpdatedTaskInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemUpdatedTaskInput) ||
+    if (other is! Input$WorkItemUpdatedTaskInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -57511,7 +57491,7 @@ class Input$WorkItemWidgetAssigneesInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemWidgetAssigneesInput) ||
+    if (other is! Input$WorkItemWidgetAssigneesInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -57618,7 +57598,7 @@ class Input$WorkItemWidgetDescriptionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemWidgetDescriptionInput) ||
+    if (other is! Input$WorkItemWidgetDescriptionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -57722,7 +57702,7 @@ class Input$WorkItemWidgetHierarchyCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemWidgetHierarchyCreateInput) ||
+    if (other is! Input$WorkItemWidgetHierarchyCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -57845,7 +57825,7 @@ class Input$WorkItemWidgetHierarchyUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemWidgetHierarchyUpdateInput) ||
+    if (other is! Input$WorkItemWidgetHierarchyUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -58006,7 +57986,7 @@ class Input$WorkItemWidgetStartAndDueDateUpdateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemWidgetStartAndDueDateUpdateInput) ||
+    if (other is! Input$WorkItemWidgetStartAndDueDateUpdateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -58135,7 +58115,7 @@ class Input$WorkItemWidgetWeightInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WorkItemWidgetWeightInput) ||
+    if (other is! Input$WorkItemWidgetWeightInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -58326,7 +58306,7 @@ class Input$iterationCreateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$iterationCreateInput) ||
+    if (other is! Input$iterationCreateInput ||
         runtimeType != other.runtimeType) {
       return false;
     }

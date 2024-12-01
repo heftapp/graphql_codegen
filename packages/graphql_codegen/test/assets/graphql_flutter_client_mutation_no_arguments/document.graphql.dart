@@ -213,7 +213,7 @@ class Mutation$UpdateSNo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateSNo) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$UpdateSNo || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;

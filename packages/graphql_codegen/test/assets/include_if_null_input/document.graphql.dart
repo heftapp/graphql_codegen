@@ -54,7 +54,7 @@ class Input$Input {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$Input) || runtimeType != other.runtimeType) {
+    if (other is! Input$Input || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -360,7 +360,7 @@ class Variables$Query$Q1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$Q1) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$Q1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$input = input;
@@ -474,7 +474,7 @@ class Query$Q1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q1) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;

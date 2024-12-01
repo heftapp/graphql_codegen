@@ -1,3 +1,7 @@
+# 1.1.1
+
+- Update `is` operators.
+
 # 1.1.0
 
  - Add new experimental input builders for better `null` / *undefined* handling. Enable by setting `EXPERIMENTAL_enable_input_builders: true`.

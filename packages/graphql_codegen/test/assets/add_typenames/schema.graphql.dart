@@ -224,7 +224,7 @@ class Fragment$FReport {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FReport) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FReport || runtimeType != other.runtimeType) {
       return false;
     }
     final l$title = title;
@@ -431,7 +431,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$docsWithTypename = docsWithTypename;
@@ -830,7 +830,7 @@ class Query$Q$docsWithTypename {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithTypename) ||
+    if (other is! Query$Q$docsWithTypename ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -964,7 +964,7 @@ class Query$Q$docsWithTypename$$Contract implements Query$Q$docsWithTypename {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithTypename$$Contract) ||
+    if (other is! Query$Q$docsWithTypename$$Contract ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1057,7 +1057,7 @@ class Query$Q$docsWithTypename$$Report implements Query$Q$docsWithTypename {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithTypename$$Report) ||
+    if (other is! Query$Q$docsWithTypename$$Report ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1172,7 +1172,7 @@ class Query$Q$docsWihtoutTypename {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWihtoutTypename) ||
+    if (other is! Query$Q$docsWihtoutTypename ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1338,7 +1338,7 @@ class Query$Q$docsWihtoutTypename$$Contract
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWihtoutTypename$$Contract) ||
+    if (other is! Query$Q$docsWihtoutTypename$$Contract ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1464,7 +1464,7 @@ class Query$Q$docsWihtoutTypename$$Report
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWihtoutTypename$$Report) ||
+    if (other is! Query$Q$docsWihtoutTypename$$Report ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1574,7 +1574,7 @@ class Query$Q$docsWithAliasedTypename {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithAliasedTypename) ||
+    if (other is! Query$Q$docsWithAliasedTypename ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1668,7 +1668,7 @@ class Query$Q$docsWithAliasedTypename$$Contract
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithAliasedTypename$$Contract) ||
+    if (other is! Query$Q$docsWithAliasedTypename$$Contract ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1763,7 +1763,7 @@ class Query$Q$docsWithAliasedTypename$$Report
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithAliasedTypename$$Report) ||
+    if (other is! Query$Q$docsWithAliasedTypename$$Report ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1864,7 +1864,7 @@ class Query$Q$docsWithFragment {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithFragment) ||
+    if (other is! Query$Q$docsWithFragment ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2012,7 +2012,7 @@ class Query$Q$docsWithFragment$$Contract implements Query$Q$docsWithFragment {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithFragment$$Contract) ||
+    if (other is! Query$Q$docsWithFragment$$Contract ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2137,7 +2137,7 @@ class Query$Q$docsWithFragment$$Report
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$docsWithFragment$$Report) ||
+    if (other is! Query$Q$docsWithFragment$$Report ||
         runtimeType != other.runtimeType) {
       return false;
     }

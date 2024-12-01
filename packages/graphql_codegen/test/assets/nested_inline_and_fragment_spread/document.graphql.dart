@@ -212,7 +212,7 @@ class Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -345,7 +345,7 @@ class Fragment$F$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$t) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -438,7 +438,7 @@ class Fragment$F$t$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -529,7 +529,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -683,7 +683,7 @@ class Query$Q$t implements Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -778,7 +778,7 @@ class Query$Q$t$t implements Fragment$F, Fragment$F$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -888,7 +888,7 @@ class Query$Q$t$t$t implements Fragment$F$t, Fragment$F$t$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -1003,7 +1003,7 @@ class Query$Q$t$t$t$t implements Fragment$F$t$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t$t$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t$t$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1094,7 +1094,7 @@ class Query$Q2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q2) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -1248,7 +1248,7 @@ class Query$Q2$t implements Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q2$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q2$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -1343,7 +1343,7 @@ class Query$Q2$t$t implements Fragment$F$t, Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q2$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q2$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -1453,7 +1453,7 @@ class Query$Q2$t$t$t implements Fragment$F$t$t, Fragment$F$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q2$t$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q2$t$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1569,7 +1569,7 @@ class Query$Q2$t$t$t$t implements Fragment$F$t$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q2$t$t$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q2$t$t$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;

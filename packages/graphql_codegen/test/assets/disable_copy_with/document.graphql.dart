@@ -34,7 +34,7 @@ class Input$DataQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$DataQuery) || runtimeType != other.runtimeType) {
+    if (other is! Input$DataQuery || runtimeType != other.runtimeType) {
       return false;
     }
     final l$time = time;
@@ -279,7 +279,7 @@ class Fragment$FA {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FA) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FA || runtimeType != other.runtimeType) {
       return false;
     }
     final l$value = value;
@@ -368,7 +368,7 @@ class Fragment$FB {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FB) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FB || runtimeType != other.runtimeType) {
       return false;
     }
     final l$value = value;
@@ -459,7 +459,7 @@ class Query$FetchScalars {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchScalars) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchScalars || runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;
@@ -556,8 +556,7 @@ class Query$FetchScalars$data {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchScalars$data) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchScalars$data || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -657,7 +656,7 @@ class Query$FetchScalars$data$$A
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchScalars$data$$A) ||
+    if (other is! Query$FetchScalars$data$$A ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -719,7 +718,7 @@ class Query$FetchScalars$data$$B
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchScalars$data$$B) ||
+    if (other is! Query$FetchScalars$data$$B ||
         runtimeType != other.runtimeType) {
       return false;
     }

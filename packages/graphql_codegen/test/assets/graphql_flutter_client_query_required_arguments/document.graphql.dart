@@ -222,7 +222,7 @@ class Variables$Query$FetchSRequired {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$FetchSRequired) ||
+    if (other is! Variables$Query$FetchSRequired ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -310,7 +310,7 @@ class Query$FetchSRequired {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchSRequired) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchSRequired || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;

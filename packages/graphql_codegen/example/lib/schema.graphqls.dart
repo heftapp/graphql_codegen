@@ -73,8 +73,7 @@ class Input$UpdatePersonInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$UpdatePersonInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Input$UpdatePersonInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
