@@ -28,7 +28,7 @@ Method printEqualityOperator(
         ..statements = ListBuilder([
           Code("if (identical(this, other)) {return true;}"),
           Code(
-              "if (!(other is ${name}) || runtimeType != other.runtimeType) {return false;}"),
+              "if (other is! ${name} || runtimeType != other.runtimeType) {return false;}"),
           ...properties.expand(
             (e) {
               final localThisName =
