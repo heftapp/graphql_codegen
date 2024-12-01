@@ -76,7 +76,7 @@ class Input$I {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I) || runtimeType != other.runtimeType) {
+    if (other is! Input$I || runtimeType != other.runtimeType) {
       return false;
     }
     final l$nonNull = nonNull;
@@ -614,7 +614,7 @@ class Variables$Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$nonNull = nonNull;
@@ -1096,7 +1096,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$fNonNull = fNonNull;

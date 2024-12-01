@@ -226,7 +226,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$book = book;
@@ -423,7 +423,7 @@ class Query$Q$book {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$book) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$book || runtimeType != other.runtimeType) {
       return false;
     }
     final l$author = author;
@@ -579,8 +579,7 @@ class Query$Q$book$$TextBook implements Query$Q$book {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$book$$TextBook) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$Q$book$$TextBook || runtimeType != other.runtimeType) {
       return false;
     }
     final l$courses = courses;

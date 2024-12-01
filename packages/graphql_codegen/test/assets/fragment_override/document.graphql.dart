@@ -212,7 +212,7 @@ class Fragment$T1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -335,7 +335,7 @@ class Fragment$T1$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$T1$t) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$T1$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -437,7 +437,7 @@ class Fragment$T2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$T2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$T2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -585,7 +585,7 @@ class Fragment$T2$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$T2$t) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$T2$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -687,7 +687,7 @@ class Fragment$TC implements Fragment$T1, Fragment$T2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$TC) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$TC || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -823,7 +823,7 @@ class Fragment$TC$t implements Fragment$T1$t, Fragment$T2$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$TC$t) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$TC$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -911,7 +911,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;

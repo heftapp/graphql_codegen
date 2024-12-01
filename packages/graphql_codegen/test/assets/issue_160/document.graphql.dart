@@ -67,7 +67,7 @@ class Input$I1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I1) || runtimeType != other.runtimeType) {
+    if (other is! Input$I1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$nested = nested;
@@ -277,7 +277,7 @@ class Input$I2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I2) || runtimeType != other.runtimeType) {
+    if (other is! Input$I2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$str = str;

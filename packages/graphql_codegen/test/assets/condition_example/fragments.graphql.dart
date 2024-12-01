@@ -52,7 +52,7 @@ class Fragment$Condition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$Condition) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$Condition || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -245,7 +245,7 @@ class Fragment$Condition$$AndCondition implements Fragment$Condition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$Condition$$AndCondition) ||
+    if (other is! Fragment$Condition$$AndCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -371,7 +371,7 @@ class Fragment$Condition$$TimeCondition implements Fragment$Condition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$Condition$$TimeCondition) ||
+    if (other is! Fragment$Condition$$TimeCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -516,7 +516,7 @@ class Fragment$AndCondition implements Fragment$Condition$$AndCondition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$AndCondition) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$AndCondition || runtimeType != other.runtimeType) {
       return false;
     }
     final l$left = left;
@@ -757,7 +757,7 @@ class Fragment$CompositeCondition implements Fragment$Condition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$CompositeCondition) ||
+    if (other is! Fragment$CompositeCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -991,7 +991,7 @@ class Fragment$CompositeCondition$$AndCondition
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$CompositeCondition$$AndCondition) ||
+    if (other is! Fragment$CompositeCondition$$AndCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1173,7 +1173,7 @@ class Fragment$CompositeCondition$$TimeCondition
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$CompositeCondition$$TimeCondition) ||
+    if (other is! Fragment$CompositeCondition$$TimeCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1319,7 +1319,7 @@ class Fragment$NonCompositeCondition implements Fragment$Condition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$NonCompositeCondition) ||
+    if (other is! Fragment$NonCompositeCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1527,7 +1527,7 @@ class Fragment$NonCompositeCondition$$AndCondition
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$NonCompositeCondition$$AndCondition) ||
+    if (other is! Fragment$NonCompositeCondition$$AndCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1667,7 +1667,7 @@ class Fragment$NonCompositeCondition$$TimeCondition
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$NonCompositeCondition$$TimeCondition) ||
+    if (other is! Fragment$NonCompositeCondition$$TimeCondition ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1814,8 +1814,7 @@ class Fragment$TimeCondition implements Fragment$Condition$$TimeCondition {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$TimeCondition) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$TimeCondition || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

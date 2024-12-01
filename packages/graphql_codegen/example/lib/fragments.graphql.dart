@@ -118,8 +118,7 @@ class Fragment$PersonSummary {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$PersonSummary) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$PersonSummary || runtimeType != other.runtimeType) {
       return false;
     }
     final l$nickname = nickname;
@@ -514,7 +513,7 @@ class Fragment$PersonParent {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$PersonParent) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$PersonParent || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

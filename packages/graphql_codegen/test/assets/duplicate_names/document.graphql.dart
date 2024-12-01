@@ -37,7 +37,7 @@ class Input$I {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I) || runtimeType != other.runtimeType) {
+    if (other is! Input$I || runtimeType != other.runtimeType) {
       return false;
     }
     final l$title = title;
@@ -134,7 +134,7 @@ class Input$I_ {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I_) || runtimeType != other.runtimeType) {
+    if (other is! Input$I_ || runtimeType != other.runtimeType) {
       return false;
     }
     final l$value = value;
@@ -231,7 +231,7 @@ class Input$i {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$i) || runtimeType != other.runtimeType) {
+    if (other is! Input$i || runtimeType != other.runtimeType) {
       return false;
     }
     final l$enabled = enabled;

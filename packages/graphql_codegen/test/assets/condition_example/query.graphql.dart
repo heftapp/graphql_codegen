@@ -45,8 +45,7 @@ class Query$FetchShouldRender {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchShouldRender) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchShouldRender || runtimeType != other.runtimeType) {
       return false;
     }
     final l$shouldRender = shouldRender;

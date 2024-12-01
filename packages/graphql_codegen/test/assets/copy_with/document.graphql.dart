@@ -247,7 +247,7 @@ class Query$Foobar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Foobar) || runtimeType != other.runtimeType) {
+    if (other is! Query$Foobar || runtimeType != other.runtimeType) {
       return false;
     }
     final l$ts = ts;
@@ -542,7 +542,7 @@ class Query$Foobar$ts {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Foobar$ts) || runtimeType != other.runtimeType) {
+    if (other is! Query$Foobar$ts || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -683,7 +683,7 @@ class Query$Foobar$ts$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Foobar$ts$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Foobar$ts$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -804,7 +804,7 @@ class Query$Foobar$tss {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Foobar$tss) || runtimeType != other.runtimeType) {
+    if (other is! Query$Foobar$tss || runtimeType != other.runtimeType) {
       return false;
     }
     final l$nameEnforced = nameEnforced;

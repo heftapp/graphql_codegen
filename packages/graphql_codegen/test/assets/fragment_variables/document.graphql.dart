@@ -39,7 +39,7 @@ class Input$Input {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$Input) || runtimeType != other.runtimeType) {
+    if (other is! Input$Input || runtimeType != other.runtimeType) {
       return false;
     }
     final l$inputField = inputField;
@@ -332,7 +332,7 @@ class Variables$Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F1) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -459,7 +459,7 @@ class Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$level1 = level1;
@@ -687,7 +687,7 @@ class Fragment$F1$level1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1$level1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F1$level1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$level2 = level2;
@@ -825,7 +825,7 @@ class Fragment$F1$level1$level2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1$level1$level2) ||
+    if (other is! Fragment$F1$level1$level2 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -962,7 +962,7 @@ class Fragment$F1$level1$level2$level3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1$level1$level2$level3) ||
+    if (other is! Fragment$F1$level1$level2$level3 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1097,7 +1097,7 @@ class Variables$Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -1227,7 +1227,7 @@ class Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$level1 = level1;
@@ -1400,8 +1400,7 @@ class Variables$Fragment$F21 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F21) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F21 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -1507,7 +1506,7 @@ class Fragment$F21 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F21) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F21 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$level2 = level2;
@@ -1718,7 +1717,7 @@ class Fragment$F21$level2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F21$level2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F21$level2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$level3 = level3;
@@ -1853,7 +1852,7 @@ class Fragment$F21$level2$level3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F21$level2$level3) ||
+    if (other is! Fragment$F21$level2$level3 ||
         runtimeType != other.runtimeType) {
       return false;
     }

@@ -212,7 +212,7 @@ class Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -356,7 +356,7 @@ class Fragment$F$other implements Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$other) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$other || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -455,8 +455,7 @@ class Fragment$F$other$other implements Fragment$F2$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$other$other) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$other$other || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -543,7 +542,7 @@ class Fragment$F$other$other$$T1
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$other$other$$T1) ||
+    if (other is! Fragment$F$other$other$$T1 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -649,7 +648,7 @@ class Fragment$F$other$$T1 implements Fragment$F2$$T1, Fragment$F$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$other$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$other$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$b = b;
@@ -768,7 +767,7 @@ class Fragment$F$other$$T1$other
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$other$$T1$other) ||
+    if (other is! Fragment$F$other$$T1$other ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -857,7 +856,7 @@ class Fragment$F$other$$T1$other$$T1
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$other$$T1$other$$T1) ||
+    if (other is! Fragment$F$other$$T1$other$$T1 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -949,7 +948,7 @@ class Fragment$F$$T1 implements Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -1052,7 +1051,7 @@ class Fragment$F$$T1$other implements Fragment$F2, Fragment$F$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1$other) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$$T1$other || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -1153,7 +1152,7 @@ class Fragment$F$$T1$other$other
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1$other$other) ||
+    if (other is! Fragment$F$$T1$other$other ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1242,7 +1241,7 @@ class Fragment$F$$T1$other$other$$T1
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1$other$other$$T1) ||
+    if (other is! Fragment$F$$T1$other$other$$T1 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1350,7 +1349,7 @@ class Fragment$F$$T1$other$$T1
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1$other$$T1) ||
+    if (other is! Fragment$F$$T1$other$$T1 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1471,7 +1470,7 @@ class Fragment$F$$T1$other$$T1$other
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1$other$$T1$other) ||
+    if (other is! Fragment$F$$T1$other$$T1$other ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1562,7 +1561,7 @@ class Fragment$F$$T1$other$$T1$other$$T1
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T1$other$$T1$other$$T1) ||
+    if (other is! Fragment$F$$T1$other$$T1$other$$T1 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1655,7 +1654,7 @@ class Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -1781,7 +1780,7 @@ class Fragment$F2$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2$other) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2$other || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -1867,7 +1866,7 @@ class Fragment$F2$other$$T1 implements Fragment$F2$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2$other$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2$other$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -1957,7 +1956,7 @@ class Fragment$F2$$T1 implements Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -2056,7 +2055,7 @@ class Fragment$F2$$T1$other implements Fragment$F2$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2$$T1$other) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2$$T1$other || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -2142,7 +2141,7 @@ class Fragment$F2$$T1$other$$T1 implements Fragment$F2$$T1$other {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2$$T1$other$$T1) ||
+    if (other is! Fragment$F2$$T1$other$$T1 ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2233,7 +2232,7 @@ class Query$Fetch {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Fetch) || runtimeType != other.runtimeType) {
+    if (other is! Query$Fetch || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;

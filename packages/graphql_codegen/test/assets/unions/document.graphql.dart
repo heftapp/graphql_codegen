@@ -212,7 +212,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$u = u;
@@ -373,7 +373,7 @@ class Query$Q$u {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$u) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$u || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -513,7 +513,7 @@ class Query$Q$u$$TA implements Query$Q$u {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$u$$TA) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$u$$TA || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -633,7 +633,7 @@ class Query$Q$u$$TB implements Query$Q$u {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$u$$TB) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$u$$TB || runtimeType != other.runtimeType) {
       return false;
     }
     final l$velocity = velocity;

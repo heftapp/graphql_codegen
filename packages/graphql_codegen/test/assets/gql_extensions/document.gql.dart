@@ -224,7 +224,7 @@ class Query$FetchCount {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchCount) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchCount || runtimeType != other.runtimeType) {
       return false;
     }
     final l$fetchCount = fetchCount;

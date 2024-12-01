@@ -230,8 +230,7 @@ class Fragment$PersonSummary {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$PersonSummary) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$PersonSummary || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -410,7 +409,7 @@ class Fragment$PersonSummary$$Person implements Fragment$PersonSummary {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$PersonSummary$$Person) ||
+    if (other is! Fragment$PersonSummary$$Person ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -535,7 +534,7 @@ class Query$GetPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetPerson) || runtimeType != other.runtimeType) {
+    if (other is! Query$GetPerson || runtimeType != other.runtimeType) {
       return false;
     }
     final l$person = person;
@@ -712,8 +711,7 @@ class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetPerson$person) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$GetPerson$person || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;

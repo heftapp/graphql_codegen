@@ -41,7 +41,7 @@ class Input$WalletGetContentInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$WalletGetContentInput) ||
+    if (other is! Input$WalletGetContentInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -324,7 +324,7 @@ class Variables$Query$WalletGetContent {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$WalletGetContent) ||
+    if (other is! Variables$Query$WalletGetContent ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -439,8 +439,7 @@ class Query$WalletGetContent {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$WalletGetContent) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$WalletGetContent || runtimeType != other.runtimeType) {
       return false;
     }
     final l$walletGetContent = walletGetContent;
@@ -755,7 +754,7 @@ class Query$WalletGetContent$walletGetContent {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$WalletGetContent$walletGetContent) ||
+    if (other is! Query$WalletGetContent$walletGetContent ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -907,7 +906,7 @@ class Query$WalletGetContent$walletGetContent$blocks {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$WalletGetContent$walletGetContent$blocks) ||
+    if (other is! Query$WalletGetContent$walletGetContent$blocks ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1088,8 +1087,8 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList) ||
+    if (other
+            is! Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1316,8 +1315,8 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blo
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType) ||
+    if (other
+            is! Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$blockType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1453,8 +1452,8 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items) ||
+    if (other
+            is! Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1642,8 +1641,8 @@ class Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$ite
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview) ||
+    if (other
+            is! Query$WalletGetContent$walletGetContent$blocks$$WalletContentBlockList$items$$WalletContentItemContentPreview ||
         runtimeType != other.runtimeType) {
       return false;
     }

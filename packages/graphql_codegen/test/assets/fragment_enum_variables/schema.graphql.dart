@@ -39,7 +39,7 @@ class Input$I {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$I) || runtimeType != other.runtimeType) {
+    if (other is! Input$I || runtimeType != other.runtimeType) {
       return false;
     }
     final l$s = s;
@@ -347,7 +347,7 @@ class Variables$Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F1) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$locale = locale;
@@ -458,7 +458,7 @@ class Fragment$F1 implements Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$n2 = n2;
@@ -618,7 +618,7 @@ class Variables$Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$locale = locale;
@@ -720,7 +720,7 @@ class Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$n2 = n2;
@@ -866,7 +866,7 @@ class Variables$Fragment$F3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F3) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F3 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$i = i;
@@ -975,7 +975,7 @@ class Fragment$F3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F3) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F3 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$test = test;
@@ -1121,7 +1121,7 @@ class Variables$Fragment$F4 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Fragment$F4) || runtimeType != other.runtimeType) {
+    if (other is! Variables$Fragment$F4 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$locale = locale;
@@ -1232,7 +1232,7 @@ class Fragment$F4 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F4) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F4 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$n1 = n1;

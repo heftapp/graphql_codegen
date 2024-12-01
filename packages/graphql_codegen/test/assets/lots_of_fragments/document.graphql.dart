@@ -233,7 +233,7 @@ class Fragment$FragmentA implements Fragment$FragmentI$$FieldA {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FragmentA) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FragmentA || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -403,7 +403,7 @@ class Fragment$FragmentI {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FragmentI) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FragmentI || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -582,7 +582,7 @@ class Fragment$FragmentI$$FieldA implements Fragment$FragmentI {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FragmentI$$FieldA) ||
+    if (other is! Fragment$FragmentI$$FieldA ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -707,7 +707,7 @@ class Query$FetchStuff {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchStuff) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchStuff || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -941,8 +941,7 @@ class Query$FetchStuff$field {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchStuff$field) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$FetchStuff$field || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1105,7 +1104,7 @@ class Query$FetchStuff$field$$FieldA
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchStuff$field$$FieldA) ||
+    if (other is! Query$FetchStuff$field$$FieldA ||
         runtimeType != other.runtimeType) {
       return false;
     }

@@ -43,7 +43,7 @@ class Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

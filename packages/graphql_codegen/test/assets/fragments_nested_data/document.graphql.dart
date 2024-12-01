@@ -212,7 +212,7 @@ class Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -337,7 +337,7 @@ class Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -462,7 +462,7 @@ class Fragment$F3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F3) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F3 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$other = other;
@@ -583,7 +583,7 @@ class Fragment$F4 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F4) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F4 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -691,7 +691,7 @@ class Query$Fetch {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Fetch) || runtimeType != other.runtimeType) {
+    if (other is! Query$Fetch || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;

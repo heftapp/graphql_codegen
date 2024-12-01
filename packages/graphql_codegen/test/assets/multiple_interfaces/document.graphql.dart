@@ -209,7 +209,7 @@ class Fragment$F0 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F0) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F0 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name01 = name01;
@@ -314,7 +314,7 @@ class Fragment$F0$$T1 implements Fragment$F0 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F0$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F0$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name01 = name01;
@@ -400,7 +400,7 @@ class Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$size2 = size2;
@@ -505,7 +505,7 @@ class Fragment$F1$$T1 implements Fragment$F1 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F1$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F1$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$size2 = size2;
@@ -591,7 +591,7 @@ class Fragment$F2 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F2) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F2 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name2 = name2;
@@ -696,7 +696,7 @@ class Fragment$F3 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F3) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F3 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$value = value;
@@ -804,7 +804,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$field = field;
@@ -1041,7 +1041,7 @@ class Query$Q$field implements Fragment$F0 {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$field) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$field || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1245,7 +1245,7 @@ class Query$Q$field$$T1
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$field$$T1) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$field$$T1 || runtimeType != other.runtimeType) {
       return false;
     }
     final l$size = size;

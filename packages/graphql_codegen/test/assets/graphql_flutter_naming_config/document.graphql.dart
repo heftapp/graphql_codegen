@@ -47,7 +47,7 @@ class Input___Input {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input___Input) || runtimeType != other.runtimeType) {
+    if (other is! Input___Input || runtimeType != other.runtimeType) {
       return false;
     }
     final l$status = status;
@@ -378,7 +378,7 @@ class Query___Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query___Q) || runtimeType != other.runtimeType) {
+    if (other is! Query___Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$status = status;

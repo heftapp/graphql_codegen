@@ -125,7 +125,7 @@ class Fragment$FullType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullType) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$FullType || runtimeType != other.runtimeType) {
       return false;
     }
     final l$kind = kind;
@@ -753,7 +753,7 @@ class Fragment$FullType$fields {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullType$fields) ||
+    if (other is! Fragment$FullType$fields ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -992,7 +992,7 @@ class Fragment$FullType$enumValues {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$FullType$enumValues) ||
+    if (other is! Fragment$FullType$enumValues ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1159,7 +1159,7 @@ class Fragment$TypeRef {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$TypeRef) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$TypeRef || runtimeType != other.runtimeType) {
       return false;
     }
     final l$kind = kind;
@@ -1354,7 +1354,7 @@ class Fragment$InputValue {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$InputValue) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$InputValue || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -1582,7 +1582,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$hello = hello;
@@ -1736,7 +1736,7 @@ class Query$Introspection {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Introspection) || runtimeType != other.runtimeType) {
+    if (other is! Query$Introspection || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__schema = $__schema;
@@ -2142,7 +2142,7 @@ class Query$Introspection$__schema {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Introspection$__schema) ||
+    if (other is! Query$Introspection$__schema ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2403,7 +2403,7 @@ class Query$Introspection$__schema$queryType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Introspection$__schema$queryType) ||
+    if (other is! Query$Introspection$__schema$queryType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2528,7 +2528,7 @@ class Query$Introspection$__schema$mutationType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Introspection$__schema$mutationType) ||
+    if (other is! Query$Introspection$__schema$mutationType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2653,7 +2653,7 @@ class Query$Introspection$__schema$subscriptionType {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Introspection$__schema$subscriptionType) ||
+    if (other is! Query$Introspection$__schema$subscriptionType ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2811,7 +2811,7 @@ class Query$Introspection$__schema$directives {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Introspection$__schema$directives) ||
+    if (other is! Query$Introspection$__schema$directives ||
         runtimeType != other.runtimeType) {
       return false;
     }

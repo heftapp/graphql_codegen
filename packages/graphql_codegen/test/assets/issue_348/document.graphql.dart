@@ -211,7 +211,7 @@ class Query$FetchScalars {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchScalars) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchScalars || runtimeType != other.runtimeType) {
       return false;
     }
     final l$time = time;

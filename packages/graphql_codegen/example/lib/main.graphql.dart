@@ -43,7 +43,7 @@ class Variables$Query$FetchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$FetchPerson) ||
+    if (other is! Variables$Query$FetchPerson ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -148,7 +148,7 @@ class Query$FetchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchPerson) || runtimeType != other.runtimeType) {
+    if (other is! Query$FetchPerson || runtimeType != other.runtimeType) {
       return false;
     }
     final l$fetchPerson = fetchPerson;
@@ -610,7 +610,7 @@ class Query$FetchPerson$fetchPerson implements Fragment$PersonSummary {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchPerson$fetchPerson) ||
+    if (other is! Query$FetchPerson$fetchPerson ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -995,7 +995,7 @@ class Query$FetchPerson$fetchPerson$parents
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$FetchPerson$fetchPerson$parents) ||
+    if (other is! Query$FetchPerson$fetchPerson$parents ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1256,7 +1256,7 @@ class Variables$Mutation$UpdatePerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$UpdatePerson) ||
+    if (other is! Variables$Mutation$UpdatePerson ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1362,7 +1362,7 @@ class Mutation$UpdatePerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdatePerson) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$UpdatePerson || runtimeType != other.runtimeType) {
       return false;
     }
     final l$updatePerson = updatePerson;
@@ -1760,7 +1760,7 @@ class Mutation$UpdatePerson$updatePerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdatePerson$updatePerson) ||
+    if (other is! Mutation$UpdatePerson$updatePerson ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1886,7 +1886,7 @@ class Variables$Subscription$WatchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Subscription$WatchPerson) ||
+    if (other is! Variables$Subscription$WatchPerson ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1995,7 +1995,7 @@ class Subscription$WatchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$WatchPerson) ||
+    if (other is! Subscription$WatchPerson ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2290,7 +2290,7 @@ class Subscription$WatchPerson$watchPerson {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$WatchPerson$watchPerson) ||
+    if (other is! Subscription$WatchPerson$watchPerson ||
         runtimeType != other.runtimeType) {
       return false;
     }

@@ -230,7 +230,7 @@ class Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -448,7 +448,7 @@ class Fragment$F$$T implements Fragment$F {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$$T || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -572,7 +572,7 @@ class Fragment$F$$T$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$F$$T$t) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$F$$T$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;
@@ -661,7 +661,7 @@ class Query$Q {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q || runtimeType != other.runtimeType) {
       return false;
     }
     final l$t = t;
@@ -810,7 +810,7 @@ class Query$Q$t implements Fragment$F$$T {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -931,7 +931,7 @@ class Query$Q$t$t implements Fragment$F$$T$t {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Q$t$t) || runtimeType != other.runtimeType) {
+    if (other is! Query$Q$t$t || runtimeType != other.runtimeType) {
       return false;
     }
     final l$name = name;

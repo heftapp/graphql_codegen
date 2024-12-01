@@ -231,7 +231,7 @@ class Subscription$NoArgs {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$NoArgs) || runtimeType != other.runtimeType) {
+    if (other is! Subscription$NoArgs || runtimeType != other.runtimeType) {
       return false;
     }
     final l$listenForChange = listenForChange;
@@ -499,7 +499,7 @@ class Subscription$NoArgs$listenForChange {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$NoArgs$listenForChange) ||
+    if (other is! Subscription$NoArgs$listenForChange ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -621,7 +621,7 @@ class Variables$Subscription$RequiredArg {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Subscription$RequiredArg) ||
+    if (other is! Variables$Subscription$RequiredArg ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -727,7 +727,7 @@ class Subscription$RequiredArg {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$RequiredArg) ||
+    if (other is! Subscription$RequiredArg ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1023,7 +1023,7 @@ class Subscription$RequiredArg$listenForChange {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$RequiredArg$listenForChange) ||
+    if (other is! Subscription$RequiredArg$listenForChange ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1149,7 +1149,7 @@ class Variables$Subscription$OptionalArg {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Subscription$OptionalArg) ||
+    if (other is! Variables$Subscription$OptionalArg ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1258,7 +1258,7 @@ class Subscription$OptionalArg {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$OptionalArg) ||
+    if (other is! Subscription$OptionalArg ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1554,7 +1554,7 @@ class Subscription$OptionalArg$listenForChange {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Subscription$OptionalArg$listenForChange) ||
+    if (other is! Subscription$OptionalArg$listenForChange ||
         runtimeType != other.runtimeType) {
       return false;
     }
