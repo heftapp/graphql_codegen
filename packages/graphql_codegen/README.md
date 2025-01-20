@@ -623,6 +623,17 @@ no `$unknown` value will be added to your enum and all new values will be mapped
 
 ## Add typename
 
+Please note that before toggling `addTypename` to `true` as it might just sound like a quick win for every GraphQL document,
+you might want to consider that this option could end up generating documents that wouldn't be up-to-spec with the main GraphQL
+specification. In particular, given that having [several root fields on subscriptions is forbidden](https://spec.graphql.org/October2021/#sec-Single-root-field)
+you probably want to make sure that the server you'll be consuming the GraphQL endpoint against might enforce this rule and
+[add an exception](#excluding-some-selections-from-adding-typename) to it, such as:
+
+```yaml
+addTypenameExcludedPaths:
+  - subscription.*
+```
+
 By default, the `addTypename` option is enabled. This'll add the `__typename` introspection field to every selection set. E.g.,
 
 ```graphql
