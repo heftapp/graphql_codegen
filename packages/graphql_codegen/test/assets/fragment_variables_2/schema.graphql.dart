@@ -802,7 +802,7 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
 class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
   WatchOptions$Query$Q({
     String? operationName,
-    required Variables$Query$Q variables,
+    Variables$Query$Q? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -814,7 +814,7 @@ class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
