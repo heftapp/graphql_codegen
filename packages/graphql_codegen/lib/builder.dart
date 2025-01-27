@@ -133,7 +133,8 @@ class GraphQLBuilder extends Builder {
     AssetId targetAssetId,
     Library library,
   ) {
-    final formatter = DartFormatter();
+    final formatter = DartFormatter(
+        languageVersion: DartFormatter.latestShortStyleLanguageVersion);
     final emitter = DartEmitter(useNullSafetySyntax: true);
     final generatedCode = library.accept(emitter);
     final contents = formatter.format(

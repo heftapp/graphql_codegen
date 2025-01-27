@@ -15,7 +15,7 @@ dependencies:
   build: ^2.0.1
   glob: ^2.0.1
   code_builder: ^4.2.0
-  dart_style: ^2.0.1
+  dart_style: ^3.0.0
   built_collection: ^5.0.0
   path: ^1.8.0
   gql_code_builder: ^0.9.1
