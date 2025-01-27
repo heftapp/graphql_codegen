@@ -3,6 +3,5 @@ name: graphql_codegen_workspace
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
-
 dev_dependencies:
-  melos: 6.1.0
+  melos: ^6.1.0

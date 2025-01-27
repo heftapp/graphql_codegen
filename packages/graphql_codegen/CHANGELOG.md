@@ -1,10 +1,14 @@
+# 1.2.0
+
+- Upgrade dependencies and dart SDK version.
+
 # 1.1.1
 
 - Update `is` operators.
 
 # 1.1.0
 
- - Add new experimental input builders for better `null` / *undefined* handling. Enable by setting `EXPERIMENTAL_enable_input_builders: true`.
+- Add new experimental input builders for better `null` / _undefined_ handling. Enable by setting `EXPERIMENTAL_enable_input_builders: true`.
 
 # 1.0.1
 
