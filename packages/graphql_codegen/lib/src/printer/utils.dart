@@ -47,8 +47,6 @@ class NamePrinter {
           return isAction ? 'query' : 'Query';
         case OperationType.subscription:
           return isAction ? 'subscribe' : 'Subscription';
-        default:
-          throw new UnsupportedError("Unsupported opreation type");
       }
     }
     if (segment is FragmentNameSegment) {
