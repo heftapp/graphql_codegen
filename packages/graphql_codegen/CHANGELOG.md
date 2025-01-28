@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Upgrade `gql_code_builder`.
+
 # 1.2.0
 
 - Upgrade dependencies and dart SDK version.

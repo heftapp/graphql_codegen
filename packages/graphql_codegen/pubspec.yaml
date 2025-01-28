@@ -3,7 +3,7 @@ description: |
   Simple, opinionated, codegen library for GraphQL. It allows you to
   generate serializers and client helpers to easily call and parse your data.
 
-version: 1.2.0
+version: 1.2.1
 homepage: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
 repository: https://github.com/heftapp/graphql_codegen/tree/main/packages/graphql_codegen
 
@@ -18,9 +18,9 @@ dependencies:
   dart_style: ^3.0.0
   built_collection: ^5.0.0
   path: ^1.8.0
-  gql_code_builder: ^0.13.0
+  gql_code_builder: ^0.13.1
   recase: ^4.0.0
-  json_annotation: ^4.8.0
+  json_annotation: ^4.9.0
 dev_dependencies:
   test: ^1.17.4
   build_test: ^2.1.0
