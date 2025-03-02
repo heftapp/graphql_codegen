@@ -67,6 +67,7 @@ class GraphQLCodegenConfig {
   final String outputDirectory;
   final bool disableContextReplacement;
   final bool disableCopyWithGeneration;
+  final bool allowMissingNullableKeysInFromJson;
 
   @JsonKey(name: 'EXPERIMENTAL_enable_input_builders')
   final bool enableInputBuilders;
@@ -86,6 +87,7 @@ class GraphQLCodegenConfig {
     this.outputDirectory = '.',
     this.disableCopyWithGeneration = false,
     this.enableInputBuilders = false,
+    this.allowMissingNullableKeysInFromJson = false,
   });
 
   @override

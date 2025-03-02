@@ -23,7 +23,16 @@ Constructor _printFromJson(
   List<Code> body = [
     for (final property in properties)
       declareFinal(context.namePrinter.printLocalPropertyName(property.name))
-          .assign(refer('json').index(literalString(property.name.value)))
+          .assign(context.context.config.allowMissingNullableKeysInFromJson
+              ? property.isNonNull
+                  ? refer('json').index(literalString(property.name.value))
+                  : refer('json').property('containsKey').call(
+                      [literalString(property.name.value)],
+                    ).conditional(
+                      refer('json').index(literalString(property.name.value)),
+                      literalNull,
+                    )
+              : refer('json').index(literalString(property.name.value)))
           .statement,
     refer(name)
         .call([], {

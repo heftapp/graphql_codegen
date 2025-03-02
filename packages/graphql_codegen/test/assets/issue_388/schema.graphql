@@ -1,0 +1,31 @@
+scalar LocalDateTime
+scalar ResourceModification
+
+type ResourceItem {
+  createdAt: LocalDateTime
+  deletedAt: LocalDateTime
+  description: String
+  erpId: String
+  garageNumber: String
+  id: ID!
+  inventoryNumber: String
+  modification: ResourceModification
+  registrationNumber: String
+  updatedAt: LocalDateTime
+  vin: String
+}
+
+fragment CarFragment on ResourceItem {
+  createdAt
+  description
+  erpId
+  garageNumber
+  id
+  inventoryNumber
+  modification {
+    name
+  }
+  registrationNumber
+  updatedAt
+  vin
+}

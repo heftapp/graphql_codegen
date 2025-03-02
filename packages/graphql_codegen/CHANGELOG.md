@@ -1,3 +1,7 @@
+# 1.2.2
+
+- Support `allowMissingNullableKeysInFromJson`.
+
 # 1.2.1
 
 - Upgrade `gql_code_builder`.
