@@ -68,6 +68,7 @@ class GraphQLCodegenConfig {
   final bool disableContextReplacement;
   final bool disableCopyWithGeneration;
   final bool allowMissingNullableKeysInFromJson;
+  final bool setOperationName;
 
   @JsonKey(name: 'EXPERIMENTAL_enable_input_builders')
   final bool enableInputBuilders;
@@ -88,6 +89,7 @@ class GraphQLCodegenConfig {
     this.disableCopyWithGeneration = false,
     this.enableInputBuilders = false,
     this.allowMissingNullableKeysInFromJson = false,
+    this.setOperationName = false,
   });
 
   @override

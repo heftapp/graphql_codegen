@@ -1,3 +1,7 @@
+# 1.2.3
+
+- Support `setOperationName`.
+
 # 1.2.2
 
 - Support `allowMissingNullableKeysInFromJson`.

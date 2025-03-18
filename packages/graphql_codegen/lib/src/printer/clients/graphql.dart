@@ -174,7 +174,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
-                'operationName': refer('operationName'),
+                'operationName': _printOperationName(c),
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
@@ -196,6 +196,16 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
             ]),
         ),
       ]),
+  );
+}
+
+Expression _printOperationName(PrintContext<ContextOperation> c) {
+  final operationName = c.context.operation?.name?.value;
+  if (!c.context.config.setOperationName || operationName == null) {
+    return refer('operationName');
+  }
+  return refer('operationName').ifNullThen(
+    literalString(operationName),
   );
 }
 
@@ -257,7 +267,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
-                'operationName': refer('operationName'),
+                'operationName': _printOperationName(c),
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
@@ -544,7 +554,7 @@ Spec printMutationOptions(
                     'variables': refer('variables')
                         .nullSafeProperty('toJson')
                         .call([]).ifNullThen(literalMap({})),
-                  'operationName': refer('operationName'),
+                  'operationName': _printOperationName(c),
                   'fetchPolicy': refer('fetchPolicy'),
                   'errorPolicy': refer('errorPolicy'),
                   'cacheRereadPolicy': refer('cacheRereadPolicy'),
@@ -648,7 +658,7 @@ Spec printWatchOptions(
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
-                'operationName': refer('operationName'),
+                'operationName': _printOperationName(c),
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
