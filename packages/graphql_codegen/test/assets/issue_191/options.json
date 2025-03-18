@@ -1,0 +1,4 @@
+{
+  "setOperationName": true,
+  "clients": ["graphql"]
+}

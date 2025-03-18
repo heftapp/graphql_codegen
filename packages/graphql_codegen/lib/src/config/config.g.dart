@@ -88,6 +88,7 @@ GraphQLCodegenConfig _$GraphQLCodegenConfigFromJson(
           json['EXPERIMENTAL_enable_input_builders'] as bool? ?? false,
       allowMissingNullableKeysInFromJson:
           json['allowMissingNullableKeysInFromJson'] as bool? ?? false,
+      setOperationName: json['setOperationName'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$GraphQLCodegenConfigToJson(
@@ -110,6 +111,7 @@ Map<String, dynamic> _$GraphQLCodegenConfigToJson(
       'disableCopyWithGeneration': instance.disableCopyWithGeneration,
       'allowMissingNullableKeysInFromJson':
           instance.allowMissingNullableKeysInFromJson,
+      'setOperationName': instance.setOperationName,
       'EXPERIMENTAL_enable_input_builders': instance.enableInputBuilders,
     };
 

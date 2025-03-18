@@ -298,6 +298,7 @@ targets:
 | `extraKeywords`                      | []                 | A way to specify fields that are also keywords                                                                                                                                                           | [Extra keywords](#extra-keywords)                                      |
 | `disableCopyWithGeneration`          | `false`            | Allow you to disable generation of copy-with classes and methods                                                                                                                                         |                                                                        |
 | `allowMissingNullableKeysInFromJson` | `false`            | Support passing objects with missing entries for nullable fields.                                                                                                                                        |                                                                        |
+| `setOperationName`                   | `false`            | Set the operation name. fields.                                                                                                                                                                          |                                                                        |
 
 ---
 
