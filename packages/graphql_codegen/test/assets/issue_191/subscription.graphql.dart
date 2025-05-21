@@ -161,7 +161,7 @@ class Options$Subscription$S
     Subscription$S? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          operationName: operationName ?? 'S',
+          operationName: operationName ?? operationNameDefinition,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -170,6 +170,8 @@ class Options$Subscription$S
           document: documentNodeSubscriptionS,
           parserFn: _parserFn$Subscription$S,
         );
+
+  static const String? operationNameDefinition = "S";
 }
 
 class WatchOptions$Subscription$S
@@ -187,7 +189,7 @@ class WatchOptions$Subscription$S
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'S',
+          operationName: operationName ?? operationNameDefinition,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -200,6 +202,8 @@ class WatchOptions$Subscription$S
           fetchResults: fetchResults,
           parserFn: _parserFn$Subscription$S,
         );
+
+  static const String? operationNameDefinition = "S";
 }
 
 class FetchMoreOptions$Subscription$S extends graphql.FetchMoreOptions {

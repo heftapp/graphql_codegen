@@ -68,6 +68,7 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
             )
             ..modifier = FieldModifier.final$,
         ),
+        _printOperationNameDefinitionField(c),
       ])
       ..methods = ListBuilder([
         Method(
@@ -200,12 +201,24 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
 }
 
 Expression _printOperationName(PrintContext<ContextOperation> c) {
-  final operationName = c.context.operation?.name?.value;
-  if (!c.context.config.setOperationName || operationName == null) {
-    return refer('operationName');
-  }
   return refer('operationName').ifNullThen(
-    literalString(operationName),
+    CodeExpression(Code('operationNameDefinition')),
+  );
+}
+
+Field _printOperationNameDefinitionField(PrintContext<ContextOperation> c) {
+  final operationName = c.context.operation?.name?.value;
+
+  return Field(
+    (b) => b
+      ..static = true
+      ..modifier = FieldModifier.constant
+      ..type = Reference('String?')
+      ..name = 'operationNameDefinition'
+      ..assignment =
+          (!c.context.config.setOperationName || operationName == null)
+              ? null
+              : Code('"$operationName"'),
   );
 }
 
@@ -218,6 +231,9 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
         "graphql.SubscriptionOptions",
         refer(c.namePrinter.printClassName(context.path)),
       )
+      ..fields = ListBuilder([
+        _printOperationNameDefinitionField(c),
+      ])
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -447,6 +463,14 @@ Spec printMutationOptions(
             )
             ..modifier = FieldModifier.final$,
         ),
+        Field(
+          (b) => b
+            ..static = true
+            ..modifier = FieldModifier.constant
+            ..type = Reference('String')
+            ..name = 'operationNameDefinition'
+            ..assignment = Code('"${c.context.operation?.name?.value}"'),
+        ),
       ])
       ..methods = ListBuilder([
         Method(
@@ -594,6 +618,9 @@ Spec printWatchOptions(
       ..extend = TypeReference((b) => b
         ..symbol = "graphql.WatchQueryOptions"
         ..types = ListBuilder([refer(c.namePrinter.printClassName(c.path))]))
+      ..fields = ListBuilder([
+        _printOperationNameDefinitionField(c),
+      ])
       ..constructors = ListBuilder([
         Constructor(
           (b) => b

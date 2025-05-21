@@ -164,7 +164,7 @@ class Options$Mutation$M extends graphql.MutationOptions<Mutation$M> {
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName ?? 'M',
+          operationName: operationName ?? operationNameDefinition,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -183,6 +183,8 @@ class Options$Mutation$M extends graphql.MutationOptions<Mutation$M> {
         );
 
   final OnMutationCompleted$Mutation$M? onCompletedWithParsed;
+
+  static const String operationNameDefinition = "M";
 
   @override
   List<Object?> get properties => [
@@ -207,7 +209,7 @@ class WatchOptions$Mutation$M extends graphql.WatchQueryOptions<Mutation$M> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'M',
+          operationName: operationName ?? operationNameDefinition,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -220,6 +222,8 @@ class WatchOptions$Mutation$M extends graphql.WatchQueryOptions<Mutation$M> {
           fetchResults: fetchResults,
           parserFn: _parserFn$Mutation$M,
         );
+
+  static const String? operationNameDefinition = "M";
 }
 
 extension ClientExtension$Mutation$M on graphql.GraphQLClient {

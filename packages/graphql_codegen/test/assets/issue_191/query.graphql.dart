@@ -163,7 +163,7 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          operationName: operationName ?? 'Q',
+          operationName: operationName ?? operationNameDefinition,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -182,6 +182,8 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
         );
 
   final OnQueryComplete$Query$Q? onCompleteWithParsed;
+
+  static const String? operationNameDefinition = "Q";
 
   @override
   List<Object?> get properties => [
@@ -206,7 +208,7 @@ class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'Q',
+          operationName: operationName ?? operationNameDefinition,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -219,6 +221,8 @@ class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
           fetchResults: fetchResults,
           parserFn: _parserFn$Query$Q,
         );
+
+  static const String? operationNameDefinition = "Q";
 }
 
 class FetchMoreOptions$Query$Q extends graphql.FetchMoreOptions {

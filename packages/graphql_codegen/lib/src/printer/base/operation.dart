@@ -11,6 +11,7 @@ List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
   final context = elementContext.context;
   final operation = context.operation;
   final clients = context.config.clients;
+
   return [
     if (context.hasVariables) ...printVariableClasses(elementContext),
     printContext(elementContext),
