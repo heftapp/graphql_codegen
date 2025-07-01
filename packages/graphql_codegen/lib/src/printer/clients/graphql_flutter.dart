@@ -365,24 +365,20 @@ Spec printMutationHook(PrintContext context) {
 }
 
 Spec printWatchHook(PrintContext context, String libraryHookName) {
-  final isOptionsRequried = context.context.isVariablesRequired;
   final parameter = Parameter(
     (b) => b
       ..type = TypeReference(
         (b) => b
           ..symbol = context.namePrinter
               .printGraphQLClientWatchOptionsName(context.path)
-          ..isNullable = !isOptionsRequried,
+          ..isNullable = true,
       )
       ..name = 'options',
   );
   return Method(
     (b) => b
-      ..requiredParameters = ListBuilder([
-        if (isOptionsRequried) parameter,
-      ])
       ..optionalParameters = ListBuilder([
-        if (!isOptionsRequried) parameter,
+        parameter,
       ])
       ..returns = TypeReference(
         (b) => b
@@ -393,11 +389,9 @@ Spec printWatchHook(PrintContext context, String libraryHookName) {
       ..name = context.namePrinter
           .printGraphQLFlutterClientWatchHookName(context.path)
       ..body = refer('graphql_flutter').property(libraryHookName).call([
-        isOptionsRequried
-            ? refer('options')
-            : refer('options').ifNullThen(refer(context.namePrinter
-                    .printGraphQLClientWatchOptionsName(context.path))
-                .newInstance([]))
+        refer('options').ifNullThen(refer(context.namePrinter
+                .printGraphQLClientWatchOptionsName(context.path))
+            .newInstance([]))
       ]).code,
   );
 }

@@ -604,7 +604,6 @@ Spec printWatchOptions(
                   printOptionsParameter(
                     'variables',
                     c.namePrinter.printVariableClassName(context.path),
-                    isRequired: context.isVariablesRequired,
                   ),
                 printOptionsParameter(
                   'fetchPolicy',
@@ -652,9 +651,7 @@ Spec printWatchOptions(
             )
             ..initializers = ListBuilder([
               refer('super').call([], {
-                if (hasVariables && context.isVariablesRequired)
-                  'variables': refer('variables').property('toJson').call([])
-                else if (hasVariables)
+                if (hasVariables)
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),

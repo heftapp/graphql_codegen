@@ -458,7 +458,7 @@ class WatchOptions$Query$FetchSRequired
     extends graphql.WatchQueryOptions<Query$FetchSRequired> {
   WatchOptions$Query$FetchSRequired({
     String? operationName,
-    required Variables$Query$FetchSRequired variables,
+    Variables$Query$FetchSRequired? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -470,7 +470,7 @@ class WatchOptions$Query$FetchSRequired
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -537,8 +537,9 @@ graphql_flutter.QueryHookResult<Query$FetchSRequired> useQuery$FetchSRequired(
         Options$Query$FetchSRequired options) =>
     graphql_flutter.useQuery(options);
 graphql.ObservableQuery<Query$FetchSRequired> useWatchQuery$FetchSRequired(
-        WatchOptions$Query$FetchSRequired options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$FetchSRequired? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$FetchSRequired());
 
 class Query$FetchSRequired$Widget
     extends graphql_flutter.Query<Query$FetchSRequired> {

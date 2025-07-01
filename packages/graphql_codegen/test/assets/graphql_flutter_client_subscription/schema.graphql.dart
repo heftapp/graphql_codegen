@@ -908,7 +908,7 @@ class WatchOptions$Subscription$RequiredArg
     extends graphql.WatchQueryOptions<Subscription$RequiredArg> {
   WatchOptions$Subscription$RequiredArg({
     String? operationName,
-    required Variables$Subscription$RequiredArg variables,
+    Variables$Subscription$RequiredArg? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -920,7 +920,7 @@ class WatchOptions$Subscription$RequiredArg
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
