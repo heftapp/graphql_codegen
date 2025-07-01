@@ -510,6 +510,7 @@ const documentNodeQueryFetchI = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchI = 'FetchI';
 
 class Query$FetchI$i1 {
   Query$FetchI$i1({

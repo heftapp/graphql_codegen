@@ -239,6 +239,7 @@ const documentNodeQueryHiBob = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$HiBob = 'HiBob';
 
 class Query$HiBob$field {
   Query$HiBob$field({required this.value});

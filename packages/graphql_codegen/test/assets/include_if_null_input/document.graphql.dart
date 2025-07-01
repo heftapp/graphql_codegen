@@ -587,4 +587,5 @@ const documentNodeQueryQ1 = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q1 = 'Q1';
 const possibleTypesMap = <String, Set<String>>{};

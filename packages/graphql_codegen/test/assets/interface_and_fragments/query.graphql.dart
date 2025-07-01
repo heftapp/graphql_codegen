@@ -455,6 +455,7 @@ const documentNodeQueryFetchImplementations = DocumentNode(definitions: [
   fragmentDefinitionFragmentA,
   fragmentDefinitionFragmentB,
 ]);
+const operationNameQuery$FetchImplementations = 'FetchImplementations';
 
 class Query$FetchImplementations$interface {
   Query$FetchImplementations$interface({

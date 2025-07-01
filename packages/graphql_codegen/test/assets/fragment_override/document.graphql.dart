@@ -1000,4 +1000,5 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionT1,
   fragmentDefinitionT2,
 ]);
+const operationNameQuery$Q = 'Q';
 const possibleTypesMap = <String, Set<String>>{};

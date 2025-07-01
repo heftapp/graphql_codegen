@@ -143,6 +143,7 @@ const documentNodeMutationM = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$M = 'M';
 Mutation$M _parserFn$Mutation$M(Map<String, dynamic> data) =>
     Mutation$M.fromJson(data);
 typedef OnMutationCompleted$Mutation$M = FutureOr<void> Function(
@@ -164,7 +165,7 @@ class Options$Mutation$M extends graphql.MutationOptions<Mutation$M> {
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName ?? operationNameDefinition,
+          operationName: operationName ?? operationNameMutation$M,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -183,8 +184,6 @@ class Options$Mutation$M extends graphql.MutationOptions<Mutation$M> {
         );
 
   final OnMutationCompleted$Mutation$M? onCompletedWithParsed;
-
-  static const String operationNameDefinition = "M";
 
   @override
   List<Object?> get properties => [
@@ -209,7 +208,7 @@ class WatchOptions$Mutation$M extends graphql.WatchQueryOptions<Mutation$M> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? operationNameDefinition,
+          operationName: operationName ?? operationNameMutation$M,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -222,8 +221,6 @@ class WatchOptions$Mutation$M extends graphql.WatchQueryOptions<Mutation$M> {
           fetchResults: fetchResults,
           parserFn: _parserFn$Mutation$M,
         );
-
-  static const String? operationNameDefinition = "M";
 }
 
 extension ClientExtension$Mutation$M on graphql.GraphQLClient {

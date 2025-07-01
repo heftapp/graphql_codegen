@@ -1680,6 +1680,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Introspection {
   Query$Introspection({
@@ -2050,6 +2051,7 @@ const documentNodeQueryIntrospection = DocumentNode(definitions: [
   fragmentDefinitionInputValue,
   fragmentDefinitionTypeRef,
 ]);
+const operationNameQuery$Introspection = 'Introspection';
 
 class Query$Introspection$__schema {
   Query$Introspection$__schema({

@@ -362,6 +362,7 @@ const documentNodeSubscriptionNoArgs = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameSubscription$NoArgs = 'NoArgs';
 Subscription$NoArgs _parserFn$Subscription$NoArgs(Map<String, dynamic> data) =>
     Subscription$NoArgs.fromJson(data);
 
@@ -376,7 +377,7 @@ class Options$Subscription$NoArgs
     Subscription$NoArgs? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameSubscription$NoArgs,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -402,7 +403,7 @@ class WatchOptions$Subscription$NoArgs
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameSubscription$NoArgs,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -876,6 +877,7 @@ const documentNodeSubscriptionRequiredArg = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameSubscription$RequiredArg = 'RequiredArg';
 Subscription$RequiredArg _parserFn$Subscription$RequiredArg(
         Map<String, dynamic> data) =>
     Subscription$RequiredArg.fromJson(data);
@@ -893,7 +895,7 @@ class Options$Subscription$RequiredArg
     graphql.Context? context,
   }) : super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameSubscription$RequiredArg,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -921,7 +923,7 @@ class WatchOptions$Subscription$RequiredArg
     bool fetchResults = false,
   }) : super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameSubscription$RequiredArg,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1407,6 +1409,7 @@ const documentNodeSubscriptionOptionalArg = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameSubscription$OptionalArg = 'OptionalArg';
 Subscription$OptionalArg _parserFn$Subscription$OptionalArg(
         Map<String, dynamic> data) =>
     Subscription$OptionalArg.fromJson(data);
@@ -1424,7 +1427,7 @@ class Options$Subscription$OptionalArg
     graphql.Context? context,
   }) : super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameSubscription$OptionalArg,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1452,7 +1455,7 @@ class WatchOptions$Subscription$OptionalArg
     bool fetchResults = false,
   }) : super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameSubscription$OptionalArg,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

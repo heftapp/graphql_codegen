@@ -129,6 +129,9 @@ class NamePrinter {
   String printOperationNameDefinition(Name name) =>
       "operationName${printName(name)}";
 
+  String printOperationNameConstantName(Name name) =>
+      "operationName${printName(name)}";
+
   String printGraphQLFlutterClientMutationHookResultName(Name name) =>
       "${printName(name)}${separator}HookResult";
 

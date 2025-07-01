@@ -651,6 +651,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionF,
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$t implements Fragment$F {
   Query$Q$t({this.t});
@@ -1216,6 +1217,7 @@ const documentNodeQueryQ2 = DocumentNode(definitions: [
   ),
   fragmentDefinitionF,
 ]);
+const operationNameQuery$Q2 = 'Q2';
 
 class Query$Q2$t implements Fragment$F {
   Query$Q2$t({this.t});

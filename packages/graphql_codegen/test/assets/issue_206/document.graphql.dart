@@ -1192,6 +1192,7 @@ const documentNodeMutationBla = DocumentNode(definitions: [
   fragmentDefinitionEventFragment,
   fragmentDefinitionUserPublicFragment,
 ]);
+const operationNameMutation$Bla = 'Bla';
 
 class Mutation$Bla$bla {
   Mutation$Bla$bla({required this.$__typename});

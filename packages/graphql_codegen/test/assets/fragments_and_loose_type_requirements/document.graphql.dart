@@ -755,6 +755,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionF,
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$t implements Fragment$F$$T {
   Query$Q$t({

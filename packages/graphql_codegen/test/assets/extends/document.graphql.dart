@@ -575,6 +575,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$i {
   Query$Q$i({
@@ -834,4 +835,5 @@ const documentNodeMutationM = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$M = 'M';
 const possibleTypesMap = <String, Set<String>>{};

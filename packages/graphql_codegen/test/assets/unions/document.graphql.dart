@@ -335,6 +335,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$u {
   Query$Q$u({required this.$__typename});

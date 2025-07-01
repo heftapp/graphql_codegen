@@ -2321,6 +2321,7 @@ const documentNodeQueryFetch = DocumentNode(definitions: [
   fragmentDefinitionF,
   fragmentDefinitionF2,
 ]);
+const operationNameQuery$Fetch = 'Fetch';
 const possibleTypesMap = <String, Set<String>>{
   'Type': {'T1'}
 };

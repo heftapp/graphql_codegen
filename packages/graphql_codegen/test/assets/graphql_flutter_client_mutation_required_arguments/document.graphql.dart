@@ -404,6 +404,7 @@ const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$UpdateSRequired = 'UpdateSRequired';
 Mutation$UpdateSRequired _parserFn$Mutation$UpdateSRequired(
         Map<String, dynamic> data) =>
     Mutation$UpdateSRequired.fromJson(data);
@@ -429,7 +430,7 @@ class Options$Mutation$UpdateSRequired
   })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -477,7 +478,7 @@ class WatchOptions$Mutation$UpdateSRequired
     bool fetchResults = false,
   }) : super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -547,7 +548,7 @@ class WidgetOptions$Mutation$UpdateSRequired
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

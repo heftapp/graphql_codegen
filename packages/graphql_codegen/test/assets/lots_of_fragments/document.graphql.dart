@@ -891,6 +891,7 @@ const documentNodeQueryFetchStuff = DocumentNode(definitions: [
   fragmentDefinitionFragmentA,
   fragmentDefinitionFragmentI,
 ]);
+const operationNameQuery$FetchStuff = 'FetchStuff';
 
 class Query$FetchStuff$field {
   Query$FetchStuff$field({

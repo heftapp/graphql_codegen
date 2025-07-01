@@ -518,6 +518,7 @@ const documentNodeQueryFetchScalars = DocumentNode(definitions: [
   fragmentDefinitionFA,
   fragmentDefinitionFB,
 ]);
+const operationNameQuery$FetchScalars = 'FetchScalars';
 
 class Query$FetchScalars$data {
   Query$FetchScalars$data({required this.$__typename});

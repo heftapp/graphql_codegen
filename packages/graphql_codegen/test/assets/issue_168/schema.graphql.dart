@@ -706,6 +706,7 @@ const documentNodeQueryWalletGetContent = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$WalletGetContent = 'WalletGetContent';
 
 class Query$WalletGetContent$walletGetContent {
   Query$WalletGetContent$walletGetContent({

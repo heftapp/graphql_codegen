@@ -68,7 +68,6 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
             )
             ..modifier = FieldModifier.final$,
         ),
-        _printOperationNameDefinitionField(c),
       ])
       ..methods = ListBuilder([
         Method(
@@ -175,7 +174,12 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
-                'operationName': _printOperationName(c),
+                'operationName': refer('operationName').ifNullThen(
+                  refer(
+                    c.namePrinter
+                        .printOperationNameConstantName(c.context.path),
+                  ),
+                ),
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
@@ -200,28 +204,6 @@ Spec printQueryOptions(PrintContext<ContextOperation> c) {
   );
 }
 
-Expression _printOperationName(PrintContext<ContextOperation> c) {
-  return refer('operationName').ifNullThen(
-    CodeExpression(Code('operationNameDefinition')),
-  );
-}
-
-Field _printOperationNameDefinitionField(PrintContext<ContextOperation> c) {
-  final operationName = c.context.operation?.name?.value;
-
-  return Field(
-    (b) => b
-      ..static = true
-      ..modifier = FieldModifier.constant
-      ..type = Reference('String?')
-      ..name = 'operationNameDefinition'
-      ..assignment =
-          (!c.context.config.setOperationName || operationName == null)
-              ? null
-              : Code('"$operationName"'),
-  );
-}
-
 Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
   final context = c.context;
   return Class(
@@ -231,9 +213,7 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
         "graphql.SubscriptionOptions",
         refer(c.namePrinter.printClassName(context.path)),
       )
-      ..fields = ListBuilder([
-        _printOperationNameDefinitionField(c),
-      ])
+      ..fields = ListBuilder([])
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -283,7 +263,12 @@ Spec printSubscriptionOptions(PrintContext<ContextOperation> c) {
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
-                'operationName': _printOperationName(c),
+                'operationName': refer('operationName').ifNullThen(
+                  refer(
+                    c.namePrinter
+                        .printOperationNameConstantName(c.context.path),
+                  ),
+                ),
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),
@@ -463,14 +448,6 @@ Spec printMutationOptions(
             )
             ..modifier = FieldModifier.final$,
         ),
-        Field(
-          (b) => b
-            ..static = true
-            ..modifier = FieldModifier.constant
-            ..type = Reference('String')
-            ..name = 'operationNameDefinition'
-            ..assignment = Code('"${c.context.operation?.name?.value}"'),
-        ),
       ])
       ..methods = ListBuilder([
         Method(
@@ -578,7 +555,12 @@ Spec printMutationOptions(
                     'variables': refer('variables')
                         .nullSafeProperty('toJson')
                         .call([]).ifNullThen(literalMap({})),
-                  'operationName': _printOperationName(c),
+                  'operationName': refer('operationName').ifNullThen(
+                    refer(
+                      c.namePrinter
+                          .printOperationNameConstantName(c.context.path),
+                    ),
+                  ),
                   'fetchPolicy': refer('fetchPolicy'),
                   'errorPolicy': refer('errorPolicy'),
                   'cacheRereadPolicy': refer('cacheRereadPolicy'),
@@ -618,9 +600,7 @@ Spec printWatchOptions(
       ..extend = TypeReference((b) => b
         ..symbol = "graphql.WatchQueryOptions"
         ..types = ListBuilder([refer(c.namePrinter.printClassName(c.path))]))
-      ..fields = ListBuilder([
-        _printOperationNameDefinitionField(c),
-      ])
+      ..fields = ListBuilder([])
       ..constructors = ListBuilder([
         Constructor(
           (b) => b
@@ -685,7 +665,12 @@ Spec printWatchOptions(
                   'variables': refer('variables')
                       .nullSafeProperty('toJson')
                       .call([]).ifNullThen(literalMap({})),
-                'operationName': _printOperationName(c),
+                'operationName': refer('operationName').ifNullThen(
+                  refer(
+                    c.namePrinter
+                        .printOperationNameConstantName(c.context.path),
+                  ),
+                ),
                 'fetchPolicy': refer('fetchPolicy'),
                 'errorPolicy': refer('errorPolicy'),
                 'cacheRereadPolicy': refer('cacheRereadPolicy'),

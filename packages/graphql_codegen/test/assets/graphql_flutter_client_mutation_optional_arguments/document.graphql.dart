@@ -411,6 +411,7 @@ const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$UpdateSOptional = 'UpdateSOptional';
 Mutation$UpdateSOptional _parserFn$Mutation$UpdateSOptional(
         Map<String, dynamic> data) =>
     Mutation$UpdateSOptional.fromJson(data);
@@ -436,7 +437,7 @@ class Options$Mutation$UpdateSOptional
   })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -484,7 +485,7 @@ class WatchOptions$Mutation$UpdateSOptional
     bool fetchResults = false,
   }) : super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -555,7 +556,7 @@ class WidgetOptions$Mutation$UpdateSOptional
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

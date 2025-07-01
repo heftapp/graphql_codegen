@@ -21,6 +21,14 @@ List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
         elementContext,
         operation,
       ),
+    if (operation?.name != null)
+      Field(
+        (b) => b
+          ..modifier = FieldModifier.constant
+          ..name = elementContext.namePrinter
+              .printOperationNameConstantName(elementContext.context.path)
+          ..assignment = literalString(operation!.name!.value).code,
+      ),
     if (clients.contains(GraphQLCodegenConfigClient.graphql) ||
         clients.contains(GraphQLCodegenConfigClient.graphqlFlutter))
       ...printGraphQLClientSpecs(elementContext),

@@ -373,6 +373,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$book {
   Query$Q$book({
