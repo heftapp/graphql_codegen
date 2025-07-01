@@ -1,0 +1,4 @@
+input CarInput {
+  idNullable: ID
+  idNonNullable: ID!
+}

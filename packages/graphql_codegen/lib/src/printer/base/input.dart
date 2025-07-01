@@ -356,29 +356,59 @@ Code _printToJson(PrintContext context, Iterable<ContextProperty> properties) {
         ))
         .statement,
     for (final property in properties) ...[
-      if (!property.isRequired)
-        Code(
-            'if(${kDataVariableName}.containsKey(\'${property.name.value}\')) {'),
-      declareFinal(context.namePrinter.printLocalPropertyName(property.name))
-          .assign(refer(context.namePrinter.printPropertyName(property.name)))
-          .statement,
-      refer(resultDataVariableName)
-          .index(literalString(property.name.value))
-          .assign(
-            printToJsonValueOnExpression(
-              context,
-              property,
-              printMaybeAddCast(
-                refer(
-                  context.namePrinter.printLocalPropertyName(property.name),
+      if (context.context.config.allowMissingNullableKeysInFromJson &&
+          !property.isNonNull) ...[
+        // For nullable properties when allowMissingNullableKeysInFromJson is true
+        declareFinal(context.namePrinter.printLocalPropertyName(property.name))
+            .assign(refer(kDataVariableName)
+                .property('containsKey')
+                .call([literalString(property.name.value)]).conditional(
+              refer(context.namePrinter.printPropertyName(property.name)),
+              literalNull,
+            ))
+            .statement,
+        refer(resultDataVariableName)
+            .index(literalString(property.name.value))
+            .assign(
+              printToJsonValueOnExpression(
+                context,
+                property,
+                printMaybeAddCast(
+                  refer(
+                    context.namePrinter.printLocalPropertyName(property.name),
+                  ),
+                  property.hasDefaultValue && property.isNonNull,
+                  printClassPropertyType(context, property),
                 ),
-                property.hasDefaultValue && property.isNonNull,
-                printClassPropertyType(context, property),
               ),
-            ),
-          )
-          .statement,
-      if (!property.isRequired) Code('}'),
+            )
+            .statement,
+      ] else ...[
+        // Original logic for required properties or when allowMissingNullableKeysInFromJson is false
+        if (!property.isRequired)
+          Code(
+              'if(${kDataVariableName}.containsKey(\'${property.name.value}\')) {'),
+        declareFinal(context.namePrinter.printLocalPropertyName(property.name))
+            .assign(refer(context.namePrinter.printPropertyName(property.name)))
+            .statement,
+        refer(resultDataVariableName)
+            .index(literalString(property.name.value))
+            .assign(
+              printToJsonValueOnExpression(
+                context,
+                property,
+                printMaybeAddCast(
+                  refer(
+                    context.namePrinter.printLocalPropertyName(property.name),
+                  ),
+                  property.hasDefaultValue && property.isNonNull,
+                  printClassPropertyType(context, property),
+                ),
+              ),
+            )
+            .statement,
+        if (!property.isRequired) Code('}'),
+      ]
     ],
     refer(resultDataVariableName).returned.statement,
   ]);
