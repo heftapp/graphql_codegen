@@ -1,3 +1,7 @@
+# 1.2.4
+
+- Fix bug: `allowMissingNullableKeysInFromJson` was not applied to `Input.fromJson`.
+
 # 1.2.3
 
 - Support `setOperationName`.
