@@ -507,6 +507,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionFPerson,
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$person {
   Query$Q$person({

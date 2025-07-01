@@ -667,6 +667,7 @@ const documentNodeQueryGetPerson = DocumentNode(definitions: [
   ),
   fragmentDefinitionPersonSummary,
 ]);
+const operationNameQuery$GetPerson = 'GetPerson';
 
 class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
   Query$GetPerson$person({

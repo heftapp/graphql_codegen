@@ -156,3 +156,4 @@ const documentNodeQueryFoobar = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Foobar = 'Foobar';

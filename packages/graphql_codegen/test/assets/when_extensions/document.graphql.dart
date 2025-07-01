@@ -398,6 +398,7 @@ const documentNodeQueryQuery = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Query = 'Query';
 
 class Query$Query$u {
   Query$Query$u({

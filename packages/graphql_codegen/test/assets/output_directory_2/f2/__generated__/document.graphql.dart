@@ -142,3 +142,4 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q = 'Q';

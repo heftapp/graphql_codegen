@@ -407,6 +407,7 @@ const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchSOptional = 'FetchSOptional';
 Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
     Query$FetchSOptional.fromJson(data);
@@ -432,7 +433,7 @@ class Options$Query$FetchSOptional
   })  : onCompleteWithParsed = onComplete,
         super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -478,7 +479,7 @@ class WatchOptions$Query$FetchSOptional
     bool fetchResults = false,
   }) : super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

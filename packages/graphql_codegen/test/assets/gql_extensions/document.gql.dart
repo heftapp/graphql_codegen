@@ -328,4 +328,5 @@ const documentNodeQueryFetchCount = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchCount = 'FetchCount';
 const possibleTypesMap = <String, Set<String>>{};

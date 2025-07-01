@@ -487,6 +487,7 @@ const documentNodeQueryFoobar = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Foobar = 'Foobar';
 
 class Query$Foobar$ts {
   Query$Foobar$ts({

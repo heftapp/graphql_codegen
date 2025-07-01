@@ -141,6 +141,7 @@ const documentNodeMutationOperation = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$Operation = 'Operation';
 Mutation$Operation _parserFn$Mutation$Operation(Map<String, dynamic> data) =>
     Mutation$Operation.fromJson(data);
 typedef OnMutationCompleted$Mutation$Operation = FutureOr<void> Function(
@@ -163,7 +164,7 @@ class Options$Mutation$Operation
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$Operation,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -207,7 +208,7 @@ class WatchOptions$Mutation$Operation
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$Operation,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -275,7 +276,7 @@ class WidgetOptions$Mutation$Operation
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$Operation,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

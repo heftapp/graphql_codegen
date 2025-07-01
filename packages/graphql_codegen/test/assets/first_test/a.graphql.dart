@@ -123,3 +123,4 @@ const documentNodeQueryFetchName = DocumentNode(definitions: [
   ),
   fragmentDefinitionF,
 ]);
+const operationNameQuery$FetchName = 'FetchName';

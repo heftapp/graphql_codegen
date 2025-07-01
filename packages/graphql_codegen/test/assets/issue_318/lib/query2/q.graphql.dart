@@ -145,3 +145,4 @@ const documentNodeQueryFetchHello = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchHello = 'FetchHello';

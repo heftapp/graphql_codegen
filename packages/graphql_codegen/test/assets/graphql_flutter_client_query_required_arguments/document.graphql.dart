@@ -400,6 +400,7 @@ const documentNodeQueryFetchSRequired = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchSRequired = 'FetchSRequired';
 Query$FetchSRequired _parserFn$Query$FetchSRequired(
         Map<String, dynamic> data) =>
     Query$FetchSRequired.fromJson(data);
@@ -425,7 +426,7 @@ class Options$Query$FetchSRequired
   })  : onCompleteWithParsed = onComplete,
         super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -471,7 +472,7 @@ class WatchOptions$Query$FetchSRequired
     bool fetchResults = false,
   }) : super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

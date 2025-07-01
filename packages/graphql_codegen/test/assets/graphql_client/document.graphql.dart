@@ -1068,6 +1068,7 @@ const documentNodeQueryFetchSOptional = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchSOptional = 'FetchSOptional';
 Query$FetchSOptional _parserFn$Query$FetchSOptional(
         Map<String, dynamic> data) =>
     Query$FetchSOptional.fromJson(data);
@@ -1093,7 +1094,7 @@ class Options$Query$FetchSOptional
   })  : onCompleteWithParsed = onComplete,
         super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1139,7 +1140,7 @@ class WatchOptions$Query$FetchSOptional
     bool fetchResults = false,
   }) : super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1416,6 +1417,7 @@ const documentNodeQueryFetchSRequired = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchSRequired = 'FetchSRequired';
 Query$FetchSRequired _parserFn$Query$FetchSRequired(
         Map<String, dynamic> data) =>
     Query$FetchSRequired.fromJson(data);
@@ -1441,7 +1443,7 @@ class Options$Query$FetchSRequired
   })  : onCompleteWithParsed = onComplete,
         super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1487,7 +1489,7 @@ class WatchOptions$Query$FetchSRequired
     bool fetchResults = false,
   }) : super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1660,6 +1662,7 @@ const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchSNoVariables = 'FetchSNoVariables';
 Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
         Map<String, dynamic> data) =>
     Query$FetchSNoVariables.fromJson(data);
@@ -1683,7 +1686,7 @@ class Options$Query$FetchSNoVariables
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSNoVariables,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -1729,7 +1732,7 @@ class WatchOptions$Query$FetchSNoVariables
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSNoVariables,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -2010,6 +2013,7 @@ const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$UpdateSOptional = 'UpdateSOptional';
 Mutation$UpdateSOptional _parserFn$Mutation$UpdateSOptional(
         Map<String, dynamic> data) =>
     Mutation$UpdateSOptional.fromJson(data);
@@ -2035,7 +2039,7 @@ class Options$Mutation$UpdateSOptional
   })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -2083,7 +2087,7 @@ class WatchOptions$Mutation$UpdateSOptional
     bool fetchResults = false,
   }) : super(
           variables: variables?.toJson() ?? {},
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSOptional,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -2327,6 +2331,7 @@ const documentNodeMutationUpdateSRequired = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$UpdateSRequired = 'UpdateSRequired';
 Mutation$UpdateSRequired _parserFn$Mutation$UpdateSRequired(
         Map<String, dynamic> data) =>
     Mutation$UpdateSRequired.fromJson(data);
@@ -2352,7 +2357,7 @@ class Options$Mutation$UpdateSRequired
   })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -2400,7 +2405,7 @@ class WatchOptions$Mutation$UpdateSRequired
     bool fetchResults = false,
   }) : super(
           variables: variables.toJson(),
-          operationName: operationName,
+          operationName: operationName ?? operationNameMutation$UpdateSRequired,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -2538,6 +2543,7 @@ const documentNodeMutationUpdateSNoVariables = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameMutation$UpdateSNoVariables = 'UpdateSNoVariables';
 Mutation$UpdateSNoVariables _parserFn$Mutation$UpdateSNoVariables(
         Map<String, dynamic> data) =>
     Mutation$UpdateSNoVariables.fromJson(data);
@@ -2562,7 +2568,8 @@ class Options$Mutation$UpdateSNoVariables
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          operationName: operationName,
+          operationName:
+              operationName ?? operationNameMutation$UpdateSNoVariables,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -2608,7 +2615,8 @@ class WatchOptions$Mutation$UpdateSNoVariables
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
+          operationName:
+              operationName ?? operationNameMutation$UpdateSNoVariables,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

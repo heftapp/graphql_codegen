@@ -11,6 +11,7 @@ List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
   final context = elementContext.context;
   final operation = context.operation;
   final clients = context.config.clients;
+
   return [
     if (context.hasVariables) ...printVariableClasses(elementContext),
     printContext(elementContext),
@@ -19,6 +20,14 @@ List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
       printDocument(
         elementContext,
         operation,
+      ),
+    if (operation?.name != null)
+      Field(
+        (b) => b
+          ..modifier = FieldModifier.constant
+          ..name = elementContext.namePrinter
+              .printOperationNameConstantName(elementContext.context.path)
+          ..assignment = literalString(operation!.name!.value).code,
       ),
     if (clients.contains(GraphQLCodegenConfigClient.graphql) ||
         clients.contains(GraphQLCodegenConfigClient.graphqlFlutter))

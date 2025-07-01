@@ -1518,6 +1518,7 @@ const documentNodeQueryGetUser = DocumentNode(definitions: [
   fragmentDefinitionFullFriendRequestNotification,
   fragmentDefinitionFullNewsNotification,
 ]);
+const operationNameQuery$GetUser = 'GetUser';
 
 class Variables$Query$GetNotifications {
   factory Variables$Query$GetNotifications({required String username}) =>
@@ -1834,6 +1835,7 @@ const documentNodeQueryGetNotifications = DocumentNode(definitions: [
   fragmentDefinitionFullFriendRequestNotification,
   fragmentDefinitionFullNewsNotification,
 ]);
+const operationNameQuery$GetNotifications = 'GetNotifications';
 
 class Query$GetNotifications$getUser {
   Query$GetNotifications$getUser({

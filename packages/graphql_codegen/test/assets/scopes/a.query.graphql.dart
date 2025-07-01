@@ -185,6 +185,7 @@ const documentNodeQueryFetchPerson = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchPerson = 'FetchPerson';
 
 class Query$FetchPerson$fetchPerson {
   Query$FetchPerson$fetchPerson({

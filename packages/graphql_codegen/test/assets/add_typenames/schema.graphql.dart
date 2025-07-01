@@ -792,6 +792,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionFReport,
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$docsWithTypename {
   Query$Q$docsWithTypename({required this.$__typename});

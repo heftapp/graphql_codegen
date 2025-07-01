@@ -1116,6 +1116,7 @@ const documentNodeQueryMediaMinimal = DocumentNode(definitions: [
   ),
   fragmentDefinitionMediaMinimalFrag,
 ]);
+const operationNameQuery$MediaMinimal = 'MediaMinimal';
 
 class Variables$Query$MediaFull {
   factory Variables$Query$MediaFull({
@@ -1466,6 +1467,7 @@ const documentNodeQueryMediaFull = DocumentNode(definitions: [
   ),
   fragmentDefinitionMediaMinimalFrag,
 ]);
+const operationNameQuery$MediaFull = 'MediaFull';
 
 class Query$MediaFull$Media implements Fragment$MediaMinimalFrag {
   Query$MediaFull$Media({

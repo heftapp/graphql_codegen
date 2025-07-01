@@ -982,6 +982,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   fragmentDefinitionF2,
   fragmentDefinitionF3,
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$field implements Fragment$F0 {
   Query$Q$field({

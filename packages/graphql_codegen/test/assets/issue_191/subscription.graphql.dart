@@ -147,6 +147,7 @@ const documentNodeSubscriptionS = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameSubscription$S = 'S';
 Subscription$S _parserFn$Subscription$S(Map<String, dynamic> data) =>
     Subscription$S.fromJson(data);
 
@@ -161,7 +162,7 @@ class Options$Subscription$S
     Subscription$S? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          operationName: operationName ?? 'S',
+          operationName: operationName ?? operationNameSubscription$S,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -187,7 +188,7 @@ class WatchOptions$Subscription$S
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'S',
+          operationName: operationName ?? operationNameSubscription$S,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

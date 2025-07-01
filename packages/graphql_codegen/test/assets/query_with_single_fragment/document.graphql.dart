@@ -466,4 +466,5 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionF,
 ]);
+const operationNameQuery$Q = 'Q';
 const possibleTypesMap = <String, Set<String>>{};

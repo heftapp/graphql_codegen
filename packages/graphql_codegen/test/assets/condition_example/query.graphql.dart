@@ -176,3 +176,4 @@ const documentNodeQueryFetchShouldRender = DocumentNode(definitions: [
   fragmentDefinitionCondition,
   fragmentDefinitionNonCompositeCondition,
 ]);
+const operationNameQuery$FetchShouldRender = 'FetchShouldRender';

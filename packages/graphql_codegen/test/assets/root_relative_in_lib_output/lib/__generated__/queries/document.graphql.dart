@@ -140,3 +140,4 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionF,
 ]);
+const operationNameQuery$Q = 'Q';

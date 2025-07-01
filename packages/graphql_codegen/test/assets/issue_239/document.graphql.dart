@@ -554,6 +554,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
   ),
   fragmentDefinitionHotelBooking,
 ]);
+const operationNameQuery$Q = 'Q';
 
 class Query$Q$booking {
   Query$Q$booking({required this.$__typename});

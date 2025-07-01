@@ -464,4 +464,5 @@ const documentNodeQueryFetchScalars = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchScalars = 'FetchScalars';
 const possibleTypesMap = <String, Set<String>>{};

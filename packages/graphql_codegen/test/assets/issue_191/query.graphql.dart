@@ -143,6 +143,7 @@ const documentNodeQueryQ = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$Q = 'Q';
 Query$Q _parserFn$Query$Q(Map<String, dynamic> data) => Query$Q.fromJson(data);
 typedef OnQueryComplete$Query$Q = FutureOr<void> Function(
   Map<String, dynamic>?,
@@ -163,7 +164,7 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          operationName: operationName ?? 'Q',
+          operationName: operationName ?? operationNameQuery$Q,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -206,7 +207,7 @@ class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'Q',
+          operationName: operationName ?? operationNameQuery$Q,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,

@@ -296,6 +296,7 @@ const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
     ]),
   ),
 ]);
+const operationNameQuery$FetchSNoVariables = 'FetchSNoVariables';
 Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
         Map<String, dynamic> data) =>
     Query$FetchSNoVariables.fromJson(data);
@@ -319,7 +320,7 @@ class Options$Query$FetchSNoVariables
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSNoVariables,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
@@ -365,7 +366,7 @@ class WatchOptions$Query$FetchSNoVariables
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
+          operationName: operationName ?? operationNameQuery$FetchSNoVariables,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
