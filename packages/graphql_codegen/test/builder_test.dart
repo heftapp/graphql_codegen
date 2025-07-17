@@ -78,26 +78,27 @@ void main() {
             ? BuilderOptions.empty
             : BuilderOptions(
                 jsonDecode(optionsFile.value) as Map<String, dynamic>);
-        final writer = InMemoryAssetWriter();
+        final readerWriter = TestReaderWriter(rootPackage: 'a');
         try {
           await testBuilder(
             GraphQLBuilder(options),
             assets,
-            writer: writer,
+            readerWriter: readerWriter,
             rootPackage: 'a',
             outputs: expectedOutputs,
           );
         } catch (e) {
-          for (final entry in writer.assets.entries) {
+          for (final id in readerWriter.testing.assets) {
             final file = noFlatLib
-                ? entry.key.path
-                : entry.key.path.replaceAll(RegExp("^lib"), "");
-            if (utf8.decode(entry.value) != files[file]) {
+                ? id.path
+                : id.path.replaceAll(RegExp("^lib"), "");
+                final contents = readerWriter.testing.readString(id);
+            if (contents != files[file]) {
               await (await File(
                 "${testSet.absolute.path}/${file}.expected",
                 // "${testSet.absolute.path}/${file}",
               ).create(recursive: true))
-                  .writeAsBytes(entry.value);
+                  .writeAsString(contents);
             }
           }
           rethrow;
