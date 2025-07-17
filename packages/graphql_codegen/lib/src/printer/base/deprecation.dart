@@ -4,16 +4,16 @@ const kDefaultDepreactionReason = 'No longer supported';
 
 String? extractDeprecatedReason(List<DirectiveNode> directives) {
   final directive = directives.whereType<DirectiveNode?>().firstWhere(
-        (e) => e?.name.value == 'deprecated',
-        orElse: () => null,
-      );
+    (e) => e?.name.value == 'deprecated',
+    orElse: () => null,
+  );
   if (directive == null) {
     return null;
   }
   final reason = directive.arguments.whereType<ArgumentNode?>().firstWhere(
-        (e) => e?.name.value == 'reason',
-        orElse: () => null,
-      );
+    (e) => e?.name.value == 'reason',
+    orElse: () => null,
+  );
   if (reason == null) {
     return kDefaultDepreactionReason;
   }

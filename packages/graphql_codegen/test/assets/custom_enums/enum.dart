@@ -1,6 +1,4 @@
-enum FancyEnum {
-  v;
-}
+enum FancyEnum { v }
 
 FancyEnum fromJson(String v) {
   return FancyEnum.v;

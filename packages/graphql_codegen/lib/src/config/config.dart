@@ -5,7 +5,7 @@ enum GraphQLCodegenConfigClient {
   @JsonValue('graphql')
   graphql,
   @JsonValue('graphql_flutter')
-  graphqlFlutter
+  graphqlFlutter,
 }
 
 @JsonSerializable()

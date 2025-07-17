@@ -9,9 +9,7 @@ void main() async {
   );
   final result = await client.query$FetchPerson(
     Options$Query$FetchPerson(
-      variables: Variables$Query$FetchPerson(
-        id: "id1",
-      ),
+      variables: Variables$Query$FetchPerson(id: "id1"),
     ),
   );
   final parased = result.parsedData;

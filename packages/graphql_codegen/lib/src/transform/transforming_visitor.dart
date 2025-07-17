@@ -1,62 +1,33 @@
 import 'package:gql/ast.dart';
 
 class RecursiveTransformingVisitor extends Visitor<Node> {
-  N visitOne<N extends Node?>(
-    N node,
-  ) {
+  N visitOne<N extends Node?>(N node) {
     if (node == null) return node;
 
     return node.accept(this) as N;
   }
 
-  List<N> visitAll<N extends Node>(
-    List<N> nodes,
-  ) =>
-      nodes
-          .map(
-            (
-              node,
-            ) =>
-                node.accept(this),
-          )
-          .cast<N>()
-          .toList(growable: false);
+  List<N> visitAll<N extends Node>(List<N> nodes) =>
+      nodes.map((node) => node.accept(this)).cast<N>().toList(growable: false);
 
   @override
-  DocumentNode visitDocumentNode(
-    DocumentNode node,
-  ) {
-    return DocumentNode(
-      definitions: visitAll(node.definitions),
-    );
+  DocumentNode visitDocumentNode(DocumentNode node) {
+    return DocumentNode(definitions: visitAll(node.definitions));
   }
 
   @override
-  ArgumentNode visitArgumentNode(
-    ArgumentNode node,
-  ) {
-    return ArgumentNode(
-      name: visitOne(node.name),
-      value: visitOne(node.value),
-    );
+  ArgumentNode visitArgumentNode(ArgumentNode node) {
+    return ArgumentNode(name: visitOne(node.name), value: visitOne(node.value));
   }
 
   @override
-  BooleanValueNode visitBooleanValueNode(
-    BooleanValueNode node,
-  ) {
-    return BooleanValueNode(
-      value: node.value,
-    );
+  BooleanValueNode visitBooleanValueNode(BooleanValueNode node) {
+    return BooleanValueNode(value: node.value);
   }
 
   @override
-  DefaultValueNode visitDefaultValueNode(
-    DefaultValueNode node,
-  ) {
-    return DefaultValueNode(
-      value: visitOne(node.value),
-    );
+  DefaultValueNode visitDefaultValueNode(DefaultValueNode node) {
+    return DefaultValueNode(value: visitOne(node.value));
   }
 
   @override
@@ -73,9 +44,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  DirectiveNode visitDirectiveNode(
-    DirectiveNode node,
-  ) {
+  DirectiveNode visitDirectiveNode(DirectiveNode node) {
     return DirectiveNode(
       arguments: visitAll(node.arguments),
       name: visitOne(node.name),
@@ -95,9 +64,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  EnumTypeExtensionNode visitEnumTypeExtensionNode(
-    EnumTypeExtensionNode node,
-  ) {
+  EnumTypeExtensionNode visitEnumTypeExtensionNode(EnumTypeExtensionNode node) {
     return EnumTypeExtensionNode(
       name: visitOne(node.name),
       directives: visitAll(node.directives),
@@ -117,18 +84,12 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  EnumValueNode visitEnumValueNode(
-    EnumValueNode node,
-  ) {
-    return EnumValueNode(
-      name: visitOne(node.name),
-    );
+  EnumValueNode visitEnumValueNode(EnumValueNode node) {
+    return EnumValueNode(name: visitOne(node.name));
   }
 
   @override
-  FieldDefinitionNode visitFieldDefinitionNode(
-    FieldDefinitionNode node,
-  ) {
+  FieldDefinitionNode visitFieldDefinitionNode(FieldDefinitionNode node) {
     return FieldDefinitionNode(
       name: visitOne(node.name),
       description: visitOne(node.description),
@@ -139,9 +100,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  FieldNode visitFieldNode(
-    FieldNode node,
-  ) {
+  FieldNode visitFieldNode(FieldNode node) {
     return FieldNode(
       name: visitOne(node.name),
       directives: visitAll(node.directives),
@@ -152,12 +111,8 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  FloatValueNode visitFloatValueNode(
-    FloatValueNode node,
-  ) {
-    return FloatValueNode(
-      value: node.value,
-    );
+  FloatValueNode visitFloatValueNode(FloatValueNode node) {
+    return FloatValueNode(value: node.value);
   }
 
   @override
@@ -173,9 +128,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  FragmentSpreadNode visitFragmentSpreadNode(
-    FragmentSpreadNode node,
-  ) {
+  FragmentSpreadNode visitFragmentSpreadNode(FragmentSpreadNode node) {
     return FragmentSpreadNode(
       name: visitOne(node.name),
       directives: visitAll(node.directives),
@@ -183,9 +136,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  InlineFragmentNode visitInlineFragmentNode(
-    InlineFragmentNode node,
-  ) {
+  InlineFragmentNode visitInlineFragmentNode(InlineFragmentNode node) {
     return InlineFragmentNode(
       directives: visitAll(node.directives),
       selectionSet: visitOne(node.selectionSet),
@@ -230,12 +181,8 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  IntValueNode visitIntValueNode(
-    IntValueNode node,
-  ) {
-    return IntValueNode(
-      value: node.value,
-    );
+  IntValueNode visitIntValueNode(IntValueNode node) {
+    return IntValueNode(value: node.value);
   }
 
   @override
@@ -262,52 +209,32 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  ListTypeNode visitListTypeNode(
-    ListTypeNode node,
-  ) {
-    return ListTypeNode(
-      type: visitOne(node.type),
-      isNonNull: node.isNonNull,
-    );
+  ListTypeNode visitListTypeNode(ListTypeNode node) {
+    return ListTypeNode(type: visitOne(node.type), isNonNull: node.isNonNull);
   }
 
   @override
-  ListValueNode visitListValueNode(
-    ListValueNode node,
-  ) {
-    return ListValueNode(
-      values: visitAll(node.values),
-    );
+  ListValueNode visitListValueNode(ListValueNode node) {
+    return ListValueNode(values: visitAll(node.values));
   }
 
   @override
-  NameNode visitNameNode(
-    NameNode node,
-  ) {
+  NameNode visitNameNode(NameNode node) {
     return NameNode(span: node.span, value: node.value);
   }
 
   @override
-  NamedTypeNode visitNamedTypeNode(
-    NamedTypeNode node,
-  ) {
-    return NamedTypeNode(
-      isNonNull: node.isNonNull,
-      name: visitOne(node.name),
-    );
+  NamedTypeNode visitNamedTypeNode(NamedTypeNode node) {
+    return NamedTypeNode(isNonNull: node.isNonNull, name: visitOne(node.name));
   }
 
   @override
-  NullValueNode visitNullValueNode(
-    NullValueNode node,
-  ) {
+  NullValueNode visitNullValueNode(NullValueNode node) {
     return NullValueNode();
   }
 
   @override
-  ObjectFieldNode visitObjectFieldNode(
-    ObjectFieldNode node,
-  ) {
+  ObjectFieldNode visitObjectFieldNode(ObjectFieldNode node) {
     return ObjectFieldNode(
       name: visitOne(node.name),
       value: visitOne(node.value),
@@ -340,12 +267,8 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  ObjectValueNode visitObjectValueNode(
-    ObjectValueNode node,
-  ) {
-    return ObjectValueNode(
-      fields: visitAll(node.fields),
-    );
+  ObjectValueNode visitObjectValueNode(ObjectValueNode node) {
+    return ObjectValueNode(fields: visitAll(node.fields));
   }
 
   @override
@@ -393,9 +316,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  SchemaDefinitionNode visitSchemaDefinitionNode(
-    SchemaDefinitionNode node,
-  ) {
+  SchemaDefinitionNode visitSchemaDefinitionNode(SchemaDefinitionNode node) {
     return SchemaDefinitionNode(
       directives: visitAll(node.directives),
       operationTypes: visitAll(node.operationTypes),
@@ -403,9 +324,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  SchemaExtensionNode visitSchemaExtensionNode(
-    SchemaExtensionNode node,
-  ) {
+  SchemaExtensionNode visitSchemaExtensionNode(SchemaExtensionNode node) {
     return SchemaExtensionNode(
       directives: visitAll(node.directives),
       operationTypes: visitAll(node.operationTypes),
@@ -413,31 +332,18 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  SelectionSetNode visitSelectionSetNode(
-    SelectionSetNode node,
-  ) {
-    return SelectionSetNode(
-      selections: visitAll(node.selections),
-    );
+  SelectionSetNode visitSelectionSetNode(SelectionSetNode node) {
+    return SelectionSetNode(selections: visitAll(node.selections));
   }
 
   @override
-  StringValueNode visitStringValueNode(
-    StringValueNode node,
-  ) {
-    return StringValueNode(
-      isBlock: node.isBlock,
-      value: node.value,
-    );
+  StringValueNode visitStringValueNode(StringValueNode node) {
+    return StringValueNode(isBlock: node.isBlock, value: node.value);
   }
 
   @override
-  TypeConditionNode visitTypeConditionNode(
-    TypeConditionNode node,
-  ) {
-    return TypeConditionNode(
-      on: visitOne(node.on),
-    );
+  TypeConditionNode visitTypeConditionNode(TypeConditionNode node) {
+    return TypeConditionNode(on: visitOne(node.on));
   }
 
   @override
@@ -476,11 +382,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
   }
 
   @override
-  VariableNode visitVariableNode(
-    VariableNode node,
-  ) {
-    return VariableNode(
-      name: visitOne(node.name),
-    );
+  VariableNode visitVariableNode(VariableNode node) {
+    return VariableNode(name: visitOne(node.name));
   }
 }

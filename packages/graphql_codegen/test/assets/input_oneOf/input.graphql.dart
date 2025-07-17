@@ -49,10 +49,7 @@ class Input$I1 {
     return result$data;
   }
 
-  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -103,25 +100,16 @@ class Input$I1 {
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(
-    Input$I1 instance,
-    TRes Function(Input$I1) then,
-  ) = _CopyWithImpl$Input$I1;
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
-  TRes call({
-    int? v1,
-    int? v2,
-    int? v3,
-  });
+  TRes call({int? v1, int? v2, int? v3});
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
-  _CopyWithImpl$Input$I1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I1(this._instance, this._then);
 
   final Input$I1 _instance;
 
@@ -133,13 +121,14 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
     Object? v1 = _undefined,
     Object? v2 = _undefined,
     Object? v3 = _undefined,
-  }) =>
-      _then(Input$I1._({
-        ..._instance._$data,
-        if (v1 != _undefined) 'v1': (v1 as int?),
-        if (v2 != _undefined) 'v2': (v2 as int?),
-        if (v3 != _undefined) 'v3': (v3 as int?),
-      }));
+  }) => _then(
+    Input$I1._({
+      ..._instance._$data,
+      if (v1 != _undefined) 'v1': (v1 as int?),
+      if (v2 != _undefined) 'v2': (v2 as int?),
+      if (v3 != _undefined) 'v3': (v3 as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -147,25 +136,15 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   TRes _res;
 
-  call({
-    int? v1,
-    int? v2,
-    int? v3,
-  }) =>
-      _res;
+  call({int? v1, int? v2, int? v3}) => _res;
 }
 
 class Input$I2 {
-  factory Input$I2({
-    int? v1,
-    int? v2,
-    required int v3,
-  }) =>
-      Input$I2._({
-        if (v1 != null) r'v1': v1,
-        if (v2 != null) r'v2': v2,
-        r'v3': v3,
-      });
+  factory Input$I2({int? v1, int? v2, required int v3}) => Input$I2._({
+    if (v1 != null) r'v1': v1,
+    if (v2 != null) r'v2': v2,
+    r'v3': v3,
+  });
 
   Input$I2._(this._$data);
 
@@ -207,10 +186,7 @@ class Input$I2 {
     return result$data;
   }
 
-  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -258,25 +234,16 @@ class Input$I2 {
 }
 
 abstract class CopyWith$Input$I2<TRes> {
-  factory CopyWith$Input$I2(
-    Input$I2 instance,
-    TRes Function(Input$I2) then,
-  ) = _CopyWithImpl$Input$I2;
+  factory CopyWith$Input$I2(Input$I2 instance, TRes Function(Input$I2) then) =
+      _CopyWithImpl$Input$I2;
 
   factory CopyWith$Input$I2.stub(TRes res) = _CopyWithStubImpl$Input$I2;
 
-  TRes call({
-    int? v1,
-    int? v2,
-    int? v3,
-  });
+  TRes call({int? v1, int? v2, int? v3});
 }
 
 class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
-  _CopyWithImpl$Input$I2(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I2(this._instance, this._then);
 
   final Input$I2 _instance;
 
@@ -288,13 +255,14 @@ class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
     Object? v1 = _undefined,
     Object? v2 = _undefined,
     Object? v3 = _undefined,
-  }) =>
-      _then(Input$I2._({
-        ..._instance._$data,
-        if (v1 != _undefined) 'v1': (v1 as int?),
-        if (v2 != _undefined) 'v2': (v2 as int?),
-        if (v3 != _undefined && v3 != null) 'v3': (v3 as int),
-      }));
+  }) => _then(
+    Input$I2._({
+      ..._instance._$data,
+      if (v1 != _undefined) 'v1': (v1 as int?),
+      if (v2 != _undefined) 'v2': (v2 as int?),
+      if (v3 != _undefined && v3 != null) 'v3': (v3 as int),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
@@ -302,12 +270,7 @@ class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
 
   TRes _res;
 
-  call({
-    int? v1,
-    int? v2,
-    int? v3,
-  }) =>
-      _res;
+  call({int? v1, int? v2, int? v3}) => _res;
 }
 
 enum Enum$__TypeKind {

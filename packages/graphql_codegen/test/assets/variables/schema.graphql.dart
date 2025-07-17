@@ -1,12 +1,6 @@
 class Input$I1 {
-  factory Input$I1({
-    required String s,
-    Input$I1? nested,
-  }) =>
-      Input$I1._({
-        r's': s,
-        if (nested != null) r'nested': nested,
-      });
+  factory Input$I1({required String s, Input$I1? nested}) =>
+      Input$I1._({r's': s, if (nested != null) r'nested': nested});
 
   Input$I1._(this._$data);
 
@@ -40,10 +34,7 @@ class Input$I1 {
     return result$data;
   }
 
-  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -81,25 +72,17 @@ class Input$I1 {
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(
-    Input$I1 instance,
-    TRes Function(Input$I1) then,
-  ) = _CopyWithImpl$Input$I1;
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
-  TRes call({
-    String? s,
-    Input$I1? nested,
-  });
+  TRes call({String? s, Input$I1? nested});
   CopyWith$Input$I1<TRes> get nested;
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
-  _CopyWithImpl$Input$I1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I1(this._instance, this._then);
 
   final Input$I1 _instance;
 
@@ -107,15 +90,13 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? s = _undefined,
-    Object? nested = _undefined,
-  }) =>
-      _then(Input$I1._({
-        ..._instance._$data,
-        if (s != _undefined && s != null) 's': (s as String),
-        if (nested != _undefined) 'nested': (nested as Input$I1?),
-      }));
+  TRes call({Object? s = _undefined, Object? nested = _undefined}) => _then(
+    Input$I1._({
+      ..._instance._$data,
+      if (s != _undefined && s != null) 's': (s as String),
+      if (nested != _undefined) 'nested': (nested as Input$I1?),
+    }),
+  );
 
   CopyWith$Input$I1<TRes> get nested {
     final local$nested = _instance.nested;
@@ -130,11 +111,7 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   TRes _res;
 
-  call({
-    String? s,
-    Input$I1? nested,
-  }) =>
-      _res;
+  call({String? s, Input$I1? nested}) => _res;
 
   CopyWith$Input$I1<TRes> get nested => CopyWith$Input$I1.stub(_res);
 }

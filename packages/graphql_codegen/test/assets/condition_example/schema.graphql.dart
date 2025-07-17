@@ -180,8 +180,5 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'Condition': {
-    'AndCondition',
-    'TimeCondition',
-  }
+  'Condition': {'AndCondition', 'TimeCondition'},
 };

@@ -182,10 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Fragment$PersonSummary {
-  Fragment$PersonSummary({
-    required this.id,
-    required this.$__typename,
-  });
+  Fragment$PersonSummary({required this.id, required this.$__typename});
 
   factory Fragment$PersonSummary.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
@@ -219,10 +216,7 @@ class Fragment$PersonSummary {
   int get hashCode {
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$$__typename]);
   }
 
   @override
@@ -249,10 +243,7 @@ class Fragment$PersonSummary {
 
 extension UtilityExtension$Fragment$PersonSummary on Fragment$PersonSummary {
   CopyWith$Fragment$PersonSummary<Fragment$PersonSummary> get copyWith =>
-      CopyWith$Fragment$PersonSummary(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$PersonSummary(this, (i) => i);
   _T when<_T>({
     required _T Function(Fragment$PersonSummary$$Person) person,
     required _T Function() orElse,
@@ -293,18 +284,12 @@ abstract class CopyWith$Fragment$PersonSummary<TRes> {
   factory CopyWith$Fragment$PersonSummary.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonSummary;
 
-  TRes call({
-    String? id,
-    String? $__typename,
-  });
+  TRes call({String? id, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$PersonSummary<TRes>
     implements CopyWith$Fragment$PersonSummary<TRes> {
-  _CopyWithImpl$Fragment$PersonSummary(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$PersonSummary(this._instance, this._then);
 
   final Fragment$PersonSummary _instance;
 
@@ -312,16 +297,15 @@ class _CopyWithImpl$Fragment$PersonSummary<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$PersonSummary(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? id = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$PersonSummary(
+          id: id == _undefined || id == null ? _instance.id : (id as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$PersonSummary<TRes>
@@ -330,41 +314,37 @@ class _CopyWithStubImpl$Fragment$PersonSummary<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? id, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionPersonSummary = FragmentDefinitionNode(
   name: NameNode(value: 'PersonSummary'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'IPerson'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'IPerson'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentPersonSummary = DocumentNode(definitions: [
-  fragmentDefinitionPersonSummary,
-]);
+const documentNodeFragmentPersonSummary = DocumentNode(
+  definitions: [fragmentDefinitionPersonSummary],
+);
 
 class Fragment$PersonSummary$$Person implements Fragment$PersonSummary {
   Fragment$PersonSummary$$Person({
@@ -398,10 +378,7 @@ class Fragment$PersonSummary$$Person implements Fragment$PersonSummary {
   int get hashCode {
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$$__typename]);
   }
 
   @override
@@ -430,10 +407,7 @@ class Fragment$PersonSummary$$Person implements Fragment$PersonSummary {
 extension UtilityExtension$Fragment$PersonSummary$$Person
     on Fragment$PersonSummary$$Person {
   CopyWith$Fragment$PersonSummary$$Person<Fragment$PersonSummary$$Person>
-      get copyWith => CopyWith$Fragment$PersonSummary$$Person(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$PersonSummary$$Person(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$PersonSummary$$Person<TRes> {
@@ -445,18 +419,12 @@ abstract class CopyWith$Fragment$PersonSummary$$Person<TRes> {
   factory CopyWith$Fragment$PersonSummary$$Person.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PersonSummary$$Person;
 
-  TRes call({
-    String? id,
-    String? $__typename,
-  });
+  TRes call({String? id, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$PersonSummary$$Person<TRes>
     implements CopyWith$Fragment$PersonSummary$$Person<TRes> {
-  _CopyWithImpl$Fragment$PersonSummary$$Person(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$PersonSummary$$Person(this._instance, this._then);
 
   final Fragment$PersonSummary$$Person _instance;
 
@@ -464,16 +432,15 @@ class _CopyWithImpl$Fragment$PersonSummary$$Person<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$PersonSummary$$Person(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? id = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$PersonSummary$$Person(
+          id: id == _undefined || id == null ? _instance.id : (id as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$PersonSummary$$Person<TRes>
@@ -482,18 +449,11 @@ class _CopyWithStubImpl$Fragment$PersonSummary$$Person<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? id, String? $__typename}) => _res;
 }
 
 class Query$GetPerson {
-  Query$GetPerson({
-    this.person,
-    this.$__typename = 'Query',
-  });
+  Query$GetPerson({this.person, this.$__typename = 'Query'});
 
   factory Query$GetPerson.fromJson(Map<String, dynamic> json) {
     final l$person = json['person'];
@@ -523,10 +483,7 @@ class Query$GetPerson {
   int get hashCode {
     final l$person = person;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$person,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$person, l$$__typename]);
   }
 
   @override
@@ -553,10 +510,7 @@ class Query$GetPerson {
 
 extension UtilityExtension$Query$GetPerson on Query$GetPerson {
   CopyWith$Query$GetPerson<Query$GetPerson> get copyWith =>
-      CopyWith$Query$GetPerson(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$GetPerson(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GetPerson<TRes> {
@@ -568,19 +522,13 @@ abstract class CopyWith$Query$GetPerson<TRes> {
   factory CopyWith$Query$GetPerson.stub(TRes res) =
       _CopyWithStubImpl$Query$GetPerson;
 
-  TRes call({
-    Query$GetPerson$person? person,
-    String? $__typename,
-  });
+  TRes call({Query$GetPerson$person? person, String? $__typename});
   CopyWith$Query$GetPerson$person<TRes> get person;
 }
 
 class _CopyWithImpl$Query$GetPerson<TRes>
     implements CopyWith$Query$GetPerson<TRes> {
-  _CopyWithImpl$Query$GetPerson(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GetPerson(this._instance, this._then);
 
   final Query$GetPerson _instance;
 
@@ -588,18 +536,17 @@ class _CopyWithImpl$Query$GetPerson<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? person = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetPerson(
-        person: person == _undefined
-            ? _instance.person
-            : (person as Query$GetPerson$person?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? person = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$GetPerson(
+          person: person == _undefined
+              ? _instance.person
+              : (person as Query$GetPerson$person?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$GetPerson$person<TRes> get person {
     final local$person = _instance.person;
@@ -615,37 +562,46 @@ class _CopyWithStubImpl$Query$GetPerson<TRes>
 
   TRes _res;
 
-  call({
-    Query$GetPerson$person? person,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$GetPerson$person? person, String? $__typename}) => _res;
 
   CopyWith$Query$GetPerson$person<TRes> get person =>
       CopyWith$Query$GetPerson$person.stub(_res);
 }
 
-const documentNodeQueryGetPerson = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GetPerson'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'person'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: IntValueNode(value: '1'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'PersonSummary'),
+const documentNodeQueryGetPerson = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'GetPerson'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'person'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: IntValueNode(value: '1'),
+              ),
+            ],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'PersonSummary'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -654,25 +610,15 @@ const documentNodeQueryGetPerson = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPersonSummary,
-]);
+    ),
+    fragmentDefinitionPersonSummary,
+  ],
+);
 
 class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
-  Query$GetPerson$person({
-    required this.id,
-    this.$__typename = 'Person',
-  });
+  Query$GetPerson$person({required this.id, this.$__typename = 'Person'});
 
   factory Query$GetPerson$person.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
@@ -700,10 +646,7 @@ class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
   int get hashCode {
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$$__typename]);
   }
 
   @override
@@ -730,10 +673,7 @@ class Query$GetPerson$person implements Fragment$PersonSummary$$Person {
 
 extension UtilityExtension$Query$GetPerson$person on Query$GetPerson$person {
   CopyWith$Query$GetPerson$person<Query$GetPerson$person> get copyWith =>
-      CopyWith$Query$GetPerson$person(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$GetPerson$person(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GetPerson$person<TRes> {
@@ -745,18 +685,12 @@ abstract class CopyWith$Query$GetPerson$person<TRes> {
   factory CopyWith$Query$GetPerson$person.stub(TRes res) =
       _CopyWithStubImpl$Query$GetPerson$person;
 
-  TRes call({
-    String? id,
-    String? $__typename,
-  });
+  TRes call({String? id, String? $__typename});
 }
 
 class _CopyWithImpl$Query$GetPerson$person<TRes>
     implements CopyWith$Query$GetPerson$person<TRes> {
-  _CopyWithImpl$Query$GetPerson$person(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GetPerson$person(this._instance, this._then);
 
   final Query$GetPerson$person _instance;
 
@@ -764,16 +698,15 @@ class _CopyWithImpl$Query$GetPerson$person<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetPerson$person(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? id = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$GetPerson$person(
+          id: id == _undefined || id == null ? _instance.id : (id as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$GetPerson$person<TRes>
@@ -782,13 +715,9 @@ class _CopyWithStubImpl$Query$GetPerson$person<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? id, String? $__typename}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'IPerson': {'Person'}
+  'IPerson': {'Person'},
 };

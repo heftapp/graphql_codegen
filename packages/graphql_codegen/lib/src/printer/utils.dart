@@ -12,22 +12,23 @@ class NamePrinter {
   String get separator => config.namingSeparator;
 
   NamePrinter(this.config)
-      : _keywords = {...staticKeywords, ...config.extraKeywords};
+    : _keywords = {...staticKeywords, ...config.extraKeywords};
 
   String printName(
     Name name, {
     bool isAction = false,
     String? separator,
     String? prefix,
-  }) =>
-      name.segments
-          .map((s) => _printNameSegment(
-                s,
-                isAction: isAction,
-                separator: separator ?? this.separator,
-                prefix: prefix,
-              ))
-          .join(separator ?? this.separator);
+  }) => name.segments
+      .map(
+        (s) => _printNameSegment(
+          s,
+          isAction: isAction,
+          separator: separator ?? this.separator,
+          prefix: prefix,
+        ),
+      )
+      .join(separator ?? this.separator);
 
   String _printPrefix(NameSegment segment, {bool isAction = false}) {
     if (segment is EnumNameSegment) {
@@ -70,20 +71,15 @@ class NamePrinter {
   String printDocumentDefinitionNodeName(Name name) =>
       "documentNode" + printName(name, separator: '');
 
-  String printFragmentDefinitionNodeName(Name name) => printName(
-        name,
-        separator: '',
-        prefix: 'fragmentDefinition',
-      );
+  String printFragmentDefinitionNodeName(Name name) =>
+      printName(name, separator: '', prefix: 'fragmentDefinition');
 
   String printPossibleTypesMapName() => 'possibleTypesMap';
 
   String printClassName(Name name) => printName(name);
 
-  String printEnumImportAlias(Name name) => printName(
-        name,
-        prefix: "EnumImport",
-      );
+  String printEnumImportAlias(Name name) =>
+      printName(name, prefix: "EnumImport");
 
   String printClassExtensionName(Name name) =>
       "UtilityExtension${separator}" + printName(name);
@@ -198,11 +194,11 @@ Expression printNullCheck(Expression variable, Expression whenNotNull) =>
     variable.equalTo(literalNull).conditional(literalNull, whenNotNull);
 
 Method printIdentityFunction() => Method(
-      (b) => b
-        ..lambda = true
-        ..requiredParameters = ListBuilder([Parameter((b) => b..name = 'i')])
-        ..body = refer('i').code,
-    );
+  (b) => b
+    ..lambda = true
+    ..requiredParameters = ListBuilder([Parameter((b) => b..name = 'i')])
+    ..body = refer('i').code,
+);
 
 Expression printMaybeAddCast(Expression exp, bool condition, Expression asA) =>
     condition ? exp.asA(asA) : exp;

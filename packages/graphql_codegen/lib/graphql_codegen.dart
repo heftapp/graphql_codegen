@@ -18,11 +18,7 @@ Library _generateDocument<TKey extends Object>(
   TKey key,
   GraphQLCodegenConfig config,
 ) {
-  final context = ContextRoot<TKey>(
-    schema: schema,
-    key: key,
-    config: config,
-  );
+  final context = ContextRoot<TKey>(schema: schema, key: key, config: config);
   entry.accept(ContextVisitor(context: context));
   return printRootContext(PrintContext(context));
 }
@@ -36,10 +32,7 @@ class SchemaConfig<TKey> {
   final String Function(TKey) lookupPath;
 
   /// Self explainatory
-  SchemaConfig({
-    required this.entries,
-    required this.lookupPath,
-  });
+  SchemaConfig({required this.entries, required this.lookupPath});
 
   TKey get mainKey {
     final defaultOperationDefinitionMap = {
@@ -49,52 +42,43 @@ class SchemaConfig<TKey> {
     };
     final operationDefinitionMap = Map.fromEntries(
       entries.entries.expand(
-        (element) =>
-            element.value.definitions.expand<MapEntry<OperationType, String>>(
-          (element) {
-            if (element is SchemaDefinitionNode) {
-              return element.operationTypes.map(
-                (e) => MapEntry(
-                  e.operation,
-                  e.type.name.value,
-                ),
-              );
-            }
-            if (element is SchemaExtensionNode) {
-              return element.operationTypes.map(
-                (e) => MapEntry(
-                  e.operation,
-                  e.type.name.value,
-                ),
-              );
-            }
-            return [];
-          },
-        ),
+        (element) => element.value.definitions
+            .expand<MapEntry<OperationType, String>>((element) {
+              if (element is SchemaDefinitionNode) {
+                return element.operationTypes.map(
+                  (e) => MapEntry(e.operation, e.type.name.value),
+                );
+              }
+              if (element is SchemaExtensionNode) {
+                return element.operationTypes.map(
+                  (e) => MapEntry(e.operation, e.type.name.value),
+                );
+              }
+              return [];
+            }),
       ),
     );
     return [
-          OperationType.query,
-          OperationType.mutation,
-          OperationType.subscription
-        ].expand<TKey?>((e) {
-          final name =
-              operationDefinitionMap[e] ?? defaultOperationDefinitionMap[e];
-          if (name == null) {
-            return [];
-          }
-          return entries.entries
-              .where(
-                (element) => element.value.definitions
-                    .whereType<ObjectTypeDefinitionNode>()
-                    .where((element) => element.name.value == name)
-                    .isNotEmpty,
-              )
-              .map<TKey>((documentEntry) => documentEntry.key);
-        }).firstWhere(
-          (element) => true,
-          orElse: () => null,
-        ) ??
+              OperationType.query,
+              OperationType.mutation,
+              OperationType.subscription,
+            ]
+            .expand<TKey?>((e) {
+              final name =
+                  operationDefinitionMap[e] ?? defaultOperationDefinitionMap[e];
+              if (name == null) {
+                return [];
+              }
+              return entries.entries
+                  .where(
+                    (element) => element.value.definitions
+                        .whereType<ObjectTypeDefinitionNode>()
+                        .where((element) => element.name.value == name)
+                        .isNotEmpty,
+                  )
+                  .map<TKey>((documentEntry) => documentEntry.key);
+            })
+            .firstWhere((element) => true, orElse: () => null) ??
         entries.keys.last;
   }
 }

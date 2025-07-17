@@ -182,10 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Query$Q {
-  Query$Q({
-    this.book,
-    this.$__typename = 'Query',
-  });
+  Query$Q({this.book, this.$__typename = 'Query'});
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$book = json['book'];
@@ -215,10 +212,7 @@ class Query$Q {
   int get hashCode {
     final l$book = book;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$book,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$book, l$$__typename]);
   }
 
   @override
@@ -244,32 +238,21 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(
-    Query$Q instance,
-    TRes Function(Query$Q) then,
-  ) = _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call({
-    Query$Q$book? book,
-    String? $__typename,
-  });
+  TRes call({Query$Q$book? book, String? $__typename});
   CopyWith$Query$Q$book<TRes> get book;
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q(this._instance, this._then);
 
   final Query$Q _instance;
 
@@ -277,16 +260,15 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? book = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q(
-        book: book == _undefined ? _instance.book : (book as Query$Q$book?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? book = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Q(
+          book: book == _undefined ? _instance.book : (book as Query$Q$book?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Q$book<TRes> get book {
     final local$book = _instance.book;
@@ -301,58 +283,70 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call({
-    Query$Q$book? book,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Q$book? book, String? $__typename}) => _res;
 
   CopyWith$Query$Q$book<TRes> get book => CopyWith$Query$Q$book.stub(_res);
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'book'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'author'),
+            name: NameNode(value: 'book'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'TextBook'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'courses'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'author'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'TextBook'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'courses'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -361,24 +355,14 @@ const documentNodeQueryQ = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Query$Q$book {
-  Query$Q$book({
-    this.author,
-    required this.$__typename,
-  });
+  Query$Q$book({this.author, required this.$__typename});
 
   factory Query$Q$book.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
@@ -412,10 +396,7 @@ class Query$Q$book {
   int get hashCode {
     final l$author = author;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$author,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$author, l$$__typename]);
   }
 
   @override
@@ -441,10 +422,8 @@ class Query$Q$book {
 }
 
 extension UtilityExtension$Query$Q$book on Query$Q$book {
-  CopyWith$Query$Q$book<Query$Q$book> get copyWith => CopyWith$Query$Q$book(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q$book<Query$Q$book> get copyWith =>
+      CopyWith$Query$Q$book(this, (i) => i);
   _T when<_T>({
     required _T Function(Query$Q$book$$TextBook) textBook,
     required _T Function() orElse,
@@ -484,17 +463,11 @@ abstract class CopyWith$Query$Q$book<TRes> {
 
   factory CopyWith$Query$Q$book.stub(TRes res) = _CopyWithStubImpl$Query$Q$book;
 
-  TRes call({
-    String? author,
-    String? $__typename,
-  });
+  TRes call({String? author, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Q$book<TRes> implements CopyWith$Query$Q$book<TRes> {
-  _CopyWithImpl$Query$Q$book(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q$book(this._instance, this._then);
 
   final Query$Q$book _instance;
 
@@ -502,16 +475,15 @@ class _CopyWithImpl$Query$Q$book<TRes> implements CopyWith$Query$Q$book<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? author = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q$book(
-        author: author == _undefined ? _instance.author : (author as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? author = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Q$book(
+          author: author == _undefined ? _instance.author : (author as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Q$book<TRes>
@@ -520,11 +492,7 @@ class _CopyWithStubImpl$Query$Q$book<TRes>
 
   TRes _res;
 
-  call({
-    String? author,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? author, String? $__typename}) => _res;
 }
 
 class Query$Q$book$$TextBook implements Query$Q$book {
@@ -567,11 +535,7 @@ class Query$Q$book$$TextBook implements Query$Q$book {
     final l$courses = courses;
     final l$$__typename = $__typename;
     final l$author = author;
-    return Object.hashAll([
-      l$courses,
-      l$$__typename,
-      l$author,
-    ]);
+    return Object.hashAll([l$courses, l$$__typename, l$author]);
   }
 
   @override
@@ -603,10 +567,7 @@ class Query$Q$book$$TextBook implements Query$Q$book {
 
 extension UtilityExtension$Query$Q$book$$TextBook on Query$Q$book$$TextBook {
   CopyWith$Query$Q$book$$TextBook<Query$Q$book$$TextBook> get copyWith =>
-      CopyWith$Query$Q$book$$TextBook(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Q$book$$TextBook(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q$book$$TextBook<TRes> {
@@ -618,19 +579,12 @@ abstract class CopyWith$Query$Q$book$$TextBook<TRes> {
   factory CopyWith$Query$Q$book$$TextBook.stub(TRes res) =
       _CopyWithStubImpl$Query$Q$book$$TextBook;
 
-  TRes call({
-    int? courses,
-    String? $__typename,
-    String? author,
-  });
+  TRes call({int? courses, String? $__typename, String? author});
 }
 
 class _CopyWithImpl$Query$Q$book$$TextBook<TRes>
     implements CopyWith$Query$Q$book$$TextBook<TRes> {
-  _CopyWithImpl$Query$Q$book$$TextBook(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q$book$$TextBook(this._instance, this._then);
 
   final Query$Q$book$$TextBook _instance;
 
@@ -642,14 +596,15 @@ class _CopyWithImpl$Query$Q$book$$TextBook<TRes>
     Object? courses = _undefined,
     Object? $__typename = _undefined,
     Object? author = _undefined,
-  }) =>
-      _then(Query$Q$book$$TextBook(
-        courses: courses == _undefined ? _instance.courses : (courses as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        author: author == _undefined ? _instance.author : (author as String?),
-      ));
+  }) => _then(
+    Query$Q$book$$TextBook(
+      courses: courses == _undefined ? _instance.courses : (courses as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      author: author == _undefined ? _instance.author : (author as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Q$book$$TextBook<TRes>
@@ -658,14 +613,9 @@ class _CopyWithStubImpl$Query$Q$book$$TextBook<TRes>
 
   TRes _res;
 
-  call({
-    int? courses,
-    String? $__typename,
-    String? author,
-  }) =>
-      _res;
+  call({int? courses, String? $__typename, String? author}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'Book': {'TextBook'}
+  'Book': {'TextBook'},
 };

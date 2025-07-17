@@ -187,14 +187,13 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 
 class Variables$Mutation$UpdateSOptional {
   factory Variables$Mutation$UpdateSOptional({String? name}) =>
-      Variables$Mutation$UpdateSOptional._({
-        if (name != null) r'name': name,
-      });
+      Variables$Mutation$UpdateSOptional._({if (name != null) r'name': name});
 
   Variables$Mutation$UpdateSOptional._(this._$data);
 
   factory Variables$Mutation$UpdateSOptional.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('name')) {
       final l$name = data['name'];
@@ -217,11 +216,9 @@ class Variables$Mutation$UpdateSOptional {
   }
 
   CopyWith$Variables$Mutation$UpdateSOptional<
-          Variables$Mutation$UpdateSOptional>
-      get copyWith => CopyWith$Variables$Mutation$UpdateSOptional(
-            this,
-            (i) => i,
-          );
+    Variables$Mutation$UpdateSOptional
+  >
+  get copyWith => CopyWith$Variables$Mutation$UpdateSOptional(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -264,10 +261,7 @@ abstract class CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
 
 class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
     implements CopyWith$Variables$Mutation$UpdateSOptional<TRes> {
-  _CopyWithImpl$Variables$Mutation$UpdateSOptional(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Mutation$UpdateSOptional(this._instance, this._then);
 
   final Variables$Mutation$UpdateSOptional _instance;
 
@@ -275,11 +269,12 @@ class _CopyWithImpl$Variables$Mutation$UpdateSOptional<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Variables$Mutation$UpdateSOptional._({
-        ..._instance._$data,
-        if (name != _undefined) 'name': (name as String?),
-      }));
+  TRes call({Object? name = _undefined}) => _then(
+    Variables$Mutation$UpdateSOptional._({
+      ..._instance._$data,
+      if (name != _undefined) 'name': (name as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateSOptional<TRes>
@@ -335,10 +330,7 @@ class Mutation$UpdateSOptional {
 extension UtilityExtension$Mutation$UpdateSOptional
     on Mutation$UpdateSOptional {
   CopyWith$Mutation$UpdateSOptional<Mutation$UpdateSOptional> get copyWith =>
-      CopyWith$Mutation$UpdateSOptional(
-        this,
-        (i) => i,
-      );
+      CopyWith$Mutation$UpdateSOptional(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
@@ -355,10 +347,7 @@ abstract class CopyWith$Mutation$UpdateSOptional<TRes> {
 
 class _CopyWithImpl$Mutation$UpdateSOptional<TRes>
     implements CopyWith$Mutation$UpdateSOptional<TRes> {
-  _CopyWithImpl$Mutation$UpdateSOptional(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$UpdateSOptional(this._instance, this._then);
 
   final Mutation$UpdateSOptional _instance;
 
@@ -366,8 +355,9 @@ class _CopyWithImpl$Mutation$UpdateSOptional<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? s = _undefined}) => _then(Mutation$UpdateSOptional(
-      s: s == _undefined ? _instance.s : (s as String?)));
+  TRes call({Object? s = _undefined}) => _then(
+    Mutation$UpdateSOptional(s: s == _undefined ? _instance.s : (s as String?)),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$UpdateSOptional<TRes>
@@ -379,45 +369,47 @@ class _CopyWithStubImpl$Mutation$UpdateSOptional<TRes>
   call({String? s}) => _res;
 }
 
-const documentNodeMutationUpdateSOptional = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'UpdateSOptional'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+const documentNodeMutationUpdateSOptional = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'UpdateSOptional'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'name')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 's'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name')),
-          )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 's'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
         ],
-        directives: [],
-        selectionSet: null,
-      )
-    ]),
-  ),
-]);
-Mutation$UpdateSOptional _parserFn$Mutation$UpdateSOptional(
-        Map<String, dynamic> data) =>
-    Mutation$UpdateSOptional.fromJson(data);
-typedef OnMutationCompleted$Mutation$UpdateSOptional = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Mutation$UpdateSOptional?,
+      ),
+    ),
+  ],
 );
+Mutation$UpdateSOptional _parserFn$Mutation$UpdateSOptional(
+  Map<String, dynamic> data,
+) => Mutation$UpdateSOptional.fromJson(data);
+typedef OnMutationCompleted$Mutation$UpdateSOptional =
+    FutureOr<void> Function(Map<String, dynamic>?, Mutation$UpdateSOptional?);
 
 class Options$Mutation$UpdateSOptional
     extends graphql.MutationOptions<Mutation$UpdateSOptional> {
@@ -433,38 +425,36 @@ class Options$Mutation$UpdateSOptional
     OnMutationCompleted$Mutation$UpdateSOptional? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateSOptional>? update,
     graphql.OnError? onError,
-  })  : onCompletedWithParsed = onCompleted,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          onCompleted: onCompleted == null
-              ? null
-              : (data) => onCompleted(
-                    data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$UpdateSOptional(data),
-                  ),
-          update: update,
-          onError: onError,
-          document: documentNodeMutationUpdateSOptional,
-          parserFn: _parserFn$Mutation$UpdateSOptional,
-        );
+  }) : onCompletedWithParsed = onCompleted,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         onCompleted: onCompleted == null
+             ? null
+             : (data) => onCompleted(
+                 data,
+                 data == null ? null : _parserFn$Mutation$UpdateSOptional(data),
+               ),
+         update: update,
+         onError: onError,
+         document: documentNodeMutationUpdateSOptional,
+         parserFn: _parserFn$Mutation$UpdateSOptional,
+       );
 
   final OnMutationCompleted$Mutation$UpdateSOptional? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed,
-      ];
+    ...super.onCompleted == null
+        ? super.properties
+        : super.properties.where((property) => property != onCompleted),
+    onCompletedWithParsed,
+  ];
 }
 
 class WatchOptions$Mutation$UpdateSOptional
@@ -483,62 +473,62 @@ class WatchOptions$Mutation$UpdateSOptional
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeMutationUpdateSOptional,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$UpdateSOptional,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeMutationUpdateSOptional,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Mutation$UpdateSOptional,
+       );
 }
 
 extension ClientExtension$Mutation$UpdateSOptional on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$UpdateSOptional>> mutate$UpdateSOptional(
-          [Options$Mutation$UpdateSOptional? options]) async =>
-      await this.mutate(options ?? Options$Mutation$UpdateSOptional());
-  graphql.ObservableQuery<
-      Mutation$UpdateSOptional> watchMutation$UpdateSOptional(
-          [WatchOptions$Mutation$UpdateSOptional? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
+  Future<graphql.QueryResult<Mutation$UpdateSOptional>> mutate$UpdateSOptional([
+    Options$Mutation$UpdateSOptional? options,
+  ]) async => await this.mutate(options ?? Options$Mutation$UpdateSOptional());
+  graphql.ObservableQuery<Mutation$UpdateSOptional>
+  watchMutation$UpdateSOptional([
+    WatchOptions$Mutation$UpdateSOptional? options,
+  ]) => this.watchMutation(options ?? WatchOptions$Mutation$UpdateSOptional());
 }
 
 class Mutation$UpdateSOptional$HookResult {
-  Mutation$UpdateSOptional$HookResult(
-    this.runMutation,
-    this.result,
-  );
+  Mutation$UpdateSOptional$HookResult(this.runMutation, this.result);
 
   final RunMutation$Mutation$UpdateSOptional runMutation;
 
   final graphql.QueryResult<Mutation$UpdateSOptional> result;
 }
 
-Mutation$UpdateSOptional$HookResult useMutation$UpdateSOptional(
-    [WidgetOptions$Mutation$UpdateSOptional? options]) {
-  final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$UpdateSOptional());
+Mutation$UpdateSOptional$HookResult useMutation$UpdateSOptional([
+  WidgetOptions$Mutation$UpdateSOptional? options,
+]) {
+  final result = graphql_flutter.useMutation(
+    options ?? WidgetOptions$Mutation$UpdateSOptional(),
+  );
   return Mutation$UpdateSOptional$HookResult(
     ({variables, optimisticResult, typedOptimisticResult}) =>
         result.runMutation(
-      variables?.toJson() ?? const {},
-      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-    ),
+          variables?.toJson() ?? const {},
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+        ),
     result.result,
   );
 }
 
 graphql.ObservableQuery<Mutation$UpdateSOptional>
-    useWatchMutation$UpdateSOptional(
-            [WatchOptions$Mutation$UpdateSOptional? options]) =>
-        graphql_flutter.useWatchMutation(
-            options ?? WatchOptions$Mutation$UpdateSOptional());
+useWatchMutation$UpdateSOptional([
+  WatchOptions$Mutation$UpdateSOptional? options,
+]) => graphql_flutter.useWatchMutation(
+  options ?? WatchOptions$Mutation$UpdateSOptional(),
+);
 
 class WidgetOptions$Mutation$UpdateSOptional
     extends graphql.MutationOptions<Mutation$UpdateSOptional> {
@@ -553,49 +543,48 @@ class WidgetOptions$Mutation$UpdateSOptional
     OnMutationCompleted$Mutation$UpdateSOptional? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateSOptional>? update,
     graphql.OnError? onError,
-  })  : onCompletedWithParsed = onCompleted,
-        super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          onCompleted: onCompleted == null
-              ? null
-              : (data) => onCompleted(
-                    data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$UpdateSOptional(data),
-                  ),
-          update: update,
-          onError: onError,
-          document: documentNodeMutationUpdateSOptional,
-          parserFn: _parserFn$Mutation$UpdateSOptional,
-        );
+  }) : onCompletedWithParsed = onCompleted,
+       super(
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         onCompleted: onCompleted == null
+             ? null
+             : (data) => onCompleted(
+                 data,
+                 data == null ? null : _parserFn$Mutation$UpdateSOptional(data),
+               ),
+         update: update,
+         onError: onError,
+         document: documentNodeMutationUpdateSOptional,
+         parserFn: _parserFn$Mutation$UpdateSOptional,
+       );
 
   final OnMutationCompleted$Mutation$UpdateSOptional? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed,
-      ];
+    ...super.onCompleted == null
+        ? super.properties
+        : super.properties.where((property) => property != onCompleted),
+    onCompletedWithParsed,
+  ];
 }
 
-typedef RunMutation$Mutation$UpdateSOptional
-    = graphql.MultiSourceResult<Mutation$UpdateSOptional> Function({
-  Variables$Mutation$UpdateSOptional? variables,
-  Object? optimisticResult,
-  Mutation$UpdateSOptional? typedOptimisticResult,
-});
-typedef Builder$Mutation$UpdateSOptional = widgets.Widget Function(
-  RunMutation$Mutation$UpdateSOptional,
-  graphql.QueryResult<Mutation$UpdateSOptional>?,
-);
+typedef RunMutation$Mutation$UpdateSOptional =
+    graphql.MultiSourceResult<Mutation$UpdateSOptional> Function({
+      Variables$Mutation$UpdateSOptional? variables,
+      Object? optimisticResult,
+      Mutation$UpdateSOptional? typedOptimisticResult,
+    });
+typedef Builder$Mutation$UpdateSOptional =
+    widgets.Widget Function(
+      RunMutation$Mutation$UpdateSOptional,
+      graphql.QueryResult<Mutation$UpdateSOptional>?,
+    );
 
 class Mutation$UpdateSOptional$Widget
     extends graphql_flutter.Mutation<Mutation$UpdateSOptional> {
@@ -604,26 +593,17 @@ class Mutation$UpdateSOptional$Widget
     WidgetOptions$Mutation$UpdateSOptional? options,
     required Builder$Mutation$UpdateSOptional builder,
   }) : super(
-          key: key,
-          options: options ?? WidgetOptions$Mutation$UpdateSOptional(),
-          builder: (
-            run,
-            result,
-          ) =>
-              builder(
-            ({
-              variables,
-              optimisticResult,
-              typedOptimisticResult,
-            }) =>
-                run(
-              variables?.toJson() ?? const {},
-              optimisticResult:
-                  optimisticResult ?? typedOptimisticResult?.toJson(),
-            ),
-            result,
-          ),
-        );
+         key: key,
+         options: options ?? WidgetOptions$Mutation$UpdateSOptional(),
+         builder: (run, result) => builder(
+           ({variables, optimisticResult, typedOptimisticResult}) => run(
+             variables?.toJson() ?? const {},
+             optimisticResult:
+                 optimisticResult ?? typedOptimisticResult?.toJson(),
+           ),
+           result,
+         ),
+       );
 }
 
 const possibleTypesMap = <String, Set<String>>{};

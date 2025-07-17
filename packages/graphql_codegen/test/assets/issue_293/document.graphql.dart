@@ -6,15 +6,13 @@ class Input$I {
     bool? nonNullWithDefault,
     bool? nullable,
     bool? nullableWithDefault,
-  }) =>
-      Input$I._({
-        r'nonNull': nonNull,
-        if (nonNullWithDefault != null)
-          r'nonNullWithDefault': nonNullWithDefault,
-        if (nullable != null) r'nullable': nullable,
-        if (nullableWithDefault != null)
-          r'nullableWithDefault': nullableWithDefault,
-      });
+  }) => Input$I._({
+    r'nonNull': nonNull,
+    if (nonNullWithDefault != null) r'nonNullWithDefault': nonNullWithDefault,
+    if (nullable != null) r'nullable': nullable,
+    if (nullableWithDefault != null)
+      r'nullableWithDefault': nullableWithDefault,
+  });
 
   Input$I._(this._$data);
 
@@ -66,10 +64,7 @@ class Input$I {
     return result$data;
   }
 
-  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -134,10 +129,8 @@ class Input$I {
 }
 
 abstract class CopyWith$Input$I<TRes> {
-  factory CopyWith$Input$I(
-    Input$I instance,
-    TRes Function(Input$I) then,
-  ) = _CopyWithImpl$Input$I;
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
+      _CopyWithImpl$Input$I;
 
   factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
 
@@ -150,10 +143,7 @@ abstract class CopyWith$Input$I<TRes> {
 }
 
 class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
-  _CopyWithImpl$Input$I(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I(this._instance, this._then);
 
   final Input$I _instance;
 
@@ -166,17 +156,18 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
     Object? nonNullWithDefault = _undefined,
     Object? nullable = _undefined,
     Object? nullableWithDefault = _undefined,
-  }) =>
-      _then(Input$I._({
-        ..._instance._$data,
-        if (nonNull != _undefined && nonNull != null)
-          'nonNull': (nonNull as bool),
-        if (nonNullWithDefault != _undefined && nonNullWithDefault != null)
-          'nonNullWithDefault': (nonNullWithDefault as bool),
-        if (nullable != _undefined) 'nullable': (nullable as bool?),
-        if (nullableWithDefault != _undefined)
-          'nullableWithDefault': (nullableWithDefault as bool?),
-      }));
+  }) => _then(
+    Input$I._({
+      ..._instance._$data,
+      if (nonNull != _undefined && nonNull != null)
+        'nonNull': (nonNull as bool),
+      if (nonNullWithDefault != _undefined && nonNullWithDefault != null)
+        'nonNullWithDefault': (nonNullWithDefault as bool),
+      if (nullable != _undefined) 'nullable': (nullable as bool?),
+      if (nullableWithDefault != _undefined)
+        'nullableWithDefault': (nullableWithDefault as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
@@ -189,8 +180,7 @@ class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
     bool? nonNullWithDefault,
     bool? nullable,
     bool? nullableWithDefault,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 enum Enum$E {
@@ -416,28 +406,26 @@ class Variables$Query$Q {
     List<Enum$E?>? nullableList,
     List<Enum$E?>? nullableListWithDefault,
     Input$I? i,
-  }) =>
-      Variables$Query$Q._({
-        r'nonNull': nonNull,
-        if (nonNullWithDefault != null)
-          r'nonNullWithDefault': nonNullWithDefault,
-        if (nullable != null) r'nullable': nullable,
-        if (nullableWithDefault != null)
-          r'nullableWithDefault': nullableWithDefault,
-        r'nonNullEnum': nonNullEnum,
-        if (nonNullEnumWithDefault != null)
-          r'nonNullEnumWithDefault': nonNullEnumWithDefault,
-        if (nullableEnum != null) r'nullableEnum': nullableEnum,
-        if (nullableEnumWithDefault != null)
-          r'nullableEnumWithDefault': nullableEnumWithDefault,
-        r'nonNullList': nonNullList,
-        if (nonNullListWithDefault != null)
-          r'nonNullListWithDefault': nonNullListWithDefault,
-        if (nullableList != null) r'nullableList': nullableList,
-        if (nullableListWithDefault != null)
-          r'nullableListWithDefault': nullableListWithDefault,
-        if (i != null) r'i': i,
-      });
+  }) => Variables$Query$Q._({
+    r'nonNull': nonNull,
+    if (nonNullWithDefault != null) r'nonNullWithDefault': nonNullWithDefault,
+    if (nullable != null) r'nullable': nullable,
+    if (nullableWithDefault != null)
+      r'nullableWithDefault': nullableWithDefault,
+    r'nonNullEnum': nonNullEnum,
+    if (nonNullEnumWithDefault != null)
+      r'nonNullEnumWithDefault': nonNullEnumWithDefault,
+    if (nullableEnum != null) r'nullableEnum': nullableEnum,
+    if (nullableEnumWithDefault != null)
+      r'nullableEnumWithDefault': nullableEnumWithDefault,
+    r'nonNullList': nonNullList,
+    if (nonNullListWithDefault != null)
+      r'nonNullListWithDefault': nonNullListWithDefault,
+    if (nullableList != null) r'nullableList': nullableList,
+    if (nullableListWithDefault != null)
+      r'nullableListWithDefault': nullableListWithDefault,
+    if (i != null) r'i': i,
+  });
 
   Variables$Query$Q._(this._$data);
 
@@ -461,8 +449,9 @@ class Variables$Query$Q {
     result$data['nonNullEnum'] = fromJson$Enum$E((l$nonNullEnum as String));
     if (data.containsKey('nonNullEnumWithDefault')) {
       final l$nonNullEnumWithDefault = data['nonNullEnumWithDefault'];
-      result$data['nonNullEnumWithDefault'] =
-          fromJson$Enum$E((l$nonNullEnumWithDefault as String));
+      result$data['nonNullEnumWithDefault'] = fromJson$Enum$E(
+        (l$nonNullEnumWithDefault as String),
+      );
     }
     if (data.containsKey('nullableEnum')) {
       final l$nullableEnum = data['nullableEnum'];
@@ -502,8 +491,9 @@ class Variables$Query$Q {
     }
     if (data.containsKey('i')) {
       final l$i = data['i'];
-      result$data['i'] =
-          l$i == null ? null : Input$I.fromJson((l$i as Map<String, dynamic>));
+      result$data['i'] = l$i == null
+          ? null
+          : Input$I.fromJson((l$i as Map<String, dynamic>));
     }
     return Variables$Query$Q._(result$data);
   }
@@ -560,13 +550,15 @@ class Variables$Query$Q {
     result$data['nonNullEnum'] = toJson$Enum$E(l$nonNullEnum);
     if (_$data.containsKey('nonNullEnumWithDefault')) {
       final l$nonNullEnumWithDefault = nonNullEnumWithDefault;
-      result$data['nonNullEnumWithDefault'] =
-          toJson$Enum$E((l$nonNullEnumWithDefault as Enum$E));
+      result$data['nonNullEnumWithDefault'] = toJson$Enum$E(
+        (l$nonNullEnumWithDefault as Enum$E),
+      );
     }
     if (_$data.containsKey('nullableEnum')) {
       final l$nullableEnum = nullableEnum;
-      result$data['nullableEnum'] =
-          l$nullableEnum == null ? null : toJson$Enum$E(l$nullableEnum);
+      result$data['nullableEnum'] = l$nullableEnum == null
+          ? null
+          : toJson$Enum$E(l$nullableEnum);
     }
     if (_$data.containsKey('nullableEnumWithDefault')) {
       final l$nullableEnumWithDefault = nullableEnumWithDefault;
@@ -575,8 +567,9 @@ class Variables$Query$Q {
           : toJson$Enum$E(l$nullableEnumWithDefault);
     }
     final l$nonNullList = nonNullList;
-    result$data['nonNullList'] =
-        l$nonNullList.map((e) => e == null ? null : toJson$Enum$E(e)).toList();
+    result$data['nonNullList'] = l$nonNullList
+        .map((e) => e == null ? null : toJson$Enum$E(e))
+        .toList();
     if (_$data.containsKey('nonNullListWithDefault')) {
       final l$nonNullListWithDefault = nonNullListWithDefault;
       result$data['nonNullListWithDefault'] =
@@ -604,10 +597,7 @@ class Variables$Query$Q {
   }
 
   CopyWith$Variables$Query$Q<Variables$Query$Q> get copyWith =>
-      CopyWith$Variables$Query$Q(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Q(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -807,18 +797,18 @@ class Variables$Query$Q {
       Object.hashAll(l$nonNullList.map((v) => v)),
       _$data.containsKey('nonNullListWithDefault')
           ? l$nonNullListWithDefault == null
-              ? null
-              : Object.hashAll(l$nonNullListWithDefault.map((v) => v))
+                ? null
+                : Object.hashAll(l$nonNullListWithDefault.map((v) => v))
           : const {},
       _$data.containsKey('nullableList')
           ? l$nullableList == null
-              ? null
-              : Object.hashAll(l$nullableList.map((v) => v))
+                ? null
+                : Object.hashAll(l$nullableList.map((v) => v))
           : const {},
       _$data.containsKey('nullableListWithDefault')
           ? l$nullableListWithDefault == null
-              ? null
-              : Object.hashAll(l$nullableListWithDefault.map((v) => v))
+                ? null
+                : Object.hashAll(l$nullableListWithDefault.map((v) => v))
           : const {},
       _$data.containsKey('i') ? l$i : const {},
     ]);
@@ -854,10 +844,7 @@ abstract class CopyWith$Variables$Query$Q<TRes> {
 
 class _CopyWithImpl$Variables$Query$Q<TRes>
     implements CopyWith$Variables$Query$Q<TRes> {
-  _CopyWithImpl$Variables$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Q(this._instance, this._then);
 
   final Variables$Query$Q _instance;
 
@@ -879,37 +866,36 @@ class _CopyWithImpl$Variables$Query$Q<TRes>
     Object? nullableList = _undefined,
     Object? nullableListWithDefault = _undefined,
     Object? i = _undefined,
-  }) =>
-      _then(Variables$Query$Q._({
-        ..._instance._$data,
-        if (nonNull != _undefined && nonNull != null)
-          'nonNull': (nonNull as bool),
-        if (nonNullWithDefault != _undefined && nonNullWithDefault != null)
-          'nonNullWithDefault': (nonNullWithDefault as bool),
-        if (nullable != _undefined) 'nullable': (nullable as bool?),
-        if (nullableWithDefault != _undefined)
-          'nullableWithDefault': (nullableWithDefault as bool?),
-        if (nonNullEnum != _undefined && nonNullEnum != null)
-          'nonNullEnum': (nonNullEnum as Enum$E),
-        if (nonNullEnumWithDefault != _undefined &&
-            nonNullEnumWithDefault != null)
-          'nonNullEnumWithDefault': (nonNullEnumWithDefault as Enum$E),
-        if (nullableEnum != _undefined)
-          'nullableEnum': (nullableEnum as Enum$E?),
-        if (nullableEnumWithDefault != _undefined)
-          'nullableEnumWithDefault': (nullableEnumWithDefault as Enum$E?),
-        if (nonNullList != _undefined && nonNullList != null)
-          'nonNullList': (nonNullList as List<Enum$E?>),
-        if (nonNullListWithDefault != _undefined &&
-            nonNullListWithDefault != null)
-          'nonNullListWithDefault': (nonNullListWithDefault as List<Enum$E?>),
-        if (nullableList != _undefined)
-          'nullableList': (nullableList as List<Enum$E?>?),
-        if (nullableListWithDefault != _undefined)
-          'nullableListWithDefault':
-              (nullableListWithDefault as List<Enum$E?>?),
-        if (i != _undefined) 'i': (i as Input$I?),
-      }));
+  }) => _then(
+    Variables$Query$Q._({
+      ..._instance._$data,
+      if (nonNull != _undefined && nonNull != null)
+        'nonNull': (nonNull as bool),
+      if (nonNullWithDefault != _undefined && nonNullWithDefault != null)
+        'nonNullWithDefault': (nonNullWithDefault as bool),
+      if (nullable != _undefined) 'nullable': (nullable as bool?),
+      if (nullableWithDefault != _undefined)
+        'nullableWithDefault': (nullableWithDefault as bool?),
+      if (nonNullEnum != _undefined && nonNullEnum != null)
+        'nonNullEnum': (nonNullEnum as Enum$E),
+      if (nonNullEnumWithDefault != _undefined &&
+          nonNullEnumWithDefault != null)
+        'nonNullEnumWithDefault': (nonNullEnumWithDefault as Enum$E),
+      if (nullableEnum != _undefined) 'nullableEnum': (nullableEnum as Enum$E?),
+      if (nullableEnumWithDefault != _undefined)
+        'nullableEnumWithDefault': (nullableEnumWithDefault as Enum$E?),
+      if (nonNullList != _undefined && nonNullList != null)
+        'nonNullList': (nonNullList as List<Enum$E?>),
+      if (nonNullListWithDefault != _undefined &&
+          nonNullListWithDefault != null)
+        'nonNullListWithDefault': (nonNullListWithDefault as List<Enum$E?>),
+      if (nullableList != _undefined)
+        'nullableList': (nullableList as List<Enum$E?>?),
+      if (nullableListWithDefault != _undefined)
+        'nullableListWithDefault': (nullableListWithDefault as List<Enum$E?>?),
+      if (i != _undefined) 'i': (i as Input$I?),
+    }),
+  );
 
   CopyWith$Input$I<TRes> get i {
     final local$i = _instance.i;
@@ -939,8 +925,7 @@ class _CopyWithStubImpl$Variables$Query$Q<TRes>
     List<Enum$E?>? nullableList,
     List<Enum$E?>? nullableListWithDefault,
     Input$I? i,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Input$I<TRes> get i => CopyWith$Input$I.stub(_res);
 }
@@ -1174,17 +1159,12 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(
-    Query$Q instance,
-    TRes Function(Query$Q) then,
-  ) = _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -1207,10 +1187,7 @@ abstract class CopyWith$Query$Q<TRes> {
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q(this._instance, this._then);
 
   final Query$Q _instance;
 
@@ -1233,45 +1210,52 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     Object? lNullableWithDefault = _undefined,
     Object? inputField = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q(
-        fNonNull:
-            fNonNull == _undefined ? _instance.fNonNull : (fNonNull as int?),
-        fNonNullWithDefault: fNonNullWithDefault == _undefined
-            ? _instance.fNonNullWithDefault
-            : (fNonNullWithDefault as int?),
-        fNullable:
-            fNullable == _undefined ? _instance.fNullable : (fNullable as int?),
-        fNullableWithDefault: fNullableWithDefault == _undefined
-            ? _instance.fNullableWithDefault
-            : (fNullableWithDefault as int?),
-        eNonNull:
-            eNonNull == _undefined ? _instance.eNonNull : (eNonNull as int?),
-        eNonNullWithDefault: eNonNullWithDefault == _undefined
-            ? _instance.eNonNullWithDefault
-            : (eNonNullWithDefault as int?),
-        eNullable:
-            eNullable == _undefined ? _instance.eNullable : (eNullable as int?),
-        eNullableWithDefault: eNullableWithDefault == _undefined
-            ? _instance.eNullableWithDefault
-            : (eNullableWithDefault as int?),
-        lNonNull:
-            lNonNull == _undefined ? _instance.lNonNull : (lNonNull as int?),
-        lNonNullWithDefault: lNonNullWithDefault == _undefined
-            ? _instance.lNonNullWithDefault
-            : (lNonNullWithDefault as int?),
-        lNullable:
-            lNullable == _undefined ? _instance.lNullable : (lNullable as int?),
-        lNullableWithDefault: lNullableWithDefault == _undefined
-            ? _instance.lNullableWithDefault
-            : (lNullableWithDefault as int?),
-        inputField: inputField == _undefined
-            ? _instance.inputField
-            : (inputField as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Q(
+      fNonNull: fNonNull == _undefined
+          ? _instance.fNonNull
+          : (fNonNull as int?),
+      fNonNullWithDefault: fNonNullWithDefault == _undefined
+          ? _instance.fNonNullWithDefault
+          : (fNonNullWithDefault as int?),
+      fNullable: fNullable == _undefined
+          ? _instance.fNullable
+          : (fNullable as int?),
+      fNullableWithDefault: fNullableWithDefault == _undefined
+          ? _instance.fNullableWithDefault
+          : (fNullableWithDefault as int?),
+      eNonNull: eNonNull == _undefined
+          ? _instance.eNonNull
+          : (eNonNull as int?),
+      eNonNullWithDefault: eNonNullWithDefault == _undefined
+          ? _instance.eNonNullWithDefault
+          : (eNonNullWithDefault as int?),
+      eNullable: eNullable == _undefined
+          ? _instance.eNullable
+          : (eNullable as int?),
+      eNullableWithDefault: eNullableWithDefault == _undefined
+          ? _instance.eNullableWithDefault
+          : (eNullableWithDefault as int?),
+      lNonNull: lNonNull == _undefined
+          ? _instance.lNonNull
+          : (lNonNull as int?),
+      lNonNullWithDefault: lNonNullWithDefault == _undefined
+          ? _instance.lNonNullWithDefault
+          : (lNonNullWithDefault as int?),
+      lNullable: lNullable == _undefined
+          ? _instance.lNullable
+          : (lNullable as int?),
+      lNullableWithDefault: lNullableWithDefault == _undefined
+          ? _instance.lNullableWithDefault
+          : (lNullableWithDefault as int?),
+      inputField: inputField == _undefined
+          ? _instance.inputField
+          : (inputField as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -1294,317 +1278,307 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     int? lNullableWithDefault,
     int? inputField,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nonNull')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nonNullWithDefault')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nullable')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nullableWithDefault')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nonNullEnum')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'E'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nonNullEnumWithDefault')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'E'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nullableEnum')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'E'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'nullableEnumWithDefault')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'E'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nonNullList')),
-        type: ListTypeNode(
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nonNull')),
           type: NamedTypeNode(
-            name: NameNode(value: 'E'),
+            name: NameNode(value: 'Boolean'),
+            isNonNull: true,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nonNullWithDefault')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: true,
+          ),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nullable')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
             isNonNull: false,
           ),
-          isNonNull: true,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nonNullListWithDefault')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nullableWithDefault')),
           type: NamedTypeNode(
-            name: NameNode(value: 'E'),
+            name: NameNode(value: 'Boolean'),
             isNonNull: false,
           ),
-          isNonNull: true,
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nullableList')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'E'),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nonNullEnum')),
+          type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'nonNullEnumWithDefault'),
+          ),
+          type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nullableEnum')),
+          type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'nullableEnumWithDefault'),
+          ),
+          type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nonNullList')),
+          type: ListTypeNode(
+            type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: false),
+            isNonNull: true,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'nonNullListWithDefault'),
+          ),
+          type: ListTypeNode(
+            type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: false),
+            isNonNull: true,
+          ),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nullableList')),
+          type: ListTypeNode(
+            type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: false),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'nullableListWithDefault')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'E'),
+        VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'nullableListWithDefault'),
+          ),
+          type: ListTypeNode(
+            type: NamedTypeNode(name: NameNode(value: 'E'), isNonNull: false),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'i')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'I'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'i')),
+          type: NamedTypeNode(name: NameNode(value: 'I'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'field'),
-        alias: NameNode(value: 'fNonNull'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nonNull')),
-          )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'field'),
+            alias: NameNode(value: 'fNonNull'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'nonNull')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'field'),
+            alias: NameNode(value: 'fNonNullWithDefault'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(
+                  name: NameNode(value: 'nonNullWithDefault'),
+                ),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'field'),
+            alias: NameNode(value: 'fNullable'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'nullable')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'field'),
+            alias: NameNode(value: 'fNullableWithDefault'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(
+                  name: NameNode(value: 'nullableWithDefault'),
+                ),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'enumField'),
+            alias: NameNode(value: 'eNonNull'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'nonNullEnum')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'enumField'),
+            alias: NameNode(value: 'eNonNullWithDefault'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(
+                  name: NameNode(value: 'nonNullEnumWithDefault'),
+                ),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'enumField'),
+            alias: NameNode(value: 'eNullable'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'nullableEnum')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'enumField'),
+            alias: NameNode(value: 'eNullableWithDefault'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(
+                  name: NameNode(value: 'nullableEnumWithDefault'),
+                ),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'listField'),
+            alias: NameNode(value: 'lNonNull'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'nonNullList')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'listField'),
+            alias: NameNode(value: 'lNonNullWithDefault'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(
+                  name: NameNode(value: 'nonNullListWithDefault'),
+                ),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'listField'),
+            alias: NameNode(value: 'lNullable'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'nullableList')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'listField'),
+            alias: NameNode(value: 'lNullableWithDefault'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(
+                  name: NameNode(value: 'nullableListWithDefault'),
+                ),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'inputField'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'arg'),
+                value: VariableNode(name: NameNode(value: 'i')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
         ],
-        directives: [],
-        selectionSet: null,
       ),
-      FieldNode(
-        name: NameNode(value: 'field'),
-        alias: NameNode(value: 'fNonNullWithDefault'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nonNullWithDefault')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'field'),
-        alias: NameNode(value: 'fNullable'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nullable')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'field'),
-        alias: NameNode(value: 'fNullableWithDefault'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nullableWithDefault')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'enumField'),
-        alias: NameNode(value: 'eNonNull'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nonNullEnum')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'enumField'),
-        alias: NameNode(value: 'eNonNullWithDefault'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value:
-                VariableNode(name: NameNode(value: 'nonNullEnumWithDefault')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'enumField'),
-        alias: NameNode(value: 'eNullable'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nullableEnum')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'enumField'),
-        alias: NameNode(value: 'eNullableWithDefault'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value:
-                VariableNode(name: NameNode(value: 'nullableEnumWithDefault')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'listField'),
-        alias: NameNode(value: 'lNonNull'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nonNullList')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'listField'),
-        alias: NameNode(value: 'lNonNullWithDefault'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value:
-                VariableNode(name: NameNode(value: 'nonNullListWithDefault')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'listField'),
-        alias: NameNode(value: 'lNullable'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'nullableList')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'listField'),
-        alias: NameNode(value: 'lNullableWithDefault'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value:
-                VariableNode(name: NameNode(value: 'nullableListWithDefault')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'inputField'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'arg'),
-            value: VariableNode(name: NameNode(value: 'i')),
-          )
-        ],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{};

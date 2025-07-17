@@ -12,9 +12,11 @@ typedef _Converter = Expression Function(TypeNode, Expression);
 
 Expression _convertDoubleFromJson(TypeNode type, Expression valueRef) {
   final casted = valueRef.asA(
-    TypeReference((b) => b
-      ..symbol = 'num'
-      ..isNullable = !type.isNonNull),
+    TypeReference(
+      (b) => b
+        ..symbol = 'num'
+        ..isNullable = !type.isNonNull,
+    ),
   );
   final converter = 'toDouble';
   final accessed = type.isNonNull
@@ -24,8 +26,9 @@ Expression _convertDoubleFromJson(TypeNode type, Expression valueRef) {
 }
 
 Expression _convertDateTimeFromJson(TypeNode type, Expression valueRef) {
-  final parsed =
-      refer('DateTime').property('parse').call([valueRef.asA(refer('String'))]);
+  final parsed = refer(
+    'DateTime',
+  ).property('parse').call([valueRef.asA(refer('String'))]);
   if (type.isNonNull) {
     return parsed;
   }
@@ -45,21 +48,13 @@ const _customFromJson = <String, _Converter>{
   'DateTime': _convertDateTimeFromJson,
 };
 
-const _customToJson = <String, _Converter>{
-  'DateTime': _convertDateTimeToJson,
-};
+const _customToJson = <String, _Converter>{'DateTime': _convertDateTimeToJson};
 
 Expression printFromJsonValue(
   PrintContext context,
   ContextProperty property,
   String value,
-) =>
-    _printFromJsonValue(
-      context,
-      property.type,
-      value,
-      property.path,
-    );
+) => _printFromJsonValue(context, property.type, value, property.path);
 
 Expression _printFromJsonValue(
   PrintContext context,
@@ -71,24 +66,26 @@ Expression _printFromJsonValue(
   if (type is ListTypeNode) {
     final cast = generic('List', refer('dynamic'), isNullable: !type.isNonNull);
     final castedValue = valueRef.asA(cast);
-    final mappedAccess = (type.isNonNull
-            ? castedValue.property('map')
-            : castedValue.nullSafeProperty('map'))
-        .call([
-          Method(
-            (b) => b
-              ..requiredParameters =
-                  ListBuilder([Parameter((b) => b..name = 'e')])
-              ..body = _printFromJsonValue(
-                context,
-                type.type,
-                'e',
-                propertyContext,
-              ).code,
-          ).closure
-        ])
-        .property('toList')
-        .call([]);
+    final mappedAccess =
+        (type.isNonNull
+                ? castedValue.property('map')
+                : castedValue.nullSafeProperty('map'))
+            .call([
+              Method(
+                (b) => b
+                  ..requiredParameters = ListBuilder([
+                    Parameter((b) => b..name = 'e'),
+                  ])
+                  ..body = _printFromJsonValue(
+                    context,
+                    type.type,
+                    'e',
+                    propertyContext,
+                  ).code,
+              ).closure,
+            ])
+            .property('toList')
+            .call([]);
     return mappedAccess;
   }
   if (type is! NamedTypeNode) {
@@ -98,10 +95,10 @@ Expression _printFromJsonValue(
   final typeDefinition = context.schema.lookupTypeDefinitionFromTypeNode(type);
   final replacementContext = propertyContext != null
       ? context.context
-              .lookupContext(propertyContext)
-              ?.replacementContext
-              ?.path ??
-          propertyContext
+                .lookupContext(propertyContext)
+                ?.replacementContext
+                ?.path ??
+            propertyContext
       : null;
 
   if (typeDefinition is ScalarTypeDefinitionNode) {
@@ -114,43 +111,45 @@ Expression _printFromJsonValue(
     }
     return _customFromJson[ref.type]?.call(type, valueRef) ??
         valueRef.asA(
-          TypeReference((b) => b
-            ..symbol = ref.type
-            ..isNullable = !type.isNonNull),
+          TypeReference(
+            (b) => b
+              ..symbol = ref.type
+              ..isNullable = !type.isNonNull,
+          ),
         );
   }
 
   if (typeDefinition is EnumTypeDefinitionNode && replacementContext != null) {
     final config = context
-        .context.config.enums[typeDefinition.name.value]?.fromJsonFunctionName;
+        .context
+        .config
+        .enums[typeDefinition.name.value]
+        ?.fromJsonFunctionName;
     if (config == null) {
       context.addDependency(replacementContext);
     }
-    final inner = (config == null
-            ? refer(
-                context.namePrinter.printFromJsonConverterFunctionName(
-                  replacementContext,
-                ),
-              )
-            : refer(
-                context.namePrinter.printEnumImportAlias(replacementContext),
-              ).property(config))
-        .call([valueRef.asA(refer('String'))]);
+    final inner =
+        (config == null
+                ? refer(
+                    context.namePrinter.printFromJsonConverterFunctionName(
+                      replacementContext,
+                    ),
+                  )
+                : refer(
+                    context.namePrinter.printEnumImportAlias(
+                      replacementContext,
+                    ),
+                  ).property(config))
+            .call([valueRef.asA(refer('String'))]);
     return type.isNonNull ? inner : printNullCheck(valueRef, inner);
   }
 
   if (replacementContext != null) {
     context.addDependency(replacementContext);
-    final constructed =
-        refer(context.namePrinter.printClassName(replacementContext))
-            .property('fromJson')
-            .call([valueRef.asA(dynamicMap)]);
-    return type.isNonNull
-        ? constructed
-        : printNullCheck(
-            valueRef,
-            constructed,
-          );
+    final constructed = refer(
+      context.namePrinter.printClassName(replacementContext),
+    ).property('fromJson').call([valueRef.asA(dynamicMap)]);
+    return type.isNonNull ? constructed : printNullCheck(valueRef, constructed);
   }
 
   throw StateError('Failed to construct `fromJson`');
@@ -160,25 +159,13 @@ Expression printToJsonValue(
   PrintContext context,
   ContextProperty property,
   String value,
-) =>
-    _printToJsonValue(
-      context,
-      property.type,
-      refer(value),
-      property.path,
-    );
+) => _printToJsonValue(context, property.type, refer(value), property.path);
 
 Expression printToJsonValueOnExpression(
   PrintContext context,
   ContextProperty property,
   Expression value,
-) =>
-    _printToJsonValue(
-      context,
-      property.type,
-      value,
-      property.path,
-    );
+) => _printToJsonValue(context, property.type, value, property.path);
 
 Expression _printToJsonValue(
   PrintContext context,
@@ -187,24 +174,26 @@ Expression _printToJsonValue(
   Name? propertyContext,
 ) {
   if (type is ListTypeNode) {
-    final mappedAccess = (type.isNonNull
-            ? valueRef.property('map')
-            : valueRef.nullSafeProperty('map'))
-        .call([
-          Method(
-            (b) => b
-              ..requiredParameters =
-                  ListBuilder([Parameter((b) => b..name = 'e')])
-              ..body = _printToJsonValue(
-                context,
-                type.type,
-                refer('e'),
-                propertyContext,
-              ).code,
-          ).closure
-        ])
-        .property('toList')
-        .call([]);
+    final mappedAccess =
+        (type.isNonNull
+                ? valueRef.property('map')
+                : valueRef.nullSafeProperty('map'))
+            .call([
+              Method(
+                (b) => b
+                  ..requiredParameters = ListBuilder([
+                    Parameter((b) => b..name = 'e'),
+                  ])
+                  ..body = _printToJsonValue(
+                    context,
+                    type.type,
+                    refer('e'),
+                    propertyContext,
+                  ).code,
+              ).closure,
+            ])
+            .property('toList')
+            .call([]);
     return mappedAccess;
   }
   if (type is! NamedTypeNode) {
@@ -214,10 +203,10 @@ Expression _printToJsonValue(
   final typeDefinition = context.schema.lookupTypeDefinitionFromTypeNode(type);
   final replacementContext = propertyContext != null
       ? context.context
-              .lookupContext(propertyContext)
-              ?.replacementContext
-              ?.path ??
-          propertyContext
+                .lookupContext(propertyContext)
+                ?.replacementContext
+                ?.path ??
+            propertyContext
       : null;
 
   if (typeDefinition is ScalarTypeDefinitionNode) {
@@ -233,20 +222,26 @@ Expression _printToJsonValue(
 
   if (typeDefinition is EnumTypeDefinitionNode && replacementContext != null) {
     final config = context
-        .context.config.enums[typeDefinition.name.value]?.toJsonFunctionName;
+        .context
+        .config
+        .enums[typeDefinition.name.value]
+        ?.toJsonFunctionName;
     if (config == null) {
       context.addDependency(replacementContext);
     }
-    final inner = (config == null
-            ? refer(
-                context.namePrinter.printToJsonConverterFunctionName(
-                  replacementContext,
-                ),
-              )
-            : refer(
-                context.namePrinter.printEnumImportAlias(replacementContext),
-              ).property(config))
-        .call([valueRef]);
+    final inner =
+        (config == null
+                ? refer(
+                    context.namePrinter.printToJsonConverterFunctionName(
+                      replacementContext,
+                    ),
+                  )
+                : refer(
+                    context.namePrinter.printEnumImportAlias(
+                      replacementContext,
+                    ),
+                  ).property(config))
+            .call([valueRef]);
     return type.isNonNull ? inner : printNullCheck(valueRef, inner);
   }
 

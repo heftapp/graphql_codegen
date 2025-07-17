@@ -6,34 +6,22 @@ import 'package:graphql_codegen/src/errors.dart';
 const _INTROSPECTION_FIELDS = const <FieldDefinitionNode>[
   FieldDefinitionNode(
     name: NameNode(value: "__typename"),
-    type: NamedTypeNode(
-      name: NameNode(value: "String"),
-      isNonNull: true,
-    ),
+    type: NamedTypeNode(name: NameNode(value: "String"), isNonNull: true),
   ),
 ];
 
 const _QUERY_INTROSPECTION_FIELDS = const <FieldDefinitionNode>[
   FieldDefinitionNode(
     name: NameNode(value: "__schema"),
-    type: NamedTypeNode(
-      name: NameNode(value: "__Schema"),
-      isNonNull: true,
-    ),
+    type: NamedTypeNode(name: NameNode(value: "__Schema"), isNonNull: true),
   ),
   FieldDefinitionNode(
     name: NameNode(value: "__type"),
-    type: NamedTypeNode(
-      name: NameNode(value: "__Type"),
-      isNonNull: false,
-    ),
+    type: NamedTypeNode(name: NameNode(value: "__Type"), isNonNull: false),
     args: [
       InputValueDefinitionNode(
         name: NameNode(value: "name"),
-        type: NamedTypeNode(
-          name: NameNode(value: "String"),
-          isNonNull: true,
-        ),
+        type: NamedTypeNode(name: NameNode(value: "String"), isNonNull: true),
       ),
     ],
   ),
@@ -151,17 +139,14 @@ class Schema<TKey extends Object> {
   Map<TKey, DocumentNode> _cachedDocumentNodes = {};
   final String Function(TKey) lookupPath;
 
-  Schema(
-    this.mainKey,
-    this._entries,
-    this.lookupPath,
-  );
+  Schema(this.mainKey, this._entries, this.lookupPath);
 
   Iterable<DefinitionNode> get definitions {
     final lCached = _cachedDefinitions;
     if (lCached != null) return lCached;
-    return _cachedDefinitions = _entries.keys
-        .expand<DefinitionNode>((e) => lookupDocument(e)?.definitions ?? []);
+    return _cachedDefinitions = _entries.keys.expand<DefinitionNode>(
+      (e) => lookupDocument(e)?.definitions ?? [],
+    );
   }
 
   DocumentNode? lookupDocument(TKey key) {
@@ -184,9 +169,9 @@ class Schema<TKey extends Object> {
 
   FragmentDefinitionNode? lookupFragment(NameNode name) {
     return definitions.whereType<FragmentDefinitionNode?>().firstWhere(
-          (element) => element != null && element.name.value == name.value,
-          orElse: () => null,
-        );
+      (element) => element != null && element.name.value == name.value,
+      orElse: () => null,
+    );
   }
 
   FragmentDefinitionNode lookupFragmentEnforced(NameNode name) {
@@ -221,9 +206,9 @@ class Schema<TKey extends Object> {
     var defs = _cachedTypeDefinitionsMap;
     if (defs == null) {
       defs = _cachedTypeDefinitionsMap = Map.fromEntries(
-        definitions
-            .whereType<TypeDefinitionNode>()
-            .map((e) => MapEntry(e.name.value, e)),
+        definitions.whereType<TypeDefinitionNode>().map(
+          (e) => MapEntry(e.name.value, e),
+        ),
       );
     }
 
@@ -245,10 +230,10 @@ class Schema<TKey extends Object> {
 
     if (typeDefinition is InterfaceTypeDefinitionNode) {
       return definitions.whereType<ObjectTypeDefinitionNode>().where(
-            (element) => element.interfaces
-                .where((element) => element.name.value == name.value)
-                .isNotEmpty,
-          );
+        (element) => element.interfaces
+            .where((element) => element.name.value == name.value)
+            .isNotEmpty,
+      );
     }
 
     return [];
@@ -269,18 +254,20 @@ class Schema<TKey extends Object> {
     if (_cachedOperationTypeMap.containsKey(operationType)) {
       return _cachedOperationTypeMap[operationType];
     }
-    final opNode = definitions.expand<OperationTypeDefinitionNode?>((e) {
-      if (e is SchemaDefinitionNode) {
-        return e.operationTypes;
-      }
-      if (e is SchemaExtensionNode) {
-        return e.operationTypes;
-      }
-      return [];
-    }).firstWhere(
-      (element) => element != null && element.operation == operationType,
-      orElse: () => null,
-    );
+    final opNode = definitions
+        .expand<OperationTypeDefinitionNode?>((e) {
+          if (e is SchemaDefinitionNode) {
+            return e.operationTypes;
+          }
+          if (e is SchemaExtensionNode) {
+            return e.operationTypes;
+          }
+          return [];
+        })
+        .firstWhere(
+          (element) => element != null && element.operation == operationType,
+          orElse: () => null,
+        );
 
     final typeName =
         opNode?.type.name ?? _operationTypeToDefaultClass(operationType);
@@ -299,10 +286,7 @@ class Schema<TKey extends Object> {
     return lookupTypeDefinitionFromTypeNode(type);
   }
 
-  TypeNode? lookupTypeNodeFromField(
-    TypeDefinitionNode onType,
-    NameNode node,
-  ) {
+  TypeNode? lookupTypeNodeFromField(TypeDefinitionNode onType, NameNode node) {
     return lookupFieldDefinitionNode(onType, node)?.type;
   }
 
@@ -314,7 +298,7 @@ class Schema<TKey extends Object> {
       ...definitions
           .whereType<ObjectTypeExtensionNode>()
           .where((element) => element.name.value == node.name.value)
-          .expand((element) => element.fields)
+          .expand((element) => element.fields),
     ];
   }
 
@@ -326,7 +310,7 @@ class Schema<TKey extends Object> {
       ...definitions
           .whereType<InterfaceTypeExtensionNode>()
           .where((element) => element.name.value == node.name.value)
-          .expand((element) => element.fields)
+          .expand((element) => element.fields),
     ];
   }
 
@@ -350,9 +334,7 @@ class Schema<TKey extends Object> {
         if (onType == lookupOperationType(OperationType.query))
           ..._QUERY_INTROSPECTION_FIELDS,
         ..._INTROSPECTION_FIELDS,
-      ].map(
-        (e) => MapEntry(e.name.value, e),
-      ),
+      ].map((e) => MapEntry(e.name.value, e)),
     );
     _cachedFields[onType.name.value] = fieldMap;
     return fieldMap;
@@ -395,12 +377,13 @@ class Schema<TKey extends Object> {
   }
 
   List<EnumValueDefinitionNode> lookupEnumValueDefinitions(
-      EnumTypeDefinitionNode node) {
+    EnumTypeDefinitionNode node,
+  ) {
     return [
       ...node.values,
-      ...definitions
-          .whereType<EnumTypeExtensionNode>()
-          .expand((element) => element.values)
+      ...definitions.whereType<EnumTypeExtensionNode>().expand(
+        (element) => element.values,
+      ),
     ];
   }
 }

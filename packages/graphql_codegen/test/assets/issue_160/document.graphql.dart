@@ -2,11 +2,10 @@ class Input$I1 {
   factory Input$I1({
     List<List<Input$I2>>? nested,
     List<List<Input$I2?>?>? maybe_nested,
-  }) =>
-      Input$I1._({
-        if (nested != null) r'nested': nested,
-        if (maybe_nested != null) r'maybe_nested': maybe_nested,
-      });
+  }) => Input$I1._({
+    if (nested != null) r'nested': nested,
+    if (maybe_nested != null) r'maybe_nested': maybe_nested,
+  });
 
   Input$I1._(this._$data);
 
@@ -15,19 +14,25 @@ class Input$I1 {
     if (data.containsKey('nested')) {
       final l$nested = data['nested'];
       result$data['nested'] = (l$nested as List<dynamic>?)
-          ?.map((e) => (e as List<dynamic>)
-              .map((e) => Input$I2.fromJson((e as Map<String, dynamic>)))
-              .toList())
+          ?.map(
+            (e) => (e as List<dynamic>)
+                .map((e) => Input$I2.fromJson((e as Map<String, dynamic>)))
+                .toList(),
+          )
           .toList();
     }
     if (data.containsKey('maybe_nested')) {
       final l$maybe_nested = data['maybe_nested'];
       result$data['maybe_nested'] = (l$maybe_nested as List<dynamic>?)
-          ?.map((e) => (e as List<dynamic>?)
-              ?.map((e) => e == null
-                  ? null
-                  : Input$I2.fromJson((e as Map<String, dynamic>)))
-              .toList())
+          ?.map(
+            (e) => (e as List<dynamic>?)
+                ?.map(
+                  (e) => e == null
+                      ? null
+                      : Input$I2.fromJson((e as Map<String, dynamic>)),
+                )
+                .toList(),
+          )
           .toList();
     }
     return Input$I1._(result$data);
@@ -45,8 +50,9 @@ class Input$I1 {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('nested')) {
       final l$nested = nested;
-      result$data['nested'] =
-          l$nested?.map((e) => e.map((e) => e.toJson()).toList()).toList();
+      result$data['nested'] = l$nested
+          ?.map((e) => e.map((e) => e.toJson()).toList())
+          .toList();
     }
     if (_$data.containsKey('maybe_nested')) {
       final l$maybe_nested = maybe_nested;
@@ -57,10 +63,7 @@ class Input$I1 {
     return result$data;
   }
 
-  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -138,25 +141,27 @@ class Input$I1 {
     return Object.hashAll([
       _$data.containsKey('nested')
           ? l$nested == null
-              ? null
-              : Object.hashAll(
-                  l$nested.map((v) => Object.hashAll(v.map((v) => v))))
+                ? null
+                : Object.hashAll(
+                    l$nested.map((v) => Object.hashAll(v.map((v) => v))),
+                  )
           : const {},
       _$data.containsKey('maybe_nested')
           ? l$maybe_nested == null
-              ? null
-              : Object.hashAll(l$maybe_nested.map(
-                  (v) => v == null ? null : Object.hashAll(v.map((v) => v))))
+                ? null
+                : Object.hashAll(
+                    l$maybe_nested.map(
+                      (v) => v == null ? null : Object.hashAll(v.map((v) => v)),
+                    ),
+                  )
           : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(
-    Input$I1 instance,
-    TRes Function(Input$I1) then,
-  ) = _CopyWithImpl$Input$I1;
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
@@ -165,20 +170,21 @@ abstract class CopyWith$Input$I1<TRes> {
     List<List<Input$I2?>?>? maybe_nested,
   });
   TRes nested(
-      Iterable<Iterable<Input$I2>>? Function(
-              Iterable<Iterable<CopyWith$Input$I2<Input$I2>>>?)
-          _fn);
+    Iterable<Iterable<Input$I2>>? Function(
+      Iterable<Iterable<CopyWith$Input$I2<Input$I2>>>?,
+    )
+    _fn,
+  );
   TRes maybe_nested(
-      Iterable<Iterable<Input$I2?>?>? Function(
-              Iterable<Iterable<CopyWith$Input$I2<Input$I2>?>?>?)
-          _fn);
+    Iterable<Iterable<Input$I2?>?>? Function(
+      Iterable<Iterable<CopyWith$Input$I2<Input$I2>?>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
-  _CopyWithImpl$Input$I1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I1(this._instance, this._then);
 
   final Input$I1 _instance;
 
@@ -186,40 +192,41 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? nested = _undefined,
-    Object? maybe_nested = _undefined,
-  }) =>
-      _then(Input$I1._({
-        ..._instance._$data,
-        if (nested != _undefined) 'nested': (nested as List<List<Input$I2>>?),
-        if (maybe_nested != _undefined)
-          'maybe_nested': (maybe_nested as List<List<Input$I2?>?>?),
-      }));
+  TRes call({Object? nested = _undefined, Object? maybe_nested = _undefined}) =>
+      _then(
+        Input$I1._({
+          ..._instance._$data,
+          if (nested != _undefined) 'nested': (nested as List<List<Input$I2>>?),
+          if (maybe_nested != _undefined)
+            'maybe_nested': (maybe_nested as List<List<Input$I2?>?>?),
+        }),
+      );
 
   TRes nested(
-          Iterable<Iterable<Input$I2>>? Function(
-                  Iterable<Iterable<CopyWith$Input$I2<Input$I2>>>?)
-              _fn) =>
-      call(
-          nested:
-              _fn(_instance.nested?.map((e) => e.map((e) => CopyWith$Input$I2(
-                    e,
-                    (i) => i,
-                  ))))?.map((e) => e.toList()).toList());
+    Iterable<Iterable<Input$I2>>? Function(
+      Iterable<Iterable<CopyWith$Input$I2<Input$I2>>>?,
+    )
+    _fn,
+  ) => call(
+    nested: _fn(
+      _instance.nested?.map(
+        (e) => e.map((e) => CopyWith$Input$I2(e, (i) => i)),
+      ),
+    )?.map((e) => e.toList()).toList(),
+  );
 
   TRes maybe_nested(
-          Iterable<Iterable<Input$I2?>?>? Function(
-                  Iterable<Iterable<CopyWith$Input$I2<Input$I2>?>?>?)
-              _fn) =>
-      call(
-          maybe_nested:
-              _fn(_instance.maybe_nested?.map((e) => e?.map((e) => e == null
-                  ? null
-                  : CopyWith$Input$I2(
-                      e,
-                      (i) => i,
-                    ))))?.map((e) => e?.toList()).toList());
+    Iterable<Iterable<Input$I2?>?>? Function(
+      Iterable<Iterable<CopyWith$Input$I2<Input$I2>?>?>?,
+    )
+    _fn,
+  ) => call(
+    maybe_nested: _fn(
+      _instance.maybe_nested?.map(
+        (e) => e?.map((e) => e == null ? null : CopyWith$Input$I2(e, (i) => i)),
+      ),
+    )?.map((e) => e?.toList()).toList(),
+  );
 }
 
 class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -227,10 +234,7 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   TRes _res;
 
-  call({
-    List<List<Input$I2>>? nested,
-    List<List<Input$I2?>?>? maybe_nested,
-  }) =>
+  call({List<List<Input$I2>>? nested, List<List<Input$I2?>?>? maybe_nested}) =>
       _res;
 
   nested(_fn) => _res;
@@ -239,9 +243,7 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 }
 
 class Input$I2 {
-  factory Input$I2({String? str}) => Input$I2._({
-        if (str != null) r'str': str,
-      });
+  factory Input$I2({String? str}) => Input$I2._({if (str != null) r'str': str});
 
   Input$I2._(this._$data);
 
@@ -267,10 +269,7 @@ class Input$I2 {
     return result$data;
   }
 
-  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -299,10 +298,8 @@ class Input$I2 {
 }
 
 abstract class CopyWith$Input$I2<TRes> {
-  factory CopyWith$Input$I2(
-    Input$I2 instance,
-    TRes Function(Input$I2) then,
-  ) = _CopyWithImpl$Input$I2;
+  factory CopyWith$Input$I2(Input$I2 instance, TRes Function(Input$I2) then) =
+      _CopyWithImpl$Input$I2;
 
   factory CopyWith$Input$I2.stub(TRes res) = _CopyWithStubImpl$Input$I2;
 
@@ -310,10 +307,7 @@ abstract class CopyWith$Input$I2<TRes> {
 }
 
 class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
-  _CopyWithImpl$Input$I2(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I2(this._instance, this._then);
 
   final Input$I2 _instance;
 
@@ -321,10 +315,12 @@ class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? str = _undefined}) => _then(Input$I2._({
-        ..._instance._$data,
-        if (str != _undefined) 'str': (str as String?),
-      }));
+  TRes call({Object? str = _undefined}) => _then(
+    Input$I2._({
+      ..._instance._$data,
+      if (str != _undefined) 'str': (str as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {

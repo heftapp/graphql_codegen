@@ -16,14 +16,16 @@ bool _shouldPrintContext(Context c) {
 }
 
 Library printRootContext<TKey extends Object>(
-    PrintContext<ContextRoot<TKey>> c) {
+  PrintContext<ContextRoot<TKey>> c,
+) {
   final context = c.context;
   final body = ListBuilder<Spec>(<Spec>[
     ...context.contextInputs.expand(
       (context) => printInputClasses(c.withContext(context)),
     ),
-    ...context.contextEnums
-        .expand((context) => printEnum(c.withContext(context))),
+    ...context.contextEnums.expand(
+      (context) => printEnum(c.withContext(context)),
+    ),
     ...context.contextFragments
         .where(_shouldPrintContext)
         .expand((context) => printFragmentSpecs(c.withContext(context))),

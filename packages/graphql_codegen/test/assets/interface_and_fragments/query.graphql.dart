@@ -1,18 +1,12 @@
 import 'package:gql/ast.dart';
 
 class Fragment$FragmentA {
-  Fragment$FragmentA({
-    this.s,
-    this.$_s,
-  });
+  Fragment$FragmentA({this.s, this.$_s});
 
   factory Fragment$FragmentA.fromJson(Map<String, dynamic> json) {
     final l$s = json['s'];
     final l$$_s = json['_s'];
-    return Fragment$FragmentA(
-      s: (l$s as String?),
-      $_s: (l$$_s as String?),
-    );
+    return Fragment$FragmentA(s: (l$s as String?), $_s: (l$$_s as String?));
   }
 
   final String? s;
@@ -32,10 +26,7 @@ class Fragment$FragmentA {
   int get hashCode {
     final l$s = s;
     final l$$_s = $_s;
-    return Object.hashAll([
-      l$s,
-      l$$_s,
-    ]);
+    return Object.hashAll([l$s, l$$_s]);
   }
 
   @override
@@ -62,10 +53,7 @@ class Fragment$FragmentA {
 
 extension UtilityExtension$Fragment$FragmentA on Fragment$FragmentA {
   CopyWith$Fragment$FragmentA<Fragment$FragmentA> get copyWith =>
-      CopyWith$Fragment$FragmentA(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FragmentA(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FragmentA<TRes> {
@@ -77,18 +65,12 @@ abstract class CopyWith$Fragment$FragmentA<TRes> {
   factory CopyWith$Fragment$FragmentA.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentA;
 
-  TRes call({
-    String? s,
-    String? $_s,
-  });
+  TRes call({String? s, String? $_s});
 }
 
 class _CopyWithImpl$Fragment$FragmentA<TRes>
     implements CopyWith$Fragment$FragmentA<TRes> {
-  _CopyWithImpl$Fragment$FragmentA(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FragmentA(this._instance, this._then);
 
   final Fragment$FragmentA _instance;
 
@@ -96,14 +78,12 @@ class _CopyWithImpl$Fragment$FragmentA<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? s = _undefined,
-    Object? $_s = _undefined,
-  }) =>
-      _then(Fragment$FragmentA(
-        s: s == _undefined ? _instance.s : (s as String?),
-        $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
-      ));
+  TRes call({Object? s = _undefined, Object? $_s = _undefined}) => _then(
+    Fragment$FragmentA(
+      s: s == _undefined ? _instance.s : (s as String?),
+      $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FragmentA<TRes>
@@ -112,41 +92,40 @@ class _CopyWithStubImpl$Fragment$FragmentA<TRes>
 
   TRes _res;
 
-  call({
-    String? s,
-    String? $_s,
-  }) =>
-      _res;
+  call({String? s, String? $_s}) => _res;
 }
 
 const fragmentDefinitionFragmentA = FragmentDefinitionNode(
   name: NameNode(value: 'FragmentA'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'ImplementationA'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'ImplementationA'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 's'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 's'),
-      alias: NameNode(value: '_s'),
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 's'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 's'),
+        alias: NameNode(value: '_s'),
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFragmentA = DocumentNode(definitions: [
-  fragmentDefinitionFragmentA,
-]);
+const documentNodeFragmentFragmentA = DocumentNode(
+  definitions: [fragmentDefinitionFragmentA],
+);
 
 class Fragment$FragmentB {
   Fragment$FragmentB({this.i});
@@ -190,10 +169,7 @@ class Fragment$FragmentB {
 
 extension UtilityExtension$Fragment$FragmentB on Fragment$FragmentB {
   CopyWith$Fragment$FragmentB<Fragment$FragmentB> get copyWith =>
-      CopyWith$Fragment$FragmentB(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FragmentB(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FragmentB<TRes> {
@@ -210,10 +186,7 @@ abstract class CopyWith$Fragment$FragmentB<TRes> {
 
 class _CopyWithImpl$Fragment$FragmentB<TRes>
     implements CopyWith$Fragment$FragmentB<TRes> {
-  _CopyWithImpl$Fragment$FragmentB(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FragmentB(this._instance, this._then);
 
   final Fragment$FragmentB _instance;
 
@@ -237,24 +210,27 @@ class _CopyWithStubImpl$Fragment$FragmentB<TRes>
 const fragmentDefinitionFragmentB = FragmentDefinitionNode(
   name: NameNode(value: 'FragmentB'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'ImplementationB'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'ImplementationB'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'i'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    )
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'i'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFragmentB = DocumentNode(definitions: [
-  fragmentDefinitionFragmentB,
-]);
+const documentNodeFragmentFragmentB = DocumentNode(
+  definitions: [fragmentDefinitionFragmentB],
+);
 
 class Query$FetchImplementations {
   Query$FetchImplementations({this.$interface});
@@ -262,10 +238,12 @@ class Query$FetchImplementations {
   factory Query$FetchImplementations.fromJson(Map<String, dynamic> json) {
     final l$$interface = json['interface'];
     return Query$FetchImplementations(
-        $interface: l$$interface == null
-            ? null
-            : Query$FetchImplementations$interface.fromJson(
-                (l$$interface as Map<String, dynamic>)));
+      $interface: l$$interface == null
+          ? null
+          : Query$FetchImplementations$interface.fromJson(
+              (l$$interface as Map<String, dynamic>),
+            ),
+    );
   }
 
   final Query$FetchImplementations$interface? $interface;
@@ -304,10 +282,7 @@ class Query$FetchImplementations {
 extension UtilityExtension$Query$FetchImplementations
     on Query$FetchImplementations {
   CopyWith$Query$FetchImplementations<Query$FetchImplementations>
-      get copyWith => CopyWith$Query$FetchImplementations(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$FetchImplementations(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchImplementations<TRes> {
@@ -325,10 +300,7 @@ abstract class CopyWith$Query$FetchImplementations<TRes> {
 
 class _CopyWithImpl$Query$FetchImplementations<TRes>
     implements CopyWith$Query$FetchImplementations<TRes> {
-  _CopyWithImpl$Query$FetchImplementations(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchImplementations(this._instance, this._then);
 
   final Query$FetchImplementations _instance;
 
@@ -336,18 +308,22 @@ class _CopyWithImpl$Query$FetchImplementations<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $interface = _undefined}) =>
-      _then(Query$FetchImplementations(
-          $interface: $interface == _undefined
-              ? _instance.$interface
-              : ($interface as Query$FetchImplementations$interface?)));
+  TRes call({Object? $interface = _undefined}) => _then(
+    Query$FetchImplementations(
+      $interface: $interface == _undefined
+          ? _instance.$interface
+          : ($interface as Query$FetchImplementations$interface?),
+    ),
+  );
 
   CopyWith$Query$FetchImplementations$interface<TRes> get $interface {
     final local$$interface = _instance.$interface;
     return local$$interface == null
         ? CopyWith$Query$FetchImplementations$interface.stub(_then(_instance))
         : CopyWith$Query$FetchImplementations$interface(
-            local$$interface, (e) => call($interface: e));
+            local$$interface,
+            (e) => call($interface: e),
+          );
   }
 }
 
@@ -363,98 +339,112 @@ class _CopyWithStubImpl$Query$FetchImplementations<TRes>
       CopyWith$Query$FetchImplementations$interface.stub(_res);
 }
 
-const documentNodeQueryFetchImplementations = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchImplementations'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'interface'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryFetchImplementations = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchImplementations'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: NameNode(value: 'typename'),
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'b'),
+            name: NameNode(value: 'interface'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: NameNode(value: 'typename'),
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'b'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'self'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentA'),
+                        directives: [],
+                      ),
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentB'),
+                        directives: [],
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'ImplementationA'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'b'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentA'),
+                        directives: [],
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'ImplementationB'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FragmentB'),
+                        directives: [],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-          FieldNode(
-            name: NameNode(value: 'self'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FragmentSpreadNode(
-                name: NameNode(value: 'FragmentA'),
-                directives: [],
-              ),
-              FragmentSpreadNode(
-                name: NameNode(value: 'FragmentB'),
-                directives: [],
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ImplementationA'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'b'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FragmentSpreadNode(
-                name: NameNode(value: 'FragmentA'),
-                directives: [],
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ImplementationB'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'FragmentB'),
-                directives: [],
-              )
-            ]),
-          ),
-        ]),
-      )
-    ]),
-  ),
-  fragmentDefinitionFragmentA,
-  fragmentDefinitionFragmentB,
-]);
+        ],
+      ),
+    ),
+    fragmentDefinitionFragmentA,
+    fragmentDefinitionFragmentB,
+  ],
+);
 
 class Query$FetchImplementations$interface {
   Query$FetchImplementations$interface({
@@ -464,15 +454,18 @@ class Query$FetchImplementations$interface {
   });
 
   factory Query$FetchImplementations$interface.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["typename"] as String) {
       case "ImplementationA":
         return Query$FetchImplementations$interface$$ImplementationA.fromJson(
-            json);
+          json,
+        );
 
       case "ImplementationB":
         return Query$FetchImplementations$interface$$ImplementationB.fromJson(
-            json);
+          json,
+        );
 
       default:
         final l$typename = json['typename'];
@@ -482,7 +475,8 @@ class Query$FetchImplementations$interface {
           typename: (l$typename as String),
           b: (l$b as bool?),
           self: Query$FetchImplementations$interface$self.fromJson(
-              (l$self as Map<String, dynamic>)),
+            (l$self as Map<String, dynamic>),
+          ),
         );
     }
   }
@@ -509,11 +503,7 @@ class Query$FetchImplementations$interface {
     final l$typename = typename;
     final l$b = b;
     final l$self = self;
-    return Object.hashAll([
-      l$typename,
-      l$b,
-      l$self,
-    ]);
+    return Object.hashAll([l$typename, l$b, l$self]);
   }
 
   @override
@@ -547,26 +537,26 @@ class Query$FetchImplementations$interface {
 extension UtilityExtension$Query$FetchImplementations$interface
     on Query$FetchImplementations$interface {
   CopyWith$Query$FetchImplementations$interface<
-          Query$FetchImplementations$interface>
-      get copyWith => CopyWith$Query$FetchImplementations$interface(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface
+  >
+  get copyWith => CopyWith$Query$FetchImplementations$interface(this, (i) => i);
   _T when<_T>({
     required _T Function(Query$FetchImplementations$interface$$ImplementationA)
-        implementationA,
+    implementationA,
     required _T Function(Query$FetchImplementations$interface$$ImplementationB)
-        implementationB,
+    implementationB,
     required _T Function() orElse,
   }) {
     switch (typename) {
       case "ImplementationA":
         return implementationA(
-            this as Query$FetchImplementations$interface$$ImplementationA);
+          this as Query$FetchImplementations$interface$$ImplementationA,
+        );
 
       case "ImplementationB":
         return implementationB(
-            this as Query$FetchImplementations$interface$$ImplementationB);
+          this as Query$FetchImplementations$interface$$ImplementationB,
+        );
 
       default:
         return orElse();
@@ -575,16 +565,17 @@ extension UtilityExtension$Query$FetchImplementations$interface
 
   _T maybeWhen<_T>({
     _T Function(Query$FetchImplementations$interface$$ImplementationA)?
-        implementationA,
+    implementationA,
     _T Function(Query$FetchImplementations$interface$$ImplementationB)?
-        implementationB,
+    implementationB,
     required _T Function() orElse,
   }) {
     switch (typename) {
       case "ImplementationA":
         if (implementationA != null) {
           return implementationA(
-              this as Query$FetchImplementations$interface$$ImplementationA);
+            this as Query$FetchImplementations$interface$$ImplementationA,
+          );
         } else {
           return orElse();
         }
@@ -592,7 +583,8 @@ extension UtilityExtension$Query$FetchImplementations$interface
       case "ImplementationB":
         if (implementationB != null) {
           return implementationB(
-              this as Query$FetchImplementations$interface$$ImplementationB);
+            this as Query$FetchImplementations$interface$$ImplementationB,
+          );
         } else {
           return orElse();
         }
@@ -637,21 +629,24 @@ class _CopyWithImpl$Query$FetchImplementations$interface<TRes>
     Object? typename = _undefined,
     Object? b = _undefined,
     Object? self = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface(
-        typename: typename == _undefined || typename == null
-            ? _instance.typename
-            : (typename as String),
-        b: b == _undefined ? _instance.b : (b as bool?),
-        self: self == _undefined || self == null
-            ? _instance.self
-            : (self as Query$FetchImplementations$interface$self),
-      ));
+  }) => _then(
+    Query$FetchImplementations$interface(
+      typename: typename == _undefined || typename == null
+          ? _instance.typename
+          : (typename as String),
+      b: b == _undefined ? _instance.b : (b as bool?),
+      self: self == _undefined || self == null
+          ? _instance.self
+          : (self as Query$FetchImplementations$interface$self),
+    ),
+  );
 
   CopyWith$Query$FetchImplementations$interface$self<TRes> get self {
     final local$self = _instance.self;
     return CopyWith$Query$FetchImplementations$interface$self(
-        local$self, (e) => call(self: e));
+      local$self,
+      (e) => call(self: e),
+    );
   }
 }
 
@@ -665,8 +660,7 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface<TRes>
     String? typename,
     bool? b,
     Query$FetchImplementations$interface$self? self,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$FetchImplementations$interface$self<TRes> get self =>
       CopyWith$Query$FetchImplementations$interface$self.stub(_res);
@@ -676,20 +670,24 @@ class Query$FetchImplementations$interface$self {
   Query$FetchImplementations$interface$self({required this.$__typename});
 
   factory Query$FetchImplementations$interface$self.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "ImplementationA":
-        return Query$FetchImplementations$interface$self$$ImplementationA
-            .fromJson(json);
+        return Query$FetchImplementations$interface$self$$ImplementationA.fromJson(
+          json,
+        );
 
       case "ImplementationB":
-        return Query$FetchImplementations$interface$self$$ImplementationB
-            .fromJson(json);
+        return Query$FetchImplementations$interface$self$$ImplementationB.fromJson(
+          json,
+        );
 
       default:
         final l$$__typename = json['__typename'];
         return Query$FetchImplementations$interface$self(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -729,28 +727,31 @@ class Query$FetchImplementations$interface$self {
 extension UtilityExtension$Query$FetchImplementations$interface$self
     on Query$FetchImplementations$interface$self {
   CopyWith$Query$FetchImplementations$interface$self<
-          Query$FetchImplementations$interface$self>
-      get copyWith => CopyWith$Query$FetchImplementations$interface$self(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$self
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$self(this, (i) => i);
   _T when<_T>({
     required _T Function(
-            Query$FetchImplementations$interface$self$$ImplementationA)
-        implementationA,
+      Query$FetchImplementations$interface$self$$ImplementationA,
+    )
+    implementationA,
     required _T Function(
-            Query$FetchImplementations$interface$self$$ImplementationB)
-        implementationB,
+      Query$FetchImplementations$interface$self$$ImplementationB,
+    )
+    implementationB,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "ImplementationA":
         return implementationA(
-            this as Query$FetchImplementations$interface$self$$ImplementationA);
+          this as Query$FetchImplementations$interface$self$$ImplementationA,
+        );
 
       case "ImplementationB":
         return implementationB(
-            this as Query$FetchImplementations$interface$self$$ImplementationB);
+          this as Query$FetchImplementations$interface$self$$ImplementationB,
+        );
 
       default:
         return orElse();
@@ -759,24 +760,26 @@ extension UtilityExtension$Query$FetchImplementations$interface$self
 
   _T maybeWhen<_T>({
     _T Function(Query$FetchImplementations$interface$self$$ImplementationA)?
-        implementationA,
+    implementationA,
     _T Function(Query$FetchImplementations$interface$self$$ImplementationB)?
-        implementationB,
+    implementationB,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "ImplementationA":
         if (implementationA != null) {
-          return implementationA(this
-              as Query$FetchImplementations$interface$self$$ImplementationA);
+          return implementationA(
+            this as Query$FetchImplementations$interface$self$$ImplementationA,
+          );
         } else {
           return orElse();
         }
 
       case "ImplementationB":
         if (implementationB != null) {
-          return implementationB(this
-              as Query$FetchImplementations$interface$self$$ImplementationB);
+          return implementationB(
+            this as Query$FetchImplementations$interface$self$$ImplementationB,
+          );
         } else {
           return orElse();
         }
@@ -812,11 +815,13 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$FetchImplementations$interface$self(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$FetchImplementations$interface$self(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$self<TRes>
@@ -837,7 +842,8 @@ class Query$FetchImplementations$interface$self$$ImplementationA
   });
 
   factory Query$FetchImplementations$interface$self$$ImplementationA.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     final l$s = json['s'];
     final l$$_s = json['_s'];
@@ -870,11 +876,7 @@ class Query$FetchImplementations$interface$self$$ImplementationA
     final l$$__typename = $__typename;
     final l$s = s;
     final l$$_s = $_s;
-    return Object.hashAll([
-      l$$__typename,
-      l$s,
-      l$$_s,
-    ]);
+    return Object.hashAll([l$$__typename, l$s, l$$_s]);
   }
 
   @override
@@ -908,38 +910,38 @@ class Query$FetchImplementations$interface$self$$ImplementationA
 extension UtilityExtension$Query$FetchImplementations$interface$self$$ImplementationA
     on Query$FetchImplementations$interface$self$$ImplementationA {
   CopyWith$Query$FetchImplementations$interface$self$$ImplementationA<
-          Query$FetchImplementations$interface$self$$ImplementationA>
-      get copyWith =>
-          CopyWith$Query$FetchImplementations$interface$self$$ImplementationA(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$self$$ImplementationA
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$self$$ImplementationA(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$self$$ImplementationA<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$FetchImplementations$interface$self$$ImplementationA(
     Query$FetchImplementations$interface$self$$ImplementationA instance,
     TRes Function(Query$FetchImplementations$interface$self$$ImplementationA)
-        then,
+    then,
   ) = _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationA;
 
   factory CopyWith$Query$FetchImplementations$interface$self$$ImplementationA.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationA;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationA;
 
-  TRes call({
-    String? $__typename,
-    String? s,
-    String? $_s,
-  });
+  TRes call({String? $__typename, String? s, String? $_s});
 }
 
 class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationA<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$self$$ImplementationA<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationA(
     this._instance,
     this._then,
@@ -948,7 +950,9 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationA<
   final Query$FetchImplementations$interface$self$$ImplementationA _instance;
 
   final TRes Function(
-      Query$FetchImplementations$interface$self$$ImplementationA) _then;
+    Query$FetchImplementations$interface$self$$ImplementationA,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -956,32 +960,31 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationA<
     Object? $__typename = _undefined,
     Object? s = _undefined,
     Object? $_s = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface$self$$ImplementationA(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        s: s == _undefined ? _instance.s : (s as String?),
-        $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
-      ));
+  }) => _then(
+    Query$FetchImplementations$interface$self$$ImplementationA(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      s: s == _undefined ? _instance.s : (s as String?),
+      $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationA<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$self$$ImplementationA<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationA(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? s,
-    String? $_s,
-  }) =>
-      _res;
+  call({String? $__typename, String? s, String? $_s}) => _res;
 }
 
 class Query$FetchImplementations$interface$self$$ImplementationB
@@ -992,7 +995,8 @@ class Query$FetchImplementations$interface$self$$ImplementationB
   });
 
   factory Query$FetchImplementations$interface$self$$ImplementationB.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     final l$i = json['i'];
     return Query$FetchImplementations$interface$self$$ImplementationB(
@@ -1018,10 +1022,7 @@ class Query$FetchImplementations$interface$self$$ImplementationB
   int get hashCode {
     final l$$__typename = $__typename;
     final l$i = i;
-    return Object.hashAll([
-      l$$__typename,
-      l$i,
-    ]);
+    return Object.hashAll([l$$__typename, l$i]);
   }
 
   @override
@@ -1050,37 +1051,38 @@ class Query$FetchImplementations$interface$self$$ImplementationB
 extension UtilityExtension$Query$FetchImplementations$interface$self$$ImplementationB
     on Query$FetchImplementations$interface$self$$ImplementationB {
   CopyWith$Query$FetchImplementations$interface$self$$ImplementationB<
-          Query$FetchImplementations$interface$self$$ImplementationB>
-      get copyWith =>
-          CopyWith$Query$FetchImplementations$interface$self$$ImplementationB(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$self$$ImplementationB
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$self$$ImplementationB(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$self$$ImplementationB<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$FetchImplementations$interface$self$$ImplementationB(
     Query$FetchImplementations$interface$self$$ImplementationB instance,
     TRes Function(Query$FetchImplementations$interface$self$$ImplementationB)
-        then,
+    then,
   ) = _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationB;
 
   factory CopyWith$Query$FetchImplementations$interface$self$$ImplementationB.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationB;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationB;
 
-  TRes call({
-    String? $__typename,
-    int? i,
-  });
+  TRes call({String? $__typename, int? i});
 }
 
 class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationB<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$self$$ImplementationB<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationB(
     this._instance,
     this._then,
@@ -1089,37 +1091,37 @@ class _CopyWithImpl$Query$FetchImplementations$interface$self$$ImplementationB<
   final Query$FetchImplementations$interface$self$$ImplementationB _instance;
 
   final TRes Function(
-      Query$FetchImplementations$interface$self$$ImplementationB) _then;
+    Query$FetchImplementations$interface$self$$ImplementationB,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $__typename = _undefined,
-    Object? i = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface$self$$ImplementationB(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        i: i == _undefined ? _instance.i : (i as int?),
-      ));
+  TRes call({Object? $__typename = _undefined, Object? i = _undefined}) =>
+      _then(
+        Query$FetchImplementations$interface$self$$ImplementationB(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          i: i == _undefined ? _instance.i : (i as int?),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationB<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$self$$ImplementationB<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$FetchImplementations$interface$self$$ImplementationB(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    int? i,
-  }) =>
-      _res;
+  call({String? $__typename, int? i}) => _res;
 }
 
 class Query$FetchImplementations$interface$$ImplementationA
@@ -1133,7 +1135,8 @@ class Query$FetchImplementations$interface$$ImplementationA
   });
 
   factory Query$FetchImplementations$interface$$ImplementationA.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$b = json['b'];
     final l$s = json['s'];
     final l$$_s = json['_s'];
@@ -1145,7 +1148,8 @@ class Query$FetchImplementations$interface$$ImplementationA
       $_s: (l$$_s as String?),
       typename: (l$typename as String),
       self: Query$FetchImplementations$interface$$ImplementationA$self.fromJson(
-          (l$self as Map<String, dynamic>)),
+        (l$self as Map<String, dynamic>),
+      ),
     );
   }
 
@@ -1181,13 +1185,7 @@ class Query$FetchImplementations$interface$$ImplementationA
     final l$$_s = $_s;
     final l$typename = typename;
     final l$self = self;
-    return Object.hashAll([
-      l$b,
-      l$s,
-      l$$_s,
-      l$typename,
-      l$self,
-    ]);
+    return Object.hashAll([l$b, l$s, l$$_s, l$typename, l$self]);
   }
 
   @override
@@ -1231,24 +1229,26 @@ class Query$FetchImplementations$interface$$ImplementationA
 extension UtilityExtension$Query$FetchImplementations$interface$$ImplementationA
     on Query$FetchImplementations$interface$$ImplementationA {
   CopyWith$Query$FetchImplementations$interface$$ImplementationA<
-          Query$FetchImplementations$interface$$ImplementationA>
-      get copyWith =>
-          CopyWith$Query$FetchImplementations$interface$$ImplementationA(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$$ImplementationA
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$$ImplementationA(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$$ImplementationA<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationA(
     Query$FetchImplementations$interface$$ImplementationA instance,
     TRes Function(Query$FetchImplementations$interface$$ImplementationA) then,
   ) = _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA;
 
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationA.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA;
 
   TRes call({
     bool? b,
@@ -1258,7 +1258,7 @@ abstract class CopyWith$Query$FetchImplementations$interface$$ImplementationA<
     Query$FetchImplementations$interface$$ImplementationA$self? self,
   });
   CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<TRes>
-      get self;
+  get self;
 }
 
 class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA<TRes>
@@ -1272,7 +1272,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA<TRes>
   final Query$FetchImplementations$interface$$ImplementationA _instance;
 
   final TRes Function(Query$FetchImplementations$interface$$ImplementationA)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1282,34 +1282,39 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA<TRes>
     Object? $_s = _undefined,
     Object? typename = _undefined,
     Object? self = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface$$ImplementationA(
-        b: b == _undefined ? _instance.b : (b as bool?),
-        s: s == _undefined ? _instance.s : (s as String?),
-        $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
-        typename: typename == _undefined || typename == null
-            ? _instance.typename
-            : (typename as String),
-        self: self == _undefined || self == null
-            ? _instance.self
-            : (self
+  }) => _then(
+    Query$FetchImplementations$interface$$ImplementationA(
+      b: b == _undefined ? _instance.b : (b as bool?),
+      s: s == _undefined ? _instance.s : (s as String?),
+      $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
+      typename: typename == _undefined || typename == null
+          ? _instance.typename
+          : (typename as String),
+      self: self == _undefined || self == null
+          ? _instance.self
+          : (self
                 as Query$FetchImplementations$interface$$ImplementationA$self),
-      ));
+    ),
+  );
 
   CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<TRes>
-      get self {
+  get self {
     final local$self = _instance.self;
     return CopyWith$Query$FetchImplementations$interface$$ImplementationA$self(
-        local$self, (e) => call(self: e));
+      local$self,
+      (e) => call(self: e),
+    );
   }
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$$ImplementationA<TRes> {
   _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1319,13 +1324,13 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA<
     String? $_s,
     String? typename,
     Query$FetchImplementations$interface$$ImplementationA$self? self,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<TRes>
-      get self =>
-          CopyWith$Query$FetchImplementations$interface$$ImplementationA$self
-              .stub(_res);
+  get self =>
+      CopyWith$Query$FetchImplementations$interface$$ImplementationA$self.stub(
+        _res,
+      );
 }
 
 class Query$FetchImplementations$interface$$ImplementationB
@@ -1338,7 +1343,8 @@ class Query$FetchImplementations$interface$$ImplementationB
   });
 
   factory Query$FetchImplementations$interface$$ImplementationB.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$i = json['i'];
     final l$typename = json['typename'];
     final l$b = json['b'];
@@ -1348,7 +1354,8 @@ class Query$FetchImplementations$interface$$ImplementationB
       typename: (l$typename as String),
       b: (l$b as bool?),
       self: Query$FetchImplementations$interface$$ImplementationB$self.fromJson(
-          (l$self as Map<String, dynamic>)),
+        (l$self as Map<String, dynamic>),
+      ),
     );
   }
 
@@ -1379,12 +1386,7 @@ class Query$FetchImplementations$interface$$ImplementationB
     final l$typename = typename;
     final l$b = b;
     final l$self = self;
-    return Object.hashAll([
-      l$i,
-      l$typename,
-      l$b,
-      l$self,
-    ]);
+    return Object.hashAll([l$i, l$typename, l$b, l$self]);
   }
 
   @override
@@ -1423,24 +1425,26 @@ class Query$FetchImplementations$interface$$ImplementationB
 extension UtilityExtension$Query$FetchImplementations$interface$$ImplementationB
     on Query$FetchImplementations$interface$$ImplementationB {
   CopyWith$Query$FetchImplementations$interface$$ImplementationB<
-          Query$FetchImplementations$interface$$ImplementationB>
-      get copyWith =>
-          CopyWith$Query$FetchImplementations$interface$$ImplementationB(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$$ImplementationB
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$$ImplementationB(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$$ImplementationB<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationB(
     Query$FetchImplementations$interface$$ImplementationB instance,
     TRes Function(Query$FetchImplementations$interface$$ImplementationB) then,
   ) = _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB;
 
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationB.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB;
 
   TRes call({
     int? i,
@@ -1449,7 +1453,7 @@ abstract class CopyWith$Query$FetchImplementations$interface$$ImplementationB<
     Query$FetchImplementations$interface$$ImplementationB$self? self,
   });
   CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<TRes>
-      get self;
+  get self;
 }
 
 class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB<TRes>
@@ -1463,7 +1467,7 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB<TRes>
   final Query$FetchImplementations$interface$$ImplementationB _instance;
 
   final TRes Function(Query$FetchImplementations$interface$$ImplementationB)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1472,33 +1476,38 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB<TRes>
     Object? typename = _undefined,
     Object? b = _undefined,
     Object? self = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface$$ImplementationB(
-        i: i == _undefined ? _instance.i : (i as int?),
-        typename: typename == _undefined || typename == null
-            ? _instance.typename
-            : (typename as String),
-        b: b == _undefined ? _instance.b : (b as bool?),
-        self: self == _undefined || self == null
-            ? _instance.self
-            : (self
+  }) => _then(
+    Query$FetchImplementations$interface$$ImplementationB(
+      i: i == _undefined ? _instance.i : (i as int?),
+      typename: typename == _undefined || typename == null
+          ? _instance.typename
+          : (typename as String),
+      b: b == _undefined ? _instance.b : (b as bool?),
+      self: self == _undefined || self == null
+          ? _instance.self
+          : (self
                 as Query$FetchImplementations$interface$$ImplementationB$self),
-      ));
+    ),
+  );
 
   CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<TRes>
-      get self {
+  get self {
     final local$self = _instance.self;
     return CopyWith$Query$FetchImplementations$interface$$ImplementationB$self(
-        local$self, (e) => call(self: e));
+      local$self,
+      (e) => call(self: e),
+    );
   }
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$$ImplementationB<TRes> {
   _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1507,13 +1516,13 @@ class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB<
     String? typename,
     bool? b,
     Query$FetchImplementations$interface$$ImplementationB$self? self,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<TRes>
-      get self =>
-          CopyWith$Query$FetchImplementations$interface$$ImplementationB$self
-              .stub(_res);
+  get self =>
+      CopyWith$Query$FetchImplementations$interface$$ImplementationB$self.stub(
+        _res,
+      );
 }
 
 class Query$FetchImplementations$interface$$ImplementationA$self
@@ -1525,7 +1534,8 @@ class Query$FetchImplementations$interface$$ImplementationA$self
   });
 
   factory Query$FetchImplementations$interface$$ImplementationA$self.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     final l$s = json['s'];
     final l$$_s = json['_s'];
@@ -1558,11 +1568,7 @@ class Query$FetchImplementations$interface$$ImplementationA$self
     final l$$__typename = $__typename;
     final l$s = s;
     final l$$_s = $_s;
-    return Object.hashAll([
-      l$$__typename,
-      l$s,
-      l$$_s,
-    ]);
+    return Object.hashAll([l$$__typename, l$s, l$$_s]);
   }
 
   @override
@@ -1596,38 +1602,38 @@ class Query$FetchImplementations$interface$$ImplementationA$self
 extension UtilityExtension$Query$FetchImplementations$interface$$ImplementationA$self
     on Query$FetchImplementations$interface$$ImplementationA$self {
   CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<
-          Query$FetchImplementations$interface$$ImplementationA$self>
-      get copyWith =>
-          CopyWith$Query$FetchImplementations$interface$$ImplementationA$self(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$$ImplementationA$self
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$$ImplementationA$self(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationA$self(
     Query$FetchImplementations$interface$$ImplementationA$self instance,
     TRes Function(Query$FetchImplementations$interface$$ImplementationA$self)
-        then,
+    then,
   ) = _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA$self;
 
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationA$self.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA$self;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA$self;
 
-  TRes call({
-    String? $__typename,
-    String? s,
-    String? $_s,
-  });
+  TRes call({String? $__typename, String? s, String? $_s});
 }
 
 class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA$self<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA$self(
     this._instance,
     this._then,
@@ -1636,7 +1642,9 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA$self<
   final Query$FetchImplementations$interface$$ImplementationA$self _instance;
 
   final TRes Function(
-      Query$FetchImplementations$interface$$ImplementationA$self) _then;
+    Query$FetchImplementations$interface$$ImplementationA$self,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1644,32 +1652,31 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationA$self<
     Object? $__typename = _undefined,
     Object? s = _undefined,
     Object? $_s = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface$$ImplementationA$self(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        s: s == _undefined ? _instance.s : (s as String?),
-        $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
-      ));
+  }) => _then(
+    Query$FetchImplementations$interface$$ImplementationA$self(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      s: s == _undefined ? _instance.s : (s as String?),
+      $_s: $_s == _undefined ? _instance.$_s : ($_s as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA$self<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$$ImplementationA$self<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationA$self(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? s,
-    String? $_s,
-  }) =>
-      _res;
+  call({String? $__typename, String? s, String? $_s}) => _res;
 }
 
 class Query$FetchImplementations$interface$$ImplementationB$self
@@ -1680,7 +1687,8 @@ class Query$FetchImplementations$interface$$ImplementationB$self
   });
 
   factory Query$FetchImplementations$interface$$ImplementationB$self.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     final l$i = json['i'];
     return Query$FetchImplementations$interface$$ImplementationB$self(
@@ -1706,10 +1714,7 @@ class Query$FetchImplementations$interface$$ImplementationB$self
   int get hashCode {
     final l$$__typename = $__typename;
     final l$i = i;
-    return Object.hashAll([
-      l$$__typename,
-      l$i,
-    ]);
+    return Object.hashAll([l$$__typename, l$i]);
   }
 
   @override
@@ -1738,37 +1743,38 @@ class Query$FetchImplementations$interface$$ImplementationB$self
 extension UtilityExtension$Query$FetchImplementations$interface$$ImplementationB$self
     on Query$FetchImplementations$interface$$ImplementationB$self {
   CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<
-          Query$FetchImplementations$interface$$ImplementationB$self>
-      get copyWith =>
-          CopyWith$Query$FetchImplementations$interface$$ImplementationB$self(
-            this,
-            (i) => i,
-          );
+    Query$FetchImplementations$interface$$ImplementationB$self
+  >
+  get copyWith =>
+      CopyWith$Query$FetchImplementations$interface$$ImplementationB$self(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationB$self(
     Query$FetchImplementations$interface$$ImplementationB$self instance,
     TRes Function(Query$FetchImplementations$interface$$ImplementationB$self)
-        then,
+    then,
   ) = _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB$self;
 
   factory CopyWith$Query$FetchImplementations$interface$$ImplementationB$self.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB$self;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB$self;
 
-  TRes call({
-    String? $__typename,
-    int? i,
-  });
+  TRes call({String? $__typename, int? i});
 }
 
 class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB$self<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB$self(
     this._instance,
     this._then,
@@ -1777,35 +1783,35 @@ class _CopyWithImpl$Query$FetchImplementations$interface$$ImplementationB$self<
   final Query$FetchImplementations$interface$$ImplementationB$self _instance;
 
   final TRes Function(
-      Query$FetchImplementations$interface$$ImplementationB$self) _then;
+    Query$FetchImplementations$interface$$ImplementationB$self,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $__typename = _undefined,
-    Object? i = _undefined,
-  }) =>
-      _then(Query$FetchImplementations$interface$$ImplementationB$self(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        i: i == _undefined ? _instance.i : (i as int?),
-      ));
+  TRes call({Object? $__typename = _undefined, Object? i = _undefined}) =>
+      _then(
+        Query$FetchImplementations$interface$$ImplementationB$self(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          i: i == _undefined ? _instance.i : (i as int?),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB$self<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$FetchImplementations$interface$$ImplementationB$self<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$FetchImplementations$interface$$ImplementationB$self(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    int? i,
-  }) =>
-      _res;
+  call({String? $__typename, int? i}) => _res;
 }

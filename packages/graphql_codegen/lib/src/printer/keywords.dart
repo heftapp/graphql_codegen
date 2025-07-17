@@ -72,5 +72,5 @@ const staticKeywords = {
   "Symbol",
   "String",
   "Null",
-  "num"
+  "num",
 };

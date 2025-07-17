@@ -10,8 +10,6 @@ class FixUnnamedOperationsVisitor extends RecursiveTransformingVisitor {
               element is! OperationDefinitionNode || element.name != null,
         )
         .toList();
-    return DocumentNode(
-      definitions: filteredDefinitions,
-    );
+    return DocumentNode(definitions: filteredDefinitions);
   }
 }

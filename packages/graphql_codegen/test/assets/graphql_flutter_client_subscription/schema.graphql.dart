@@ -198,7 +198,8 @@ class Subscription$NoArgs {
       listenForChange: l$listenForChange == null
           ? null
           : Subscription$NoArgs$listenForChange.fromJson(
-              (l$listenForChange as Map<String, dynamic>)),
+              (l$listenForChange as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -220,10 +221,7 @@ class Subscription$NoArgs {
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$listenForChange,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$listenForChange, l$$__typename]);
   }
 
   @override
@@ -250,10 +248,7 @@ class Subscription$NoArgs {
 
 extension UtilityExtension$Subscription$NoArgs on Subscription$NoArgs {
   CopyWith$Subscription$NoArgs<Subscription$NoArgs> get copyWith =>
-      CopyWith$Subscription$NoArgs(
-        this,
-        (i) => i,
-      );
+      CopyWith$Subscription$NoArgs(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$NoArgs<TRes> {
@@ -274,10 +269,7 @@ abstract class CopyWith$Subscription$NoArgs<TRes> {
 
 class _CopyWithImpl$Subscription$NoArgs<TRes>
     implements CopyWith$Subscription$NoArgs<TRes> {
-  _CopyWithImpl$Subscription$NoArgs(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Subscription$NoArgs(this._instance, this._then);
 
   final Subscription$NoArgs _instance;
 
@@ -288,22 +280,25 @@ class _CopyWithImpl$Subscription$NoArgs<TRes>
   TRes call({
     Object? listenForChange = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$NoArgs(
-        listenForChange: listenForChange == _undefined
-            ? _instance.listenForChange
-            : (listenForChange as Subscription$NoArgs$listenForChange?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Subscription$NoArgs(
+      listenForChange: listenForChange == _undefined
+          ? _instance.listenForChange
+          : (listenForChange as Subscription$NoArgs$listenForChange?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Subscription$NoArgs$listenForChange<TRes> get listenForChange {
     final local$listenForChange = _instance.listenForChange;
     return local$listenForChange == null
         ? CopyWith$Subscription$NoArgs$listenForChange.stub(_then(_instance))
         : CopyWith$Subscription$NoArgs$listenForChange(
-            local$listenForChange, (e) => call(listenForChange: e));
+            local$listenForChange,
+            (e) => call(listenForChange: e),
+          );
   }
 }
 
@@ -316,32 +311,44 @@ class _CopyWithStubImpl$Subscription$NoArgs<TRes>
   call({
     Subscription$NoArgs$listenForChange? listenForChange,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Subscription$NoArgs$listenForChange<TRes> get listenForChange =>
       CopyWith$Subscription$NoArgs$listenForChange.stub(_res);
 }
 
-const documentNodeSubscriptionNoArgs = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.subscription,
-    name: NameNode(value: 'NoArgs'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'listenForChange'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeSubscriptionNoArgs = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.subscription,
+      name: NameNode(value: 'NoArgs'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'name'),
+            name: NameNode(value: 'listenForChange'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -350,18 +357,11 @@ const documentNodeSubscriptionNoArgs = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 Subscription$NoArgs _parserFn$Subscription$NoArgs(Map<String, dynamic> data) =>
     Subscription$NoArgs.fromJson(data);
 
@@ -376,15 +376,15 @@ class Options$Subscription$NoArgs
     Subscription$NoArgs? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionNoArgs,
-          parserFn: _parserFn$Subscription$NoArgs,
-        );
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionNoArgs,
+         parserFn: _parserFn$Subscription$NoArgs,
+       );
 }
 
 class WatchOptions$Subscription$NoArgs
@@ -402,42 +402,42 @@ class WatchOptions$Subscription$NoArgs
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionNoArgs,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Subscription$NoArgs,
-        );
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionNoArgs,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Subscription$NoArgs,
+       );
 }
 
 class FetchMoreOptions$Subscription$NoArgs extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Subscription$NoArgs(
-      {required graphql.UpdateQuery updateQuery})
-      : super(
-          updateQuery: updateQuery,
-          document: documentNodeSubscriptionNoArgs,
-        );
+  FetchMoreOptions$Subscription$NoArgs({
+    required graphql.UpdateQuery updateQuery,
+  }) : super(
+         updateQuery: updateQuery,
+         document: documentNodeSubscriptionNoArgs,
+       );
 }
 
 extension ClientExtension$Subscription$NoArgs on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<Subscription$NoArgs>> subscribe$NoArgs(
-          [Options$Subscription$NoArgs? options]) =>
-      this.subscribe(options ?? Options$Subscription$NoArgs());
-  graphql.ObservableQuery<Subscription$NoArgs> watchSubscription$NoArgs(
-          [WatchOptions$Subscription$NoArgs? options]) =>
-      this.watchQuery(options ?? WatchOptions$Subscription$NoArgs());
+  Stream<graphql.QueryResult<Subscription$NoArgs>> subscribe$NoArgs([
+    Options$Subscription$NoArgs? options,
+  ]) => this.subscribe(options ?? Options$Subscription$NoArgs());
+  graphql.ObservableQuery<Subscription$NoArgs> watchSubscription$NoArgs([
+    WatchOptions$Subscription$NoArgs? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Subscription$NoArgs());
 }
 
 graphql.QueryResult<Subscription$NoArgs> useSubscription$NoArgs(
-        Options$Subscription$NoArgs options) =>
-    graphql_flutter.useSubscription(options);
+  Options$Subscription$NoArgs options,
+) => graphql_flutter.useSubscription(options);
 
 class Subscription$NoArgs$Widget
     extends graphql_flutter.Subscription<Subscription$NoArgs> {
@@ -446,13 +446,13 @@ class Subscription$NoArgs$Widget
     Options$Subscription$NoArgs? options,
     required graphql_flutter.SubscriptionBuilder<Subscription$NoArgs> builder,
     graphql_flutter.OnSubscriptionResult<Subscription$NoArgs>?
-        onSubscriptionResult,
+    onSubscriptionResult,
   }) : super(
-          key: key,
-          options: options ?? Options$Subscription$NoArgs(),
-          builder: builder,
-          onSubscriptionResult: onSubscriptionResult,
-        );
+         key: key,
+         options: options ?? Options$Subscription$NoArgs(),
+         builder: builder,
+         onSubscriptionResult: onSubscriptionResult,
+       );
 }
 
 class Subscription$NoArgs$listenForChange {
@@ -462,7 +462,8 @@ class Subscription$NoArgs$listenForChange {
   });
 
   factory Subscription$NoArgs$listenForChange.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Subscription$NoArgs$listenForChange(
@@ -488,10 +489,7 @@ class Subscription$NoArgs$listenForChange {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -520,11 +518,9 @@ class Subscription$NoArgs$listenForChange {
 extension UtilityExtension$Subscription$NoArgs$listenForChange
     on Subscription$NoArgs$listenForChange {
   CopyWith$Subscription$NoArgs$listenForChange<
-          Subscription$NoArgs$listenForChange>
-      get copyWith => CopyWith$Subscription$NoArgs$listenForChange(
-            this,
-            (i) => i,
-          );
+    Subscription$NoArgs$listenForChange
+  >
+  get copyWith => CopyWith$Subscription$NoArgs$listenForChange(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$NoArgs$listenForChange<TRes> {
@@ -536,18 +532,12 @@ abstract class CopyWith$Subscription$NoArgs$listenForChange<TRes> {
   factory CopyWith$Subscription$NoArgs$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$NoArgs$listenForChange;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Subscription$NoArgs$listenForChange<TRes>
     implements CopyWith$Subscription$NoArgs$listenForChange<TRes> {
-  _CopyWithImpl$Subscription$NoArgs$listenForChange(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Subscription$NoArgs$listenForChange(this._instance, this._then);
 
   final Subscription$NoArgs$listenForChange _instance;
 
@@ -555,18 +545,17 @@ class _CopyWithImpl$Subscription$NoArgs$listenForChange<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$NoArgs$listenForChange(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Subscription$NoArgs$listenForChange(
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Subscription$NoArgs$listenForChange<TRes>
@@ -575,23 +564,18 @@ class _CopyWithStubImpl$Subscription$NoArgs$listenForChange<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 class Variables$Subscription$RequiredArg {
   factory Variables$Subscription$RequiredArg({required String name}) =>
-      Variables$Subscription$RequiredArg._({
-        r'name': name,
-      });
+      Variables$Subscription$RequiredArg._({r'name': name});
 
   Variables$Subscription$RequiredArg._(this._$data);
 
   factory Variables$Subscription$RequiredArg.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
@@ -610,11 +594,9 @@ class Variables$Subscription$RequiredArg {
   }
 
   CopyWith$Variables$Subscription$RequiredArg<
-          Variables$Subscription$RequiredArg>
-      get copyWith => CopyWith$Variables$Subscription$RequiredArg(
-            this,
-            (i) => i,
-          );
+    Variables$Subscription$RequiredArg
+  >
+  get copyWith => CopyWith$Variables$Subscription$RequiredArg(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -654,10 +636,7 @@ abstract class CopyWith$Variables$Subscription$RequiredArg<TRes> {
 
 class _CopyWithImpl$Variables$Subscription$RequiredArg<TRes>
     implements CopyWith$Variables$Subscription$RequiredArg<TRes> {
-  _CopyWithImpl$Variables$Subscription$RequiredArg(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Subscription$RequiredArg(this._instance, this._then);
 
   final Variables$Subscription$RequiredArg _instance;
 
@@ -665,11 +644,12 @@ class _CopyWithImpl$Variables$Subscription$RequiredArg<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Variables$Subscription$RequiredArg._({
-        ..._instance._$data,
-        if (name != _undefined && name != null) 'name': (name as String),
-      }));
+  TRes call({Object? name = _undefined}) => _then(
+    Variables$Subscription$RequiredArg._({
+      ..._instance._$data,
+      if (name != _undefined && name != null) 'name': (name as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Subscription$RequiredArg<TRes>
@@ -694,7 +674,8 @@ class Subscription$RequiredArg {
       listenForChange: l$listenForChange == null
           ? null
           : Subscription$RequiredArg$listenForChange.fromJson(
-              (l$listenForChange as Map<String, dynamic>)),
+              (l$listenForChange as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -716,10 +697,7 @@ class Subscription$RequiredArg {
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$listenForChange,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$listenForChange, l$$__typename]);
   }
 
   @override
@@ -748,10 +726,7 @@ class Subscription$RequiredArg {
 extension UtilityExtension$Subscription$RequiredArg
     on Subscription$RequiredArg {
   CopyWith$Subscription$RequiredArg<Subscription$RequiredArg> get copyWith =>
-      CopyWith$Subscription$RequiredArg(
-        this,
-        (i) => i,
-      );
+      CopyWith$Subscription$RequiredArg(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$RequiredArg<TRes> {
@@ -772,10 +747,7 @@ abstract class CopyWith$Subscription$RequiredArg<TRes> {
 
 class _CopyWithImpl$Subscription$RequiredArg<TRes>
     implements CopyWith$Subscription$RequiredArg<TRes> {
-  _CopyWithImpl$Subscription$RequiredArg(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Subscription$RequiredArg(this._instance, this._then);
 
   final Subscription$RequiredArg _instance;
 
@@ -786,23 +758,27 @@ class _CopyWithImpl$Subscription$RequiredArg<TRes>
   TRes call({
     Object? listenForChange = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$RequiredArg(
-        listenForChange: listenForChange == _undefined
-            ? _instance.listenForChange
-            : (listenForChange as Subscription$RequiredArg$listenForChange?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Subscription$RequiredArg(
+      listenForChange: listenForChange == _undefined
+          ? _instance.listenForChange
+          : (listenForChange as Subscription$RequiredArg$listenForChange?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Subscription$RequiredArg$listenForChange<TRes> get listenForChange {
     final local$listenForChange = _instance.listenForChange;
     return local$listenForChange == null
         ? CopyWith$Subscription$RequiredArg$listenForChange.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Subscription$RequiredArg$listenForChange(
-            local$listenForChange, (e) => call(listenForChange: e));
+            local$listenForChange,
+            (e) => call(listenForChange: e),
+          );
   }
 }
 
@@ -815,47 +791,56 @@ class _CopyWithStubImpl$Subscription$RequiredArg<TRes>
   call({
     Subscription$RequiredArg$listenForChange? listenForChange,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Subscription$RequiredArg$listenForChange<TRes> get listenForChange =>
       CopyWith$Subscription$RequiredArg$listenForChange.stub(_res);
 }
 
-const documentNodeSubscriptionRequiredArg = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.subscription,
-    name: NameNode(value: 'RequiredArg'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
+const documentNodeSubscriptionRequiredArg = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.subscription,
+      name: NameNode(value: 'RequiredArg'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'name')),
+          type: NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'listenForChange'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'name'),
+            name: NameNode(value: 'listenForChange'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -864,21 +849,14 @@ const documentNodeSubscriptionRequiredArg = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 Subscription$RequiredArg _parserFn$Subscription$RequiredArg(
-        Map<String, dynamic> data) =>
-    Subscription$RequiredArg.fromJson(data);
+  Map<String, dynamic> data,
+) => Subscription$RequiredArg.fromJson(data);
 
 class Options$Subscription$RequiredArg
     extends graphql.SubscriptionOptions<Subscription$RequiredArg> {
@@ -892,16 +870,16 @@ class Options$Subscription$RequiredArg
     Subscription$RequiredArg? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionRequiredArg,
-          parserFn: _parserFn$Subscription$RequiredArg,
-        );
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionRequiredArg,
+         parserFn: _parserFn$Subscription$RequiredArg,
+       );
 }
 
 class WatchOptions$Subscription$RequiredArg
@@ -920,20 +898,20 @@ class WatchOptions$Subscription$RequiredArg
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionRequiredArg,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Subscription$RequiredArg,
-        );
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionRequiredArg,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Subscription$RequiredArg,
+       );
 }
 
 class FetchMoreOptions$Subscription$RequiredArg
@@ -942,25 +920,25 @@ class FetchMoreOptions$Subscription$RequiredArg
     required graphql.UpdateQuery updateQuery,
     required Variables$Subscription$RequiredArg variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeSubscriptionRequiredArg,
-        );
+         updateQuery: updateQuery,
+         variables: variables.toJson(),
+         document: documentNodeSubscriptionRequiredArg,
+       );
 }
 
 extension ClientExtension$Subscription$RequiredArg on graphql.GraphQLClient {
   Stream<graphql.QueryResult<Subscription$RequiredArg>> subscribe$RequiredArg(
-          Options$Subscription$RequiredArg options) =>
-      this.subscribe(options);
+    Options$Subscription$RequiredArg options,
+  ) => this.subscribe(options);
   graphql.ObservableQuery<Subscription$RequiredArg>
-      watchSubscription$RequiredArg(
-              WatchOptions$Subscription$RequiredArg options) =>
-          this.watchQuery(options);
+  watchSubscription$RequiredArg(
+    WatchOptions$Subscription$RequiredArg options,
+  ) => this.watchQuery(options);
 }
 
 graphql.QueryResult<Subscription$RequiredArg> useSubscription$RequiredArg(
-        Options$Subscription$RequiredArg options) =>
-    graphql_flutter.useSubscription(options);
+  Options$Subscription$RequiredArg options,
+) => graphql_flutter.useSubscription(options);
 
 class Subscription$RequiredArg$Widget
     extends graphql_flutter.Subscription<Subscription$RequiredArg> {
@@ -968,15 +946,15 @@ class Subscription$RequiredArg$Widget
     widgets.Key? key,
     required Options$Subscription$RequiredArg options,
     required graphql_flutter.SubscriptionBuilder<Subscription$RequiredArg>
-        builder,
+    builder,
     graphql_flutter.OnSubscriptionResult<Subscription$RequiredArg>?
-        onSubscriptionResult,
+    onSubscriptionResult,
   }) : super(
-          key: key,
-          options: options,
-          builder: builder,
-          onSubscriptionResult: onSubscriptionResult,
-        );
+         key: key,
+         options: options,
+         builder: builder,
+         onSubscriptionResult: onSubscriptionResult,
+       );
 }
 
 class Subscription$RequiredArg$listenForChange {
@@ -986,7 +964,8 @@ class Subscription$RequiredArg$listenForChange {
   });
 
   factory Subscription$RequiredArg$listenForChange.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Subscription$RequiredArg$listenForChange(
@@ -1012,10 +991,7 @@ class Subscription$RequiredArg$listenForChange {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -1044,11 +1020,10 @@ class Subscription$RequiredArg$listenForChange {
 extension UtilityExtension$Subscription$RequiredArg$listenForChange
     on Subscription$RequiredArg$listenForChange {
   CopyWith$Subscription$RequiredArg$listenForChange<
-          Subscription$RequiredArg$listenForChange>
-      get copyWith => CopyWith$Subscription$RequiredArg$listenForChange(
-            this,
-            (i) => i,
-          );
+    Subscription$RequiredArg$listenForChange
+  >
+  get copyWith =>
+      CopyWith$Subscription$RequiredArg$listenForChange(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$RequiredArg$listenForChange<TRes> {
@@ -1060,10 +1035,7 @@ abstract class CopyWith$Subscription$RequiredArg$listenForChange<TRes> {
   factory CopyWith$Subscription$RequiredArg$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$RequiredArg$listenForChange;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Subscription$RequiredArg$listenForChange<TRes>
@@ -1079,18 +1051,17 @@ class _CopyWithImpl$Subscription$RequiredArg$listenForChange<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$RequiredArg$listenForChange(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Subscription$RequiredArg$listenForChange(
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Subscription$RequiredArg$listenForChange<TRes>
@@ -1099,23 +1070,18 @@ class _CopyWithStubImpl$Subscription$RequiredArg$listenForChange<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 class Variables$Subscription$OptionalArg {
   factory Variables$Subscription$OptionalArg({String? name}) =>
-      Variables$Subscription$OptionalArg._({
-        if (name != null) r'name': name,
-      });
+      Variables$Subscription$OptionalArg._({if (name != null) r'name': name});
 
   Variables$Subscription$OptionalArg._(this._$data);
 
   factory Variables$Subscription$OptionalArg.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('name')) {
       final l$name = data['name'];
@@ -1138,11 +1104,9 @@ class Variables$Subscription$OptionalArg {
   }
 
   CopyWith$Variables$Subscription$OptionalArg<
-          Variables$Subscription$OptionalArg>
-      get copyWith => CopyWith$Variables$Subscription$OptionalArg(
-            this,
-            (i) => i,
-          );
+    Variables$Subscription$OptionalArg
+  >
+  get copyWith => CopyWith$Variables$Subscription$OptionalArg(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1185,10 +1149,7 @@ abstract class CopyWith$Variables$Subscription$OptionalArg<TRes> {
 
 class _CopyWithImpl$Variables$Subscription$OptionalArg<TRes>
     implements CopyWith$Variables$Subscription$OptionalArg<TRes> {
-  _CopyWithImpl$Variables$Subscription$OptionalArg(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Subscription$OptionalArg(this._instance, this._then);
 
   final Variables$Subscription$OptionalArg _instance;
 
@@ -1196,11 +1157,12 @@ class _CopyWithImpl$Variables$Subscription$OptionalArg<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Variables$Subscription$OptionalArg._({
-        ..._instance._$data,
-        if (name != _undefined) 'name': (name as String?),
-      }));
+  TRes call({Object? name = _undefined}) => _then(
+    Variables$Subscription$OptionalArg._({
+      ..._instance._$data,
+      if (name != _undefined) 'name': (name as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Subscription$OptionalArg<TRes>
@@ -1225,7 +1187,8 @@ class Subscription$OptionalArg {
       listenForChange: l$listenForChange == null
           ? null
           : Subscription$OptionalArg$listenForChange.fromJson(
-              (l$listenForChange as Map<String, dynamic>)),
+              (l$listenForChange as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1247,10 +1210,7 @@ class Subscription$OptionalArg {
   int get hashCode {
     final l$listenForChange = listenForChange;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$listenForChange,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$listenForChange, l$$__typename]);
   }
 
   @override
@@ -1279,10 +1239,7 @@ class Subscription$OptionalArg {
 extension UtilityExtension$Subscription$OptionalArg
     on Subscription$OptionalArg {
   CopyWith$Subscription$OptionalArg<Subscription$OptionalArg> get copyWith =>
-      CopyWith$Subscription$OptionalArg(
-        this,
-        (i) => i,
-      );
+      CopyWith$Subscription$OptionalArg(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$OptionalArg<TRes> {
@@ -1303,10 +1260,7 @@ abstract class CopyWith$Subscription$OptionalArg<TRes> {
 
 class _CopyWithImpl$Subscription$OptionalArg<TRes>
     implements CopyWith$Subscription$OptionalArg<TRes> {
-  _CopyWithImpl$Subscription$OptionalArg(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Subscription$OptionalArg(this._instance, this._then);
 
   final Subscription$OptionalArg _instance;
 
@@ -1317,23 +1271,27 @@ class _CopyWithImpl$Subscription$OptionalArg<TRes>
   TRes call({
     Object? listenForChange = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$OptionalArg(
-        listenForChange: listenForChange == _undefined
-            ? _instance.listenForChange
-            : (listenForChange as Subscription$OptionalArg$listenForChange?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Subscription$OptionalArg(
+      listenForChange: listenForChange == _undefined
+          ? _instance.listenForChange
+          : (listenForChange as Subscription$OptionalArg$listenForChange?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Subscription$OptionalArg$listenForChange<TRes> get listenForChange {
     final local$listenForChange = _instance.listenForChange;
     return local$listenForChange == null
         ? CopyWith$Subscription$OptionalArg$listenForChange.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Subscription$OptionalArg$listenForChange(
-            local$listenForChange, (e) => call(listenForChange: e));
+            local$listenForChange,
+            (e) => call(listenForChange: e),
+          );
   }
 }
 
@@ -1346,47 +1304,59 @@ class _CopyWithStubImpl$Subscription$OptionalArg<TRes>
   call({
     Subscription$OptionalArg$listenForChange? listenForChange,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Subscription$OptionalArg$listenForChange<TRes> get listenForChange =>
       CopyWith$Subscription$OptionalArg$listenForChange.stub(_res);
 }
 
-const documentNodeSubscriptionOptionalArg = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.subscription,
-    name: NameNode(value: 'OptionalArg'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+const documentNodeSubscriptionOptionalArg = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.subscription,
+      name: NameNode(value: 'OptionalArg'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'name')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'listenForChange'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'name'),
+            name: NameNode(value: 'listenForChange'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1395,21 +1365,14 @@ const documentNodeSubscriptionOptionalArg = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 Subscription$OptionalArg _parserFn$Subscription$OptionalArg(
-        Map<String, dynamic> data) =>
-    Subscription$OptionalArg.fromJson(data);
+  Map<String, dynamic> data,
+) => Subscription$OptionalArg.fromJson(data);
 
 class Options$Subscription$OptionalArg
     extends graphql.SubscriptionOptions<Subscription$OptionalArg> {
@@ -1423,16 +1386,16 @@ class Options$Subscription$OptionalArg
     Subscription$OptionalArg? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionOptionalArg,
-          parserFn: _parserFn$Subscription$OptionalArg,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionOptionalArg,
+         parserFn: _parserFn$Subscription$OptionalArg,
+       );
 }
 
 class WatchOptions$Subscription$OptionalArg
@@ -1451,20 +1414,20 @@ class WatchOptions$Subscription$OptionalArg
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionOptionalArg,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Subscription$OptionalArg,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionOptionalArg,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Subscription$OptionalArg,
+       );
 }
 
 class FetchMoreOptions$Subscription$OptionalArg
@@ -1473,25 +1436,25 @@ class FetchMoreOptions$Subscription$OptionalArg
     required graphql.UpdateQuery updateQuery,
     Variables$Subscription$OptionalArg? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeSubscriptionOptionalArg,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeSubscriptionOptionalArg,
+       );
 }
 
 extension ClientExtension$Subscription$OptionalArg on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<Subscription$OptionalArg>> subscribe$OptionalArg(
-          [Options$Subscription$OptionalArg? options]) =>
-      this.subscribe(options ?? Options$Subscription$OptionalArg());
+  Stream<graphql.QueryResult<Subscription$OptionalArg>> subscribe$OptionalArg([
+    Options$Subscription$OptionalArg? options,
+  ]) => this.subscribe(options ?? Options$Subscription$OptionalArg());
   graphql.ObservableQuery<Subscription$OptionalArg>
-      watchSubscription$OptionalArg(
-              [WatchOptions$Subscription$OptionalArg? options]) =>
-          this.watchQuery(options ?? WatchOptions$Subscription$OptionalArg());
+  watchSubscription$OptionalArg([
+    WatchOptions$Subscription$OptionalArg? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Subscription$OptionalArg());
 }
 
 graphql.QueryResult<Subscription$OptionalArg> useSubscription$OptionalArg(
-        Options$Subscription$OptionalArg options) =>
-    graphql_flutter.useSubscription(options);
+  Options$Subscription$OptionalArg options,
+) => graphql_flutter.useSubscription(options);
 
 class Subscription$OptionalArg$Widget
     extends graphql_flutter.Subscription<Subscription$OptionalArg> {
@@ -1499,15 +1462,15 @@ class Subscription$OptionalArg$Widget
     widgets.Key? key,
     Options$Subscription$OptionalArg? options,
     required graphql_flutter.SubscriptionBuilder<Subscription$OptionalArg>
-        builder,
+    builder,
     graphql_flutter.OnSubscriptionResult<Subscription$OptionalArg>?
-        onSubscriptionResult,
+    onSubscriptionResult,
   }) : super(
-          key: key,
-          options: options ?? Options$Subscription$OptionalArg(),
-          builder: builder,
-          onSubscriptionResult: onSubscriptionResult,
-        );
+         key: key,
+         options: options ?? Options$Subscription$OptionalArg(),
+         builder: builder,
+         onSubscriptionResult: onSubscriptionResult,
+       );
 }
 
 class Subscription$OptionalArg$listenForChange {
@@ -1517,7 +1480,8 @@ class Subscription$OptionalArg$listenForChange {
   });
 
   factory Subscription$OptionalArg$listenForChange.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Subscription$OptionalArg$listenForChange(
@@ -1543,10 +1507,7 @@ class Subscription$OptionalArg$listenForChange {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -1575,11 +1536,10 @@ class Subscription$OptionalArg$listenForChange {
 extension UtilityExtension$Subscription$OptionalArg$listenForChange
     on Subscription$OptionalArg$listenForChange {
   CopyWith$Subscription$OptionalArg$listenForChange<
-          Subscription$OptionalArg$listenForChange>
-      get copyWith => CopyWith$Subscription$OptionalArg$listenForChange(
-            this,
-            (i) => i,
-          );
+    Subscription$OptionalArg$listenForChange
+  >
+  get copyWith =>
+      CopyWith$Subscription$OptionalArg$listenForChange(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$OptionalArg$listenForChange<TRes> {
@@ -1591,10 +1551,7 @@ abstract class CopyWith$Subscription$OptionalArg$listenForChange<TRes> {
   factory CopyWith$Subscription$OptionalArg$listenForChange.stub(TRes res) =
       _CopyWithStubImpl$Subscription$OptionalArg$listenForChange;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Subscription$OptionalArg$listenForChange<TRes>
@@ -1610,18 +1567,17 @@ class _CopyWithImpl$Subscription$OptionalArg$listenForChange<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$OptionalArg$listenForChange(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Subscription$OptionalArg$listenForChange(
+          name: name == _undefined || name == null
+              ? _instance.name
+              : (name as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Subscription$OptionalArg$listenForChange<TRes>
@@ -1630,11 +1586,7 @@ class _CopyWithStubImpl$Subscription$OptionalArg$listenForChange<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{};
