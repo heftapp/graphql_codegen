@@ -123,7 +123,7 @@ class GraphQLBuilder extends Builder {
     Library library,
   ) {
     final formatter = DartFormatter(
-      languageVersion: DartFormatter.latestShortStyleLanguageVersion,
+      languageVersion: DartFormatter.latestLanguageVersion,
     );
     final emitter = DartEmitter(useNullSafetySyntax: true);
     final generatedCode = library.accept(emitter);
