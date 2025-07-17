@@ -26,10 +26,7 @@ void main() {
         $__typename: "Person",
         nickname: "Lille lars",
       );
-      expect(
-        fragment1.copyWith.favParent(name: 'Lone'),
-        fragment1,
-      );
+      expect(fragment1.copyWith.favParent(name: 'Lone'), fragment1);
     });
     test("can deep copy can deep copy", () {
       final fragment1 = Fragment$PersonSummary(
@@ -44,10 +41,7 @@ void main() {
         nickname: "Lille lars",
         favParent: Fragment$PersonParent($__typename: 'Person', name: 'Lene'),
       );
-      expect(
-        fragment1.copyWith.favParent(name: 'Lene'),
-        fragment2,
-      );
+      expect(fragment1.copyWith.favParent(name: 'Lene'), fragment2);
     });
   });
 }

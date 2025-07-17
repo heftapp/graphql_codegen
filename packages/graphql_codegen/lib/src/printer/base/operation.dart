@@ -15,11 +15,7 @@ List<Spec> printOperationSpecs(PrintContext<ContextOperation> elementContext) {
     if (context.hasVariables) ...printVariableClasses(elementContext),
     printContext(elementContext),
     ...printContextExtension(elementContext),
-    if (operation != null)
-      printDocument(
-        elementContext,
-        operation,
-      ),
+    if (operation != null) printDocument(elementContext, operation),
     if (clients.contains(GraphQLCodegenConfigClient.graphql) ||
         clients.contains(GraphQLCodegenConfigClient.graphqlFlutter))
       ...printGraphQLClientSpecs(elementContext),

@@ -28,21 +28,21 @@ class ContextFragment<TKey extends Object>
     FragmentDefinitionNode? fragment,
     Queue<Name>? inFragments,
     Name? extendsName,
-  })  : this.fragment = fragment,
-        this.path = path,
-        super(
-          key: key,
-          config: config,
-          schema: schema,
-          currentType: currentType,
-          contexts: contexts,
-          inFragment: inFragments,
-          extendsName: extendsName,
-          allContexts: allContexts,
-          variables: variables,
-          fragmentDependencies: fragmentDependencies,
-          parent: parent,
-        );
+  }) : this.fragment = fragment,
+       this.path = path,
+       super(
+         key: key,
+         config: config,
+         schema: schema,
+         currentType: currentType,
+         contexts: contexts,
+         inFragment: inFragments,
+         extendsName: extendsName,
+         allContexts: allContexts,
+         variables: variables,
+         fragmentDependencies: fragmentDependencies,
+         parent: parent,
+       );
 
   @override
   ContextFragment<TKey> withNameAndType(
@@ -60,12 +60,10 @@ class ContextFragment<TKey extends Object>
       ]);
       return existingContext;
     }
-    final newInFragment = Queue.of(
-      [
-        ..._inFragment.map((e) => e.withSegment(name)),
-        if (inFragment != null) inFragment,
-      ],
-    );
+    final newInFragment = Queue.of([
+      ..._inFragment.map((e) => e.withSegment(name)),
+      if (inFragment != null) inFragment,
+    ]);
     final c = ContextFragment<TKey>(
       parent: this,
       key: key,
@@ -130,8 +128,9 @@ class ContextFragment<TKey extends Object>
       return;
     }
     if (argument is ObjectValueNode && type is NamedTypeNode) {
-      final typeDef =
-          schema.lookupType<InputObjectTypeDefinitionNode>(type.name);
+      final typeDef = schema.lookupType<InputObjectTypeDefinitionNode>(
+        type.name,
+      );
       final fields = typeDef?.fields ?? [];
       for (final f in argument.fields) {
         final fieldType = fields
@@ -182,40 +181,40 @@ class ContextProperty {
     this.path,
     required this.type,
     required FieldDefinitionNode fieldDefinition,
-  })  : _name = node.name,
-        alias = node.alias,
-        directives = node.directives,
-        fieldDirectives = fieldDefinition.directives,
-        hasDefaultValue = false;
+  }) : _name = node.name,
+       alias = node.alias,
+       directives = node.directives,
+       fieldDirectives = fieldDefinition.directives,
+       hasDefaultValue = false;
 
   ContextProperty.fromInputValueDefinitionNode(
     InputValueDefinitionNode node, {
     this.path,
-  })  : _name = node.name,
-        type = node.type,
-        alias = null,
-        directives = node.directives,
-        fieldDirectives = [],
-        hasDefaultValue = node.defaultValue != null;
+  }) : _name = node.name,
+       type = node.type,
+       alias = null,
+       directives = node.directives,
+       fieldDirectives = [],
+       hasDefaultValue = node.defaultValue != null;
 
   ContextProperty.fromVariableDefinitionNode(
     VariableDefinitionNode node, {
     this.path,
-  })  : _name = node.variable.name,
-        type = node.type,
-        alias = null,
-        directives = node.directives,
-        fieldDirectives = [],
-        hasDefaultValue = node.defaultValue?.value != null;
+  }) : _name = node.variable.name,
+       type = node.type,
+       alias = null,
+       directives = node.directives,
+       fieldDirectives = [],
+       hasDefaultValue = node.defaultValue?.value != null;
 
   ContextProperty merge(ContextProperty other) => ContextProperty(
-        type: _mergeTypes(type, other.type),
-        name: name,
-        path: path,
-        directives: directives,
-        fieldDirectives: fieldDirectives,
-        hasDefaultValue: hasDefaultValue,
-      );
+    type: _mergeTypes(type, other.type),
+    name: name,
+    path: path,
+    directives: directives,
+    fieldDirectives: fieldDirectives,
+    hasDefaultValue: hasDefaultValue,
+  );
 
   String get _key => name.value;
 
@@ -261,12 +260,12 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
     Map<String, ContextProperty>? variables,
     Queue<Name>? inFragment,
     Set<FragmentDefinitionNode>? fragmentDependencies,
-  })  : _currentType = currentType,
-        _contexts = contexts ?? {},
-        _allContexts = allContexts,
-        _variables = variables ?? {},
-        _inFragment = inFragment ?? ListQueue(),
-        _fragmentDependencies = fragmentDependencies ?? {};
+  }) : _currentType = currentType,
+       _contexts = contexts ?? {},
+       _allContexts = allContexts,
+       _variables = variables ?? {},
+       _inFragment = inFragment ?? ListQueue(),
+       _fragmentDependencies = fragmentDependencies ?? {};
   final TKey key;
   final GraphQLCodegenConfig config;
   final Schema<TKey> schema;
@@ -334,11 +333,11 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
   bool hasContextFragment(Name name) => _lookupAllContextFragment(name) != null;
 
   ContextRoot<TKey> rootContext() => ContextRoot<TKey>(
-        key: key,
-        config: config,
-        schema: schema,
-        allContexts: _allContexts,
-      );
+    key: key,
+    config: config,
+    schema: schema,
+    allContexts: _allContexts,
+  );
 
   ContextFragment withFragmentAndType(
     FragmentDefinitionNode node,
@@ -457,10 +456,7 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   void addArgument(ValueNode argument, TypeNode argumentType) {}
 
-  void visitInFragment(
-    Name fragmentName,
-    void Function() visitor,
-  ) {
+  void visitInFragment(Name fragmentName, void Function() visitor) {
     this._inFragment.addLast(fragmentName);
     visitor();
     this._inFragment.removeLast();
@@ -486,9 +482,9 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   bool get isVariablesRequired =>
       variables.whereType<ContextProperty?>().firstWhere(
-            (e) => e?.isRequired == true,
-            orElse: () => null,
-          ) !=
+        (e) => e?.isRequired == true,
+        orElse: () => null,
+      ) !=
       null;
 
   bool get isOneOf => false;
@@ -506,14 +502,15 @@ abstract class Context<TKey extends Object, TType extends TypeDefinitionNode> {
 
   ContextProperty? get typenameProperty =>
       properties.whereType<ContextProperty?>().firstWhere(
-            (element) => element?.isTypenameField == true,
-            orElse: () => null,
-          );
+        (element) => element?.isTypenameField == true,
+        orElse: () => null,
+      );
 
   Iterable<Context> get possibleTypes => _possibleTypes;
 
-  Iterable<FragmentDefinitionNode> get fragmentDependencies =>
-      [..._fragmentDependencies];
+  Iterable<FragmentDefinitionNode> get fragmentDependencies => [
+    ..._fragmentDependencies,
+  ];
 
   void addSelectionSet(SelectionSetNode node) {
     _selections.addAll(node.selections);
@@ -568,12 +565,12 @@ class ContextRoot<TKey extends Object>
     required Schema<TKey> schema,
     Map<Name, Context<TKey, TypeDefinitionNode>>? allContexts,
   }) : super(
-          key: key,
-          config: config,
-          schema: schema,
-          contexts: {},
-          allContexts: allContexts ?? {},
-        );
+         key: key,
+         config: config,
+         schema: schema,
+         contexts: {},
+         allContexts: allContexts ?? {},
+       );
 
   Iterable<ContextOperation> get contextOperations =>
       _contexts.values.whereType<ContextOperation>();
@@ -617,12 +614,15 @@ class ContextRoot<TKey extends Object>
         }
       }
     }
-    return possibleTypes.map((key, value) => MapEntry<String, Set<String>>(
+    return possibleTypes.map(
+      (key, value) => MapEntry<String, Set<String>>(
         key,
         value
             .expand<ObjectTypeDefinitionNode>(schema.lookupConcreteTypes)
             .map((e) => e.name.value)
-            .toSet()));
+            .toSet(),
+      ),
+    );
   }
 
   @override
@@ -638,15 +638,15 @@ class ContextEnum<TKey extends Object>
     required GraphQLCodegenConfig config,
     required Schema<TKey> schema,
     required EnumTypeDefinitionNode en,
-  })  : path = Name.fromSegment(EnumNameSegment(en)),
-        super(
-          key: key,
-          config: config,
-          schema: schema,
-          currentType: en,
-          allContexts: {},
-          parent: parent,
-        );
+  }) : path = Name.fromSegment(EnumNameSegment(en)),
+       super(
+         key: key,
+         config: config,
+         schema: schema,
+         currentType: en,
+         allContexts: {},
+         parent: parent,
+       );
 
   @override
   NameNode get currentTypeName => currentType.name;
@@ -668,24 +668,25 @@ class ContextInput<TKey extends Object>
     required InputObjectTypeDefinitionNode type,
     required Map<Name, Context<TKey, TypeDefinitionNode>> contexts,
     required Map<Name, Context<TKey, TypeDefinitionNode>> allContexts,
-  })  : path = Name.fromSegment(InputNameSegment(type)),
-        super(
-          key: key,
-          config: config,
-          schema: schema,
-          allContexts: allContexts,
-          contexts: contexts,
-          currentType: type,
-          parent: parent,
-        );
+  }) : path = Name.fromSegment(InputNameSegment(type)),
+       super(
+         key: key,
+         config: config,
+         schema: schema,
+         allContexts: allContexts,
+         contexts: contexts,
+         currentType: type,
+         parent: parent,
+       );
   @override
   NameNode get currentTypeName => currentType.name;
 
   final bool isDefinitionContext = true;
 
   bool get isOneOf {
-    final hasOneOfDirective = currentType.directives
-        .any((directive) => directive.name.value == 'oneOf');
+    final hasOneOfDirective = currentType.directives.any(
+      (directive) => directive.name.value == 'oneOf',
+    );
 
     final allFieldsAreNullable = currentType.fields.every(
       (field) => !field.type.isNonNull,
@@ -710,19 +711,19 @@ class ContextOperation<TKey extends Object>
     required TypeDefinitionNode currentType,
     required Set<FragmentDefinitionNode> fragmentDependencies,
     Name? extendsName,
-  })  : this.path = path,
-        super(
-          key: key,
-          config: config,
-          schema: schema,
-          parent: parent,
-          contexts: contexts,
-          allContexts: allContexts,
-          currentType: currentType,
-          extendsName: extendsName,
-          inFragment: inFragment,
-          fragmentDependencies: fragmentDependencies,
-        );
+  }) : this.path = path,
+       super(
+         key: key,
+         config: config,
+         schema: schema,
+         parent: parent,
+         contexts: contexts,
+         allContexts: allContexts,
+         currentType: currentType,
+         extendsName: extendsName,
+         inFragment: inFragment,
+         fragmentDependencies: fragmentDependencies,
+       );
 
   ContextOperation<TKey> withNameAndType(
     NameSegment name,
@@ -739,12 +740,10 @@ class ContextOperation<TKey extends Object>
       ]);
       return existingContext;
     }
-    final newInFragment = ListQueue.of(
-      [
-        ..._inFragment.map((e) => e.withSegment(name)),
-        if (inFragment != null) inFragment,
-      ],
-    );
+    final newInFragment = ListQueue.of([
+      ..._inFragment.map((e) => e.withSegment(name)),
+      if (inFragment != null) inFragment,
+    ]);
     final c = ContextOperation<TKey>(
       parent: this,
       key: key,

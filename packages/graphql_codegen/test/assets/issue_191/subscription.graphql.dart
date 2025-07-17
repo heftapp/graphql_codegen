@@ -3,10 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Subscription$S {
-  Subscription$S({
-    this.foo,
-    this.$__typename = 'Subscription',
-  });
+  Subscription$S({this.foo, this.$__typename = 'Subscription'});
 
   factory Subscription$S.fromJson(Map<String, dynamic> json) {
     final l$foo = json['foo'];
@@ -34,10 +31,7 @@ class Subscription$S {
   int get hashCode {
     final l$foo = foo;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$foo,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$foo, l$$__typename]);
   }
 
   @override
@@ -64,10 +58,7 @@ class Subscription$S {
 
 extension UtilityExtension$Subscription$S on Subscription$S {
   CopyWith$Subscription$S<Subscription$S> get copyWith =>
-      CopyWith$Subscription$S(
-        this,
-        (i) => i,
-      );
+      CopyWith$Subscription$S(this, (i) => i);
 }
 
 abstract class CopyWith$Subscription$S<TRes> {
@@ -79,18 +70,12 @@ abstract class CopyWith$Subscription$S<TRes> {
   factory CopyWith$Subscription$S.stub(TRes res) =
       _CopyWithStubImpl$Subscription$S;
 
-  TRes call({
-    String? foo,
-    String? $__typename,
-  });
+  TRes call({String? foo, String? $__typename});
 }
 
 class _CopyWithImpl$Subscription$S<TRes>
     implements CopyWith$Subscription$S<TRes> {
-  _CopyWithImpl$Subscription$S(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Subscription$S(this._instance, this._then);
 
   final Subscription$S _instance;
 
@@ -98,16 +83,15 @@ class _CopyWithImpl$Subscription$S<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? foo = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Subscription$S(
-        foo: foo == _undefined ? _instance.foo : (foo as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? foo = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Subscription$S(
+          foo: foo == _undefined ? _instance.foo : (foo as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Subscription$S<TRes>
@@ -116,37 +100,37 @@ class _CopyWithStubImpl$Subscription$S<TRes>
 
   TRes _res;
 
-  call({
-    String? foo,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? foo, String? $__typename}) => _res;
 }
 
-const documentNodeSubscriptionS = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.subscription,
-    name: NameNode(value: 'S'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'foo'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeSubscriptionS = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.subscription,
+      name: NameNode(value: 'S'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'foo'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 Subscription$S _parserFn$Subscription$S(Map<String, dynamic> data) =>
     Subscription$S.fromJson(data);
 
@@ -161,15 +145,15 @@ class Options$Subscription$S
     Subscription$S? typedOptimisticResult,
     graphql.Context? context,
   }) : super(
-          operationName: operationName ?? 'S',
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionS,
-          parserFn: _parserFn$Subscription$S,
-        );
+         operationName: operationName ?? 'S',
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionS,
+         parserFn: _parserFn$Subscription$S,
+       );
 }
 
 class WatchOptions$Subscription$S
@@ -187,34 +171,31 @@ class WatchOptions$Subscription$S
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'S',
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeSubscriptionS,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Subscription$S,
-        );
+         operationName: operationName ?? 'S',
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeSubscriptionS,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Subscription$S,
+       );
 }
 
 class FetchMoreOptions$Subscription$S extends graphql.FetchMoreOptions {
   FetchMoreOptions$Subscription$S({required graphql.UpdateQuery updateQuery})
-      : super(
-          updateQuery: updateQuery,
-          document: documentNodeSubscriptionS,
-        );
+    : super(updateQuery: updateQuery, document: documentNodeSubscriptionS);
 }
 
 extension ClientExtension$Subscription$S on graphql.GraphQLClient {
-  Stream<graphql.QueryResult<Subscription$S>> subscribe$S(
-          [Options$Subscription$S? options]) =>
-      this.subscribe(options ?? Options$Subscription$S());
-  graphql.ObservableQuery<Subscription$S> watchSubscription$S(
-          [WatchOptions$Subscription$S? options]) =>
-      this.watchQuery(options ?? WatchOptions$Subscription$S());
+  Stream<graphql.QueryResult<Subscription$S>> subscribe$S([
+    Options$Subscription$S? options,
+  ]) => this.subscribe(options ?? Options$Subscription$S());
+  graphql.ObservableQuery<Subscription$S> watchSubscription$S([
+    WatchOptions$Subscription$S? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Subscription$S());
 }

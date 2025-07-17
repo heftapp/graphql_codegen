@@ -182,10 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Query$FooQuery {
-  Query$FooQuery({
-    required this.foo,
-    this.$__typename = 'Query',
-  });
+  Query$FooQuery({required this.foo, this.$__typename = 'Query'});
 
   factory Query$FooQuery.fromJson(Map<String, dynamic> json) {
     final l$foo = json['foo'];
@@ -213,10 +210,7 @@ class Query$FooQuery {
   int get hashCode {
     final l$foo = foo;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$foo,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$foo, l$$__typename]);
   }
 
   @override
@@ -243,10 +237,7 @@ class Query$FooQuery {
 
 extension UtilityExtension$Query$FooQuery on Query$FooQuery {
   CopyWith$Query$FooQuery<Query$FooQuery> get copyWith =>
-      CopyWith$Query$FooQuery(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FooQuery(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FooQuery<TRes> {
@@ -258,19 +249,13 @@ abstract class CopyWith$Query$FooQuery<TRes> {
   factory CopyWith$Query$FooQuery.stub(TRes res) =
       _CopyWithStubImpl$Query$FooQuery;
 
-  TRes call({
-    Query$FooQuery$foo? foo,
-    String? $__typename,
-  });
+  TRes call({Query$FooQuery$foo? foo, String? $__typename});
   CopyWith$Query$FooQuery$foo<TRes> get foo;
 }
 
 class _CopyWithImpl$Query$FooQuery<TRes>
     implements CopyWith$Query$FooQuery<TRes> {
-  _CopyWithImpl$Query$FooQuery(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FooQuery(this._instance, this._then);
 
   final Query$FooQuery _instance;
 
@@ -278,18 +263,17 @@ class _CopyWithImpl$Query$FooQuery<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? foo = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$FooQuery(
-        foo: foo == _undefined || foo == null
-            ? _instance.foo
-            : (foo as Query$FooQuery$foo),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? foo = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$FooQuery(
+          foo: foo == _undefined || foo == null
+              ? _instance.foo
+              : (foo as Query$FooQuery$foo),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$FooQuery$foo<TRes> get foo {
     final local$foo = _instance.foo;
@@ -303,50 +287,61 @@ class _CopyWithStubImpl$Query$FooQuery<TRes>
 
   TRes _res;
 
-  call({
-    Query$FooQuery$foo? foo,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$FooQuery$foo? foo, String? $__typename}) => _res;
 
   CopyWith$Query$FooQuery$foo<TRes> get foo =>
       CopyWith$Query$FooQuery$foo.stub(_res);
 }
 
-const documentNodeQueryFooQuery = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FooQuery'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'foo'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryFooQuery = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FooQuery'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
             name: NameNode(value: 'foo'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'bar'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'foo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'bar'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -355,24 +350,14 @@ const documentNodeQueryFooQuery = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Query$FooQuery$foo {
-  Query$FooQuery$foo({
-    required this.foo,
-    this.$__typename = 'FooResponse',
-  });
+  Query$FooQuery$foo({required this.foo, this.$__typename = 'FooResponse'});
 
   factory Query$FooQuery$foo.fromJson(Map<String, dynamic> json) {
     final l$foo = json['foo'];
@@ -400,10 +385,7 @@ class Query$FooQuery$foo {
   int get hashCode {
     final l$foo = foo;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$foo,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$foo, l$$__typename]);
   }
 
   @override
@@ -430,10 +412,7 @@ class Query$FooQuery$foo {
 
 extension UtilityExtension$Query$FooQuery$foo on Query$FooQuery$foo {
   CopyWith$Query$FooQuery$foo<Query$FooQuery$foo> get copyWith =>
-      CopyWith$Query$FooQuery$foo(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FooQuery$foo(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FooQuery$foo<TRes> {
@@ -445,19 +424,13 @@ abstract class CopyWith$Query$FooQuery$foo<TRes> {
   factory CopyWith$Query$FooQuery$foo.stub(TRes res) =
       _CopyWithStubImpl$Query$FooQuery$foo;
 
-  TRes call({
-    Query$FooQuery$foo$foo? foo,
-    String? $__typename,
-  });
+  TRes call({Query$FooQuery$foo$foo? foo, String? $__typename});
   CopyWith$Query$FooQuery$foo$foo<TRes> get foo;
 }
 
 class _CopyWithImpl$Query$FooQuery$foo<TRes>
     implements CopyWith$Query$FooQuery$foo<TRes> {
-  _CopyWithImpl$Query$FooQuery$foo(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FooQuery$foo(this._instance, this._then);
 
   final Query$FooQuery$foo _instance;
 
@@ -465,18 +438,17 @@ class _CopyWithImpl$Query$FooQuery$foo<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? foo = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$FooQuery$foo(
-        foo: foo == _undefined || foo == null
-            ? _instance.foo
-            : (foo as Query$FooQuery$foo$foo),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? foo = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$FooQuery$foo(
+          foo: foo == _undefined || foo == null
+              ? _instance.foo
+              : (foo as Query$FooQuery$foo$foo),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$FooQuery$foo$foo<TRes> get foo {
     final local$foo = _instance.foo;
@@ -490,21 +462,14 @@ class _CopyWithStubImpl$Query$FooQuery$foo<TRes>
 
   TRes _res;
 
-  call({
-    Query$FooQuery$foo$foo? foo,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$FooQuery$foo$foo? foo, String? $__typename}) => _res;
 
   CopyWith$Query$FooQuery$foo$foo<TRes> get foo =>
       CopyWith$Query$FooQuery$foo$foo.stub(_res);
 }
 
 class Query$FooQuery$foo$foo {
-  Query$FooQuery$foo$foo({
-    required this.bar,
-    this.$__typename = 'FooCore',
-  });
+  Query$FooQuery$foo$foo({required this.bar, this.$__typename = 'FooCore'});
 
   factory Query$FooQuery$foo$foo.fromJson(Map<String, dynamic> json) {
     final l$bar = json['bar'];
@@ -532,10 +497,7 @@ class Query$FooQuery$foo$foo {
   int get hashCode {
     final l$bar = bar;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$bar,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$bar, l$$__typename]);
   }
 
   @override
@@ -562,10 +524,7 @@ class Query$FooQuery$foo$foo {
 
 extension UtilityExtension$Query$FooQuery$foo$foo on Query$FooQuery$foo$foo {
   CopyWith$Query$FooQuery$foo$foo<Query$FooQuery$foo$foo> get copyWith =>
-      CopyWith$Query$FooQuery$foo$foo(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FooQuery$foo$foo(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FooQuery$foo$foo<TRes> {
@@ -577,18 +536,12 @@ abstract class CopyWith$Query$FooQuery$foo$foo<TRes> {
   factory CopyWith$Query$FooQuery$foo$foo.stub(TRes res) =
       _CopyWithStubImpl$Query$FooQuery$foo$foo;
 
-  TRes call({
-    String? bar,
-    String? $__typename,
-  });
+  TRes call({String? bar, String? $__typename});
 }
 
 class _CopyWithImpl$Query$FooQuery$foo$foo<TRes>
     implements CopyWith$Query$FooQuery$foo$foo<TRes> {
-  _CopyWithImpl$Query$FooQuery$foo$foo(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FooQuery$foo$foo(this._instance, this._then);
 
   final Query$FooQuery$foo$foo _instance;
 
@@ -596,16 +549,17 @@ class _CopyWithImpl$Query$FooQuery$foo$foo<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? bar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$FooQuery$foo$foo(
-        bar: bar == _undefined || bar == null ? _instance.bar : (bar as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? bar = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$FooQuery$foo$foo(
+          bar: bar == _undefined || bar == null
+              ? _instance.bar
+              : (bar as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$FooQuery$foo$foo<TRes>
@@ -614,11 +568,7 @@ class _CopyWithStubImpl$Query$FooQuery$foo$foo<TRes>
 
   TRes _res;
 
-  call({
-    String? bar,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? bar, String? $__typename}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{};

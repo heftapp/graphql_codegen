@@ -182,10 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Query$FetchCount {
-  Query$FetchCount({
-    this.fetchCount,
-    this.$__typename = 'Query',
-  });
+  Query$FetchCount({this.fetchCount, this.$__typename = 'Query'});
 
   factory Query$FetchCount.fromJson(Map<String, dynamic> json) {
     final l$fetchCount = json['fetchCount'];
@@ -213,10 +210,7 @@ class Query$FetchCount {
   int get hashCode {
     final l$fetchCount = fetchCount;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$fetchCount,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$fetchCount, l$$__typename]);
   }
 
   @override
@@ -243,10 +237,7 @@ class Query$FetchCount {
 
 extension UtilityExtension$Query$FetchCount on Query$FetchCount {
   CopyWith$Query$FetchCount<Query$FetchCount> get copyWith =>
-      CopyWith$Query$FetchCount(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchCount(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchCount<TRes> {
@@ -258,18 +249,12 @@ abstract class CopyWith$Query$FetchCount<TRes> {
   factory CopyWith$Query$FetchCount.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchCount;
 
-  TRes call({
-    int? fetchCount,
-    String? $__typename,
-  });
+  TRes call({int? fetchCount, String? $__typename});
 }
 
 class _CopyWithImpl$Query$FetchCount<TRes>
     implements CopyWith$Query$FetchCount<TRes> {
-  _CopyWithImpl$Query$FetchCount(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchCount(this._instance, this._then);
 
   final Query$FetchCount _instance;
 
@@ -280,15 +265,16 @@ class _CopyWithImpl$Query$FetchCount<TRes>
   TRes call({
     Object? fetchCount = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$FetchCount(
-        fetchCount: fetchCount == _undefined
-            ? _instance.fetchCount
-            : (fetchCount as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$FetchCount(
+      fetchCount: fetchCount == _undefined
+          ? _instance.fetchCount
+          : (fetchCount as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchCount<TRes>
@@ -297,35 +283,35 @@ class _CopyWithStubImpl$Query$FetchCount<TRes>
 
   TRes _res;
 
-  call({
-    int? fetchCount,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? fetchCount, String? $__typename}) => _res;
 }
 
-const documentNodeQueryFetchCount = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchCount'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'fetchCount'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeQueryFetchCount = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchCount'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'fetchCount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{};

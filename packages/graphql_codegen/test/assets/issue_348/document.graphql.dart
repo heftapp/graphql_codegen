@@ -188,7 +188,8 @@ class Query$FetchScalars {
   factory Query$FetchScalars.fromJson(Map<String, dynamic> json) {
     final l$time = json['time'];
     return Query$FetchScalars(
-        time: l$time == null ? null : customDateTimeFromJson(l$time));
+      time: l$time == null ? null : customDateTimeFromJson(l$time),
+    );
   }
 
   final DateTime? time;
@@ -225,10 +226,7 @@ class Query$FetchScalars {
 
 extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
   CopyWith$Query$FetchScalars<Query$FetchScalars> get copyWith =>
-      CopyWith$Query$FetchScalars(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchScalars(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchScalars<TRes> {
@@ -245,10 +243,7 @@ abstract class CopyWith$Query$FetchScalars<TRes> {
 
 class _CopyWithImpl$Query$FetchScalars<TRes>
     implements CopyWith$Query$FetchScalars<TRes> {
-  _CopyWithImpl$Query$FetchScalars(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchScalars(this._instance, this._then);
 
   final Query$FetchScalars _instance;
 
@@ -256,8 +251,11 @@ class _CopyWithImpl$Query$FetchScalars<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? time = _undefined}) => _then(Query$FetchScalars(
-      time: time == _undefined ? _instance.time : (time as DateTime?)));
+  TRes call({Object? time = _undefined}) => _then(
+    Query$FetchScalars(
+      time: time == _undefined ? _instance.time : (time as DateTime?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchScalars<TRes>
@@ -269,21 +267,25 @@ class _CopyWithStubImpl$Query$FetchScalars<TRes>
   call({DateTime? time}) => _res;
 }
 
-const documentNodeQueryFetchScalars = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchScalars'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'time'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      )
-    ]),
-  ),
-]);
+const documentNodeQueryFetchScalars = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchScalars'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'time'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
+      ),
+    ),
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{};

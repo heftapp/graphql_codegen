@@ -50,13 +50,9 @@ class GraphQLBuilder extends Builder {
       GraphQLBuilder(options);
 
   GraphQLBuilder(this.options)
-      : config = GraphQLCodegenConfig.fromJson(
-          jsonDecode(
-            jsonEncode(
-              options.config,
-            ),
-          ) as Map<String, dynamic>,
-        );
+    : config = GraphQLCodegenConfig.fromJson(
+        jsonDecode(jsonEncode(options.config)) as Map<String, dynamic>,
+      );
 
   String get _assetsPrefix {
     final glob = config.assetsPath;
@@ -73,10 +69,10 @@ class GraphQLBuilder extends Builder {
   @override
   FutureOr<void> build(BuildStep buildStep) async {
     final scope = (config.scopes).whereType<String?>().firstWhere(
-          (element) =>
-              element != null && Glob(element).matches(buildStep.inputId.path),
-          orElse: () => null,
-        );
+      (element) =>
+          element != null && Glob(element).matches(buildStep.inputId.path),
+      orElse: () => null,
+    );
     if (scope == null) {
       return;
     }
@@ -86,19 +82,12 @@ class GraphQLBuilder extends Builder {
     final entries = await assets
         .where((asset) => assetsPathGlob.matches(asset.path))
         .asyncMap(
-          (event) async => MapEntry(
-            event,
-            await parseResource.readFile(buildStep, event),
-          ),
+          (event) async =>
+              MapEntry(event, await parseResource.readFile(buildStep, event)),
         )
         .map(
-          (event) => MapEntry(
-            event.key,
-            transform.transform(
-              config,
-              event.value,
-            ),
-          ),
+          (event) =>
+              MapEntry(event.key, transform.transform(config, event.value)),
         )
         .toList();
     final result = generate<AssetId>(
@@ -134,7 +123,8 @@ class GraphQLBuilder extends Builder {
     Library library,
   ) {
     final formatter = DartFormatter(
-        languageVersion: DartFormatter.latestShortStyleLanguageVersion);
+      languageVersion: DartFormatter.latestLanguageVersion,
+    );
     final emitter = DartEmitter(useNullSafetySyntax: true);
     final generatedCode = library.accept(emitter);
     final contents = formatter.format(
@@ -159,33 +149,27 @@ class GraphQLBuilder extends Builder {
     if (p.isRelative(config.outputDirectory)) {
       return Map.fromEntries(
         kGraphQLFileExtensions.map(
-          (extension) => MapEntry(
-            '{{dir}}/{{file}}.${extension}',
-            [
-              p.join(
-                '{{dir}}',
-                config.outputDirectory,
-                '{{file}}.${extension}.dart',
-              ),
-            ],
-          ),
+          (extension) => MapEntry('{{dir}}/{{file}}.${extension}', [
+            p.join(
+              '{{dir}}',
+              config.outputDirectory,
+              '{{file}}.${extension}.dart',
+            ),
+          ]),
         ),
       );
     }
     return {
       ...Map.fromEntries(
         kGraphQLFileExtensions.map(
-          (e) => MapEntry(
-            p.join(_assetsPrefix, '{{file}}.${e}'),
-            [
-              p.join(
-                p.relative(config.outputDirectory, from: '/'),
-                '{{file}}.${e}.dart',
-              )
-            ],
-          ),
+          (e) => MapEntry(p.join(_assetsPrefix, '{{file}}.${e}'), [
+            p.join(
+              p.relative(config.outputDirectory, from: '/'),
+              '{{file}}.${e}.dart',
+            ),
+          ]),
         ),
-      )
+      ),
     };
   }
 }

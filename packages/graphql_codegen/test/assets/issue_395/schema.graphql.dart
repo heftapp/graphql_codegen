@@ -1,8 +1,5 @@
 class Input$CarInput {
-  factory Input$CarInput({
-    String? idNullable,
-    required String idNonNullable,
-  }) =>
+  factory Input$CarInput({String? idNullable, required String idNonNullable}) =>
       Input$CarInput._({
         if (idNullable != null) r'idNullable': idNullable,
         r'idNonNullable': idNonNullable,
@@ -37,10 +34,7 @@ class Input$CarInput {
   }
 
   CopyWith$Input$CarInput<Input$CarInput> get copyWith =>
-      CopyWith$Input$CarInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$CarInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -87,18 +81,12 @@ abstract class CopyWith$Input$CarInput<TRes> {
   factory CopyWith$Input$CarInput.stub(TRes res) =
       _CopyWithStubImpl$Input$CarInput;
 
-  TRes call({
-    String? idNullable,
-    String? idNonNullable,
-  });
+  TRes call({String? idNullable, String? idNonNullable});
 }
 
 class _CopyWithImpl$Input$CarInput<TRes>
     implements CopyWith$Input$CarInput<TRes> {
-  _CopyWithImpl$Input$CarInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$CarInput(this._instance, this._then);
 
   final Input$CarInput _instance;
 
@@ -109,13 +97,14 @@ class _CopyWithImpl$Input$CarInput<TRes>
   TRes call({
     Object? idNullable = _undefined,
     Object? idNonNullable = _undefined,
-  }) =>
-      _then(Input$CarInput._({
-        ..._instance._$data,
-        if (idNullable != _undefined) 'idNullable': (idNullable as String?),
-        if (idNonNullable != _undefined && idNonNullable != null)
-          'idNonNullable': (idNonNullable as String),
-      }));
+  }) => _then(
+    Input$CarInput._({
+      ..._instance._$data,
+      if (idNullable != _undefined) 'idNullable': (idNullable as String?),
+      if (idNonNullable != _undefined && idNonNullable != null)
+        'idNonNullable': (idNonNullable as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$CarInput<TRes>
@@ -124,11 +113,7 @@ class _CopyWithStubImpl$Input$CarInput<TRes>
 
   TRes _res;
 
-  call({
-    String? idNullable,
-    String? idNonNullable,
-  }) =>
-      _res;
+  call({String? idNullable, String? idNonNullable}) => _res;
 }
 
 enum Enum$__TypeKind {

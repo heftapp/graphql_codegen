@@ -4,13 +4,12 @@ class Input$UpdatePersonInput {
     String? full_name,
     String? nickname,
     String? website,
-  }) =>
-      Input$UpdatePersonInput._({
-        r'id': id,
-        if (full_name != null) r'full_name': full_name,
-        if (nickname != null) r'nickname': nickname,
-        if (website != null) r'website': website,
-      });
+  }) => Input$UpdatePersonInput._({
+    r'id': id,
+    if (full_name != null) r'full_name': full_name,
+    if (nickname != null) r'nickname': nickname,
+    if (website != null) r'website': website,
+  });
 
   Input$UpdatePersonInput._(this._$data);
 
@@ -63,10 +62,7 @@ class Input$UpdatePersonInput {
   }
 
   CopyWith$Input$UpdatePersonInput<Input$UpdatePersonInput> get copyWith =>
-      CopyWith$Input$UpdatePersonInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$UpdatePersonInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -134,20 +130,12 @@ abstract class CopyWith$Input$UpdatePersonInput<TRes> {
   factory CopyWith$Input$UpdatePersonInput.stub(TRes res) =
       _CopyWithStubImpl$Input$UpdatePersonInput;
 
-  TRes call({
-    String? id,
-    String? full_name,
-    String? nickname,
-    String? website,
-  });
+  TRes call({String? id, String? full_name, String? nickname, String? website});
 }
 
 class _CopyWithImpl$Input$UpdatePersonInput<TRes>
     implements CopyWith$Input$UpdatePersonInput<TRes> {
-  _CopyWithImpl$Input$UpdatePersonInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$UpdatePersonInput(this._instance, this._then);
 
   final Input$UpdatePersonInput _instance;
 
@@ -160,14 +148,15 @@ class _CopyWithImpl$Input$UpdatePersonInput<TRes>
     Object? full_name = _undefined,
     Object? nickname = _undefined,
     Object? website = _undefined,
-  }) =>
-      _then(Input$UpdatePersonInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (full_name != _undefined) 'full_name': (full_name as String?),
-        if (nickname != _undefined) 'nickname': (nickname as String?),
-        if (website != _undefined) 'website': (website as String?),
-      }));
+  }) => _then(
+    Input$UpdatePersonInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (full_name != _undefined) 'full_name': (full_name as String?),
+      if (nickname != _undefined) 'nickname': (nickname as String?),
+      if (website != _undefined) 'website': (website as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$UpdatePersonInput<TRes>
@@ -176,12 +165,7 @@ class _CopyWithStubImpl$Input$UpdatePersonInput<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    String? full_name,
-    String? nickname,
-    String? website,
-  }) =>
+  call({String? id, String? full_name, String? nickname, String? website}) =>
       _res;
 }
 

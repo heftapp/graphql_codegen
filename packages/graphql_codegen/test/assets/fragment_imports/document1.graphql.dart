@@ -41,10 +41,8 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  CopyWith$Fragment$F2<Fragment$F2> get copyWith => CopyWith$Fragment$F2(
-        this,
-        (i) => i,
-      );
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
+      CopyWith$Fragment$F2(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2<TRes> {
@@ -59,10 +57,7 @@ abstract class CopyWith$Fragment$F2<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
-  _CopyWithImpl$Fragment$F2(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2(this._instance, this._then);
 
   final Fragment$F2 _instance;
 
@@ -70,8 +65,9 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? value = _undefined}) => _then(Fragment$F2(
-      value: value == _undefined ? _instance.value : (value as int?)));
+  TRes call({Object? value = _undefined}) => _then(
+    Fragment$F2(value: value == _undefined ? _instance.value : (value as int?)),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F2<TRes>
@@ -86,21 +82,21 @@ class _CopyWithStubImpl$Fragment$F2<TRes>
 const fragmentDefinitionF2 = FragmentDefinitionNode(
   name: NameNode(value: 'F2'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'T2'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'T2'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'value'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    )
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'value'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentF2 = DocumentNode(definitions: [
-  fragmentDefinitionF2,
-]);
+const documentNodeFragmentF2 = DocumentNode(
+  definitions: [fragmentDefinitionF2],
+);

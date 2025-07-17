@@ -185,9 +185,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 
 class Variables$Fragment$NameNode {
   factory Variables$Fragment$NameNode({required String setting}) =>
-      Variables$Fragment$NameNode._({
-        r'setting': setting,
-      });
+      Variables$Fragment$NameNode._({r'setting': setting});
 
   Variables$Fragment$NameNode._(this._$data);
 
@@ -210,10 +208,7 @@ class Variables$Fragment$NameNode {
   }
 
   CopyWith$Variables$Fragment$NameNode<Variables$Fragment$NameNode>
-      get copyWith => CopyWith$Variables$Fragment$NameNode(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Fragment$NameNode(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -253,10 +248,7 @@ abstract class CopyWith$Variables$Fragment$NameNode<TRes> {
 
 class _CopyWithImpl$Variables$Fragment$NameNode<TRes>
     implements CopyWith$Variables$Fragment$NameNode<TRes> {
-  _CopyWithImpl$Variables$Fragment$NameNode(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Fragment$NameNode(this._instance, this._then);
 
   final Variables$Fragment$NameNode _instance;
 
@@ -264,12 +256,13 @@ class _CopyWithImpl$Variables$Fragment$NameNode<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? setting = _undefined}) =>
-      _then(Variables$Fragment$NameNode._({
-        ..._instance._$data,
-        if (setting != _undefined && setting != null)
-          'setting': (setting as String),
-      }));
+  TRes call({Object? setting = _undefined}) => _then(
+    Variables$Fragment$NameNode._({
+      ..._instance._$data,
+      if (setting != _undefined && setting != null)
+        'setting': (setting as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Fragment$NameNode<TRes>
@@ -282,10 +275,7 @@ class _CopyWithStubImpl$Variables$Fragment$NameNode<TRes>
 }
 
 class Fragment$NameNode {
-  Fragment$NameNode({
-    this.name,
-    this.$__typename = 'Node',
-  });
+  Fragment$NameNode({this.name, this.$__typename = 'Node'});
 
   factory Fragment$NameNode.fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
@@ -313,10 +303,7 @@ class Fragment$NameNode {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -343,10 +330,7 @@ class Fragment$NameNode {
 
 extension UtilityExtension$Fragment$NameNode on Fragment$NameNode {
   CopyWith$Fragment$NameNode<Fragment$NameNode> get copyWith =>
-      CopyWith$Fragment$NameNode(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$NameNode(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$NameNode<TRes> {
@@ -358,18 +342,12 @@ abstract class CopyWith$Fragment$NameNode<TRes> {
   factory CopyWith$Fragment$NameNode.stub(TRes res) =
       _CopyWithStubImpl$Fragment$NameNode;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$NameNode<TRes>
     implements CopyWith$Fragment$NameNode<TRes> {
-  _CopyWithImpl$Fragment$NameNode(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$NameNode(this._instance, this._then);
 
   final Fragment$NameNode _instance;
 
@@ -377,16 +355,15 @@ class _CopyWithImpl$Fragment$NameNode<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$NameNode(
-        name: name == _undefined ? _instance.name : (name as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$NameNode(
+          name: name == _undefined ? _instance.name : (name as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$NameNode<TRes>
@@ -395,46 +372,42 @@ class _CopyWithStubImpl$Fragment$NameNode<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionNameNode = FragmentDefinitionNode(
   name: NameNode(value: 'NameNode'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Node'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Node'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'setting'),
-          value: VariableNode(name: NameNode(value: 'setting')),
-        )
-      ],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'setting'),
+            value: VariableNode(name: NameNode(value: 'setting')),
+          ),
+        ],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentNameNode = DocumentNode(definitions: [
-  fragmentDefinitionNameNode,
-]);
+const documentNodeFragmentNameNode = DocumentNode(
+  definitions: [fragmentDefinitionNameNode],
+);
 
 extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
   void writeFragment$NameNode({
@@ -442,19 +415,18 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
     required Map<String, dynamic> idFields,
     required Variables$Fragment$NameNode variables,
     bool broadcast = true,
-  }) =>
-      this.writeFragment(
-        graphql.FragmentRequest(
-          idFields: idFields,
-          fragment: const graphql.Fragment(
-            fragmentName: 'NameNode',
-            document: documentNodeFragmentNameNode,
-          ),
-          variables: variables.toJson(),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeFragment(
+    graphql.FragmentRequest(
+      idFields: idFields,
+      fragment: const graphql.Fragment(
+        fragmentName: 'NameNode',
+        document: documentNodeFragmentNameNode,
+      ),
+      variables: variables.toJson(),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Fragment$NameNode? readFragment$NameNode({
     required Map<String, dynamic> idFields,
     required Variables$Fragment$NameNode variables,
@@ -476,9 +448,8 @@ extension ClientExtension$Fragment$NameNode on graphql.GraphQLClient {
 }
 
 class Variables$Query$Q {
-  factory Variables$Query$Q({required String setting}) => Variables$Query$Q._({
-        r'setting': setting,
-      });
+  factory Variables$Query$Q({required String setting}) =>
+      Variables$Query$Q._({r'setting': setting});
 
   Variables$Query$Q._(this._$data);
 
@@ -501,10 +472,7 @@ class Variables$Query$Q {
   }
 
   CopyWith$Variables$Query$Q<Variables$Query$Q> get copyWith =>
-      CopyWith$Variables$Query$Q(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Q(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -543,10 +511,7 @@ abstract class CopyWith$Variables$Query$Q<TRes> {
 
 class _CopyWithImpl$Variables$Query$Q<TRes>
     implements CopyWith$Variables$Query$Q<TRes> {
-  _CopyWithImpl$Variables$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Q(this._instance, this._then);
 
   final Variables$Query$Q _instance;
 
@@ -554,11 +519,13 @@ class _CopyWithImpl$Variables$Query$Q<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? setting = _undefined}) => _then(Variables$Query$Q._({
-        ..._instance._$data,
-        if (setting != _undefined && setting != null)
-          'setting': (setting as String),
-      }));
+  TRes call({Object? setting = _undefined}) => _then(
+    Variables$Query$Q._({
+      ..._instance._$data,
+      if (setting != _undefined && setting != null)
+        'setting': (setting as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Q<TRes>
@@ -571,10 +538,7 @@ class _CopyWithStubImpl$Variables$Query$Q<TRes>
 }
 
 class Query$Q {
-  Query$Q({
-    this.node,
-    this.$__typename = 'Query',
-  });
+  Query$Q({this.node, this.$__typename = 'Query'});
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$node = json['node'];
@@ -604,10 +568,7 @@ class Query$Q {
   int get hashCode {
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$node, l$$__typename]);
   }
 
   @override
@@ -633,32 +594,21 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(
-    Query$Q instance,
-    TRes Function(Query$Q) then,
-  ) = _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call({
-    Fragment$NameNode? node,
-    String? $__typename,
-  });
+  TRes call({Fragment$NameNode? node, String? $__typename});
   CopyWith$Fragment$NameNode<TRes> get node;
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q(this._instance, this._then);
 
   final Query$Q _instance;
 
@@ -666,17 +616,17 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q(
-        node:
-            node == _undefined ? _instance.node : (node as Fragment$NameNode?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? node = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Q(
+          node: node == _undefined
+              ? _instance.node
+              : (node as Fragment$NameNode?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Fragment$NameNode<TRes> get node {
     final local$node = _instance.node;
@@ -691,42 +641,48 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call({
-    Fragment$NameNode? node,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Fragment$NameNode? node, String? $__typename}) => _res;
 
   CopyWith$Fragment$NameNode<TRes> get node =>
       CopyWith$Fragment$NameNode.stub(_res);
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'setting')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'setting')),
+          type: NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'node'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'NameNode'),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'node'),
+            alias: null,
+            arguments: [],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'NameNode'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -735,24 +691,15 @@ const documentNodeQueryQ = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionNameNode,
-]);
-Query$Q _parserFn$Query$Q(Map<String, dynamic> data) => Query$Q.fromJson(data);
-typedef OnQueryComplete$Query$Q = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$Q?,
+    ),
+    fragmentDefinitionNameNode,
+  ],
 );
+Query$Q _parserFn$Query$Q(Map<String, dynamic> data) => Query$Q.fromJson(data);
+typedef OnQueryComplete$Query$Q =
+    FutureOr<void> Function(Map<String, dynamic>?, Query$Q?);
 
 class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
   Options$Query$Q({
@@ -767,36 +714,36 @@ class Options$Query$Q extends graphql.QueryOptions<Query$Q> {
     graphql.Context? context,
     OnQueryComplete$Query$Q? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$Q(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryQ,
-          parserFn: _parserFn$Query$Q,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$Q(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryQ,
+         parserFn: _parserFn$Query$Q,
+       );
 
   final OnQueryComplete$Query$Q? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
@@ -814,20 +761,20 @@ class WatchOptions$Query$Q extends graphql.WatchQueryOptions<Query$Q> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryQ,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$Q,
-        );
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryQ,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$Q,
+       );
 }
 
 class FetchMoreOptions$Query$Q extends graphql.FetchMoreOptions {
@@ -835,10 +782,10 @@ class FetchMoreOptions$Query$Q extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     required Variables$Query$Q variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeQueryQ,
-        );
+         updateQuery: updateQuery,
+         variables: variables.toJson(),
+         document: documentNodeQueryQ,
+       );
 }
 
 extension ClientExtension$Query$Q on graphql.GraphQLClient {
@@ -850,15 +797,14 @@ extension ClientExtension$Query$Q on graphql.GraphQLClient {
     required Query$Q data,
     required Variables$Query$Q variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryQ),
-          variables: variables.toJson(),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryQ),
+      variables: variables.toJson(),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$Q? readQuery$Q({
     required Variables$Query$Q variables,
     bool optimistic = true,

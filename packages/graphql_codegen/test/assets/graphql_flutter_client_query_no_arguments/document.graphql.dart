@@ -227,10 +227,7 @@ class Query$FetchSNoVariables {
 
 extension UtilityExtension$Query$FetchSNoVariables on Query$FetchSNoVariables {
   CopyWith$Query$FetchSNoVariables<Query$FetchSNoVariables> get copyWith =>
-      CopyWith$Query$FetchSNoVariables(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchSNoVariables(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchSNoVariables<TRes> {
@@ -247,10 +244,7 @@ abstract class CopyWith$Query$FetchSNoVariables<TRes> {
 
 class _CopyWithImpl$Query$FetchSNoVariables<TRes>
     implements CopyWith$Query$FetchSNoVariables<TRes> {
-  _CopyWithImpl$Query$FetchSNoVariables(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchSNoVariables(this._instance, this._then);
 
   final Query$FetchSNoVariables _instance;
 
@@ -258,8 +252,9 @@ class _CopyWithImpl$Query$FetchSNoVariables<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? s = _undefined}) => _then(Query$FetchSNoVariables(
-      s: s == _undefined ? _instance.s : (s as String?)));
+  TRes call({Object? s = _undefined}) => _then(
+    Query$FetchSNoVariables(s: s == _undefined ? _instance.s : (s as String?)),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchSNoVariables<TRes>
@@ -271,38 +266,37 @@ class _CopyWithStubImpl$Query$FetchSNoVariables<TRes>
   call({String? s}) => _res;
 }
 
-const documentNodeQueryFetchSNoVariables = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchSNoVariables'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 's'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: StringValueNode(
-              value: 'lol',
-              isBlock: false,
-            ),
-          )
+const documentNodeQueryFetchSNoVariables = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchSNoVariables'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 's'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: StringValueNode(value: 'lol', isBlock: false),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
         ],
-        directives: [],
-        selectionSet: null,
-      )
-    ]),
-  ),
-]);
-Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
-        Map<String, dynamic> data) =>
-    Query$FetchSNoVariables.fromJson(data);
-typedef OnQueryComplete$Query$FetchSNoVariables = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$FetchSNoVariables?,
+      ),
+    ),
+  ],
 );
+Query$FetchSNoVariables _parserFn$Query$FetchSNoVariables(
+  Map<String, dynamic> data,
+) => Query$FetchSNoVariables.fromJson(data);
+typedef OnQueryComplete$Query$FetchSNoVariables =
+    FutureOr<void> Function(Map<String, dynamic>?, Query$FetchSNoVariables?);
 
 class Options$Query$FetchSNoVariables
     extends graphql.QueryOptions<Query$FetchSNoVariables> {
@@ -317,37 +311,35 @@ class Options$Query$FetchSNoVariables
     graphql.Context? context,
     OnQueryComplete$Query$FetchSNoVariables? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$FetchSNoVariables(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryFetchSNoVariables,
-          parserFn: _parserFn$Query$FetchSNoVariables,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$FetchSNoVariables(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryFetchSNoVariables,
+         parserFn: _parserFn$Query$FetchSNoVariables,
+       );
 
   final OnQueryComplete$Query$FetchSNoVariables? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$FetchSNoVariables
@@ -365,55 +357,60 @@ class WatchOptions$Query$FetchSNoVariables
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryFetchSNoVariables,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$FetchSNoVariables,
-        );
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryFetchSNoVariables,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$FetchSNoVariables,
+       );
 }
 
 class FetchMoreOptions$Query$FetchSNoVariables
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$FetchSNoVariables(
-      {required graphql.UpdateQuery updateQuery})
-      : super(
-          updateQuery: updateQuery,
-          document: documentNodeQueryFetchSNoVariables,
-        );
+  FetchMoreOptions$Query$FetchSNoVariables({
+    required graphql.UpdateQuery updateQuery,
+  }) : super(
+         updateQuery: updateQuery,
+         document: documentNodeQueryFetchSNoVariables,
+       );
 }
 
 extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$FetchSNoVariables>> query$FetchSNoVariables(
-          [Options$Query$FetchSNoVariables? options]) async =>
-      await this.query(options ?? Options$Query$FetchSNoVariables());
-  graphql.ObservableQuery<Query$FetchSNoVariables> watchQuery$FetchSNoVariables(
-          [WatchOptions$Query$FetchSNoVariables? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$FetchSNoVariables());
+  Future<graphql.QueryResult<Query$FetchSNoVariables>> query$FetchSNoVariables([
+    Options$Query$FetchSNoVariables? options,
+  ]) async => await this.query(options ?? Options$Query$FetchSNoVariables());
+  graphql.ObservableQuery<Query$FetchSNoVariables>
+  watchQuery$FetchSNoVariables([
+    WatchOptions$Query$FetchSNoVariables? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$FetchSNoVariables());
   void writeQuery$FetchSNoVariables({
     required Query$FetchSNoVariables data,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQueryFetchSNoVariables)),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
-  Query$FetchSNoVariables? readQuery$FetchSNoVariables(
-      {bool optimistic = true}) {
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(
+        document: documentNodeQueryFetchSNoVariables,
+      ),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
+  Query$FetchSNoVariables? readQuery$FetchSNoVariables({
+    bool optimistic = true,
+  }) {
     final result = this.readQuery(
       graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryFetchSNoVariables)),
+        operation: graphql.Operation(
+          document: documentNodeQueryFetchSNoVariables,
+        ),
+      ),
       optimistic: optimistic,
     );
     return result == null ? null : Query$FetchSNoVariables.fromJson(result);
@@ -421,13 +418,14 @@ extension ClientExtension$Query$FetchSNoVariables on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$FetchSNoVariables>
-    useQuery$FetchSNoVariables([Options$Query$FetchSNoVariables? options]) =>
-        graphql_flutter.useQuery(options ?? Options$Query$FetchSNoVariables());
+useQuery$FetchSNoVariables([Options$Query$FetchSNoVariables? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$FetchSNoVariables());
 graphql.ObservableQuery<Query$FetchSNoVariables>
-    useWatchQuery$FetchSNoVariables(
-            [WatchOptions$Query$FetchSNoVariables? options]) =>
-        graphql_flutter
-            .useWatchQuery(options ?? WatchOptions$Query$FetchSNoVariables());
+useWatchQuery$FetchSNoVariables([
+  WatchOptions$Query$FetchSNoVariables? options,
+]) => graphql_flutter.useWatchQuery(
+  options ?? WatchOptions$Query$FetchSNoVariables(),
+);
 
 class Query$FetchSNoVariables$Widget
     extends graphql_flutter.Query<Query$FetchSNoVariables> {
@@ -436,10 +434,10 @@ class Query$FetchSNoVariables$Widget
     Options$Query$FetchSNoVariables? options,
     required graphql_flutter.QueryBuilder<Query$FetchSNoVariables> builder,
   }) : super(
-          key: key,
-          options: options ?? Options$Query$FetchSNoVariables(),
-          builder: builder,
-        );
+         key: key,
+         options: options ?? Options$Query$FetchSNoVariables(),
+         builder: builder,
+       );
 }
 
 const possibleTypesMap = <String, Set<String>>{};

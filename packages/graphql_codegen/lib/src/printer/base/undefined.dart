@@ -8,10 +8,6 @@ Field printUndefinedField() {
       ..name = kUndefinedFieldName
       ..static = true
       ..modifier = FieldModifier.constant
-      ..assignment = literalMap(
-        {},
-        refer('dynamic'),
-        refer('dynamic'),
-      ).code,
+      ..assignment = literalMap({}, refer('dynamic'), refer('dynamic')).code,
   );
 }

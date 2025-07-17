@@ -7,9 +7,10 @@ class Query$FetchName {
   factory Query$FetchName.fromJson(Map<String, dynamic> json) {
     final l$name = json['name'];
     return Query$FetchName(
-        name: l$name == null
-            ? null
-            : Fragment$F.fromJson((l$name as Map<String, dynamic>)));
+      name: l$name == null
+          ? null
+          : Fragment$F.fromJson((l$name as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F? name;
@@ -46,10 +47,7 @@ class Query$FetchName {
 
 extension UtilityExtension$Query$FetchName on Query$FetchName {
   CopyWith$Query$FetchName<Query$FetchName> get copyWith =>
-      CopyWith$Query$FetchName(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchName(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchName<TRes> {
@@ -67,10 +65,7 @@ abstract class CopyWith$Query$FetchName<TRes> {
 
 class _CopyWithImpl$Query$FetchName<TRes>
     implements CopyWith$Query$FetchName<TRes> {
-  _CopyWithImpl$Query$FetchName(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchName(this._instance, this._then);
 
   final Query$FetchName _instance;
 
@@ -78,8 +73,11 @@ class _CopyWithImpl$Query$FetchName<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Query$FetchName(
-      name: name == _undefined ? _instance.name : (name as Fragment$F?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Query$FetchName(
+      name: name == _undefined ? _instance.name : (name as Fragment$F?),
+    ),
+  );
 
   CopyWith$Fragment$F<TRes> get name {
     final local$name = _instance.name;
@@ -100,26 +98,32 @@ class _CopyWithStubImpl$Query$FetchName<TRes>
   CopyWith$Fragment$F<TRes> get name => CopyWith$Fragment$F.stub(_res);
 }
 
-const documentNodeQueryFetchName = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchName'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'name'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'F'),
+const documentNodeQueryFetchName = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchName'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
             directives: [],
-          )
-        ]),
-      )
-    ]),
-  ),
-  fragmentDefinitionF,
-]);
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'F'),
+                  directives: [],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+    fragmentDefinitionF,
+  ],
+);

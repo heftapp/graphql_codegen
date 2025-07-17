@@ -188,7 +188,8 @@ class Fragment$FullFriendRequestNotification {
   });
 
   factory Fragment$FullFriendRequestNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$requesterUsername = json['requesterUsername'];
     final l$$__typename = json['__typename'];
     return Fragment$FullFriendRequestNotification(
@@ -214,10 +215,7 @@ class Fragment$FullFriendRequestNotification {
   int get hashCode {
     final l$requesterUsername = requesterUsername;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$requesterUsername,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$requesterUsername, l$$__typename]);
   }
 
   @override
@@ -246,11 +244,10 @@ class Fragment$FullFriendRequestNotification {
 extension UtilityExtension$Fragment$FullFriendRequestNotification
     on Fragment$FullFriendRequestNotification {
   CopyWith$Fragment$FullFriendRequestNotification<
-          Fragment$FullFriendRequestNotification>
-      get copyWith => CopyWith$Fragment$FullFriendRequestNotification(
-            this,
-            (i) => i,
-          );
+    Fragment$FullFriendRequestNotification
+  >
+  get copyWith =>
+      CopyWith$Fragment$FullFriendRequestNotification(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FullFriendRequestNotification<TRes> {
@@ -262,10 +259,7 @@ abstract class CopyWith$Fragment$FullFriendRequestNotification<TRes> {
   factory CopyWith$Fragment$FullFriendRequestNotification.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FullFriendRequestNotification;
 
-  TRes call({
-    String? requesterUsername,
-    String? $__typename,
-  });
+  TRes call({String? requesterUsername, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$FullFriendRequestNotification<TRes>
@@ -284,16 +278,17 @@ class _CopyWithImpl$Fragment$FullFriendRequestNotification<TRes>
   TRes call({
     Object? requesterUsername = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullFriendRequestNotification(
-        requesterUsername:
-            requesterUsername == _undefined || requesterUsername == null
-                ? _instance.requesterUsername
-                : (requesterUsername as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FullFriendRequestNotification(
+      requesterUsername:
+          requesterUsername == _undefined || requesterUsername == null
+          ? _instance.requesterUsername
+          : (requesterUsername as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FullFriendRequestNotification<TRes>
@@ -302,42 +297,40 @@ class _CopyWithStubImpl$Fragment$FullFriendRequestNotification<TRes>
 
   TRes _res;
 
-  call({
-    String? requesterUsername,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? requesterUsername, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionFullFriendRequestNotification = FragmentDefinitionNode(
   name: NameNode(value: 'FullFriendRequestNotification'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'FriendRequestNotification'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'FriendRequestNotification'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'requesterUsername'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'requesterUsername'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFullFriendRequestNotification =
-    DocumentNode(definitions: [
-  fragmentDefinitionFullFriendRequestNotification,
-]);
+const documentNodeFragmentFullFriendRequestNotification = DocumentNode(
+  definitions: [fragmentDefinitionFullFriendRequestNotification],
+);
 
 class Fragment$FullNewsNotification {
   Fragment$FullNewsNotification({
@@ -371,10 +364,7 @@ class Fragment$FullNewsNotification {
   int get hashCode {
     final l$newsId = newsId;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$newsId,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$newsId, l$$__typename]);
   }
 
   @override
@@ -403,10 +393,7 @@ class Fragment$FullNewsNotification {
 extension UtilityExtension$Fragment$FullNewsNotification
     on Fragment$FullNewsNotification {
   CopyWith$Fragment$FullNewsNotification<Fragment$FullNewsNotification>
-      get copyWith => CopyWith$Fragment$FullNewsNotification(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$FullNewsNotification(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FullNewsNotification<TRes> {
@@ -418,18 +405,12 @@ abstract class CopyWith$Fragment$FullNewsNotification<TRes> {
   factory CopyWith$Fragment$FullNewsNotification.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FullNewsNotification;
 
-  TRes call({
-    String? newsId,
-    String? $__typename,
-  });
+  TRes call({String? newsId, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$FullNewsNotification<TRes>
     implements CopyWith$Fragment$FullNewsNotification<TRes> {
-  _CopyWithImpl$Fragment$FullNewsNotification(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FullNewsNotification(this._instance, this._then);
 
   final Fragment$FullNewsNotification _instance;
 
@@ -437,18 +418,17 @@ class _CopyWithImpl$Fragment$FullNewsNotification<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? newsId = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullNewsNotification(
-        newsId: newsId == _undefined || newsId == null
-            ? _instance.newsId
-            : (newsId as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? newsId = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$FullNewsNotification(
+          newsId: newsId == _undefined || newsId == null
+              ? _instance.newsId
+              : (newsId as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$FullNewsNotification<TRes>
@@ -457,41 +437,40 @@ class _CopyWithStubImpl$Fragment$FullNewsNotification<TRes>
 
   TRes _res;
 
-  call({
-    String? newsId,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? newsId, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionFullNewsNotification = FragmentDefinitionNode(
   name: NameNode(value: 'FullNewsNotification'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'NewsNotification'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'NewsNotification'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'newsId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'newsId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFullNewsNotification = DocumentNode(definitions: [
-  fragmentDefinitionFullNewsNotification,
-]);
+const documentNodeFragmentFullNewsNotification = DocumentNode(
+  definitions: [fragmentDefinitionFullNewsNotification],
+);
 
 class Fragment$FullUser {
   Fragment$FullUser({
@@ -516,8 +495,11 @@ class Fragment$FullUser {
       sex: (l$sex as String?),
       age: (l$age as int?),
       notifications: (l$notifications as List<dynamic>?)
-          ?.map((e) => Fragment$FullUser$notifications.fromJson(
-              (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => Fragment$FullUser$notifications.fromJson(
+              (e as Map<String, dynamic>),
+            ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -546,8 +528,9 @@ class Fragment$FullUser {
     final l$age = age;
     _resultData['age'] = l$age;
     final l$notifications = notifications;
-    _resultData['notifications'] =
-        l$notifications?.map((e) => e.toJson()).toList();
+    _resultData['notifications'] = l$notifications
+        ?.map((e) => e.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -628,10 +611,7 @@ class Fragment$FullUser {
 
 extension UtilityExtension$Fragment$FullUser on Fragment$FullUser {
   CopyWith$Fragment$FullUser<Fragment$FullUser> get copyWith =>
-      CopyWith$Fragment$FullUser(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FullUser(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FullUser<TRes> {
@@ -652,19 +632,20 @@ abstract class CopyWith$Fragment$FullUser<TRes> {
     String? $__typename,
   });
   TRes notifications(
-      Iterable<Fragment$FullUser$notifications>? Function(
-              Iterable<
-                  CopyWith$Fragment$FullUser$notifications<
-                      Fragment$FullUser$notifications>>?)
-          _fn);
+    Iterable<Fragment$FullUser$notifications>? Function(
+      Iterable<
+        CopyWith$Fragment$FullUser$notifications<
+          Fragment$FullUser$notifications
+        >
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Fragment$FullUser<TRes>
     implements CopyWith$Fragment$FullUser<TRes> {
-  _CopyWithImpl$Fragment$FullUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FullUser(this._instance, this._then);
 
   final Fragment$FullUser _instance;
 
@@ -679,34 +660,39 @@ class _CopyWithImpl$Fragment$FullUser<TRes>
     Object? age = _undefined,
     Object? notifications = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullUser(
-        username: username == _undefined || username == null
-            ? _instance.username
-            : (username as String),
-        email: email == _undefined ? _instance.email : (email as String?),
-        sex: sex == _undefined ? _instance.sex : (sex as String?),
-        age: age == _undefined ? _instance.age : (age as int?),
-        notifications: notifications == _undefined
-            ? _instance.notifications
-            : (notifications as List<Fragment$FullUser$notifications>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FullUser(
+      username: username == _undefined || username == null
+          ? _instance.username
+          : (username as String),
+      email: email == _undefined ? _instance.email : (email as String?),
+      sex: sex == _undefined ? _instance.sex : (sex as String?),
+      age: age == _undefined ? _instance.age : (age as int?),
+      notifications: notifications == _undefined
+          ? _instance.notifications
+          : (notifications as List<Fragment$FullUser$notifications>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes notifications(
-          Iterable<Fragment$FullUser$notifications>? Function(
-                  Iterable<
-                      CopyWith$Fragment$FullUser$notifications<
-                          Fragment$FullUser$notifications>>?)
-              _fn) =>
-      call(
-          notifications: _fn(_instance.notifications
-              ?.map((e) => CopyWith$Fragment$FullUser$notifications(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Fragment$FullUser$notifications>? Function(
+      Iterable<
+        CopyWith$Fragment$FullUser$notifications<
+          Fragment$FullUser$notifications
+        >
+      >?,
+    )
+    _fn,
+  ) => call(
+    notifications: _fn(
+      _instance.notifications?.map(
+        (e) => CopyWith$Fragment$FullUser$notifications(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FullUser<TRes>
@@ -722,8 +708,7 @@ class _CopyWithStubImpl$Fragment$FullUser<TRes>
     int? age,
     List<Fragment$FullUser$notifications>? notifications,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   notifications(_fn) => _res;
 }
@@ -731,77 +716,81 @@ class _CopyWithStubImpl$Fragment$FullUser<TRes>
 const fragmentDefinitionFullUser = FragmentDefinitionNode(
   name: NameNode(value: 'FullUser'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'User'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'User'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'username'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'email'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'sex'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'age'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'notifications'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'FullFriendRequestNotification'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'username'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'email'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'sex'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'age'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'notifications'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'FullFriendRequestNotification'),
+              directives: [],
+            ),
+            FragmentSpreadNode(
+              name: NameNode(value: 'FullNewsNotification'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FragmentSpreadNode(
-          name: NameNode(value: 'FullNewsNotification'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFullUser = DocumentNode(definitions: [
-  fragmentDefinitionFullUser,
-  fragmentDefinitionFullFriendRequestNotification,
-  fragmentDefinitionFullNewsNotification,
-]);
+const documentNodeFragmentFullUser = DocumentNode(
+  definitions: [
+    fragmentDefinitionFullUser,
+    fragmentDefinitionFullFriendRequestNotification,
+    fragmentDefinitionFullNewsNotification,
+  ],
+);
 
 class Fragment$FullUser$notifications {
   Fragment$FullUser$notifications({required this.$__typename});
@@ -809,8 +798,9 @@ class Fragment$FullUser$notifications {
   factory Fragment$FullUser$notifications.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "FriendRequestNotification":
-        return Fragment$FullUser$notifications$$FriendRequestNotification
-            .fromJson(json);
+        return Fragment$FullUser$notifications$$FriendRequestNotification.fromJson(
+          json,
+        );
 
       case "NewsNotification":
         return Fragment$FullUser$notifications$$NewsNotification.fromJson(json);
@@ -818,7 +808,8 @@ class Fragment$FullUser$notifications {
       default:
         final l$$__typename = json['__typename'];
         return Fragment$FullUser$notifications(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -858,26 +849,26 @@ class Fragment$FullUser$notifications {
 extension UtilityExtension$Fragment$FullUser$notifications
     on Fragment$FullUser$notifications {
   CopyWith$Fragment$FullUser$notifications<Fragment$FullUser$notifications>
-      get copyWith => CopyWith$Fragment$FullUser$notifications(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$FullUser$notifications(this, (i) => i);
   _T when<_T>({
     required _T Function(
-            Fragment$FullUser$notifications$$FriendRequestNotification)
-        friendRequestNotification,
+      Fragment$FullUser$notifications$$FriendRequestNotification,
+    )
+    friendRequestNotification,
     required _T Function(Fragment$FullUser$notifications$$NewsNotification)
-        newsNotification,
+    newsNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "FriendRequestNotification":
         return friendRequestNotification(
-            this as Fragment$FullUser$notifications$$FriendRequestNotification);
+          this as Fragment$FullUser$notifications$$FriendRequestNotification,
+        );
 
       case "NewsNotification":
         return newsNotification(
-            this as Fragment$FullUser$notifications$$NewsNotification);
+          this as Fragment$FullUser$notifications$$NewsNotification,
+        );
 
       default:
         return orElse();
@@ -886,16 +877,17 @@ extension UtilityExtension$Fragment$FullUser$notifications
 
   _T maybeWhen<_T>({
     _T Function(Fragment$FullUser$notifications$$FriendRequestNotification)?
-        friendRequestNotification,
+    friendRequestNotification,
     _T Function(Fragment$FullUser$notifications$$NewsNotification)?
-        newsNotification,
+    newsNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "FriendRequestNotification":
         if (friendRequestNotification != null) {
-          return friendRequestNotification(this
-              as Fragment$FullUser$notifications$$FriendRequestNotification);
+          return friendRequestNotification(
+            this as Fragment$FullUser$notifications$$FriendRequestNotification,
+          );
         } else {
           return orElse();
         }
@@ -903,7 +895,8 @@ extension UtilityExtension$Fragment$FullUser$notifications
       case "NewsNotification":
         if (newsNotification != null) {
           return newsNotification(
-              this as Fragment$FullUser$notifications$$NewsNotification);
+            this as Fragment$FullUser$notifications$$NewsNotification,
+          );
         } else {
           return orElse();
         }
@@ -928,10 +921,7 @@ abstract class CopyWith$Fragment$FullUser$notifications<TRes> {
 
 class _CopyWithImpl$Fragment$FullUser$notifications<TRes>
     implements CopyWith$Fragment$FullUser$notifications<TRes> {
-  _CopyWithImpl$Fragment$FullUser$notifications(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FullUser$notifications(this._instance, this._then);
 
   final Fragment$FullUser$notifications _instance;
 
@@ -939,11 +929,13 @@ class _CopyWithImpl$Fragment$FullUser$notifications<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Fragment$FullUser$notifications(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Fragment$FullUser$notifications(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FullUser$notifications<TRes>
@@ -965,7 +957,8 @@ class Fragment$FullUser$notifications$$FriendRequestNotification
   });
 
   factory Fragment$FullUser$notifications$$FriendRequestNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$requesterUsername = json['requesterUsername'];
     final l$$__typename = json['__typename'];
     return Fragment$FullUser$notifications$$FriendRequestNotification(
@@ -991,10 +984,7 @@ class Fragment$FullUser$notifications$$FriendRequestNotification
   int get hashCode {
     final l$requesterUsername = requesterUsername;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$requesterUsername,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$requesterUsername, l$$__typename]);
   }
 
   @override
@@ -1023,37 +1013,38 @@ class Fragment$FullUser$notifications$$FriendRequestNotification
 extension UtilityExtension$Fragment$FullUser$notifications$$FriendRequestNotification
     on Fragment$FullUser$notifications$$FriendRequestNotification {
   CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification<
-          Fragment$FullUser$notifications$$FriendRequestNotification>
-      get copyWith =>
-          CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification(
-            this,
-            (i) => i,
-          );
+    Fragment$FullUser$notifications$$FriendRequestNotification
+  >
+  get copyWith =>
+      CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification(
     Fragment$FullUser$notifications$$FriendRequestNotification instance,
     TRes Function(Fragment$FullUser$notifications$$FriendRequestNotification)
-        then,
+    then,
   ) = _CopyWithImpl$Fragment$FullUser$notifications$$FriendRequestNotification;
 
   factory CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$FullUser$notifications$$FriendRequestNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$FullUser$notifications$$FriendRequestNotification;
 
-  TRes call({
-    String? requesterUsername,
-    String? $__typename,
-  });
+  TRes call({String? requesterUsername, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$FullUser$notifications$$FriendRequestNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Fragment$FullUser$notifications$$FriendRequestNotification(
     this._instance,
     this._then,
@@ -1062,40 +1053,42 @@ class _CopyWithImpl$Fragment$FullUser$notifications$$FriendRequestNotification<
   final Fragment$FullUser$notifications$$FriendRequestNotification _instance;
 
   final TRes Function(
-      Fragment$FullUser$notifications$$FriendRequestNotification) _then;
+    Fragment$FullUser$notifications$$FriendRequestNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? requesterUsername = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullUser$notifications$$FriendRequestNotification(
-        requesterUsername:
-            requesterUsername == _undefined || requesterUsername == null
-                ? _instance.requesterUsername
-                : (requesterUsername as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FullUser$notifications$$FriendRequestNotification(
+      requesterUsername:
+          requesterUsername == _undefined || requesterUsername == null
+          ? _instance.requesterUsername
+          : (requesterUsername as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FullUser$notifications$$FriendRequestNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$FullUser$notifications$$FriendRequestNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Fragment$FullUser$notifications$$FriendRequestNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? requesterUsername,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? requesterUsername, String? $__typename}) => _res;
 }
 
 class Fragment$FullUser$notifications$$NewsNotification
@@ -1106,7 +1099,8 @@ class Fragment$FullUser$notifications$$NewsNotification
   });
 
   factory Fragment$FullUser$notifications$$NewsNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$newsId = json['newsId'];
     final l$$__typename = json['__typename'];
     return Fragment$FullUser$notifications$$NewsNotification(
@@ -1132,10 +1126,7 @@ class Fragment$FullUser$notifications$$NewsNotification
   int get hashCode {
     final l$newsId = newsId;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$newsId,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$newsId, l$$__typename]);
   }
 
   @override
@@ -1164,29 +1155,27 @@ class Fragment$FullUser$notifications$$NewsNotification
 extension UtilityExtension$Fragment$FullUser$notifications$$NewsNotification
     on Fragment$FullUser$notifications$$NewsNotification {
   CopyWith$Fragment$FullUser$notifications$$NewsNotification<
-          Fragment$FullUser$notifications$$NewsNotification>
-      get copyWith =>
-          CopyWith$Fragment$FullUser$notifications$$NewsNotification(
-            this,
-            (i) => i,
-          );
+    Fragment$FullUser$notifications$$NewsNotification
+  >
+  get copyWith => CopyWith$Fragment$FullUser$notifications$$NewsNotification(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$FullUser$notifications$$NewsNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$FullUser$notifications$$NewsNotification(
     Fragment$FullUser$notifications$$NewsNotification instance,
     TRes Function(Fragment$FullUser$notifications$$NewsNotification) then,
   ) = _CopyWithImpl$Fragment$FullUser$notifications$$NewsNotification;
 
   factory CopyWith$Fragment$FullUser$notifications$$NewsNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$FullUser$notifications$$NewsNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$FullUser$notifications$$NewsNotification;
 
-  TRes call({
-    String? newsId,
-    String? $__typename,
-  });
+  TRes call({String? newsId, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$FullUser$notifications$$NewsNotification<TRes>
@@ -1203,40 +1192,34 @@ class _CopyWithImpl$Fragment$FullUser$notifications$$NewsNotification<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? newsId = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullUser$notifications$$NewsNotification(
-        newsId: newsId == _undefined || newsId == null
-            ? _instance.newsId
-            : (newsId as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? newsId = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$FullUser$notifications$$NewsNotification(
+          newsId: newsId == _undefined || newsId == null
+              ? _instance.newsId
+              : (newsId as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$FullUser$notifications$$NewsNotification<TRes>
     implements
         CopyWith$Fragment$FullUser$notifications$$NewsNotification<TRes> {
   _CopyWithStubImpl$Fragment$FullUser$notifications$$NewsNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? newsId,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? newsId, String? $__typename}) => _res;
 }
 
 class Variables$Query$GetUser {
   factory Variables$Query$GetUser({required String username}) =>
-      Variables$Query$GetUser._({
-        r'username': username,
-      });
+      Variables$Query$GetUser._({r'username': username});
 
   Variables$Query$GetUser._(this._$data);
 
@@ -1259,10 +1242,7 @@ class Variables$Query$GetUser {
   }
 
   CopyWith$Variables$Query$GetUser<Variables$Query$GetUser> get copyWith =>
-      CopyWith$Variables$Query$GetUser(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$GetUser(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1301,10 +1281,7 @@ abstract class CopyWith$Variables$Query$GetUser<TRes> {
 
 class _CopyWithImpl$Variables$Query$GetUser<TRes>
     implements CopyWith$Variables$Query$GetUser<TRes> {
-  _CopyWithImpl$Variables$Query$GetUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$GetUser(this._instance, this._then);
 
   final Variables$Query$GetUser _instance;
 
@@ -1312,12 +1289,13 @@ class _CopyWithImpl$Variables$Query$GetUser<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? username = _undefined}) =>
-      _then(Variables$Query$GetUser._({
-        ..._instance._$data,
-        if (username != _undefined && username != null)
-          'username': (username as String),
-      }));
+  TRes call({Object? username = _undefined}) => _then(
+    Variables$Query$GetUser._({
+      ..._instance._$data,
+      if (username != _undefined && username != null)
+        'username': (username as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$GetUser<TRes>
@@ -1330,10 +1308,7 @@ class _CopyWithStubImpl$Variables$Query$GetUser<TRes>
 }
 
 class Query$GetUser {
-  Query$GetUser({
-    this.getUser,
-    this.$__typename = 'Query',
-  });
+  Query$GetUser({this.getUser, this.$__typename = 'Query'});
 
   factory Query$GetUser.fromJson(Map<String, dynamic> json) {
     final l$getUser = json['getUser'];
@@ -1363,10 +1338,7 @@ class Query$GetUser {
   int get hashCode {
     final l$getUser = getUser;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$getUser,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$getUser, l$$__typename]);
   }
 
   @override
@@ -1392,10 +1364,8 @@ class Query$GetUser {
 }
 
 extension UtilityExtension$Query$GetUser on Query$GetUser {
-  CopyWith$Query$GetUser<Query$GetUser> get copyWith => CopyWith$Query$GetUser(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$GetUser<Query$GetUser> get copyWith =>
+      CopyWith$Query$GetUser(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GetUser<TRes> {
@@ -1407,19 +1377,13 @@ abstract class CopyWith$Query$GetUser<TRes> {
   factory CopyWith$Query$GetUser.stub(TRes res) =
       _CopyWithStubImpl$Query$GetUser;
 
-  TRes call({
-    Fragment$FullUser? getUser,
-    String? $__typename,
-  });
+  TRes call({Fragment$FullUser? getUser, String? $__typename});
   CopyWith$Fragment$FullUser<TRes> get getUser;
 }
 
 class _CopyWithImpl$Query$GetUser<TRes>
     implements CopyWith$Query$GetUser<TRes> {
-  _CopyWithImpl$Query$GetUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GetUser(this._instance, this._then);
 
   final Query$GetUser _instance;
 
@@ -1427,18 +1391,17 @@ class _CopyWithImpl$Query$GetUser<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? getUser = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetUser(
-        getUser: getUser == _undefined
-            ? _instance.getUser
-            : (getUser as Fragment$FullUser?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? getUser = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$GetUser(
+          getUser: getUser == _undefined
+              ? _instance.getUser
+              : (getUser as Fragment$FullUser?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Fragment$FullUser<TRes> get getUser {
     final local$getUser = _instance.getUser;
@@ -1454,47 +1417,53 @@ class _CopyWithStubImpl$Query$GetUser<TRes>
 
   TRes _res;
 
-  call({
-    Fragment$FullUser? getUser,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Fragment$FullUser? getUser, String? $__typename}) => _res;
 
   CopyWith$Fragment$FullUser<TRes> get getUser =>
       CopyWith$Fragment$FullUser.stub(_res);
 }
 
-const documentNodeQueryGetUser = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GetUser'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'username')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
+const documentNodeQueryGetUser = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'GetUser'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'username')),
+          type: NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'getUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'username'),
-            value: VariableNode(name: NameNode(value: 'username')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'FullUser'),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'getUser'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'username'),
+                value: VariableNode(name: NameNode(value: 'username')),
+              ),
+            ],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'FullUser'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1503,27 +1472,18 @@ const documentNodeQueryGetUser = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionFullUser,
-  fragmentDefinitionFullFriendRequestNotification,
-  fragmentDefinitionFullNewsNotification,
-]);
+    ),
+    fragmentDefinitionFullUser,
+    fragmentDefinitionFullFriendRequestNotification,
+    fragmentDefinitionFullNewsNotification,
+  ],
+);
 
 class Variables$Query$GetNotifications {
   factory Variables$Query$GetNotifications({required String username}) =>
-      Variables$Query$GetNotifications._({
-        r'username': username,
-      });
+      Variables$Query$GetNotifications._({r'username': username});
 
   Variables$Query$GetNotifications._(this._$data);
 
@@ -1546,10 +1506,7 @@ class Variables$Query$GetNotifications {
   }
 
   CopyWith$Variables$Query$GetNotifications<Variables$Query$GetNotifications>
-      get copyWith => CopyWith$Variables$Query$GetNotifications(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$GetNotifications(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1589,10 +1546,7 @@ abstract class CopyWith$Variables$Query$GetNotifications<TRes> {
 
 class _CopyWithImpl$Variables$Query$GetNotifications<TRes>
     implements CopyWith$Variables$Query$GetNotifications<TRes> {
-  _CopyWithImpl$Variables$Query$GetNotifications(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$GetNotifications(this._instance, this._then);
 
   final Variables$Query$GetNotifications _instance;
 
@@ -1600,12 +1554,13 @@ class _CopyWithImpl$Variables$Query$GetNotifications<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? username = _undefined}) =>
-      _then(Variables$Query$GetNotifications._({
-        ..._instance._$data,
-        if (username != _undefined && username != null)
-          'username': (username as String),
-      }));
+  TRes call({Object? username = _undefined}) => _then(
+    Variables$Query$GetNotifications._({
+      ..._instance._$data,
+      if (username != _undefined && username != null)
+        'username': (username as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$GetNotifications<TRes>
@@ -1618,10 +1573,7 @@ class _CopyWithStubImpl$Variables$Query$GetNotifications<TRes>
 }
 
 class Query$GetNotifications {
-  Query$GetNotifications({
-    this.getUser,
-    this.$__typename = 'Query',
-  });
+  Query$GetNotifications({this.getUser, this.$__typename = 'Query'});
 
   factory Query$GetNotifications.fromJson(Map<String, dynamic> json) {
     final l$getUser = json['getUser'];
@@ -1630,7 +1582,8 @@ class Query$GetNotifications {
       getUser: l$getUser == null
           ? null
           : Query$GetNotifications$getUser.fromJson(
-              (l$getUser as Map<String, dynamic>)),
+              (l$getUser as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1652,10 +1605,7 @@ class Query$GetNotifications {
   int get hashCode {
     final l$getUser = getUser;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$getUser,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$getUser, l$$__typename]);
   }
 
   @override
@@ -1682,10 +1632,7 @@ class Query$GetNotifications {
 
 extension UtilityExtension$Query$GetNotifications on Query$GetNotifications {
   CopyWith$Query$GetNotifications<Query$GetNotifications> get copyWith =>
-      CopyWith$Query$GetNotifications(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$GetNotifications(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GetNotifications<TRes> {
@@ -1697,19 +1644,13 @@ abstract class CopyWith$Query$GetNotifications<TRes> {
   factory CopyWith$Query$GetNotifications.stub(TRes res) =
       _CopyWithStubImpl$Query$GetNotifications;
 
-  TRes call({
-    Query$GetNotifications$getUser? getUser,
-    String? $__typename,
-  });
+  TRes call({Query$GetNotifications$getUser? getUser, String? $__typename});
   CopyWith$Query$GetNotifications$getUser<TRes> get getUser;
 }
 
 class _CopyWithImpl$Query$GetNotifications<TRes>
     implements CopyWith$Query$GetNotifications<TRes> {
-  _CopyWithImpl$Query$GetNotifications(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GetNotifications(this._instance, this._then);
 
   final Query$GetNotifications _instance;
 
@@ -1717,25 +1658,26 @@ class _CopyWithImpl$Query$GetNotifications<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? getUser = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetNotifications(
-        getUser: getUser == _undefined
-            ? _instance.getUser
-            : (getUser as Query$GetNotifications$getUser?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? getUser = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$GetNotifications(
+          getUser: getUser == _undefined
+              ? _instance.getUser
+              : (getUser as Query$GetNotifications$getUser?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$GetNotifications$getUser<TRes> get getUser {
     final local$getUser = _instance.getUser;
     return local$getUser == null
         ? CopyWith$Query$GetNotifications$getUser.stub(_then(_instance))
         : CopyWith$Query$GetNotifications$getUser(
-            local$getUser, (e) => call(getUser: e));
+            local$getUser,
+            (e) => call(getUser: e),
+          );
   }
 }
 
@@ -1745,44 +1687,82 @@ class _CopyWithStubImpl$Query$GetNotifications<TRes>
 
   TRes _res;
 
-  call({
-    Query$GetNotifications$getUser? getUser,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$GetNotifications$getUser? getUser, String? $__typename}) => _res;
 
   CopyWith$Query$GetNotifications$getUser<TRes> get getUser =>
       CopyWith$Query$GetNotifications$getUser.stub(_res);
 }
 
-const documentNodeQueryGetNotifications = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GetNotifications'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'username')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
+const documentNodeQueryGetNotifications = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'GetNotifications'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'username')),
+          type: NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'getUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'username'),
-            value: VariableNode(name: NameNode(value: 'username')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'getUser'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'username'),
+                value: VariableNode(name: NameNode(value: 'username')),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'username'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'notifications'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FullFriendRequestNotification'),
+                        directives: [],
+                      ),
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FullNewsNotification'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
@@ -1790,50 +1770,13 @@ const documentNodeQueryGetNotifications = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-          FieldNode(
-            name: NameNode(value: 'username'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'notifications'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'FullFriendRequestNotification'),
-                directives: [],
-              ),
-              FragmentSpreadNode(
-                name: NameNode(value: 'FullNewsNotification'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionFullFriendRequestNotification,
-  fragmentDefinitionFullNewsNotification,
-]);
+    ),
+    fragmentDefinitionFullFriendRequestNotification,
+    fragmentDefinitionFullNewsNotification,
+  ],
+);
 
 class Query$GetNotifications$getUser {
   Query$GetNotifications$getUser({
@@ -1850,8 +1793,11 @@ class Query$GetNotifications$getUser {
       $__typename: (l$$__typename as String),
       username: (l$username as String),
       notifications: (l$notifications as List<dynamic>?)
-          ?.map((e) => Query$GetNotifications$getUser$notifications.fromJson(
-              (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => Query$GetNotifications$getUser$notifications.fromJson(
+              (e as Map<String, dynamic>),
+            ),
+          )
           .toList(),
     );
   }
@@ -1869,8 +1815,9 @@ class Query$GetNotifications$getUser {
     final l$username = username;
     _resultData['username'] = l$username;
     final l$notifications = notifications;
-    _resultData['notifications'] =
-        l$notifications?.map((e) => e.toJson()).toList();
+    _resultData['notifications'] = l$notifications
+        ?.map((e) => e.toJson())
+        .toList();
     return _resultData;
   }
 
@@ -1930,10 +1877,7 @@ class Query$GetNotifications$getUser {
 extension UtilityExtension$Query$GetNotifications$getUser
     on Query$GetNotifications$getUser {
   CopyWith$Query$GetNotifications$getUser<Query$GetNotifications$getUser>
-      get copyWith => CopyWith$Query$GetNotifications$getUser(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$GetNotifications$getUser(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GetNotifications$getUser<TRes> {
@@ -1951,19 +1895,20 @@ abstract class CopyWith$Query$GetNotifications$getUser<TRes> {
     List<Query$GetNotifications$getUser$notifications>? notifications,
   });
   TRes notifications(
-      Iterable<Query$GetNotifications$getUser$notifications>? Function(
-              Iterable<
-                  CopyWith$Query$GetNotifications$getUser$notifications<
-                      Query$GetNotifications$getUser$notifications>>?)
-          _fn);
+    Iterable<Query$GetNotifications$getUser$notifications>? Function(
+      Iterable<
+        CopyWith$Query$GetNotifications$getUser$notifications<
+          Query$GetNotifications$getUser$notifications
+        >
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$GetNotifications$getUser<TRes>
     implements CopyWith$Query$GetNotifications$getUser<TRes> {
-  _CopyWithImpl$Query$GetNotifications$getUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GetNotifications$getUser(this._instance, this._then);
 
   final Query$GetNotifications$getUser _instance;
 
@@ -1975,32 +1920,38 @@ class _CopyWithImpl$Query$GetNotifications$getUser<TRes>
     Object? $__typename = _undefined,
     Object? username = _undefined,
     Object? notifications = _undefined,
-  }) =>
-      _then(Query$GetNotifications$getUser(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        username: username == _undefined || username == null
-            ? _instance.username
-            : (username as String),
-        notifications: notifications == _undefined
-            ? _instance.notifications
-            : (notifications
+  }) => _then(
+    Query$GetNotifications$getUser(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      username: username == _undefined || username == null
+          ? _instance.username
+          : (username as String),
+      notifications: notifications == _undefined
+          ? _instance.notifications
+          : (notifications
                 as List<Query$GetNotifications$getUser$notifications>?),
-      ));
+    ),
+  );
 
   TRes notifications(
-          Iterable<Query$GetNotifications$getUser$notifications>? Function(
-                  Iterable<
-                      CopyWith$Query$GetNotifications$getUser$notifications<
-                          Query$GetNotifications$getUser$notifications>>?)
-              _fn) =>
-      call(
-          notifications: _fn(_instance.notifications?.map(
-              (e) => CopyWith$Query$GetNotifications$getUser$notifications(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Query$GetNotifications$getUser$notifications>? Function(
+      Iterable<
+        CopyWith$Query$GetNotifications$getUser$notifications<
+          Query$GetNotifications$getUser$notifications
+        >
+      >?,
+    )
+    _fn,
+  ) => call(
+    notifications: _fn(
+      _instance.notifications?.map(
+        (e) =>
+            CopyWith$Query$GetNotifications$getUser$notifications(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetNotifications$getUser<TRes>
@@ -2013,8 +1964,7 @@ class _CopyWithStubImpl$Query$GetNotifications$getUser<TRes>
     String? $__typename,
     String? username,
     List<Query$GetNotifications$getUser$notifications>? notifications,
-  }) =>
-      _res;
+  }) => _res;
 
   notifications(_fn) => _res;
 }
@@ -2023,20 +1973,24 @@ class Query$GetNotifications$getUser$notifications {
   Query$GetNotifications$getUser$notifications({required this.$__typename});
 
   factory Query$GetNotifications$getUser$notifications.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "FriendRequestNotification":
-        return Query$GetNotifications$getUser$notifications$$FriendRequestNotification
-            .fromJson(json);
+        return Query$GetNotifications$getUser$notifications$$FriendRequestNotification.fromJson(
+          json,
+        );
 
       case "NewsNotification":
-        return Query$GetNotifications$getUser$notifications$$NewsNotification
-            .fromJson(json);
+        return Query$GetNotifications$getUser$notifications$$NewsNotification.fromJson(
+          json,
+        );
 
       default:
         final l$$__typename = json['__typename'];
         return Query$GetNotifications$getUser$notifications(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -2076,28 +2030,33 @@ class Query$GetNotifications$getUser$notifications {
 extension UtilityExtension$Query$GetNotifications$getUser$notifications
     on Query$GetNotifications$getUser$notifications {
   CopyWith$Query$GetNotifications$getUser$notifications<
-          Query$GetNotifications$getUser$notifications>
-      get copyWith => CopyWith$Query$GetNotifications$getUser$notifications(
-            this,
-            (i) => i,
-          );
+    Query$GetNotifications$getUser$notifications
+  >
+  get copyWith =>
+      CopyWith$Query$GetNotifications$getUser$notifications(this, (i) => i);
   _T when<_T>({
     required _T Function(
-            Query$GetNotifications$getUser$notifications$$FriendRequestNotification)
-        friendRequestNotification,
+      Query$GetNotifications$getUser$notifications$$FriendRequestNotification,
+    )
+    friendRequestNotification,
     required _T Function(
-            Query$GetNotifications$getUser$notifications$$NewsNotification)
-        newsNotification,
+      Query$GetNotifications$getUser$notifications$$NewsNotification,
+    )
+    newsNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "FriendRequestNotification":
-        return friendRequestNotification(this
-            as Query$GetNotifications$getUser$notifications$$FriendRequestNotification);
+        return friendRequestNotification(
+          this
+              as Query$GetNotifications$getUser$notifications$$FriendRequestNotification,
+        );
 
       case "NewsNotification":
-        return newsNotification(this
-            as Query$GetNotifications$getUser$notifications$$NewsNotification);
+        return newsNotification(
+          this
+              as Query$GetNotifications$getUser$notifications$$NewsNotification,
+        );
 
       default:
         return orElse();
@@ -2106,25 +2065,30 @@ extension UtilityExtension$Query$GetNotifications$getUser$notifications
 
   _T maybeWhen<_T>({
     _T Function(
-            Query$GetNotifications$getUser$notifications$$FriendRequestNotification)?
-        friendRequestNotification,
+      Query$GetNotifications$getUser$notifications$$FriendRequestNotification,
+    )?
+    friendRequestNotification,
     _T Function(Query$GetNotifications$getUser$notifications$$NewsNotification)?
-        newsNotification,
+    newsNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "FriendRequestNotification":
         if (friendRequestNotification != null) {
-          return friendRequestNotification(this
-              as Query$GetNotifications$getUser$notifications$$FriendRequestNotification);
+          return friendRequestNotification(
+            this
+                as Query$GetNotifications$getUser$notifications$$FriendRequestNotification,
+          );
         } else {
           return orElse();
         }
 
       case "NewsNotification":
         if (newsNotification != null) {
-          return newsNotification(this
-              as Query$GetNotifications$getUser$notifications$$NewsNotification);
+          return newsNotification(
+            this
+                as Query$GetNotifications$getUser$notifications$$NewsNotification,
+          );
         } else {
           return orElse();
         }
@@ -2160,11 +2124,13 @@ class _CopyWithImpl$Query$GetNotifications$getUser$notifications<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$GetNotifications$getUser$notifications(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$GetNotifications$getUser$notifications(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetNotifications$getUser$notifications<TRes>
@@ -2186,7 +2152,8 @@ class Query$GetNotifications$getUser$notifications$$FriendRequestNotification
   });
 
   factory Query$GetNotifications$getUser$notifications$$FriendRequestNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$requesterUsername = json['requesterUsername'];
     final l$$__typename = json['__typename'];
     return Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
@@ -2212,10 +2179,7 @@ class Query$GetNotifications$getUser$notifications$$FriendRequestNotification
   int get hashCode {
     final l$requesterUsername = requesterUsername;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$requesterUsername,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$requesterUsername, l$$__typename]);
   }
 
   @override
@@ -2245,84 +2209,86 @@ class Query$GetNotifications$getUser$notifications$$FriendRequestNotification
 extension UtilityExtension$Query$GetNotifications$getUser$notifications$$FriendRequestNotification
     on Query$GetNotifications$getUser$notifications$$FriendRequestNotification {
   CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification<
-          Query$GetNotifications$getUser$notifications$$FriendRequestNotification>
-      get copyWith =>
-          CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
-            this,
-            (i) => i,
-          );
+    Query$GetNotifications$getUser$notifications$$FriendRequestNotification
+  >
+  get copyWith =>
+      CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
     Query$GetNotifications$getUser$notifications$$FriendRequestNotification
-        instance,
+    instance,
     TRes Function(
-            Query$GetNotifications$getUser$notifications$$FriendRequestNotification)
-        then,
+      Query$GetNotifications$getUser$notifications$$FriendRequestNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification;
 
   factory CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification;
 
-  TRes call({
-    String? requesterUsername,
-    String? $__typename,
-  });
+  TRes call({String? requesterUsername, String? $__typename});
 }
 
 class _CopyWithImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
     this._instance,
     this._then,
   );
 
   final Query$GetNotifications$getUser$notifications$$FriendRequestNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$GetNotifications$getUser$notifications$$FriendRequestNotification)
-      _then;
+    Query$GetNotifications$getUser$notifications$$FriendRequestNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? requesterUsername = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
-        requesterUsername:
-            requesterUsername == _undefined || requesterUsername == null
-                ? _instance.requesterUsername
-                : (requesterUsername as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
+      requesterUsername:
+          requesterUsername == _undefined || requesterUsername == null
+          ? _instance.requesterUsername
+          : (requesterUsername as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetNotifications$getUser$notifications$$FriendRequestNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$FriendRequestNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? requesterUsername,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? requesterUsername, String? $__typename}) => _res;
 }
 
 class Query$GetNotifications$getUser$notifications$$NewsNotification
@@ -2335,7 +2301,8 @@ class Query$GetNotifications$getUser$notifications$$NewsNotification
   });
 
   factory Query$GetNotifications$getUser$notifications$$NewsNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$newsId = json['newsId'];
     final l$$__typename = json['__typename'];
     return Query$GetNotifications$getUser$notifications$$NewsNotification(
@@ -2361,10 +2328,7 @@ class Query$GetNotifications$getUser$notifications$$NewsNotification
   int get hashCode {
     final l$newsId = newsId;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$newsId,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$newsId, l$$__typename]);
   }
 
   @override
@@ -2394,85 +2358,84 @@ class Query$GetNotifications$getUser$notifications$$NewsNotification
 extension UtilityExtension$Query$GetNotifications$getUser$notifications$$NewsNotification
     on Query$GetNotifications$getUser$notifications$$NewsNotification {
   CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification<
-          Query$GetNotifications$getUser$notifications$$NewsNotification>
-      get copyWith =>
-          CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification(
-            this,
-            (i) => i,
-          );
+    Query$GetNotifications$getUser$notifications$$NewsNotification
+  >
+  get copyWith =>
+      CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification(
     Query$GetNotifications$getUser$notifications$$NewsNotification instance,
     TRes Function(
-            Query$GetNotifications$getUser$notifications$$NewsNotification)
-        then,
+      Query$GetNotifications$getUser$notifications$$NewsNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$GetNotifications$getUser$notifications$$NewsNotification;
 
   factory CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$NewsNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$NewsNotification;
 
-  TRes call({
-    String? newsId,
-    String? $__typename,
-  });
+  TRes call({String? newsId, String? $__typename});
 }
 
 class _CopyWithImpl$Query$GetNotifications$getUser$notifications$$NewsNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$GetNotifications$getUser$notifications$$NewsNotification(
     this._instance,
     this._then,
   );
 
   final Query$GetNotifications$getUser$notifications$$NewsNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$GetNotifications$getUser$notifications$$NewsNotification) _then;
+    Query$GetNotifications$getUser$notifications$$NewsNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? newsId = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetNotifications$getUser$notifications$$NewsNotification(
-        newsId: newsId == _undefined || newsId == null
-            ? _instance.newsId
-            : (newsId as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? newsId = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$GetNotifications$getUser$notifications$$NewsNotification(
+          newsId: newsId == _undefined || newsId == null
+              ? _instance.newsId
+              : (newsId as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$NewsNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetNotifications$getUser$notifications$$NewsNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$GetNotifications$getUser$notifications$$NewsNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? newsId,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? newsId, String? $__typename}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'Notification': {
-    'FriendRequestNotification',
-    'NewsNotification',
-  }
+  'Notification': {'FriendRequestNotification', 'NewsNotification'},
 };

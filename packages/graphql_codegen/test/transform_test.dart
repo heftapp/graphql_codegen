@@ -5,8 +5,9 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void testTransform(GraphQLCodegenConfig config, String p1, String p2) => expect(
-    printNode(transform(config, parseString(p1))),
-    equals(printNode(parseString(p2))));
+  printNode(transform(config, parseString(p1))),
+  equals(printNode(parseString(p2))),
+);
 
 void main() {
   group("addTypename", () {
@@ -45,9 +46,7 @@ void main() {
       testTransform(config, doc1, doc1);
     });
     test("will exclude query", () {
-      final config = GraphQLCodegenConfig(
-        addTypenameExcludedPaths: ['query'],
-      );
+      final config = GraphQLCodegenConfig(addTypenameExcludedPaths: ['query']);
       final doc1 = """
       type Query {
         test: String
@@ -90,9 +89,7 @@ void main() {
       testTransform(config, doc1, doc1);
     });
     test("will exclude named operation", () {
-      final config = GraphQLCodegenConfig(
-        addTypenameExcludedPaths: ['Foobar'],
-      );
+      final config = GraphQLCodegenConfig(addTypenameExcludedPaths: ['Foobar']);
       final doc1 = """
       type Mutation {
         test: String

@@ -14,10 +14,13 @@ main() async {
     port: 8080,
     path: '/graphql',
   );
-  final response = await http.post(url, body: {
-    'query': printNode(documentNodeQueryMediaMinimal),
-    'variables': Variables$Query$MediaMinimal(id: 1).toJson(),
-  });
+  final response = await http.post(
+    url,
+    body: {
+      'query': printNode(documentNodeQueryMediaMinimal),
+      'variables': Variables$Query$MediaMinimal(id: 1).toJson(),
+    },
+  );
   final responseJson = json.decode(response.body);
   return Query$MediaMinimal.fromJson(
     responseJson['data'] as Map<String, dynamic>,

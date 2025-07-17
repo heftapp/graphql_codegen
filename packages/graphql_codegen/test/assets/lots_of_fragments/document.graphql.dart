@@ -182,11 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Fragment$FragmentA implements Fragment$FragmentI$$FieldA {
-  Fragment$FragmentA({
-    this.$__typename = 'FieldA',
-    this.value,
-    this.name,
-  });
+  Fragment$FragmentA({this.$__typename = 'FieldA', this.value, this.name});
 
   factory Fragment$FragmentA.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
@@ -221,11 +217,7 @@ class Fragment$FragmentA implements Fragment$FragmentI$$FieldA {
     final l$$__typename = $__typename;
     final l$value = value;
     final l$name = name;
-    return Object.hashAll([
-      l$$__typename,
-      l$value,
-      l$name,
-    ]);
+    return Object.hashAll([l$$__typename, l$value, l$name]);
   }
 
   @override
@@ -257,10 +249,7 @@ class Fragment$FragmentA implements Fragment$FragmentI$$FieldA {
 
 extension UtilityExtension$Fragment$FragmentA on Fragment$FragmentA {
   CopyWith$Fragment$FragmentA<Fragment$FragmentA> get copyWith =>
-      CopyWith$Fragment$FragmentA(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FragmentA(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FragmentA<TRes> {
@@ -272,19 +261,12 @@ abstract class CopyWith$Fragment$FragmentA<TRes> {
   factory CopyWith$Fragment$FragmentA.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentA;
 
-  TRes call({
-    String? $__typename,
-    String? value,
-    String? name,
-  });
+  TRes call({String? $__typename, String? value, String? name});
 }
 
 class _CopyWithImpl$Fragment$FragmentA<TRes>
     implements CopyWith$Fragment$FragmentA<TRes> {
-  _CopyWithImpl$Fragment$FragmentA(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FragmentA(this._instance, this._then);
 
   final Fragment$FragmentA _instance;
 
@@ -296,14 +278,15 @@ class _CopyWithImpl$Fragment$FragmentA<TRes>
     Object? $__typename = _undefined,
     Object? value = _undefined,
     Object? name = _undefined,
-  }) =>
-      _then(Fragment$FragmentA(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        value: value == _undefined ? _instance.value : (value as String?),
-        name: name == _undefined ? _instance.name : (name as String?),
-      ));
+  }) => _then(
+    Fragment$FragmentA(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      value: value == _undefined ? _instance.value : (value as String?),
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FragmentA<TRes>
@@ -312,53 +295,44 @@ class _CopyWithStubImpl$Fragment$FragmentA<TRes>
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? value,
-    String? name,
-  }) =>
-      _res;
+  call({String? $__typename, String? value, String? name}) => _res;
 }
 
 const fragmentDefinitionFragmentA = FragmentDefinitionNode(
   name: NameNode(value: 'FragmentA'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'FieldA'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'FieldA'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'value'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FragmentSpreadNode(
-      name: NameNode(value: 'FragmentI'),
-      directives: [],
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'value'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FragmentSpreadNode(
+        name: NameNode(value: 'FragmentI'),
+        directives: [],
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFragmentA = DocumentNode(definitions: [
-  fragmentDefinitionFragmentA,
-  fragmentDefinitionFragmentI,
-]);
+const documentNodeFragmentFragmentA = DocumentNode(
+  definitions: [fragmentDefinitionFragmentA, fragmentDefinitionFragmentI],
+);
 
 class Fragment$FragmentI {
-  Fragment$FragmentI({
-    required this.$__typename,
-    this.name,
-  });
+  Fragment$FragmentI({required this.$__typename, this.name});
 
   factory Fragment$FragmentI.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
@@ -392,10 +366,7 @@ class Fragment$FragmentI {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
-    return Object.hashAll([
-      l$$__typename,
-      l$name,
-    ]);
+    return Object.hashAll([l$$__typename, l$name]);
   }
 
   @override
@@ -422,10 +393,7 @@ class Fragment$FragmentI {
 
 extension UtilityExtension$Fragment$FragmentI on Fragment$FragmentI {
   CopyWith$Fragment$FragmentI<Fragment$FragmentI> get copyWith =>
-      CopyWith$Fragment$FragmentI(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FragmentI(this, (i) => i);
   _T when<_T>({
     required _T Function(Fragment$FragmentI$$FieldA) fieldA,
     required _T Function() orElse,
@@ -466,18 +434,12 @@ abstract class CopyWith$Fragment$FragmentI<TRes> {
   factory CopyWith$Fragment$FragmentI.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentI;
 
-  TRes call({
-    String? $__typename,
-    String? name,
-  });
+  TRes call({String? $__typename, String? name});
 }
 
 class _CopyWithImpl$Fragment$FragmentI<TRes>
     implements CopyWith$Fragment$FragmentI<TRes> {
-  _CopyWithImpl$Fragment$FragmentI(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FragmentI(this._instance, this._then);
 
   final Fragment$FragmentI _instance;
 
@@ -485,16 +447,15 @@ class _CopyWithImpl$Fragment$FragmentI<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $__typename = _undefined,
-    Object? name = _undefined,
-  }) =>
-      _then(Fragment$FragmentI(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        name: name == _undefined ? _instance.name : (name as String?),
-      ));
+  TRes call({Object? $__typename = _undefined, Object? name = _undefined}) =>
+      _then(
+        Fragment$FragmentI(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          name: name == _undefined ? _instance.name : (name as String?),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$FragmentI<TRes>
@@ -503,47 +464,40 @@ class _CopyWithStubImpl$Fragment$FragmentI<TRes>
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? name,
-  }) =>
-      _res;
+  call({String? $__typename, String? name}) => _res;
 }
 
 const fragmentDefinitionFragmentI = FragmentDefinitionNode(
   name: NameNode(value: 'FragmentI'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'IField'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'IField'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFragmentI = DocumentNode(definitions: [
-  fragmentDefinitionFragmentI,
-]);
+const documentNodeFragmentFragmentI = DocumentNode(
+  definitions: [fragmentDefinitionFragmentI],
+);
 
 class Fragment$FragmentI$$FieldA implements Fragment$FragmentI {
-  Fragment$FragmentI$$FieldA({
-    this.$__typename = 'FieldA',
-    this.name,
-  });
+  Fragment$FragmentI$$FieldA({this.$__typename = 'FieldA', this.name});
 
   factory Fragment$FragmentI$$FieldA.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
@@ -571,10 +525,7 @@ class Fragment$FragmentI$$FieldA implements Fragment$FragmentI {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
-    return Object.hashAll([
-      l$$__typename,
-      l$name,
-    ]);
+    return Object.hashAll([l$$__typename, l$name]);
   }
 
   @override
@@ -603,10 +554,7 @@ class Fragment$FragmentI$$FieldA implements Fragment$FragmentI {
 extension UtilityExtension$Fragment$FragmentI$$FieldA
     on Fragment$FragmentI$$FieldA {
   CopyWith$Fragment$FragmentI$$FieldA<Fragment$FragmentI$$FieldA>
-      get copyWith => CopyWith$Fragment$FragmentI$$FieldA(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$FragmentI$$FieldA(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FragmentI$$FieldA<TRes> {
@@ -618,18 +566,12 @@ abstract class CopyWith$Fragment$FragmentI$$FieldA<TRes> {
   factory CopyWith$Fragment$FragmentI$$FieldA.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FragmentI$$FieldA;
 
-  TRes call({
-    String? $__typename,
-    String? name,
-  });
+  TRes call({String? $__typename, String? name});
 }
 
 class _CopyWithImpl$Fragment$FragmentI$$FieldA<TRes>
     implements CopyWith$Fragment$FragmentI$$FieldA<TRes> {
-  _CopyWithImpl$Fragment$FragmentI$$FieldA(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FragmentI$$FieldA(this._instance, this._then);
 
   final Fragment$FragmentI$$FieldA _instance;
 
@@ -637,16 +579,15 @@ class _CopyWithImpl$Fragment$FragmentI$$FieldA<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $__typename = _undefined,
-    Object? name = _undefined,
-  }) =>
-      _then(Fragment$FragmentI$$FieldA(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        name: name == _undefined ? _instance.name : (name as String?),
-      ));
+  TRes call({Object? $__typename = _undefined, Object? name = _undefined}) =>
+      _then(
+        Fragment$FragmentI$$FieldA(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          name: name == _undefined ? _instance.name : (name as String?),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$FragmentI$$FieldA<TRes>
@@ -655,18 +596,11 @@ class _CopyWithStubImpl$Fragment$FragmentI$$FieldA<TRes>
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? name,
-  }) =>
-      _res;
+  call({String? $__typename, String? name}) => _res;
 }
 
 class Query$FetchStuff {
-  Query$FetchStuff({
-    this.$__typename = 'Query',
-    this.field,
-  });
+  Query$FetchStuff({this.$__typename = 'Query', this.field});
 
   factory Query$FetchStuff.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
@@ -696,10 +630,7 @@ class Query$FetchStuff {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$field = field;
-    return Object.hashAll([
-      l$$__typename,
-      l$field,
-    ]);
+    return Object.hashAll([l$$__typename, l$field]);
   }
 
   @override
@@ -726,10 +657,7 @@ class Query$FetchStuff {
 
 extension UtilityExtension$Query$FetchStuff on Query$FetchStuff {
   CopyWith$Query$FetchStuff<Query$FetchStuff> get copyWith =>
-      CopyWith$Query$FetchStuff(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchStuff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchStuff<TRes> {
@@ -741,19 +669,13 @@ abstract class CopyWith$Query$FetchStuff<TRes> {
   factory CopyWith$Query$FetchStuff.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff;
 
-  TRes call({
-    String? $__typename,
-    Query$FetchStuff$field? field,
-  });
+  TRes call({String? $__typename, Query$FetchStuff$field? field});
   CopyWith$Query$FetchStuff$field<TRes> get field;
 }
 
 class _CopyWithImpl$Query$FetchStuff<TRes>
     implements CopyWith$Query$FetchStuff<TRes> {
-  _CopyWithImpl$Query$FetchStuff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchStuff(this._instance, this._then);
 
   final Query$FetchStuff _instance;
 
@@ -761,18 +683,17 @@ class _CopyWithImpl$Query$FetchStuff<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $__typename = _undefined,
-    Object? field = _undefined,
-  }) =>
-      _then(Query$FetchStuff(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        field: field == _undefined
-            ? _instance.field
-            : (field as Query$FetchStuff$field?),
-      ));
+  TRes call({Object? $__typename = _undefined, Object? field = _undefined}) =>
+      _then(
+        Query$FetchStuff(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          field: field == _undefined
+              ? _instance.field
+              : (field as Query$FetchStuff$field?),
+        ),
+      );
 
   CopyWith$Query$FetchStuff$field<TRes> get field {
     final local$field = _instance.field;
@@ -788,36 +709,21 @@ class _CopyWithStubImpl$Query$FetchStuff<TRes>
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    Query$FetchStuff$field? field,
-  }) =>
-      _res;
+  call({String? $__typename, Query$FetchStuff$field? field}) => _res;
 
   CopyWith$Query$FetchStuff$field<TRes> get field =>
       CopyWith$Query$FetchStuff$field.stub(_res);
 }
 
-const documentNodeQueryFetchStuff = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchStuff'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'field'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryFetchStuff = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchStuff'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
@@ -826,77 +732,97 @@ const documentNodeQueryFetchStuff = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'name'),
+            name: NameNode(value: 'field'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
-          ),
-          FragmentSpreadNode(
-            name: NameNode(value: 'FragmentA'),
-            directives: [],
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'FieldA'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'value'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FragmentSpreadNode(
+                  name: NameNode(value: 'FragmentA'),
+                  directives: [],
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
                     on: NamedTypeNode(
-                  name: NameNode(value: 'IField'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                      name: NameNode(value: 'FieldA'),
+                      isNonNull: false,
+                    ),
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'name'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'value'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'IField'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'name'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-            ]),
+                ),
+              ],
+            ),
           ),
-        ]),
+        ],
       ),
-    ]),
-  ),
-  fragmentDefinitionFragmentA,
-  fragmentDefinitionFragmentI,
-]);
+    ),
+    fragmentDefinitionFragmentA,
+    fragmentDefinitionFragmentI,
+  ],
+);
 
 class Query$FetchStuff$field {
-  Query$FetchStuff$field({
-    required this.$__typename,
-    this.name,
-  });
+  Query$FetchStuff$field({required this.$__typename, this.name});
 
   factory Query$FetchStuff$field.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
@@ -930,10 +856,7 @@ class Query$FetchStuff$field {
   int get hashCode {
     final l$$__typename = $__typename;
     final l$name = name;
-    return Object.hashAll([
-      l$$__typename,
-      l$name,
-    ]);
+    return Object.hashAll([l$$__typename, l$name]);
   }
 
   @override
@@ -960,10 +883,7 @@ class Query$FetchStuff$field {
 
 extension UtilityExtension$Query$FetchStuff$field on Query$FetchStuff$field {
   CopyWith$Query$FetchStuff$field<Query$FetchStuff$field> get copyWith =>
-      CopyWith$Query$FetchStuff$field(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchStuff$field(this, (i) => i);
   _T when<_T>({
     required _T Function(Query$FetchStuff$field$$FieldA) fieldA,
     required _T Function() orElse,
@@ -1004,18 +924,12 @@ abstract class CopyWith$Query$FetchStuff$field<TRes> {
   factory CopyWith$Query$FetchStuff$field.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff$field;
 
-  TRes call({
-    String? $__typename,
-    String? name,
-  });
+  TRes call({String? $__typename, String? name});
 }
 
 class _CopyWithImpl$Query$FetchStuff$field<TRes>
     implements CopyWith$Query$FetchStuff$field<TRes> {
-  _CopyWithImpl$Query$FetchStuff$field(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchStuff$field(this._instance, this._then);
 
   final Query$FetchStuff$field _instance;
 
@@ -1023,16 +937,15 @@ class _CopyWithImpl$Query$FetchStuff$field<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $__typename = _undefined,
-    Object? name = _undefined,
-  }) =>
-      _then(Query$FetchStuff$field(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        name: name == _undefined ? _instance.name : (name as String?),
-      ));
+  TRes call({Object? $__typename = _undefined, Object? name = _undefined}) =>
+      _then(
+        Query$FetchStuff$field(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+          name: name == _undefined ? _instance.name : (name as String?),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$FetchStuff$field<TRes>
@@ -1041,11 +954,7 @@ class _CopyWithStubImpl$Query$FetchStuff$field<TRes>
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? name,
-  }) =>
-      _res;
+  call({String? $__typename, String? name}) => _res;
 }
 
 class Query$FetchStuff$field$$FieldA
@@ -1092,11 +1001,7 @@ class Query$FetchStuff$field$$FieldA
     final l$$__typename = $__typename;
     final l$value = value;
     final l$name = name;
-    return Object.hashAll([
-      l$$__typename,
-      l$value,
-      l$name,
-    ]);
+    return Object.hashAll([l$$__typename, l$value, l$name]);
   }
 
   @override
@@ -1130,10 +1035,7 @@ class Query$FetchStuff$field$$FieldA
 extension UtilityExtension$Query$FetchStuff$field$$FieldA
     on Query$FetchStuff$field$$FieldA {
   CopyWith$Query$FetchStuff$field$$FieldA<Query$FetchStuff$field$$FieldA>
-      get copyWith => CopyWith$Query$FetchStuff$field$$FieldA(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$FetchStuff$field$$FieldA(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchStuff$field$$FieldA<TRes> {
@@ -1145,19 +1047,12 @@ abstract class CopyWith$Query$FetchStuff$field$$FieldA<TRes> {
   factory CopyWith$Query$FetchStuff$field$$FieldA.stub(TRes res) =
       _CopyWithStubImpl$Query$FetchStuff$field$$FieldA;
 
-  TRes call({
-    String? $__typename,
-    String? value,
-    String? name,
-  });
+  TRes call({String? $__typename, String? value, String? name});
 }
 
 class _CopyWithImpl$Query$FetchStuff$field$$FieldA<TRes>
     implements CopyWith$Query$FetchStuff$field$$FieldA<TRes> {
-  _CopyWithImpl$Query$FetchStuff$field$$FieldA(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchStuff$field$$FieldA(this._instance, this._then);
 
   final Query$FetchStuff$field$$FieldA _instance;
 
@@ -1169,14 +1064,15 @@ class _CopyWithImpl$Query$FetchStuff$field$$FieldA<TRes>
     Object? $__typename = _undefined,
     Object? value = _undefined,
     Object? name = _undefined,
-  }) =>
-      _then(Query$FetchStuff$field$$FieldA(
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        value: value == _undefined ? _instance.value : (value as String?),
-        name: name == _undefined ? _instance.name : (name as String?),
-      ));
+  }) => _then(
+    Query$FetchStuff$field$$FieldA(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      value: value == _undefined ? _instance.value : (value as String?),
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchStuff$field$$FieldA<TRes>
@@ -1185,14 +1081,9 @@ class _CopyWithStubImpl$Query$FetchStuff$field$$FieldA<TRes>
 
   TRes _res;
 
-  call({
-    String? $__typename,
-    String? value,
-    String? name,
-  }) =>
-      _res;
+  call({String? $__typename, String? value, String? name}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'IField': {'FieldA'}
+  'IField': {'FieldA'},
 };

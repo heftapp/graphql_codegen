@@ -1,9 +1,8 @@
 import 'package:gql/ast.dart';
 
 class Input$DataQuery {
-  factory Input$DataQuery({String? time}) => Input$DataQuery._({
-        if (time != null) r'time': time,
-      });
+  factory Input$DataQuery({String? time}) =>
+      Input$DataQuery._({if (time != null) r'time': time});
 
   Input$DataQuery._(this._$data);
 
@@ -237,10 +236,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Fragment$FA {
-  Fragment$FA({
-    this.value,
-    this.$__typename = 'A',
-  });
+  Fragment$FA({this.value, this.$__typename = 'A'});
 
   factory Fragment$FA.fromJson(Map<String, dynamic> json) {
     final l$value = json['value'];
@@ -268,10 +264,7 @@ class Fragment$FA {
   int get hashCode {
     final l$value = value;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$value,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$value, l$$__typename]);
   }
 
   @override
@@ -299,37 +292,34 @@ class Fragment$FA {
 const fragmentDefinitionFA = FragmentDefinitionNode(
   name: NameNode(value: 'FA'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'A'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'A'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'value'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'value'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFA = DocumentNode(definitions: [
-  fragmentDefinitionFA,
-]);
+const documentNodeFragmentFA = DocumentNode(
+  definitions: [fragmentDefinitionFA],
+);
 
 class Fragment$FB {
-  Fragment$FB({
-    this.value,
-    this.$__typename = 'B',
-  });
+  Fragment$FB({this.value, this.$__typename = 'B'});
 
   factory Fragment$FB.fromJson(Map<String, dynamic> json) {
     final l$value = json['value'];
@@ -357,10 +347,7 @@ class Fragment$FB {
   int get hashCode {
     final l$value = value;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$value,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$value, l$$__typename]);
   }
 
   @override
@@ -388,37 +375,34 @@ class Fragment$FB {
 const fragmentDefinitionFB = FragmentDefinitionNode(
   name: NameNode(value: 'FB'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'B'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'B'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'value'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'value'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFB = DocumentNode(definitions: [
-  fragmentDefinitionFB,
-]);
+const documentNodeFragmentFB = DocumentNode(
+  definitions: [fragmentDefinitionFB],
+);
 
 class Query$FetchScalars {
-  Query$FetchScalars({
-    this.data,
-    this.$__typename = 'Query',
-  });
+  Query$FetchScalars({this.data, this.$__typename = 'Query'});
 
   factory Query$FetchScalars.fromJson(Map<String, dynamic> json) {
     final l$data = json['data'];
@@ -448,10 +432,7 @@ class Query$FetchScalars {
   int get hashCode {
     final l$data = data;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$data,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$data, l$$__typename]);
   }
 
   @override
@@ -476,26 +457,39 @@ class Query$FetchScalars {
   }
 }
 
-const documentNodeQueryFetchScalars = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchScalars'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'data'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'FA'),
+const documentNodeQueryFetchScalars = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchScalars'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'data'),
+            alias: null,
+            arguments: [],
             directives: [],
-          ),
-          FragmentSpreadNode(
-            name: NameNode(value: 'FB'),
-            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'FA'),
+                  directives: [],
+                ),
+                FragmentSpreadNode(
+                  name: NameNode(value: 'FB'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -504,20 +498,13 @@ const documentNodeQueryFetchScalars = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionFA,
-  fragmentDefinitionFB,
-]);
+    ),
+    fragmentDefinitionFA,
+    fragmentDefinitionFB,
+  ],
+);
 
 class Query$FetchScalars$data {
   Query$FetchScalars$data({required this.$__typename});
@@ -614,10 +601,7 @@ extension UtilityExtension$Query$FetchScalars$data on Query$FetchScalars$data {
 
 class Query$FetchScalars$data$$A
     implements Fragment$FA, Query$FetchScalars$data {
-  Query$FetchScalars$data$$A({
-    this.value,
-    this.$__typename = 'A',
-  });
+  Query$FetchScalars$data$$A({this.value, this.$__typename = 'A'});
 
   factory Query$FetchScalars$data$$A.fromJson(Map<String, dynamic> json) {
     final l$value = json['value'];
@@ -645,10 +629,7 @@ class Query$FetchScalars$data$$A
   int get hashCode {
     final l$value = value;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$value,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$value, l$$__typename]);
   }
 
   @override
@@ -676,10 +657,7 @@ class Query$FetchScalars$data$$A
 
 class Query$FetchScalars$data$$B
     implements Fragment$FB, Query$FetchScalars$data {
-  Query$FetchScalars$data$$B({
-    this.value,
-    this.$__typename = 'B',
-  });
+  Query$FetchScalars$data$$B({this.value, this.$__typename = 'B'});
 
   factory Query$FetchScalars$data$$B.fromJson(Map<String, dynamic> json) {
     final l$value = json['value'];
@@ -707,10 +685,7 @@ class Query$FetchScalars$data$$B
   int get hashCode {
     final l$value = value;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$value,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$value, l$$__typename]);
   }
 
   @override
@@ -737,8 +712,5 @@ class Query$FetchScalars$data$$B
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'I': {
-    'A',
-    'B',
-  }
+  'I': {'A', 'B'},
 };

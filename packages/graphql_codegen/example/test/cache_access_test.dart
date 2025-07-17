@@ -9,62 +9,52 @@ void main() {
         $__typename: "Person",
         name: "Lars",
         parents: [
-          Fragment$PersonParent(
-            name: "Father",
-            $__typename: "Person",
-          ),
-          Fragment$PersonParent(
-            name: "Mother",
-            $__typename: "Person",
-          ),
+          Fragment$PersonParent(name: "Father", $__typename: "Person"),
+          Fragment$PersonParent(name: "Mother", $__typename: "Person"),
         ],
       ).toJson();
       expect(
-          fragment,
-          equals({
-            'nickname': null,
-            'name': 'Lars',
-            'dob': null,
-            'events': null,
-            'eventsOfEvents': null,
-            'favParent': null,
-            'parents': [
-              {'name': 'Father', '__typename': 'Person'},
-              {'name': 'Mother', '__typename': 'Person'},
-            ],
-            '__typename': 'Person'
-          }));
+        fragment,
+        equals({
+          'nickname': null,
+          'name': 'Lars',
+          'dob': null,
+          'events': null,
+          'eventsOfEvents': null,
+          'favParent': null,
+          'parents': [
+            {'name': 'Father', '__typename': 'Person'},
+            {'name': 'Mother', '__typename': 'Person'},
+          ],
+          '__typename': 'Person',
+        }),
+      );
     });
     test("Can mutate fragments", () {
       final fragment = Fragment$PersonSummary(
         $__typename: "Person",
         name: "Lars",
         parents: [
-          Fragment$PersonParent(
-            name: "Father",
-            $__typename: "Person",
-          ),
-          Fragment$PersonParent(
-            name: "Mother",
-            $__typename: "Person",
-          ),
+          Fragment$PersonParent(name: "Father", $__typename: "Person"),
+          Fragment$PersonParent(name: "Mother", $__typename: "Person"),
         ],
       );
       expect(
-          fragment.copyWith(name: "Kurt").copyWith(nickname: "Bob").toJson(),
-          equals({
-            'nickname': "Bob",
-            'name': 'Kurt',
-            'dob': null,
-            'events': null,
-            'eventsOfEvents': null,
-            'favParent': null,
-            'parents': [
-              {'name': 'Father', '__typename': 'Person'},
-              {'name': 'Mother', '__typename': 'Person'},
-            ],
-            '__typename': 'Person'
-          }));
+        fragment.copyWith(name: "Kurt").copyWith(nickname: "Bob").toJson(),
+        equals({
+          'nickname': "Bob",
+          'name': 'Kurt',
+          'dob': null,
+          'events': null,
+          'eventsOfEvents': null,
+          'favParent': null,
+          'parents': [
+            {'name': 'Father', '__typename': 'Person'},
+            {'name': 'Mother', '__typename': 'Person'},
+          ],
+          '__typename': 'Person',
+        }),
+      );
     });
   });
 }

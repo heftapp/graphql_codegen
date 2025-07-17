@@ -5,16 +5,10 @@ TypeNode typeNodeAsNullable(TypeNode node) {
     return node;
   }
   if (node is ListTypeNode) {
-    return ListTypeNode(
-      type: node.type,
-      isNonNull: false,
-    );
+    return ListTypeNode(type: node.type, isNonNull: false);
   }
   if (node is NamedTypeNode) {
-    return NamedTypeNode(
-      name: node.name,
-      isNonNull: false,
-    );
+    return NamedTypeNode(name: node.name, isNonNull: false);
   }
   return node;
 }

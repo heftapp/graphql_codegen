@@ -88,9 +88,11 @@ void main() {
 
     test("calls orElse when not matching", () {
       bool wasCalled = false;
-      tB.maybeWhen(orElse: () {
-        wasCalled = true;
-      });
+      tB.maybeWhen(
+        orElse: () {
+          wasCalled = true;
+        },
+      );
 
       expect(wasCalled, isTrue);
     });
@@ -100,9 +102,11 @@ void main() {
 
       bool wasCalled = false;
 
-      animal.maybeWhen(orElse: () {
-        wasCalled = true;
-      });
+      animal.maybeWhen(
+        orElse: () {
+          wasCalled = true;
+        },
+      );
 
       expect(wasCalled, isTrue);
     });

@@ -10,9 +10,11 @@ ast.DocumentNode transform(
   ast.DocumentNode node,
 ) =>
     [
-      if (config.addTypename) AddTypenameTransformationVisitor(config: config),
-      FixUnnamedOperationsVisitor()
-    ].fold<Node>(
-      node,
-      (previousValue, element) => previousValue.accept(element),
-    ) as ast.DocumentNode;
+          if (config.addTypename)
+            AddTypenameTransformationVisitor(config: config),
+          FixUnnamedOperationsVisitor(),
+        ].fold<Node>(
+          node,
+          (previousValue, element) => previousValue.accept(element),
+        )
+        as ast.DocumentNode;

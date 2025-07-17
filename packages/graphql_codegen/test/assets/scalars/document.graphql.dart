@@ -243,8 +243,9 @@ class Query$FetchScalars {
     final l$c3 = c3;
     _resultData['c3'] = l$c3 == null ? null : fobbobToJson(l$c3);
     final l$c3s = c3s;
-    _resultData['c3s'] =
-        l$c3s?.map((e) => e == null ? null : fobbobToJson(e)).toList();
+    _resultData['c3s'] = l$c3s
+        ?.map((e) => e == null ? null : fobbobToJson(e))
+        .toList();
     return _resultData;
   }
 
@@ -328,10 +329,7 @@ class Query$FetchScalars {
 
 extension UtilityExtension$Query$FetchScalars on Query$FetchScalars {
   CopyWith$Query$FetchScalars<Query$FetchScalars> get copyWith =>
-      CopyWith$Query$FetchScalars(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchScalars(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchScalars<TRes> {
@@ -356,10 +354,7 @@ abstract class CopyWith$Query$FetchScalars<TRes> {
 
 class _CopyWithImpl$Query$FetchScalars<TRes>
     implements CopyWith$Query$FetchScalars<TRes> {
-  _CopyWithImpl$Query$FetchScalars(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchScalars(this._instance, this._then);
 
   final Query$FetchScalars _instance;
 
@@ -375,16 +370,17 @@ class _CopyWithImpl$Query$FetchScalars<TRes>
     Object? c2 = _undefined,
     Object? c3 = _undefined,
     Object? c3s = _undefined,
-  }) =>
-      _then(Query$FetchScalars(
-        i: i == _undefined ? _instance.i : (i as int?),
-        id: id == _undefined ? _instance.id : (id as int?),
-        s: s == _undefined ? _instance.s : (s as String?),
-        c1: c1 == _undefined ? _instance.c1 : (c1 as String?),
-        c2: c2 == _undefined ? _instance.c2 : (c2 as DateTime?),
-        c3: c3 == _undefined ? _instance.c3 : (c3 as Fobbob?),
-        c3s: c3s == _undefined ? _instance.c3s : (c3s as List<Fobbob?>?),
-      ));
+  }) => _then(
+    Query$FetchScalars(
+      i: i == _undefined ? _instance.i : (i as int?),
+      id: id == _undefined ? _instance.id : (id as int?),
+      s: s == _undefined ? _instance.s : (s as String?),
+      c1: c1 == _undefined ? _instance.c1 : (c1 as String?),
+      c2: c2 == _undefined ? _instance.c2 : (c2 as DateTime?),
+      c3: c3 == _undefined ? _instance.c3 : (c3 as Fobbob?),
+      c3s: c3s == _undefined ? _instance.c3s : (c3s as List<Fobbob?>?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchScalars<TRes>
@@ -401,67 +397,70 @@ class _CopyWithStubImpl$Query$FetchScalars<TRes>
     DateTime? c2,
     Fobbob? c3,
     List<Fobbob?>? c3s,
-  }) =>
-      _res;
+  }) => _res;
 }
 
-const documentNodeQueryFetchScalars = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchScalars'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'i'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeQueryFetchScalars = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchScalars'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'i'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 's'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'c1'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'c2'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'c3'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'c3s'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: 'id'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 's'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'c1'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'c2'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'c3'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'c3s'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{};

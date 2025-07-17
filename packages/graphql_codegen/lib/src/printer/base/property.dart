@@ -8,14 +8,8 @@ import 'package:graphql_codegen/src/errors.dart';
 import 'package:graphql_codegen/src/printer/base/deprecation.dart';
 import 'package:graphql_codegen/src/printer/context.dart';
 
-Field printClassProperty(
-  PrintContext context,
-  ContextProperty property,
-) {
-  final classPropertyTypeT = printClassPropertyType(
-    context,
-    property,
-  );
+Field printClassProperty(PrintContext context, ContextProperty property) {
+  final classPropertyTypeT = printClassPropertyType(context, property);
   final deprecationReason = extractDeprecatedReason(property.fieldDirectives);
   return Field(
     (b) => b
@@ -24,9 +18,7 @@ Field printClassProperty(
       ..type = classPropertyTypeT
       ..annotations = ListBuilder([
         if (deprecationReason != null)
-          refer('Deprecated').call([
-            literalString(deprecationReason),
-          ])
+          refer('Deprecated').call([literalString(deprecationReason)]),
       ]),
   );
 }
@@ -36,11 +28,7 @@ TypeReference printClassPropertyType(
   ContextProperty property,
 ) {
   final typeNode = property.type;
-  return _printTypeNode(
-    context,
-    typeNode,
-    propertyContext: property.path,
-  );
+  return _printTypeNode(context, typeNode, propertyContext: property.path);
 }
 
 TypeReference _printTypeNode(
@@ -70,11 +58,9 @@ TypeReference _printListTypeNode(
   ListTypeNode typeNode, {
   Name? propertyContext,
 }) {
-  final innerRef = _asList(_printTypeNode(
-    context,
-    typeNode.type,
-    propertyContext: propertyContext,
-  ));
+  final innerRef = _asList(
+    _printTypeNode(context, typeNode.type, propertyContext: propertyContext),
+  );
   return typeNode.isNonNull ? innerRef : asNullable(innerRef);
 }
 
@@ -83,10 +69,8 @@ TypeReference _printNamedTypeNode(
   NamedTypeNode typeNode, {
   Name? propertyContext,
 }) {
-  final typeDefinition =
-      context.context.schema.lookupTypeDefinitionFromTypeNode(
-    typeNode,
-  );
+  final typeDefinition = context.context.schema
+      .lookupTypeDefinitionFromTypeNode(typeNode);
   if (typeDefinition == null) {
     throw PrinterError(
       "Failed to find type definition for type ${typeNode.name.value}",
@@ -94,10 +78,10 @@ TypeReference _printNamedTypeNode(
   }
   final replacementContext = propertyContext != null
       ? context.context
-              .lookupContext(propertyContext)
-              ?.replacementContext
-              ?.path ??
-          propertyContext
+                .lookupContext(propertyContext)
+                ?.replacementContext
+                ?.path ??
+            propertyContext
       : null;
 
   TypeReference reference;
@@ -131,9 +115,7 @@ TypeReference _printEnumType(
   final enumConfig = context.context.config.enums[node.name.value];
   final enumConfigImport = enumConfig?.import;
   final enumConfigType = enumConfig?.type;
-  final name = Name.fromSegment(
-    EnumNameSegment(node),
-  );
+  final name = Name.fromSegment(EnumNameSegment(node));
   if (enumConfigType == null) {
     final typeName = context.namePrinter.printClassName(name);
     return TypeReference((b) => b..symbol = typeName);
@@ -141,9 +123,7 @@ TypeReference _printEnumType(
   if (enumConfigImport != null) {
     context.addPackage(
       enumConfigImport,
-      context.namePrinter.printEnumImportAlias(
-        name,
-      ),
+      context.namePrinter.printEnumImportAlias(name),
     );
   }
   return TypeReference(
@@ -170,7 +150,8 @@ GraphQLCodegenConfigScalar scalarConfigFromScalarDefinition(
 ) {
   final scalars = scalarConfigs(context);
 
-  final ref = scalars[node.name.value] ??
+  final ref =
+      scalars[node.name.value] ??
       const GraphQLCodegenConfigScalar(type: 'String');
   if (!scalars.containsKey(node.name.value)) {
     context.markScalarAsBad(node.name.value);
@@ -191,21 +172,21 @@ TypeReference _printScalarType(
 }
 
 TypeReference asNullable(TypeReference reference) => TypeReference(
-      (b) => b
-        ..isNullable = true
-        ..symbol = reference.symbol
-        ..types = reference.types.toBuilder(),
-    );
+  (b) => b
+    ..isNullable = true
+    ..symbol = reference.symbol
+    ..types = reference.types.toBuilder(),
+);
 
 TypeReference asNonNullable(TypeReference reference) => TypeReference(
-      (b) => b
-        ..isNullable = false
-        ..symbol = reference.symbol
-        ..types = reference.types.toBuilder(),
-    );
+  (b) => b
+    ..isNullable = false
+    ..symbol = reference.symbol
+    ..types = reference.types.toBuilder(),
+);
 
 TypeReference _asList(TypeReference reference) => TypeReference(
-      (b) => b
-        ..symbol = 'List'
-        ..types = ListBuilder([reference]),
-    );
+  (b) => b
+    ..symbol = 'List'
+    ..types = ListBuilder([reference]),
+);

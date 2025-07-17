@@ -225,10 +225,7 @@ Enum_____DirectiveLocation fromJson___Enum_____DirectiveLocation(String value) {
 }
 
 class Query___Q {
-  Query___Q({
-    this.status,
-    this.$__typename = 'Query',
-  });
+  Query___Q({this.status, this.$__typename = 'Query'});
 
   factory Query___Q.fromJson(Map<String, dynamic> json) {
     final l$status = json['status'];
@@ -248,8 +245,9 @@ class Query___Q {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$status = status;
-    _resultData['status'] =
-        l$status == null ? null : toJson___Enum___Status(l$status);
+    _resultData['status'] = l$status == null
+        ? null
+        : toJson___Enum___Status(l$status);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -259,10 +257,7 @@ class Query___Q {
   int get hashCode {
     final l$status = status;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$status,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$status, l$$__typename]);
   }
 
   @override
@@ -288,10 +283,8 @@ class Query___Q {
 }
 
 extension UtilityExtension___Query___Q on Query___Q {
-  CopyWith___Query___Q<Query___Q> get copyWith => CopyWith___Query___Q(
-        this,
-        (i) => i,
-      );
+  CopyWith___Query___Q<Query___Q> get copyWith =>
+      CopyWith___Query___Q(this, (i) => i);
 }
 
 abstract class CopyWith___Query___Q<TRes> {
@@ -302,17 +295,11 @@ abstract class CopyWith___Query___Q<TRes> {
 
   factory CopyWith___Query___Q.stub(TRes res) = _CopyWithStubImpl___Query___Q;
 
-  TRes call({
-    Enum___Status? status,
-    String? $__typename,
-  });
+  TRes call({Enum___Status? status, String? $__typename});
 }
 
 class _CopyWithImpl___Query___Q<TRes> implements CopyWith___Query___Q<TRes> {
-  _CopyWithImpl___Query___Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl___Query___Q(this._instance, this._then);
 
   final Query___Q _instance;
 
@@ -320,18 +307,17 @@ class _CopyWithImpl___Query___Q<TRes> implements CopyWith___Query___Q<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? status = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query___Q(
-        status: status == _undefined
-            ? _instance.status
-            : (status as Enum___Status?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? status = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query___Q(
+          status: status == _undefined
+              ? _instance.status
+              : (status as Enum___Status?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl___Query___Q<TRes>
@@ -340,35 +326,35 @@ class _CopyWithStubImpl___Query___Q<TRes>
 
   TRes _res;
 
-  call({
-    Enum___Status? status,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Enum___Status? status, String? $__typename}) => _res;
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'status'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{};

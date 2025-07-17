@@ -1,7 +1,6 @@
 class Input$I {
-  factory Input$I({String? title}) => Input$I._({
-        if (title != null) r'title': title,
-      });
+  factory Input$I({String? title}) =>
+      Input$I._({if (title != null) r'title': title});
 
   Input$I._(this._$data);
 
@@ -27,10 +26,7 @@ class Input$I {
     return result$data;
   }
 
-  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I<Input$I> get copyWith => CopyWith$Input$I(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -59,10 +55,8 @@ class Input$I {
 }
 
 abstract class CopyWith$Input$I<TRes> {
-  factory CopyWith$Input$I(
-    Input$I instance,
-    TRes Function(Input$I) then,
-  ) = _CopyWithImpl$Input$I;
+  factory CopyWith$Input$I(Input$I instance, TRes Function(Input$I) then) =
+      _CopyWithImpl$Input$I;
 
   factory CopyWith$Input$I.stub(TRes res) = _CopyWithStubImpl$Input$I;
 
@@ -70,10 +64,7 @@ abstract class CopyWith$Input$I<TRes> {
 }
 
 class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
-  _CopyWithImpl$Input$I(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I(this._instance, this._then);
 
   final Input$I _instance;
 
@@ -81,10 +72,12 @@ class _CopyWithImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? title = _undefined}) => _then(Input$I._({
-        ..._instance._$data,
-        if (title != _undefined) 'title': (title as String?),
-      }));
+  TRes call({Object? title = _undefined}) => _then(
+    Input$I._({
+      ..._instance._$data,
+      if (title != _undefined) 'title': (title as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
@@ -96,9 +89,8 @@ class _CopyWithStubImpl$Input$I<TRes> implements CopyWith$Input$I<TRes> {
 }
 
 class Input$I_ {
-  factory Input$I_({double? value}) => Input$I_._({
-        if (value != null) r'value': value,
-      });
+  factory Input$I_({double? value}) =>
+      Input$I_._({if (value != null) r'value': value});
 
   Input$I_._(this._$data);
 
@@ -124,10 +116,7 @@ class Input$I_ {
     return result$data;
   }
 
-  CopyWith$Input$I_<Input$I_> get copyWith => CopyWith$Input$I_(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I_<Input$I_> get copyWith => CopyWith$Input$I_(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -156,10 +145,8 @@ class Input$I_ {
 }
 
 abstract class CopyWith$Input$I_<TRes> {
-  factory CopyWith$Input$I_(
-    Input$I_ instance,
-    TRes Function(Input$I_) then,
-  ) = _CopyWithImpl$Input$I_;
+  factory CopyWith$Input$I_(Input$I_ instance, TRes Function(Input$I_) then) =
+      _CopyWithImpl$Input$I_;
 
   factory CopyWith$Input$I_.stub(TRes res) = _CopyWithStubImpl$Input$I_;
 
@@ -167,10 +154,7 @@ abstract class CopyWith$Input$I_<TRes> {
 }
 
 class _CopyWithImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
-  _CopyWithImpl$Input$I_(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I_(this._instance, this._then);
 
   final Input$I_ _instance;
 
@@ -178,10 +162,12 @@ class _CopyWithImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? value = _undefined}) => _then(Input$I_._({
-        ..._instance._$data,
-        if (value != _undefined) 'value': (value as double?),
-      }));
+  TRes call({Object? value = _undefined}) => _then(
+    Input$I_._({
+      ..._instance._$data,
+      if (value != _undefined) 'value': (value as double?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
@@ -193,9 +179,8 @@ class _CopyWithStubImpl$Input$I_<TRes> implements CopyWith$Input$I_<TRes> {
 }
 
 class Input$i {
-  factory Input$i({bool? enabled}) => Input$i._({
-        if (enabled != null) r'enabled': enabled,
-      });
+  factory Input$i({bool? enabled}) =>
+      Input$i._({if (enabled != null) r'enabled': enabled});
 
   Input$i._(this._$data);
 
@@ -221,10 +206,7 @@ class Input$i {
     return result$data;
   }
 
-  CopyWith$Input$i<Input$i> get copyWith => CopyWith$Input$i(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$i<Input$i> get copyWith => CopyWith$Input$i(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -248,16 +230,15 @@ class Input$i {
   @override
   int get hashCode {
     final l$enabled = enabled;
-    return Object.hashAll(
-        [_$data.containsKey('enabled') ? l$enabled : const {}]);
+    return Object.hashAll([
+      _$data.containsKey('enabled') ? l$enabled : const {},
+    ]);
   }
 }
 
 abstract class CopyWith$Input$i<TRes> {
-  factory CopyWith$Input$i(
-    Input$i instance,
-    TRes Function(Input$i) then,
-  ) = _CopyWithImpl$Input$i;
+  factory CopyWith$Input$i(Input$i instance, TRes Function(Input$i) then) =
+      _CopyWithImpl$Input$i;
 
   factory CopyWith$Input$i.stub(TRes res) = _CopyWithStubImpl$Input$i;
 
@@ -265,10 +246,7 @@ abstract class CopyWith$Input$i<TRes> {
 }
 
 class _CopyWithImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
-  _CopyWithImpl$Input$i(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$i(this._instance, this._then);
 
   final Input$i _instance;
 
@@ -276,10 +254,12 @@ class _CopyWithImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? enabled = _undefined}) => _then(Input$i._({
-        ..._instance._$data,
-        if (enabled != _undefined) 'enabled': (enabled as bool?),
-      }));
+  TRes call({Object? enabled = _undefined}) => _then(
+    Input$i._({
+      ..._instance._$data,
+      if (enabled != _undefined) 'enabled': (enabled as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$i<TRes> implements CopyWith$Input$i<TRes> {

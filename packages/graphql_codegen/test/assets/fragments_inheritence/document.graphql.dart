@@ -187,9 +187,10 @@ class Fragment$F {
   factory Fragment$F.fromJson(Map<String, dynamic> json) {
     final l$other = json['other'];
     return Fragment$F(
-        other: l$other == null
-            ? null
-            : Fragment$F$other.fromJson((l$other as Map<String, dynamic>)));
+      other: l$other == null
+          ? null
+          : Fragment$F$other.fromJson((l$other as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F$other? other;
@@ -225,10 +226,8 @@ class Fragment$F {
 }
 
 extension UtilityExtension$Fragment$F on Fragment$F {
-  CopyWith$Fragment$F<Fragment$F> get copyWith => CopyWith$Fragment$F(
-        this,
-        (i) => i,
-      );
+  CopyWith$Fragment$F<Fragment$F> get copyWith =>
+      CopyWith$Fragment$F(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F<TRes> {
@@ -244,10 +243,7 @@ abstract class CopyWith$Fragment$F<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
-  _CopyWithImpl$Fragment$F(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F(this._instance, this._then);
 
   final Fragment$F _instance;
 
@@ -255,10 +251,13 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? other = _undefined}) => _then(Fragment$F(
+  TRes call({Object? other = _undefined}) => _then(
+    Fragment$F(
       other: other == _undefined
           ? _instance.other
-          : (other as Fragment$F$other?)));
+          : (other as Fragment$F$other?),
+    ),
+  );
 
   CopyWith$Fragment$F$other<TRes> get other {
     final local$other = _instance.other;
@@ -282,47 +281,51 @@ class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 const fragmentDefinitionF = FragmentDefinitionNode(
   name: NameNode(value: 'F'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Type'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'other'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'F2'),
-          directives: [],
-        ),
-        InlineFragmentNode(
-          typeCondition: TypeConditionNode(
-              on: NamedTypeNode(
-            name: NameNode(value: 'T1'),
-            isNonNull: false,
-          )),
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'b'),
-              alias: null,
-              arguments: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'other'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'F2'),
               directives: [],
-              selectionSet: null,
-            )
-          ]),
+            ),
+            InlineFragmentNode(
+              typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+                  name: NameNode(value: 'T1'),
+                  isNonNull: false,
+                ),
+              ),
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'b'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ]),
-    )
-  ]),
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentF = DocumentNode(definitions: [
-  fragmentDefinitionF,
-  fragmentDefinitionF2,
-]);
+const documentNodeFragmentF = DocumentNode(
+  definitions: [fragmentDefinitionF, fragmentDefinitionF2],
+);
 
 class Fragment$F$other implements Fragment$F2 {
   Fragment$F$other({this.other});
@@ -330,10 +333,10 @@ class Fragment$F$other implements Fragment$F2 {
   factory Fragment$F$other.fromJson(Map<String, dynamic> json) {
     final l$other = json['other'];
     return Fragment$F$other(
-        other: l$other == null
-            ? null
-            : Fragment$F$other$other.fromJson(
-                (l$other as Map<String, dynamic>)));
+      other: l$other == null
+          ? null
+          : Fragment$F$other$other.fromJson((l$other as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F$other$other? other;
@@ -370,10 +373,7 @@ class Fragment$F$other implements Fragment$F2 {
 
 extension UtilityExtension$Fragment$F$other on Fragment$F$other {
   CopyWith$Fragment$F$other<Fragment$F$other> get copyWith =>
-      CopyWith$Fragment$F$other(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$other<TRes> {
@@ -391,10 +391,7 @@ abstract class CopyWith$Fragment$F$other<TRes> {
 
 class _CopyWithImpl$Fragment$F$other<TRes>
     implements CopyWith$Fragment$F$other<TRes> {
-  _CopyWithImpl$Fragment$F$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$other(this._instance, this._then);
 
   final Fragment$F$other _instance;
 
@@ -402,10 +399,13 @@ class _CopyWithImpl$Fragment$F$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? other = _undefined}) => _then(Fragment$F$other(
+  TRes call({Object? other = _undefined}) => _then(
+    Fragment$F$other(
       other: other == _undefined
           ? _instance.other
-          : (other as Fragment$F$other$other?)));
+          : (other as Fragment$F$other$other?),
+    ),
+  );
 
   CopyWith$Fragment$F$other$other<TRes> get other {
     final local$other = _instance.other;
@@ -469,10 +469,7 @@ class Fragment$F$other$other implements Fragment$F2$other {
 
 extension UtilityExtension$Fragment$F$other$other on Fragment$F$other$other {
   CopyWith$Fragment$F$other$other<Fragment$F$other$other> get copyWith =>
-      CopyWith$Fragment$F$other$other(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F$other$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$other$other<TRes> {
@@ -489,10 +486,7 @@ abstract class CopyWith$Fragment$F$other$other<TRes> {
 
 class _CopyWithImpl$Fragment$F$other$other<TRes>
     implements CopyWith$Fragment$F$other$other<TRes> {
-  _CopyWithImpl$Fragment$F$other$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$other$other(this._instance, this._then);
 
   final Fragment$F$other$other _instance;
 
@@ -500,8 +494,11 @@ class _CopyWithImpl$Fragment$F$other$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F$other$other(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$other$other(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$other$other<TRes>
@@ -558,10 +555,7 @@ class Fragment$F$other$other$$T1
 extension UtilityExtension$Fragment$F$other$other$$T1
     on Fragment$F$other$other$$T1 {
   CopyWith$Fragment$F$other$other$$T1<Fragment$F$other$other$$T1>
-      get copyWith => CopyWith$Fragment$F$other$other$$T1(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$F$other$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$other$other$$T1<TRes> {
@@ -578,10 +572,7 @@ abstract class CopyWith$Fragment$F$other$other$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F$other$other$$T1<TRes>
     implements CopyWith$Fragment$F$other$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$other$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$other$other$$T1(this._instance, this._then);
 
   final Fragment$F$other$other$$T1 _instance;
 
@@ -589,8 +580,11 @@ class _CopyWithImpl$Fragment$F$other$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F$other$other$$T1(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$other$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$other$other$$T1<TRes>
@@ -603,10 +597,7 @@ class _CopyWithStubImpl$Fragment$F$other$other$$T1<TRes>
 }
 
 class Fragment$F$other$$T1 implements Fragment$F2$$T1, Fragment$F$other {
-  Fragment$F$other$$T1({
-    this.b,
-    this.other,
-  });
+  Fragment$F$other$$T1({this.b, this.other});
 
   factory Fragment$F$other$$T1.fromJson(Map<String, dynamic> json) {
     final l$b = json['b'];
@@ -616,7 +607,8 @@ class Fragment$F$other$$T1 implements Fragment$F2$$T1, Fragment$F$other {
       other: l$other == null
           ? null
           : Fragment$F$other$$T1$other.fromJson(
-              (l$other as Map<String, dynamic>)),
+              (l$other as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -637,10 +629,7 @@ class Fragment$F$other$$T1 implements Fragment$F2$$T1, Fragment$F$other {
   int get hashCode {
     final l$b = b;
     final l$other = other;
-    return Object.hashAll([
-      l$b,
-      l$other,
-    ]);
+    return Object.hashAll([l$b, l$other]);
   }
 
   @override
@@ -667,10 +656,7 @@ class Fragment$F$other$$T1 implements Fragment$F2$$T1, Fragment$F$other {
 
 extension UtilityExtension$Fragment$F$other$$T1 on Fragment$F$other$$T1 {
   CopyWith$Fragment$F$other$$T1<Fragment$F$other$$T1> get copyWith =>
-      CopyWith$Fragment$F$other$$T1(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$other$$T1<TRes> {
@@ -682,19 +668,13 @@ abstract class CopyWith$Fragment$F$other$$T1<TRes> {
   factory CopyWith$Fragment$F$other$$T1.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$other$$T1;
 
-  TRes call({
-    bool? b,
-    Fragment$F$other$$T1$other? other,
-  });
+  TRes call({bool? b, Fragment$F$other$$T1$other? other});
   CopyWith$Fragment$F$other$$T1$other<TRes> get other;
 }
 
 class _CopyWithImpl$Fragment$F$other$$T1<TRes>
     implements CopyWith$Fragment$F$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$other$$T1(this._instance, this._then);
 
   final Fragment$F$other$$T1 _instance;
 
@@ -702,23 +682,23 @@ class _CopyWithImpl$Fragment$F$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? b = _undefined,
-    Object? other = _undefined,
-  }) =>
-      _then(Fragment$F$other$$T1(
-        b: b == _undefined ? _instance.b : (b as bool?),
-        other: other == _undefined
-            ? _instance.other
-            : (other as Fragment$F$other$$T1$other?),
-      ));
+  TRes call({Object? b = _undefined, Object? other = _undefined}) => _then(
+    Fragment$F$other$$T1(
+      b: b == _undefined ? _instance.b : (b as bool?),
+      other: other == _undefined
+          ? _instance.other
+          : (other as Fragment$F$other$$T1$other?),
+    ),
+  );
 
   CopyWith$Fragment$F$other$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
         ? CopyWith$Fragment$F$other$$T1$other.stub(_then(_instance))
         : CopyWith$Fragment$F$other$$T1$other(
-            local$other, (e) => call(other: e));
+            local$other,
+            (e) => call(other: e),
+          );
   }
 }
 
@@ -728,11 +708,7 @@ class _CopyWithStubImpl$Fragment$F$other$$T1<TRes>
 
   TRes _res;
 
-  call({
-    bool? b,
-    Fragment$F$other$$T1$other? other,
-  }) =>
-      _res;
+  call({bool? b, Fragment$F$other$$T1$other? other}) => _res;
 
   CopyWith$Fragment$F$other$$T1$other<TRes> get other =>
       CopyWith$Fragment$F$other$$T1$other.stub(_res);
@@ -783,10 +759,7 @@ class Fragment$F$other$$T1$other
 extension UtilityExtension$Fragment$F$other$$T1$other
     on Fragment$F$other$$T1$other {
   CopyWith$Fragment$F$other$$T1$other<Fragment$F$other$$T1$other>
-      get copyWith => CopyWith$Fragment$F$other$$T1$other(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$F$other$$T1$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$other$$T1$other<TRes> {
@@ -803,10 +776,7 @@ abstract class CopyWith$Fragment$F$other$$T1$other<TRes> {
 
 class _CopyWithImpl$Fragment$F$other$$T1$other<TRes>
     implements CopyWith$Fragment$F$other$$T1$other<TRes> {
-  _CopyWithImpl$Fragment$F$other$$T1$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$other$$T1$other(this._instance, this._then);
 
   final Fragment$F$other$$T1$other _instance;
 
@@ -814,8 +784,11 @@ class _CopyWithImpl$Fragment$F$other$$T1$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F$other$$T1$other(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$other$$T1$other(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$other$$T1$other<TRes>
@@ -872,10 +845,7 @@ class Fragment$F$other$$T1$other$$T1
 extension UtilityExtension$Fragment$F$other$$T1$other$$T1
     on Fragment$F$other$$T1$other$$T1 {
   CopyWith$Fragment$F$other$$T1$other$$T1<Fragment$F$other$$T1$other$$T1>
-      get copyWith => CopyWith$Fragment$F$other$$T1$other$$T1(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$F$other$$T1$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$other$$T1$other$$T1<TRes> {
@@ -892,10 +862,7 @@ abstract class CopyWith$Fragment$F$other$$T1$other$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F$other$$T1$other$$T1<TRes>
     implements CopyWith$Fragment$F$other$$T1$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$other$$T1$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$other$$T1$other$$T1(this._instance, this._then);
 
   final Fragment$F$other$$T1$other$$T1 _instance;
 
@@ -903,9 +870,11 @@ class _CopyWithImpl$Fragment$F$other$$T1$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Fragment$F$other$$T1$other$$T1(
-          name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$other$$T1$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$other$$T1$other$$T1<TRes>
@@ -923,9 +892,10 @@ class Fragment$F$$T1 implements Fragment$F {
   factory Fragment$F$$T1.fromJson(Map<String, dynamic> json) {
     final l$other = json['other'];
     return Fragment$F$$T1(
-        other: l$other == null
-            ? null
-            : Fragment$F$$T1$other.fromJson((l$other as Map<String, dynamic>)));
+      other: l$other == null
+          ? null
+          : Fragment$F$$T1$other.fromJson((l$other as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F$$T1$other? other;
@@ -962,10 +932,7 @@ class Fragment$F$$T1 implements Fragment$F {
 
 extension UtilityExtension$Fragment$F$$T1 on Fragment$F$$T1 {
   CopyWith$Fragment$F$$T1<Fragment$F$$T1> get copyWith =>
-      CopyWith$Fragment$F$$T1(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1<TRes> {
@@ -983,10 +950,7 @@ abstract class CopyWith$Fragment$F$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F$$T1<TRes>
     implements CopyWith$Fragment$F$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1(this._instance, this._then);
 
   final Fragment$F$$T1 _instance;
 
@@ -994,10 +958,13 @@ class _CopyWithImpl$Fragment$F$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? other = _undefined}) => _then(Fragment$F$$T1(
+  TRes call({Object? other = _undefined}) => _then(
+    Fragment$F$$T1(
       other: other == _undefined
           ? _instance.other
-          : (other as Fragment$F$$T1$other?)));
+          : (other as Fragment$F$$T1$other?),
+    ),
+  );
 
   CopyWith$Fragment$F$$T1$other<TRes> get other {
     final local$other = _instance.other;
@@ -1025,10 +992,12 @@ class Fragment$F$$T1$other implements Fragment$F2, Fragment$F$other {
   factory Fragment$F$$T1$other.fromJson(Map<String, dynamic> json) {
     final l$other = json['other'];
     return Fragment$F$$T1$other(
-        other: l$other == null
-            ? null
-            : Fragment$F$$T1$other$other.fromJson(
-                (l$other as Map<String, dynamic>)));
+      other: l$other == null
+          ? null
+          : Fragment$F$$T1$other$other.fromJson(
+              (l$other as Map<String, dynamic>),
+            ),
+    );
   }
 
   final Fragment$F$$T1$other$other? other;
@@ -1065,10 +1034,7 @@ class Fragment$F$$T1$other implements Fragment$F2, Fragment$F$other {
 
 extension UtilityExtension$Fragment$F$$T1$other on Fragment$F$$T1$other {
   CopyWith$Fragment$F$$T1$other<Fragment$F$$T1$other> get copyWith =>
-      CopyWith$Fragment$F$$T1$other(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F$$T1$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1$other<TRes> {
@@ -1086,10 +1052,7 @@ abstract class CopyWith$Fragment$F$$T1$other<TRes> {
 
 class _CopyWithImpl$Fragment$F$$T1$other<TRes>
     implements CopyWith$Fragment$F$$T1$other<TRes> {
-  _CopyWithImpl$Fragment$F$$T1$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1$other(this._instance, this._then);
 
   final Fragment$F$$T1$other _instance;
 
@@ -1097,17 +1060,22 @@ class _CopyWithImpl$Fragment$F$$T1$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? other = _undefined}) => _then(Fragment$F$$T1$other(
+  TRes call({Object? other = _undefined}) => _then(
+    Fragment$F$$T1$other(
       other: other == _undefined
           ? _instance.other
-          : (other as Fragment$F$$T1$other$other?)));
+          : (other as Fragment$F$$T1$other$other?),
+    ),
+  );
 
   CopyWith$Fragment$F$$T1$other$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
         ? CopyWith$Fragment$F$$T1$other$other.stub(_then(_instance))
         : CopyWith$Fragment$F$$T1$other$other(
-            local$other, (e) => call(other: e));
+            local$other,
+            (e) => call(other: e),
+          );
   }
 }
 
@@ -1168,10 +1136,7 @@ class Fragment$F$$T1$other$other
 extension UtilityExtension$Fragment$F$$T1$other$other
     on Fragment$F$$T1$other$other {
   CopyWith$Fragment$F$$T1$other$other<Fragment$F$$T1$other$other>
-      get copyWith => CopyWith$Fragment$F$$T1$other$other(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$F$$T1$other$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1$other$other<TRes> {
@@ -1188,10 +1153,7 @@ abstract class CopyWith$Fragment$F$$T1$other$other<TRes> {
 
 class _CopyWithImpl$Fragment$F$$T1$other$other<TRes>
     implements CopyWith$Fragment$F$$T1$other$other<TRes> {
-  _CopyWithImpl$Fragment$F$$T1$other$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1$other$other(this._instance, this._then);
 
   final Fragment$F$$T1$other$other _instance;
 
@@ -1199,8 +1161,11 @@ class _CopyWithImpl$Fragment$F$$T1$other$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F$$T1$other$other(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$$T1$other$other(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$$T1$other$other<TRes>
@@ -1257,10 +1222,7 @@ class Fragment$F$$T1$other$other$$T1
 extension UtilityExtension$Fragment$F$$T1$other$other$$T1
     on Fragment$F$$T1$other$other$$T1 {
   CopyWith$Fragment$F$$T1$other$other$$T1<Fragment$F$$T1$other$other$$T1>
-      get copyWith => CopyWith$Fragment$F$$T1$other$other$$T1(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$F$$T1$other$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1$other$other$$T1<TRes> {
@@ -1277,10 +1239,7 @@ abstract class CopyWith$Fragment$F$$T1$other$other$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F$$T1$other$other$$T1<TRes>
     implements CopyWith$Fragment$F$$T1$other$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$$T1$other$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1$other$other$$T1(this._instance, this._then);
 
   final Fragment$F$$T1$other$other$$T1 _instance;
 
@@ -1288,9 +1247,11 @@ class _CopyWithImpl$Fragment$F$$T1$other$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Fragment$F$$T1$other$other$$T1(
-          name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$$T1$other$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$$T1$other$other$$T1<TRes>
@@ -1304,10 +1265,7 @@ class _CopyWithStubImpl$Fragment$F$$T1$other$other$$T1<TRes>
 
 class Fragment$F$$T1$other$$T1
     implements Fragment$F2$$T1, Fragment$F$$T1$other {
-  Fragment$F$$T1$other$$T1({
-    this.b,
-    this.other,
-  });
+  Fragment$F$$T1$other$$T1({this.b, this.other});
 
   factory Fragment$F$$T1$other$$T1.fromJson(Map<String, dynamic> json) {
     final l$b = json['b'];
@@ -1317,7 +1275,8 @@ class Fragment$F$$T1$other$$T1
       other: l$other == null
           ? null
           : Fragment$F$$T1$other$$T1$other.fromJson(
-              (l$other as Map<String, dynamic>)),
+              (l$other as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -1338,10 +1297,7 @@ class Fragment$F$$T1$other$$T1
   int get hashCode {
     final l$b = b;
     final l$other = other;
-    return Object.hashAll([
-      l$b,
-      l$other,
-    ]);
+    return Object.hashAll([l$b, l$other]);
   }
 
   @override
@@ -1370,10 +1326,7 @@ class Fragment$F$$T1$other$$T1
 extension UtilityExtension$Fragment$F$$T1$other$$T1
     on Fragment$F$$T1$other$$T1 {
   CopyWith$Fragment$F$$T1$other$$T1<Fragment$F$$T1$other$$T1> get copyWith =>
-      CopyWith$Fragment$F$$T1$other$$T1(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F$$T1$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1$other$$T1<TRes> {
@@ -1385,19 +1338,13 @@ abstract class CopyWith$Fragment$F$$T1$other$$T1<TRes> {
   factory CopyWith$Fragment$F$$T1$other$$T1.stub(TRes res) =
       _CopyWithStubImpl$Fragment$F$$T1$other$$T1;
 
-  TRes call({
-    bool? b,
-    Fragment$F$$T1$other$$T1$other? other,
-  });
+  TRes call({bool? b, Fragment$F$$T1$other$$T1$other? other});
   CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other;
 }
 
 class _CopyWithImpl$Fragment$F$$T1$other$$T1<TRes>
     implements CopyWith$Fragment$F$$T1$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$$T1$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1$other$$T1(this._instance, this._then);
 
   final Fragment$F$$T1$other$$T1 _instance;
 
@@ -1405,23 +1352,23 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? b = _undefined,
-    Object? other = _undefined,
-  }) =>
-      _then(Fragment$F$$T1$other$$T1(
-        b: b == _undefined ? _instance.b : (b as bool?),
-        other: other == _undefined
-            ? _instance.other
-            : (other as Fragment$F$$T1$other$$T1$other?),
-      ));
+  TRes call({Object? b = _undefined, Object? other = _undefined}) => _then(
+    Fragment$F$$T1$other$$T1(
+      b: b == _undefined ? _instance.b : (b as bool?),
+      other: other == _undefined
+          ? _instance.other
+          : (other as Fragment$F$$T1$other$$T1$other?),
+    ),
+  );
 
   CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other {
     final local$other = _instance.other;
     return local$other == null
         ? CopyWith$Fragment$F$$T1$other$$T1$other.stub(_then(_instance))
         : CopyWith$Fragment$F$$T1$other$$T1$other(
-            local$other, (e) => call(other: e));
+            local$other,
+            (e) => call(other: e),
+          );
   }
 }
 
@@ -1431,11 +1378,7 @@ class _CopyWithStubImpl$Fragment$F$$T1$other$$T1<TRes>
 
   TRes _res;
 
-  call({
-    bool? b,
-    Fragment$F$$T1$other$$T1$other? other,
-  }) =>
-      _res;
+  call({bool? b, Fragment$F$$T1$other$$T1$other? other}) => _res;
 
   CopyWith$Fragment$F$$T1$other$$T1$other<TRes> get other =>
       CopyWith$Fragment$F$$T1$other$$T1$other.stub(_res);
@@ -1486,10 +1429,7 @@ class Fragment$F$$T1$other$$T1$other
 extension UtilityExtension$Fragment$F$$T1$other$$T1$other
     on Fragment$F$$T1$other$$T1$other {
   CopyWith$Fragment$F$$T1$other$$T1$other<Fragment$F$$T1$other$$T1$other>
-      get copyWith => CopyWith$Fragment$F$$T1$other$$T1$other(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$F$$T1$other$$T1$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1$other$$T1$other<TRes> {
@@ -1506,10 +1446,7 @@ abstract class CopyWith$Fragment$F$$T1$other$$T1$other<TRes> {
 
 class _CopyWithImpl$Fragment$F$$T1$other$$T1$other<TRes>
     implements CopyWith$Fragment$F$$T1$other$$T1$other<TRes> {
-  _CopyWithImpl$Fragment$F$$T1$other$$T1$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1$other$$T1$other(this._instance, this._then);
 
   final Fragment$F$$T1$other$$T1$other _instance;
 
@@ -1517,9 +1454,11 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Fragment$F$$T1$other$$T1$other(
-          name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$$T1$other$$T1$other(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other<TRes>
@@ -1536,7 +1475,8 @@ class Fragment$F$$T1$other$$T1$other$$T1
   Fragment$F$$T1$other$$T1$other$$T1({this.name});
 
   factory Fragment$F$$T1$other$$T1$other$$T1.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     return Fragment$F$$T1$other$$T1$other$$T1(name: (l$name as String?));
   }
@@ -1577,11 +1517,9 @@ class Fragment$F$$T1$other$$T1$other$$T1
 extension UtilityExtension$Fragment$F$$T1$other$$T1$other$$T1
     on Fragment$F$$T1$other$$T1$other$$T1 {
   CopyWith$Fragment$F$$T1$other$$T1$other$$T1<
-          Fragment$F$$T1$other$$T1$other$$T1>
-      get copyWith => CopyWith$Fragment$F$$T1$other$$T1$other$$T1(
-            this,
-            (i) => i,
-          );
+    Fragment$F$$T1$other$$T1$other$$T1
+  >
+  get copyWith => CopyWith$Fragment$F$$T1$other$$T1$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F$$T1$other$$T1$other$$T1<TRes> {
@@ -1598,10 +1536,7 @@ abstract class CopyWith$Fragment$F$$T1$other$$T1$other$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1<TRes>
     implements CopyWith$Fragment$F$$T1$other$$T1$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1(this._instance, this._then);
 
   final Fragment$F$$T1$other$$T1$other$$T1 _instance;
 
@@ -1609,9 +1544,11 @@ class _CopyWithImpl$Fragment$F$$T1$other$$T1$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Fragment$F$$T1$other$$T1$other$$T1(
-          name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F$$T1$other$$T1$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F$$T1$other$$T1$other$$T1<TRes>
@@ -1629,9 +1566,10 @@ class Fragment$F2 {
   factory Fragment$F2.fromJson(Map<String, dynamic> json) {
     final l$other = json['other'];
     return Fragment$F2(
-        other: l$other == null
-            ? null
-            : Fragment$F2$other.fromJson((l$other as Map<String, dynamic>)));
+      other: l$other == null
+          ? null
+          : Fragment$F2$other.fromJson((l$other as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F2$other? other;
@@ -1667,10 +1605,8 @@ class Fragment$F2 {
 }
 
 extension UtilityExtension$Fragment$F2 on Fragment$F2 {
-  CopyWith$Fragment$F2<Fragment$F2> get copyWith => CopyWith$Fragment$F2(
-        this,
-        (i) => i,
-      );
+  CopyWith$Fragment$F2<Fragment$F2> get copyWith =>
+      CopyWith$Fragment$F2(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2<TRes> {
@@ -1686,10 +1622,7 @@ abstract class CopyWith$Fragment$F2<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
-  _CopyWithImpl$Fragment$F2(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2(this._instance, this._then);
 
   final Fragment$F2 _instance;
 
@@ -1697,10 +1630,13 @@ class _CopyWithImpl$Fragment$F2<TRes> implements CopyWith$Fragment$F2<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? other = _undefined}) => _then(Fragment$F2(
+  TRes call({Object? other = _undefined}) => _then(
+    Fragment$F2(
       other: other == _undefined
           ? _instance.other
-          : (other as Fragment$F2$other?)));
+          : (other as Fragment$F2$other?),
+    ),
+  );
 
   CopyWith$Fragment$F2$other<TRes> get other {
     final local$other = _instance.other;
@@ -1725,32 +1661,34 @@ class _CopyWithStubImpl$Fragment$F2<TRes>
 const fragmentDefinitionF2 = FragmentDefinitionNode(
   name: NameNode(value: 'F2'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Type'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Type'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'other'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        )
-      ]),
-    )
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'other'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'name'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
+        ),
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentF2 = DocumentNode(definitions: [
-  fragmentDefinitionF2,
-]);
+const documentNodeFragmentF2 = DocumentNode(
+  definitions: [fragmentDefinitionF2],
+);
 
 class Fragment$F2$other {
   Fragment$F2$other({this.name});
@@ -1794,10 +1732,7 @@ class Fragment$F2$other {
 
 extension UtilityExtension$Fragment$F2$other on Fragment$F2$other {
   CopyWith$Fragment$F2$other<Fragment$F2$other> get copyWith =>
-      CopyWith$Fragment$F2$other(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F2$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2$other<TRes> {
@@ -1814,10 +1749,7 @@ abstract class CopyWith$Fragment$F2$other<TRes> {
 
 class _CopyWithImpl$Fragment$F2$other<TRes>
     implements CopyWith$Fragment$F2$other<TRes> {
-  _CopyWithImpl$Fragment$F2$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2$other(this._instance, this._then);
 
   final Fragment$F2$other _instance;
 
@@ -1825,8 +1757,11 @@ class _CopyWithImpl$Fragment$F2$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F2$other(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F2$other(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F2$other<TRes>
@@ -1880,10 +1815,7 @@ class Fragment$F2$other$$T1 implements Fragment$F2$other {
 
 extension UtilityExtension$Fragment$F2$other$$T1 on Fragment$F2$other$$T1 {
   CopyWith$Fragment$F2$other$$T1<Fragment$F2$other$$T1> get copyWith =>
-      CopyWith$Fragment$F2$other$$T1(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F2$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2$other$$T1<TRes> {
@@ -1900,10 +1832,7 @@ abstract class CopyWith$Fragment$F2$other$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F2$other$$T1<TRes>
     implements CopyWith$Fragment$F2$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F2$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2$other$$T1(this._instance, this._then);
 
   final Fragment$F2$other$$T1 _instance;
 
@@ -1911,8 +1840,11 @@ class _CopyWithImpl$Fragment$F2$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F2$other$$T1(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F2$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F2$other$$T1<TRes>
@@ -1930,10 +1862,10 @@ class Fragment$F2$$T1 implements Fragment$F2 {
   factory Fragment$F2$$T1.fromJson(Map<String, dynamic> json) {
     final l$other = json['other'];
     return Fragment$F2$$T1(
-        other: l$other == null
-            ? null
-            : Fragment$F2$$T1$other.fromJson(
-                (l$other as Map<String, dynamic>)));
+      other: l$other == null
+          ? null
+          : Fragment$F2$$T1$other.fromJson((l$other as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F2$$T1$other? other;
@@ -1970,10 +1902,7 @@ class Fragment$F2$$T1 implements Fragment$F2 {
 
 extension UtilityExtension$Fragment$F2$$T1 on Fragment$F2$$T1 {
   CopyWith$Fragment$F2$$T1<Fragment$F2$$T1> get copyWith =>
-      CopyWith$Fragment$F2$$T1(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F2$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2$$T1<TRes> {
@@ -1991,10 +1920,7 @@ abstract class CopyWith$Fragment$F2$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F2$$T1<TRes>
     implements CopyWith$Fragment$F2$$T1<TRes> {
-  _CopyWithImpl$Fragment$F2$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2$$T1(this._instance, this._then);
 
   final Fragment$F2$$T1 _instance;
 
@@ -2002,10 +1928,13 @@ class _CopyWithImpl$Fragment$F2$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? other = _undefined}) => _then(Fragment$F2$$T1(
+  TRes call({Object? other = _undefined}) => _then(
+    Fragment$F2$$T1(
       other: other == _undefined
           ? _instance.other
-          : (other as Fragment$F2$$T1$other?)));
+          : (other as Fragment$F2$$T1$other?),
+    ),
+  );
 
   CopyWith$Fragment$F2$$T1$other<TRes> get other {
     final local$other = _instance.other;
@@ -2069,10 +1998,7 @@ class Fragment$F2$$T1$other implements Fragment$F2$other {
 
 extension UtilityExtension$Fragment$F2$$T1$other on Fragment$F2$$T1$other {
   CopyWith$Fragment$F2$$T1$other<Fragment$F2$$T1$other> get copyWith =>
-      CopyWith$Fragment$F2$$T1$other(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F2$$T1$other(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2$$T1$other<TRes> {
@@ -2089,10 +2015,7 @@ abstract class CopyWith$Fragment$F2$$T1$other<TRes> {
 
 class _CopyWithImpl$Fragment$F2$$T1$other<TRes>
     implements CopyWith$Fragment$F2$$T1$other<TRes> {
-  _CopyWithImpl$Fragment$F2$$T1$other(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2$$T1$other(this._instance, this._then);
 
   final Fragment$F2$$T1$other _instance;
 
@@ -2100,8 +2023,11 @@ class _CopyWithImpl$Fragment$F2$$T1$other<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F2$$T1$other(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F2$$T1$other(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F2$$T1$other<TRes>
@@ -2157,10 +2083,7 @@ class Fragment$F2$$T1$other$$T1 implements Fragment$F2$$T1$other {
 extension UtilityExtension$Fragment$F2$$T1$other$$T1
     on Fragment$F2$$T1$other$$T1 {
   CopyWith$Fragment$F2$$T1$other$$T1<Fragment$F2$$T1$other$$T1> get copyWith =>
-      CopyWith$Fragment$F2$$T1$other$$T1(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$F2$$T1$other$$T1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F2$$T1$other$$T1<TRes> {
@@ -2177,10 +2100,7 @@ abstract class CopyWith$Fragment$F2$$T1$other$$T1<TRes> {
 
 class _CopyWithImpl$Fragment$F2$$T1$other$$T1<TRes>
     implements CopyWith$Fragment$F2$$T1$other$$T1<TRes> {
-  _CopyWithImpl$Fragment$F2$$T1$other$$T1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F2$$T1$other$$T1(this._instance, this._then);
 
   final Fragment$F2$$T1$other$$T1 _instance;
 
@@ -2188,8 +2108,11 @@ class _CopyWithImpl$Fragment$F2$$T1$other$$T1<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F2$$T1$other$$T1(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F2$$T1$other$$T1(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F2$$T1$other$$T1<TRes>
@@ -2207,9 +2130,10 @@ class Query$Fetch {
   factory Query$Fetch.fromJson(Map<String, dynamic> json) {
     final l$t = json['t'];
     return Query$Fetch(
-        t: l$t == null
-            ? null
-            : Fragment$F.fromJson((l$t as Map<String, dynamic>)));
+      t: l$t == null
+          ? null
+          : Fragment$F.fromJson((l$t as Map<String, dynamic>)),
+    );
   }
 
   final Fragment$F? t;
@@ -2245,10 +2169,8 @@ class Query$Fetch {
 }
 
 extension UtilityExtension$Query$Fetch on Query$Fetch {
-  CopyWith$Query$Fetch<Query$Fetch> get copyWith => CopyWith$Query$Fetch(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Fetch<Query$Fetch> get copyWith =>
+      CopyWith$Query$Fetch(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Fetch<TRes> {
@@ -2264,10 +2186,7 @@ abstract class CopyWith$Query$Fetch<TRes> {
 }
 
 class _CopyWithImpl$Query$Fetch<TRes> implements CopyWith$Query$Fetch<TRes> {
-  _CopyWithImpl$Query$Fetch(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Fetch(this._instance, this._then);
 
   final Query$Fetch _instance;
 
@@ -2297,30 +2216,36 @@ class _CopyWithStubImpl$Query$Fetch<TRes>
   CopyWith$Fragment$F<TRes> get t => CopyWith$Fragment$F.stub(_res);
 }
 
-const documentNodeQueryFetch = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Fetch'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 't'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'F'),
+const documentNodeQueryFetch = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Fetch'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 't'),
+            alias: null,
+            arguments: [],
             directives: [],
-          )
-        ]),
-      )
-    ]),
-  ),
-  fragmentDefinitionF,
-  fragmentDefinitionF2,
-]);
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'F'),
+                  directives: [],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+    fragmentDefinitionF,
+    fragmentDefinitionF2,
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{
-  'Type': {'T1'}
+  'Type': {'T1'},
 };

@@ -36,20 +36,19 @@ void main() {
         equals(
           Query$FetchPerson(
             fetchPerson: Query$FetchPerson$fetchPerson(
-                dob: DateTime.parse("1990-03-16T10:07:29.362Z"),
-                $__typename: 'Person',
-                name: 'Bob',
-                events: [
-                  DateTime.parse("1990-03-16T10:07:29.362Z"),
-                  DateTime.parse("1990-03-16T10:08:29.362Z"),
-                  DateTime.parse("1990-03-16T10:09:29.362Z")
-                ],
-                eventsOfEvents: [
-                  [
-                    DateTime.parse("1990-03-16T10:07:29.362Z"),
-                  ],
-                  null,
-                ]),
+              dob: DateTime.parse("1990-03-16T10:07:29.362Z"),
+              $__typename: 'Person',
+              name: 'Bob',
+              events: [
+                DateTime.parse("1990-03-16T10:07:29.362Z"),
+                DateTime.parse("1990-03-16T10:08:29.362Z"),
+                DateTime.parse("1990-03-16T10:09:29.362Z"),
+              ],
+              eventsOfEvents: [
+                [DateTime.parse("1990-03-16T10:07:29.362Z")],
+                null,
+              ],
+            ),
             $__typename: "Query",
           ),
         ),

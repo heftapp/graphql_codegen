@@ -12,26 +12,28 @@ Expression _printDefaultConstructor(
   String name,
   Iterable<ContextProperty> properties,
 ) {
-  final constructorArguments = Map.fromEntries(properties.map((property) {
-    final parameterName = c.namePrinter.printPropertyName(property.name);
-    final propertyType = printClassPropertyType(c, property);
-    return MapEntry(
+  final constructorArguments = Map.fromEntries(
+    properties.map((property) {
+      final parameterName = c.namePrinter.printPropertyName(property.name);
+      final propertyType = printClassPropertyType(c, property);
+      return MapEntry(
         property.name,
         (property.isRequired
                 ? refer(parameterName)
-                    .equalTo(refer(kUndefinedFieldName))
-                    .or(refer(parameterName).equalTo(literalNull))
+                      .equalTo(refer(kUndefinedFieldName))
+                      .or(refer(parameterName).equalTo(literalNull))
                 : refer(parameterName).equalTo(refer(kUndefinedFieldName)))
-            .conditional(refer('_instance').property(parameterName),
-                refer(parameterName).asA(propertyType)));
-  }));
-  return refer(name).call(
-    [],
-    {
-      for (final argument in constructorArguments.entries)
-        c.namePrinter.printPropertyName(argument.key): argument.value
-    },
+            .conditional(
+              refer('_instance').property(parameterName),
+              refer(parameterName).asA(propertyType),
+            ),
+      );
+    }),
   );
+  return refer(name).call([], {
+    for (final argument in constructorArguments.entries)
+      c.namePrinter.printPropertyName(argument.key): argument.value,
+  });
 }
 
 List<Spec> printCopyWithClasses(
@@ -70,20 +72,26 @@ List<Spec> printCopyWithClasses(
               ..initializers
               ..factory = true
               ..requiredParameters = ListBuilder(<Parameter>[
-                Parameter((b) => b
-                  ..name = 'instance'
-                  ..type = refer(name)),
-                Parameter((b) => b
-                  ..name = 'then'
-                  ..type = FunctionType(
-                    (b) => b
-                      ..returnType = refer('TRes')
-                      ..requiredParameters =
-                          ListBuilder(<Reference>[refer(name)]),
-                  )),
+                Parameter(
+                  (b) => b
+                    ..name = 'instance'
+                    ..type = refer(name),
+                ),
+                Parameter(
+                  (b) => b
+                    ..name = 'then'
+                    ..type = FunctionType(
+                      (b) => b
+                        ..returnType = refer('TRes')
+                        ..requiredParameters = ListBuilder(<Reference>[
+                          refer(name),
+                        ]),
+                    ),
+                ),
               ])
-              ..redirect =
-                  refer(c.namePrinter.printCopyWithImplClassName(name)),
+              ..redirect = refer(
+                c.namePrinter.printCopyWithImplClassName(name),
+              ),
           ),
           Constructor(
             (b) => b
@@ -91,21 +99,24 @@ List<Spec> printCopyWithClasses(
               ..factory = true
               ..name = 'stub'
               ..requiredParameters = ListBuilder(<Parameter>[
-                Parameter((b) => b
-                  ..name = 'res'
-                  ..type = refer('TRes')),
+                Parameter(
+                  (b) => b
+                    ..name = 'res'
+                    ..type = refer('TRes'),
+                ),
               ])
-              ..redirect =
-                  refer(c.namePrinter.printCopyWithStubImplClassName(name)),
-          )
+              ..redirect = refer(
+                c.namePrinter.printCopyWithStubImplClassName(name),
+              ),
+          ),
         ])
         ..methods = ListBuilder(<Method>[
-          Method((b) => b
-            ..name = 'call'
-            ..returns = refer('TRes')
-            ..optionalParameters = ListBuilder(
-              parameters,
-            )),
+          Method(
+            (b) => b
+              ..name = 'call'
+              ..returns = refer('TRes')
+              ..optionalParameters = ListBuilder(parameters),
+          ),
           ...properties
               .map((p) => printDeepCopy(c, p, abstract: true))
               .whereType<Method>(),
@@ -120,19 +131,21 @@ List<Spec> printCopyWithClasses(
           generic(c.namePrinter.printCopyWithClassName(name), refer('TRes')),
         ])
         ..constructors = ListBuilder([
-          Constructor((b) => b
-            ..requiredParameters = ListBuilder([
-              Parameter(
-                (b) => b
-                  ..toThis = true
-                  ..name = '_instance',
-              ),
-              Parameter(
-                (b) => b
-                  ..toThis = true
-                  ..name = '_then',
-              ),
-            ]))
+          Constructor(
+            (b) => b
+              ..requiredParameters = ListBuilder([
+                Parameter(
+                  (b) => b
+                    ..toThis = true
+                    ..name = '_instance',
+                ),
+                Parameter(
+                  (b) => b
+                    ..toThis = true
+                    ..name = '_then',
+                ),
+              ]),
+          ),
         ])
         ..fields = ListBuilder([
           Field(
@@ -146,11 +159,7 @@ List<Spec> printCopyWithClasses(
               ..name = '_then'
               ..type = FunctionType(
                 (b) => b
-                  ..requiredParameters = ListBuilder(
-                    <Reference>[
-                      refer(name),
-                    ],
-                  )
+                  ..requiredParameters = ListBuilder(<Reference>[refer(name)])
                   ..returnType = refer('TRes'),
               )
               ..modifier = FieldModifier.final$,
@@ -184,25 +193,26 @@ List<Spec> printCopyWithClasses(
         ..name = c.namePrinter.printCopyWithStubImplClassName(name)
         ..types = ListBuilder([refer('TRes')])
         ..implements = ListBuilder(<Reference>[
-          generic(
-            c.namePrinter.printCopyWithClassName(name),
-            refer('TRes'),
-          )
+          generic(c.namePrinter.printCopyWithClassName(name), refer('TRes')),
         ])
         ..fields = ListBuilder([
           Field(
             (b) => b
               ..name = '_res'
               ..type = refer('TRes'),
-          )
+          ),
         ])
         ..constructors = ListBuilder([
-          Constructor((b) => b
-            ..requiredParameters = ListBuilder([
-              Parameter((b) => b
-                ..toThis = true
-                ..name = '_res')
-            ]))
+          Constructor(
+            (b) => b
+              ..requiredParameters = ListBuilder([
+                Parameter(
+                  (b) => b
+                    ..toThis = true
+                    ..name = '_res',
+                ),
+              ]),
+          ),
         ])
         ..methods = ListBuilder(<Method>[
           Method(
@@ -214,8 +224,8 @@ List<Spec> printCopyWithClasses(
           ),
           ...properties
               .map((property) => printDeepCopyStub(c, property))
-              .whereType<Method>()
+              .whereType<Method>(),
         ]),
-    )
+    ),
   ];
 }

@@ -197,23 +197,29 @@ class Fragment$CarFragment {
   });
 
   factory Fragment$CarFragment.fromJson(Map<String, dynamic> json) {
-    final l$createdAt =
-        json.containsKey('createdAt') ? json['createdAt'] : null;
-    final l$description =
-        json.containsKey('description') ? json['description'] : null;
+    final l$createdAt = json.containsKey('createdAt')
+        ? json['createdAt']
+        : null;
+    final l$description = json.containsKey('description')
+        ? json['description']
+        : null;
     final l$erpId = json.containsKey('erpId') ? json['erpId'] : null;
-    final l$garageNumber =
-        json.containsKey('garageNumber') ? json['garageNumber'] : null;
+    final l$garageNumber = json.containsKey('garageNumber')
+        ? json['garageNumber']
+        : null;
     final l$id = json['id'];
-    final l$inventoryNumber =
-        json.containsKey('inventoryNumber') ? json['inventoryNumber'] : null;
-    final l$modification =
-        json.containsKey('modification') ? json['modification'] : null;
+    final l$inventoryNumber = json.containsKey('inventoryNumber')
+        ? json['inventoryNumber']
+        : null;
+    final l$modification = json.containsKey('modification')
+        ? json['modification']
+        : null;
     final l$registrationNumber = json.containsKey('registrationNumber')
         ? json['registrationNumber']
         : null;
-    final l$updatedAt =
-        json.containsKey('updatedAt') ? json['updatedAt'] : null;
+    final l$updatedAt = json.containsKey('updatedAt')
+        ? json['updatedAt']
+        : null;
     final l$vin = json.containsKey('vin') ? json['vin'] : null;
     final l$$__typename = json['__typename'];
     return Fragment$CarFragment(
@@ -377,10 +383,7 @@ class Fragment$CarFragment {
 
 extension UtilityExtension$Fragment$CarFragment on Fragment$CarFragment {
   CopyWith$Fragment$CarFragment<Fragment$CarFragment> get copyWith =>
-      CopyWith$Fragment$CarFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$CarFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$CarFragment<TRes> {
@@ -409,10 +412,7 @@ abstract class CopyWith$Fragment$CarFragment<TRes> {
 
 class _CopyWithImpl$Fragment$CarFragment<TRes>
     implements CopyWith$Fragment$CarFragment<TRes> {
-  _CopyWithImpl$Fragment$CarFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$CarFragment(this._instance, this._then);
 
   final Fragment$CarFragment _instance;
 
@@ -432,36 +432,37 @@ class _CopyWithImpl$Fragment$CarFragment<TRes>
     Object? updatedAt = _undefined,
     Object? vin = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$CarFragment(
-        createdAt: createdAt == _undefined
-            ? _instance.createdAt
-            : (createdAt as String?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        erpId: erpId == _undefined ? _instance.erpId : (erpId as String?),
-        garageNumber: garageNumber == _undefined
-            ? _instance.garageNumber
-            : (garageNumber as String?),
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        inventoryNumber: inventoryNumber == _undefined
-            ? _instance.inventoryNumber
-            : (inventoryNumber as String?),
-        modification: modification == _undefined
-            ? _instance.modification
-            : (modification as String?),
-        registrationNumber: registrationNumber == _undefined
-            ? _instance.registrationNumber
-            : (registrationNumber as String?),
-        updatedAt: updatedAt == _undefined
-            ? _instance.updatedAt
-            : (updatedAt as String?),
-        vin: vin == _undefined ? _instance.vin : (vin as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$CarFragment(
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as String?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      erpId: erpId == _undefined ? _instance.erpId : (erpId as String?),
+      garageNumber: garageNumber == _undefined
+          ? _instance.garageNumber
+          : (garageNumber as String?),
+      id: id == _undefined || id == null ? _instance.id : (id as String),
+      inventoryNumber: inventoryNumber == _undefined
+          ? _instance.inventoryNumber
+          : (inventoryNumber as String?),
+      modification: modification == _undefined
+          ? _instance.modification
+          : (modification as String?),
+      registrationNumber: registrationNumber == _undefined
+          ? _instance.registrationNumber
+          : (registrationNumber as String?),
+      updatedAt: updatedAt == _undefined
+          ? _instance.updatedAt
+          : (updatedAt as String?),
+      vin: vin == _undefined ? _instance.vin : (vin as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$CarFragment<TRes>
@@ -482,114 +483,115 @@ class _CopyWithStubImpl$Fragment$CarFragment<TRes>
     String? updatedAt,
     String? vin,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 const fragmentDefinitionCarFragment = FragmentDefinitionNode(
   name: NameNode(value: 'CarFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'ResourceItem'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'ResourceItem'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'description'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'erpId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'garageNumber'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'inventoryNumber'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'modification'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'description'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'erpId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'garageNumber'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'inventoryNumber'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'modification'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'name'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'registrationNumber'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'updatedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'vin'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'registrationNumber'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'updatedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'vin'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentCarFragment = DocumentNode(definitions: [
-  fragmentDefinitionCarFragment,
-]);
+const documentNodeFragmentCarFragment = DocumentNode(
+  definitions: [fragmentDefinitionCarFragment],
+);
 const possibleTypesMap = <String, Set<String>>{};

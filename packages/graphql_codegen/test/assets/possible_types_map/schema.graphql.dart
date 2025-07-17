@@ -180,19 +180,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'UnionA': {
-    'TypeA',
-    'TypeB',
-    'TypeC',
-  },
-  'UnionB': {
-    'TypeA',
-    'TypeB',
-    'TypeC',
-    'TypeD',
-  },
-  'InterfaceA': {
-    'TypeA',
-    'TypeB',
-  },
+  'UnionA': {'TypeA', 'TypeB', 'TypeC'},
+  'UnionB': {'TypeA', 'TypeB', 'TypeC', 'TypeD'},
+  'InterfaceA': {'TypeA', 'TypeB'},
 };

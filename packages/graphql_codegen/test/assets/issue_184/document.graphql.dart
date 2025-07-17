@@ -182,10 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Fragment$F {
-  Fragment$F({
-    this.$default,
-    this.$__typename = 'Person',
-  });
+  Fragment$F({this.$default, this.$__typename = 'Person'});
 
   factory Fragment$F.fromJson(Map<String, dynamic> json) {
     final l$$default = json['default'];
@@ -213,10 +210,7 @@ class Fragment$F {
   int get hashCode {
     final l$$default = $default;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$$default,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$$default, l$$__typename]);
   }
 
   @override
@@ -242,10 +236,8 @@ class Fragment$F {
 }
 
 extension UtilityExtension$Fragment$F on Fragment$F {
-  CopyWith$Fragment$F<Fragment$F> get copyWith => CopyWith$Fragment$F(
-        this,
-        (i) => i,
-      );
+  CopyWith$Fragment$F<Fragment$F> get copyWith =>
+      CopyWith$Fragment$F(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F<TRes> {
@@ -256,17 +248,11 @@ abstract class CopyWith$Fragment$F<TRes> {
 
   factory CopyWith$Fragment$F.stub(TRes res) = _CopyWithStubImpl$Fragment$F;
 
-  TRes call({
-    String? $default,
-    String? $__typename,
-  });
+  TRes call({String? $default, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
-  _CopyWithImpl$Fragment$F(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F(this._instance, this._then);
 
   final Fragment$F _instance;
 
@@ -277,14 +263,16 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
   TRes call({
     Object? $default = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$F(
-        $default:
-            $default == _undefined ? _instance.$default : ($default as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$F(
+      $default: $default == _undefined
+          ? _instance.$default
+          : ($default as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
@@ -292,39 +280,33 @@ class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   TRes _res;
 
-  call({
-    String? $default,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? $default, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionF = FragmentDefinitionNode(
   name: NameNode(value: 'F'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Person'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Person'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'default'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'default'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentF = DocumentNode(definitions: [
-  fragmentDefinitionF,
-]);
+const documentNodeFragmentF = DocumentNode(definitions: [fragmentDefinitionF]);
 const possibleTypesMap = <String, Set<String>>{};
