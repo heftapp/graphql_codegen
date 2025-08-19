@@ -1,3 +1,7 @@
+# 2.0.0
+
+- Support `build 3.0.0` and set min. language version to `3.8.0`.
+
 # 1.2.4
 
 - Fix bug: `allowMissingNullableKeysInFromJson` was not applied to `Input.fromJson`.
