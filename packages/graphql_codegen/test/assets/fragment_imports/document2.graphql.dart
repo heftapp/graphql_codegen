@@ -42,10 +42,8 @@ class Fragment$F1 {
 }
 
 extension UtilityExtension$Fragment$F1 on Fragment$F1 {
-  CopyWith$Fragment$F1<Fragment$F1> get copyWith => CopyWith$Fragment$F1(
-        this,
-        (i) => i,
-      );
+  CopyWith$Fragment$F1<Fragment$F1> get copyWith =>
+      CopyWith$Fragment$F1(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F1<TRes> {
@@ -60,10 +58,7 @@ abstract class CopyWith$Fragment$F1<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
-  _CopyWithImpl$Fragment$F1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F1(this._instance, this._then);
 
   final Fragment$F1 _instance;
 
@@ -71,8 +66,9 @@ class _CopyWithImpl$Fragment$F1<TRes> implements CopyWith$Fragment$F1<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F1(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F1(name: name == _undefined ? _instance.name : (name as String?)),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F1<TRes>
@@ -87,24 +83,24 @@ class _CopyWithStubImpl$Fragment$F1<TRes>
 const fragmentDefinitionF1 = FragmentDefinitionNode(
   name: NameNode(value: 'F1'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'T1'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'T1'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    )
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentF1 = DocumentNode(definitions: [
-  fragmentDefinitionF1,
-]);
+const documentNodeFragmentF1 = DocumentNode(
+  definitions: [fragmentDefinitionF1],
+);
 
 class Query$Q {
   Query$Q({this.t});
@@ -112,9 +108,8 @@ class Query$Q {
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$t = json['t'];
     return Query$Q(
-        t: l$t == null
-            ? null
-            : Query$Q$t.fromJson((l$t as Map<String, dynamic>)));
+      t: l$t == null ? null : Query$Q$t.fromJson((l$t as Map<String, dynamic>)),
+    );
   }
 
   final Query$Q$t? t;
@@ -150,17 +145,12 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(
-    Query$Q instance,
-    TRes Function(Query$Q) then,
-  ) = _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
@@ -169,10 +159,7 @@ abstract class CopyWith$Query$Q<TRes> {
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q(this._instance, this._then);
 
   final Query$Q _instance;
 
@@ -201,34 +188,40 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
   CopyWith$Query$Q$t<TRes> get t => CopyWith$Query$Q$t.stub(_res);
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 't'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'F1'),
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 't'),
+            alias: null,
+            arguments: [],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'F1'),
+                  directives: [],
+                ),
+                FragmentSpreadNode(
+                  name: NameNode(value: 'F2'),
+                  directives: [],
+                ),
+              ],
+            ),
           ),
-          FragmentSpreadNode(
-            name: NameNode(value: 'F2'),
-            directives: [],
-          ),
-        ]),
-      )
-    ]),
-  ),
-  fragmentDefinitionF1,
-  fragmentDefinitionF2,
-]);
+        ],
+      ),
+    ),
+    fragmentDefinitionF1,
+    fragmentDefinitionF2,
+  ],
+);
 
 class Query$Q$t implements Fragment$F1 {
   Query$Q$t({this.name});
@@ -271,10 +264,8 @@ class Query$Q$t implements Fragment$F1 {
 }
 
 extension UtilityExtension$Query$Q$t on Query$Q$t {
-  CopyWith$Query$Q$t<Query$Q$t> get copyWith => CopyWith$Query$Q$t(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q$t<Query$Q$t> get copyWith =>
+      CopyWith$Query$Q$t(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q$t<TRes> {
@@ -289,10 +280,7 @@ abstract class CopyWith$Query$Q$t<TRes> {
 }
 
 class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
-  _CopyWithImpl$Query$Q$t(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q$t(this._instance, this._then);
 
   final Query$Q$t _instance;
 
@@ -301,7 +289,8 @@ class _CopyWithImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? name = _undefined}) => _then(
-      Query$Q$t(name: name == _undefined ? _instance.name : (name as String?)));
+    Query$Q$t(name: name == _undefined ? _instance.name : (name as String?)),
+  );
 }
 
 class _CopyWithStubImpl$Query$Q$t<TRes> implements CopyWith$Query$Q$t<TRes> {

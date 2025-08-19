@@ -7,17 +7,13 @@ class Name {
 
   Name(this.segments, this.baseNameSegment);
 
-  factory Name.fromSegment(BaseNameSegment segment) => Name(
-        BuiltList.of([segment]),
-        segment,
-      );
+  factory Name.fromSegment(BaseNameSegment segment) =>
+      Name(BuiltList.of([segment]), segment);
 
   String get _key => segments.map((e) => e._key).join(r"$");
 
-  Name withSegment(NameSegment segment) => Name(
-        (segments.toBuilder()..add(segment)).build(),
-        baseNameSegment,
-      );
+  Name withSegment(NameSegment segment) =>
+      Name((segments.toBuilder()..add(segment)).build(), baseNameSegment);
 
   bool get isRoot => segments.length == 1;
 

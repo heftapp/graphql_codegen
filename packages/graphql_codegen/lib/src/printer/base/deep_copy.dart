@@ -18,8 +18,9 @@ Method? printDeepCopyStub(PrintContext c, ContextProperty property) {
       return Method(
         (b) => b
           ..name = c.namePrinter.printPropertyName(property.name)
-          ..requiredParameters =
-              ListBuilder([Parameter((b) => b..name = '_fn')])
+          ..requiredParameters = ListBuilder([
+            Parameter((b) => b..name = '_fn'),
+          ])
           ..lambda = true
           ..body = refer('_res').code,
       );
@@ -30,8 +31,9 @@ Method? printDeepCopyStub(PrintContext c, ContextProperty property) {
           ..type = MethodType.getter
           ..lambda = true
           ..returns = refer('${copyClassName}<TRes>')
-          ..body =
-              refer(copyClassName).property('stub').call([refer('_res')]).code,
+          ..body = refer(
+            copyClassName,
+          ).property('stub').call([refer('_res')]).code,
       );
     }
   }
@@ -85,37 +87,40 @@ Method? _printDeepCopyTypeNode(
         ..name = propertyName
         ..returns = refer('TRes')
         ..requiredParameters = ListBuilder([
-          Parameter((b) => b
-            ..name = '_fn'
-            ..type = FunctionType(
-              (b) => b
-                ..returnType = _printDeepCopyReturnList(
-                  node,
-                  namePrinter.printClassName(context.path),
-                  'Iterable',
-                )
-                ..requiredParameters = ListBuilder([
-                  _printDeepCopyReturnList(
+          Parameter(
+            (b) => b
+              ..name = '_fn'
+              ..type = FunctionType(
+                (b) => b
+                  ..returnType = _printDeepCopyReturnList(
                     node,
-                    "${copyClassName}<${namePrinter.printClassName(context.path)}>",
+                    namePrinter.printClassName(context.path),
                     'Iterable',
                   )
-                ]),
-            ))
+                  ..requiredParameters = ListBuilder([
+                    _printDeepCopyReturnList(
+                      node,
+                      "${copyClassName}<${namePrinter.printClassName(context.path)}>",
+                      'Iterable',
+                    ),
+                  ]),
+              ),
+          ),
         ])
         ..lambda = !abstract
         ..body = abstract
             ? null
             : refer('call').call([], {
                 propertyName: _printDeepCopyResultMapper(
-                    node,
-                    refer('_fn').call([
-                      _printDeepCopyParameterMapper(
-                        node,
-                        refer('_instance').property(propertyName),
-                        copyClassName,
-                      )
-                    ])),
+                  node,
+                  refer('_fn').call([
+                    _printDeepCopyParameterMapper(
+                      node,
+                      refer('_instance').property(propertyName),
+                      copyClassName,
+                    ),
+                  ]),
+                ),
               }).code,
     );
   }
@@ -128,7 +133,9 @@ Method? _printDeepCopyTypeNode(
         ..name = propertyName
         ..returns = refer(innerReturn)
         ..type = MethodType.getter
-        ..body = abstract ? null : Code("""
+        ..body = abstract
+            ? null
+            : Code("""
   final ${localVariableName} = _instance.${propertyName};
   return ${property.isRequired ? callCopy : '${localVariableName} == null ? ${copyClassName}.stub(_then(_instance)) : ${callCopy}'};
 
@@ -149,16 +156,17 @@ Expression _printDeepCopyParameterMapper(
         (b) => b
           ..lambda = true
           ..requiredParameters = ListBuilder([Parameter((b) => b..name = 'e')])
-          ..body =
-              _printDeepCopyParameterMapper(node.type, refer('e'), copyClass)
-                  .code,
-      ).closure
+          ..body = _printDeepCopyParameterMapper(
+            node.type,
+            refer('e'),
+            copyClass,
+          ).code,
+      ).closure,
     ]);
   } else {
-    final call = refer(copyClass).call([
-      reference,
-      printIdentityFunction().closure,
-    ]);
+    final call = refer(
+      copyClass,
+    ).call([reference, printIdentityFunction().closure]);
     return node.isNonNull
         ? call
         : reference.equalTo(literalNull).conditional(literalNull, call);
@@ -166,7 +174,10 @@ Expression _printDeepCopyParameterMapper(
 }
 
 Expression _maybeNullSafeProperty(
-    Expression target, String property, bool nullsafe) {
+  Expression target,
+  String property,
+  bool nullsafe,
+) {
   return nullsafe
       ? target.nullSafeProperty(property)
       : target.property(property);
@@ -179,16 +190,20 @@ Expression _printDeepCopyResultMapper(ListTypeNode node, Expression reference) {
         .call([
           Method(
             (b) => b
-              ..requiredParameters =
-                  ListBuilder([Parameter((b) => b..name = 'e')])
+              ..requiredParameters = ListBuilder([
+                Parameter((b) => b..name = 'e'),
+              ])
               ..body = _printDeepCopyResultMapper(innerType, refer('e')).code,
-          ).closure
+          ).closure,
         ])
         .property('toList')
         .call([]);
   } else {
-    return _maybeNullSafeProperty(reference, 'toList', !node.isNonNull)
-        .call([]);
+    return _maybeNullSafeProperty(
+      reference,
+      'toList',
+      !node.isNonNull,
+    ).call([]);
   }
 }
 
@@ -218,10 +233,7 @@ Reference _printDeepCopyReturnList(
   );
 }
 
-Reference _printDeepCopyReturnName(
-  NamedTypeNode node,
-  String innerReference,
-) =>
+Reference _printDeepCopyReturnName(NamedTypeNode node, String innerReference) =>
     TypeReference(
       (b) => b
         ..symbol = innerReference

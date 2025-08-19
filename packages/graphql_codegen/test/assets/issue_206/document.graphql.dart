@@ -182,10 +182,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Fragment$EventFragment {
-  Fragment$EventFragment({
-    this.subscription,
-    required this.$__typename,
-  });
+  Fragment$EventFragment({this.subscription, required this.$__typename});
 
   factory Fragment$EventFragment.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
@@ -199,7 +196,8 @@ class Fragment$EventFragment {
           subscription: l$subscription == null
               ? null
               : Fragment$EventFragment$subscription.fromJson(
-                  (l$subscription as Map<String, dynamic>)),
+                  (l$subscription as Map<String, dynamic>),
+                ),
           $__typename: (l$$__typename as String),
         );
     }
@@ -222,10 +220,7 @@ class Fragment$EventFragment {
   int get hashCode {
     final l$subscription = subscription;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$subscription,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$subscription, l$$__typename]);
   }
 
   @override
@@ -252,10 +247,7 @@ class Fragment$EventFragment {
 
 extension UtilityExtension$Fragment$EventFragment on Fragment$EventFragment {
   CopyWith$Fragment$EventFragment<Fragment$EventFragment> get copyWith =>
-      CopyWith$Fragment$EventFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$EventFragment(this, (i) => i);
   _T when<_T>({
     required _T Function(Fragment$EventFragment$$EventPublic) eventPublic,
     required _T Function() orElse,
@@ -305,10 +297,7 @@ abstract class CopyWith$Fragment$EventFragment<TRes> {
 
 class _CopyWithImpl$Fragment$EventFragment<TRes>
     implements CopyWith$Fragment$EventFragment<TRes> {
-  _CopyWithImpl$Fragment$EventFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$EventFragment(this._instance, this._then);
 
   final Fragment$EventFragment _instance;
 
@@ -319,22 +308,25 @@ class _CopyWithImpl$Fragment$EventFragment<TRes>
   TRes call({
     Object? subscription = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$EventFragment(
-        subscription: subscription == _undefined
-            ? _instance.subscription
-            : (subscription as Fragment$EventFragment$subscription?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$EventFragment(
+      subscription: subscription == _undefined
+          ? _instance.subscription
+          : (subscription as Fragment$EventFragment$subscription?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$EventFragment$subscription<TRes> get subscription {
     final local$subscription = _instance.subscription;
     return local$subscription == null
         ? CopyWith$Fragment$EventFragment$subscription.stub(_then(_instance))
         : CopyWith$Fragment$EventFragment$subscription(
-            local$subscription, (e) => call(subscription: e));
+            local$subscription,
+            (e) => call(subscription: e),
+          );
   }
 }
 
@@ -347,8 +339,7 @@ class _CopyWithStubImpl$Fragment$EventFragment<TRes>
   call({
     Fragment$EventFragment$subscription? subscription,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$EventFragment$subscription<TRes> get subscription =>
       CopyWith$Fragment$EventFragment$subscription.stub(_res);
@@ -357,51 +348,24 @@ class _CopyWithStubImpl$Fragment$EventFragment<TRes>
 const fragmentDefinitionEventFragment = FragmentDefinitionNode(
   name: NameNode(value: 'EventFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Event'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Event'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'subscription'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'notifyFor'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    InlineFragmentNode(
-      typeCondition: TypeConditionNode(
-          on: NamedTypeNode(
-        name: NameNode(value: 'EventPublic'),
-        isNonNull: false,
-      )),
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'owner'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FragmentSpreadNode(
-              name: NameNode(value: 'UserPublicFragment'),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'subscription'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'notifyFor'),
+              alias: null,
+              arguments: [],
               directives: [],
+              selectionSet: null,
             ),
             FieldNode(
               name: NameNode(value: '__typename'),
@@ -410,30 +374,66 @@ const fragmentDefinitionEventFragment = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      InlineFragmentNode(
+        typeCondition: TypeConditionNode(
+          on: NamedTypeNode(
+            name: NameNode(value: 'EventPublic'),
+            isNonNull: false,
+          ),
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'owner'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'UserPublicFragment'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
+        ),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentEventFragment = DocumentNode(definitions: [
-  fragmentDefinitionEventFragment,
-  fragmentDefinitionUserPublicFragment,
-]);
+const documentNodeFragmentEventFragment = DocumentNode(
+  definitions: [
+    fragmentDefinitionEventFragment,
+    fragmentDefinitionUserPublicFragment,
+  ],
+);
 
 class Fragment$EventFragment$subscription {
   Fragment$EventFragment$subscription({
@@ -442,7 +442,8 @@ class Fragment$EventFragment$subscription {
   });
 
   factory Fragment$EventFragment$subscription.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$notifyFor = json['notifyFor'];
     final l$$__typename = json['__typename'];
     return Fragment$EventFragment$subscription(
@@ -468,10 +469,7 @@ class Fragment$EventFragment$subscription {
   int get hashCode {
     final l$notifyFor = notifyFor;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$notifyFor,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$notifyFor, l$$__typename]);
   }
 
   @override
@@ -500,11 +498,9 @@ class Fragment$EventFragment$subscription {
 extension UtilityExtension$Fragment$EventFragment$subscription
     on Fragment$EventFragment$subscription {
   CopyWith$Fragment$EventFragment$subscription<
-          Fragment$EventFragment$subscription>
-      get copyWith => CopyWith$Fragment$EventFragment$subscription(
-            this,
-            (i) => i,
-          );
+    Fragment$EventFragment$subscription
+  >
+  get copyWith => CopyWith$Fragment$EventFragment$subscription(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$EventFragment$subscription<TRes> {
@@ -516,18 +512,12 @@ abstract class CopyWith$Fragment$EventFragment$subscription<TRes> {
   factory CopyWith$Fragment$EventFragment$subscription.stub(TRes res) =
       _CopyWithStubImpl$Fragment$EventFragment$subscription;
 
-  TRes call({
-    String? notifyFor,
-    String? $__typename,
-  });
+  TRes call({String? notifyFor, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$EventFragment$subscription<TRes>
     implements CopyWith$Fragment$EventFragment$subscription<TRes> {
-  _CopyWithImpl$Fragment$EventFragment$subscription(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$EventFragment$subscription(this._instance, this._then);
 
   final Fragment$EventFragment$subscription _instance;
 
@@ -538,15 +528,16 @@ class _CopyWithImpl$Fragment$EventFragment$subscription<TRes>
   TRes call({
     Object? notifyFor = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$EventFragment$subscription(
-        notifyFor: notifyFor == _undefined || notifyFor == null
-            ? _instance.notifyFor
-            : (notifyFor as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$EventFragment$subscription(
+      notifyFor: notifyFor == _undefined || notifyFor == null
+          ? _instance.notifyFor
+          : (notifyFor as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$EventFragment$subscription<TRes>
@@ -555,11 +546,7 @@ class _CopyWithStubImpl$Fragment$EventFragment$subscription<TRes>
 
   TRes _res;
 
-  call({
-    String? notifyFor,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? notifyFor, String? $__typename}) => _res;
 }
 
 class Fragment$EventFragment$$EventPublic implements Fragment$EventFragment {
@@ -570,18 +557,21 @@ class Fragment$EventFragment$$EventPublic implements Fragment$EventFragment {
   });
 
   factory Fragment$EventFragment$$EventPublic.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$owner = json['owner'];
     final l$$__typename = json['__typename'];
     final l$subscription = json['subscription'];
     return Fragment$EventFragment$$EventPublic(
       owner: Fragment$UserPublicFragment.fromJson(
-          (l$owner as Map<String, dynamic>)),
+        (l$owner as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
       subscription: l$subscription == null
           ? null
           : Fragment$EventFragment$$EventPublic$subscription.fromJson(
-              (l$subscription as Map<String, dynamic>)),
+              (l$subscription as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -607,11 +597,7 @@ class Fragment$EventFragment$$EventPublic implements Fragment$EventFragment {
     final l$owner = owner;
     final l$$__typename = $__typename;
     final l$subscription = subscription;
-    return Object.hashAll([
-      l$owner,
-      l$$__typename,
-      l$subscription,
-    ]);
+    return Object.hashAll([l$owner, l$$__typename, l$subscription]);
   }
 
   @override
@@ -645,11 +631,9 @@ class Fragment$EventFragment$$EventPublic implements Fragment$EventFragment {
 extension UtilityExtension$Fragment$EventFragment$$EventPublic
     on Fragment$EventFragment$$EventPublic {
   CopyWith$Fragment$EventFragment$$EventPublic<
-          Fragment$EventFragment$$EventPublic>
-      get copyWith => CopyWith$Fragment$EventFragment$$EventPublic(
-            this,
-            (i) => i,
-          );
+    Fragment$EventFragment$$EventPublic
+  >
+  get copyWith => CopyWith$Fragment$EventFragment$$EventPublic(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$EventFragment$$EventPublic<TRes> {
@@ -668,15 +652,12 @@ abstract class CopyWith$Fragment$EventFragment$$EventPublic<TRes> {
   });
   CopyWith$Fragment$UserPublicFragment<TRes> get owner;
   CopyWith$Fragment$EventFragment$$EventPublic$subscription<TRes>
-      get subscription;
+  get subscription;
 }
 
 class _CopyWithImpl$Fragment$EventFragment$$EventPublic<TRes>
     implements CopyWith$Fragment$EventFragment$$EventPublic<TRes> {
-  _CopyWithImpl$Fragment$EventFragment$$EventPublic(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$EventFragment$$EventPublic(this._instance, this._then);
 
   final Fragment$EventFragment$$EventPublic _instance;
 
@@ -688,34 +669,39 @@ class _CopyWithImpl$Fragment$EventFragment$$EventPublic<TRes>
     Object? owner = _undefined,
     Object? $__typename = _undefined,
     Object? subscription = _undefined,
-  }) =>
-      _then(Fragment$EventFragment$$EventPublic(
-        owner: owner == _undefined || owner == null
-            ? _instance.owner
-            : (owner as Fragment$UserPublicFragment),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        subscription: subscription == _undefined
-            ? _instance.subscription
-            : (subscription
-                as Fragment$EventFragment$$EventPublic$subscription?),
-      ));
+  }) => _then(
+    Fragment$EventFragment$$EventPublic(
+      owner: owner == _undefined || owner == null
+          ? _instance.owner
+          : (owner as Fragment$UserPublicFragment),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      subscription: subscription == _undefined
+          ? _instance.subscription
+          : (subscription as Fragment$EventFragment$$EventPublic$subscription?),
+    ),
+  );
 
   CopyWith$Fragment$UserPublicFragment<TRes> get owner {
     final local$owner = _instance.owner;
     return CopyWith$Fragment$UserPublicFragment(
-        local$owner, (e) => call(owner: e));
+      local$owner,
+      (e) => call(owner: e),
+    );
   }
 
   CopyWith$Fragment$EventFragment$$EventPublic$subscription<TRes>
-      get subscription {
+  get subscription {
     final local$subscription = _instance.subscription;
     return local$subscription == null
         ? CopyWith$Fragment$EventFragment$$EventPublic$subscription.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$EventFragment$$EventPublic$subscription(
-            local$subscription, (e) => call(subscription: e));
+            local$subscription,
+            (e) => call(subscription: e),
+          );
   }
 }
 
@@ -729,15 +715,14 @@ class _CopyWithStubImpl$Fragment$EventFragment$$EventPublic<TRes>
     Fragment$UserPublicFragment? owner,
     String? $__typename,
     Fragment$EventFragment$$EventPublic$subscription? subscription,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserPublicFragment<TRes> get owner =>
       CopyWith$Fragment$UserPublicFragment.stub(_res);
 
   CopyWith$Fragment$EventFragment$$EventPublic$subscription<TRes>
-      get subscription =>
-          CopyWith$Fragment$EventFragment$$EventPublic$subscription.stub(_res);
+  get subscription =>
+      CopyWith$Fragment$EventFragment$$EventPublic$subscription.stub(_res);
 }
 
 class Fragment$EventFragment$$EventPublic$subscription
@@ -748,7 +733,8 @@ class Fragment$EventFragment$$EventPublic$subscription
   });
 
   factory Fragment$EventFragment$$EventPublic$subscription.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$notifyFor = json['notifyFor'];
     final l$$__typename = json['__typename'];
     return Fragment$EventFragment$$EventPublic$subscription(
@@ -774,10 +760,7 @@ class Fragment$EventFragment$$EventPublic$subscription
   int get hashCode {
     final l$notifyFor = notifyFor;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$notifyFor,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$notifyFor, l$$__typename]);
   }
 
   @override
@@ -806,11 +789,10 @@ class Fragment$EventFragment$$EventPublic$subscription
 extension UtilityExtension$Fragment$EventFragment$$EventPublic$subscription
     on Fragment$EventFragment$$EventPublic$subscription {
   CopyWith$Fragment$EventFragment$$EventPublic$subscription<
-          Fragment$EventFragment$$EventPublic$subscription>
-      get copyWith => CopyWith$Fragment$EventFragment$$EventPublic$subscription(
-            this,
-            (i) => i,
-          );
+    Fragment$EventFragment$$EventPublic$subscription
+  >
+  get copyWith =>
+      CopyWith$Fragment$EventFragment$$EventPublic$subscription(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$EventFragment$$EventPublic$subscription<TRes> {
@@ -820,13 +802,10 @@ abstract class CopyWith$Fragment$EventFragment$$EventPublic$subscription<TRes> {
   ) = _CopyWithImpl$Fragment$EventFragment$$EventPublic$subscription;
 
   factory CopyWith$Fragment$EventFragment$$EventPublic$subscription.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$EventFragment$$EventPublic$subscription;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$EventFragment$$EventPublic$subscription;
 
-  TRes call({
-    String? notifyFor,
-    String? $__typename,
-  });
+  TRes call({String? notifyFor, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$EventFragment$$EventPublic$subscription<TRes>
@@ -845,15 +824,16 @@ class _CopyWithImpl$Fragment$EventFragment$$EventPublic$subscription<TRes>
   TRes call({
     Object? notifyFor = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$EventFragment$$EventPublic$subscription(
-        notifyFor: notifyFor == _undefined || notifyFor == null
-            ? _instance.notifyFor
-            : (notifyFor as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$EventFragment$$EventPublic$subscription(
+      notifyFor: notifyFor == _undefined || notifyFor == null
+          ? _instance.notifyFor
+          : (notifyFor as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$EventFragment$$EventPublic$subscription<TRes>
@@ -862,11 +842,7 @@ class _CopyWithStubImpl$Fragment$EventFragment$$EventPublic$subscription<TRes>
 
   TRes _res;
 
-  call({
-    String? notifyFor,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? notifyFor, String? $__typename}) => _res;
 }
 
 class Fragment$UserPublicFragment {
@@ -901,10 +877,7 @@ class Fragment$UserPublicFragment {
   int get hashCode {
     final l$username = username;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$username,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$username, l$$__typename]);
   }
 
   @override
@@ -933,10 +906,7 @@ class Fragment$UserPublicFragment {
 extension UtilityExtension$Fragment$UserPublicFragment
     on Fragment$UserPublicFragment {
   CopyWith$Fragment$UserPublicFragment<Fragment$UserPublicFragment>
-      get copyWith => CopyWith$Fragment$UserPublicFragment(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$UserPublicFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$UserPublicFragment<TRes> {
@@ -948,18 +918,12 @@ abstract class CopyWith$Fragment$UserPublicFragment<TRes> {
   factory CopyWith$Fragment$UserPublicFragment.stub(TRes res) =
       _CopyWithStubImpl$Fragment$UserPublicFragment;
 
-  TRes call({
-    String? username,
-    String? $__typename,
-  });
+  TRes call({String? username, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$UserPublicFragment<TRes>
     implements CopyWith$Fragment$UserPublicFragment<TRes> {
-  _CopyWithImpl$Fragment$UserPublicFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$UserPublicFragment(this._instance, this._then);
 
   final Fragment$UserPublicFragment _instance;
 
@@ -970,15 +934,16 @@ class _CopyWithImpl$Fragment$UserPublicFragment<TRes>
   TRes call({
     Object? username = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$UserPublicFragment(
-        username: username == _undefined || username == null
-            ? _instance.username
-            : (username as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$UserPublicFragment(
+      username: username == _undefined || username == null
+          ? _instance.username
+          : (username as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$UserPublicFragment<TRes>
@@ -987,47 +952,40 @@ class _CopyWithStubImpl$Fragment$UserPublicFragment<TRes>
 
   TRes _res;
 
-  call({
-    String? username,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? username, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionUserPublicFragment = FragmentDefinitionNode(
   name: NameNode(value: 'UserPublicFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'UserPublic'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'UserPublic'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'username'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'username'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentUserPublicFragment = DocumentNode(definitions: [
-  fragmentDefinitionUserPublicFragment,
-]);
+const documentNodeFragmentUserPublicFragment = DocumentNode(
+  definitions: [fragmentDefinitionUserPublicFragment],
+);
 
 class Mutation$Bla {
-  Mutation$Bla({
-    this.bla,
-    this.$__typename = 'Mutations',
-  });
+  Mutation$Bla({this.bla, this.$__typename = 'Mutations'});
 
   factory Mutation$Bla.fromJson(Map<String, dynamic> json) {
     final l$bla = json['bla'];
@@ -1057,10 +1015,7 @@ class Mutation$Bla {
   int get hashCode {
     final l$bla = bla;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$bla,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$bla, l$$__typename]);
   }
 
   @override
@@ -1086,10 +1041,8 @@ class Mutation$Bla {
 }
 
 extension UtilityExtension$Mutation$Bla on Mutation$Bla {
-  CopyWith$Mutation$Bla<Mutation$Bla> get copyWith => CopyWith$Mutation$Bla(
-        this,
-        (i) => i,
-      );
+  CopyWith$Mutation$Bla<Mutation$Bla> get copyWith =>
+      CopyWith$Mutation$Bla(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$Bla<TRes> {
@@ -1100,18 +1053,12 @@ abstract class CopyWith$Mutation$Bla<TRes> {
 
   factory CopyWith$Mutation$Bla.stub(TRes res) = _CopyWithStubImpl$Mutation$Bla;
 
-  TRes call({
-    Mutation$Bla$bla? bla,
-    String? $__typename,
-  });
+  TRes call({Mutation$Bla$bla? bla, String? $__typename});
   CopyWith$Mutation$Bla$bla<TRes> get bla;
 }
 
 class _CopyWithImpl$Mutation$Bla<TRes> implements CopyWith$Mutation$Bla<TRes> {
-  _CopyWithImpl$Mutation$Bla(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$Bla(this._instance, this._then);
 
   final Mutation$Bla _instance;
 
@@ -1119,16 +1066,15 @@ class _CopyWithImpl$Mutation$Bla<TRes> implements CopyWith$Mutation$Bla<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? bla = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$Bla(
-        bla: bla == _undefined ? _instance.bla : (bla as Mutation$Bla$bla?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? bla = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Mutation$Bla(
+          bla: bla == _undefined ? _instance.bla : (bla as Mutation$Bla$bla?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Mutation$Bla$bla<TRes> get bla {
     final local$bla = _instance.bla;
@@ -1144,32 +1090,41 @@ class _CopyWithStubImpl$Mutation$Bla<TRes>
 
   TRes _res;
 
-  call({
-    Mutation$Bla$bla? bla,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Mutation$Bla$bla? bla, String? $__typename}) => _res;
 
   CopyWith$Mutation$Bla$bla<TRes> get bla =>
       CopyWith$Mutation$Bla$bla.stub(_res);
 }
 
-const documentNodeMutationBla = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'Bla'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'bla'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'EventFragment'),
+const documentNodeMutationBla = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'Bla'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'bla'),
+            alias: null,
+            arguments: [],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'EventFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1178,20 +1133,13 @@ const documentNodeMutationBla = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionEventFragment,
-  fragmentDefinitionUserPublicFragment,
-]);
+    ),
+    fragmentDefinitionEventFragment,
+    fragmentDefinitionUserPublicFragment,
+  ],
+);
 
 class Mutation$Bla$bla {
   Mutation$Bla$bla({required this.$__typename});
@@ -1241,10 +1189,7 @@ class Mutation$Bla$bla {
 
 extension UtilityExtension$Mutation$Bla$bla on Mutation$Bla$bla {
   CopyWith$Mutation$Bla$bla<Mutation$Bla$bla> get copyWith =>
-      CopyWith$Mutation$Bla$bla(
-        this,
-        (i) => i,
-      );
+      CopyWith$Mutation$Bla$bla(this, (i) => i);
   _T when<_T>({
     required _T Function(Mutation$Bla$bla$$EventPublic) eventPublic,
     required _T Function() orElse,
@@ -1290,10 +1235,7 @@ abstract class CopyWith$Mutation$Bla$bla<TRes> {
 
 class _CopyWithImpl$Mutation$Bla$bla<TRes>
     implements CopyWith$Mutation$Bla$bla<TRes> {
-  _CopyWithImpl$Mutation$Bla$bla(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$Bla$bla(this._instance, this._then);
 
   final Mutation$Bla$bla _instance;
 
@@ -1301,10 +1243,13 @@ class _CopyWithImpl$Mutation$Bla$bla<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) => _then(Mutation$Bla$bla(
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Mutation$Bla$bla(
       $__typename: $__typename == _undefined || $__typename == null
           ? _instance.$__typename
-          : ($__typename as String)));
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$Bla$bla<TRes>
@@ -1332,9 +1277,11 @@ class Mutation$Bla$bla$$EventPublic
       subscription: l$subscription == null
           ? null
           : Mutation$Bla$bla$$EventPublic$subscription.fromJson(
-              (l$subscription as Map<String, dynamic>)),
+              (l$subscription as Map<String, dynamic>),
+            ),
       owner: Fragment$UserPublicFragment.fromJson(
-          (l$owner as Map<String, dynamic>)),
+        (l$owner as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1361,11 +1308,7 @@ class Mutation$Bla$bla$$EventPublic
     final l$subscription = subscription;
     final l$owner = owner;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$subscription,
-      l$owner,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$subscription, l$owner, l$$__typename]);
   }
 
   @override
@@ -1399,10 +1342,7 @@ class Mutation$Bla$bla$$EventPublic
 extension UtilityExtension$Mutation$Bla$bla$$EventPublic
     on Mutation$Bla$bla$$EventPublic {
   CopyWith$Mutation$Bla$bla$$EventPublic<Mutation$Bla$bla$$EventPublic>
-      get copyWith => CopyWith$Mutation$Bla$bla$$EventPublic(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Mutation$Bla$bla$$EventPublic(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$Bla$bla$$EventPublic<TRes> {
@@ -1425,10 +1365,7 @@ abstract class CopyWith$Mutation$Bla$bla$$EventPublic<TRes> {
 
 class _CopyWithImpl$Mutation$Bla$bla$$EventPublic<TRes>
     implements CopyWith$Mutation$Bla$bla$$EventPublic<TRes> {
-  _CopyWithImpl$Mutation$Bla$bla$$EventPublic(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$Bla$bla$$EventPublic(this._instance, this._then);
 
   final Mutation$Bla$bla$$EventPublic _instance;
 
@@ -1440,32 +1377,38 @@ class _CopyWithImpl$Mutation$Bla$bla$$EventPublic<TRes>
     Object? subscription = _undefined,
     Object? owner = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$Bla$bla$$EventPublic(
-        subscription: subscription == _undefined
-            ? _instance.subscription
-            : (subscription as Mutation$Bla$bla$$EventPublic$subscription?),
-        owner: owner == _undefined || owner == null
-            ? _instance.owner
-            : (owner as Fragment$UserPublicFragment),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$Bla$bla$$EventPublic(
+      subscription: subscription == _undefined
+          ? _instance.subscription
+          : (subscription as Mutation$Bla$bla$$EventPublic$subscription?),
+      owner: owner == _undefined || owner == null
+          ? _instance.owner
+          : (owner as Fragment$UserPublicFragment),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$Bla$bla$$EventPublic$subscription<TRes> get subscription {
     final local$subscription = _instance.subscription;
     return local$subscription == null
         ? CopyWith$Mutation$Bla$bla$$EventPublic$subscription.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Mutation$Bla$bla$$EventPublic$subscription(
-            local$subscription, (e) => call(subscription: e));
+            local$subscription,
+            (e) => call(subscription: e),
+          );
   }
 
   CopyWith$Fragment$UserPublicFragment<TRes> get owner {
     final local$owner = _instance.owner;
     return CopyWith$Fragment$UserPublicFragment(
-        local$owner, (e) => call(owner: e));
+      local$owner,
+      (e) => call(owner: e),
+    );
   }
 }
 
@@ -1479,8 +1422,7 @@ class _CopyWithStubImpl$Mutation$Bla$bla$$EventPublic<TRes>
     Mutation$Bla$bla$$EventPublic$subscription? subscription,
     Fragment$UserPublicFragment? owner,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$Bla$bla$$EventPublic$subscription<TRes> get subscription =>
       CopyWith$Mutation$Bla$bla$$EventPublic$subscription.stub(_res);
@@ -1497,7 +1439,8 @@ class Mutation$Bla$bla$$EventPublic$subscription
   });
 
   factory Mutation$Bla$bla$$EventPublic$subscription.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$notifyFor = json['notifyFor'];
     final l$$__typename = json['__typename'];
     return Mutation$Bla$bla$$EventPublic$subscription(
@@ -1523,10 +1466,7 @@ class Mutation$Bla$bla$$EventPublic$subscription
   int get hashCode {
     final l$notifyFor = notifyFor;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$notifyFor,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$notifyFor, l$$__typename]);
   }
 
   @override
@@ -1555,11 +1495,10 @@ class Mutation$Bla$bla$$EventPublic$subscription
 extension UtilityExtension$Mutation$Bla$bla$$EventPublic$subscription
     on Mutation$Bla$bla$$EventPublic$subscription {
   CopyWith$Mutation$Bla$bla$$EventPublic$subscription<
-          Mutation$Bla$bla$$EventPublic$subscription>
-      get copyWith => CopyWith$Mutation$Bla$bla$$EventPublic$subscription(
-            this,
-            (i) => i,
-          );
+    Mutation$Bla$bla$$EventPublic$subscription
+  >
+  get copyWith =>
+      CopyWith$Mutation$Bla$bla$$EventPublic$subscription(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$Bla$bla$$EventPublic$subscription<TRes> {
@@ -1571,10 +1510,7 @@ abstract class CopyWith$Mutation$Bla$bla$$EventPublic$subscription<TRes> {
   factory CopyWith$Mutation$Bla$bla$$EventPublic$subscription.stub(TRes res) =
       _CopyWithStubImpl$Mutation$Bla$bla$$EventPublic$subscription;
 
-  TRes call({
-    String? notifyFor,
-    String? $__typename,
-  });
+  TRes call({String? notifyFor, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$Bla$bla$$EventPublic$subscription<TRes>
@@ -1593,15 +1529,16 @@ class _CopyWithImpl$Mutation$Bla$bla$$EventPublic$subscription<TRes>
   TRes call({
     Object? notifyFor = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$Bla$bla$$EventPublic$subscription(
-        notifyFor: notifyFor == _undefined || notifyFor == null
-            ? _instance.notifyFor
-            : (notifyFor as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$Bla$bla$$EventPublic$subscription(
+      notifyFor: notifyFor == _undefined || notifyFor == null
+          ? _instance.notifyFor
+          : (notifyFor as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$Bla$bla$$EventPublic$subscription<TRes>
@@ -1610,11 +1547,7 @@ class _CopyWithStubImpl$Mutation$Bla$bla$$EventPublic$subscription<TRes>
 
   TRes _res;
 
-  call({
-    String? notifyFor,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? notifyFor, String? $__typename}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{

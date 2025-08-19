@@ -49,19 +49,11 @@ class PrintContext<TContext extends Context> {
           .map((e) => Directive.import(p.relative(e, from: currentPath))),
     ];
     imports.sort((e1, e2) => e1.url.compareTo(e2.url));
-    return [
-      ...imports,
-    ];
+    return [...imports];
   }
 
-  factory PrintContext(TContext context) => PrintContext._(
-        context,
-        _Value(false),
-        {},
-        {},
-        {},
-        {},
-      );
+  factory PrintContext(TContext context) =>
+      PrintContext._(context, _Value(false), {}, {}, {}, {});
 
   PrintContext._(
     this.context,
@@ -70,24 +62,23 @@ class PrintContext<TContext extends Context> {
     Set<_Package> packages,
     Set<String> badScalars,
     Map<String, Spec> converters,
-  )   : this._jsonSerializable = jsonSerializable,
-        this._dependencies = dependencies,
-        this._packages = packages,
-        this._badScalars = badScalars,
-        this._converters = converters,
-        this.namePrinter = NamePrinter(context.config);
+  ) : this._jsonSerializable = jsonSerializable,
+      this._dependencies = dependencies,
+      this._packages = packages,
+      this._badScalars = badScalars,
+      this._converters = converters,
+      this.namePrinter = NamePrinter(context.config);
 
   PrintContext<TNewContext> withContext<TNewContext extends Context>(
     TNewContext context,
-  ) =>
-      PrintContext._(
-        context,
-        _jsonSerializable,
-        _dependencies,
-        _packages,
-        _badScalars,
-        _converters,
-      );
+  ) => PrintContext._(
+    context,
+    _jsonSerializable,
+    _dependencies,
+    _packages,
+    _badScalars,
+    _converters,
+  );
 
   Name get path => context.path;
 
@@ -96,8 +87,9 @@ class PrintContext<TContext extends Context> {
   }
 
   void addDependency(Name name) {
-    final lookupPath =
-        context.schema.lookupPathFromDefinitionNode(name.baseNameSegment.node);
+    final lookupPath = context.schema.lookupPathFromDefinitionNode(
+      name.baseNameSegment.node,
+    );
     if (lookupPath == null) return;
     _dependencies.add(lookupPath);
   }

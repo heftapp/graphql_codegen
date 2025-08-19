@@ -5,19 +5,19 @@ class Input$TemplateDisciplineTopicContentInput {
     List<Input$I2>? taskContentBlocks,
     List<Input$I3>? testContentBlocks,
     required String whyStudyIt,
-  }) =>
-      Input$TemplateDisciplineTopicContentInput._({
-        r'howStudyIt': howStudyIt,
-        r'infoContentBlocks': infoContentBlocks,
-        if (taskContentBlocks != null) r'taskContentBlocks': taskContentBlocks,
-        if (testContentBlocks != null) r'testContentBlocks': testContentBlocks,
-        r'whyStudyIt': whyStudyIt,
-      });
+  }) => Input$TemplateDisciplineTopicContentInput._({
+    r'howStudyIt': howStudyIt,
+    r'infoContentBlocks': infoContentBlocks,
+    if (taskContentBlocks != null) r'taskContentBlocks': taskContentBlocks,
+    if (testContentBlocks != null) r'testContentBlocks': testContentBlocks,
+    r'whyStudyIt': whyStudyIt,
+  });
 
   Input$TemplateDisciplineTopicContentInput._(this._$data);
 
   factory Input$TemplateDisciplineTopicContentInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$howStudyIt = data['howStudyIt'];
     result$data['howStudyIt'] = (l$howStudyIt as String);
@@ -62,12 +62,14 @@ class Input$TemplateDisciplineTopicContentInput {
     final l$howStudyIt = howStudyIt;
     result$data['howStudyIt'] = l$howStudyIt;
     final l$infoContentBlocks = infoContentBlocks;
-    result$data['infoContentBlocks'] =
-        l$infoContentBlocks.map((e) => e.toJson()).toList();
+    result$data['infoContentBlocks'] = l$infoContentBlocks
+        .map((e) => e.toJson())
+        .toList();
     if (_$data.containsKey('taskContentBlocks')) {
       final l$taskContentBlocks = taskContentBlocks;
-      result$data['taskContentBlocks'] =
-          l$taskContentBlocks?.map((e) => e.toJson()).toList();
+      result$data['taskContentBlocks'] = l$taskContentBlocks
+          ?.map((e) => e.toJson())
+          .toList();
     }
     if (_$data.containsKey('testContentBlocks')) {
       final l$testContentBlocks = testContentBlocks;
@@ -81,11 +83,10 @@ class Input$TemplateDisciplineTopicContentInput {
   }
 
   CopyWith$Input$TemplateDisciplineTopicContentInput<
-          Input$TemplateDisciplineTopicContentInput>
-      get copyWith => CopyWith$Input$TemplateDisciplineTopicContentInput(
-            this,
-            (i) => i,
-          );
+    Input$TemplateDisciplineTopicContentInput
+  >
+  get copyWith =>
+      CopyWith$Input$TemplateDisciplineTopicContentInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -173,13 +174,13 @@ class Input$TemplateDisciplineTopicContentInput {
       Object.hashAll(l$infoContentBlocks.map((v) => v)),
       _$data.containsKey('taskContentBlocks')
           ? l$taskContentBlocks == null
-              ? null
-              : Object.hashAll(l$taskContentBlocks.map((v) => v))
+                ? null
+                : Object.hashAll(l$taskContentBlocks.map((v) => v))
           : const {},
       _$data.containsKey('testContentBlocks')
           ? l$testContentBlocks == null
-              ? null
-              : Object.hashAll(l$testContentBlocks.map((v) => v))
+                ? null
+                : Object.hashAll(l$testContentBlocks.map((v) => v))
           : const {},
       l$whyStudyIt,
     ]);
@@ -203,11 +204,14 @@ abstract class CopyWith$Input$TemplateDisciplineTopicContentInput<TRes> {
     String? whyStudyIt,
   });
   TRes infoContentBlocks(
-      Iterable<Input$I1> Function(Iterable<CopyWith$Input$I1<Input$I1>>) _fn);
+    Iterable<Input$I1> Function(Iterable<CopyWith$Input$I1<Input$I1>>) _fn,
+  );
   TRes taskContentBlocks(
-      Iterable<Input$I2>? Function(Iterable<CopyWith$Input$I2<Input$I2>>?) _fn);
+    Iterable<Input$I2>? Function(Iterable<CopyWith$Input$I2<Input$I2>>?) _fn,
+  );
   TRes testContentBlocks(
-      Iterable<Input$I3>? Function(Iterable<CopyWith$Input$I3<Input$I3>>?) _fn);
+    Iterable<Input$I3>? Function(Iterable<CopyWith$Input$I3<Input$I3>>?) _fn,
+  );
 }
 
 class _CopyWithImpl$Input$TemplateDisciplineTopicContentInput<TRes>
@@ -229,50 +233,45 @@ class _CopyWithImpl$Input$TemplateDisciplineTopicContentInput<TRes>
     Object? taskContentBlocks = _undefined,
     Object? testContentBlocks = _undefined,
     Object? whyStudyIt = _undefined,
-  }) =>
-      _then(Input$TemplateDisciplineTopicContentInput._({
-        ..._instance._$data,
-        if (howStudyIt != _undefined && howStudyIt != null)
-          'howStudyIt': (howStudyIt as String),
-        if (infoContentBlocks != _undefined && infoContentBlocks != null)
-          'infoContentBlocks': (infoContentBlocks as List<Input$I1>),
-        if (taskContentBlocks != _undefined)
-          'taskContentBlocks': (taskContentBlocks as List<Input$I2>?),
-        if (testContentBlocks != _undefined && testContentBlocks != null)
-          'testContentBlocks': (testContentBlocks as List<Input$I3>),
-        if (whyStudyIt != _undefined && whyStudyIt != null)
-          'whyStudyIt': (whyStudyIt as String),
-      }));
+  }) => _then(
+    Input$TemplateDisciplineTopicContentInput._({
+      ..._instance._$data,
+      if (howStudyIt != _undefined && howStudyIt != null)
+        'howStudyIt': (howStudyIt as String),
+      if (infoContentBlocks != _undefined && infoContentBlocks != null)
+        'infoContentBlocks': (infoContentBlocks as List<Input$I1>),
+      if (taskContentBlocks != _undefined)
+        'taskContentBlocks': (taskContentBlocks as List<Input$I2>?),
+      if (testContentBlocks != _undefined && testContentBlocks != null)
+        'testContentBlocks': (testContentBlocks as List<Input$I3>),
+      if (whyStudyIt != _undefined && whyStudyIt != null)
+        'whyStudyIt': (whyStudyIt as String),
+    }),
+  );
 
   TRes infoContentBlocks(
-          Iterable<Input$I1> Function(Iterable<CopyWith$Input$I1<Input$I1>>)
-              _fn) =>
-      call(
-          infoContentBlocks:
-              _fn(_instance.infoContentBlocks.map((e) => CopyWith$Input$I1(
-                    e,
-                    (i) => i,
-                  ))).toList());
+    Iterable<Input$I1> Function(Iterable<CopyWith$Input$I1<Input$I1>>) _fn,
+  ) => call(
+    infoContentBlocks: _fn(
+      _instance.infoContentBlocks.map((e) => CopyWith$Input$I1(e, (i) => i)),
+    ).toList(),
+  );
 
   TRes taskContentBlocks(
-          Iterable<Input$I2>? Function(Iterable<CopyWith$Input$I2<Input$I2>>?)
-              _fn) =>
-      call(
-          taskContentBlocks:
-              _fn(_instance.taskContentBlocks?.map((e) => CopyWith$Input$I2(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Input$I2>? Function(Iterable<CopyWith$Input$I2<Input$I2>>?) _fn,
+  ) => call(
+    taskContentBlocks: _fn(
+      _instance.taskContentBlocks?.map((e) => CopyWith$Input$I2(e, (i) => i)),
+    )?.toList(),
+  );
 
   TRes testContentBlocks(
-          Iterable<Input$I3>? Function(Iterable<CopyWith$Input$I3<Input$I3>>?)
-              _fn) =>
-      call(
-          testContentBlocks:
-              _fn(_instance.testContentBlocks?.map((e) => CopyWith$Input$I3(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Input$I3>? Function(Iterable<CopyWith$Input$I3<Input$I3>>?) _fn,
+  ) => call(
+    testContentBlocks: _fn(
+      _instance.testContentBlocks?.map((e) => CopyWith$Input$I3(e, (i) => i)),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Input$TemplateDisciplineTopicContentInput<TRes>
@@ -287,8 +286,7 @@ class _CopyWithStubImpl$Input$TemplateDisciplineTopicContentInput<TRes>
     List<Input$I2>? taskContentBlocks,
     List<Input$I3>? testContentBlocks,
     String? whyStudyIt,
-  }) =>
-      _res;
+  }) => _res;
 
   infoContentBlocks(_fn) => _res;
 
@@ -298,9 +296,8 @@ class _CopyWithStubImpl$Input$TemplateDisciplineTopicContentInput<TRes>
 }
 
 class Input$I1 {
-  factory Input$I1({String? data}) => Input$I1._({
-        if (data != null) r'data': data,
-      });
+  factory Input$I1({String? data}) =>
+      Input$I1._({if (data != null) r'data': data});
 
   Input$I1._(this._$data);
 
@@ -326,10 +323,7 @@ class Input$I1 {
     return result$data;
   }
 
-  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I1<Input$I1> get copyWith => CopyWith$Input$I1(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -358,10 +352,8 @@ class Input$I1 {
 }
 
 abstract class CopyWith$Input$I1<TRes> {
-  factory CopyWith$Input$I1(
-    Input$I1 instance,
-    TRes Function(Input$I1) then,
-  ) = _CopyWithImpl$Input$I1;
+  factory CopyWith$Input$I1(Input$I1 instance, TRes Function(Input$I1) then) =
+      _CopyWithImpl$Input$I1;
 
   factory CopyWith$Input$I1.stub(TRes res) = _CopyWithStubImpl$Input$I1;
 
@@ -369,10 +361,7 @@ abstract class CopyWith$Input$I1<TRes> {
 }
 
 class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
-  _CopyWithImpl$Input$I1(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I1(this._instance, this._then);
 
   final Input$I1 _instance;
 
@@ -380,10 +369,12 @@ class _CopyWithImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? data = _undefined}) => _then(Input$I1._({
-        ..._instance._$data,
-        if (data != _undefined) 'data': (data as String?),
-      }));
+  TRes call({Object? data = _undefined}) => _then(
+    Input$I1._({
+      ..._instance._$data,
+      if (data != _undefined) 'data': (data as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
@@ -395,9 +386,8 @@ class _CopyWithStubImpl$Input$I1<TRes> implements CopyWith$Input$I1<TRes> {
 }
 
 class Input$I2 {
-  factory Input$I2({String? data}) => Input$I2._({
-        if (data != null) r'data': data,
-      });
+  factory Input$I2({String? data}) =>
+      Input$I2._({if (data != null) r'data': data});
 
   Input$I2._(this._$data);
 
@@ -423,10 +413,7 @@ class Input$I2 {
     return result$data;
   }
 
-  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I2<Input$I2> get copyWith => CopyWith$Input$I2(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -455,10 +442,8 @@ class Input$I2 {
 }
 
 abstract class CopyWith$Input$I2<TRes> {
-  factory CopyWith$Input$I2(
-    Input$I2 instance,
-    TRes Function(Input$I2) then,
-  ) = _CopyWithImpl$Input$I2;
+  factory CopyWith$Input$I2(Input$I2 instance, TRes Function(Input$I2) then) =
+      _CopyWithImpl$Input$I2;
 
   factory CopyWith$Input$I2.stub(TRes res) = _CopyWithStubImpl$Input$I2;
 
@@ -466,10 +451,7 @@ abstract class CopyWith$Input$I2<TRes> {
 }
 
 class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
-  _CopyWithImpl$Input$I2(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I2(this._instance, this._then);
 
   final Input$I2 _instance;
 
@@ -477,10 +459,12 @@ class _CopyWithImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? data = _undefined}) => _then(Input$I2._({
-        ..._instance._$data,
-        if (data != _undefined) 'data': (data as String?),
-      }));
+  TRes call({Object? data = _undefined}) => _then(
+    Input$I2._({
+      ..._instance._$data,
+      if (data != _undefined) 'data': (data as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
@@ -492,9 +476,8 @@ class _CopyWithStubImpl$Input$I2<TRes> implements CopyWith$Input$I2<TRes> {
 }
 
 class Input$I3 {
-  factory Input$I3({String? data}) => Input$I3._({
-        if (data != null) r'data': data,
-      });
+  factory Input$I3({String? data}) =>
+      Input$I3._({if (data != null) r'data': data});
 
   Input$I3._(this._$data);
 
@@ -520,10 +503,7 @@ class Input$I3 {
     return result$data;
   }
 
-  CopyWith$Input$I3<Input$I3> get copyWith => CopyWith$Input$I3(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$I3<Input$I3> get copyWith => CopyWith$Input$I3(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -552,10 +532,8 @@ class Input$I3 {
 }
 
 abstract class CopyWith$Input$I3<TRes> {
-  factory CopyWith$Input$I3(
-    Input$I3 instance,
-    TRes Function(Input$I3) then,
-  ) = _CopyWithImpl$Input$I3;
+  factory CopyWith$Input$I3(Input$I3 instance, TRes Function(Input$I3) then) =
+      _CopyWithImpl$Input$I3;
 
   factory CopyWith$Input$I3.stub(TRes res) = _CopyWithStubImpl$Input$I3;
 
@@ -563,10 +541,7 @@ abstract class CopyWith$Input$I3<TRes> {
 }
 
 class _CopyWithImpl$Input$I3<TRes> implements CopyWith$Input$I3<TRes> {
-  _CopyWithImpl$Input$I3(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$I3(this._instance, this._then);
 
   final Input$I3 _instance;
 
@@ -574,10 +549,12 @@ class _CopyWithImpl$Input$I3<TRes> implements CopyWith$Input$I3<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? data = _undefined}) => _then(Input$I3._({
-        ..._instance._$data,
-        if (data != _undefined) 'data': (data as String?),
-      }));
+  TRes call({Object? data = _undefined}) => _then(
+    Input$I3._({
+      ..._instance._$data,
+      if (data != _undefined) 'data': (data as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$I3<TRes> implements CopyWith$Input$I3<TRes> {

@@ -41,10 +41,8 @@ class Fragment$F {
 }
 
 extension UtilityExtension$Fragment$F on Fragment$F {
-  CopyWith$Fragment$F<Fragment$F> get copyWith => CopyWith$Fragment$F(
-        this,
-        (i) => i,
-      );
+  CopyWith$Fragment$F<Fragment$F> get copyWith =>
+      CopyWith$Fragment$F(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$F<TRes> {
@@ -59,10 +57,7 @@ abstract class CopyWith$Fragment$F<TRes> {
 }
 
 class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
-  _CopyWithImpl$Fragment$F(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$F(this._instance, this._then);
 
   final Fragment$F _instance;
 
@@ -70,10 +65,13 @@ class _CopyWithImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Fragment$F(
+  TRes call({Object? name = _undefined}) => _then(
+    Fragment$F(
       name: name == _undefined || name == null
           ? _instance.name
-          : (name as String)));
+          : (name as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
@@ -87,21 +85,19 @@ class _CopyWithStubImpl$Fragment$F<TRes> implements CopyWith$Fragment$F<TRes> {
 const fragmentDefinitionF = FragmentDefinitionNode(
   name: NameNode(value: 'F'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'T'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'T'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    )
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentF = DocumentNode(definitions: [
-  fragmentDefinitionF,
-]);
+const documentNodeFragmentF = DocumentNode(definitions: [fragmentDefinitionF]);

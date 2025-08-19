@@ -10,10 +10,10 @@ const _MATCH_DOUBLE_WILDCARD = '**';
 class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
   final Iterable<Iterable<String>> _excludedPatterns;
 
-  AddTypenameTransformationVisitor({
-    required GraphQLCodegenConfig config,
-  }) : _excludedPatterns =
-            config.addTypenameExcludedPaths.map((e) => e.split(".")).toList();
+  AddTypenameTransformationVisitor({required GraphQLCodegenConfig config})
+    : _excludedPatterns = config.addTypenameExcludedPaths
+          .map((e) => e.split("."))
+          .toList();
 
   AddTypenameTransformationVisitor._internal(this._excludedPatterns);
 
@@ -47,10 +47,7 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
   FragmentDefinitionNode visitFragmentDefinitionNode(
     FragmentDefinitionNode node,
   ) {
-    final visitor = _matchAndSkip(Set.of([
-      node.name.value,
-      'fragment',
-    ]));
+    final visitor = _matchAndSkip(Set.of([node.name.value, 'fragment']));
     return FragmentDefinitionNode(
       name: visitor.visitOne(node.name),
       directives: visitor.visitAll(node.directives),
@@ -60,11 +57,10 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
   }
 
   @override
-  FieldNode visitFieldNode(
-    FieldNode node,
-  ) {
-    final visitor =
-        _matchAndSkip(Set.of([node.alias?.value ?? node.name.value]));
+  FieldNode visitFieldNode(FieldNode node) {
+    final visitor = _matchAndSkip(
+      Set.of([node.alias?.value ?? node.name.value]),
+    );
     return FieldNode(
       name: visitor.visitOne(node.name),
       directives: visitor.visitAll(node.directives),
@@ -79,8 +75,8 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
         .expand(
           (element) =>
               element.isNotEmpty && element.first == _MATCH_DOUBLE_WILDCARD
-                  ? [element.skip(1), element]
-                  : [element],
+              ? [element.skip(1), element]
+              : [element],
         )
         .where(
           (element) =>
@@ -89,10 +85,12 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
                   element.first == _MATCH_DOUBLE_WILDCARD ||
                   matches.contains(element.first)),
         )
-        .map((element) =>
-            element.isNotEmpty && element.first == _MATCH_DOUBLE_WILDCARD
-                ? element
-                : element.skip(1));
+        .map(
+          (element) =>
+              element.isNotEmpty && element.first == _MATCH_DOUBLE_WILDCARD
+              ? element
+              : element.skip(1),
+        );
     return AddTypenameTransformationVisitor._internal(processedPatterns);
   }
 
@@ -100,9 +98,11 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
 
   @override
   SelectionSetNode visitSelectionSetNode(SelectionSetNode node) {
-    final hasTypename = node.selections.whereType<FieldNode>().any((element) =>
-        element.alias?.value == typenameFieldName ||
-        (element.alias == null && element.name.value == typenameFieldName));
+    final hasTypename = node.selections.whereType<FieldNode>().any(
+      (element) =>
+          element.alias?.value == typenameFieldName ||
+          (element.alias == null && element.name.value == typenameFieldName),
+    );
 
     var selections = List.of(node.selections);
 
@@ -111,8 +111,6 @@ class AddTypenameTransformationVisitor extends RecursiveTransformingVisitor {
       selections.add(newField);
     }
 
-    return SelectionSetNode(
-      selections: visitAll(selections),
-    );
+    return SelectionSetNode(selections: visitAll(selections));
   }
 }

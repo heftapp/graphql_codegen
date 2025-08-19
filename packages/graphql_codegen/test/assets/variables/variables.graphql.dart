@@ -3,9 +3,7 @@ import 'schema.graphql.dart';
 
 class Variables$Query$HiBob {
   factory Variables$Query$HiBob({required Input$I1 i}) =>
-      Variables$Query$HiBob._({
-        r'i': i,
-      });
+      Variables$Query$HiBob._({r'i': i});
 
   Variables$Query$HiBob._(this._$data);
 
@@ -28,10 +26,7 @@ class Variables$Query$HiBob {
   }
 
   CopyWith$Variables$Query$HiBob<Variables$Query$HiBob> get copyWith =>
-      CopyWith$Variables$Query$HiBob(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$HiBob(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -70,10 +65,7 @@ abstract class CopyWith$Variables$Query$HiBob<TRes> {
 
 class _CopyWithImpl$Variables$Query$HiBob<TRes>
     implements CopyWith$Variables$Query$HiBob<TRes> {
-  _CopyWithImpl$Variables$Query$HiBob(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$HiBob(this._instance, this._then);
 
   final Variables$Query$HiBob _instance;
 
@@ -81,10 +73,12 @@ class _CopyWithImpl$Variables$Query$HiBob<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? i = _undefined}) => _then(Variables$Query$HiBob._({
-        ..._instance._$data,
-        if (i != _undefined && i != null) 'i': (i as Input$I1),
-      }));
+  TRes call({Object? i = _undefined}) => _then(
+    Variables$Query$HiBob._({
+      ..._instance._$data,
+      if (i != _undefined && i != null) 'i': (i as Input$I1),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$HiBob<TRes>
@@ -102,9 +96,10 @@ class Query$HiBob {
   factory Query$HiBob.fromJson(Map<String, dynamic> json) {
     final l$field = json['field'];
     return Query$HiBob(
-        field: l$field == null
-            ? null
-            : Query$HiBob$field.fromJson((l$field as Map<String, dynamic>)));
+      field: l$field == null
+          ? null
+          : Query$HiBob$field.fromJson((l$field as Map<String, dynamic>)),
+    );
   }
 
   final Query$HiBob$field? field;
@@ -140,10 +135,8 @@ class Query$HiBob {
 }
 
 extension UtilityExtension$Query$HiBob on Query$HiBob {
-  CopyWith$Query$HiBob<Query$HiBob> get copyWith => CopyWith$Query$HiBob(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$HiBob<Query$HiBob> get copyWith =>
+      CopyWith$Query$HiBob(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HiBob<TRes> {
@@ -159,10 +152,7 @@ abstract class CopyWith$Query$HiBob<TRes> {
 }
 
 class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
-  _CopyWithImpl$Query$HiBob(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HiBob(this._instance, this._then);
 
   final Query$HiBob _instance;
 
@@ -170,10 +160,13 @@ class _CopyWithImpl$Query$HiBob<TRes> implements CopyWith$Query$HiBob<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? field = _undefined}) => _then(Query$HiBob(
+  TRes call({Object? field = _undefined}) => _then(
+    Query$HiBob(
       field: field == _undefined
           ? _instance.field
-          : (field as Query$HiBob$field?)));
+          : (field as Query$HiBob$field?),
+    ),
+  );
 
   CopyWith$Query$HiBob$field<TRes> get field {
     final local$field = _instance.field;
@@ -195,50 +188,53 @@ class _CopyWithStubImpl$Query$HiBob<TRes>
       CopyWith$Query$HiBob$field.stub(_res);
 }
 
-const documentNodeQueryHiBob = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'HiBob'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'i')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'I1'),
-          isNonNull: true,
+const documentNodeQueryHiBob = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'HiBob'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'i')),
+          type: NamedTypeNode(name: NameNode(value: 'I1'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'field'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'i')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'b'),
-            value: BooleanValueNode(value: true),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'field'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'input'),
+                value: VariableNode(name: NameNode(value: 'i')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'b'),
+                value: BooleanValueNode(value: true),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'value'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
         ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'value'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          )
-        ]),
-      )
-    ]),
-  ),
-]);
+      ),
+    ),
+  ],
+);
 
 class Query$HiBob$field {
   Query$HiBob$field({required this.value});
@@ -282,10 +278,7 @@ class Query$HiBob$field {
 
 extension UtilityExtension$Query$HiBob$field on Query$HiBob$field {
   CopyWith$Query$HiBob$field<Query$HiBob$field> get copyWith =>
-      CopyWith$Query$HiBob$field(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$HiBob$field(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HiBob$field<TRes> {
@@ -302,10 +295,7 @@ abstract class CopyWith$Query$HiBob$field<TRes> {
 
 class _CopyWithImpl$Query$HiBob$field<TRes>
     implements CopyWith$Query$HiBob$field<TRes> {
-  _CopyWithImpl$Query$HiBob$field(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HiBob$field(this._instance, this._then);
 
   final Query$HiBob$field _instance;
 
@@ -313,10 +303,13 @@ class _CopyWithImpl$Query$HiBob$field<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? value = _undefined}) => _then(Query$HiBob$field(
+  TRes call({Object? value = _undefined}) => _then(
+    Query$HiBob$field(
       value: value == _undefined || value == null
           ? _instance.value
-          : (value as String)));
+          : (value as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$HiBob$field<TRes>

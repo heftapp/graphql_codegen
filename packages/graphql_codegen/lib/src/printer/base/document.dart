@@ -23,22 +23,28 @@ Constructor _printFromJson(
   List<Code> body = [
     for (final property in properties)
       declareFinal(context.namePrinter.printLocalPropertyName(property.name))
-          .assign(context.context.config.allowMissingNullableKeysInFromJson
-              ? property.isNonNull
-                  ? refer('json').index(literalString(property.name.value))
-                  : refer('json').property('containsKey').call(
-                      [literalString(property.name.value)],
-                    ).conditional(
-                      refer('json').index(literalString(property.name.value)),
-                      literalNull,
-                    )
-              : refer('json').index(literalString(property.name.value)))
+          .assign(
+            context.context.config.allowMissingNullableKeysInFromJson
+                ? property.isNonNull
+                      ? refer('json').index(literalString(property.name.value))
+                      : refer('json')
+                            .property('containsKey')
+                            .call([literalString(property.name.value)])
+                            .conditional(
+                              refer(
+                                'json',
+                              ).index(literalString(property.name.value)),
+                              literalNull,
+                            )
+                : refer('json').index(literalString(property.name.value)),
+          )
           .statement,
     refer(name)
         .call([], {
           for (final prop in properties)
-            context.namePrinter.printPropertyName(prop.name):
-                printFromJsonValue(
+            context.namePrinter.printPropertyName(
+              prop.name,
+            ): printFromJsonValue(
               context,
               prop,
               context.namePrinter.printLocalPropertyName(prop.name),
@@ -59,7 +65,7 @@ Constructor _printFromJson(
       ...cases,
       Code('default:'),
       ...body,
-      Code('}')
+      Code('}'),
     ];
   }
   return Constructor(
@@ -83,26 +89,23 @@ Constructor _printConstructor(
 ) {
   return Constructor(
     (b) => b
-      ..optionalParameters = ListBuilder(
-        [
-          ...properties.map<Parameter>(
-            (p) => Parameter(
-              (b) {
-                final defaultTo = p.isTypenameField &&
-                        c.context.currentType is ObjectTypeDefinitionNode
-                    ? literalString(c.context.currentTypeName.value).code
-                    : null;
-                b
-                  ..required = p.isRequired && defaultTo == null
-                  ..named = true
-                  ..toThis = true
-                  ..defaultTo = defaultTo
-                  ..name = c.namePrinter.printPropertyName(p.name);
-              },
-            ),
-          ),
-        ],
-      )
+      ..optionalParameters = ListBuilder([
+        ...properties.map<Parameter>(
+          (p) => Parameter((b) {
+            final defaultTo =
+                p.isTypenameField &&
+                    c.context.currentType is ObjectTypeDefinitionNode
+                ? literalString(c.context.currentTypeName.value).code
+                : null;
+            b
+              ..required = p.isRequired && defaultTo == null
+              ..named = true
+              ..toThis = true
+              ..defaultTo = defaultTo
+              ..name = c.namePrinter.printPropertyName(p.name);
+          }),
+        ),
+      ])
       ..initializers = ListBuilder<Code>([]),
   );
 }
@@ -175,10 +178,7 @@ List<Spec> printContextExtension(PrintContext c) {
   );
   final methods = [
     if (!context.config.disableCopyWithGeneration)
-      _printCopyWithMethod(
-        c.namePrinter.printClassName(context.path),
-        c,
-      ),
+      _printCopyWithMethod(c.namePrinter.printClassName(context.path), c),
     if (whenMethod != null) whenMethod,
     if (maybeWhenMethod != null) maybeWhenMethod,
   ];
@@ -210,20 +210,22 @@ Method _printToJsonMethod(
       ..returns = dynamicMap
       ..name = "toJson"
       ..body = Block.of([
-        declareFinal(resultDataVariable)
-            .assign(literalMap({}, refer('String'), refer('dynamic')))
-            .statement,
+        declareFinal(
+          resultDataVariable,
+        ).assign(literalMap({}, refer('String'), refer('dynamic'))).statement,
         for (final property in properties) ...[
           declareFinal(c.namePrinter.printLocalPropertyName(property.name))
               .assign(refer(c.namePrinter.printPropertyName(property.name)))
               .statement,
           refer(resultDataVariable)
               .index(literalString(property.name.value))
-              .assign(printToJsonValue(
-                c,
-                property,
-                c.namePrinter.printLocalPropertyName(property.name),
-              ))
+              .assign(
+                printToJsonValue(
+                  c,
+                  property,
+                  c.namePrinter.printLocalPropertyName(property.name),
+                ),
+              )
               .statement,
         ],
         refer(resultDataVariable).returned.statement,
@@ -249,34 +251,32 @@ Spec printDocument(
       ),
       mainDefinition ?? gql_builder.fromNode(operation).code,
       Code(","),
-      ...fragmentNames.expand((n) => [
-            refer(context.namePrinter.printFragmentDefinitionNodeName(n)).code,
-            Code(","),
-          ]),
-      Code("]);")
+      ...fragmentNames.expand(
+        (n) => [
+          refer(context.namePrinter.printFragmentDefinitionNodeName(n)).code,
+          Code(","),
+        ],
+      ),
+      Code("]);"),
     ]),
   );
 }
 
-Method _printCopyWithMethod(
-  String name,
-  PrintContext context,
-) {
-  return Method((b) => b
-    ..returns = TypeReference(
-      (b) => b
-        ..symbol = context.namePrinter.printCopyWithClassName(name)
-        ..types = ListBuilder(<Reference>[refer(name)]),
-    )
-    ..name = 'copyWith'
-    ..type = MethodType.getter
-    ..lambda = true
-    ..body = refer(context.namePrinter.printCopyWithClassName(name)).call(
-      [
-        refer('this'),
-        printIdentityFunction().closure,
-      ],
-    ).code);
+Method _printCopyWithMethod(String name, PrintContext context) {
+  return Method(
+    (b) => b
+      ..returns = TypeReference(
+        (b) => b
+          ..symbol = context.namePrinter.printCopyWithClassName(name)
+          ..types = ListBuilder(<Reference>[refer(name)]),
+      )
+      ..name = 'copyWith'
+      ..type = MethodType.getter
+      ..lambda = true
+      ..body = refer(
+        context.namePrinter.printCopyWithClassName(name),
+      ).call([refer('this'), printIdentityFunction().closure]).code,
+  );
 }
 
 Method? _printWhen(
@@ -297,8 +297,9 @@ Method? _printWhen(
   }
 
   final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
-  final _typenamePropertyName =
-      context.namePrinter.printPropertyName(typenameProperty.name);
+  final _typenamePropertyName = context.namePrinter.printPropertyName(
+    typenameProperty.name,
+  );
 
   final cases = possibleTypes.map(
     (t) => Code("""
@@ -311,30 +312,40 @@ Method? _printWhen(
     ...cases,
     Code('default:'),
     Code('return orElse();'),
-    Code('}')
+    Code('}'),
   ];
 
-  return Method((m) => m
-    ..name = "when"
-    ..returns = _genericTypeParam
-    ..types.add(_genericTypeParam)
-    ..optionalParameters.addAll(possibleTypes.map(
-      (t) => Parameter((p) => p
-        ..name = getParameterName(t)
-        ..type = FunctionType((b) => b
-          ..returnType = _genericTypeParam
-          ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
-        ..named = true
-        ..required = true),
-    ))
-    ..optionalParameters.add(
-      Parameter((p) => p
-        ..name = 'orElse'
-        ..type = FunctionType((b) => b..returnType = _genericTypeParam)
-        ..named = true
-        ..required = true),
-    )
-    ..body = Block.of(body));
+  return Method(
+    (m) => m
+      ..name = "when"
+      ..returns = _genericTypeParam
+      ..types.add(_genericTypeParam)
+      ..optionalParameters.addAll(
+        possibleTypes.map(
+          (t) => Parameter(
+            (p) => p
+              ..name = getParameterName(t)
+              ..type = FunctionType(
+                (b) => b
+                  ..returnType = _genericTypeParam
+                  ..requiredParameters.add(Reference(getGeneratedTypeName(t))),
+              )
+              ..named = true
+              ..required = true,
+          ),
+        ),
+      )
+      ..optionalParameters.add(
+        Parameter(
+          (p) => p
+            ..name = 'orElse'
+            ..type = FunctionType((b) => b..returnType = _genericTypeParam)
+            ..named = true
+            ..required = true,
+        ),
+      )
+      ..body = Block.of(body),
+  );
 }
 
 Method? _printMaybeWhen(
@@ -355,8 +366,9 @@ Method? _printMaybeWhen(
   }
 
   final _genericTypeParam = TypeReference((b) => b..symbol = "_T");
-  final _typenamePropertyName =
-      context.namePrinter.printPropertyName(typenameProperty.name);
+  final _typenamePropertyName = context.namePrinter.printPropertyName(
+    typenameProperty.name,
+  );
 
   final cases = possibleTypes.map(
     (t) => Code("""
@@ -373,31 +385,39 @@ Method? _printMaybeWhen(
     ...cases,
     Code('default:'),
     Code('return orElse();'),
-    Code('}')
+    Code('}'),
   ];
 
-  return Method((m) => m
-    ..name = "maybeWhen"
-    ..returns = _genericTypeParam
-    ..types.add(_genericTypeParam)
-    ..optionalParameters.addAll(
-      possibleTypes.map(
-        (t) => Parameter((p) => p
-          ..name = getParameterName(t)
-          ..type = FunctionType((b) => b
-            ..isNullable = true
-            ..returnType = _genericTypeParam
-            ..requiredParameters.add(Reference(getGeneratedTypeName(t))))
-          ..named = true
-          ..required = false),
-      ),
-    )
-    ..optionalParameters.add(
-      Parameter((p) => p
-        ..name = 'orElse'
-        ..type = FunctionType((b) => b..returnType = _genericTypeParam)
-        ..named = true
-        ..required = true),
-    )
-    ..body = Block.of(body));
+  return Method(
+    (m) => m
+      ..name = "maybeWhen"
+      ..returns = _genericTypeParam
+      ..types.add(_genericTypeParam)
+      ..optionalParameters.addAll(
+        possibleTypes.map(
+          (t) => Parameter(
+            (p) => p
+              ..name = getParameterName(t)
+              ..type = FunctionType(
+                (b) => b
+                  ..isNullable = true
+                  ..returnType = _genericTypeParam
+                  ..requiredParameters.add(Reference(getGeneratedTypeName(t))),
+              )
+              ..named = true
+              ..required = false,
+          ),
+        ),
+      )
+      ..optionalParameters.add(
+        Parameter(
+          (p) => p
+            ..name = 'orElse'
+            ..type = FunctionType((b) => b..returnType = _genericTypeParam)
+            ..named = true
+            ..required = true,
+        ),
+      )
+      ..body = Block.of(body),
+  );
 }

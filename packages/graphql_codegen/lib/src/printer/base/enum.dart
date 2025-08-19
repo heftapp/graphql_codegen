@@ -30,8 +30,9 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
 
   if (fallbackEnumValue != null &&
       context.context.values.whereType<gql.EnumValueDefinition?>().firstWhere(
-              (element) => element?.name == fallbackEnumValue,
-              orElse: () => null) !=
+            (element) => element?.name == fallbackEnumValue,
+            orElse: () => null,
+          ) !=
           null) {
     throw PrinterError(
       "Enum fallback value for enum \"${context.context.currentType.name.value}\" is not a valid value.",
@@ -47,117 +48,115 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
       ),
     if (fallbackEnumValue == null)
       _EnumMappedValue(
-          graphQLName: kUnknowkEnumValue,
-          dartName: kUnknowkEnumValue,
-          deprecatedReason: null),
+        graphQLName: kUnknowkEnumValue,
+        dartName: kUnknowkEnumValue,
+        deprecatedReason: null,
+      ),
   ];
   final className = context.namePrinter.printClassName(context.path);
   final specs = <Spec>[
     Enum(
       (b) => b
         ..name = className
-        ..constructors = ListBuilder<Constructor>(
-          [
-            Constructor(
-              (b) => b
-                ..name = 'fromJson'
-                ..factory = true
-                ..requiredParameters = ListBuilder(
-                  [
-                    Parameter(
-                      (b) => b
-                        ..name = 'value'
-                        ..type = refer('String'),
-                    )
-                  ],
-                )
-                ..body = refer(
-                  context.namePrinter.printFromJsonConverterFunctionName(
-                    context.path,
-                  ),
-                ).call([refer('value')]).code
-                ..lambda = true,
-            ),
-          ],
-        )
-        ..methods = ListBuilder<Method>(
-          [
-            Method(
-              (b) => b
-                ..name = 'toJson'
-                ..returns = refer('String')
-                ..body = refer(
-                  context.namePrinter.printToJsonConverterFunctionName(
-                    context.path,
-                  ),
-                ).call([refer('this')]).code
-                ..lambda = true,
-            ),
-          ],
-        )
+        ..constructors = ListBuilder<Constructor>([
+          Constructor(
+            (b) => b
+              ..name = 'fromJson'
+              ..factory = true
+              ..requiredParameters = ListBuilder([
+                Parameter(
+                  (b) => b
+                    ..name = 'value'
+                    ..type = refer('String'),
+                ),
+              ])
+              ..body = refer(
+                context.namePrinter.printFromJsonConverterFunctionName(
+                  context.path,
+                ),
+              ).call([refer('value')]).code
+              ..lambda = true,
+          ),
+        ])
+        ..methods = ListBuilder<Method>([
+          Method(
+            (b) => b
+              ..name = 'toJson'
+              ..returns = refer('String')
+              ..body = refer(
+                context.namePrinter.printToJsonConverterFunctionName(
+                  context.path,
+                ),
+              ).call([refer('this')]).code
+              ..lambda = true,
+          ),
+        ])
         ..values = ListBuilder<EnumValue>(
-          values.map(
-            (e) {
-              final reason = e.deprecatedReason;
-              return EnumValue(
-                (b) => b
-                  ..name = e.dartName
-                  ..annotations = ListBuilder(
-                    [
+          values
+              .map((e) {
+                final reason = e.deprecatedReason;
+                return EnumValue(
+                  (b) => b
+                    ..name = e.dartName
+                    ..annotations = ListBuilder([
                       if (reason != null)
                         refer(
                           'Deprecated(\'${reason.replaceAll("'", r"\'")}\')',
                         ),
-                    ],
-                  ),
-              );
-            },
-          ).toList(growable: false),
+                    ]),
+                );
+              })
+              .toList(growable: false),
         ),
     ),
     Method(
       (b) => b
-        ..name =
-            context.namePrinter.printToJsonConverterFunctionName(context.path)
+        ..name = context.namePrinter.printToJsonConverterFunctionName(
+          context.path,
+        )
         ..returns = refer('String')
         ..requiredParameters = ListBuilder([
           Parameter(
             (b) => b
               ..name = 'e'
               ..type = refer(className),
-          )
+          ),
         ])
         ..body = Block.of([
           Code('switch(e) {'),
           for (final value in values)
             Code(
-                'case ${className}.${value.dartName}: return r\'${value.graphQLName}\';'),
-          Code('}')
+              'case ${className}.${value.dartName}: return r\'${value.graphQLName}\';',
+            ),
+          Code('}'),
         ]),
     ),
     Method(
       (b) => b
-        ..name =
-            context.namePrinter.printFromJsonConverterFunctionName(context.path)
+        ..name = context.namePrinter.printFromJsonConverterFunctionName(
+          context.path,
+        )
         ..returns = refer(className)
         ..requiredParameters = ListBuilder([
           Parameter(
             (b) => b
               ..name = 'value'
               ..type = refer('String'),
-          )
+          ),
         ])
         ..body = Block.of([
           Code('switch(value) {'),
           for (final value in values)
             if (value.graphQLName != kUnknowkEnumValue)
               Code(
-                  'case r\'${value.graphQLName}\': return ${className}.${value.dartName};'),
+                'case r\'${value.graphQLName}\': return ${className}.${value.dartName};',
+              ),
           Code(
-              'default: return ${className}.${fallbackEnumValue ?? kUnknowkEnumValue};'),
-          Code('}')
+            'default: return ${className}.${fallbackEnumValue ?? kUnknowkEnumValue};',
+          ),
+          Code('}'),
         ]),
-    )
+    ),
   ];
   return specs;
 }

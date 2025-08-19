@@ -187,9 +187,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 
 class Variables$Query$FetchSRequired {
   factory Variables$Query$FetchSRequired({required String name}) =>
-      Variables$Query$FetchSRequired._({
-        r'name': name,
-      });
+      Variables$Query$FetchSRequired._({r'name': name});
 
   Variables$Query$FetchSRequired._(this._$data);
 
@@ -212,10 +210,7 @@ class Variables$Query$FetchSRequired {
   }
 
   CopyWith$Variables$Query$FetchSRequired<Variables$Query$FetchSRequired>
-      get copyWith => CopyWith$Variables$Query$FetchSRequired(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$FetchSRequired(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -255,10 +250,7 @@ abstract class CopyWith$Variables$Query$FetchSRequired<TRes> {
 
 class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
     implements CopyWith$Variables$Query$FetchSRequired<TRes> {
-  _CopyWithImpl$Variables$Query$FetchSRequired(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$FetchSRequired(this._instance, this._then);
 
   final Variables$Query$FetchSRequired _instance;
 
@@ -266,11 +258,12 @@ class _CopyWithImpl$Variables$Query$FetchSRequired<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
-      _then(Variables$Query$FetchSRequired._({
-        ..._instance._$data,
-        if (name != _undefined && name != null) 'name': (name as String),
-      }));
+  TRes call({Object? name = _undefined}) => _then(
+    Variables$Query$FetchSRequired._({
+      ..._instance._$data,
+      if (name != _undefined && name != null) 'name': (name as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$FetchSRequired<TRes>
@@ -324,10 +317,7 @@ class Query$FetchSRequired {
 
 extension UtilityExtension$Query$FetchSRequired on Query$FetchSRequired {
   CopyWith$Query$FetchSRequired<Query$FetchSRequired> get copyWith =>
-      CopyWith$Query$FetchSRequired(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$FetchSRequired(this, (i) => i);
 }
 
 abstract class CopyWith$Query$FetchSRequired<TRes> {
@@ -344,10 +334,7 @@ abstract class CopyWith$Query$FetchSRequired<TRes> {
 
 class _CopyWithImpl$Query$FetchSRequired<TRes>
     implements CopyWith$Query$FetchSRequired<TRes> {
-  _CopyWithImpl$Query$FetchSRequired(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$FetchSRequired(this._instance, this._then);
 
   final Query$FetchSRequired _instance;
 
@@ -356,7 +343,8 @@ class _CopyWithImpl$Query$FetchSRequired<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? s = _undefined}) => _then(
-      Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)));
+    Query$FetchSRequired(s: s == _undefined ? _instance.s : (s as String?)),
+  );
 }
 
 class _CopyWithStubImpl$Query$FetchSRequired<TRes>
@@ -368,45 +356,44 @@ class _CopyWithStubImpl$Query$FetchSRequired<TRes>
   call({String? s}) => _res;
 }
 
-const documentNodeQueryFetchSRequired = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'FetchSRequired'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
+const documentNodeQueryFetchSRequired = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'FetchSRequired'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'name')),
+          type: NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 's'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name')),
-          )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 's'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')),
+              ),
+            ],
+            directives: [],
+            selectionSet: null,
+          ),
         ],
-        directives: [],
-        selectionSet: null,
-      )
-    ]),
-  ),
-]);
-Query$FetchSRequired _parserFn$Query$FetchSRequired(
-        Map<String, dynamic> data) =>
-    Query$FetchSRequired.fromJson(data);
-typedef OnQueryComplete$Query$FetchSRequired = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$FetchSRequired?,
+      ),
+    ),
+  ],
 );
+Query$FetchSRequired _parserFn$Query$FetchSRequired(
+  Map<String, dynamic> data,
+) => Query$FetchSRequired.fromJson(data);
+typedef OnQueryComplete$Query$FetchSRequired =
+    FutureOr<void> Function(Map<String, dynamic>?, Query$FetchSRequired?);
 
 class Options$Query$FetchSRequired
     extends graphql.QueryOptions<Query$FetchSRequired> {
@@ -422,36 +409,36 @@ class Options$Query$FetchSRequired
     graphql.Context? context,
     OnQueryComplete$Query$FetchSRequired? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$FetchSRequired(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryFetchSRequired,
-          parserFn: _parserFn$Query$FetchSRequired,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$FetchSRequired(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryFetchSRequired,
+         parserFn: _parserFn$Query$FetchSRequired,
+       );
 
   final OnQueryComplete$Query$FetchSRequired? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$FetchSRequired
@@ -470,20 +457,20 @@ class WatchOptions$Query$FetchSRequired
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryFetchSRequired,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$FetchSRequired,
-        );
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryFetchSRequired,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$FetchSRequired,
+       );
 }
 
 class FetchMoreOptions$Query$FetchSRequired extends graphql.FetchMoreOptions {
@@ -491,33 +478,31 @@ class FetchMoreOptions$Query$FetchSRequired extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     required Variables$Query$FetchSRequired variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeQueryFetchSRequired,
-        );
+         updateQuery: updateQuery,
+         variables: variables.toJson(),
+         document: documentNodeQueryFetchSRequired,
+       );
 }
 
 extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$FetchSRequired>> query$FetchSRequired(
-          Options$Query$FetchSRequired options) async =>
-      await this.query(options);
+    Options$Query$FetchSRequired options,
+  ) async => await this.query(options);
   graphql.ObservableQuery<Query$FetchSRequired> watchQuery$FetchSRequired(
-          WatchOptions$Query$FetchSRequired options) =>
-      this.watchQuery(options);
+    WatchOptions$Query$FetchSRequired options,
+  ) => this.watchQuery(options);
   void writeQuery$FetchSRequired({
     required Query$FetchSRequired data,
     required Variables$Query$FetchSRequired variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryFetchSRequired),
-          variables: variables.toJson(),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryFetchSRequired),
+      variables: variables.toJson(),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$FetchSRequired? readQuery$FetchSRequired({
     required Variables$Query$FetchSRequired variables,
     bool optimistic = true,
@@ -534,11 +519,11 @@ extension ClientExtension$Query$FetchSRequired on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$FetchSRequired> useQuery$FetchSRequired(
-        Options$Query$FetchSRequired options) =>
-    graphql_flutter.useQuery(options);
+  Options$Query$FetchSRequired options,
+) => graphql_flutter.useQuery(options);
 graphql.ObservableQuery<Query$FetchSRequired> useWatchQuery$FetchSRequired(
-        WatchOptions$Query$FetchSRequired options) =>
-    graphql_flutter.useWatchQuery(options);
+  WatchOptions$Query$FetchSRequired options,
+) => graphql_flutter.useWatchQuery(options);
 
 class Query$FetchSRequired$Widget
     extends graphql_flutter.Query<Query$FetchSRequired> {
@@ -546,11 +531,7 @@ class Query$FetchSRequired$Widget
     widgets.Key? key,
     required Options$Query$FetchSRequired options,
     required graphql_flutter.QueryBuilder<Query$FetchSRequired> builder,
-  }) : super(
-          key: key,
-          options: options,
-          builder: builder,
-        );
+  }) : super(key: key, options: options, builder: builder);
 }
 
 const possibleTypesMap = <String, Set<String>>{};

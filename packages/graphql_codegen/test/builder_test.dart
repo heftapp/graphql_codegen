@@ -13,10 +13,9 @@ final p = path.Context(style: path.Style.posix);
 final assetsDir = Directory("test/assets");
 
 void main() {
-  for (final testSet in assetsDir
-      .listSync()
-      .whereType<Directory>()
-      .where((element) => !basename(element.path).startsWith("_"))) {
+  for (final testSet in assetsDir.listSync().whereType<Directory>().where(
+    (element) => !basename(element.path).startsWith("_"),
+  )) {
     group(testSet.path, () {
       test("works", () async {
         final files = Map.fromEntries(
@@ -25,14 +24,16 @@ void main() {
                 .listSync(recursive: true)
                 .where((element) => !basename(element.path).startsWith("_"))
                 .whereType<File>()
-                .where((file) => const {
-                      '.graphql',
-                      '.dart',
-                      '.gql',
-                      '.graphqls',
-                      '.expected',
-                      '.json'
-                    }.contains(extension(file.path)))
+                .where(
+                  (file) => const {
+                    '.graphql',
+                    '.dart',
+                    '.gql',
+                    '.graphqls',
+                    '.expected',
+                    '.json',
+                  }.contains(extension(file.path)),
+                )
                 .map(
                   (file) async => MapEntry(
                     file.absolute.path.replaceAll(testSet.absolute.path, ""),
@@ -59,8 +60,11 @@ void main() {
               : 'a|${p.join('lib', relativePath)}';
           if (extension(path) == '.expected') {
             await File("${testSet.path}/${path}").delete();
-          } else if ({'.graphql', '.gql', '.graphqls'}
-              .contains(extension(path))) {
+          } else if ({
+            '.graphql',
+            '.gql',
+            '.graphqls',
+          }.contains(extension(path))) {
             assets[assetPath] = file;
           } else if (path.endsWith(".graphql.dart") ||
               path.endsWith('.gql.dart') ||
@@ -68,36 +72,38 @@ void main() {
             expectedOutputs[assetPath] = file;
           }
         }
-        final optionsFile =
-            files.entries.whereType<MapEntry<String, String>?>().firstWhere(
-                  (element) =>
-                      element != null && element.key.endsWith("/options.json"),
-                  orElse: () => null,
-                );
+        final optionsFile = files.entries
+            .whereType<MapEntry<String, String>?>()
+            .firstWhere(
+              (element) =>
+                  element != null && element.key.endsWith("/options.json"),
+              orElse: () => null,
+            );
         final options = optionsFile == null
             ? BuilderOptions.empty
             : BuilderOptions(
-                jsonDecode(optionsFile.value) as Map<String, dynamic>);
-        final writer = InMemoryAssetWriter();
+                jsonDecode(optionsFile.value) as Map<String, dynamic>,
+              );
+        final readerWriter = TestReaderWriter(rootPackage: 'a');
         try {
           await testBuilder(
             GraphQLBuilder(options),
             assets,
-            writer: writer,
+            readerWriter: readerWriter,
             rootPackage: 'a',
             outputs: expectedOutputs,
           );
         } catch (e) {
-          for (final entry in writer.assets.entries) {
+          for (final id in readerWriter.testing.assets) {
             final file = noFlatLib
-                ? entry.key.path
-                : entry.key.path.replaceAll(RegExp("^lib"), "");
-            if (utf8.decode(entry.value) != files[file]) {
+                ? id.path
+                : id.path.replaceAll(RegExp("^lib"), "");
+            final contents = readerWriter.testing.readString(id);
+            if (contents != files[file]) {
               await (await File(
                 "${testSet.absolute.path}/${file}.expected",
                 // "${testSet.absolute.path}/${file}",
-              ).create(recursive: true))
-                  .writeAsBytes(entry.value);
+              ).create(recursive: true)).writeAsString(contents);
             }
           }
           rethrow;

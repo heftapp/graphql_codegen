@@ -11,8 +11,9 @@ class ContextVisitor extends RecursiveVisitor {
   @override
   void visitVariableDefinitionNode(VariableDefinitionNode node) {
     final typeNodeForField = node.type;
-    final fieldType =
-        context.schema.lookupTypeDefinitionFromTypeNode(typeNodeForField);
+    final fieldType = context.schema.lookupTypeDefinitionFromTypeNode(
+      typeNodeForField,
+    );
 
     if (fieldType == null) {
       throw InvalidGraphQLDocumentError(
@@ -27,10 +28,7 @@ class ContextVisitor extends RecursiveVisitor {
       path = Name.fromSegment(EnumNameSegment(fieldType));
     }
     context.addVariable(
-      ContextProperty.fromVariableDefinitionNode(
-        node,
-        path: path,
-      ),
+      ContextProperty.fromVariableDefinitionNode(node, path: path),
     );
   }
 
@@ -103,26 +101,19 @@ class ContextVisitor extends RecursiveVisitor {
     final typeNode = context.schema.lookupOperationType(node.type);
     if (typeNode == null) {
       throw InvalidGraphQLDocumentError(
-          "Failed to find operation type for ${node.type}");
+        "Failed to find operation type for ${node.type}",
+      );
     }
     node.visitChildren(
-      ContextVisitor(
-        context: context.withOperationAndType(node, typeNode),
-      ),
+      ContextVisitor(context: context.withOperationAndType(node, typeNode)),
     );
   }
 
-  void _visitInFragment(
-    FragmentDefinitionNode node,
-    Name name,
-  ) {
-    context.visitInFragment(
-      name,
-      () {
-        node.selectionSet.visitChildren(this);
-        context.addFragmentsFromInFragment();
-      },
-    );
+  void _visitInFragment(FragmentDefinitionNode node, Name name) {
+    context.visitInFragment(name, () {
+      node.selectionSet.visitChildren(this);
+      context.addFragmentsFromInFragment();
+    });
     context.addFragment(name);
   }
 
@@ -138,8 +129,9 @@ class ContextVisitor extends RecursiveVisitor {
     // Lookup the `ContextFragment` of the current fragment.
     // If it doesn't exists, create it!
     if (!context.hasContextFragment(fragmentName)) {
-      ContextVisitor(context: context.rootContext())
-          .visitFragmentDefinitionNode(fragmentDef);
+      ContextVisitor(
+        context: context.rootContext(),
+      ).visitFragmentDefinitionNode(fragmentDef);
     }
 
     // If the fragment type condition exactly matches the current type,
@@ -169,10 +161,7 @@ class ContextVisitor extends RecursiveVisitor {
     final typedFragmentName = fragmentName.withSegment(
       TypeNameSegment(context.currentType.name),
     );
-    _visitInFragment(
-      fragmentDef,
-      typedFragmentName,
-    );
+    _visitInFragment(fragmentDef, typedFragmentName);
   }
 
   @override
@@ -202,8 +191,9 @@ class ContextVisitor extends RecursiveVisitor {
         .map((e) => e.name)
         .toSet();
 
-    final concreteIntersection =
-        typeConditionConcreteTypes.intersection(currentTypeConcreteTypes);
+    final concreteIntersection = typeConditionConcreteTypes.intersection(
+      currentTypeConcreteTypes,
+    );
 
     if (concreteIntersection.isEmpty) {
       return;
@@ -218,18 +208,15 @@ class ContextVisitor extends RecursiveVisitor {
       final typeNode = context.schema.lookupType(typeName);
       if (typeNode == null) {
         throw InvalidGraphQLDocumentError(
-            "Failed to find definition for type ${typeName.value}");
+          "Failed to find definition for type ${typeName.value}",
+        );
       }
       final c = context.withNameAndType(
         TypeNameSegment(typeNode.name),
         typeNode,
         extendsName: context.path,
       );
-      node.visitChildren(
-        ContextVisitor(
-          context: c,
-        ),
-      );
+      node.visitChildren(ContextVisitor(context: c));
       context.addPossibleTypeName(c);
     }
   }
@@ -255,11 +242,7 @@ class ContextVisitor extends RecursiveVisitor {
 
   TypeNode _makeTypeNodeNullable(TypeNode node) {
     if (node is NamedTypeNode) {
-      return NamedTypeNode(
-        isNonNull: false,
-        span: node.span,
-        name: node.name,
-      );
+      return NamedTypeNode(isNonNull: false, span: node.span, name: node.name);
     } else if (node is ListTypeNode) {
       return ListTypeNode(isNonNull: false, span: node.span, type: node.type);
     } else {
@@ -280,8 +263,10 @@ class ContextVisitor extends RecursiveVisitor {
         "Failed to find type for field ${node.name.value} on ${currentType.name.value}",
       );
     }
-    final typeNodeForField = node.directives
-            .any((element) => ['include', 'skip'].contains(element.name.value))
+    final typeNodeForField =
+        node.directives.any(
+          (element) => ['include', 'skip'].contains(element.name.value),
+        )
         ? _makeTypeNodeNullable(typeNodeForFieldName)
         : typeNodeForFieldName;
 

@@ -46,10 +46,7 @@ class Query$Operation {
 
 extension UtilityExtension$Query$Operation on Query$Operation {
   CopyWith$Query$Operation<Query$Operation> get copyWith =>
-      CopyWith$Query$Operation(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Operation(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Operation<TRes> {
@@ -66,10 +63,7 @@ abstract class CopyWith$Query$Operation<TRes> {
 
 class _CopyWithImpl$Query$Operation<TRes>
     implements CopyWith$Query$Operation<TRes> {
-  _CopyWithImpl$Query$Operation(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Operation(this._instance, this._then);
 
   final Query$Operation _instance;
 
@@ -77,8 +71,11 @@ class _CopyWithImpl$Query$Operation<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Query$Operation(
-      name: name == _undefined ? _instance.name : (name as String?)));
+  TRes call({Object? name = _undefined}) => _then(
+    Query$Operation(
+      name: name == _undefined ? _instance.name : (name as String?),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Operation<TRes>
@@ -90,29 +87,31 @@ class _CopyWithStubImpl$Query$Operation<TRes>
   call({String? name}) => _res;
 }
 
-const documentNodeQueryOperation = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Operation'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'name'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      )
-    ]),
-  ),
-]);
+const documentNodeQueryOperation = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Operation'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
+      ),
+    ),
+  ],
+);
 Query$Operation _parserFn$Query$Operation(Map<String, dynamic> data) =>
     Query$Operation.fromJson(data);
-typedef OnQueryComplete$Query$Operation = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$Operation?,
-);
+typedef OnQueryComplete$Query$Operation =
+    FutureOr<void> Function(Map<String, dynamic>?, Query$Operation?);
 
 class Options$Query$Operation extends graphql.QueryOptions<Query$Operation> {
   Options$Query$Operation({
@@ -126,35 +125,35 @@ class Options$Query$Operation extends graphql.QueryOptions<Query$Operation> {
     graphql.Context? context,
     OnQueryComplete$Query$Operation? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$Operation(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryOperation,
-          parserFn: _parserFn$Query$Operation,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$Operation(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryOperation,
+         parserFn: _parserFn$Query$Operation,
+       );
 
   final OnQueryComplete$Query$Operation? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$Operation
@@ -172,62 +171,60 @@ class WatchOptions$Query$Operation
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryOperation,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$Operation,
-        );
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryOperation,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$Operation,
+       );
 }
 
 class FetchMoreOptions$Query$Operation extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$Operation({required graphql.UpdateQuery updateQuery})
-      : super(
-          updateQuery: updateQuery,
-          document: documentNodeQueryOperation,
-        );
+    : super(updateQuery: updateQuery, document: documentNodeQueryOperation);
 }
 
 extension ClientExtension$Query$Operation on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$Operation>> query$Operation(
-          [Options$Query$Operation? options]) async =>
-      await this.query(options ?? Options$Query$Operation());
-  graphql.ObservableQuery<Query$Operation> watchQuery$Operation(
-          [WatchOptions$Query$Operation? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$Operation());
+  Future<graphql.QueryResult<Query$Operation>> query$Operation([
+    Options$Query$Operation? options,
+  ]) async => await this.query(options ?? Options$Query$Operation());
+  graphql.ObservableQuery<Query$Operation> watchQuery$Operation([
+    WatchOptions$Query$Operation? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$Operation());
   void writeQuery$Operation({
     required Query$Operation data,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-            operation: graphql.Operation(document: documentNodeQueryOperation)),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryOperation),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$Operation? readQuery$Operation({bool optimistic = true}) {
     final result = this.readQuery(
       graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryOperation)),
+        operation: graphql.Operation(document: documentNodeQueryOperation),
+      ),
       optimistic: optimistic,
     );
     return result == null ? null : Query$Operation.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$Operation> useQuery$Operation(
-        [Options$Query$Operation? options]) =>
-    graphql_flutter.useQuery(options ?? Options$Query$Operation());
-graphql.ObservableQuery<Query$Operation> useWatchQuery$Operation(
-        [WatchOptions$Query$Operation? options]) =>
-    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$Operation());
+graphql_flutter.QueryHookResult<Query$Operation> useQuery$Operation([
+  Options$Query$Operation? options,
+]) => graphql_flutter.useQuery(options ?? Options$Query$Operation());
+graphql.ObservableQuery<Query$Operation> useWatchQuery$Operation([
+  WatchOptions$Query$Operation? options,
+]) => graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$Operation());
 
 class Query$Operation$Widget extends graphql_flutter.Query<Query$Operation> {
   Query$Operation$Widget({
@@ -235,8 +232,8 @@ class Query$Operation$Widget extends graphql_flutter.Query<Query$Operation> {
     Options$Query$Operation? options,
     required graphql_flutter.QueryBuilder<Query$Operation> builder,
   }) : super(
-          key: key,
-          options: options ?? Options$Query$Operation(),
-          builder: builder,
-        );
+         key: key,
+         options: options ?? Options$Query$Operation(),
+         builder: builder,
+       );
 }

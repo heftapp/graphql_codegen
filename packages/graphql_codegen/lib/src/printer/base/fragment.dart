@@ -17,21 +17,20 @@ List<Spec> printFragmentSpecs(PrintContext<ContextFragment> elementContext) {
     printContext(elementContext),
     ...printContextExtension(elementContext),
     if (fragmentNode != null) ...[
-      _printFragmentDefinition(
-        elementContext,
-        fragmentNode,
-      ),
+      _printFragmentDefinition(elementContext, fragmentNode),
       printDocument(
         elementContext,
         fragmentNode,
-        refer(elementContext.namePrinter
-                .printFragmentDefinitionNodeName(elementContext.path))
-            .code,
+        refer(
+          elementContext.namePrinter.printFragmentDefinitionNodeName(
+            elementContext.path,
+          ),
+        ).code,
       ),
     ],
     if (clients.contains(GraphQLCodegenConfigClient.graphql) ||
         clients.contains(GraphQLCodegenConfigClient.graphqlFlutter))
-      ...printGraphQLClientFragmentSpecs(elementContext)
+      ...printGraphQLClientFragmentSpecs(elementContext),
   ];
 }
 
@@ -46,7 +45,7 @@ Spec _printFragmentDefinition(
         "const ${context.namePrinter.printFragmentDefinitionNodeName(context.context.path)} = ",
       ),
       gql_builder.fromNode(node).code,
-      Code(";")
+      Code(";"),
     ]),
   );
 }

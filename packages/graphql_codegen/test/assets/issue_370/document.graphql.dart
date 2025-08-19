@@ -202,11 +202,13 @@ class Fragment$MediaMinimalFrag {
       title: l$title == null
           ? null
           : Fragment$MediaMinimalFrag$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       coverImage: l$coverImage == null
           ? null
           : Fragment$MediaMinimalFrag$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -243,13 +245,7 @@ class Fragment$MediaMinimalFrag {
     final l$title = title;
     final l$coverImage = coverImage;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$type,
-      l$title,
-      l$coverImage,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$type, l$title, l$coverImage, l$$__typename]);
   }
 
   @override
@@ -293,10 +289,7 @@ class Fragment$MediaMinimalFrag {
 extension UtilityExtension$Fragment$MediaMinimalFrag
     on Fragment$MediaMinimalFrag {
   CopyWith$Fragment$MediaMinimalFrag<Fragment$MediaMinimalFrag> get copyWith =>
-      CopyWith$Fragment$MediaMinimalFrag(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$MediaMinimalFrag(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaMinimalFrag<TRes> {
@@ -321,10 +314,7 @@ abstract class CopyWith$Fragment$MediaMinimalFrag<TRes> {
 
 class _CopyWithImpl$Fragment$MediaMinimalFrag<TRes>
     implements CopyWith$Fragment$MediaMinimalFrag<TRes> {
-  _CopyWithImpl$Fragment$MediaMinimalFrag(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaMinimalFrag(this._instance, this._then);
 
   final Fragment$MediaMinimalFrag _instance;
 
@@ -338,27 +328,30 @@ class _CopyWithImpl$Fragment$MediaMinimalFrag<TRes>
     Object? title = _undefined,
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaMinimalFrag(
-        id: id == _undefined ? _instance.id : (id as String?),
-        type: type == _undefined ? _instance.type : (type as String?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Fragment$MediaMinimalFrag$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as Fragment$MediaMinimalFrag$coverImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaMinimalFrag(
+      id: id == _undefined ? _instance.id : (id as String?),
+      type: type == _undefined ? _instance.type : (type as String?),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Fragment$MediaMinimalFrag$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage as Fragment$MediaMinimalFrag$coverImage?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaMinimalFrag$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Fragment$MediaMinimalFrag$title.stub(_then(_instance))
         : CopyWith$Fragment$MediaMinimalFrag$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 
   CopyWith$Fragment$MediaMinimalFrag$coverImage<TRes> get coverImage {
@@ -366,7 +359,9 @@ class _CopyWithImpl$Fragment$MediaMinimalFrag<TRes>
     return local$coverImage == null
         ? CopyWith$Fragment$MediaMinimalFrag$coverImage.stub(_then(_instance))
         : CopyWith$Fragment$MediaMinimalFrag$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 }
 
@@ -382,8 +377,7 @@ class _CopyWithStubImpl$Fragment$MediaMinimalFrag<TRes>
     Fragment$MediaMinimalFrag$title? title,
     Fragment$MediaMinimalFrag$coverImage? coverImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaMinimalFrag$title<TRes> get title =>
       CopyWith$Fragment$MediaMinimalFrag$title.stub(_res);
@@ -395,96 +389,100 @@ class _CopyWithStubImpl$Fragment$MediaMinimalFrag<TRes>
 const fragmentDefinitionMediaMinimalFrag = FragmentDefinitionNode(
   name: NameNode(value: 'MediaMinimalFrag'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Media'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Media'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'type'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'title'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'romaji'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'type'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'title'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'romaji'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'userPreferred'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'userPreferred'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'coverImage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'medium'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'coverImage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'large'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'medium'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentMediaMinimalFrag = DocumentNode(definitions: [
-  fragmentDefinitionMediaMinimalFrag,
-]);
+const documentNodeFragmentMediaMinimalFrag = DocumentNode(
+  definitions: [fragmentDefinitionMediaMinimalFrag],
+);
 
 class Fragment$MediaMinimalFrag$title {
   Fragment$MediaMinimalFrag$title({
@@ -526,11 +524,7 @@ class Fragment$MediaMinimalFrag$title {
     final l$romaji = romaji;
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$romaji,
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$romaji, l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -564,10 +558,7 @@ class Fragment$MediaMinimalFrag$title {
 extension UtilityExtension$Fragment$MediaMinimalFrag$title
     on Fragment$MediaMinimalFrag$title {
   CopyWith$Fragment$MediaMinimalFrag$title<Fragment$MediaMinimalFrag$title>
-      get copyWith => CopyWith$Fragment$MediaMinimalFrag$title(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$MediaMinimalFrag$title(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaMinimalFrag$title<TRes> {
@@ -579,19 +570,12 @@ abstract class CopyWith$Fragment$MediaMinimalFrag$title<TRes> {
   factory CopyWith$Fragment$MediaMinimalFrag$title.stub(TRes res) =
       _CopyWithStubImpl$Fragment$MediaMinimalFrag$title;
 
-  TRes call({
-    String? romaji,
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? romaji, String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$MediaMinimalFrag$title<TRes>
     implements CopyWith$Fragment$MediaMinimalFrag$title<TRes> {
-  _CopyWithImpl$Fragment$MediaMinimalFrag$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaMinimalFrag$title(this._instance, this._then);
 
   final Fragment$MediaMinimalFrag$title _instance;
 
@@ -603,16 +587,17 @@ class _CopyWithImpl$Fragment$MediaMinimalFrag$title<TRes>
     Object? romaji = _undefined,
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaMinimalFrag$title(
-        romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaMinimalFrag$title(
+      romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaMinimalFrag$title<TRes>
@@ -621,12 +606,7 @@ class _CopyWithStubImpl$Fragment$MediaMinimalFrag$title<TRes>
 
   TRes _res;
 
-  call({
-    String? romaji,
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? romaji, String? userPreferred, String? $__typename}) => _res;
 }
 
 class Fragment$MediaMinimalFrag$coverImage {
@@ -637,7 +617,8 @@ class Fragment$MediaMinimalFrag$coverImage {
   });
 
   factory Fragment$MediaMinimalFrag$coverImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$large = json['large'];
     final l$medium = json['medium'];
     final l$$__typename = json['__typename'];
@@ -670,11 +651,7 @@ class Fragment$MediaMinimalFrag$coverImage {
     final l$large = large;
     final l$medium = medium;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$medium,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$medium, l$$__typename]);
   }
 
   @override
@@ -708,11 +685,9 @@ class Fragment$MediaMinimalFrag$coverImage {
 extension UtilityExtension$Fragment$MediaMinimalFrag$coverImage
     on Fragment$MediaMinimalFrag$coverImage {
   CopyWith$Fragment$MediaMinimalFrag$coverImage<
-          Fragment$MediaMinimalFrag$coverImage>
-      get copyWith => CopyWith$Fragment$MediaMinimalFrag$coverImage(
-            this,
-            (i) => i,
-          );
+    Fragment$MediaMinimalFrag$coverImage
+  >
+  get copyWith => CopyWith$Fragment$MediaMinimalFrag$coverImage(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaMinimalFrag$coverImage<TRes> {
@@ -724,11 +699,7 @@ abstract class CopyWith$Fragment$MediaMinimalFrag$coverImage<TRes> {
   factory CopyWith$Fragment$MediaMinimalFrag$coverImage.stub(TRes res) =
       _CopyWithStubImpl$Fragment$MediaMinimalFrag$coverImage;
 
-  TRes call({
-    String? large,
-    String? medium,
-    String? $__typename,
-  });
+  TRes call({String? large, String? medium, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$MediaMinimalFrag$coverImage<TRes>
@@ -748,14 +719,15 @@ class _CopyWithImpl$Fragment$MediaMinimalFrag$coverImage<TRes>
     Object? large = _undefined,
     Object? medium = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaMinimalFrag$coverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        medium: medium == _undefined ? _instance.medium : (medium as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaMinimalFrag$coverImage(
+      large: large == _undefined ? _instance.large : (large as String?),
+      medium: medium == _undefined ? _instance.medium : (medium as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaMinimalFrag$coverImage<TRes>
@@ -764,19 +736,11 @@ class _CopyWithStubImpl$Fragment$MediaMinimalFrag$coverImage<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? medium,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? medium, String? $__typename}) => _res;
 }
 
 class Variables$Query$MediaMinimal {
-  factory Variables$Query$MediaMinimal({
-    int? id,
-    String? search,
-  }) =>
+  factory Variables$Query$MediaMinimal({int? id, String? search}) =>
       Variables$Query$MediaMinimal._({
         if (id != null) r'id': id,
         if (search != null) r'search': search,
@@ -817,10 +781,7 @@ class Variables$Query$MediaMinimal {
   }
 
   CopyWith$Variables$Query$MediaMinimal<Variables$Query$MediaMinimal>
-      get copyWith => CopyWith$Variables$Query$MediaMinimal(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$MediaMinimal(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -870,18 +831,12 @@ abstract class CopyWith$Variables$Query$MediaMinimal<TRes> {
   factory CopyWith$Variables$Query$MediaMinimal.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$MediaMinimal;
 
-  TRes call({
-    int? id,
-    String? search,
-  });
+  TRes call({int? id, String? search});
 }
 
 class _CopyWithImpl$Variables$Query$MediaMinimal<TRes>
     implements CopyWith$Variables$Query$MediaMinimal<TRes> {
-  _CopyWithImpl$Variables$Query$MediaMinimal(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaMinimal(this._instance, this._then);
 
   final Variables$Query$MediaMinimal _instance;
 
@@ -889,15 +844,13 @@ class _CopyWithImpl$Variables$Query$MediaMinimal<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? search = _undefined,
-  }) =>
-      _then(Variables$Query$MediaMinimal._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (search != _undefined) 'search': (search as String?),
-      }));
+  TRes call({Object? id = _undefined, Object? search = _undefined}) => _then(
+    Variables$Query$MediaMinimal._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+      if (search != _undefined) 'search': (search as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaMinimal<TRes>
@@ -906,18 +859,11 @@ class _CopyWithStubImpl$Variables$Query$MediaMinimal<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? search,
-  }) =>
-      _res;
+  call({int? id, String? search}) => _res;
 }
 
 class Query$MediaMinimal {
-  Query$MediaMinimal({
-    this.Media,
-    this.$__typename = 'Query',
-  });
+  Query$MediaMinimal({this.Media, this.$__typename = 'Query'});
 
   factory Query$MediaMinimal.fromJson(Map<String, dynamic> json) {
     final l$Media = json['Media'];
@@ -926,7 +872,8 @@ class Query$MediaMinimal {
       Media: l$Media == null
           ? null
           : Fragment$MediaMinimalFrag.fromJson(
-              (l$Media as Map<String, dynamic>)),
+              (l$Media as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -948,10 +895,7 @@ class Query$MediaMinimal {
   int get hashCode {
     final l$Media = Media;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Media,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Media, l$$__typename]);
   }
 
   @override
@@ -978,10 +922,7 @@ class Query$MediaMinimal {
 
 extension UtilityExtension$Query$MediaMinimal on Query$MediaMinimal {
   CopyWith$Query$MediaMinimal<Query$MediaMinimal> get copyWith =>
-      CopyWith$Query$MediaMinimal(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaMinimal(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaMinimal<TRes> {
@@ -993,19 +934,13 @@ abstract class CopyWith$Query$MediaMinimal<TRes> {
   factory CopyWith$Query$MediaMinimal.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaMinimal;
 
-  TRes call({
-    Fragment$MediaMinimalFrag? Media,
-    String? $__typename,
-  });
+  TRes call({Fragment$MediaMinimalFrag? Media, String? $__typename});
   CopyWith$Fragment$MediaMinimalFrag<TRes> get Media;
 }
 
 class _CopyWithImpl$Query$MediaMinimal<TRes>
     implements CopyWith$Query$MediaMinimal<TRes> {
-  _CopyWithImpl$Query$MediaMinimal(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaMinimal(this._instance, this._then);
 
   final Query$MediaMinimal _instance;
 
@@ -1013,25 +948,26 @@ class _CopyWithImpl$Query$MediaMinimal<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaMinimal(
-        Media: Media == _undefined
-            ? _instance.Media
-            : (Media as Fragment$MediaMinimalFrag?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$MediaMinimal(
+          Media: Media == _undefined
+              ? _instance.Media
+              : (Media as Fragment$MediaMinimalFrag?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Fragment$MediaMinimalFrag<TRes> get Media {
     final local$Media = _instance.Media;
     return local$Media == null
         ? CopyWith$Fragment$MediaMinimalFrag.stub(_then(_instance))
         : CopyWith$Fragment$MediaMinimalFrag(
-            local$Media, (e) => call(Media: e));
+            local$Media,
+            (e) => call(Media: e),
+          );
   }
 }
 
@@ -1041,60 +977,66 @@ class _CopyWithStubImpl$Query$MediaMinimal<TRes>
 
   TRes _res;
 
-  call({
-    Fragment$MediaMinimalFrag? Media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Fragment$MediaMinimalFrag? Media, String? $__typename}) => _res;
 
   CopyWith$Fragment$MediaMinimalFrag<TRes> get Media =>
       CopyWith$Fragment$MediaMinimalFrag.stub(_res);
 }
 
-const documentNodeQueryMediaMinimal = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaMinimal'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryMediaMinimal = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaMinimal'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'search')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'search')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Media'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'search'),
-            value: VariableNode(name: NameNode(value: 'search')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'MediaMinimalFrag'),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'Media'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'search'),
+                value: VariableNode(name: NameNode(value: 'search')),
+              ),
+            ],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'MediaMinimalFrag'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1103,25 +1045,15 @@ const documentNodeQueryMediaMinimal = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionMediaMinimalFrag,
-]);
+    ),
+    fragmentDefinitionMediaMinimalFrag,
+  ],
+);
 
 class Variables$Query$MediaFull {
-  factory Variables$Query$MediaFull({
-    int? id,
-    String? search,
-  }) =>
+  factory Variables$Query$MediaFull({int? id, String? search}) =>
       Variables$Query$MediaFull._({
         if (id != null) r'id': id,
         if (search != null) r'search': search,
@@ -1162,10 +1094,7 @@ class Variables$Query$MediaFull {
   }
 
   CopyWith$Variables$Query$MediaFull<Variables$Query$MediaFull> get copyWith =>
-      CopyWith$Variables$Query$MediaFull(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$MediaFull(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1215,18 +1144,12 @@ abstract class CopyWith$Variables$Query$MediaFull<TRes> {
   factory CopyWith$Variables$Query$MediaFull.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$MediaFull;
 
-  TRes call({
-    int? id,
-    String? search,
-  });
+  TRes call({int? id, String? search});
 }
 
 class _CopyWithImpl$Variables$Query$MediaFull<TRes>
     implements CopyWith$Variables$Query$MediaFull<TRes> {
-  _CopyWithImpl$Variables$Query$MediaFull(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaFull(this._instance, this._then);
 
   final Variables$Query$MediaFull _instance;
 
@@ -1234,15 +1157,13 @@ class _CopyWithImpl$Variables$Query$MediaFull<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? search = _undefined,
-  }) =>
-      _then(Variables$Query$MediaFull._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (search != _undefined) 'search': (search as String?),
-      }));
+  TRes call({Object? id = _undefined, Object? search = _undefined}) => _then(
+    Variables$Query$MediaFull._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+      if (search != _undefined) 'search': (search as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaFull<TRes>
@@ -1251,18 +1172,11 @@ class _CopyWithStubImpl$Variables$Query$MediaFull<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? search,
-  }) =>
-      _res;
+  call({int? id, String? search}) => _res;
 }
 
 class Query$MediaFull {
-  Query$MediaFull({
-    this.Media,
-    this.$__typename = 'Query',
-  });
+  Query$MediaFull({this.Media, this.$__typename = 'Query'});
 
   factory Query$MediaFull.fromJson(Map<String, dynamic> json) {
     final l$Media = json['Media'];
@@ -1292,10 +1206,7 @@ class Query$MediaFull {
   int get hashCode {
     final l$Media = Media;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Media,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Media, l$$__typename]);
   }
 
   @override
@@ -1322,10 +1233,7 @@ class Query$MediaFull {
 
 extension UtilityExtension$Query$MediaFull on Query$MediaFull {
   CopyWith$Query$MediaFull<Query$MediaFull> get copyWith =>
-      CopyWith$Query$MediaFull(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaFull(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaFull<TRes> {
@@ -1337,19 +1245,13 @@ abstract class CopyWith$Query$MediaFull<TRes> {
   factory CopyWith$Query$MediaFull.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaFull;
 
-  TRes call({
-    Query$MediaFull$Media? Media,
-    String? $__typename,
-  });
+  TRes call({Query$MediaFull$Media? Media, String? $__typename});
   CopyWith$Query$MediaFull$Media<TRes> get Media;
 }
 
 class _CopyWithImpl$Query$MediaFull<TRes>
     implements CopyWith$Query$MediaFull<TRes> {
-  _CopyWithImpl$Query$MediaFull(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaFull(this._instance, this._then);
 
   final Query$MediaFull _instance;
 
@@ -1357,18 +1259,17 @@ class _CopyWithImpl$Query$MediaFull<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaFull(
-        Media: Media == _undefined
-            ? _instance.Media
-            : (Media as Query$MediaFull$Media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$MediaFull(
+          Media: Media == _undefined
+              ? _instance.Media
+              : (Media as Query$MediaFull$Media?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$MediaFull$Media<TRes> get Media {
     final local$Media = _instance.Media;
@@ -1384,67 +1285,73 @@ class _CopyWithStubImpl$Query$MediaFull<TRes>
 
   TRes _res;
 
-  call({
-    Query$MediaFull$Media? Media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$MediaFull$Media? Media, String? $__typename}) => _res;
 
   CopyWith$Query$MediaFull$Media<TRes> get Media =>
       CopyWith$Query$MediaFull$Media.stub(_res);
 }
 
-const documentNodeQueryMediaFull = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaFull'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryMediaFull = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaFull'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'search')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'search')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Media'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'search'),
-            value: VariableNode(name: NameNode(value: 'search')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'MediaMinimalFrag'),
-            directives: [],
-          ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'nextEpisode'),
+            name: NameNode(value: 'Media'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'search'),
+                value: VariableNode(name: NameNode(value: 'search')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'MediaMinimalFrag'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'nextEpisode'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1453,19 +1360,12 @@ const documentNodeQueryMediaFull = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionMediaMinimalFrag,
-]);
+    ),
+    fragmentDefinitionMediaMinimalFrag,
+  ],
+);
 
 class Query$MediaFull$Media implements Fragment$MediaMinimalFrag {
   Query$MediaFull$Media({
@@ -1490,11 +1390,13 @@ class Query$MediaFull$Media implements Fragment$MediaMinimalFrag {
       title: l$title == null
           ? null
           : Query$MediaFull$Media$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       coverImage: l$coverImage == null
           ? null
           : Query$MediaFull$Media$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       nextEpisode: (l$nextEpisode as int?),
     );
@@ -1591,10 +1493,7 @@ class Query$MediaFull$Media implements Fragment$MediaMinimalFrag {
 
 extension UtilityExtension$Query$MediaFull$Media on Query$MediaFull$Media {
   CopyWith$Query$MediaFull$Media<Query$MediaFull$Media> get copyWith =>
-      CopyWith$Query$MediaFull$Media(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaFull$Media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaFull$Media<TRes> {
@@ -1620,10 +1519,7 @@ abstract class CopyWith$Query$MediaFull$Media<TRes> {
 
 class _CopyWithImpl$Query$MediaFull$Media<TRes>
     implements CopyWith$Query$MediaFull$Media<TRes> {
-  _CopyWithImpl$Query$MediaFull$Media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaFull$Media(this._instance, this._then);
 
   final Query$MediaFull$Media _instance;
 
@@ -1638,30 +1534,33 @@ class _CopyWithImpl$Query$MediaFull$Media<TRes>
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
     Object? nextEpisode = _undefined,
-  }) =>
-      _then(Query$MediaFull$Media(
-        id: id == _undefined ? _instance.id : (id as String?),
-        type: type == _undefined ? _instance.type : (type as String?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Query$MediaFull$Media$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as Query$MediaFull$Media$coverImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        nextEpisode: nextEpisode == _undefined
-            ? _instance.nextEpisode
-            : (nextEpisode as int?),
-      ));
+  }) => _then(
+    Query$MediaFull$Media(
+      id: id == _undefined ? _instance.id : (id as String?),
+      type: type == _undefined ? _instance.type : (type as String?),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Query$MediaFull$Media$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage as Query$MediaFull$Media$coverImage?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      nextEpisode: nextEpisode == _undefined
+          ? _instance.nextEpisode
+          : (nextEpisode as int?),
+    ),
+  );
 
   CopyWith$Query$MediaFull$Media$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Query$MediaFull$Media$title.stub(_then(_instance))
         : CopyWith$Query$MediaFull$Media$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 
   CopyWith$Query$MediaFull$Media$coverImage<TRes> get coverImage {
@@ -1669,7 +1568,9 @@ class _CopyWithImpl$Query$MediaFull$Media<TRes>
     return local$coverImage == null
         ? CopyWith$Query$MediaFull$Media$coverImage.stub(_then(_instance))
         : CopyWith$Query$MediaFull$Media$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 }
 
@@ -1686,8 +1587,7 @@ class _CopyWithStubImpl$Query$MediaFull$Media<TRes>
     Query$MediaFull$Media$coverImage? coverImage,
     String? $__typename,
     int? nextEpisode,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaFull$Media$title<TRes> get title =>
       CopyWith$Query$MediaFull$Media$title.stub(_res);
@@ -1736,11 +1636,7 @@ class Query$MediaFull$Media$title implements Fragment$MediaMinimalFrag$title {
     final l$romaji = romaji;
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$romaji,
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$romaji, l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -1774,10 +1670,7 @@ class Query$MediaFull$Media$title implements Fragment$MediaMinimalFrag$title {
 extension UtilityExtension$Query$MediaFull$Media$title
     on Query$MediaFull$Media$title {
   CopyWith$Query$MediaFull$Media$title<Query$MediaFull$Media$title>
-      get copyWith => CopyWith$Query$MediaFull$Media$title(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$MediaFull$Media$title(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaFull$Media$title<TRes> {
@@ -1789,19 +1682,12 @@ abstract class CopyWith$Query$MediaFull$Media$title<TRes> {
   factory CopyWith$Query$MediaFull$Media$title.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaFull$Media$title;
 
-  TRes call({
-    String? romaji,
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? romaji, String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$MediaFull$Media$title<TRes>
     implements CopyWith$Query$MediaFull$Media$title<TRes> {
-  _CopyWithImpl$Query$MediaFull$Media$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaFull$Media$title(this._instance, this._then);
 
   final Query$MediaFull$Media$title _instance;
 
@@ -1813,16 +1699,17 @@ class _CopyWithImpl$Query$MediaFull$Media$title<TRes>
     Object? romaji = _undefined,
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaFull$Media$title(
-        romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaFull$Media$title(
+      romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaFull$Media$title<TRes>
@@ -1831,12 +1718,7 @@ class _CopyWithStubImpl$Query$MediaFull$Media$title<TRes>
 
   TRes _res;
 
-  call({
-    String? romaji,
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? romaji, String? userPreferred, String? $__typename}) => _res;
 }
 
 class Query$MediaFull$Media$coverImage
@@ -1880,11 +1762,7 @@ class Query$MediaFull$Media$coverImage
     final l$large = large;
     final l$medium = medium;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$medium,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$medium, l$$__typename]);
   }
 
   @override
@@ -1918,10 +1796,7 @@ class Query$MediaFull$Media$coverImage
 extension UtilityExtension$Query$MediaFull$Media$coverImage
     on Query$MediaFull$Media$coverImage {
   CopyWith$Query$MediaFull$Media$coverImage<Query$MediaFull$Media$coverImage>
-      get copyWith => CopyWith$Query$MediaFull$Media$coverImage(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$MediaFull$Media$coverImage(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaFull$Media$coverImage<TRes> {
@@ -1933,19 +1808,12 @@ abstract class CopyWith$Query$MediaFull$Media$coverImage<TRes> {
   factory CopyWith$Query$MediaFull$Media$coverImage.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaFull$Media$coverImage;
 
-  TRes call({
-    String? large,
-    String? medium,
-    String? $__typename,
-  });
+  TRes call({String? large, String? medium, String? $__typename});
 }
 
 class _CopyWithImpl$Query$MediaFull$Media$coverImage<TRes>
     implements CopyWith$Query$MediaFull$Media$coverImage<TRes> {
-  _CopyWithImpl$Query$MediaFull$Media$coverImage(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaFull$Media$coverImage(this._instance, this._then);
 
   final Query$MediaFull$Media$coverImage _instance;
 
@@ -1957,14 +1825,15 @@ class _CopyWithImpl$Query$MediaFull$Media$coverImage<TRes>
     Object? large = _undefined,
     Object? medium = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaFull$Media$coverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        medium: medium == _undefined ? _instance.medium : (medium as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaFull$Media$coverImage(
+      large: large == _undefined ? _instance.large : (large as String?),
+      medium: medium == _undefined ? _instance.medium : (medium as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaFull$Media$coverImage<TRes>
@@ -1973,12 +1842,7 @@ class _CopyWithStubImpl$Query$MediaFull$Media$coverImage<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? medium,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? medium, String? $__typename}) => _res;
 }
 
 const possibleTypesMap = <String, Set<String>>{};

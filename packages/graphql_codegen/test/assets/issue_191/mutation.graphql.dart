@@ -3,10 +3,7 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Mutation$M {
-  Mutation$M({
-    this.bar,
-    this.$__typename = 'Mutation',
-  });
+  Mutation$M({this.bar, this.$__typename = 'Mutation'});
 
   factory Mutation$M.fromJson(Map<String, dynamic> json) {
     final l$bar = json['bar'];
@@ -34,10 +31,7 @@ class Mutation$M {
   int get hashCode {
     final l$bar = bar;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$bar,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$bar, l$$__typename]);
   }
 
   @override
@@ -63,10 +57,8 @@ class Mutation$M {
 }
 
 extension UtilityExtension$Mutation$M on Mutation$M {
-  CopyWith$Mutation$M<Mutation$M> get copyWith => CopyWith$Mutation$M(
-        this,
-        (i) => i,
-      );
+  CopyWith$Mutation$M<Mutation$M> get copyWith =>
+      CopyWith$Mutation$M(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$M<TRes> {
@@ -77,17 +69,11 @@ abstract class CopyWith$Mutation$M<TRes> {
 
   factory CopyWith$Mutation$M.stub(TRes res) = _CopyWithStubImpl$Mutation$M;
 
-  TRes call({
-    String? bar,
-    String? $__typename,
-  });
+  TRes call({String? bar, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
-  _CopyWithImpl$Mutation$M(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$M(this._instance, this._then);
 
   final Mutation$M _instance;
 
@@ -95,16 +81,15 @@ class _CopyWithImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? bar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$M(
-        bar: bar == _undefined ? _instance.bar : (bar as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? bar = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Mutation$M(
+          bar: bar == _undefined ? _instance.bar : (bar as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
@@ -112,43 +97,41 @@ class _CopyWithStubImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
 
   TRes _res;
 
-  call({
-    String? bar,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? bar, String? $__typename}) => _res;
 }
 
-const documentNodeMutationM = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'M'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'bar'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeMutationM = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'M'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'bar'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 Mutation$M _parserFn$Mutation$M(Map<String, dynamic> data) =>
     Mutation$M.fromJson(data);
-typedef OnMutationCompleted$Mutation$M = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Mutation$M?,
-);
+typedef OnMutationCompleted$Mutation$M =
+    FutureOr<void> Function(Map<String, dynamic>?, Mutation$M?);
 
 class Options$Mutation$M extends graphql.MutationOptions<Mutation$M> {
   Options$Mutation$M({
@@ -162,35 +145,35 @@ class Options$Mutation$M extends graphql.MutationOptions<Mutation$M> {
     OnMutationCompleted$Mutation$M? onCompleted,
     graphql.OnMutationUpdate<Mutation$M>? update,
     graphql.OnError? onError,
-  })  : onCompletedWithParsed = onCompleted,
-        super(
-          operationName: operationName ?? 'M',
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          onCompleted: onCompleted == null
-              ? null
-              : (data) => onCompleted(
-                    data,
-                    data == null ? null : _parserFn$Mutation$M(data),
-                  ),
-          update: update,
-          onError: onError,
-          document: documentNodeMutationM,
-          parserFn: _parserFn$Mutation$M,
-        );
+  }) : onCompletedWithParsed = onCompleted,
+       super(
+         operationName: operationName ?? 'M',
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         onCompleted: onCompleted == null
+             ? null
+             : (data) => onCompleted(
+                 data,
+                 data == null ? null : _parserFn$Mutation$M(data),
+               ),
+         update: update,
+         onError: onError,
+         document: documentNodeMutationM,
+         parserFn: _parserFn$Mutation$M,
+       );
 
   final OnMutationCompleted$Mutation$M? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed,
-      ];
+    ...super.onCompleted == null
+        ? super.properties
+        : super.properties.where((property) => property != onCompleted),
+    onCompletedWithParsed,
+  ];
 }
 
 class WatchOptions$Mutation$M extends graphql.WatchQueryOptions<Mutation$M> {
@@ -207,26 +190,26 @@ class WatchOptions$Mutation$M extends graphql.WatchQueryOptions<Mutation$M> {
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName ?? 'M',
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeMutationM,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$M,
-        );
+         operationName: operationName ?? 'M',
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeMutationM,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Mutation$M,
+       );
 }
 
 extension ClientExtension$Mutation$M on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$M>> mutate$M(
-          [Options$Mutation$M? options]) async =>
-      await this.mutate(options ?? Options$Mutation$M());
-  graphql.ObservableQuery<Mutation$M> watchMutation$M(
-          [WatchOptions$Mutation$M? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$M());
+  Future<graphql.QueryResult<Mutation$M>> mutate$M([
+    Options$Mutation$M? options,
+  ]) async => await this.mutate(options ?? Options$Mutation$M());
+  graphql.ObservableQuery<Mutation$M> watchMutation$M([
+    WatchOptions$Mutation$M? options,
+  ]) => this.watchMutation(options ?? WatchOptions$Mutation$M());
 }

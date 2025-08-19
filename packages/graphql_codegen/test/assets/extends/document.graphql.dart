@@ -1,14 +1,10 @@
 import 'package:gql/ast.dart';
 
 class Input$In {
-  factory Input$In({
-    String? string,
-    int? $int,
-  }) =>
-      Input$In._({
-        if (string != null) r'string': string,
-        if ($int != null) r'int': $int,
-      });
+  factory Input$In({String? string, int? $int}) => Input$In._({
+    if (string != null) r'string': string,
+    if ($int != null) r'int': $int,
+  });
 
   Input$In._(this._$data);
 
@@ -44,10 +40,7 @@ class Input$In {
     return result$data;
   }
 
-  CopyWith$Input$In<Input$In> get copyWith => CopyWith$Input$In(
-        this,
-        (i) => i,
-      );
+  CopyWith$Input$In<Input$In> get copyWith => CopyWith$Input$In(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -88,24 +81,16 @@ class Input$In {
 }
 
 abstract class CopyWith$Input$In<TRes> {
-  factory CopyWith$Input$In(
-    Input$In instance,
-    TRes Function(Input$In) then,
-  ) = _CopyWithImpl$Input$In;
+  factory CopyWith$Input$In(Input$In instance, TRes Function(Input$In) then) =
+      _CopyWithImpl$Input$In;
 
   factory CopyWith$Input$In.stub(TRes res) = _CopyWithStubImpl$Input$In;
 
-  TRes call({
-    String? string,
-    int? $int,
-  });
+  TRes call({String? string, int? $int});
 }
 
 class _CopyWithImpl$Input$In<TRes> implements CopyWith$Input$In<TRes> {
-  _CopyWithImpl$Input$In(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$In(this._instance, this._then);
 
   final Input$In _instance;
 
@@ -113,15 +98,13 @@ class _CopyWithImpl$Input$In<TRes> implements CopyWith$Input$In<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? string = _undefined,
-    Object? $int = _undefined,
-  }) =>
-      _then(Input$In._({
-        ..._instance._$data,
-        if (string != _undefined) 'string': (string as String?),
-        if ($int != _undefined) 'int': ($int as int?),
-      }));
+  TRes call({Object? string = _undefined, Object? $int = _undefined}) => _then(
+    Input$In._({
+      ..._instance._$data,
+      if (string != _undefined) 'string': (string as String?),
+      if ($int != _undefined) 'int': ($int as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$In<TRes> implements CopyWith$Input$In<TRes> {
@@ -129,11 +112,7 @@ class _CopyWithStubImpl$Input$In<TRes> implements CopyWith$Input$In<TRes> {
 
   TRes _res;
 
-  call({
-    String? string,
-    int? $int,
-  }) =>
-      _res;
+  call({String? string, int? $int}) => _res;
 }
 
 enum Enum$E {
@@ -360,12 +339,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 class Query$Q {
-  Query$Q({
-    this.string,
-    this.$int,
-    this.i,
-    this.$__typename = 'Q',
-  });
+  Query$Q({this.string, this.$int, this.i, this.$__typename = 'Q'});
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$string = json['string'];
@@ -407,12 +381,7 @@ class Query$Q {
     final l$$int = $int;
     final l$i = i;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$string,
-      l$$int,
-      l$i,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$string, l$$int, l$i, l$$__typename]);
   }
 
   @override
@@ -448,34 +417,21 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(
-    Query$Q instance,
-    TRes Function(Query$Q) then,
-  ) = _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call({
-    String? string,
-    int? $int,
-    Query$Q$i? i,
-    String? $__typename,
-  });
+  TRes call({String? string, int? $int, Query$Q$i? i, String? $__typename});
   CopyWith$Query$Q$i<TRes> get i;
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q(this._instance, this._then);
 
   final Query$Q _instance;
 
@@ -488,15 +444,16 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
     Object? $int = _undefined,
     Object? i = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q(
-        string: string == _undefined ? _instance.string : (string as String?),
-        $int: $int == _undefined ? _instance.$int : ($int as int?),
-        i: i == _undefined ? _instance.i : (i as Query$Q$i?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Q(
+      string: string == _undefined ? _instance.string : (string as String?),
+      $int: $int == _undefined ? _instance.$int : ($int as int?),
+      i: i == _undefined ? _instance.i : (i as Query$Q$i?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Q$i<TRes> get i {
     final local$i = _instance.i;
@@ -511,44 +468,27 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call({
-    String? string,
-    int? $int,
-    Query$Q$i? i,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? string, int? $int, Query$Q$i? i, String? $__typename}) => _res;
 
   CopyWith$Query$Q$i<TRes> get i => CopyWith$Query$Q$i.stub(_res);
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'string'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'int'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'i'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'string'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
           FieldNode(
             name: NameNode(value: 'int'),
             alias: null,
@@ -557,30 +497,44 @@ const documentNodeQueryQ = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'i'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'int'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Query$Q$i {
-  Query$Q$i({
-    this.$int,
-    required this.$__typename,
-  });
+  Query$Q$i({this.$int, required this.$__typename});
 
   factory Query$Q$i.fromJson(Map<String, dynamic> json) {
     final l$$int = json['int'];
@@ -608,10 +562,7 @@ class Query$Q$i {
   int get hashCode {
     final l$$int = $int;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$$int,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$$int, l$$__typename]);
   }
 
   @override
@@ -637,10 +588,8 @@ class Query$Q$i {
 }
 
 extension UtilityExtension$Query$Q$i on Query$Q$i {
-  CopyWith$Query$Q$i<Query$Q$i> get copyWith => CopyWith$Query$Q$i(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q$i<Query$Q$i> get copyWith =>
+      CopyWith$Query$Q$i(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q$i<TRes> {
@@ -651,17 +600,11 @@ abstract class CopyWith$Query$Q$i<TRes> {
 
   factory CopyWith$Query$Q$i.stub(TRes res) = _CopyWithStubImpl$Query$Q$i;
 
-  TRes call({
-    int? $int,
-    String? $__typename,
-  });
+  TRes call({int? $int, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Q$i<TRes> implements CopyWith$Query$Q$i<TRes> {
-  _CopyWithImpl$Query$Q$i(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q$i(this._instance, this._then);
 
   final Query$Q$i _instance;
 
@@ -669,16 +612,15 @@ class _CopyWithImpl$Query$Q$i<TRes> implements CopyWith$Query$Q$i<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? $int = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q$i(
-        $int: $int == _undefined ? _instance.$int : ($int as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? $int = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Q$i(
+          $int: $int == _undefined ? _instance.$int : ($int as int?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Q$i<TRes> implements CopyWith$Query$Q$i<TRes> {
@@ -686,18 +628,11 @@ class _CopyWithStubImpl$Query$Q$i<TRes> implements CopyWith$Query$Q$i<TRes> {
 
   TRes _res;
 
-  call({
-    int? $int,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? $int, String? $__typename}) => _res;
 }
 
 class Mutation$M {
-  Mutation$M({
-    this.string,
-    this.$__typename = 'M',
-  });
+  Mutation$M({this.string, this.$__typename = 'M'});
 
   factory Mutation$M.fromJson(Map<String, dynamic> json) {
     final l$string = json['string'];
@@ -725,10 +660,7 @@ class Mutation$M {
   int get hashCode {
     final l$string = string;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$string,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$string, l$$__typename]);
   }
 
   @override
@@ -754,10 +686,8 @@ class Mutation$M {
 }
 
 extension UtilityExtension$Mutation$M on Mutation$M {
-  CopyWith$Mutation$M<Mutation$M> get copyWith => CopyWith$Mutation$M(
-        this,
-        (i) => i,
-      );
+  CopyWith$Mutation$M<Mutation$M> get copyWith =>
+      CopyWith$Mutation$M(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$M<TRes> {
@@ -768,17 +698,11 @@ abstract class CopyWith$Mutation$M<TRes> {
 
   factory CopyWith$Mutation$M.stub(TRes res) = _CopyWithStubImpl$Mutation$M;
 
-  TRes call({
-    String? string,
-    String? $__typename,
-  });
+  TRes call({String? string, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
-  _CopyWithImpl$Mutation$M(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$M(this._instance, this._then);
 
   final Mutation$M _instance;
 
@@ -786,16 +710,15 @@ class _CopyWithImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? string = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$M(
-        string: string == _undefined ? _instance.string : (string as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? string = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Mutation$M(
+          string: string == _undefined ? _instance.string : (string as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
@@ -803,35 +726,35 @@ class _CopyWithStubImpl$Mutation$M<TRes> implements CopyWith$Mutation$M<TRes> {
 
   TRes _res;
 
-  call({
-    String? string,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? string, String? $__typename}) => _res;
 }
 
-const documentNodeMutationM = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'M'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'string'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeMutationM = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'M'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'string'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 const possibleTypesMap = <String, Set<String>>{};

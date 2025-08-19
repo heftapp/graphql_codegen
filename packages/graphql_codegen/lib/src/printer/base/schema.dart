@@ -6,9 +6,7 @@ import 'package:graphql_codegen/src/printer/context.dart';
 Spec printPossibleTypesMap(PrintContext<ContextRoot> context) {
   return Block(
     (b) => b.statements.addAll([
-      Code(
-        "const ${context.namePrinter.printPossibleTypesMapName()} = ",
-      ),
+      Code("const ${context.namePrinter.printPossibleTypesMapName()} = "),
       literalMap(
         context.context.possibleTypesMap,
         refer('String'),
@@ -18,7 +16,7 @@ Spec printPossibleTypesMap(PrintContext<ContextRoot> context) {
             ..types = ListBuilder([refer('String')]),
         ),
       ).code,
-      Code(";")
+      Code(";"),
     ]),
   );
 }

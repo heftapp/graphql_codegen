@@ -29,19 +29,25 @@ class Fragment$FullType {
       name: (l$name as String?),
       description: (l$description as String?),
       fields: (l$fields as List<dynamic>?)
-          ?.map((e) =>
-              Fragment$FullType$fields.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) =>
+                Fragment$FullType$fields.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       inputFields: (l$inputFields as List<dynamic>?)
           ?.map(
-              (e) => Fragment$InputValue.fromJson((e as Map<String, dynamic>)))
+            (e) => Fragment$InputValue.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       interfaces: (l$interfaces as List<dynamic>?)
           ?.map((e) => Fragment$TypeRef.fromJson((e as Map<String, dynamic>)))
           .toList(),
       enumValues: (l$enumValues as List<dynamic>?)
-          ?.map((e) => Fragment$FullType$enumValues.fromJson(
-              (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => Fragment$FullType$enumValues.fromJson(
+              (e as Map<String, dynamic>),
+            ),
+          )
           .toList(),
       possibleTypes: (l$possibleTypes as List<dynamic>?)
           ?.map((e) => Fragment$TypeRef.fromJson((e as Map<String, dynamic>)))
@@ -85,8 +91,9 @@ class Fragment$FullType {
     final l$enumValues = enumValues;
     _resultData['enumValues'] = l$enumValues?.map((e) => e.toJson()).toList();
     final l$possibleTypes = possibleTypes;
-    _resultData['possibleTypes'] =
-        l$possibleTypes?.map((e) => e.toJson()).toList();
+    _resultData['possibleTypes'] = l$possibleTypes
+        ?.map((e) => e.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -234,10 +241,7 @@ class Fragment$FullType {
 
 extension UtilityExtension$Fragment$FullType on Fragment$FullType {
   CopyWith$Fragment$FullType<Fragment$FullType> get copyWith =>
-      CopyWith$Fragment$FullType(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FullType(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FullType<TRes> {
@@ -261,36 +265,42 @@ abstract class CopyWith$Fragment$FullType<TRes> {
     String? $__typename,
   });
   TRes fields(
-      Iterable<Fragment$FullType$fields>? Function(
-              Iterable<
-                  CopyWith$Fragment$FullType$fields<Fragment$FullType$fields>>?)
-          _fn);
+    Iterable<Fragment$FullType$fields>? Function(
+      Iterable<CopyWith$Fragment$FullType$fields<Fragment$FullType$fields>>?,
+    )
+    _fn,
+  );
   TRes inputFields(
-      Iterable<Fragment$InputValue>? Function(
-              Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>?)
-          _fn);
+    Iterable<Fragment$InputValue>? Function(
+      Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>?,
+    )
+    _fn,
+  );
   TRes interfaces(
-      Iterable<Fragment$TypeRef>? Function(
-              Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?)
-          _fn);
+    Iterable<Fragment$TypeRef>? Function(
+      Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?,
+    )
+    _fn,
+  );
   TRes enumValues(
-      Iterable<Fragment$FullType$enumValues>? Function(
-              Iterable<
-                  CopyWith$Fragment$FullType$enumValues<
-                      Fragment$FullType$enumValues>>?)
-          _fn);
+    Iterable<Fragment$FullType$enumValues>? Function(
+      Iterable<
+        CopyWith$Fragment$FullType$enumValues<Fragment$FullType$enumValues>
+      >?,
+    )
+    _fn,
+  );
   TRes possibleTypes(
-      Iterable<Fragment$TypeRef>? Function(
-              Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?)
-          _fn);
+    Iterable<Fragment$TypeRef>? Function(
+      Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Fragment$FullType<TRes>
     implements CopyWith$Fragment$FullType<TRes> {
-  _CopyWithImpl$Fragment$FullType(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FullType(this._instance, this._then);
 
   final Fragment$FullType _instance;
 
@@ -308,93 +318,100 @@ class _CopyWithImpl$Fragment$FullType<TRes>
     Object? enumValues = _undefined,
     Object? possibleTypes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullType(
-        kind: kind == _undefined || kind == null
-            ? _instance.kind
-            : (kind as Enum$__TypeKind),
-        name: name == _undefined ? _instance.name : (name as String?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        fields: fields == _undefined
-            ? _instance.fields
-            : (fields as List<Fragment$FullType$fields>?),
-        inputFields: inputFields == _undefined
-            ? _instance.inputFields
-            : (inputFields as List<Fragment$InputValue>?),
-        interfaces: interfaces == _undefined
-            ? _instance.interfaces
-            : (interfaces as List<Fragment$TypeRef>?),
-        enumValues: enumValues == _undefined
-            ? _instance.enumValues
-            : (enumValues as List<Fragment$FullType$enumValues>?),
-        possibleTypes: possibleTypes == _undefined
-            ? _instance.possibleTypes
-            : (possibleTypes as List<Fragment$TypeRef>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FullType(
+      kind: kind == _undefined || kind == null
+          ? _instance.kind
+          : (kind as Enum$__TypeKind),
+      name: name == _undefined ? _instance.name : (name as String?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      fields: fields == _undefined
+          ? _instance.fields
+          : (fields as List<Fragment$FullType$fields>?),
+      inputFields: inputFields == _undefined
+          ? _instance.inputFields
+          : (inputFields as List<Fragment$InputValue>?),
+      interfaces: interfaces == _undefined
+          ? _instance.interfaces
+          : (interfaces as List<Fragment$TypeRef>?),
+      enumValues: enumValues == _undefined
+          ? _instance.enumValues
+          : (enumValues as List<Fragment$FullType$enumValues>?),
+      possibleTypes: possibleTypes == _undefined
+          ? _instance.possibleTypes
+          : (possibleTypes as List<Fragment$TypeRef>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes fields(
-          Iterable<Fragment$FullType$fields>? Function(
-                  Iterable<
-                      CopyWith$Fragment$FullType$fields<
-                          Fragment$FullType$fields>>?)
-              _fn) =>
-      call(
-          fields: _fn(
-              _instance.fields?.map((e) => CopyWith$Fragment$FullType$fields(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Fragment$FullType$fields>? Function(
+      Iterable<CopyWith$Fragment$FullType$fields<Fragment$FullType$fields>>?,
+    )
+    _fn,
+  ) => call(
+    fields: _fn(
+      _instance.fields?.map(
+        (e) => CopyWith$Fragment$FullType$fields(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 
   TRes inputFields(
-          Iterable<Fragment$InputValue>? Function(
-                  Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>?)
-              _fn) =>
-      call(
-          inputFields: _fn(
-              _instance.inputFields?.map((e) => CopyWith$Fragment$InputValue(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Fragment$InputValue>? Function(
+      Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>?,
+    )
+    _fn,
+  ) => call(
+    inputFields: _fn(
+      _instance.inputFields?.map(
+        (e) => CopyWith$Fragment$InputValue(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 
   TRes interfaces(
-          Iterable<Fragment$TypeRef>? Function(
-                  Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?)
-              _fn) =>
-      call(
-          interfaces:
-              _fn(_instance.interfaces?.map((e) => CopyWith$Fragment$TypeRef(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Fragment$TypeRef>? Function(
+      Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?,
+    )
+    _fn,
+  ) => call(
+    interfaces: _fn(
+      _instance.interfaces?.map((e) => CopyWith$Fragment$TypeRef(e, (i) => i)),
+    )?.toList(),
+  );
 
   TRes enumValues(
-          Iterable<Fragment$FullType$enumValues>? Function(
-                  Iterable<
-                      CopyWith$Fragment$FullType$enumValues<
-                          Fragment$FullType$enumValues>>?)
-              _fn) =>
-      call(
-          enumValues: _fn(_instance.enumValues
-              ?.map((e) => CopyWith$Fragment$FullType$enumValues(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Fragment$FullType$enumValues>? Function(
+      Iterable<
+        CopyWith$Fragment$FullType$enumValues<Fragment$FullType$enumValues>
+      >?,
+    )
+    _fn,
+  ) => call(
+    enumValues: _fn(
+      _instance.enumValues?.map(
+        (e) => CopyWith$Fragment$FullType$enumValues(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 
   TRes possibleTypes(
-          Iterable<Fragment$TypeRef>? Function(
-                  Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?)
-              _fn) =>
-      call(
-          possibleTypes:
-              _fn(_instance.possibleTypes?.map((e) => CopyWith$Fragment$TypeRef(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+    Iterable<Fragment$TypeRef>? Function(
+      Iterable<CopyWith$Fragment$TypeRef<Fragment$TypeRef>>?,
+    )
+    _fn,
+  ) => call(
+    possibleTypes: _fn(
+      _instance.possibleTypes?.map(
+        (e) => CopyWith$Fragment$TypeRef(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FullType<TRes>
@@ -413,8 +430,7 @@ class _CopyWithStubImpl$Fragment$FullType<TRes>
     List<Fragment$FullType$enumValues>? enumValues,
     List<Fragment$TypeRef>? possibleTypes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   fields(_fn) => _res;
 
@@ -430,64 +446,131 @@ class _CopyWithStubImpl$Fragment$FullType<TRes>
 const fragmentDefinitionFullType = FragmentDefinitionNode(
   name: NameNode(value: 'FullType'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: '__Type'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: '__Type'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'kind'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'description'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'fields'),
-      alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'includeDeprecated'),
-          value: BooleanValueNode(value: true),
-        )
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'kind'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'description'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'fields'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'includeDeprecated'),
+            value: BooleanValueNode(value: true),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'name'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'description'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'args'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'InputValue'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'type'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'TypeRef'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'isDeprecated'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'deprecationReason'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'description'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'args'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+      ),
+      FieldNode(
+        name: NameNode(value: 'inputFields'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FragmentSpreadNode(
               name: NameNode(value: 'InputValue'),
               directives: [],
@@ -499,14 +582,16 @@ const fragmentDefinitionFullType = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'type'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+      ),
+      FieldNode(
+        name: NameNode(value: 'interfaces'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FragmentSpreadNode(
               name: NameNode(value: 'TypeRef'),
               directives: [],
@@ -518,150 +603,97 @@ const fragmentDefinitionFullType = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'isDeprecated'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'enumValues'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'includeDeprecated'),
+            value: BooleanValueNode(value: true),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'name'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'description'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'isDeprecated'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'deprecationReason'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'deprecationReason'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'possibleTypes'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'TypeRef'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'inputFields'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'InputValue'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'interfaces'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'TypeRef'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'enumValues'),
-      alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'includeDeprecated'),
-          value: BooleanValueNode(value: true),
-        )
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'description'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'isDeprecated'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'deprecationReason'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'possibleTypes'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'TypeRef'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFullType = DocumentNode(definitions: [
-  fragmentDefinitionFullType,
-  fragmentDefinitionInputValue,
-  fragmentDefinitionTypeRef,
-]);
+const documentNodeFragmentFullType = DocumentNode(
+  definitions: [
+    fragmentDefinitionFullType,
+    fragmentDefinitionInputValue,
+    fragmentDefinitionTypeRef,
+  ],
+);
 
 class Fragment$FullType$fields {
   Fragment$FullType$fields({
@@ -806,10 +838,7 @@ class Fragment$FullType$fields {
 extension UtilityExtension$Fragment$FullType$fields
     on Fragment$FullType$fields {
   CopyWith$Fragment$FullType$fields<Fragment$FullType$fields> get copyWith =>
-      CopyWith$Fragment$FullType$fields(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FullType$fields(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FullType$fields<TRes> {
@@ -831,18 +860,17 @@ abstract class CopyWith$Fragment$FullType$fields<TRes> {
     String? $__typename,
   });
   TRes args(
-      Iterable<Fragment$InputValue> Function(
-              Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>)
-          _fn);
+    Iterable<Fragment$InputValue> Function(
+      Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>,
+    )
+    _fn,
+  );
   CopyWith$Fragment$TypeRef<TRes> get type;
 }
 
 class _CopyWithImpl$Fragment$FullType$fields<TRes>
     implements CopyWith$Fragment$FullType$fields<TRes> {
-  _CopyWithImpl$Fragment$FullType$fields(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FullType$fields(this._instance, this._then);
 
   final Fragment$FullType$fields _instance;
 
@@ -858,40 +886,42 @@ class _CopyWithImpl$Fragment$FullType$fields<TRes>
     Object? isDeprecated = _undefined,
     Object? deprecationReason = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullType$fields(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        args: args == _undefined || args == null
-            ? _instance.args
-            : (args as List<Fragment$InputValue>),
-        type: type == _undefined || type == null
-            ? _instance.type
-            : (type as Fragment$TypeRef),
-        isDeprecated: isDeprecated == _undefined || isDeprecated == null
-            ? _instance.isDeprecated
-            : (isDeprecated as bool),
-        deprecationReason: deprecationReason == _undefined
-            ? _instance.deprecationReason
-            : (deprecationReason as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FullType$fields(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      args: args == _undefined || args == null
+          ? _instance.args
+          : (args as List<Fragment$InputValue>),
+      type: type == _undefined || type == null
+          ? _instance.type
+          : (type as Fragment$TypeRef),
+      isDeprecated: isDeprecated == _undefined || isDeprecated == null
+          ? _instance.isDeprecated
+          : (isDeprecated as bool),
+      deprecationReason: deprecationReason == _undefined
+          ? _instance.deprecationReason
+          : (deprecationReason as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes args(
-          Iterable<Fragment$InputValue> Function(
-                  Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>)
-              _fn) =>
-      call(
-          args: _fn(_instance.args.map((e) => CopyWith$Fragment$InputValue(
-                e,
-                (i) => i,
-              ))).toList());
+    Iterable<Fragment$InputValue> Function(
+      Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>,
+    )
+    _fn,
+  ) => call(
+    args: _fn(
+      _instance.args.map((e) => CopyWith$Fragment$InputValue(e, (i) => i)),
+    ).toList(),
+  );
 
   CopyWith$Fragment$TypeRef<TRes> get type {
     final local$type = _instance.type;
@@ -913,8 +943,7 @@ class _CopyWithStubImpl$Fragment$FullType$fields<TRes>
     bool? isDeprecated,
     String? deprecationReason,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   args(_fn) => _res;
 
@@ -1028,10 +1057,7 @@ class Fragment$FullType$enumValues {
 extension UtilityExtension$Fragment$FullType$enumValues
     on Fragment$FullType$enumValues {
   CopyWith$Fragment$FullType$enumValues<Fragment$FullType$enumValues>
-      get copyWith => CopyWith$Fragment$FullType$enumValues(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$FullType$enumValues(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FullType$enumValues<TRes> {
@@ -1054,10 +1080,7 @@ abstract class CopyWith$Fragment$FullType$enumValues<TRes> {
 
 class _CopyWithImpl$Fragment$FullType$enumValues<TRes>
     implements CopyWith$Fragment$FullType$enumValues<TRes> {
-  _CopyWithImpl$Fragment$FullType$enumValues(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FullType$enumValues(this._instance, this._then);
 
   final Fragment$FullType$enumValues _instance;
 
@@ -1071,24 +1094,25 @@ class _CopyWithImpl$Fragment$FullType$enumValues<TRes>
     Object? isDeprecated = _undefined,
     Object? deprecationReason = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FullType$enumValues(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        isDeprecated: isDeprecated == _undefined || isDeprecated == null
-            ? _instance.isDeprecated
-            : (isDeprecated as bool),
-        deprecationReason: deprecationReason == _undefined
-            ? _instance.deprecationReason
-            : (deprecationReason as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FullType$enumValues(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      isDeprecated: isDeprecated == _undefined || isDeprecated == null
+          ? _instance.isDeprecated
+          : (isDeprecated as bool),
+      deprecationReason: deprecationReason == _undefined
+          ? _instance.deprecationReason
+          : (deprecationReason as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FullType$enumValues<TRes>
@@ -1103,8 +1127,7 @@ class _CopyWithStubImpl$Fragment$FullType$enumValues<TRes>
     bool? isDeprecated,
     String? deprecationReason,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$TypeRef {
@@ -1147,11 +1170,7 @@ class Fragment$TypeRef {
     final l$kind = kind;
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$kind,
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$kind, l$name, l$$__typename]);
   }
 
   @override
@@ -1183,10 +1202,7 @@ class Fragment$TypeRef {
 
 extension UtilityExtension$Fragment$TypeRef on Fragment$TypeRef {
   CopyWith$Fragment$TypeRef<Fragment$TypeRef> get copyWith =>
-      CopyWith$Fragment$TypeRef(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$TypeRef(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$TypeRef<TRes> {
@@ -1198,19 +1214,12 @@ abstract class CopyWith$Fragment$TypeRef<TRes> {
   factory CopyWith$Fragment$TypeRef.stub(TRes res) =
       _CopyWithStubImpl$Fragment$TypeRef;
 
-  TRes call({
-    Enum$__TypeKind? kind,
-    String? name,
-    String? $__typename,
-  });
+  TRes call({Enum$__TypeKind? kind, String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$TypeRef<TRes>
     implements CopyWith$Fragment$TypeRef<TRes> {
-  _CopyWithImpl$Fragment$TypeRef(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$TypeRef(this._instance, this._then);
 
   final Fragment$TypeRef _instance;
 
@@ -1222,16 +1231,17 @@ class _CopyWithImpl$Fragment$TypeRef<TRes>
     Object? kind = _undefined,
     Object? name = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$TypeRef(
-        kind: kind == _undefined || kind == null
-            ? _instance.kind
-            : (kind as Enum$__TypeKind),
-        name: name == _undefined ? _instance.name : (name as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$TypeRef(
+      kind: kind == _undefined || kind == null
+          ? _instance.kind
+          : (kind as Enum$__TypeKind),
+      name: name == _undefined ? _instance.name : (name as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$TypeRef<TRes>
@@ -1240,49 +1250,44 @@ class _CopyWithStubImpl$Fragment$TypeRef<TRes>
 
   TRes _res;
 
-  call({
-    Enum$__TypeKind? kind,
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Enum$__TypeKind? kind, String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionTypeRef = FragmentDefinitionNode(
   name: NameNode(value: 'TypeRef'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: '__Type'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: '__Type'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'kind'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'kind'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentTypeRef = DocumentNode(definitions: [
-  fragmentDefinitionTypeRef,
-]);
+const documentNodeFragmentTypeRef = DocumentNode(
+  definitions: [fragmentDefinitionTypeRef],
+);
 
 class Fragment$InputValue {
   Fragment$InputValue({
@@ -1388,10 +1393,7 @@ class Fragment$InputValue {
 
 extension UtilityExtension$Fragment$InputValue on Fragment$InputValue {
   CopyWith$Fragment$InputValue<Fragment$InputValue> get copyWith =>
-      CopyWith$Fragment$InputValue(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$InputValue(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$InputValue<TRes> {
@@ -1415,10 +1417,7 @@ abstract class CopyWith$Fragment$InputValue<TRes> {
 
 class _CopyWithImpl$Fragment$InputValue<TRes>
     implements CopyWith$Fragment$InputValue<TRes> {
-  _CopyWithImpl$Fragment$InputValue(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$InputValue(this._instance, this._then);
 
   final Fragment$InputValue _instance;
 
@@ -1432,24 +1431,25 @@ class _CopyWithImpl$Fragment$InputValue<TRes>
     Object? type = _undefined,
     Object? defaultValue = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$InputValue(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        type: type == _undefined || type == null
-            ? _instance.type
-            : (type as Fragment$TypeRef),
-        defaultValue: defaultValue == _undefined
-            ? _instance.defaultValue
-            : (defaultValue as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$InputValue(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      type: type == _undefined || type == null
+          ? _instance.type
+          : (type as Fragment$TypeRef),
+      defaultValue: defaultValue == _undefined
+          ? _instance.defaultValue
+          : (defaultValue as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$TypeRef<TRes> get type {
     final local$type = _instance.type;
@@ -1469,8 +1469,7 @@ class _CopyWithStubImpl$Fragment$InputValue<TRes>
     Fragment$TypeRef? type,
     String? defaultValue,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$TypeRef<TRes> get type =>
       CopyWith$Fragment$TypeRef.stub(_res);
@@ -1479,71 +1478,69 @@ class _CopyWithStubImpl$Fragment$InputValue<TRes>
 const fragmentDefinitionInputValue = FragmentDefinitionNode(
   name: NameNode(value: 'InputValue'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: '__InputValue'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: '__InputValue'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'description'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'type'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'TypeRef'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'description'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'type'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'TypeRef'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'defaultValue'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'defaultValue'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentInputValue = DocumentNode(definitions: [
-  fragmentDefinitionInputValue,
-  fragmentDefinitionTypeRef,
-]);
+const documentNodeFragmentInputValue = DocumentNode(
+  definitions: [fragmentDefinitionInputValue, fragmentDefinitionTypeRef],
+);
 
 class Query$Q {
-  Query$Q({
-    this.hello,
-    this.$__typename = 'Query',
-  });
+  Query$Q({this.hello, this.$__typename = 'Query'});
 
   factory Query$Q.fromJson(Map<String, dynamic> json) {
     final l$hello = json['hello'];
@@ -1571,10 +1568,7 @@ class Query$Q {
   int get hashCode {
     final l$hello = hello;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$hello,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$hello, l$$__typename]);
   }
 
   @override
@@ -1600,31 +1594,20 @@ class Query$Q {
 }
 
 extension UtilityExtension$Query$Q on Query$Q {
-  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Q<Query$Q> get copyWith => CopyWith$Query$Q(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Q<TRes> {
-  factory CopyWith$Query$Q(
-    Query$Q instance,
-    TRes Function(Query$Q) then,
-  ) = _CopyWithImpl$Query$Q;
+  factory CopyWith$Query$Q(Query$Q instance, TRes Function(Query$Q) then) =
+      _CopyWithImpl$Query$Q;
 
   factory CopyWith$Query$Q.stub(TRes res) = _CopyWithStubImpl$Query$Q;
 
-  TRes call({
-    String? hello,
-    String? $__typename,
-  });
+  TRes call({String? hello, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
-  _CopyWithImpl$Query$Q(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Q(this._instance, this._then);
 
   final Query$Q _instance;
 
@@ -1632,16 +1615,15 @@ class _CopyWithImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? hello = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Q(
-        hello: hello == _undefined ? _instance.hello : (hello as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? hello = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Q(
+          hello: hello == _undefined ? _instance.hello : (hello as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
@@ -1649,37 +1631,37 @@ class _CopyWithStubImpl$Query$Q<TRes> implements CopyWith$Query$Q<TRes> {
 
   TRes _res;
 
-  call({
-    String? hello,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? hello, String? $__typename}) => _res;
 }
 
-const documentNodeQueryQ = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Q'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'hello'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
+const documentNodeQueryQ = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Q'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'hello'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Query$Introspection {
   Query$Introspection({
@@ -1694,7 +1676,8 @@ class Query$Introspection {
     final l$$__typename = json['__typename'];
     return Query$Introspection(
       $__schema: Query$Introspection$__schema.fromJson(
-          (l$$__schema as Map<String, dynamic>)),
+        (l$$__schema as Map<String, dynamic>),
+      ),
       $__type: l$$__type == null
           ? null
           : Fragment$FullType.fromJson((l$$__type as Map<String, dynamic>)),
@@ -1724,11 +1707,7 @@ class Query$Introspection {
     final l$$__schema = $__schema;
     final l$$__type = $__type;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$$__schema,
-      l$$__type,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$$__schema, l$$__type, l$$__typename]);
   }
 
   @override
@@ -1760,10 +1739,7 @@ class Query$Introspection {
 
 extension UtilityExtension$Query$Introspection on Query$Introspection {
   CopyWith$Query$Introspection<Query$Introspection> get copyWith =>
-      CopyWith$Query$Introspection(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Introspection(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Introspection<TRes> {
@@ -1786,10 +1762,7 @@ abstract class CopyWith$Query$Introspection<TRes> {
 
 class _CopyWithImpl$Query$Introspection<TRes>
     implements CopyWith$Query$Introspection<TRes> {
-  _CopyWithImpl$Query$Introspection(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Introspection(this._instance, this._then);
 
   final Query$Introspection _instance;
 
@@ -1801,23 +1774,26 @@ class _CopyWithImpl$Query$Introspection<TRes>
     Object? $__schema = _undefined,
     Object? $__type = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Introspection(
-        $__schema: $__schema == _undefined || $__schema == null
-            ? _instance.$__schema
-            : ($__schema as Query$Introspection$__schema),
-        $__type: $__type == _undefined
-            ? _instance.$__type
-            : ($__type as Fragment$FullType?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Introspection(
+      $__schema: $__schema == _undefined || $__schema == null
+          ? _instance.$__schema
+          : ($__schema as Query$Introspection$__schema),
+      $__type: $__type == _undefined
+          ? _instance.$__type
+          : ($__type as Fragment$FullType?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Introspection$__schema<TRes> get $__schema {
     final local$$__schema = _instance.$__schema;
     return CopyWith$Query$Introspection$__schema(
-        local$$__schema, (e) => call($__schema: e));
+      local$$__schema,
+      (e) => call($__schema: e),
+    );
   }
 
   CopyWith$Fragment$FullType<TRes> get $__type {
@@ -1838,8 +1814,7 @@ class _CopyWithStubImpl$Query$Introspection<TRes>
     Query$Introspection$__schema? $__schema,
     Fragment$FullType? $__type,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Introspection$__schema<TRes> get $__schema =>
       CopyWith$Query$Introspection$__schema.stub(_res);
@@ -1848,185 +1823,209 @@ class _CopyWithStubImpl$Query$Introspection<TRes>
       CopyWith$Fragment$FullType.stub(_res);
 }
 
-const documentNodeQueryIntrospection = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Introspection'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: '__schema'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryIntrospection = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Introspection'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'queryType'),
+            name: NameNode(value: '__schema'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'mutationType'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'subscriptionType'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'types'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'FullType'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'directives'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'description'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'locations'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'args'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'InputValue'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'queryType'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'mutationType'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__type'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: StringValueNode(
-              value: 'Query',
-              isBlock: false,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'subscriptionType'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'types'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FullType'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'directives'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'description'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'locations'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'args'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'InputValue'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
             ),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'FullType'),
+          ),
+          FieldNode(
+            name: NameNode(value: '__type'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: StringValueNode(value: 'Query', isBlock: false),
+              ),
+            ],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'FullType'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2035,21 +2034,14 @@ const documentNodeQueryIntrospection = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionFullType,
-  fragmentDefinitionInputValue,
-  fragmentDefinitionTypeRef,
-]);
+    ),
+    fragmentDefinitionFullType,
+    fragmentDefinitionInputValue,
+    fragmentDefinitionTypeRef,
+  ],
+);
 
 class Query$Introspection$__schema {
   Query$Introspection$__schema({
@@ -2070,21 +2062,27 @@ class Query$Introspection$__schema {
     final l$$__typename = json['__typename'];
     return Query$Introspection$__schema(
       queryType: Query$Introspection$__schema$queryType.fromJson(
-          (l$queryType as Map<String, dynamic>)),
+        (l$queryType as Map<String, dynamic>),
+      ),
       mutationType: l$mutationType == null
           ? null
           : Query$Introspection$__schema$mutationType.fromJson(
-              (l$mutationType as Map<String, dynamic>)),
+              (l$mutationType as Map<String, dynamic>),
+            ),
       subscriptionType: l$subscriptionType == null
           ? null
           : Query$Introspection$__schema$subscriptionType.fromJson(
-              (l$subscriptionType as Map<String, dynamic>)),
+              (l$subscriptionType as Map<String, dynamic>),
+            ),
       types: (l$types as List<dynamic>)
           .map((e) => Fragment$FullType.fromJson((e as Map<String, dynamic>)))
           .toList(),
       directives: (l$directives as List<dynamic>)
-          .map((e) => Query$Introspection$__schema$directives.fromJson(
-              (e as Map<String, dynamic>)))
+          .map(
+            (e) => Query$Introspection$__schema$directives.fromJson(
+              (e as Map<String, dynamic>),
+            ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2197,10 +2195,7 @@ class Query$Introspection$__schema {
 extension UtilityExtension$Query$Introspection$__schema
     on Query$Introspection$__schema {
   CopyWith$Query$Introspection$__schema<Query$Introspection$__schema>
-      get copyWith => CopyWith$Query$Introspection$__schema(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Introspection$__schema(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Introspection$__schema<TRes> {
@@ -2223,25 +2218,28 @@ abstract class CopyWith$Query$Introspection$__schema<TRes> {
   CopyWith$Query$Introspection$__schema$queryType<TRes> get queryType;
   CopyWith$Query$Introspection$__schema$mutationType<TRes> get mutationType;
   CopyWith$Query$Introspection$__schema$subscriptionType<TRes>
-      get subscriptionType;
+  get subscriptionType;
   TRes types(
-      Iterable<Fragment$FullType> Function(
-              Iterable<CopyWith$Fragment$FullType<Fragment$FullType>>)
-          _fn);
+    Iterable<Fragment$FullType> Function(
+      Iterable<CopyWith$Fragment$FullType<Fragment$FullType>>,
+    )
+    _fn,
+  );
   TRes directives(
-      Iterable<Query$Introspection$__schema$directives> Function(
-              Iterable<
-                  CopyWith$Query$Introspection$__schema$directives<
-                      Query$Introspection$__schema$directives>>)
-          _fn);
+    Iterable<Query$Introspection$__schema$directives> Function(
+      Iterable<
+        CopyWith$Query$Introspection$__schema$directives<
+          Query$Introspection$__schema$directives
+        >
+      >,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Introspection$__schema<TRes>
     implements CopyWith$Query$Introspection$__schema<TRes> {
-  _CopyWithImpl$Query$Introspection$__schema(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Introspection$__schema(this._instance, this._then);
 
   final Query$Introspection$__schema _instance;
 
@@ -2256,76 +2254,90 @@ class _CopyWithImpl$Query$Introspection$__schema<TRes>
     Object? types = _undefined,
     Object? directives = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Introspection$__schema(
-        queryType: queryType == _undefined || queryType == null
-            ? _instance.queryType
-            : (queryType as Query$Introspection$__schema$queryType),
-        mutationType: mutationType == _undefined
-            ? _instance.mutationType
-            : (mutationType as Query$Introspection$__schema$mutationType?),
-        subscriptionType: subscriptionType == _undefined
-            ? _instance.subscriptionType
-            : (subscriptionType
+  }) => _then(
+    Query$Introspection$__schema(
+      queryType: queryType == _undefined || queryType == null
+          ? _instance.queryType
+          : (queryType as Query$Introspection$__schema$queryType),
+      mutationType: mutationType == _undefined
+          ? _instance.mutationType
+          : (mutationType as Query$Introspection$__schema$mutationType?),
+      subscriptionType: subscriptionType == _undefined
+          ? _instance.subscriptionType
+          : (subscriptionType
                 as Query$Introspection$__schema$subscriptionType?),
-        types: types == _undefined || types == null
-            ? _instance.types
-            : (types as List<Fragment$FullType>),
-        directives: directives == _undefined || directives == null
-            ? _instance.directives
-            : (directives as List<Query$Introspection$__schema$directives>),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      types: types == _undefined || types == null
+          ? _instance.types
+          : (types as List<Fragment$FullType>),
+      directives: directives == _undefined || directives == null
+          ? _instance.directives
+          : (directives as List<Query$Introspection$__schema$directives>),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Introspection$__schema$queryType<TRes> get queryType {
     final local$queryType = _instance.queryType;
     return CopyWith$Query$Introspection$__schema$queryType(
-        local$queryType, (e) => call(queryType: e));
+      local$queryType,
+      (e) => call(queryType: e),
+    );
   }
 
   CopyWith$Query$Introspection$__schema$mutationType<TRes> get mutationType {
     final local$mutationType = _instance.mutationType;
     return local$mutationType == null
         ? CopyWith$Query$Introspection$__schema$mutationType.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$Introspection$__schema$mutationType(
-            local$mutationType, (e) => call(mutationType: e));
+            local$mutationType,
+            (e) => call(mutationType: e),
+          );
   }
 
   CopyWith$Query$Introspection$__schema$subscriptionType<TRes>
-      get subscriptionType {
+  get subscriptionType {
     final local$subscriptionType = _instance.subscriptionType;
     return local$subscriptionType == null
         ? CopyWith$Query$Introspection$__schema$subscriptionType.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$Introspection$__schema$subscriptionType(
-            local$subscriptionType, (e) => call(subscriptionType: e));
+            local$subscriptionType,
+            (e) => call(subscriptionType: e),
+          );
   }
 
   TRes types(
-          Iterable<Fragment$FullType> Function(
-                  Iterable<CopyWith$Fragment$FullType<Fragment$FullType>>)
-              _fn) =>
-      call(
-          types: _fn(_instance.types.map((e) => CopyWith$Fragment$FullType(
-                e,
-                (i) => i,
-              ))).toList());
+    Iterable<Fragment$FullType> Function(
+      Iterable<CopyWith$Fragment$FullType<Fragment$FullType>>,
+    )
+    _fn,
+  ) => call(
+    types: _fn(
+      _instance.types.map((e) => CopyWith$Fragment$FullType(e, (i) => i)),
+    ).toList(),
+  );
 
   TRes directives(
-          Iterable<Query$Introspection$__schema$directives> Function(
-                  Iterable<
-                      CopyWith$Query$Introspection$__schema$directives<
-                          Query$Introspection$__schema$directives>>)
-              _fn) =>
-      call(
-          directives: _fn(_instance.directives
-              .map((e) => CopyWith$Query$Introspection$__schema$directives(
-                    e,
-                    (i) => i,
-                  ))).toList());
+    Iterable<Query$Introspection$__schema$directives> Function(
+      Iterable<
+        CopyWith$Query$Introspection$__schema$directives<
+          Query$Introspection$__schema$directives
+        >
+      >,
+    )
+    _fn,
+  ) => call(
+    directives: _fn(
+      _instance.directives.map(
+        (e) => CopyWith$Query$Introspection$__schema$directives(e, (i) => i),
+      ),
+    ).toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Introspection$__schema<TRes>
@@ -2341,8 +2353,7 @@ class _CopyWithStubImpl$Query$Introspection$__schema<TRes>
     List<Fragment$FullType>? types,
     List<Query$Introspection$__schema$directives>? directives,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Introspection$__schema$queryType<TRes> get queryType =>
       CopyWith$Query$Introspection$__schema$queryType.stub(_res);
@@ -2351,8 +2362,8 @@ class _CopyWithStubImpl$Query$Introspection$__schema<TRes>
       CopyWith$Query$Introspection$__schema$mutationType.stub(_res);
 
   CopyWith$Query$Introspection$__schema$subscriptionType<TRes>
-      get subscriptionType =>
-          CopyWith$Query$Introspection$__schema$subscriptionType.stub(_res);
+  get subscriptionType =>
+      CopyWith$Query$Introspection$__schema$subscriptionType.stub(_res);
 
   types(_fn) => _res;
 
@@ -2366,7 +2377,8 @@ class Query$Introspection$__schema$queryType {
   });
 
   factory Query$Introspection$__schema$queryType.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Query$Introspection$__schema$queryType(
@@ -2392,10 +2404,7 @@ class Query$Introspection$__schema$queryType {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -2424,11 +2433,10 @@ class Query$Introspection$__schema$queryType {
 extension UtilityExtension$Query$Introspection$__schema$queryType
     on Query$Introspection$__schema$queryType {
   CopyWith$Query$Introspection$__schema$queryType<
-          Query$Introspection$__schema$queryType>
-      get copyWith => CopyWith$Query$Introspection$__schema$queryType(
-            this,
-            (i) => i,
-          );
+    Query$Introspection$__schema$queryType
+  >
+  get copyWith =>
+      CopyWith$Query$Introspection$__schema$queryType(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Introspection$__schema$queryType<TRes> {
@@ -2440,10 +2448,7 @@ abstract class CopyWith$Query$Introspection$__schema$queryType<TRes> {
   factory CopyWith$Query$Introspection$__schema$queryType.stub(TRes res) =
       _CopyWithStubImpl$Query$Introspection$__schema$queryType;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Introspection$__schema$queryType<TRes>
@@ -2459,16 +2464,15 @@ class _CopyWithImpl$Query$Introspection$__schema$queryType<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Introspection$__schema$queryType(
-        name: name == _undefined ? _instance.name : (name as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Introspection$__schema$queryType(
+          name: name == _undefined ? _instance.name : (name as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Introspection$__schema$queryType<TRes>
@@ -2477,11 +2481,7 @@ class _CopyWithStubImpl$Query$Introspection$__schema$queryType<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 class Query$Introspection$__schema$mutationType {
@@ -2491,7 +2491,8 @@ class Query$Introspection$__schema$mutationType {
   });
 
   factory Query$Introspection$__schema$mutationType.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Query$Introspection$__schema$mutationType(
@@ -2517,10 +2518,7 @@ class Query$Introspection$__schema$mutationType {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -2549,11 +2547,10 @@ class Query$Introspection$__schema$mutationType {
 extension UtilityExtension$Query$Introspection$__schema$mutationType
     on Query$Introspection$__schema$mutationType {
   CopyWith$Query$Introspection$__schema$mutationType<
-          Query$Introspection$__schema$mutationType>
-      get copyWith => CopyWith$Query$Introspection$__schema$mutationType(
-            this,
-            (i) => i,
-          );
+    Query$Introspection$__schema$mutationType
+  >
+  get copyWith =>
+      CopyWith$Query$Introspection$__schema$mutationType(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Introspection$__schema$mutationType<TRes> {
@@ -2565,10 +2562,7 @@ abstract class CopyWith$Query$Introspection$__schema$mutationType<TRes> {
   factory CopyWith$Query$Introspection$__schema$mutationType.stub(TRes res) =
       _CopyWithStubImpl$Query$Introspection$__schema$mutationType;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Introspection$__schema$mutationType<TRes>
@@ -2584,16 +2578,15 @@ class _CopyWithImpl$Query$Introspection$__schema$mutationType<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Introspection$__schema$mutationType(
-        name: name == _undefined ? _instance.name : (name as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Introspection$__schema$mutationType(
+          name: name == _undefined ? _instance.name : (name as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Introspection$__schema$mutationType<TRes>
@@ -2602,11 +2595,7 @@ class _CopyWithStubImpl$Query$Introspection$__schema$mutationType<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 class Query$Introspection$__schema$subscriptionType {
@@ -2616,7 +2605,8 @@ class Query$Introspection$__schema$subscriptionType {
   });
 
   factory Query$Introspection$__schema$subscriptionType.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Query$Introspection$__schema$subscriptionType(
@@ -2642,10 +2632,7 @@ class Query$Introspection$__schema$subscriptionType {
   int get hashCode {
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$name, l$$__typename]);
   }
 
   @override
@@ -2674,11 +2661,10 @@ class Query$Introspection$__schema$subscriptionType {
 extension UtilityExtension$Query$Introspection$__schema$subscriptionType
     on Query$Introspection$__schema$subscriptionType {
   CopyWith$Query$Introspection$__schema$subscriptionType<
-          Query$Introspection$__schema$subscriptionType>
-      get copyWith => CopyWith$Query$Introspection$__schema$subscriptionType(
-            this,
-            (i) => i,
-          );
+    Query$Introspection$__schema$subscriptionType
+  >
+  get copyWith =>
+      CopyWith$Query$Introspection$__schema$subscriptionType(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Introspection$__schema$subscriptionType<TRes> {
@@ -2688,13 +2674,10 @@ abstract class CopyWith$Query$Introspection$__schema$subscriptionType<TRes> {
   ) = _CopyWithImpl$Query$Introspection$__schema$subscriptionType;
 
   factory CopyWith$Query$Introspection$__schema$subscriptionType.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Introspection$__schema$subscriptionType;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Introspection$__schema$subscriptionType;
 
-  TRes call({
-    String? name,
-    String? $__typename,
-  });
+  TRes call({String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Introspection$__schema$subscriptionType<TRes>
@@ -2710,16 +2693,15 @@ class _CopyWithImpl$Query$Introspection$__schema$subscriptionType<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Introspection$__schema$subscriptionType(
-        name: name == _undefined ? _instance.name : (name as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Introspection$__schema$subscriptionType(
+          name: name == _undefined ? _instance.name : (name as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Introspection$__schema$subscriptionType<TRes>
@@ -2728,11 +2710,7 @@ class _CopyWithStubImpl$Query$Introspection$__schema$subscriptionType<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? name, String? $__typename}) => _res;
 }
 
 class Query$Introspection$__schema$directives {
@@ -2745,7 +2723,8 @@ class Query$Introspection$__schema$directives {
   });
 
   factory Query$Introspection$__schema$directives.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$description = json['description'];
     final l$locations = json['locations'];
@@ -2781,8 +2760,9 @@ class Query$Introspection$__schema$directives {
     final l$description = description;
     _resultData['description'] = l$description;
     final l$locations = locations;
-    _resultData['locations'] =
-        l$locations.map((e) => toJson$Enum$__DirectiveLocation(e)).toList();
+    _resultData['locations'] = l$locations
+        .map((e) => toJson$Enum$__DirectiveLocation(e))
+        .toList();
     final l$args = args;
     _resultData['args'] = l$args.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
@@ -2861,11 +2841,10 @@ class Query$Introspection$__schema$directives {
 extension UtilityExtension$Query$Introspection$__schema$directives
     on Query$Introspection$__schema$directives {
   CopyWith$Query$Introspection$__schema$directives<
-          Query$Introspection$__schema$directives>
-      get copyWith => CopyWith$Query$Introspection$__schema$directives(
-            this,
-            (i) => i,
-          );
+    Query$Introspection$__schema$directives
+  >
+  get copyWith =>
+      CopyWith$Query$Introspection$__schema$directives(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Introspection$__schema$directives<TRes> {
@@ -2885,9 +2864,11 @@ abstract class CopyWith$Query$Introspection$__schema$directives<TRes> {
     String? $__typename,
   });
   TRes args(
-      Iterable<Fragment$InputValue> Function(
-              Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>)
-          _fn);
+    Iterable<Fragment$InputValue> Function(
+      Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Introspection$__schema$directives<TRes>
@@ -2909,34 +2890,36 @@ class _CopyWithImpl$Query$Introspection$__schema$directives<TRes>
     Object? locations = _undefined,
     Object? args = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Introspection$__schema$directives(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        locations: locations == _undefined || locations == null
-            ? _instance.locations
-            : (locations as List<Enum$__DirectiveLocation>),
-        args: args == _undefined || args == null
-            ? _instance.args
-            : (args as List<Fragment$InputValue>),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Introspection$__schema$directives(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      locations: locations == _undefined || locations == null
+          ? _instance.locations
+          : (locations as List<Enum$__DirectiveLocation>),
+      args: args == _undefined || args == null
+          ? _instance.args
+          : (args as List<Fragment$InputValue>),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes args(
-          Iterable<Fragment$InputValue> Function(
-                  Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>)
-              _fn) =>
-      call(
-          args: _fn(_instance.args.map((e) => CopyWith$Fragment$InputValue(
-                e,
-                (i) => i,
-              ))).toList());
+    Iterable<Fragment$InputValue> Function(
+      Iterable<CopyWith$Fragment$InputValue<Fragment$InputValue>>,
+    )
+    _fn,
+  ) => call(
+    args: _fn(
+      _instance.args.map((e) => CopyWith$Fragment$InputValue(e, (i) => i)),
+    ).toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Introspection$__schema$directives<TRes>
@@ -2951,8 +2934,7 @@ class _CopyWithStubImpl$Query$Introspection$__schema$directives<TRes>
     List<Enum$__DirectiveLocation>? locations,
     List<Fragment$InputValue>? args,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   args(_fn) => _res;
 }
