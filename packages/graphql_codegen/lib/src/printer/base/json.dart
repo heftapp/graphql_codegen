@@ -65,7 +65,7 @@ Expression _printFromJsonValue(
   final valueRef = refer(value);
   if (type is ListTypeNode) {
     final cast = generic('List', refer('dynamic'), isNullable: !type.isNonNull);
-    final castedValue = valueRef.asA(cast);
+    final castedValue = valueRef.equalTo(literalNull).conditional(refer('[]'), valueRef).asA(cast);
     final mappedAccess =
         (type.isNonNull
                 ? castedValue.property('map')
