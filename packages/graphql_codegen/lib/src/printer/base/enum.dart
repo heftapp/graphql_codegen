@@ -1,6 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
-import 'package:gql/schema.dart' as gql;
+import 'package:gql/ast.dart' as gql;
 import 'package:graphql_codegen/graphql_codegen.dart';
 import 'package:graphql_codegen/src/context/context.dart';
 import 'package:graphql_codegen/src/printer/base/constants.dart';
@@ -29,13 +29,15 @@ List<Spec> printEnum(PrintContext<ContextEnum> context) {
   final fallbackEnumValue = config?.fallbackEnumValue;
 
   if (fallbackEnumValue != null &&
-      context.context.values.whereType<gql.EnumValueDefinition?>().firstWhere(
-            (element) => element?.name == fallbackEnumValue,
-            orElse: () => null,
-          ) !=
+      context.context.values
+              .whereType<gql.EnumValueDefinitionNode?>()
+              .firstWhere(
+                (element) => element?.name.value == fallbackEnumValue,
+                orElse: () => null,
+              ) ==
           null) {
     throw PrinterError(
-      "Enum fallback value for enum \"${context.context.currentType.name.value}\" is not a valid value.",
+      "Enum fallback value for enum \"${context.context.currentType.name.value}\" is not a valid value. Valid values are: ${context.context.values.map((e) => '"${e.name.value}"').join(", ")}, got \"$fallbackEnumValue\".",
     );
   }
 

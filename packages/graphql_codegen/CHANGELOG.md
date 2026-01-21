@@ -1,3 +1,7 @@
+# 3.0.1
+
+- Propagate deprecated annotation on input types.
+
 # 3.0.0
 
 - Support `build 4.0.0`.
