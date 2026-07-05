@@ -194,6 +194,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
       description: visitOne(node.description),
       directives: visitAll(node.directives),
       fields: visitAll(node.fields),
+      interfaces: visitAll(node.interfaces),
     );
   }
 
@@ -205,6 +206,7 @@ class RecursiveTransformingVisitor extends Visitor<Node> {
       name: visitOne(node.name),
       directives: visitAll(node.directives),
       fields: visitAll(node.fields),
+      interfaces: visitAll(node.interfaces),
     );
   }
 
