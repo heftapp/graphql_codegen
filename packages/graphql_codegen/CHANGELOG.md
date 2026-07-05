@@ -1,3 +1,7 @@
+# 3.0.2
+
+- Support interface fragment spreads on fragments on interfaces
+
 # 3.0.1
 
 - Propagate deprecated annotation on input types.
