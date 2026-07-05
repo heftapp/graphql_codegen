@@ -151,28 +151,47 @@ class ContextVisitor extends RecursiveVisitor {
       _visitInFragment(fragmentDef, fragmentName);
       return;
     }
-    if (context.currentType is! ObjectTypeDefinitionNode) {
+    final currentType = context.currentType;
+    if (currentType is ObjectTypeDefinitionNode) {
+      // Current type condition
+      final typeCondition = fragmentDef.typeCondition;
+
+      // Find concrete types of the type conditions.
+      final typeConditionConcreteTypes = context.schema
+          .lookupConcreteTypes(typeCondition.on.name)
+          .map((e) => e.name)
+          .toSet();
+
+      if (!typeConditionConcreteTypes.contains(context.currentType.name)) {
+        return;
+      }
+      final typedFragmentName = fragmentName.withSegment(
+        TypeNameSegment(context.currentType.name),
+      );
+      _visitInFragment(
+        fragmentDef,
+        typedFragmentName,
+      );
       return;
     }
-    // Current type condition
-    final typeCondition = fragmentDef.typeCondition;
 
-    // Find concrete types of the type conditions.
-    final typeConditionConcreteTypes = context.schema
-        .lookupConcreteTypes(typeCondition.on.name)
-        .map((e) => e.name)
-        .toSet();
+    if (currentType is InterfaceTypeDefinitionNode) {
+      final typeCondition = fragmentDef.typeCondition.on.name;
 
-    if (!typeConditionConcreteTypes.contains(context.currentType.name)) {
-      return;
+      final currentInterfaceTypes =
+          currentType.interfaces.map((e) => e.name).toSet();
+
+      final doesIntersect = currentInterfaceTypes.contains(typeCondition);
+
+      if (!doesIntersect) {
+        return;
+      }
+
+      _visitInFragment(
+        fragmentDef,
+        fragmentName,
+      );
     }
-    final typedFragmentName = fragmentName.withSegment(
-      TypeNameSegment(context.currentType.name),
-    );
-    _visitInFragment(
-      fragmentDef,
-      typedFragmentName,
-    );
   }
 
   @override

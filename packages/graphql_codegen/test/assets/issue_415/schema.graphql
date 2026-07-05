@@ -1,0 +1,29 @@
+interface Node {
+  id: ID!
+}
+interface Animal implements Node {
+  id: ID!
+  name: String!
+}
+type Dog implements Animal & Node {
+  id: ID!
+  name: String!
+  goodBoy: Boolean!
+}
+type Query {
+  animal: Animal!
+}
+
+fragment NodeFragment on Node {
+  id
+}
+fragment AnimalFragment on Animal {
+  ...NodeFragment
+  name
+}
+
+query GetAnimal {
+  animal {
+    ...AnimalFragment
+  }
+}
