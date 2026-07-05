@@ -1,7 +1,7 @@
 name: graphql_codegen_example
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
   graphql_flutter: ^5.2.1

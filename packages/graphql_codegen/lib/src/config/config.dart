@@ -22,7 +22,6 @@ class GraphQLCodegenConfigScalar {
     this.toJsonFunctionName,
   });
 
-  @override
   factory GraphQLCodegenConfigScalar.fromJson(Map<String, dynamic> json) =>
       _$GraphQLCodegenConfigScalarFromJson(json);
 
@@ -45,7 +44,6 @@ class GraphQLCodegenConfigEnum {
     required this.fallbackEnumValue,
   });
 
-  @override
   factory GraphQLCodegenConfigEnum.fromJson(Map<String, dynamic> json) =>
       _$GraphQLCodegenConfigEnumFromJson(json);
 
@@ -92,7 +90,6 @@ class GraphQLCodegenConfig {
     this.setOperationName = false,
   });
 
-  @override
   factory GraphQLCodegenConfig.fromJson(Map<String, dynamic> json) =>
       _$GraphQLCodegenConfigFromJson(json);
 
